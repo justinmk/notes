@@ -1,0 +1,47 @@
+VIM NOTES
+==================
+macro recording/playback:
+    qx -> start recording (in buffer x) . (in normal mode)
+    do any work 
+    q -> stop recording, (in normal mode)
+    @x (in normal mode) -> use the recorded keystrokes
+
+good:
+    http://vimcasts.org/
+
+plugins:
+    github.com/kien/ctrlp.vim
+        let g:ctrlp_extensions = ['tag']
+        :CtrlPTag
+    ctags.sourceforge.net 
+        export PATH="/usr/local/bin:$PATH"
+    http://vim.wikia.com/wiki/Omni_completion -or- https://github.com/Shougo/neocomplcache
+
+fundamental:
+    * capitalizing (shift) performs the "mirror" of the command
+    * command is multiplied by a prepended number
+    * command is located by [hjkl]
+  
+window splitting:
+    :ls :sp :vsp ctrl-w-w ctrl-w-q [hjkl]
+
+file management:
+    vim .  :E. e. d D - 
+
+movement:
+    gg G ^ $ 
+
+move through the change list:
+    g; g, changes
+
+editing:
+    i I a A o O
+
+indentation, (visual mode):
+    > <
+
+indentation, (insert mode):
+    ctrl-t
+
+
+
