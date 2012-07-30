@@ -12,7 +12,7 @@ good:
 plugins:
     github.com/kien/ctrlp.vim
         let g:ctrlp_extensions = ['tag']
-        :CtrlPTag
+        let g:ctrlp_cmd = 'CtrlPMixed' " CtrlPTag
     ctags.sourceforge.net 
         export PATH="/usr/local/bin:$PATH"
     http://vim.wikia.com/wiki/Omni_completion -or- https://github.com/Shougo/neocomplcache
@@ -23,16 +23,16 @@ fundamental:
     * command is located by [hjkl]
   
 window splitting:
-    :ls :sp :vsp ctrl-w-w ctrl-w-q [hjkl]
+    :ls :sp :vsp ctrl-w-[w q hjkl HJKL]
 
 file management:
-    vim .  :E. e. d D - 
+    vim .  :E. :e. d D - 
 
 movement:
     gg G ^ $ 
 
 move through the change list:
-    g; g, changes
+    g; g, :changes
 
 editing:
     i I a A o O
