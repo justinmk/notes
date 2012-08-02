@@ -23,7 +23,10 @@ fundamental:
     * command is located by [hjkl]
   
 window splitting:
-    :ls :sp :vsp ctrl-w-[w q hjkl HJKL]
+    :sp :vsp ctrl-w-[w q hjkl HJKL]
+
+buffer hopping:
+    ctrl-6 :ls
 
 file management:
     vim .  :E. :e. d D - 
