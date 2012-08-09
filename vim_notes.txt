@@ -1,10 +1,9 @@
 VIM NOTES
 ==================
 macro recording/playback:
-    qx -> start recording (in buffer x) . (in normal mode)
-    do any work 
-    q -> stop recording, (in normal mode)
-    @x (in normal mode) -> use the recorded keystrokes
+    qx  start recording (save in register 'x') 
+    q   stop recording
+    @x  replay the recording from register 'x'
 
 good:
     http://vimcasts.org/
@@ -18,33 +17,37 @@ plugins:
     http://vim.wikia.com/wiki/Omni_completion -or- https://github.com/Shougo/neocomplcache
 
 fundamental:
-    * capitalizing (shift) performs the "mirror" of the command
-    * command is multiplied by a prepended number
-    * command is located by [hjkl]
+    capitalizing (shift) performs the "mirror" of the command
+    command is multiplied by a prepended number
+    command is located by [hjkl]
   
+modifiers:
+    * search forwards
+    # search backwards
+
 window splitting:
-    :sp :vsp ctrl-w-[w q hjkl HJKL]
+    :sp :vsp ctrl-w-[w q hjkl]
 
 buffer hopping:
     ctrl-6 :ls
 
 file management:
-    vim .  :E. :e. d D - 
+    :E. d D - 
 
-movement:
-    gg G ^ $ 
+"go" movement:
+    gg G ^ $ f t ; % [{
 
-move through the change list:
+"go" through the change list:
     g; g, :changes
 
 editing:
-    i I a A o O
+    i I a A o O J
 
 indentation, (visual mode):
     > <
 
 indentation, (insert mode):
-    ctrl-t
+    ctrl-t ctrl-d
 
 
 
