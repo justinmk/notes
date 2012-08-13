@@ -21,6 +21,8 @@ fundamental:
 modifiers:
     * search forwards
     # search backwards
+    f forward
+    t til
 
 window splitting:
     :sp :vsp ctrl-w-[w q o hjkl]
@@ -32,7 +34,7 @@ file management:
     :E. d D - 
 
 "go" movement:
-    gg G ^ $ f t ; % [{
+    gg G ^ $ f t ; % [{ ( { 
 
 "go" through the change list:
     g; g, :changes
@@ -42,6 +44,8 @@ jumping:
 
 editing:
     i I a A o O J
+    c[iaft]["({]
+    c/foo 
 
 indentation, (visual mode):
     > <
