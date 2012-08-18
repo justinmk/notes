@@ -26,7 +26,7 @@ modifiers:
     # search backwards
 
 window splitting:
-    :sp :vsp ctrl-w-[w q hjkl]
+    :sp :vsp ctrl-w-[w q o hjkl]
 
 buffer hopping:
     ctrl-6 :ls
