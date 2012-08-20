@@ -1,10 +1,5 @@
 VIM NOTES
 ==================
-macro recording/playback:
-    qx  start recording (save in register 'x') 
-    q   stop recording
-    @x  replay the recording from register 'x'
-
 good:
     http://vimcasts.org/
 
@@ -18,9 +13,9 @@ plugins:
 
 fundamental:
     capitalizing (shift) performs the "mirror" of the command
-    command is multiplied by a prepended number
-    command is located by [hjkl]
-  
+    command
+    @@  repeat the previous "
+
 modifiers:
     * search forwards
     # search backwards
