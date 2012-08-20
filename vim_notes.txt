@@ -11,6 +11,8 @@ plugins:
         export PATH="/usr/local/bin:$PATH"
     http://vim.wikia.com/wiki/Omni_completion -or- https://github.com/Shougo/neocomplcache
 
+:r!  read in the results of a command
+
 fundamental:
     capitalizing (shift) performs the "mirror" of the command
     command
@@ -47,5 +49,7 @@ indentation, (visual mode):
 indentation, (insert mode):
     ctrl-t ctrl-d
 
-
+selection:
+    vib vab      b = parentheses block
+    viB vi{ vaB  B = brace block
 
