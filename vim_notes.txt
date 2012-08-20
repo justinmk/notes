@@ -35,6 +35,9 @@ file management:
 "go" through the change list:
     g; g, :changes
 
+jumping:
+    ctrl-o ctrl-i
+
 editing:
     i I a A o O J
 
