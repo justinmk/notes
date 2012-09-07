@@ -24,8 +24,12 @@ modifiers:
     f forward
     t til
 
+amazing:
+    .
+
 window splitting:
     :sp :vsp ctrl-w-[w q o hjkl]
+    ctrl-W =
 
 buffer hopping:
     ctrl-6 :ls
@@ -38,6 +42,9 @@ file management:
 
 "go" through the change list:
     g; g, :changes
+
+"search" movement:
+    * "whole word" search for the word under the cursor
 
 jumping:
     ctrl-o ctrl-i
