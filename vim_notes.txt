@@ -18,7 +18,7 @@ fundamental:
     @@  repeat the previous "
 
 modifiers:
-    *,#  search "whole word" under the cursor
+    *,#  search "whole word" under cursor
     f    forward
     t    til
 
@@ -43,6 +43,7 @@ file management:
 "go" movement:
     gg G ^ $ f t ; % 
     ]} ]] ) } 
+    gx = open url under cursor
 
 "go" through the change list:
     g; g, :changes
