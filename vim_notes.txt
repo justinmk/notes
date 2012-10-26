@@ -11,7 +11,21 @@ plugins:
         export PATH="/usr/local/bin:$PATH"
     https://github.com/Shougo/neocomplcache
 
-:r!  read in the results of a command
+
+
+:r!foo  read in the results of shell command
+
+"= is the expression register
+
+normal mode
+"=command_or_&variable<cr>p
+
+insert mode
+<c-r>=&vim_variable
+<c-r>=vim_command
+
+
+
 
 fundamental:
     capitalizing (shift) performs the "mirror" of the command
