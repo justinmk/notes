@@ -4,13 +4,8 @@ good:
     http://vimcasts.org/
 
 plugins:
-    github.com/kien/ctrlp.vim
-        let g:ctrlp_extensions = ['tag']
-        let g:ctrlp_cmd = 'CtrlPMixed' " CtrlPTag
     ctags.sourceforge.net 
         export PATH="/usr/local/bin:$PATH"
-    https://github.com/Shougo/neocomplcache
-
 
 
 :r!foo  read in the results of shell command
