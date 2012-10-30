@@ -20,9 +20,12 @@ plugins:
 normal mode
 "=command_or_&variable<cr>p
 
-insert mode
-<c-r>=&vim_variable
-<c-r>=vim_command
+insert/command mode: http://stackoverflow.com/a/2960630
+    <c-r>=&vim_variable
+    <c-r>=vim_command_or_expression
+    <c-r>%
+    <c-r>#
+    <c-r>:
 
 
 
@@ -79,4 +82,8 @@ indentation, (insert mode):
 selection:
     vib vab      b = parentheses block
     viB vi{ vaB  B = brace block
+
+debugging vim
+    :scriptnames
+    :verbose set &foo
 
