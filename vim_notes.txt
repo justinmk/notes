@@ -7,60 +7,64 @@ plugins:
     ctags.sourceforge.net 
         export PATH="/usr/local/bin:$PATH"
 
-
-:r!foo  read in the results of shell command
-
 "= is the expression register
 
 normal mode
 "=command_or_&variable<cr>p
 
-insert/command mode: http://stackoverflow.com/a/2960630
-    <c-r>=&vim_variable
-    <c-r>=vim_command_or_expression
+READ results into cursor position - http://stackoverflow.com/a/2960630 
+    :r!foo                 read in stdout from a shell command
+    :r [file]              read in [file] contents of 
+    <c-r>=&vim_variable    (doesn't like abbreviated names, but wildmenu works)
+    <c-r>=SomeFunction()
     <c-r>%
     <c-r>#
     <c-r>:
 
+REDIRECT messages (all output from all vim commands)
+    :redir >> [file]
+    :redir @x          redirect to register 'x'
+    :redir END
 
 
+REGISTERS: 
+    http://stackoverflow.com/a/3997110/152142
 
 fundamental:
     capitalizing (shift) performs the "mirror" of the command
-    @@  repeat the previous "
+    .             repeat the previous command
+    :5,42[cmd]    prepend a range to any command
 
 modifiers:
     *,#  search "whole word" under cursor
     f    forward
     t    til
 
-amazing:
-    .
-
 macro recording/playback:
     qx  start recording in register 'x' 
     q   stop recording
     @x  replay register 'x'
+    @@  replay the most recent macro
 
 window splitting:
-    :sp :vsp ctrl-w-[w q o hjkl]
-    ctrl-W =
+    :sp :vsp ctrl-w-[c hjkl]
+    ctrl-w-[= | _]
 
 buffer hopping:
     ctrl-6 :ls
 
-file management:
+file management (netrw):
     :E. d D - 
 
-"go" movement:
+move through text:
     gg G ^ $ f t ; % 
     ]} ]] ) } 
     gx = open url under cursor
 
-"go" through the change list:
+move through the "change list":
     g; g, :changes
 
-jumping:
+move through the "jump list":
     ctrl-o ctrl-i
 
 editing:
@@ -68,8 +72,9 @@ editing:
     c[iaft]["({]
     c/foo 
 
-indentation, (visual mode):
-    > <
+indentation (normal/visual mode):
+    > <      indent
+    ==       fix indent
 
 indentation, (insert mode):
     ctrl-t ctrl-d
@@ -78,7 +83,11 @@ selection:
     vib vab      b = parentheses block
     viB vi{ vaB  B = brace block
 
+magic:
+    ~        toggle case
+
 debugging vim
     :scriptnames
     :verbose set &foo
+    :verbose map %
 
