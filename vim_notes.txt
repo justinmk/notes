@@ -36,6 +36,15 @@ fundamental:
     .             repeat the previous command
     :5,42[cmd]    prepend a range to any command
 
+    :[range]g/{pattern}/[cmd]
+        Execute [cmd] on the lines within [range] where {pattern} matches.
+        Use :g! to execute where {pattern} does NOT match.
+        To run a non-Ex command, use the ":normal" command: 
+            :g/pat/normal {commands}
+
+
+
+
 modifiers:
     *,#  search "whole word" under cursor
     f    forward
