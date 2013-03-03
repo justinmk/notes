@@ -108,6 +108,7 @@ indentation, (insert mode):
 selection:
     vib vab      b = parentheses block
     viB vi{ vaB  B = brace block
+    gv           reselect last selection
 
 debugging vim
     :scriptnames
