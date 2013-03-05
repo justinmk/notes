@@ -42,15 +42,6 @@ fundamental:
     .             repeat the previous command
     :5,42[cmd]    prepend a range to any command
 
-    :[range]g/{pattern}/[cmd]
-        Execute [cmd] on the lines within [range] where {pattern} matches.
-        Use :g! to execute where {pattern} does NOT match.
-        To run a non-Ex command, use the ":normal" command: 
-            :g/pat/normal {commands}
-
-
-
-
 modifiers:
     *,#  search "whole word" under cursor
     f    forward
@@ -60,7 +51,19 @@ special buffers:
     q:
     q/
 
-macro recording/playback:
+multi-repeat:
+    :[range]g/{pattern}/[cmd]    apply cmd to lines matching {pattern}
+    :[range]g!/{pattern}/[cmd]   inversion (apply to lines NOT matching)
+
+    examples: 
+        change foo to bar only on comment lines that begin with #:
+            :g/^\s*#/s/foo/bar/g
+        delete lines that match foo:
+            :g/foo/normal dd
+        append all lines matching foo to register a:
+            :g/foo/normal "Ay
+
+macros (complex-repeat):
     qx  start recording in register x 
     q   stop recording
     @x  execute the text in register x 
@@ -97,6 +100,8 @@ editing:
     c[iaft]["({]
     c/foo 
     ~             toggle case
+    ctrl-n        autocomplete WORD
+    ctrl-x-l      autocomplete LINE
 
 indentation (normal/visual mode):
     > <      indent
