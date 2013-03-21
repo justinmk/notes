@@ -24,6 +24,11 @@ REDIRECT messages (all output from all vim commands)
     :redir END
     :let @x = system('ls')  store shell command output to register x
 
+    example: write output from :changes to register 'x'
+        :set nomore | redir @x | changes | redir END | set more
+    then read into another buffer:
+        <c-r>=@x
+
 REGISTERS: http://stackoverflow.com/a/3997110/152142
     "=          expression register
                 ex: "=command_or_&variable<cr>p
@@ -102,6 +107,7 @@ editing:
     ~             toggle case
     ctrl-n        autocomplete WORD
     ctrl-x-l      autocomplete LINE
+    ctrl-x-o      OMNIcomplete 
 
 indentation (normal/visual mode):
     > <      indent
