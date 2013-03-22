@@ -1,0 +1,19 @@
+UiBinder with 'html' tag is faster than a Widget
+    - optimization: use HtmlPanel in UiBinder, fill it with raw HTML, then just use Widgets selectively
+    - don't use Widgets unless you need to respond to an event from that Widget
+
+
+CellTable
+    cellTable.redraw() //redraws entire table, very fast, but...
+    //redraw a single row is even faster, but be aware 
+    //the user might delete a row and the index will be off
+    cellTable.setRowData(index, Collections.singletonList(obj));
+
+gwt-presenter: 
+    https://code.google.com/p/gwt-presenter/source/browse/src/main/java/net/customware/gwt/presenter/client/Presenter.java
+
+gwt-dispatch: command pattern implementation
+    https://code.google.com/p/gwt-dispatch/
+    http://turbomanage.wordpress.com/2010/07/12/caching-batching-dispatcher-for-gwt-dispatch/
+    http://turbomanage.wordpress.com/2010/07/16/dispatchqueue/
+
