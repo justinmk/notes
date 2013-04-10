@@ -1,0 +1,95 @@
+git svn clone "svn://foosrc/subdir" . -T trunk -b branches -t tags -r234:HEAD --ignore-path="foo(bar|baz).exe|^Chtulu/|.+\.(dll|jar)$"
+
+git svn init -s --ignore-path="foo" svn://foosrc/subdir
+
+GENERAL
+    add "--stat" option to any query command (stash show, log, diff) to get
+    file-by-file insertion/deletion counts.
+
+    #view every single commit in the repository ever
+    gitk --all $( git fsck --no-reflog | awk '/dangling commit/ {print $3}' )
+
+BRANCHING
+    git checkout -b new_branch [old_branch]
+
+    #list all branches (local and remote)
+    git branch -a
+
+REBASING
+    #rebase the current branch onto the remote head
+    git svn rebase
+
+    #rebase the current branch onto master
+    git rebase master
+
+INTERACTIVE REBASE (SELECTIVELY REMOVE OR EDIT COMMITS)
+    http://christoph.ruegg.name/blog/2010/5/5/git-howto-revert-a-commit-already-pushed-to-a-remote-reposit.html
+    #to remove a commit but keep all others, do an interactive rebase onto
+    #the parent of the offending commit:
+    git rebase -i dd61ab32^
+
+CLEANING UNTRACKED FILES (DELETED FROM INDEX AFTER A REBASE)
+    #dry run
+    git clean -n
+
+    #remove untracked files (not directories)
+    # f = force (not file)
+    git clean -f
+
+CREATING/APPLYING PATCHES
+    #create patch of current branch against master
+    git format-patch master --stdout > foo.patch
+
+    #create a "diff" patch from current uncommitted changes
+    git diff > result.patch
+
+    #summarize patch changes
+    git apply --stat foo.patch
+
+    #apply patch (dry run)
+    git apply --check foo.patch
+
+    #apply "format-patch" patch (with signoff); .rej files for any conflicts
+    git am --reject --ignore-whitespace --signoff < foo.patch
+
+
+TEMPORARILY IGNORING FILES (cf. svn's "ignore-on-commit")
+    #shelve current changes
+    git stash save "foo"
+
+    #apply ALL shelved changesets
+    git stash apply
+
+    #list shelved changesets
+    git stash list
+
+    #apply a specific changeset from the list...
+    git stash apply stash@{1}
+
+ADD A SVN REMOTE MANUALLY: http://stackoverflow.com/q/296975/152142
+    git config --add svn-remote.newbranch.url https://svn/path_to_newbranch/
+    git config --add svn-remote.newbranch.fetch :refs/remotes/newbranch
+    git svn fetch newbranch [-r<rev>]
+    git checkout -b local-newbranch -t newbranch
+    git svn rebase newbranch
+
+ADDING REMOTES
+	git remote add <name> git://<ip-address>/<directory-containing-.git>
+    git remote add smurf ssh://user@<HOST_IP>:9999/~/.git
+
+VIRTUALBOX CONFIGURATION
+    * in guest host:
+        $ sudo ip link set dev ethX down
+        $ sudo dhclient ethX
+    * set Network to "NAT"
+    * set port forwarding 
+    * to ssh to guest, target the HOST ip + fowarded port and VB will route it
+    * on your dev box, add a remote pointing to HOST_IP:VIRTUALBOX_FORWARDED_PORT
+        $ git remote add vbox ssh://user@<HOST_IP>:9999/~/.git
+
+REBASING ONTO NON-SVN REMOTES
+    git pull marco marcos_local_branch
+
+PUSH LOCAL BRANCH TO REMOTE BRANCH
+    git push remote_alias local_branch:remote_branch
+
