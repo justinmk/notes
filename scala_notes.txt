@@ -1,0 +1,24 @@
+substitution model (λ-calculus)
+    - evaluation === reduce an expression to a value
+    - can be applied to all expressions that have no side effects
+    - similar to algebraic simplification, rewrites each expression recursively 
+      until it is reduced to a value
+
+evaluation strategies: call-by-name, call-by-value
+    both reduce to the same final values iff:
+        - the reduce expression consists of pure functions
+        - both evaluations terminate
+    call-by-value 
+        advantage: evaluates each fn arg only once
+        in practice, call-by-value is exponentially more efficient for argument evaluation
+        'val' is CBV: its RHS is evaluated immediately on definition
+            val x = loop //infinite loop
+    call-by-name 
+        advantage: fn arg is not evaluated if the corresponding parameter is unused in the fn body
+        force call-by-name with the arrow syntax: 
+            def foo(x: Int, y: => Int) = 1 //x is CBV, y is CBN
+        'def' is CBN: its RHS is evaluated on each call
+            def x = loop //not evaluated until called
+
+tail recursion optimization:
+    @tailrec => explicitly require tail recursion 
