@@ -86,6 +86,7 @@ buffer hopping:
 
 file management (netrw):
     :E     browse directory of current buffer (_not_ the :pwd directory)
+    :Vex   browse directory of current buffer in a new split window
 
 MOVE through text:
     gg G 0 $ f t ; % 
