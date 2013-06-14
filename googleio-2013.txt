@@ -197,3 +197,79 @@ use decay function to retry/backoff
 
 client device antennae energy use is dictated by the radio tower--not the device!
 
+================================================================================
+
+
+IntelliJ
+    is now the blessed IDE for Android
+        gradle is the blessed build system
+    community version is free, open source, and awesome
+    GWT support
+
+asm.js
+
+    2× native performance 
+        no multithreading 
+        no SIMD
+        huge payload
+        doesn't make sense for a VM/GC source, because the entire source vm would need to be compiled to asm.js
+
+    benchmarks: 
+        http://arstechnica.com/information-technology/2013/05/native-level-performance-on-the-web-a-brief-examination-of-asm-js/2/
+        Dhrystone and Whetstone 
+            floating/int ops, function calls, string manipulation, and array accessing
+            On modern computers, they'll fit entirely within cache
+            score measures IPS
+        LINPACK benchmark
+            linear equations
+            score measures FLOPS
+
+
+    Emscripten has no access to SIMD because the Firefox scripting engine doesn't know how to produce vector code.
+        cf. Dart
+
+    cannot execute in parallel 
+        cf. Dart "isolates" take advantage of multi-core machines
+            spawn a function into an isolate which can then be run in a separate thread. Isolates are "isolated memory heaps", and they communicate via message passing
+
+    payload is "huge":
+        The JavaScript programs that Emscripten produces are huge. The binary-tree 
+        test, for example, results in a 16,896 byte native code executable. Its 
+        JavaScript counterparts are 379,784 bytes for regular JavaScript and 667,207 bytes for asm.js.
+            http://arstechnica.com/information-technology/2013/05/native-level-performance-on-the-web-a-brief-examination-of-asm-js/3/
+
+
+    relevance to GWT:
+        some things in Java simply are not implemented in GWT, eg:
+            finalize() is never called in GWT, because the JS GC does not have such a concept
+            http://stackoverflow.com/questions/13377685/gwt-finalize-object-and-remove-its-event-handlers
+
+Dart
+    Alex Gaynor perspective on dynamic tracing: 
+        https://speakerdeck.com/alex/why-python-ruby-and-javascript-are-slow
+
+    supports SIMD
+
+    Dart "isolates":
+        exploit multi-core machines
+        spawn a function into an isolate to run in a separate thread
+        Isolates are "isolated memory heaps"
+        communicate via message-passing
+
+GWT
+mgwt
+    importance of avoiding premature layouts:
+        http://dev.opera.com/articles/view/efficient-javascript/?page=3#reflow
+            repaint = element visibility change without altering layout
+                expensive because the browser must verify the visibility of all other nodes in the DOM tree
+            reflow 
+                implicitly causes a repaint
+                occurs on any of:
+                    DOM tree change
+                    style change affecting layout
+                    element class change
+                    viewport resize!!
+                expensive because often equivalent to laying out the entire page 
+            Avoid tables for layout: even minor changes will cause reflows of all other nodes in the table
+                use a fixed layout for data tables to allow a more efficient layout algorithm. Any value for table-layout other than "auto" will trigger a fixed layout and allow the table to render row by row
+
