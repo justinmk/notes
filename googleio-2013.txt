@@ -1,0 +1,199 @@
+Autoscaling Java ==============================================================
+    dropwizard
+    jmeter 
+
+    autoscaling happens in a _brief_ period of time, which is why spinup time is so important
+
+    cloud antipatterns
+        large deployments (complex dependencies, lots of artifacts)
+            ? are we trying to reduce spinup time per instance?
+        automatic class instantiation
+        code generation (at _runtime_)
+            - workaround: use compile-time generation instead
+            - even if you generate at compile-time, permgen becomes a problem, and JVM tuning for ephemeral instances is tough
+        managing shared state (crosstalk amongst applications)
+        persisting configuration
+            - build configration into the source code instead
+
+mobile dev
+    weinre
+    MIHTool
+
+===============================================================================
+Day 2
+===============================================================================
+
+Dart ==========================================================================
+Dart VM developed by the same guys who developed V8
+
+    DOM
+
+    JS engine
+
+    optimize: low startup latency, high perf, low memory usage, small pauses
+    minimize: big GC pauses, memory leaks, erratic performance
+
+2006: the browser parsed the js, creates AST, and walks over the AST with an interpreter
+
+2013: 
+    parse JS
+    multi-tier adaptive compilation / series of compilers that adapts to different usage patterns
+    _deoptimization_ if user behavior changes
+    generational garbage collection
+        native code is generated en masse on the fly, and discarded as patterns change
+    code flushing
+    code flushing
+    support debugging and profiling
+
+multi-tier adaptive compilation
+
+V8 GC
+    2-phase: old space => new space
+    stop-the-world collection, single-threaded
+    store-buffer for generations
+
+DOM nodes are GC'd via reference counting
+    problems: 
+        reference count doesn't say which objects point to an object
+        doesn't handle cycles
+
+DOM "dance" is the hardest part of optimizing JS performance
+    animations skip frames because of GC pauses, deoptimization
+
+in order to fix the DOM dance problem, the reference-counted nature of the DOM must be changed
+solution: make _all_ objects subject to tracing
+    -> concurrent manipulation of DOM (cf. current ref-counted implementaion which requires a lock to mainpulate DOM)
+
+optional types are better than no types
+
+Q/A:
+    asm.js payload is too large; can't use many JS features like garbage collection, 
+        source langs are limited
+    can't send "strict mode" flag to JS engine because the JS engine would have to 
+        trust the code (no security/sandbox)
+    GWT to Dart will be a reality if/when Dart VM exists in most browsers
+    Dart on Dart VM will still have ~2x perf gains even compared to GWT=>JS
+    dart2js is often slower than hand-written JS because it must check bounds, etc.
+    ? Dart VM vs NaCl
+    ? if Dart VM is never shipped, is dart2js compelling enough?
+
+
+GWT ===========================================================================
+for most cases, just extend Composite directly instead of going full MVP
+
+"testing widgets from normal java tests isn't that hard anymore
+GWTMockUtilities
+    mock widgets directly! (GWTTestCase not needed)
+GwtMockito
+    @RunWith(GwtMockitoTestRunner.class)
+
+good practice:
+    think of events as notifications, _not_ commands
+    events are usually fired only for:
+        user input
+        server responses
+    events do not have return values
+
+
+Dart: new features ============================================================
+SIMD extensions
+
+Future.wait
+Future.then
+Stream = "repeating Future"
+
+Dart compiler, compiled to JS: try.dartlang.org
+
+Dart package manager: pub.dartlang.org 
+
+
+Google Knowledge Graph / Freebase API =========================================
+
+freebase.com
+    crowd-sourced
+    10k requests/day for free
+    entire graph is downloadable
+
+edges (relationships) in a graph allow us to treat two entities with the same name as different
+
+Autosuggest: turn ambiguous keywords into unique identifiers
+    HTTP query => JSON response
+
+Semantic Tagging
+    use freebase vocabulary as a vocabulary for meaningful tags in your application
+
+Entity Collections
+
+Geosearch Collections
+
+Topical Weblinks
+
+
+GWT roadmap ===================================================================
+http://www.gwtproject.org/
+https://github.com/gwtproject
+
+compiler:
+    GWT 3.0 / 2014:
+        GWT compiler may be producing sub-optimal code for modern JS engines
+        commitment to improve GWTTestCase 
+        GWT 3 will remove support for ie6/7/8 
+
+    mobile
+        offline support
+        app store support
+
+    GWT is in a unique position to optimize performance, because it knows about 
+    _all_ of your resources and how they fit together:
+        gzip single deliverable
+        async/defer <script>
+        nocache.js 
+        compiler easily outputs correct manifest for HTML 5 AppCache
+        batch data calls via Scheduler/gwt-dispatch
+
+    parsing
+        parsing JS _blocks_ the UI!
+
+    layout
+        CSS layout is essentially _native_ because it goes to the browser layout engine
+        flexbox
+
+    animation
+        no js animation
+
+
+Wireless crash course =========================================================
+wireless != wired. different constraints, performance characteristics
+users expect mobile to be _faster_ than desktop, so it is unacceptable to
+
+radio perf: wifi vs mobile
+
+    wifi
+        _shared_medium_, so each device has to play nice
+        "everyone can't talk at the same time", so algorithm randomly backs off if it can't find a "slot"
+
+        at-home test: how long for a packet to get from laptop to router?
+            2.5 GHz router: :90th percentile => 15ms! (same time it takes to travel across US)
+            5 GHz router: 2ms
+
+        dealing with variable bandwith
+            adaptive bitrate 
+
+    2G/3G/4G
+        idle to connected negotation 
+            3G: up to 2.5s
+            LTE: 100ms
+
+
+1s+ => mental context switch
+    "trivial inconvenience"! http://lesswrong.com/lw/f1/beware_trivial_inconveniences/
+
+LTE
+    more reliable latency, less jitter
+
+mobile radio is optimized for burst data
+batch requests
+use decay function to retry/backoff
+
+client device antennae energy use is dictated by the radio tower--not the device!
+
