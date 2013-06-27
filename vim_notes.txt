@@ -18,6 +18,9 @@ READ results into cursor position (acme!) - http://stackoverflow.com/a/2960630
     <c-r>#
     <c-r>:
 
+READ results into command line
+    <c-\> e {expr}        read expression into the command line (useful in mappings)
+
 REDIRECT messages (all output from all vim commands)
     :redir >> [file]
     :redir @x          redirect to register 'x'
