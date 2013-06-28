@@ -1,3 +1,12 @@
+Compositing in Blink and WebKit
+https://developers.google.com/live/shows/526326012
+http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/
+http://gent.ilcore.com/2011/03/how-not-to-trigger-layout-in-webkit.html
+http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/
+
+Google Drive SDK: Future of online storage with filepicker.io
+https://developers.google.com/live/shows/31119462-3002
+
 Autoscaling Java ==============================================================
     dropwizard
     jmeter 
