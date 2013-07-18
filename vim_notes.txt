@@ -127,6 +127,6 @@ selection:
 
 debugging vim
     :scriptnames
-    :verbose set &foo
+    :verbose set foo
     :verbose map %
 
