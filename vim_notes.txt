@@ -104,6 +104,10 @@ MOVE through the "change list":
 MOVE through the "jump list":
     ctrl-o ctrl-i
 
+undo:
+    :earlier 5m
+    :later 30s
+
 editing:
     i I a A o O J
     c[iaft]["({]
