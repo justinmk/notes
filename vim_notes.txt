@@ -11,12 +11,10 @@ READ results into cursor position (acme!) - http://stackoverflow.com/a/2960630
                                             http://superuser.com/a/251959/114842
     :r!foo                 read in stdout from a shell command
     <c-r>=system('foo')
-    :r [file]              read in [file] contents of 
-    <c-r>=&vim_variable    (doesn't like abbreviated names, but wildmenu works)
+    :r [file]              read in contents of [file]
+    <c-r>=&vim_variable    hint: works with tab-complete (wildmenu)
     <c-r>=SomeFunction()
-    <c-r>%
-    <c-r>#
-    <c-r>:
+    <c-r>[register_name]   %,#,:,...
 
 READ results into command line
     <c-\> e {expr}        read expression into the command line (useful in mappings)
@@ -59,6 +57,14 @@ special buffers:
     q:
     q/
 
+substitute (search/replace):
+  almost any character (following s) can be used as the delimiter:
+    :%s/before/after/g
+    :%s@before@after@g
+  e-option:
+    :%s/foo/bar/ge
+                 ^--ignore errors
+
 multi-repeat / global apply:
     :[range]g/{pattern}/[cmd]    apply cmd to lines matching {pattern}
     :[range]g!/{pattern}/[cmd]   inversion (apply to lines NOT matching)
@@ -79,10 +85,11 @@ macros (complex-repeat):
     @@  replay the most recent macro
     @:  repeat the last command!
 
-window splitting:
-    ctrl-w-v   ctrl-w-s
-    ctrl-w-[c hjkl]
+window management:
+    ctrl-w-[v s o]
+    ctrl-w-[c h j k l]
     ctrl-w-[= | _]
+    zN<enter>               resize vim height to N (useful for...?)
 
 buffer hopping:
     ctrl-^ :ls
@@ -91,12 +98,15 @@ file management (netrw):
     :E     browse directory of current buffer (_not_ the :pwd directory)
     :Vex   browse directory of current buffer in a new split window
 
+OPEN file/uri:
+    gx              open url 
+    [ctrl-w]gf      open file [in new window]
+
 MOVE through text:
     gg G 0 $ f t ; % 
     ]} ]] ) } 
     e E ge gE    move to end of word
     w W          move to next word
-    gx           open url 
 
 MOVE through the "change list":
     g; g, :changes
@@ -128,6 +138,10 @@ selection:
     vib vab      b = parentheses block
     viB vi{ vaB  B = brace block
     gv           reselect last selection
+
+buffer info:
+    ctrl-g      show file path in status
+    g-ctrl-g    show word count, etc
 
 debugging vim
     :scriptnames
