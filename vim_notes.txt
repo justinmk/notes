@@ -108,11 +108,11 @@ MOVE through text:
     e E ge gE    move to end of word
     w W          move to next word
 
-MOVE through the "change list":
-    g; g, :changes
-
-MOVE through the "jump list":
-    ctrl-o ctrl-i
+MOVE through changes and jumps:
+    g; g,           jump up/down the changes stack
+    `.              jump to the very last change
+    ctrl-o ctrl-i   jump up/down the jumps stack
+    ``              go to the last jump
 
 undo:
     :earlier 5m
