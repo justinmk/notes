@@ -14,7 +14,7 @@ READ results into cursor position (acme!) - http://stackoverflow.com/a/2960630
     :r [file]              read in contents of [file]
     <c-r>=&vim_variable    hint: works with tab-complete (wildmenu)
     <c-r>=SomeFunction()
-    <c-r>[register_name]   %,#,:,...
+    <c-r>[register_name]   % # : .
 
 READ results into command line
     <c-\> e {expr}        read expression into the command line (useful in mappings)
@@ -32,11 +32,12 @@ REDIRECT messages (all output from all vim commands)
 
 REGISTERS: http://stackoverflow.com/a/3997110/152142
     "=          expression register
-                ex: "=command_or_&variable<cr>p
+                eg: "=command_or_&variable<cr>p
     ""          unnamed register (always gets written-to)
+    ".          the last inserted text
     "_          blackhole register
     "0          contains the last yank
-    "1 .."9     contain the last 9 deletions
+    "1-"9       contain the last 9 deletions
     y"x         yank line to register x
     yy"X        *append* line to register x
 
@@ -44,7 +45,7 @@ REGISTERS: http://stackoverflow.com/a/3997110/152142
         let @x=@x+1 | exe 'norm i' . @x
 
 fundamental:
-    capitalizing (shift) performs the "mirror" of the command
+    capitalizing (shift) performs the "inverse" of the command
     .             repeat the previous command
     :5,42[cmd]    prepend a range to any command
 
@@ -64,6 +65,8 @@ substitute (search/replace):
   e-option:
     :%s/foo/bar/ge
                  ^--ignore errors
+  perform operation (eg, substitution) on lines matching 'foo' expression:
+    :g/foo/s/aime/adore
 
 multi-repeat / global apply:
     :[range]g/{pattern}/[cmd]    apply cmd to lines matching {pattern}
@@ -125,19 +128,29 @@ editing:
     ~             toggle case
     ctrl-n        autocomplete WORD
     ctrl-x-l      autocomplete LINE
+    ctrl-x-f      autocomplete file path
     ctrl-x-o      OMNIcomplete 
 
-indentation (normal/visual mode):
+indentation:
     > <      indent
     ==       fix indent
 
 indentation, (insert mode):
     ctrl-t ctrl-d
 
-selection:
-    vib vab      b = parentheses block
-    viB vi{ vaB  B = brace block
-    gv           reselect last selection
+visual/selection:
+    vib vab         b = parentheses block
+    viB vi{ vaB     B = brace block
+                       repeat to expand selection, eg:
+                       vababab
+                       vi}i}i}
+    gv              reselect last selection
+    gn              select next match (text object, can be composed!)
+                    example: /foo<cr>cgnqux<esc>..
+                        foo bar      qux bar
+                        baz foo  =>  baz qux
+                        foobl a      quxbl a
+    o               jump to other end of visual selection
 
 buffer info:
     ctrl-g      show file path in status
