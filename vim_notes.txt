@@ -113,9 +113,9 @@ MOVE through text:
 
 MOVE through changes and jumps:
     g; g,           jump up/down the changes stack
-    `.              jump to the very last change
+    `.              jump to the very last change *in the buffer*
     ctrl-o ctrl-i   jump up/down the jumps stack
-    ``              go to the last jump
+    ``              jump to the last jump *in the buffer*
 
 undo:
     :earlier 5m
