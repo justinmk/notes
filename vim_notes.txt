@@ -156,6 +156,9 @@ buffer info:
     ctrl-g      show file path in status
     g-ctrl-g    show word count, etc
 
+viml / vimscript / plugin development:   http://stevelosh.com/blog/2011/09/writing-vim-plugins/
+    normal!     like normal, but ignores mappings the user has set up
+
 debugging vim
     :scriptnames
     :verbose set foo
