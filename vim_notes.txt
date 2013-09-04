@@ -41,6 +41,9 @@ REGISTERS: http://stackoverflow.com/a/3997110/152142
     y"x         yank line to register x
     yy"X        *append* line to register x
 
+    example: replace word with last-yanked text
+        ciw<C-r>0
+
     example (acme!): increment register x and insert its value
         let @x=@x+1 | exe 'norm i' . @x
 
