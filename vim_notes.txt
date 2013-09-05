@@ -16,8 +16,23 @@ READ results into cursor position (acme!) - http://stackoverflow.com/a/2960630
     <c-r>=SomeFunction()
     <c-r>[register_name]   % # : .
 
-READ results into command line
-    <c-\> e {expr}        read expression into the command line (useful in mappings)
+FILTER buffer contents through shell command (acme!) - http://stackoverflow.com/a/790218/152142
+    In normal mode, ! is an operator (action) like y/d/c. You can do: 
+        !!
+        {range}!!
+        !{motion}{shell cmd} (e.g. !Gls<cr>)
+    Instead of :.!date write "date" in a buffer, then (in normal mode): 
+        !<space>sh This will pipe the line to the "sh" shell and substitute 
+        with the output from the command.
+
+    :{range}! filters a range of lines through a command and replaces those 
+    lines with the output.
+
+    examples (normal mode):
+        :%!             filters the whole buffer
+        !{space}{cmd}   replace the current line with <cmd> stdout
+        !{space}sh      run the current line as a shell command
+        !Gsort          equivalent to :.,$!sort
 
 REDIRECT messages (all output from all vim commands)
     :redir >> [file]
@@ -68,8 +83,6 @@ substitute (search/replace):
   e-option:
     :%s/foo/bar/ge
                  ^--ignore errors
-  perform operation (eg, substitution) on lines matching 'foo' expression:
-    :g/foo/s/aime/adore
 
 multi-repeat / global apply:
     :[range]g/{pattern}/[cmd]    apply cmd to lines matching {pattern}
@@ -82,6 +95,9 @@ multi-repeat / global apply:
             :g/foo/normal dd
         append all lines matching foo to register a:
             :g/foo/normal "Ay
+            :g/foo/y A
+        perform substitution on lines matching foo:
+            :g/foo/s/aime/adore
 
 macros (complex-repeat):
     qx  start recording in register x 
@@ -144,9 +160,8 @@ indentation, (insert mode):
 visual/selection:
     vib vab         b = parentheses block
     viB vi{ vaB     B = brace block
-                       repeat to expand selection, eg:
-                       vababab
-                       vi}i}i}
+    vababab         repeat to expand selection
+    vi}i}i}
     gv              reselect last selection
     gn              select next match (text object, can be composed!)
                     example: /foo<cr>cgnqux<esc>..
@@ -166,4 +181,5 @@ debugging vim
     :scriptnames
     :verbose set foo
     :verbose map %
+    :set verbose=9      debug autocommands
 
