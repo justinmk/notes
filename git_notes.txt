@@ -67,11 +67,12 @@ TEMPORARILY IGNORING FILES (cf. svn's "ignore-on-commit")
     git stash apply stash@{1}
 
 ADD A SVN REMOTE MANUALLY: http://stackoverflow.com/q/296975/152142
-    git config --add svn-remote.newbranch.url https://svn/path_to_newbranch/
-    git config --add svn-remote.newbranch.fetch :refs/remotes/newbranch
-    git svn fetch newbranch [-r<rev>]
-    git checkout -b local-newbranch -t newbranch
-    git svn rebase newbranch
+        note: {new_branch} must not begin with a number
+    git config --add svn-remote.{new_branch}.url https://svn/path/to/new_branch/
+    git config --add svn-remote.{new_branch}.fetch :refs/remotes/{new_branch}
+    git svn fetch {new_branch} [-r<rev>]
+    git checkout -b {new_local_branch} -t {new_branch}
+    git svn rebase {new_local_branch}
 
 ADDING REMOTES
 	git remote add <name> git://<ip-address>/<directory-containing-.git>

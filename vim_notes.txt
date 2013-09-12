@@ -170,6 +170,9 @@ visual/selection:
                         foobl a      quxbl a
     o               jump to other end of visual selection
 
+COMMAND mode:
+    ctrl-d      show table of command (and file/dir/path!) suggestions
+
 buffer info:
     ctrl-g      show file path in status
     g-ctrl-g    show word count, etc
