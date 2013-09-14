@@ -254,6 +254,10 @@ asm.js
             http://stackoverflow.com/questions/13377685/gwt-finalize-object-and-remove-its-event-handlers
 
 Dart
+    Dart can be optimized better than Javascript for similar reasons that Lua 
+    can be optimized, and Candor:
+    https://github.com/indutny/candor
+
     Alex Gaynor perspective on dynamic tracing: 
         https://speakerdeck.com/alex/why-python-ruby-and-javascript-are-slow
 
