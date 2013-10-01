@@ -89,15 +89,16 @@ multi-repeat / global apply:
     :[range]g!/{pattern}/[cmd]   inversion (apply to lines NOT matching)
 
     examples: 
-        change foo to bar only on comment lines that begin with #:
+        change (substitute) foo to bar only on #comment lines:
             :g/^\s*#/s/foo/bar/g
         delete lines that match foo:
             :g/foo/normal dd
         append all lines matching foo to register a:
             :g/foo/normal "Ay
             :g/foo/y A
-        perform substitution on lines matching foo:
-            :g/foo/s/aime/adore
+        append the result of col('.') to lines 265-292:
+            265,292s/$/\=col('.')/
+                        ^--- use \= for per-line evaluation
 
 macros (complex-repeat):
     qx  start recording in register x 

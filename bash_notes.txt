@@ -1,0 +1,9 @@
+
+http://en.wikipedia.org/wiki/Bash_(Unix_shell)#Keyboard_shortcuts
+
+Ctrl-] x            move the cursor forward to the next occurance of x
+Alt-Ctrl-] x        move the cursor backwards to the previous occurance of x
+Ctrl-_
+Ctrl-x Ctrl-u       Undo the last changes
+Alt-r               Undo all changes to the line.
+
