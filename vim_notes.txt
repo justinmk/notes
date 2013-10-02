@@ -187,3 +187,16 @@ debugging vim
     :verbose map %
     :set verbose=9      debug autocommands
 
+
+NEW USER NOTES
+==============
+scoping (local variables): 
+    let g:foo = 'qux'
+    let foo = 'bar'
+        - does _not_ overwrite g:foo
+        - cannot overwrite v:foo
+        - echo g:foo => 'qux'
+        - echo foo => 'bar'
+    l: is almost never needed, because:
+        - 'let foo' will not modify the environment _outside_ of the local function scope
+
