@@ -200,3 +200,24 @@ scoping (local variables):
     l: is almost never needed, because:
         - 'let foo' will not modify the environment _outside_ of the local function scope
 
+don't bother with cream
+don't get windows build from vim.org
+
+vim's "current directory" applies to the entire vim session (the current 
+running instance of Vim), regardless of what file (buffer) you are 
+currently using. Think of it as your "working directory" for the current 
+vim session. 
+
+Vim refers to text documents as *buffers*. You might as well get used to that.
+The reason this is a useful distinction is: a new file, which is not saved 
+yet, doesn't have a path on the filesystem yet: it may exist only in Vim. Vim 
+also has special buffers like the "quick fix" window and the "preview" window.
+
+http://learnvimscriptthehardway.stevelosh.com/
+    - gave vim a high-quality, accessible, attractive go-to tutorial
+    - now we just need a better brand at vim.org
+
+UNIQUE FEATURES (not counting emacs et al)
+==========================================
+persistent undo
+undo tree / :earlier / :later
