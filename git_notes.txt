@@ -1,6 +1,7 @@
 git svn clone "svn://foosrc/subdir" . -T trunk -b branches -t tags -r234:HEAD --ignore-path="foo(bar|baz).exe|^Chtulu/|.+\.(dll|jar)$"
 
 git svn init -s --ignore-path="foo" svn://foosrc/subdir
+git svn fetch -r123:HEAD
 
 GENERAL
     add "--stat" option to any query command (stash show, log, diff) to get

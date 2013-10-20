@@ -213,6 +213,32 @@ The reason this is a useful distinction is: a new file, which is not saved
 yet, doesn't have a path on the filesystem yet: it may exist only in Vim. Vim 
 also has special buffers like the "quick fix" window and the "preview" window.
 
+Vim *in the terminal* is at the mercy of the terminal. Using Vim in the 
+terminal makes it obvious the distinctions that perhaps were not so 
+important before you started using a text editor in the terminal. Before, 
+the distinction between "shell" and "terminal emulator" may have seemed
+like noise. But once you start using vim on different systems, the 
+quirks of the various terminal and shell implementations are brought into
+relief. A terminal sends characters to the shell. Vim, in the context of 
+a terminal, accepts the characters sent to it. When you enter ALT-f in
+terminal Vim, one terminal may send <foo>f to Vim, another <bar>f.
+The state of the terminal in this decade might seem rather frustrating, 
+but c'est la vie. Powershell is the only really innovative, 
+widely-deployed alternative, and while it's to be commended, it doesn't 
+have a terminal-resident editor (and it's terminal is cmd.exe). So if 
+using terminal-vim as your *primary* editor is too much trouble, 
+just use gvim and forget about it. But that's where we are. VT-100 legacy 
+is sitting on top of a massive, massive pile of tools and powershell 
+isn't positioned to address.
+
+sed becomes second nature as a side-effect of normal, prolific Vim usage.
+Searching for ^\s.+ becomes an actually desirable thing to reach for, 
+because then you can `cgn` the matches. Regex (even if quirky) becomes 
+an actually desirable tool. For real, seriously. You won't get that in 
+sublime. I had no desire to learn sed, because I always thought "I'll 
+just reach for python or ruby or whatever". And yes, you can do that 
+in vim too (:py :ruby :lua).
+
 http://learnvimscriptthehardway.stevelosh.com/
     - gave vim a high-quality, accessible, attractive go-to tutorial
     - now we just need a better brand at vim.org

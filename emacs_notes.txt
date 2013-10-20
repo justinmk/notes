@@ -2,3 +2,10 @@
 emacsrocks.com
 isearch
 
+http://www.emacswiki.org/emacs/ViKeys
+
+C-h m => available major/minor modes and bindings
+
+https://github.com/kbkbkbkb1/guide-key
+    helps a lot for learning and memorizing the default bindings
+
