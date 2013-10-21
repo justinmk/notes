@@ -5,6 +5,12 @@ isearch
 http://www.emacswiki.org/emacs/ViKeys
 
 C-h m => available major/minor modes and bindings
+C-h k => show the functions bound to a key sequence
+C-h f => show the key sequence(s) bound to a function
+
+set ft=foo
+    emacs has major modes instead of file types.
+    to switch modes, for example: M-x coffee-mode
 
 https://github.com/kbkbkbkb1/guide-key
     helps a lot for learning and memorizing the default bindings

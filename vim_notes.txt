@@ -89,6 +89,8 @@ multi-repeat / global apply:
     :[range]g!/{pattern}/[cmd]   inversion (apply to lines NOT matching)
 
     examples: 
+        print all matches of /re/:   http://stackoverflow.com/a/509720/152142
+            :g/re/p
         change (substitute) foo to bar only on #comment lines:
             :g/^\s*#/s/foo/bar/g
         delete lines that match foo:
