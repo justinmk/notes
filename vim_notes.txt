@@ -135,6 +135,7 @@ MOVE through text:
 
 MOVE through changes and jumps:
     g; g,           jump up/down the changes stack
+    gi              enter insert-mode at the location of the last insert
     `.              jump to the very last change *in the buffer*
     ctrl-o ctrl-i   jump up/down the jumps stack
     ``              jump to the last jump *in the buffer*
@@ -142,6 +143,8 @@ MOVE through changes and jumps:
 undo:
     :earlier 5m
     :later 30s
+    :earlier 1f     go to the last saved state
+    :later 1f       go to the newest buffer state
 
 editing:
     i I a A o O J

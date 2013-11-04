@@ -1,7 +1,8 @@
 
 emacsrocks.com
-isearch
+http://www.masteringemacs.org/
 
+http://www.emacswiki.org/emacs/Reference_Sheet_by_Aaron_Hawley
 http://www.emacswiki.org/emacs/ViKeys
 
 C-h m => available major/minor modes and bindings
@@ -12,6 +13,48 @@ set ft=foo
     emacs has major modes instead of file types.
     to switch modes, for example: M-x coffee-mode
 
-https://github.com/kbkbkbkb1/guide-key
-    helps a lot for learning and memorizing the default bindings
+TERMINAL
+========
+eshell / smar-display:
+    http://www.masteringemacs.org/articles/2010/12/13/complete-guide-mastering-eshell/
 
+for a "true" terminal in emacs (as opposed to eshell)
+    multi-term
+
+synopsis of shell and terminal modes included in Emacs
+    https://lukeshu.com/blog/emacs-shells.html
+tips, env vars
+    http://snarfed.org/why_i_run_shells_inside_emacs
+
+http://crypt.codemancers.com/posts/2013-09-26-setting-up-emacs-as-development-environment-on-osx/
+http://www.reddit.com/r/emacs/comments/1p6m82/making_emacs_work_for_me/
+
+https://github.com/jonathanchu/emacs-powerline
+
+golang repl:
+    https://github.com/sergey-pashaev/gore-mode
+
+
+LISP
+====
+show results in buffer, a la Light table:
+    <C-j> eval-print-last-sexp
+
+#'foo and 'foo are syntax sugar for (function foo) and (quote foo), respectively.
+
+;; macroexpand expands the form until a non-macro is found, but
+;; it does _not_ inspect _sub_expressions in the resolved macro.
+;; http://www.chemie.fu-berlin.de/chemnet/use/info/elisp/elisp_13.html
+(defmacro inc (var)
+    (list 'setq var (list '1+ var)))
+    ;; => inc
+
+(macroexpand '(inc r))
+    ;; => (setq r (1+ r))
+
+(defmacro inc2 (var1 var2)
+    (list 'progn (list 'inc var1) (list 'inc var2)))
+    ;; => inc2
+
+(macroexpand '(inc2 r s))
+    ;; => (progn (inc r) (inc s))
