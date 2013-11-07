@@ -1,6 +1,7 @@
 
 emacsrocks.com
 http://www.masteringemacs.org/
+http://steve-yegge.blogspot.com/2008/01/emergency-elisp.html
 
 http://www.emacswiki.org/emacs/Reference_Sheet_by_Aaron_Hawley
 http://www.emacswiki.org/emacs/ViKeys
@@ -12,6 +13,10 @@ C-h f => show the key sequence(s) bound to a function
 set ft=foo
     emacs has major modes instead of file types.
     to switch modes, for example: M-x coffee-mode
+
+LIGHT TABLE IDEAS
+=================
+http://www.emacswiki.org/emacs/LightTable
 
 TERMINAL
 ========
