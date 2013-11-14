@@ -2,6 +2,7 @@ VIM NOTES
 ==================
 good:
     http://vimcasts.org/
+    http://glts.github.io/2013/04/28/vim-normal-mode-grammar
 
 plugins:
     ctags.sourceforge.net 

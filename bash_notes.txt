@@ -7,3 +7,14 @@ Ctrl-_
 Ctrl-x Ctrl-u       Undo the last changes
 Alt-r               Undo all changes to the line.
 
+grep recursive glob filter for bash 3.x:
+    grep -r --include=*.js foo .
+
+grep recursive glob filter for bash 4+ with:
+    shopt -s globstar
+    grep -RHsn 'string' **/*.ext
+
+    -H      Always print filename headers with output lines.
+    -s      Nonexistent and unreadable files are ignored.
+    -n      Each output line is preceded by its line number relative to the file
+
