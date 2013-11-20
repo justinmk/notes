@@ -10,11 +10,22 @@ GENERAL
     #view every single commit in the repository ever
     gitk --all $( git fsck --no-reflog | awk '/dangling commit/ {print $3}' )
 
+    # find last commit matching a regex
+    # example: show the last merge commit
+    $ git show :/^Merge
+
+
 BRANCHING
     git checkout -b new_branch [old_branch]
 
     #list all branches (local and remote)
     git branch -a
+
+    #find out which branch contains a commit
+    git branch -a --contains 50f3754
+
+MERGING
+    git creates a "merge commit" because merges are intended to be _meaningful_.
 
 REBASING
     #rebase the current branch onto the remote head

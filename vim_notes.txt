@@ -196,6 +196,13 @@ debugging vim
 
 NEW USER NOTES
 ==============
+vim is a concept
+    - modal editing, atomic edits, edit grammar
+    - can be implemented in any editor/IDE
+vim is a component
+    - can be embedded in other applications/IDEs
+vim is _not_ a platform (unlike emacs)
+
 scoping (local variables): 
     let g:foo = 'qux'
     let foo = 'bar'
@@ -214,8 +221,8 @@ running instance of Vim), regardless of what file (buffer) you are
 currently using. Think of it as your "working directory" for the current 
 vim session. 
 
-Vim refers to text documents as *buffers*. You might as well get used to that.
-The reason this is a useful distinction is: a new file, which is not saved 
+Vim refers to text documents as *buffers*. Get used to that. This is a useful
+distinction, not just pedantic, because: a new file, which is not saved 
 yet, doesn't have a path on the filesystem yet: it may exist only in Vim. Vim 
 also has special buffers like the "quick fix" window and the "preview" window.
 
@@ -236,6 +243,7 @@ using terminal-vim as your *primary* editor is too much trouble,
 just use gvim and forget about it. But that's where we are. VT-100 legacy 
 is sitting on top of a massive, massive pile of tools and powershell 
 isn't positioned to address.
+    discussion to improve Vim terminal behavior: http://stackoverflow.com/a/14642074/152142
 
 sed becomes second nature as a side-effect of normal, prolific Vim usage.
 Searching for ^\s.+ becomes an actually desirable thing to reach for, 
@@ -244,6 +252,8 @@ an actually desirable tool. For real, seriously. You won't get that in
 sublime. I had no desire to learn sed, because I always thought "I'll 
 just reach for python or ruby or whatever". And yes, you can do that 
 in vim too (:py :ruby :lua).
+
+vnoremap, noremap, xnoremap. Q: Why care about selection-mode? A: For snippets plugins.
 
 http://learnvimscriptthehardway.stevelosh.com/
     - gave vim a high-quality, accessible, attractive go-to tutorial
