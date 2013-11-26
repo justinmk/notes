@@ -221,6 +221,12 @@ running instance of Vim), regardless of what file (buffer) you are
 currently using. Think of it as your "working directory" for the current 
 vim session. 
 
+:make and &makeprg are for processing the current buffer through *any* program.
+The name "make" is just a historical misnomer.
+
+"quickfix" is a historical misnomer and it is perfectly acceptable to use
+this buffer for any list of annotations received from :make.
+
 Vim refers to text documents as *buffers*. Get used to that. This is a useful
 distinction, not just pedantic, because: a new file, which is not saved 
 yet, doesn't have a path on the filesystem yet: it may exist only in Vim. Vim 
