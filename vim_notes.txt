@@ -103,6 +103,16 @@ multi-repeat / global apply:
             265,292s/$/\=col('.')/
                         ^--- use \= for per-line evaluation
 
+rubydo, pydo, perldo, luado, ...
+    reverse lines 1-5
+        :1,5luado return line:reverse()
+    prepend each line with its length
+        :pydo return str(len(line)) + line
+    reverse WORDs on current line
+        :.perldo $_ = join ' ', reverse split
+    insert a random string of 8 characters (A-Z) at the end of every line
+        :rubydo $_ += ' ' + (1..8).collect{('A'..'Z').to_a[rand 26]}.join
+
 macros (complex-repeat):
     qx  start recording in register x 
     q   stop recording
