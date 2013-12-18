@@ -1,0 +1,223 @@
+keynote
+=======
+
+Cromwell said unequivocally that if Dart maintains a 2-3x speedup over v8, GWT will compile to it.
+
+~650 conference attendees
+3x increase in external contrib since creation of steering committee
+1000s of internal google users
+    - Google Shopping Express
+    - new Google spreadsheets is written in GWT!
+        - cross-compiled betw GWT <-> j2objc
+        - large code-sharing of Java logic betw server and multiple client targets
+~100k users of SDK
+
+avoid JSNI with @JsInterface, @JsProperty
+
+future: zero-work interop => drop an external JS library into GWT, interfaces are automatically generated
+
+//create three buttons and map event handlers to each of them!
+    Stream<HtmlButton> buttons = Stream.of("one", "two", "three").map(Demo::create);
+    buttons.each((b). -> b.addEventLIstener("click", (e) -> ...))
+
+future: drop external JS library into GWT
+    - compiler performs dead-code elimination on the external lib
+    - type-checking on the external lib!
+
+code splitting improvements
+    "if you accidentally create split points between two components that share code,
+    the shared code goes into the leftovers fragment, and this almost kills the benefit
+    because the leftovers fragment has to be downloaded anyways. tedious, brittle."
+
+compiler improvements: target modern browser optimizations
+    - TypedArrays: new int[64] => new Int32Array(64)
+    - output asm.js-like code! (type annotationson variables)
+    - merging in the Closure compiler backend!
+    speed
+        - incremental compilation time proportional to the number of of files changed
+
+layout
+    - "Native" layout instead of JS layout
+    - GssResource => CSS3 support
+
+making mobile fly
+=================
+chrome://tracing
+    tinyurl.com/abouttracing
+    more powerful than DevTools for debugging jank
+
+JS performance dominates, fix it first by profiling your bottlenecks, _then_ look at:
+    DOM -> Style -> Layout (aka Reflow) -> Record -> Composit -> GPU
+                                                           /\
+                                        raster thread 1 -- raster thread N
+Desktop profiling does NOT translate to mobile characteristics
+
+text auto-sizing on mobile browsers (Chrome, Firefox) comes at a cost (~2x layout time)
+    to avoid text auto-sizing:
+    <meta name"viewport" content="width=device-width user-scalable=no">
+        unfortunately, disables zooming
+
+double-tap detection causes 300ms delay on first tap
+
+RAF (request animation frame)
+    synced to v-sync
+    webkit-requestanimationframe
+    GWT animation class updated to use RAF 
+    window of 16 ms / 60hz (possibly 8ms in the future as displays improve to 120hz)
+    use this instead of setTimeOut()
+
+squashing repaints
+    avoid repaints by using _layers_
+    just "move a layer" instead of repaint/resize
+
+DOM viewport _includes_ what's offscreen (~8k pixels)
+    keep DOM small, "page-in lazily"
+
+use "infinite scroll" approach even for regular pages:
+    page in offscreen portions _after_ onscreen portion, makes initial
+    render much faster, while still avoiding jank.
+
+compiler
+========
+    optimization pass (last 3-4 steps in the diagram) are what are worked on, the other
+    first steps are not touched.
+
+    GWT Java AST   com.google.gwt.dev.jjs.ast
+        class Foo {
+              int x;
+              void bar() {
+                   x = 2 + 5;
+              }
+        }
+        JClassType(Foo)
+            JField(x)           Jmethod(bar)
+                                JMethodBody
+                                JBlock
+                                JStatement
+                                JExpression
+                                JBinaryExpression
+                                JFieldRef       JBinaryOperation
+                                                JInLitral(2)       JInLiteral(5)
+
+        GWT optimization:
+            run optimization pass in a loop until "fixed point" (diminishing returns) is reached
+                -o9 compiler flag controls how long this loop runs
+
+            JModVisitor
+                all GWT optimizations implement this
+
+            DeadCodeElimination class
+                simplest part of the compiler, best starting point for contributors
+                constant-folding:
+                    "if I know LHS and RHS are both int literals, I can replace them":
+                    ctx.replaceMe(new JInLiteral(node.getSourceInfo(),
+                                      ((JInLiteral) node.getLhs()).getValue(),
+                                      ((JInLiteral) node.getRhs().getValue()),
+                                      ));
+
+            Pruner
+            Finalizer: if nothing is assigned to a field, marks it as final
+                       any method that is not overridden, mark it as final
+                       rewrite non-static methods as static functions if possible
+                            (polymorphism is expensive)
+                            allows inlining
+            TypeTightener
+
+            "type explosion" is not really a concern for client code because the compiler
+            knows all calls and can replace interfaces with concrete implementations
+
+            Code Splitting
+                works similar to the Pruner
+                everything that is touched from the AST root is "alive", the rest is eliminated
+
+
+debugger / SuperDevMode
+=======================
+intellij debugger seeing/planned active support, no eclipse debugger
+
+<module>
+    <!-- what was on the slide before this??? -->
+    <!-- REMOVE this to improve compile speed -->
+    <inherits name="com.foo.Util" />
+</module>
+
+force breakpoint in pretty-mode:
+    GWT.debugger()
+
+
+compiler #2 ********REVIEW => lot of good material @ 15 minutes **********
+==========================================================================
+compiler speed improvements focused on _draft_ compilation
+    so normal compilation still needs to cycle through all the optimization passes
+
+modularization (*.gwt.xml files) helps (will help) the compiler
+break circular references
+make your tree _shallow_ and _broad_
+use buck/gradle => build parallelism
+
+split points
+    2.6 flag to merge fragments less than a certain size
+    "left overs" fragment is a killer
+    having too many split points is _detrimental_
+        - more likely that "left overs" fragment touches many split points
+        - therefore merging split points can be beneficial
+
+
+qQuery ****REVIEW THIS TALK******
+================================================================================
+uses CSS3 animations when possible (cf. jQuery uses timers)
+
+gQuery feature: DCE for 'browser' object
+    if (browser.webkit) {
+        ...
+    } else { //eliminated if browser is not webkit
+        ...
+    }
+
+//gQuery alternative to JSNI:
+JsUtils.runJavascriptFunction(...)
+
+JS libraries ported to gQuery/GWT:
+    GwtChosen
+    tooltips
+    drag/drop
+
+mgwt
+================================================================================
+keeps DOM very small
+supports CSS3
+adds at least 14 permutations for mobile
+REVIEW ==> "web components solve the heavy event-propogation problem"
+last 20 minutes: demo of using "d8" profiling method
+
+Douglas Crockford: "Javascript did a better job than the JVM at providing
+    bytecode security, perhaps because it works at a higher level"
+
+
+MISSED TALK (REVIEW): JsInterop
+================================================================================
+
+day 2
+=====
+uberfire: client-side jgit workbench
+    http://droolsjbpm.github.io/uberfire/
+
+Contributing to GWT
+===================
+gerrit: https://gwt-review.googlesource.com
+instead of using Eclipse maven, just generate an Eclipse project file at the command line:
+    $ mvn eclipse:eclipse
+
+    Check out source from
+git clone https://gwt.googlesource.com/gwt-site
+
+Find the source files for the pages at src/main/markdown
+
+Apply your changes
+Build it with mvn clean install
+Verify your changes in target/generated-site
+
+GWT panel:
+================================================================================
+Cromwell: "GWT widgets are expensive; the only reason they were added is to
+    prevent memory leaks in IE 6; would like to remove them"

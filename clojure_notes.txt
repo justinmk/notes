@@ -2,3 +2,6 @@
 macros: http://aphyr.com/posts/305-clojure-from-the-ground-up-macros
     - very good series on clojure
 
+quick start screencast (eclipse, ring)
+    http://www.youtube.com/watch?v=VVd4ow-ZcX0
+

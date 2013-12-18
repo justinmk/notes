@@ -1,0 +1,4 @@
+--fatal-type-errors
+(and you can make all warnings fatal with -Werror or --fatal-warnings).
+
+

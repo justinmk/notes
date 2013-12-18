@@ -215,6 +215,11 @@ vim is a concept
 vim is a component
     - can be embedded in other applications/IDEs
 vim is _not_ a platform (unlike emacs)
+vim vs emacs:
+    - worse is better?
+    - convention over configuration (relatively...)
+    - smaller surface area
+    - backwards compatibility
 
 scoping (local variables): 
     let g:foo = 'qux'
