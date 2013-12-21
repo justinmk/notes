@@ -51,7 +51,16 @@ LISP
 show results in buffer, a la Light table:
     <C-j> eval-print-last-sexp
 
-#'foo and 'foo are syntax sugar for (function foo) and (quote foo), respectively.
+#'foo is sugar for (function foo)
+'foo  is sugar for (quote foo)
+
+The (function) special form returns function-object without evaluating it.
+- When the code is byte-compiled, function-object is compiled into a byte-code function object
+- When lexical binding is enabled, function-object is converted into a closure.
+- The following forms are all equivalent:
+     (lambda (x) (* x x))
+     (function (lambda (x) (* x x)))
+     #'(lambda (x) (* x x))
 
 ;; macroexpand expands the form until a non-macro is found, but
 ;; it does _not_ inspect _sub_expressions in the resolved macro.
