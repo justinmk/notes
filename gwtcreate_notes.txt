@@ -1,3 +1,6 @@
+http://www.gwtproject.org/release-notes.html
+http://www.techempower.com/blog/2013/03/26/everything-about-java-8/
+
 keynote
 =======
 

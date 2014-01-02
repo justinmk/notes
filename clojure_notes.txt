@@ -1,3 +1,5 @@
+http://clojure.org/cheatsheet
+
 amazing book/tutorial:
     http://www.braveclojure.com/
 
@@ -9,9 +11,14 @@ web app quickstart:
 datomic discussion and video link:
     http://www.reddit.com/r/Clojure/comments/1t6h2v/datomicjunk_a_bunch_of_datomic_utility_functions/
 
+Solving the Expression Problem with Clojure 1.2
+    http://www.ibm.com/developerworks/java/library/j-clojure-protocols/index.html#datatypes
+
 macros: http://aphyr.com/posts/305-clojure-from-the-ground-up-macros
     - very good series on clojure
 
 quick start screencast (eclipse, ring)
     http://www.youtube.com/watch?v=VVd4ow-ZcX0
+
+http://thinkrelevance.com/blog/2013/06/04/clojure-workflow-reloaded
 
