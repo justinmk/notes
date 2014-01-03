@@ -20,7 +20,12 @@ CONFIGURATION EXTRAS
 ====================
 https://github.com/scottjad/ido-hacks/blob/master/ido-hacks.el
 
-LIGHT TABLE
+CONFIG
+===============================================================================
+extremely elaborate emacs "distro"
+    https://github.com/overtone/emacs-live
+
+LIGHT TABLE IDEAS
 =================
 http://www.emacswiki.org/emacs/LightTable
 
