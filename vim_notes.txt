@@ -77,6 +77,10 @@ special buffers:
     q:
     q/
 
+search
+    ';' is a special offset to "chain" searches. Example:
+        ab/;/cd     search for "cd" after the next "ab"
+
 substitute (search/replace):
   almost any character (following s) can be used as the delimiter:
     :%s/before/after/g
