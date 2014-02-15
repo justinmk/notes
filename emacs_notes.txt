@@ -1,8 +1,7 @@
+Writing A Spotify Client in 16 Minutes
+    https://www.youtube.com/watch?v=XjKtkEMUYGc
 
-emacsrocks.com
 http://www.masteringemacs.org/
-http://steve-yegge.blogspot.com/2008/01/emergency-elisp.html
-"Learn Emacs" series: http://rawsyntax.com/archives/
 
 http://www.emacswiki.org/emacs/Reference_Sheet_by_Aaron_Hawley
 http://www.emacswiki.org/emacs/ViKeys
@@ -15,19 +14,6 @@ M-x occur       regex-based outline!
 set ft=foo
     emacs has major modes instead of file types.
     to switch modes, for example: M-x coffee-mode
-
-CONFIGURATION EXTRAS
-====================
-https://github.com/scottjad/ido-hacks/blob/master/ido-hacks.el
-
-CONFIG
-===============================================================================
-extremely elaborate emacs "distro"
-    https://github.com/overtone/emacs-live
-
-LIGHT TABLE IDEAS
-=================
-http://www.emacswiki.org/emacs/LightTable
 
 TERMINAL
 ========
