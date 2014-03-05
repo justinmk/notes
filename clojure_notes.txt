@@ -1,6 +1,9 @@
 tutorial
     http://www.youtube.com/user/Misophistful/videos
 
+AMAZING
+    http://himera.herokuapp.com/synonym.html
+
 http://clojure.org/cheatsheet
 
 amazing book/tutorial:
@@ -25,3 +28,18 @@ quick start screencast (eclipse, ring)
 
 http://thinkrelevance.com/blog/2013/06/04/clojure-workflow-reloaded
 
+FUNDAMENTALS
+    let is evaluated immediately
+        all let-defined symbols are replaced with their corresponding values,
+        then then expression is evaluated
+    Functions represent unrealized computation: expressions not yet evaluated, or incomplete.
+        functions exist to defer evaluation
+        parameters are unbound symbols
+        invoking a function binds values to those symbols
+
+    if we put a quote in front of the expression, it will no longer be evaluated.
+        '(red "nut1") ;;=> (red "nut1")
+    quoting the expression turns it into a list, which we can manipulate with
+    other s-expressions (code as data).
+        (first '(red "nut1")) ;;=> red
+        (last '(red "nut1")) ;;=> "nut1"

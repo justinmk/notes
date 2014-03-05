@@ -1,3 +1,5 @@
+research: "tree-shaking does not play well with reflection"
+
 http://www.gwtproject.org/release-notes.html
 http://www.techempower.com/blog/2013/03/26/everything-about-java-8/
 
@@ -159,6 +161,7 @@ make your tree _shallow_ and _broad_
 use buck/gradle => build parallelism
 
 split points
+    profile-informed split-point calculation
     2.6 flag to merge fragments less than a certain size
     "left overs" fragment is a killer
     having too many split points is _detrimental_

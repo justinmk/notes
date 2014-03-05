@@ -4,16 +4,11 @@ Writing A Spotify Client in 16 Minutes
 http://www.masteringemacs.org/
 
 http://www.emacswiki.org/emacs/Reference_Sheet_by_Aaron_Hawley
-http://www.emacswiki.org/emacs/ViKeys
 
 C-h m           available major/minor modes and bindings
 C-h k           show the functions bound to a key sequence
 C-h f           show the key sequence(s) bound to a function
 M-x occur       regex-based outline!
-
-set ft=foo
-    emacs has major modes instead of file types.
-    to switch modes, for example: M-x coffee-mode
 
 TERMINAL
 ========

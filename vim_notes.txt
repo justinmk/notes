@@ -207,6 +207,12 @@ debugging vim
     :verbose map %
     :set verbose=9      debug autocommands
 
+WHAT I LEARNED FROM GITHUB
+==========================
+AFFIRMATIONS of common project management wisdom:
+    - it is often better to let a request sit for a while (weeks, months)
+      because users change their minds, or other developments in the project
+      obviate the feature request.
 
 NEW USER NOTES
 ==============
