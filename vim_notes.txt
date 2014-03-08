@@ -260,7 +260,7 @@ distinction, not just pedantic, because: a new file, which is not saved
 yet, doesn't have a path on the filesystem yet: it may exist only in Vim. Vim 
 also has special buffers like the "quick fix" window and the "preview" window.
 
-Vim *in the terminal* is at the mercy of the terminal. Using Vim in the 
+Vim *in the terminal* is somewhat[1] at the mercy of the terminal. Using Vim in the 
 terminal makes it obvious the distinctions that perhaps were not so 
 important before you started using a text editor in the terminal. Before, 
 the distinction between "shell" and "terminal emulator" may have seemed
@@ -288,6 +288,21 @@ just reach for python or ruby or whatever". And yes, you can do that
 in vim too (:py :ruby :lua).
 
 vnoremap, noremap, xnoremap. Q: Why care about selection-mode? A: For snippets plugins.
+
+g@ is to create an operator (like 'd'), _not_ an operand (like 'w' or a custom
+motion). To "create" an operand, simply omap to a function that check v:operator.
+
+omnifunc is _not_ the same thing as completefunc: https://github.com/guns/vim-clojure-static/blob/8bed65c3f42aaf4d906aaca93d223f62a53542ce/ftplugin/clojure.vim#L34
+
+runtimepath is like bash $PATH. The order matters. Any VimL file in a plugin/
+directory anywhere in your runtime path _is_ a plugin. You can force plugins
+to run via ':runtime! foo.vim'
+
+<Plug> mapping is just a "virtual key sequence" that can be mapped-to.
+<Plug>(Foo) convention prevents timeoutlen pause caused by overlapping maps.
+    http://stackoverflow.com/a/13698530/152142
+
+.gvimrc runs after .vimrc, and exists only to disable annoying gvim defaults.
 
 http://learnvimscriptthehardway.stevelosh.com/
     - gave vim a high-quality, accessible, attractive go-to tutorial
