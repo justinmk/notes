@@ -1,0 +1,5 @@
+
+debugging with lldb + busted: https://github.com/neovim/neovim/pull/395#issuecomment-38568859
+    lldb .deps/usr/bin/luajit -- .deps/usr/bin/busted_bootstrap  -o TAP --pattern=.moon test
+    (lldb) run
+

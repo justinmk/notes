@@ -106,3 +106,8 @@ REBASING ONTO NON-SVN REMOTES
 PUSH LOCAL BRANCH TO REMOTE BRANCH
     git push remote_alias local_branch:remote_branch
 
+MERGING, REBASING, SVN
+    #preserve author in dcommit
+
+     http://keithp.com/blogs/Repository_Formats_Matter/
+     subversion repository format is poorer than the git one. It doesn't support merging well, or committers vs authors or commit times distinct from push times

@@ -1,6 +1,9 @@
 tutorial
     http://www.youtube.com/user/Misophistful/videos
 
+book:
+    http://clojure-cookbook.com/
+
 AMAZING
     http://himera.herokuapp.com/synonym.html
 
@@ -9,10 +12,10 @@ http://clojure.org/cheatsheet
 amazing book/tutorial:
     http://www.braveclojure.com/
 
-web app quickstart:
+web app:
     https://github.com/kremers/clojurewebtemplate
-
     https://github.com/jalehman/react-tutorial-om
+    static site generation: http://cjohansen.no/building-static-sites-in-clojure-with-stasis
 
 datomic discussion and video link:
     http://www.reddit.com/r/Clojure/comments/1t6h2v/datomicjunk_a_bunch_of_datomic_utility_functions/

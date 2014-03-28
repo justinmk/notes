@@ -278,14 +278,25 @@ just use gvim and forget about it. But that's where we are. VT-100 legacy
 is sitting on top of a massive, massive pile of tools and powershell 
 isn't positioned to address.
     discussion to improve Vim terminal behavior: http://stackoverflow.com/a/14642074/152142
+    [1] https://github.com/neovim/neovim/issues/176#issuecomment-37070131
 
 sed becomes second nature as a side-effect of normal, prolific Vim usage.
 Searching for ^\s.+ becomes an actually desirable thing to reach for, 
 because then you can `cgn` the matches. Regex (even if quirky) becomes 
-an actually desirable tool. For real, seriously. You won't get that in 
-sublime. I had no desire to learn sed, because I always thought "I'll 
+an actually desirable tool. Removing ambiguitiy from a text search 
+(example: "find all lines that look like variable assignment and start with a dollar sign"),
+instead of "don't bother", becomes a low-friction "yes, of course".
+I had no desire to learn sed, because I always thought "I'll 
 just reach for python or ruby or whatever". And yes, you can do that 
 in vim too (:py :ruby :lua).
+
+Why is <c-u> peppered all over mappings?
+    Besides the obvious range that is inserted with : in visual-mode,
+    a range is also inserted if you prepend : with a [count].
+    This causes unwanted side effects (:h :func-range)
+        Vim will call the function {range} times
+        the cursor is moved to the start the line, even with a range of 1.
+    A function marked with 'range' is sent magic parameters *a:firstline* *a:lastline*
 
 vnoremap, noremap, xnoremap. Q: Why care about selection-mode? A: For snippets plugins.
 
