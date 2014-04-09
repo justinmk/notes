@@ -249,6 +249,11 @@ running instance of Vim), regardless of what file (buffer) you are
 currently using. Think of it as your "working directory" for the current 
 vim session. 
 
+lockvar: what does it do? is there a performance benefit?
+
+mbyte: mbyte is Vim's name for UTF-8 (and DBCS... http://en.wikipedia.org/wiki/DBCS#Controversy ).
+    https://github.com/neovim/neovim/issues/68#issuecomment-39664151
+
 :make and &makeprg are for processing the current buffer through *any* program.
 The name "make" is just a historical misnomer.
 

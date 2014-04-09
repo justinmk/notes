@@ -111,3 +111,11 @@ MERGING, REBASING, SVN
 
      http://keithp.com/blogs/Repository_Formats_Matter/
      subversion repository format is poorer than the git one. It doesn't support merging well, or committers vs authors or commit times distinct from push times
+
+     options that are good for small batches, but fall over on large batches:
+        [rerere]
+            enabled = 1
+        [merge]
+            # disable renameLimit  http://stackoverflow.com/a/13118734/152142
+            renameLimit = 0
+

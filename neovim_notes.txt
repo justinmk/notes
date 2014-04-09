@@ -3,3 +3,11 @@ debugging with lldb + busted: https://github.com/neovim/neovim/pull/395#issuecom
     lldb .deps/usr/bin/luajit -- .deps/usr/bin/busted_bootstrap  -o TAP --pattern=.moon test
     (lldb) run
 
+specify gcc/clang: https://github.com/neovim/neovim/issues/436#issue-30530183
+    with cached CMake config:
+        $ rm -rf build && make CC="/usr/local/bin/clang" && make unittest
+    before building CMake config:
+        $ make cmake CMAKE_EXTRA_FLAGS="-DCMAKE_C_COMPILER=/usr/local/bin/clang"
+
+`make clean` cleans up the build artifacts, but not the cached CMake configuration
+
