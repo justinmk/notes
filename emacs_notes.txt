@@ -64,3 +64,7 @@ The (function) special form returns function-object without evaluating it.
 
 (macroexpand '(inc2 r s))
     ;; => (progn (inc r) (inc s))
+
+WINDOWS INSTALL
+===============
+libxml2 DLLs: http://sourceforge.net/projects/ezwinports/files/

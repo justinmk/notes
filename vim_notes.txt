@@ -147,6 +147,7 @@ MOVE through text:
     ]} ]] ) } 
     e E ge gE    move to end of word
     w W          move to next word
+    [count]%     move to [count] percentage in the file
 
 MOVE through changes and jumps:
     g; g,           jump up/down the changes stack

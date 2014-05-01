@@ -106,6 +106,15 @@ REBASING ONTO NON-SVN REMOTES
 PUSH LOCAL BRANCH TO REMOTE BRANCH
     git push remote_alias local_branch:remote_branch
 
+GITHUB: FETCH PULL REQUESTS AS LOCAL REFERENCES: https://help.github.com/articles/checking-out-pull-requests-locally
+
+    [remote "origin"]
+        fetch = +refs/pull/*/head:refs/pull/origin/*
+                ^^                ^
+                ||                local ref pattern
+                |remote ref pattern
+                update references even if they aren't fast-forwards
+
 MERGING, REBASING, SVN
     #preserve author in dcommit
 

@@ -9,5 +9,10 @@ specify gcc/clang: https://github.com/neovim/neovim/issues/436#issue-30530183
     before building CMake config:
         $ make cmake CMAKE_EXTRA_FLAGS="-DCMAKE_C_COMPILER=/usr/local/bin/clang"
 
+attach gdb to hung process (linux) to get a backtrace: https://github.com/neovim/neovim/pull/485#issuecomment-39793311
+        gdb attach $(ps auxx | grep '[n]vim' | awk '{print $2}')
+    You may need to enable ptrace for non-child processes:
+        echo 0 > /proc/sys/kernel/yama/ptrace_scope
+
 `make clean` cleans up the build artifacts, but not the cached CMake configuration
 
