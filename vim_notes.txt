@@ -228,9 +228,50 @@ vim is a component
 vim is _not_ a platform (unlike emacs)
 vim vs emacs:
     - worse is better?
+        1 VimL is more accessible than elisp, for the 80% of programmers who are only comfortable with
+          a conventional non-lisp language.
+        2 vim is a DSL for editing text. it turns out that most users--most _power_ users--
+          do not care about infinite extensibility. What matters for an editor is:
+            - it fills the gap between shell scripts (or a 4GL for those who don't know scripting)
+              and copy-paste. Macros + vim-regex + ex commands + text-objects + composable & repeatable
+              operations fill that gap better than anything else so far.
+            - makes simple things easy and difficult things can be shelled out to external tools (unix way)
+                - rewrite the universe in elisp is not a good tradeoff just to get extensibility,
+                  because most users just want STDOUT & STDIN.
+        - I truly love the emacs model and elegance, and I had high hopes for Light Table.
+            Now I believe the real progress will come from something like atom talking
+            to an nvim server. nvim + extensible core (written in a popular language)
+            + webkit engine. And of course, nvim for terminal setups.
+                - evil-mode is superb, and I use it happily, but configuring it
+                  _and_ configuring emacs besides will harm adoption. See [1] and [2] for why users won't move to emacs for evil-mode.
     - convention over configuration (relatively...)
     - smaller surface area
-    - backwards compatibility
+    - backwards compatibility: emacs is not afraid to break plugins. Many plugins
+      work only with 24.3 or even 24.4, which is the bleeding edge.
+      Most Vim plugins support 7.2.
+
+why was / chosen for the "search" operation?
+    - / shares the same key as ? which is a reasonable mnemonic for "search".
+        - but why should arbitrary key placement on the US layout determine the 
+          mnemonics for a text manipulation DSL?
+            - precisely because it is arbitrary, and in the end most keyboards
+              can switch to US layout as needed. For the same reason that greek letters are 
+              used as shorthand for a quantity-manipulation DSL--math--but the vastly
+              most important function of this shorthand is to increase the density (throughput)
+              and reduce friction of absorption (because remember, time complexity
+              is lower-bounded by space complexity); and mnemonic is a minor incidental
+              benefit that was most accessible to the originator and only helpful to the
+              most curious of students today (eg, how many realize that sigma is a mnemonic
+              for [S]um?). But for latin-based cultures, the mnemonics of the vim
+              commands are there for the curious, as the mnemonics of greek are for 
+              curious math students. The mnemonics are less intuitive for asian
+              users, but the primary important result is that we have a dense
+              language for text manipulation represented by economical symbols.
+              From there we can move on to using the language, which is where
+              the real value exists. Also from there, we can _extend_ the 
+              language using the existing patterns. For example, / means search
+              and g is the main "auxliary namespace" for vim commands, so g/
+              can be used to prefix a namespace of advanced search functions.
 
 scoping (local variables): 
     let g:foo = 'qux'
@@ -245,12 +286,20 @@ scoping (local variables):
 don't bother with cream
 don't get windows build from vim.org
 
+the primary value of vim is:
+    - composition of commands
+    - repeatable
+        text editing is an accidental task. in the future we might be editing ASTs, not text.
+        see vim-sexp and evil+smartparen to see how the vim model applies beyond dumb text.
+        (lambdu, MPS)
+    - macros (record the literal keystrokes--also has a cost)
+
 vim's "current directory" applies to the entire vim session (the current 
 running instance of Vim), regardless of what file (buffer) you are 
 currently using. Think of it as your "working directory" for the current 
 vim session. 
 
-lockvar: what does it do? is there a performance benefit?
+lockvar: what does it do? is there a performance benefit? (no)
 
 mbyte: mbyte is Vim's name for UTF-8 (and DBCS... http://en.wikipedia.org/wiki/DBCS#Controversy ).
     https://github.com/neovim/neovim/issues/68#issuecomment-39664151
