@@ -80,6 +80,7 @@ special buffers:
 search
     ';' is a special offset to "chain" searches. Example:
         ab/;/cd     search for "cd" after the next "ab"
+    :%s/foo//gn     count matches of "foo"
 
 substitute (search/replace):
   almost any character (following s) can be used as the delimiter:
@@ -335,6 +336,10 @@ isn't positioned to address.
     discussion to improve Vim terminal behavior: http://stackoverflow.com/a/14642074/152142
     [1] https://github.com/neovim/neovim/issues/176#issuecomment-37070131
 
+    great explication of legacy terminal key code handling:
+        https://github.com/neovim/neovim/issues/176#issuecomment-38017737
+        http://stackoverflow.com/a/4728904/152142
+
 sed becomes second nature as a side-effect of normal, prolific Vim usage.
 Searching for ^\s.+ becomes an actually desirable thing to reach for, 
 because then you can `cgn` the matches. Regex (even if quirky) becomes 
@@ -352,6 +357,18 @@ Why is <c-u> peppered all over mappings?
         Vim will call the function {range} times
         the cursor is moved to the start the line, even with a range of 1.
     A function marked with 'range' is sent magic parameters *a:firstline* *a:lastline*
+
+wtf is noremap?
+    non-recursive map
+
+marks seems useless?
+    - more useful if they appear in the signs column
+    - don't conserve them. use them, abuse them!
+        - put them on maps like ':nnoremap / ms/'
+
+leader key?
+    - leader key is for throwaway mappings. merging a bunch of files opened
+      at the command line? ':nmap ,d ]agg]nd]ndd]n'
 
 vnoremap, noremap, xnoremap. Q: Why care about selection-mode? A: For snippets plugins.
 
@@ -374,7 +391,18 @@ http://learnvimscriptthehardway.stevelosh.com/
     - gave vim a high-quality, accessible, attractive go-to tutorial
     - now we just need a better brand at vim.org
 
-UNIQUE FEATURES (not counting emacs et al)
+inclusive vs exclusive (:help inclusive)
+    Vim makes a distinction between _inclusive_ and _exclusive_ motion.
+    v toggles the "inclusiveness" or "exclusiveness" of a motion.
+    Examples:
+        dvb     inclusive `b`
+        dve     exclusive `e`
+
+MAC SLOWNESS
+============
+http://danmarner.com/2014/05/02/One-Weird-Trick-To-Make-Vim-Go-Faster-On-Your-Mac.html
+
+UNIQUE(?) FEATURES
 ==========================================
 persistent undo
 undo tree / :earlier / :later

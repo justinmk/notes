@@ -32,8 +32,10 @@ golang repl:
     https://github.com/sergey-pashaev/gore-mode
 
 
-LISP
-====
+EMACS LISP
+==========
+[video] intro to emacs lisp (and ERC): http://emacsnyc.org/videos.html#2014-04
+
 show results in buffer, a la Light table:
     <C-j> eval-print-last-sexp
 

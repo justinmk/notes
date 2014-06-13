@@ -6,6 +6,7 @@ book:
 
 AMAZING
     http://himera.herokuapp.com/synonym.html
+    http://cjohansen.no/clojure-to-die-for
 
 http://clojure.org/cheatsheet
 
