@@ -23,8 +23,7 @@ FILTER buffer contents through shell command (acme!) - http://stackoverflow.com/
         {range}!!
         !{motion}{shell cmd} (e.g. !Gls<cr>)
     Instead of :.!date write "date" in a buffer, then (in normal mode): 
-        !<space>sh This will pipe the line to the "sh" shell and substitute 
-        with the output from the command.
+        !!bash<cr>
 
     :{range}! filters a range of lines through a command and replaces those 
     lines with the output.
@@ -247,9 +246,13 @@ vim vs emacs:
                   _and_ configuring emacs besides will harm adoption. See [1] and [2] for why users won't move to emacs for evil-mode.
     - convention over configuration (relatively...)
     - smaller surface area
-    - backwards compatibility: emacs is not afraid to break plugins. Many plugins
+    - backwards compatibility:
+        - emacs plugins embrace the bleeding edge and commonly require latest emacs.
+        - vim reluctance to add features means plugins must find workarounds,
+          which means they will be backwards-compatible.
       work only with 24.3 or even 24.4, which is the bleeding edge.
       Most Vim plugins support 7.2.
+    - emacs is "not in the business of competing": http://www.reddit.com/r/emacs/comments/2bho80/emacs_maintainer_were_not_in_the_business_of/cj5lr7d
 
 why was / chosen for the "search" operation?
     - / shares the same key as ? which is a reasonable mnemonic for "search".
@@ -340,6 +343,19 @@ isn't positioned to address.
         https://github.com/neovim/neovim/issues/176#issuecomment-38017737
         http://stackoverflow.com/a/4728904/152142
 
+    http://vim.wikia.com/wiki/Mapping_fast_keycodes_in_terminal_Vim
+        There are two types of keycodes: terminal keycodes and Vim keycodes. Terminal keycodes look something like
+            ^[[1;2A
+            These are actual bytes that are sent to Vim by the terminal when we type Shift-Up, for example (on an xterm).
+        Vim keycodes look like
+            <S-Up>
+        Vim needs its own representation of keycodes because it runs on a variety of platforms.
+        Vim can act upon its own keycodes, and leave the assignment of terminal keycodes to
+        autodetection or to manual setup by the user.
+
+    NOTE(jkeyes): emacs calls these two concepts "function keys" and "control keys".
+        http://stackoverflow.com/a/917031/152142
+
 sed becomes second nature as a side-effect of normal, prolific Vim usage.
 Searching for ^\s.+ becomes an actually desirable thing to reach for, 
 because then you can `cgn` the matches. Regex (even if quirky) becomes 
@@ -366,9 +382,10 @@ marks seems useless?
     - don't conserve them. use them, abuse them!
         - put them on maps like ':nnoremap / ms/'
 
-leader key?
-    - leader key is for throwaway mappings. merging a bunch of files opened
-      at the command line? ':nmap ,d ]agg]nd]ndd]n'
+leader key? => leader key is for throwaway mappings.
+    - merging a bunch of files opened at the command line? ':nmap ,d ]agg]nd]ndd]n'
+    - record a macro in @q and then store it in a map:
+        nmap ,l <c-r><c-r>q
 
 vnoremap, noremap, xnoremap. Q: Why care about selection-mode? A: For snippets plugins.
 
@@ -386,6 +403,9 @@ to run via ':runtime! foo.vim'
     http://stackoverflow.com/a/13698530/152142
 
 .gvimrc runs after .vimrc, and exists only to disable annoying gvim defaults.
+
+harmony with shell:
+    vim -Nu <(echo 'echom "hi" | call append(1, "foo")')
 
 http://learnvimscriptthehardway.stevelosh.com/
     - gave vim a high-quality, accessible, attractive go-to tutorial

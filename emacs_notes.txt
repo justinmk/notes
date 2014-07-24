@@ -5,6 +5,9 @@ http://www.masteringemacs.org/
 
 http://www.emacswiki.org/emacs/Reference_Sheet_by_Aaron_Hawley
 
+very good explanation of (autoload):
+    http://www.lunaryorn.com/2014/07/02/autoloads-in-emacs-lisp.html
+
 C-h m           available major/minor modes and bindings
 C-h k           show the functions bound to a key sequence
 C-h f           show the key sequence(s) bound to a function
@@ -67,6 +70,3 @@ The (function) special form returns function-object without evaluating it.
 (macroexpand '(inc2 r s))
     ;; => (progn (inc r) (inc s))
 
-WINDOWS INSTALL
-===============
-libxml2 DLLs: http://sourceforge.net/projects/ezwinports/files/

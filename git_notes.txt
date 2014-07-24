@@ -14,6 +14,10 @@ GENERAL
     # example: show the last merge commit
     $ git show :/^Merge
 
+CONFIGURATION: ALIASES
+    ! runs at the root of the repo. To make ! commands relative to the current
+    directory, cd to $GIT_PREFIX:
+        git alias foo='!cd $GIT_PREFIX; foo -bar'
 
 BRANCHING
     git checkout -b new_branch [old_branch]
@@ -128,3 +132,12 @@ MERGING, REBASING, SVN
             # disable renameLimit  http://stackoverflow.com/a/13118734/152142
             renameLimit = 0
 
+GIT INTERNALS: http://git-scm.com/book/en/Git-Internals-Plumbing-and-Porcelain
+    Git is a content-addressable filesystem with a VCS UI written on top of it.
+
+    core parts of Git:
+    .git/
+        HEAD        points to the current branch
+        index       stores staging area information
+        objects/    stores all database content
+        refs/       stores pointers (branches) to commit objects in objects/

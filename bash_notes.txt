@@ -19,6 +19,25 @@ grep recursive glob filter for bash 4+ with:
     -s      Nonexistent and unreadable files are ignored.
     -n      Each output line is preceded by its line number relative to the file
 
+conditionals
+    Whitespace in conditional brackets is *required*.
+        This will cause an error:
+            ["$TERM" = ""] || echo ok
+        This is correct:
+            [ "$TERM" = "" ] || echo ok
+
+TOOLS:
+    iftop
+    iotop
+    lsof "replaces ps and netstat"  http://danielmiessler.com/study/lsof/
+        lsof -c tmux        see what files and network connections tmux is using
+        losf /var/log/*     see everything that is interacting with /var/log/*
+
+FAQ:
+    you don't need to protect the end-of-line with a backslash if:
+        - the line ends with the pipe symbol
+        - you are in an unclosed string
+
 SSH
 ===============================================================================
 Host disconnected but not timed out yet? Press <Enter>~. to quit the client.
