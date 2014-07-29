@@ -1,0 +1,124 @@
+GENERAL GUIDELINES
+==============================================================================
+to debug a "hang":
+    - to investigate a high CPU usage, use "performance" profiling
+    - to investigate a blocked resources, use "instrumented" profiling
+
+DEBUGGING .DMP FILES
+==============================================================================
+
+to debug performance (native _and_ .NET):
+    1. open in visual studio,
+    2. start "debugging" the DMP file,
+    3. select Debug > Windows > Parallel Stacks
+        This shows stacktraces grouped and linked together.
+
+for .NET processes:
+  http://debugdiag.com
+
+for native processes:
+  windbg
+
+Things to ignore when debugging ASP.NET
+  http://blogs.msdn.com/b/tess/archive/2005/12/20/things-to-ignore-when-debugging-an-asp-net-hang.aspx
+  "In general for hangs in native code, for high cpu hangs, look for active
+   threads (doing something other than wait for single or multiple objects),
+   for low CPU hangs, look for threads stuck in critical sections, waiting on
+   socket calls or COM calls or DB calls."
+
+WINDBG
+===============================================================================
+"The version of SOS does not match the version of CLR you are debugging."
+
+first steps:
+   .load C:\foo\bar\SOS.dll
+ 
+.sympath SRV*c:\symcache*http://msdl.microsoft.com/download/symbols
+
+Attempt to auto-diagnose the problem:
+    !analyze -v
+
+Find all addresses of a given type (works for partial strings as well)
+    !dumpheap -type ConnectWise.PSA.Data.CW.Models.LinkClickedEntry
+
+After !dumpheap prints addresses, you can find the GC roots of a given address:
+    !GCRoot 000007ff04b12f88
+
+=======
+=======
+=======
+=======
+=======
+marco notes below:
+=======
+
+Make sure you open the dump with the correct bitness.
+To find out the bitness (and the version of mscorwks) of the current dump:
+ lmv m mscorwks
+this shows the version of mscorwks and its bitness too
+
+To debug a 32-bit crash dump on a 64-bit machine do the following:
+1- Use windbg x86 version
+2- load SOS as usual and set the symbol path
+3-  .load wow64exts
+4-  !sw (switch to 32bit mode)
+
+To download a different version of mscordacwks.dll file than the one you have installed:
+========================================================================================
+1- Find the version at http://www.mskbfiles.com/mscorwks.dll.php
+2- Download the patch file (msu, msi, etc.)
+3- run the following commands to extract the dll from the patch exe
+  c:\ >expand.exe -f:* C:\Windows6.0-KB983589-x64.msu C:\temp
+  c:\ >expand.exe -f:* C:\temp\Windows6.0-KB983589-x64.cab C:\temp\cab
+4- Look for the dll file inside the folders (it's not immediately obvious)
+   (e.g. Folder name starts with x86_netfx-mscordacwks_)
+
+To use a different mscordacwks.dll file that you got from the crash dump machine:
+==================================================================================
+Method 1:
+1- put the mscordacwks.dll in a temp directory (e.g. c:\temp)
+2-  .cordll -ve -u -lp c:\temp
+Method 2:
+1- rename mscordacwks.dll to mscordacwks_<arch>_<arch>_<version>.dll
+(e.g. mscordacwks_AMD64_AMD64_2.0.50727.5448.dll) 
+2- add its location to the symbol path
+
+To set the symbols' path:
+ .sympath SRV*c:\symcache*http://msdl.microsoft.com/download/symbols
+ .reload
+
+To load SOS:
+ .loadby sos mscorwks
+
+To use SOSEX
+===========
+1-  .load C:\WinDBG\sosex_64\sosex.dll
+
+Memory Leaks:
+=============
+ !dumpheap -type System.Windows.Forms.WebBrowser
+ !gcroot address (address is not MT)
+
+Types of handles:
+----------------
+- Strong Handles: they keep the object they point to alive until the handle is explicitly freed. Typically a static variable.
+- Pinned Handles: they are used to prevent the GC from moving an object during collection. Pinning objects can cause heap fragmentation.
+- Weak Short Handles: they are non null as long as the object they reference is alive because of another Strong reference. They are null otherwise.
+- Weak Long Handles: they are non null as long as the object they reference hasn’t been reclaimed by the GC. It can be resurrected.
+
+To see all static and instance fields:
+ !DumpObj <obj address>
+To see all methods:
+ !DumpMT -MD <MethodTable address>
+
+Managed vs Native leak
+=======================
+ !address -summary
+'Heap' - memory allocated on the NT heaps (native)
+'Image' - memory allocated for exe and DLL files
+'VAR' or 'VAD' - memory allocated with VirtualAlloc (.net GC heaps)
+
+To Get Version information about a module
+=========================================
+ lm vm <module name w/o extension>
+
