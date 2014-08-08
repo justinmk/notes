@@ -30,12 +30,19 @@ WINDBG
 ===============================================================================
 "The version of SOS does not match the version of CLR you are debugging."
 
-first steps:
-   .load C:\foo\bar\SOS.dll
+SOS is needed for .NET debugging.
+To load a different version of SOS (copied from source machine):
+    .load <path to sos>\sos.dll
+or if you put a different version of sos.dll in the windbg directory:
+    .load sos
+or to load SOS from the .NET framework installed on the current machine:
+    .loadby sos clr
+                ^ in .NET 2 this was 'mscorwks'
  
-.sympath SRV*c:\symcache*http://msdl.microsoft.com/download/symbols
+To load symbols (native only; symbols/pdb are not needed for .NET)
+    .sympath SRV*c:\symcache*http://msdl.microsoft.com/download/symbols
 
-Attempt to auto-diagnose the problem:
+Attempt to auto-diagnose the problem (native only):
     !analyze -v
 
 Find all addresses of a given type (works for partial strings as well)
@@ -86,9 +93,6 @@ Method 2:
 To set the symbols' path:
  .sympath SRV*c:\symcache*http://msdl.microsoft.com/download/symbols
  .reload
-
-To load SOS:
- .loadby sos mscorwks
 
 To use SOSEX
 ===========

@@ -106,7 +106,7 @@ run the above program and it shows this output:
 
 Notice that although the cmd.exe terminal displays the pasted cp1252 characters
 (‡vˆ / 87-76-88), those bytes are not sent to stdin of `smurf.exe`. Instead,
-because `Console.InputEncoding` is IBM437, `ReadLine()` returns IBM437-encoded
+because `Console.InputEncoding` is IBM437[4], `ReadLine()` returns IBM437-encoded
 string (╪v^ / D8-76-5E). Good times.
 
 But you can read the incoming bytes like this:
@@ -220,8 +220,13 @@ depage, so byte sequence `3F` is used in their place.
     > So there can be no endian issues with UTF-8.
 
 [3] such as C# which represents Unicode strings internally as UTF16 byte sequences
-[4] cmd.exe happens to use IBM437 codepage, the
+[4] cmd.exe happens to default to IBM437 codepage, the
     [same codepage as MSDOS](http://en.wikipedia.org/wiki/Code_page_437). FFS, people!
+    `chcp` reports the current codepage in cmd.exe:
+    ```
+    > chcp
+    Active code page: 437
+    ```
 [?] http://doc.cat-v.org/bell_labs/utf-8_history
   important design feature of UTF8 added by Ken Thompson is "self-synchronization":
   > the ability to synchronize a byte stream picked up mid-run, with less that one

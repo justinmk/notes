@@ -3,6 +3,7 @@ VIM NOTES
 good:
     http://vimcasts.org/
     http://glts.github.io/2013/04/28/vim-normal-mode-grammar
+    FAQ! http://vimhelp.appspot.com/vim_faq.txt.html
 
 plugins:
     ctags.sourceforge.net 
@@ -353,6 +354,10 @@ isn't positioned to address.
         Vim can act upon its own keycodes, and leave the assignment of terminal keycodes to
         autodetection or to manual setup by the user.
 
+    terminal on Windows: https://groups.google.com/forum/#!msg/libuv/EhwAn3y9wWo/T-yyLvVmIrYJ
+        "The ability to automate interactive programs using libuv would be a killer feature,
+        libuv could be used as a replacement for libexpect and node.js a replacement for expect"
+
     NOTE(jkeyes): emacs calls these two concepts "function keys" and "control keys".
         http://stackoverflow.com/a/917031/152142
 
@@ -382,6 +387,10 @@ marks seems useless?
     - don't conserve them. use them, abuse them!
         - put them on maps like ':nnoremap / ms/'
 
+[count] seems useless
+    - don't try to be exact. If you know a target is in the same column, say,
+      about 10 lines away, just mash 8j.
+
 leader key? => leader key is for throwaway mappings.
     - merging a bunch of files opened at the command line? ':nmap ,d ]agg]nd]ndd]n'
     - record a macro in @q and then store it in a map:
@@ -393,6 +402,8 @@ g@ is to create an operator (like 'd'), _not_ an operand (like 'w' or a custom
 motion). To "create" an operand, simply omap to a function that check v:operator.
 
 omnifunc is _not_ the same thing as completefunc: https://github.com/guns/vim-clojure-static/blob/8bed65c3f42aaf4d906aaca93d223f62a53542ce/ftplugin/clojure.vim#L34
+    completefunc: User defined completion       :h compl-function
+    omnifunc:     filetype-specific completion  :h compl-omni
 
 runtimepath is like bash $PATH. The order matters. Any VimL file in a plugin/
 directory anywhere in your runtime path _is_ a plugin. You can force plugins

@@ -18,6 +18,8 @@ CONFIGURATION: ALIASES
     ! runs at the root of the repo. To make ! commands relative to the current
     directory, cd to $GIT_PREFIX:
         git alias foo='!cd $GIT_PREFIX; foo -bar'
+    #Use GIT_TRACE=1 to make the alias processing transparent:
+    $ GIT_TRACE=1 git foo
 
 BRANCHING
     git checkout -b new_branch [old_branch]
