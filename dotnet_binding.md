@@ -3,13 +3,13 @@ projects (`.csproj`) which have installed Entity Framework via NuGet, and you
 want to modify the [EF source](https://github.com/aspnet/EntityFramework) and
 use that modified version instead of the NuGet version.
 
-Before compiling your modified version of EF, make sure you change the
-AssemblyVersion (in file `SharedAssemblyVersionInfo.cs`) to something other
-than the version they're shipping, to be super sure you are referencing the
-modified EF assembly and not some cached assembly hiding in the binder's
-*search path*.
+Before compiling your modified version of EF, make sure you disable signing[1],
+and change the AssemblyVersion (in `SharedAssemblyVersionInfo.cs`) to something
+other than the version they're shipping, (to be super sure you are referencing
+the modified EF assembly and not some cached assembly hiding in the binder's
+search path).
 
-Here it's changed it to 6.0.0.42 (the other entries don't matter[1]):
+Here it's changed it to 6.0.0.42 (the other entries don't matter[2]):
 
 ```cs
 #if !BUILD_GENERATED_VERSION
@@ -37,7 +37,7 @@ Then if you run your program/website, you get a "manifest mismatch" error:
 > or one of its dependencies. The located assembly's manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)
 
 You might [delete ASP.NET temporary assembly cache]
-You could try uninstalling EF from the GAC, via the "Developer Command Prompt"[2]:
+You could try uninstalling EF from the GAC, via the "Developer Command Prompt"[3]:
 
     :see if EntityFramework is in the GAC
     gacutil /l EntityFramework
@@ -74,9 +74,11 @@ in one project without updating the `App.config`s (it's still pretty noisy, thou
 
 But if you add a `<bindingRedirect>` to your project, the error wont' go away. Why?
 
-As soon as you run into a binding issue, you should reach for the
-[Fusion Log Viewer](http://www.hanselman.com/blog/BackToBasicsUsingFusionLogViewerToDebugObscureLoaderErrors.aspx).
-This tool is included with Visual Studio, and it tells you where a reference is coming from.
+ASP.NET shows "Assembly Load Trace" (the same log that Fusion Log Viewer shows!
+But if you have a component such as an IoC that dynamically loads some assemblies, you may not see the ASP.NET error page).
+
+For binding issues, reach for the [Fusion Log Viewer](http://www.hanselman.com/blog/BackToBasicsUsingFusionLogViewerToDebugObscureLoaderErrors.aspx).
+This tool (included with Visual Studio) tells you where a reference is coming from.
 
 - Open "Developer Command Prompt" and run `fuslogvw.exe`.
 - Click "Settings"
@@ -105,21 +107,19 @@ Open the fusion log file (named like `Default/b85f73b8/EntityFramework, Version=
     LOG: Dynamic Base = C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\v4_6_development\9347a27e
     LOG: Cache Base = C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\v4_6_development\9347a27e
     LOG: AppName = b85f73b8
-    Calling assembly : ConnectWise.PSA.Data.CW, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null.
+    Calling assembly : Foo.Bar, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null.
     ===
 
-Pay attention to "Calling assembly", Version, and PublicKeyToken
+Pay attention to "Calling assembly", Version, and PublicKeyToken.
+
+After you fix the reference from the calling assembly "Foo.Bar", if the error
+happens again, the calling assembly will be different: then you need to fix the
+reference from *that* project (and add a binding `<bindingRedirect>` to that
+project's App.config), and so on.
 
 System.AppDomain.CurrentDomain.AssemblyResolve
 AppDomain.CurrentDomain.ReflectionOnlyAssemblyResolve
   are useful but in my case they were sending ResolveEventArgs.RequestingAssembly as null, so that dosen't help.
-
-To work around this, there are two options:
-
-  - [modify the publickeytoken](http://stackoverflow.com/a/3889238/152142) using `ildasm.exe`
-      - (I have no idea if this works, and it seems to me that it would defeat the purose of the publickeytoken.)
-  - change the version of 
-
 
 Assembly.LoadFrom() isn't going to solve a manifest mismatch.
 
@@ -168,8 +168,10 @@ packages.config doesn't matter:
     </packages>
 
 
-[1] AssemblyVersion is the *only* value the .NET binder cares about.
+[1] In Visual Studio: go to project properties, Signing, uncheck "Sign the assembly"
+
+[2] AssemblyVersion is the *only* value the .NET binder cares about.
     AssemblyFileVersion is used [to indicate a build number without affecting downstream
     compilation](http://www.danielfortunov.com/software/$daniel_fortunovs_adventures_in_software_development/2009/03/03/assembly_versioning_in_net).
 
-[2] This basically just adds `%VS120COMNTOOLS%` to your `%PATH%`.
+[3] This basically just adds `%VS120COMNTOOLS%` to your `%PATH%`.
