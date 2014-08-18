@@ -11,12 +11,16 @@ plugins:
 
 READ results into cursor position (acme!) - http://stackoverflow.com/a/2960630 
                                             http://superuser.com/a/251959/114842
-    :r!foo                 read in stdout from a shell command
+    :r!foo                  read in stdout from a shell command
     <c-r>=system('foo')
-    :r [file]              read in contents of [file]
-    <c-r>=&vim_variable    hint: works with tab-complete (wildmenu)
+    :r [file]               read in contents of [file]
+    <c-r>=&vim_variable     hint: works with tab-complete (wildmenu)
     <c-r>=SomeFunction()
-    <c-r>[register_name]   % # : .
+    <c-r>[register_name]    % # : .
+
+WRITE buffer to external process
+    :w !bash                send buffer contents to bash
+                            TODO: doesn't work with unsaved contents
 
 FILTER buffer contents through shell command (acme!) - http://stackoverflow.com/a/790218/152142
     In normal mode, ! is an operator (action) like y/d/c. You can do: 
@@ -67,6 +71,8 @@ fundamental:
     capitalizing (shift) performs the "inverse" of the command
     .             repeat the previous command
     :5,42[cmd]    prepend a range to any command
+                  range can be defined by a search:
+                    :/^start of test/+1,/^end of test/-1w! Xtest.c
 
 modifiers:
     *,#  search "whole word" under cursor
@@ -236,6 +242,8 @@ vim vs emacs:
             - it fills the gap between shell scripts (or a 4GL for those who don't know scripting)
               and copy-paste. Macros + vim-regex + ex commands + text-objects + composable & repeatable
               operations fill that gap better than anything else so far.
+              - one-liners like :g/r/e/<cmd> are a major component of that DSL.
+                elisp (general-purpose language) isn't conducive to one-liners.
             - makes simple things easy and difficult things can be shelled out to external tools (unix way)
                 - rewrite the universe in elisp is not a good tradeoff just to get extensibility,
                   because most users just want STDOUT & STDIN.
@@ -361,6 +369,14 @@ isn't positioned to address.
     NOTE(jkeyes): emacs calls these two concepts "function keys" and "control keys".
         http://stackoverflow.com/a/917031/152142
 
+    'unconed' (author of TermKit) comment:
+        Unix magic like nested remote subshells and remote privilege escalation
+        works only by accident, because the programs in between are too dumb to
+        mess it up, not because of anything deliberate. Today, this means you
+        still have to abort SSH sessions by typing magic sequences (return,
+        tilde, period) rather than using out of band signalling, and catting
+        binary files into your terminal can mess it up permanently.
+
 sed becomes second nature as a side-effect of normal, prolific Vim usage.
 Searching for ^\s.+ becomes an actually desirable thing to reach for, 
 because then you can `cgn` the matches. Regex (even if quirky) becomes 
@@ -381,6 +397,16 @@ Why is <c-u> peppered all over mappings?
 
 wtf is noremap?
     non-recursive map
+
+what is the difference between ttimeout and ttimeoutlen?
+    " in the words of Steve Losh, "Basically this makes terminal Vim work sanely."
+    "   https://bitbucket.org/sjl/dotfiles/src/tip/vim/vimrc#cl-95
+    ""
+    " see also "terminal" section above
+    set ttimeout
+    set ttimeoutlen=100 "this is for keycodes
+    set timeout
+    set timeoutlen=3000 "this is for mappings
 
 marks seems useless?
     - more useful if they appear in the signs column
@@ -437,3 +463,20 @@ UNIQUE(?) FEATURES
 ==========================================
 persistent undo
 undo tree / :earlier / :later
+
+list sources https://github.com/neovim/neovim/issues/660
+    Helm is like unite.vim. The idea of a unified interface for searching lists is
+    really one of the next pillars of fundamental UIs (like copy & paste, files &
+    directories, and URLs). Emacs and Vim provide something really unique here
+    that isn't found in many other places:
+        - ability to search lists using a bag of algorithms
+        - ability to *sanely* define new sources (like [this](https://github.com/wellle/tmux-complete.vim/blob/master/autoload/unite/sources/tmuxcomplete.vim))
+        - ability to extend and define new actions on list items
+    Lists are everywhere; intelligent, effortless search should be available for every
+    kind of list source you feel like you need. 
+
+    http://www.reddit.com/r/vim/comments/2coqzs/how_do_you_work_with_vim/cji6wuu
+        Helm is a completion and narrowing framework. It provides an interface that
+        allow multi-step and out-of-order searching. For example, if I
+        want to search for list-package, "lis pac" or "pa ^li" will match.
+
