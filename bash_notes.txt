@@ -26,6 +26,28 @@ conditionals
         This is correct:
             [ "$TERM" = "" ] || echo ok
 
+    Whitespace also affects grouped {} commands.  http://www.gnu.org/software/bash/manual/bashref.html#Command-Grouping
+    Best practice:
+        - always inner-pad [ ... ] ( ... ) { ... } with whitespace.
+        - always terminate groups ( ...; ) { ...; } with semicolon.
+
+subshells and pipelines  http://stackoverflow.com/a/2188223/152142
+    In a pipeline, all commands run concurrently (with their stdout/stdin connected by pipes)
+    in different processes.
+
+    Parentheses ( ...; ) create a subshell with its own temporary environment and scope.
+
+    Braces { ...; } _group_ commands in the _current_ shell context. If that
+    group is part of a pipeline, it runs in a separate process, like any other
+    pipeline segment (http://unix.stackexchange.com/a/127346/14626).
+
+    Examples:
+        # concatenate 'date' and 'top'
+        $ { date; top -b -n1 | head ; } > logfile
+
+        # timestamp a build log
+        $ { date; make 2>&1; date; } | tee logfile
+
 TOOLS:
     iftop
     iotop

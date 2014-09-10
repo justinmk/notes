@@ -14,7 +14,7 @@ amazing book/tutorial:
     http://www.braveclojure.com/
 
 web app:
-    https://github.com/kremers/clojurewebtemplate
+    http://blog.josephwilk.net/clojure/building-clojure-services-at-scale.html
     https://github.com/jalehman/react-tutorial-om
     static site generation: http://cjohansen.no/building-static-sites-in-clojure-with-stasis
 
