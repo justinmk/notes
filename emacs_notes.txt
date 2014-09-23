@@ -15,12 +15,6 @@ M-x occur       regex-based outline!
 
 TERMINAL
 ========
-eshell / smar-display:
-    http://www.masteringemacs.org/articles/2010/12/13/complete-guide-mastering-eshell/
-
-for a "true" terminal in emacs (as opposed to eshell)
-    multi-term
-
 synopsis of shell and terminal modes included in Emacs
     https://lukeshu.com/blog/emacs-shells.html
 tips, env vars

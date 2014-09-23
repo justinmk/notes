@@ -316,6 +316,11 @@ lockvar: what does it do? is there a performance benefit? (no)
 
 mbyte: mbyte is Vim's name for UTF-8 (and DBCS... http://en.wikipedia.org/wiki/DBCS#Controversy ).
     https://github.com/neovim/neovim/issues/68#issuecomment-39664151
+    emacs uses similar terms:  http://nullprogram.com/blog/2014/06/13/
+        There are three ways to quantify multibyte text:
+            length: number of characters, including combining characters
+            bytes:  number of bytes in its UTF-8 encoding
+            width:  number of columns it would occupy in the current buffer
 
 :make and &makeprg are for processing the current buffer through *any* program.
 The name "make" is just a historical misnomer.

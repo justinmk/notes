@@ -1,3 +1,6 @@
+todo:
+    http://www.blaenkdenum.com/notes/clojure/
+
 tutorial
     http://www.youtube.com/user/Misophistful/videos
 

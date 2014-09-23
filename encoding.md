@@ -1,5 +1,12 @@
+http://www.unicode.org/faq/utf_bom.html
+[Emacs Unicode Pitfalls](http://nullprogram.com/blog/2014/06/13/)
+    HTTP headers usually have a different encoding than the content body. Emacs
+    is not prepared to handle multiple encodings from a single source, so the
+    only correct way to talk HTTP with a network process is raw.
+[What encoding/code page is cmd.exe using](http://stackoverflow.com/a/17177904/152142)
+
 It's never too late to write an encoding post, or even a Unicode post, because
-encoding is a probably-timeless problem, and UTF will be around for a long time.
+encoding is a timeless problem, and _Unicode_ is a time-resistant problem.
 UTF familiarity may actually become *more obscure* as Unicode takes over the world
 and polyfills every crevice of the "Internet of Things"; things will break less often and 
 when these problems do crop up they will be even more confounding and annoying.

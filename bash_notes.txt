@@ -1,3 +1,7 @@
+send email from command line: MSMPT
+    https://code.google.com/p/google-gadgets-for-linux/wiki/MSMPTQuickStart
+    https://wiki.archlinux.org/index.php/msmtp
+
 http://matt.might.net/articles/bash-by-example/
 
 http://en.wikipedia.org/wiki/Bash_(Unix_shell)#Keyboard_shortcuts
@@ -47,6 +51,9 @@ subshells and pipelines  http://stackoverflow.com/a/2188223/152142
 
         # timestamp a build log
         $ { date; make 2>&1; date; } | tee logfile
+
+"command" command
+    Execute command, ignoring any function "shadow". (like `normal!` in Vim)
 
 TOOLS:
     iftop
