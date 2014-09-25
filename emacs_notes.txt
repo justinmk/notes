@@ -36,6 +36,12 @@ EMACS LISP
 show results in buffer, a la Light table:
     <C-j> eval-print-last-sexp
 
+difference between define-key, evil-define-key:
+    (define-key evil-motion-state-local-map "a" 'foo)
+        ;binds "a" in the CURRENT BUFFER for ALL MODES
+    (evil-define-key 'motion foo-mode-map "a" 'foo)
+        ;binds "a" for ALL BUFFERS in ONLY THE SPECIFIED MODE
+
 'foo  means (quote foo)
 #'foo means (function foo)
     - special form that returns a function-object without evaluating it

@@ -13,7 +13,7 @@ BUILDING
     rm -rf build/ ; make clean && make cmake VERBOSE=1 && make && make unittest
     ^                                        ^
     |                                        show build command, with include paths
-    "make clean" removesp the build artifacts, but not the cached CMake configuration
+    "make clean" removes the build artifacts, but not the cached CMake configuration
 
 attach gdb to hung process (linux) to get a backtrace: https://github.com/neovim/neovim/pull/485#issuecomment-39793311
         gdb attach $(ps auxx | grep '[n]vim' | awk '{print $2}')

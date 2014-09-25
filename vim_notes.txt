@@ -247,6 +247,11 @@ vim vs emacs:
             - makes simple things easy and difficult things can be shelled out to external tools (unix way)
                 - rewrite the universe in elisp is not a good tradeoff just to get extensibility,
                   because most users just want STDOUT & STDIN.
+            - the DSL should be "optimized for usage, not programming" <= http://yosefk.com/blog/i-cant-believe-im-praising-tcl.html
+                - "commands, not expressions"
+                - "flat function calls with literal arguments is what interactive program usage is all about"
+                - "Short code matters a lot; short interactive commands matter much more"
+                    - i.e., ex-commands!
         - I truly love the emacs model and elegance, and I had high hopes for Light Table.
             Now I believe the real progress will come from something like atom talking
             to an nvim server. nvim + extensible core (written in a popular language)
@@ -314,7 +319,7 @@ vim session.
 
 lockvar: what does it do? is there a performance benefit? (no)
 
-mbyte: mbyte is Vim's name for UTF-8 (and DBCS... http://en.wikipedia.org/wiki/DBCS#Controversy ).
+mbyte: "mbyte" in practice may be read as "UTF-8".
     https://github.com/neovim/neovim/issues/68#issuecomment-39664151
     emacs uses similar terms:  http://nullprogram.com/blog/2014/06/13/
         There are three ways to quantify multibyte text:
@@ -435,6 +440,9 @@ motion). To "create" an operand, simply omap to a function that check v:operator
 omnifunc is _not_ the same thing as completefunc: https://github.com/guns/vim-clojure-static/blob/8bed65c3f42aaf4d906aaca93d223f62a53542ce/ftplugin/clojure.vim#L34
     completefunc: User defined completion       :h compl-function
     omnifunc:     filetype-specific completion  :h compl-omni
+
+syntax plugin, ftplugin:
+    http://www.reddit.com/r/vim/comments/2fdys2/question_custom_highlighting_in_vim/ck8dpxf
 
 runtimepath is like bash $PATH. The order matters. Any VimL file in a plugin/
 directory anywhere in your runtime path _is_ a plugin. You can force plugins
