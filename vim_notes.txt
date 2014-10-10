@@ -321,6 +321,14 @@ lockvar: what does it do? is there a performance benefit? (no)
 
 mbyte: "mbyte" in practice may be read as "UTF-8".
     https://github.com/neovim/neovim/issues/68#issuecomment-39664151
+    https://github.com/neovim/neovim/pull/1130#issuecomment-54032535
+        - &encoding is usually set once and forever. It does not have anything
+          to do with a buffer's read (e ++enc=..., &fileencodings), write
+          (&fileencoding), or terminal encodings.
+        - &encoding is the *internal representation* of a Vim string. All text
+          Vim works with is *always* treated with this encoding. When a buffer
+          is read it is converted to &encoding (&encoding is *not*
+          buffer-local).
     emacs uses similar terms:  http://nullprogram.com/blog/2014/06/13/
         There are three ways to quantify multibyte text:
             length: number of characters, including combining characters
@@ -476,6 +484,7 @@ UNIQUE(?) FEATURES
 ==========================================
 persistent undo
 undo tree / :earlier / :later
+folding (not in emacs): fine-grained control over folding (e.g., create an arbitrary motion-defined fold on-the-fly with zf{motion})
 
 list sources https://github.com/neovim/neovim/issues/660
     Helm is like unite.vim. The idea of a unified interface for searching lists is

@@ -1,5 +1,7 @@
 todo:
     http://www.blaenkdenum.com/notes/clojure/
+    http://yogthos.github.io/ClojureDistilled.html
+    "Typed Clojure in Practice": https://www.youtube.com/watch?v=a0gT0syAXsY
 
 tutorial
     http://www.youtube.com/user/Misophistful/videos

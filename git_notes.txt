@@ -14,6 +14,12 @@ GENERAL
     # example: show the last merge commit
     $ git show :/^Merge
 
+    # git pickaxe -G option is greedier than -S and always accepts regex!
+    $ git log -G<regex>
+
+    # git grep can search any branch!
+    $ git grep foo <branch>
+
 CONFIGURATION: ALIASES
     ! runs at the root of the repo. To make ! commands relative to the current
     directory, cd to $GIT_PREFIX:
