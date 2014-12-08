@@ -1,0 +1,9 @@
+wprui
+
+remember to rëenable Paging Executive after you're done using WPR:
+    wpr -disablepagingexecutive off
+
+https://randomascii.wordpress.com/2013/04/20/xperf-basics-recording-a-trace-the-easy-way/
+
+http://blogs.msdn.com/b/ntdebugging/archive/2012/11/30/troubleshooting-pool-leaks-part-7-windows-performance-toolkit.aspx
+

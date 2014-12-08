@@ -1,0 +1,4 @@
+do not cast functions that return (void *)
+    If your code lacks the declaration of the function, the compiler will
+    assume pre ANSI-C semantics and generate code returning an int.
+

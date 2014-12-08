@@ -2,6 +2,7 @@ todo:
     http://www.blaenkdenum.com/notes/clojure/
     http://yogthos.github.io/ClojureDistilled.html
     "Typed Clojure in Practice": https://www.youtube.com/watch?v=a0gT0syAXsY
+    "Tree visitors in Clojure" http://www.ibm.com/developerworks/library/j-treevisit/
 
 tutorial
     http://www.youtube.com/user/Misophistful/videos
@@ -52,3 +53,13 @@ FUNDAMENTALS
     other s-expressions (code as data).
         (first '(red "nut1")) ;;=> red
         (last '(red "nut1")) ;;=> "nut1"
+
+PHILOSOPHY
+
+- This classic got Clojure on the map for many people:
+      Are We There Yet? www.infoq.com/presentations/Are-We-There-Yet-Rich-Hickey
+- Simple Made Easy
+      http://www.infoq.com/presentations/Simple-Made-Easy-QCon-London-2012
+- Simplicity Ain't Easy - Stuart Halloway - https://www.youtube.com/watch?v=cidchWg74Y4
+- Ousterhout's Dichotomy Isn't (Part 2 of the Simplicity/Power/Focus Series) - Stuart Halloway
+      https://www.youtube.com/watch?v=cidchWg74Y4

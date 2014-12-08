@@ -1,3 +1,7 @@
+TODO: 
+    http://www.brentozar.com/archive/2010/09/sql-server-dba-scripts-how-to-find-slow-sql-server-queries/
+    http://blogs.msdn.com/b/angelsb/archive/2004/08/25/220333.aspx
+
 # SQL Server connection-leak debugging: state of the art (30 June 2014)
 
 Tell-tale exception:
