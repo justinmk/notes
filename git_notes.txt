@@ -37,6 +37,9 @@ BRANCHING
     git branch -a --contains 50f3754
 
 MERGING
+    REBASE AND MERGE DON'T MIX!
+        http://stackoverflow.com/a/15153099/152142
+
     git creates a "merge commit" because merges are intended to be _meaningful_.
 
 REBASING

@@ -7,3 +7,7 @@ https://randomascii.wordpress.com/2013/04/20/xperf-basics-recording-a-trace-the-
 
 http://blogs.msdn.com/b/ntdebugging/archive/2012/11/30/troubleshooting-pool-leaks-part-7-windows-performance-toolkit.aspx
 
+PerfView  http://www.microsoft.com/en-us/download/details.aspx?id=28567
+    - "used in Roslyn for almost all investigations"
+    - performance-analysis tool that helps isolate CPU- and memory-related performance issues
+    - for ETW information (ETL files) as well as CLR memory information (heap dumps)

@@ -224,9 +224,6 @@ AFFIRMATIONS of common project management wisdom:
 
 NEW USER NOTES
 ==============
-https://github.com/google/glaive
-https://github.com/google/maktaba
-
 vim is a concept
     - modal editing, atomic edits, edit grammar
     - can be implemented in any editor/IDE
@@ -311,6 +308,13 @@ the primary value of vim is:
         see vim-sexp and evil+smartparen to see how the vim model applies beyond dumb text.
         (lambdu, MPS)
     - macros (record the literal keystrokes--also has a cost)
+    - when you are able to efficiently navigate and manipulate arbitrary text:
+        - special-purpose UIs are not necessary (or even, counterproductive)
+        - reuse of the "buffer" concept allows new data/document types to be
+          navigated with very little investment, yet a lot of leverage.
+        - data may be annotated with "syntax" definitions and the same tools
+          (motions, text objects, syntax objects, plugins) can operate as
+          always; very powerful.
 
 vim's "current directory" applies to the entire vim session (the current 
 running instance of Vim), regardless of what file (buffer) you are 
