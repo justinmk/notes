@@ -1,4 +1,10 @@
+.i files = preprocessor output (e.g. build/src/nvim/auto/ex_docmd.i)
+
 do not cast functions that return (void *)
     If your code lacks the declaration of the function, the compiler will
     assume pre ANSI-C semantics and generate code returning an int.
 
+*_r function variants (rand_r, localtime_r, ...) are thread-reentrant ("restartable")[1]
+    However, they are not "signal handler reentrant"[2]
+    [1] http://www.unix.org/whitepapers/reentrant.html
+    [2] http://stackoverflow.com/a/18199867/152142

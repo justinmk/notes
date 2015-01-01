@@ -52,6 +52,14 @@ subshells and pipelines  http://stackoverflow.com/a/2188223/152142
         # timestamp a build log
         $ { date; make 2>&1; date; } | tee logfile
 
+pipe as input stream to a command (e.g., vim)
+        vim -Nu <(echo 'set rtp+=~/.vim/bundle/neocomplete.vim/')
+    for multiline stream, cat a heredoc:
+        vim -Nu <(cat << EOF
+        set runtimepath+=~/.vim/bundle/neocomplete.vim/
+        let g:neocomplete#enable_at_startup = 1
+        EOF)
+
 "command" command
     Execute command, ignoring any function "shadow". (like `normal!` in Vim)
 

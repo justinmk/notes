@@ -88,6 +88,13 @@ search
         ab/;/cd     search for "cd" after the next "ab"
     :%s/foo//gn     count matches of "foo"
 
+vim regex features:
+    \%# \%c \%l     cursor/column/line position
+    \|              branch (OR)
+    \&              branch concat: matches _only_ if the preceding branch(es) match at the _same_ position
+                    example: "foo\&...bar" matches "foobar" but not "fooobar"
+    \zs \ze
+
 substitute (search/replace):
   almost any character (following s) can be used as the delimiter:
     :%s/before/after/g
@@ -100,19 +107,22 @@ multi-repeat / global apply:
     :[range]g/{pattern}/[cmd]    apply cmd to lines matching {pattern}
     :[range]g!/{pattern}/[cmd]   inversion (apply to lines NOT matching)
 
-    examples: 
+    examples:
         print all matches of /re/:   http://stackoverflow.com/a/509720/152142
             :g/re/p
         change (substitute) foo to bar only on #comment lines:
             :g/^\s*#/s/foo/bar/g
         delete lines that match foo:
+            :g/foo/d
             :g/foo/normal dd
         append all lines matching foo to register a:
-            :g/foo/normal "Ay
             :g/foo/y A
+            :g/foo/normal "Ay
+        execute any command(s) for each line of a match:
+            :g/foo/cmd | cmd | cmd
         append the result of col('.') to lines 265-292:
             265,292s/$/\=col('.')/
-                        ^--- use \= for per-line evaluation
+                        ^- \= is evaluated for each line
 
 rubydo, pydo, perldo, luado, ...
     reverse lines 1-5
@@ -264,6 +274,12 @@ vim vs emacs:
       work only with 24.3 or even 24.4, which is the bleeding edge.
       Most Vim plugins support 7.2.
     - emacs is "not in the business of competing": http://www.reddit.com/r/emacs/comments/2bho80/emacs_maintainer_were_not_in_the_business_of/cj5lr7d
+    - vim is a "disposable" environment: spin one (or 20) up, do some work, shut it down.
+        - drop session files anywhere to resume later.
+        - fast startup is highly valued.
+        - communicate with other instances (nvim msgpack, --remote)
+        - similar to VMs, containers (docker), etc.
+        - unlike emacs, which encourages a long-running instance.
 
 why was / chosen for the "search" operation?
     - / shares the same key as ? which is a reasonable mnemonic for "search".
@@ -303,6 +319,8 @@ don't get windows build from vim.org
 
 the primary value of vim is:
     - composition of commands
+        - vim is command-oriented: searchable, malleable command history.
+        - ex-command DSL for ad-hoc text mainpulation (no equiv. in emacs?)
     - repeatable
         text editing is an accidental task. in the future we might be editing ASTs, not text.
         see vim-sexp and evil+smartparen to see how the vim model applies beyond dumb text.

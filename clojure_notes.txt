@@ -4,6 +4,9 @@ todo:
     "Typed Clojure in Practice": https://www.youtube.com/watch?v=a0gT0syAXsY
     "Tree visitors in Clojure" http://www.ibm.com/developerworks/library/j-treevisit/
 
+vim doc plugin:
+    https://github.com/jebberjeb/grimoire.vim
+
 tutorial
     http://www.youtube.com/user/Misophistful/videos
 
@@ -55,7 +58,6 @@ FUNDAMENTALS
         (last '(red "nut1")) ;;=> "nut1"
 
 PHILOSOPHY
-
 - This classic got Clojure on the map for many people:
       Are We There Yet? www.infoq.com/presentations/Are-We-There-Yet-Rich-Hickey
 - Simple Made Easy
