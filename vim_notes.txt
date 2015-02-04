@@ -4,6 +4,7 @@ good:
     http://vimcasts.org/
     http://glts.github.io/2013/04/28/vim-normal-mode-grammar
     FAQ! http://vimhelp.appspot.com/vim_faq.txt.html
+    Zintz tutorial: http://dahu.github.io/vim_waz_ere/
 
 plugins:
     ctags.sourceforge.net 

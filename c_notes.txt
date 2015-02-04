@@ -8,3 +8,19 @@ do not cast functions that return (void *)
     However, they are not "signal handler reentrant"[2]
     [1] http://www.unix.org/whitepapers/reentrant.html
     [2] http://stackoverflow.com/a/18199867/152142
+
+popen() essentially does a combination of (pipe, dup stdin/stdout/stderr, fork, execl)
+http://stackoverflow.com/a/24296225/152142
+
+strace 4.9 (with libunwind), -k option shows backtrace of syscalls
+        https://github.com/neovim/neovim/issues/1932#issuecomment-72747152
+    strace -k -e trace=chdir nvim -u NONE -echdir -c ":q"
+    chdir("/home/raf")                      = 0
+     > /lib64/libc-2.20.so(chdir+0x7) [0xd8d27]
+     > /usr/bin/nvim(uv_chdir+0x9) [0x1ac3e9]
+     > /usr/bin/nvim(init_homedir+0x62) [0xa0c82]
+     > /usr/bin/nvim(early_init+0xae) [0x15c47e]
+     > /usr/bin/nvim(main+0xa9) [0x33129]
+     > /lib64/libc-2.20.so(__libc_start_main+0xf5) [0x21b45]
+     > /usr/bin/nvim(_start+0x29) [0x354f8]
+

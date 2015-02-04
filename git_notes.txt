@@ -20,6 +20,14 @@ GENERAL
     # git grep can search any branch!
     $ git grep foo <branch>
 
+    # `git show` is analogous to `cat`.  https://www.andyjeffries.co.uk/25-tips-for-intermediate-git-users/
+    git show master:flash/foo.fla > master-foo.fla
+
+RANGES
+    git log origin/master..
+        is equivalent to:
+    git log origin/master..HEAD
+
 CONFIGURATION: ALIASES
     ! runs at the root of the repo. To make ! commands relative to the current
     directory, cd to $GIT_PREFIX:
@@ -28,7 +36,7 @@ CONFIGURATION: ALIASES
     $ GIT_TRACE=1 git foo
 
 BRANCHING
-    git checkout -b new_branch [old_branch]
+    git checkout -b new_branch [branch to track]
 
     #list all branches (local and remote)
     git branch -a
@@ -48,6 +56,10 @@ REBASING
 
     #rebase the current branch onto master
     git rebase master
+
+    #rebase onto the latest _remote_ commit on the current branch
+    #(this is sugar for  `git rebase @{u}` AKA `git rebase @{upstream}`)
+    git rebase
 
 INTERACTIVE REBASE (SELECTIVELY REMOVE OR EDIT COMMITS)
     http://christoph.ruegg.name/blog/2010/5/5/git-howto-revert-a-commit-already-pushed-to-a-remote-reposit.html
@@ -101,8 +113,14 @@ ADD A SVN REMOTE MANUALLY: http://stackoverflow.com/q/296975/152142
     git checkout -b {new_local_branch} -t {new_branch}
     git svn rebase {new_local_branch}
 
-ADDING REMOTES
-	git remote add <name> git://<ip-address>/<directory-containing-.git>
+REMOTES
+    # print fetch/push URLs
+    git remote -v
+
+    # show details about <remote> (incl. local tracking branches)
+    git remote show <remote>
+
+    git remote add <name> git://<ip-address>/<directory-containing-.git>
     git remote add smurf ssh://user@<HOST_IP>:9999/~/.git
 
 VIRTUALBOX CONFIGURATION

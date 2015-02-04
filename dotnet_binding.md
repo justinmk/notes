@@ -1,3 +1,55 @@
+If you get error like this:
+
+    error MSB3188: Assembly 'C:\FooProject\Qux\bin\Debug\AwsLib.dll'
+    must be strong signed in order to be marked as a prerequisite.
+
+If you search for this error, you will find [advice](http://stackoverflow.com/a/5238737/152142)
+suggesting update-package. But you can find out precisely *why* the error is occurring
+by enabling "detailed" verbosity in the VS build log:
+
+    Tools > Projects and Solutions > Build and Run
+        > MSBuild project build output verbosity => Diagnostic
+
+11>  There was a conflict between "AwsLib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null" and "AwsLib, Version=2015.2.0.0, Culture=neutral, PublicKeyToken=null". (TaskId:259)
+11>      "AwsLib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null" was chosen because it was primary and "AwsLib, Version=2015.2.0.0, Culture=neutral, PublicKeyToken=null" was not. (TaskId:259)
+11>      References which depend on "AwsLib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null" [C:\FooProject\packages\cw.AwsLib.2.0.0.1\lib\net451\AwsLib.dll]. (TaskId:259)
+11>          C:\FooProject\packages\cw.AwsLib.2.0.0.1\lib\net451\AwsLib.dll (TaskId:259)
+11>            Project file item includes which caused reference "C:\FooProject\packages\cw.AwsLib.2.0.0.1\lib\net451\AwsLib.dll". (TaskId:259)
+11>              AwsLib (TaskId:259)
+11>              C:\FooProject\Zub\bin\Debug\Zub.dll (TaskId:259)
+11>              C:\FooProject\Qux\bin\Debug\Qux.dll (TaskId:259)
+11>          C:\FooProject\Zub\bin\Debug\Zub.dll (TaskId:259)
+11>            Project file item includes which caused reference "C:\FooProject\Zub\bin\Debug\Zub.dll". (TaskId:259)
+11>              C:\FooProject\Qux\bin\Debug\Qux.dll (TaskId:259)
+11>              C:\FooProject\Zub\bin\Debug\Zub.dll (TaskId:259)
+11>          C:\FooProject\Qux\bin\Debug\SystemCommon.dll (TaskId:259)
+11>            Project file item includes which caused reference "C:\FooProject\Qux\bin\Debug\SystemCommon.dll". (TaskId:259)
+11>              C:\FooProject\Qux\bin\Debug\Qux.dll (TaskId:259)
+11>          C:\FooProject\Qux\bin\Debug\ServerCommon.dll (TaskId:259)
+11>            Project file item includes which caused reference "C:\FooProject\Qux\bin\Debug\ServerCommon.dll". (TaskId:259)
+11>              C:\FooProject\Qux\bin\Debug\Qux.dll (TaskId:259)
+11>      References which depend on "AwsLib, Version=2015.2.0.0, Culture=neutral, PublicKeyToken=null" []. (TaskId:259)
+11>          C:\FooProject\Qux\bin\Debug\Baz.dll (TaskId:259)
+11>            Project file item includes which caused reference "C:\FooProject\Qux\bin\Debug\Baz.dll". (TaskId:259)
+11>              C:\FooProject\Qux\bin\Debug\Qux.dll (TaskId:259)
+
+Notice the second "References which depend on..." section. This can be "solved"
+by forcing what msbuild calls a _primary reference_. The current build is
+trying to reconcile two _transitive references_ to AwsLib.dll, and it's choking
+because of conflicting versions: neither of the transitive references has priority.
+You can bulldoze this into submission by directly adding a reference to
+AwsLib.dll in the Qux project, via the VS Package Manager Console:
+
+    Update-Package cw.CommonLib -version 1.0.0.1
+
+---
+
+Note: 
+    - MSBuild "verbosity => diagnostic" is for investigating compile-time conflicts.
+    - fusion logics are for investigating runtime/dynamic-load-time/bind-time conflicts.
+
+---
+
 Imagine you have an existing Visual Studio solution (`.sln`) containing several
 projects (`.csproj`) which have installed Entity Framework via NuGet, and you
 want to modify the [EF source](https://github.com/aspnet/EntityFramework) and
