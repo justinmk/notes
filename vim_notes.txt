@@ -266,6 +266,7 @@ vim vs emacs:
             + webkit engine. And of course, nvim for terminal setups.
                 - evil-mode is superb, and I use it happily, but configuring it
                   _and_ configuring emacs besides will harm adoption. See [1] and [2] for why users won't move to emacs for evil-mode.
+                  vim refugees who stick with emacs tend to give up on evil-mode: https://www.reddit.com/r/emacs/comments/2w8qk8/venturing_out_of_evil_mode/
     - convention over configuration (relatively...)
     - smaller surface area
     - backwards compatibility:
@@ -507,6 +508,7 @@ UNIQUE(?) FEATURES
 ==========================================
 persistent undo
 undo tree / :earlier / :later
+    - emacs undotree is broken. yes, really: http://comments.gmane.org/gmane.emacs.vim-emulation/2079
 folding (not in emacs): fine-grained control over folding (e.g., create an arbitrary motion-defined fold on-the-fly with zf{motion})
 
 list sources https://github.com/neovim/neovim/issues/660

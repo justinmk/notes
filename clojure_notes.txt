@@ -4,14 +4,14 @@ todo:
     "Typed Clojure in Practice": https://www.youtube.com/watch?v=a0gT0syAXsY
     "Tree visitors in Clojure" http://www.ibm.com/developerworks/library/j-treevisit/
 
-vim doc plugin:
-    https://github.com/jebberjeb/grimoire.vim
+style/idioms:
+    https://github.com/bbatsov/clojure-style-guide
 
 tutorial
     http://www.youtube.com/user/Misophistful/videos
 
 book:
-    http://clojure-cookbook.com/
+    https://github.com/clojure-cookbook/clojure-cookbook
 
 AMAZING
     http://himera.herokuapp.com/synonym.html
@@ -34,7 +34,6 @@ Solving the Expression Problem with Clojure 1.2
     http://www.ibm.com/developerworks/java/library/j-clojure-protocols/index.html#datatypes
 
 macros: http://aphyr.com/posts/305-clojure-from-the-ground-up-macros
-    - very good series on clojure
 
 quick start screencast (eclipse, ring)
     http://www.youtube.com/watch?v=VVd4ow-ZcX0
@@ -57,6 +56,23 @@ FUNDAMENTALS
         (first '(red "nut1")) ;;=> red
         (last '(red "nut1")) ;;=> "nut1"
 
+    STATE   https://aphyr.com/posts/306-clojure-from-the-ground-up-state
+        Type       Mutability    Reads          Updates         Evaluation    Scope
+        ---------------------------------------------------------------------------
+        Symbol     Immutable     Transparent                                  Lexical
+        Var        Mutable       Transparent    Unrestricted                  Global/Dynamic
+        Delay      Mutable       Blocking       Once only       Lazy
+        Future     Mutable       Blocking       Once only       Parallel
+        Promise    Mutable       Blocking       Once only
+        Atom       Mutable       Nonblocking    Linearizable
+        Ref        Mutable       Nonblocking    Serializable
+
+PATTERNS
+    get values of a nested map (without worrying about nil):
+        (get-in foo-map [:key1 :nestedkey1 :nestedkey2])
+    modify ALL keys of a nested map (nil intermediates will be stubbed):
+        (update-in me [:address :street] #(str "33 " %))
+
 PHILOSOPHY
 - This classic got Clojure on the map for many people:
       Are We There Yet? www.infoq.com/presentations/Are-We-There-Yet-Rich-Hickey
@@ -65,3 +81,7 @@ PHILOSOPHY
 - Simplicity Ain't Easy - Stuart Halloway - https://www.youtube.com/watch?v=cidchWg74Y4
 - Ousterhout's Dichotomy Isn't (Part 2 of the Simplicity/Power/Focus Series) - Stuart Halloway
       https://www.youtube.com/watch?v=cidchWg74Y4
+
+LIBRARIES
+    http://blog.korny.info/2014/03/08/xml-for-fun-and-profit.html#zippers
+    clojure.zip/xml-zip => like xpath
