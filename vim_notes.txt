@@ -95,6 +95,9 @@ vim regex features:
     \&              branch concat: matches _only_ if the preceding branch(es) match at the _same_ position
                     example: "foo\&...bar" matches "foobar" but not "fooobar"
     \zs \ze
+    .{-}            lazy (non-greedy) match. compare: .*
+    \n              can be used anywhere in a pattern (for buffer contents
+                    only; behaves different in string matcher)
 
 substitute (search/replace):
   almost any character (following s) can be used as the delimiter:
@@ -111,6 +114,8 @@ multi-repeat / global apply:
     examples:
         print all matches of /re/:   http://stackoverflow.com/a/509720/152142
             :g/re/p
+        ...with line numbers:
+            :g/re/#
         change (substitute) foo to bar only on #comment lines:
             :g/^\s*#/s/foo/bar/g
         delete lines that match foo:
@@ -282,6 +287,37 @@ vim vs emacs:
         - communicate with other instances (nvim msgpack, --remote)
         - similar to VMs, containers (docker), etc.
         - unlike emacs, which encourages a long-running instance.
+why vim?
+    The big players are distracted by real problems, like compiler performance,
+    debugging, and enterprise support. For this reason there will always be
+    a niche for "long tail" projects like vim, which focus on a niche
+    "problem": the space between ideation and implementation called "editing".
+    Brooks would say that editing is not an essential complexity. The gains to be had
+    from optimizing have an upper limit. (Have we reached it? I think with
+    extensible text objects, we may be close. Then it will be a solved problem,
+    and that's a good thing.) It turns out, though, that the "trivial
+    inconveniences" of a workday add up quite a lot, and moreover are
+    multiplied by the cost of a context-switch. When your regex skills are still
+    weak after 10 years of developing, doing ad-hoc inspection of logs, errors,
+    xml feeds, json responses, HTTP requests, (or looking for yet another
+    special-purpose tool)... that slows you down and it interrupts your flow.
+      So Vim and other niche editors have a job: (as a vocal contributor to
+      Nvim, I consider it my job to make sure Nvim is _cognizant_ of this job,
+      for perhaps the first time in editor history) piggyback on the big
+      players, be a _passive_ beneficiary of their space-age plasma thrusters,
+      like a courier (Y.T., Snowcrash) hitched to a semi, or a bug on an F16.
+      Atom, Visual Studio, eclipse are big fish with a lot of energy; surf that
+      energy instead of trying to reinvent it. Sun Tzu has a pithy parable for
+      this. Rich Hickey would call this _leverage_. Get a lot for a little.
+      Focus on the part that is actually unique to your tool. N/Vim can crank
+      this up to 11 if we consciously acknowledge that this is the direction we
+      want to go. Emacs community doesn't quite get
+      this; although emacs is certainly interoperable with external tools, there
+      is a culture of it, it's not the _default_ mode of operation, so you end
+      up having to cobble together the conventions you expect from Vim
+      (quickfix, makeprg, formatprg, ...). This means you don't benefit from
+      network effects and others don't benefit from the little garden you have
+      dug.
 
 why was / chosen for the "search" operation?
     - / shares the same key as ? which is a reasonable mnemonic for "search".
@@ -319,6 +355,8 @@ scoping (local variables):
 don't bother with cream
 don't get windows build from vim.org
 
+always use '' (not "") for regex strings
+
 the primary value of vim is:
     - composition of commands
         - vim is command-oriented: searchable, malleable command history.
@@ -335,6 +373,11 @@ the primary value of vim is:
         - data may be annotated with "syntax" definitions and the same tools
           (motions, text objects, syntax objects, plugins) can operate as
           always; very powerful.
+    - working with commands instead of blocks of (elisp) code:
+        - command history is a primary tool: modifying command history as
+          a buffer is key part of workflow.
+        - cf. scratch buffer in emacs
+        - visually scanning the command history, greater density
 
 vim's "current directory" applies to the entire vim session (the current 
 running instance of Vim), regardless of what file (buffer) you are 

@@ -21,12 +21,20 @@ GENERAL
     $ git grep foo <branch>
 
     # `git show` is analogous to `cat`.  https://www.andyjeffries.co.uk/25-tips-for-intermediate-git-users/
+    # (and `git cat-file` is for opening objects)
     git show master:flash/foo.fla > master-foo.fla
 
 RANGES
     git log origin/master..
         is equivalent to:
     git log origin/master..HEAD
+
+    # "triple dot" diff shows the changes between alice/master and its merge
+    # base (COMMON ANCESTOR) with master. It won't include any changes that
+    # happened on master since the COMMON ANCESTOR (use "git merge-tree").
+    git diff master...alice/master
+
+    git merge-tree `git merge-base bob/master` master bob/master
 
 CONFIGURATION: ALIASES
     ! runs at the root of the repo. To make ! commands relative to the current

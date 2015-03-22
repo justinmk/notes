@@ -20,10 +20,7 @@ synopsis of shell and terminal modes included in Emacs
 tips, env vars
     http://snarfed.org/why_i_run_shells_inside_emacs
 
-http://crypt.codemancers.com/posts/2013-09-26-setting-up-emacs-as-development-environment-on-osx/
 http://www.reddit.com/r/emacs/comments/1p6m82/making_emacs_work_for_me/
-
-https://github.com/jonathanchu/emacs-powerline
 
 golang repl:
     https://github.com/sergey-pashaev/gore-mode

@@ -1,0 +1,5 @@
+
+vector (dynamic array), linked list, stack, queue, circular queue, hash map, set, priority queue, binary search tree
+http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=alg_index
+http://community.topcoder.com/tc?module=MatchList
+

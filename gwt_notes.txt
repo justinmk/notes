@@ -17,3 +17,116 @@ gwt-dispatch: command pattern implementation
     http://turbomanage.wordpress.com/2010/07/12/caching-batching-dispatcher-for-gwt-dispatch/
     http://turbomanage.wordpress.com/2010/07/16/dispatchqueue/
 
+compilation
+    precompile
+        ...
+        UnifyAst => AST representing the Java program
+    compile each permutation
+        GenerateJavaScriptAst
+    optimization
+        JTypeOracle: different than TypeOracle used by the generator
+        Pruner: most effective type of optimization
+        Finalizer: mark everything as `final`, if possible
+        MakeCallsStatic (Devirtualizer): narrow variable types
+        TypeTightener: narrows the dispatch target of method calls
+        DeadCodeElimination: constant propagation, static evaluation
+        MethodInliner
+        SameParameterValueOPtimizer:
+            de-parameterize methods always called with same arg value
+    code splitting
+        ...
+    linking: package artifacts and compiler output
+        
+
+incremental compilation
+    requires 25% more RAM
+    unlike Java's individual compilation targets, GWT does global
+    optimization, not 
+    "monolithic incremental" compile: compromise to avoid user
+    migration tasks (dependency resolution)
+    granular per-class instead of per-library
+    global indexes track "dirty" classes
+    disadvantage: no clear separation between build system and compiler
+        - can't 
+    GWT allows generators to read/write any file, this makes tracking
+    by the build system impossible.
+        - to support global-incremental compilation, many hooks
+          were added so that the compiler knows when a generator changed
+          a file
+        - more caches
+
+    GWT 2.7
+        incremental
+            Module parse
+            Disk resource scanning (inotify)
+            Class parse
+                (history note: gwtar only incrementalized this)
+            Application AST stitching
+            Regular type indexes construction
+            Normalization
+        monolithic (these are complicated, diminishing returns)
+            Type index construction for generators
+            sourcemap construction
+            packaging linking
+    GWT 2.8
+        faster initial compilation (but same steady-state time as 2.7)
+
+    how to leverage
+        slowest generators:
+            GWTRPC generator very expensive (requires backend server sync, wipes out hot cache)
+                alternative: protobuf
+                AutoBean won't be as bad because it uses an intermediate interface
+            i18n (no solution on the horizon, perhaps avoid generators for i18n
+            in the future)
+            gin/guice outputs lots of unstable code
+                use latest version (may not be released yet, need to check)
+                "use the latest gin version to make sure you are getting the
+                fast gin generator support"
+        code splitting improvement:
+            "if you name your split points with the same class literal
+            they will be grouped in the same split point"
+        custom generators
+            to help the compiler, ensure output is _stable_:
+                make sure the statement and declaration order stays the same
+                don't output random strings
+        leave SDM running to avoid slow initial compile
+            even with 2.8 this is helpful
+        GWT.debugger(); breakpoints
+        use the latest Chrome
+            large files support
+            improved SourceMapping
+                25% if full obfuscation is enabled
+                    in current versions of Chrome, can't trust
+                    the browser to always use the sourcemapped
+                    method name, so can't do full obfusc
+    future audacious goals
+        move generators to build-system layer
+            fewer reruns
+            1.5x compile-time speedup
+        return to "library compilation"
+            better build-system caching
+            fewer dependency-change surprises
+        reduce permutation combinatorial explosion
+            1 code generation step for all browsers, then let DeadCodeElim
+            remove unused blocks based on feature-detection
+        output Closure-style JS
+            easier to read
+            easier interop
+            Closure compiler optimizes better than GWT
+
+jsinterop
+    lots of nice sugar, review video for presentation
+    JSNI sugar:
+            String val = js("$('input#foo').bar()");
+        this is _mockable_ unlike traditional JSNI "public static native
+        foo() /*- ... -*/"
+
+"CellWidgets in the wild"
+    Google Boulder, hiring. digi@google.com
+    fork (on GitHub) of GWT 'showcase' project
+        https://github.com/cdigiano/
+    UiRenderer
+    composite cells
+
+tessel
+    model generation (YAML DSL): http://ww.dtonator.org

@@ -1,0 +1,45 @@
+http://www.luafaq.org/#T1.11
+
+files.catwell.info
+    avoid globals in modules
+    use pl.strict in your test suite
+
+lint
+    https://github.com/philips/lualint
+    https://code.google.com/p/lua-checker/
+    http://lua-users.org/wiki/LuaInspect
+
+module organization
+    LTN7: http://www.lua.org/notes/ltn007.html
+
+    Use a fixed local name for the package (e.g. Public), and then assign this
+    local to the final name of the package.
+
+        local Public, Private = {}, {}
+        Complex = Public   -- package name
+
+        Public.i = {r=0, i=1}
+        function Public.new (r, i) return {r=r, i=i} end
+
+        function Private.checkComplex (c)
+          assert((type(c) == "table") and tonumber(c.r) and tonumber(c.i),
+                 "bad complex number")
+        end
+
+        function Public.add (c1, c2)
+          %Private.checkComplex(c1);
+          %Private.checkComplex(c2);
+          return {r=c1.r+c2.r, i=c1.i+c2.i}
+        end
+
+    Whenever a function calls another function inside the same package (or
+    whenever it calls itself recursively), it should access the called function
+    through an upvalue of the local name of the package. Example:
+
+        function Public.div (c1, c2)
+          return %Public.mul(c1, %Public.inv(c2))
+        end
+
+    Following these guidelines, the connection between the two functions does
+    not depend on the package name.
+
