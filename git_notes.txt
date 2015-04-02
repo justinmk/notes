@@ -24,7 +24,7 @@ GENERAL
     # (and `git cat-file` is for opening objects)
     git show master:flash/foo.fla > master-foo.fla
 
-RANGES
+RANGES (see: git help rev-parse > "Specifying ranges")
     git log origin/master..
         is equivalent to:
     git log origin/master..HEAD
@@ -51,6 +51,9 @@ BRANCHING
 
     #find out which branch contains a commit
     git branch -a --contains 50f3754
+
+    #move (rename) a branch
+    git branch -m smurf master
 
 MERGING
     REBASE AND MERGE DON'T MIX!

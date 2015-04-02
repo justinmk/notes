@@ -1,0 +1,1 @@
+Liberating the Smalltalk lurking in C and Unix: https://www.youtube.com/watch?v=LwicN2u6Dro

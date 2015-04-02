@@ -1,3 +1,80 @@
+todo:
+    http://www.infoq.com/presentations/latency-pitfalls
 
-http://www.infoq.com/presentations/latency-pitfalls
+    distribute systems theory:
+        introductory (a "gem"):
+            kttp://book.mixu.net/distsys/single-page.html
+        practical:
+            http://the-cloud-book.com/
+        theoretical:
+            http://dcg.ethz.ch/lectures/podc_allstars/
 
+    papers:
+        http://www.cs.cornell.edu/courses/cs6410/2014fa/sched.htm
+        http://www.andrew.cmu.edu/course/15-749/READINGS/required/
+        http://christophermeiklejohn.com/distributed/systems/2013/07/12/readings-in-distributed-systems.html
+        http://courses.csail.mit.edu/6.852/05/papers/
+
+CAP:
+    http://thislongrun.blogspot.com/2015/03/the-confusing-cap-and-acid-wording.html
+    http://markburgess.org/blog_cap.html
+
+    http://blog.foundationdb.com/minimal-explanation-of-the-cap-theorem
+        - Choosing (C) only requires stopping the machines that got
+          disconnected, not the whole system!
+
+        - 'Availability' in CAP refers to "perfect availabilty", where _all_
+          nodes are _always_ up.
+
+        - By choosing (A) you don't really have one database anymore, you have
+          two or more! Either the database or the application needs to
+          reconcile this problem and eventually re-sync to get back to the
+          normal state.
+
+        - Choosing (A) excludes the possibility of ACID transactions.
+
+        - There will only be incoming reads and writes to the disconnected
+          computer if there are clients that are still connected to it (on the
+          same side of the partition).
+
+    http://ferd.ca/beating-the-cap-theorem-checklist.html
+        - high latency is indistinguishable from splits or unavailability
+        - there might be more than 1 partition at the same time
+        - split nodes can vanish forever
+        - a split node cannot be differentiated from a crashed one by its peers
+        - clients are also part of the distributed system
+        - clocks drift across multiple parts of the system, forward and backwards in time
+
+        Common mistakes when trying to "beat" CAP:
+            - your solution requires a central authority that cannot be unavailable
+            - read-only mode is still unavailability for writes
+            - your quorum size cannot be changed over time
+            - your cluster size cannot be changed over time
+            - you assume short periods of unavailability are insignificant
+
+    🎅  http://nathanmarz.com/blog/how-to-beat-the-cap-theorem.html
+        Incremental updates and the CAP theorem really don't play well
+        together; mutable values require read-repair in an eventually
+        consistent system. By rejecting incremental updates, embracing
+        immutable data, and computing queries from scratch each time, you avoid
+        that complexity. The CAP theorem has been beaten.
+
+        Key properties of what a real solution will look like:
+
+            1. The system makes it easy to store and scale an immutable,
+               constantly-growing dataset
+            2. The primary write operation is adding new immutable facts
+            3. The system avoids the complexity of CAP by recomputing queries
+               from raw data
+            4. The system uses incremental algorithms to lower the latency of
+               queries to an acceptable level
+
+        Everything from here on out is optimization. Databases, indexing, ETL,
+        batch computation, stream processing -- these are all techniques for
+        optimizing query functions and bringing the latency down to an
+        acceptable level.
+
+paxos: http://blog.willportnoy.com/2012/06/lessons-learned-from-paxos.html
+
+raft: http://thesecretlivesofdata.com/raft/
+    - leader is elected via a random timeout

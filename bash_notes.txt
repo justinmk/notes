@@ -75,15 +75,6 @@ FAQ:
         - the line ends with the pipe symbol
         - you are in an unclosed string
 
-SSH
-===============================================================================
-Host disconnected but not timed out yet? Press <Enter>~. to quit the client.
-
-.ssh/config
-    [ File format: as many of the following blocks as you like ]
-    Host <alias>
-    Hostname www.example.com
-    User someuser
-    Port 1234
-$ ssh <alias>
-
+ssh
+    To disconnect a client from a hung host:
+        <Enter>~.
