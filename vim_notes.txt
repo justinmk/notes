@@ -84,6 +84,11 @@ special buffers:
     q:
     q/
 
+motion:
+    + and - are actually useful (but remap them to CTRL-J/CTRL-K). To get
+    similar behavior at the end of the line, use $ to move to the EOL, then j/k
+    will "stick" to the end of the line.
+
 search
     ';' is a special offset to "chain" searches. Example:
         ab/;/cd     search for "cd" after the next "ab"
@@ -240,6 +245,9 @@ AFFIRMATIONS of common project management wisdom:
 
 NEW USER NOTES
 ==============
+:preserve saves new files, even files without a name. Try :recover on a :new
+file, you might be surprised.
+
 vim is a concept
     - modal editing, atomic edits, edit grammar
     - can be implemented in any editor/IDE
@@ -543,9 +551,12 @@ inclusive vs exclusive (:help inclusive)
         dvb     inclusive `b`
         dve     exclusive `e`
 
-MAC SLOWNESS
+PERFORMANCE FAQ
 ============
-http://danmarner.com/2014/05/02/One-Weird-Trick-To-Make-Vim-Go-Faster-On-Your-Mac.html
+    - if 'listchars' contains characteres not available in your font, your OS
+      may go on an extensive (slow) search to get the glyphs from other fonts!
+    - keyboard repeat rate may affect perception:
+      http://danmarner.com/2014/05/02/One-Weird-Trick-To-Make-Vim-Go-Faster-On-Your-Mac.html
 
 UNIQUE(?) FEATURES
 ==========================================

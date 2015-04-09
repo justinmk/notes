@@ -1,3 +1,6 @@
+Table for Debugging Common UTF-8 Character Encoding Problems:
+    http://www.i18nqa.com/debug/utf8-debug.html
+
 http://www.unicode.org/faq/utf_bom.html
 [Emacs Unicode Pitfalls](http://nullprogram.com/blog/2014/06/13/)
     HTTP headers usually have a different encoding than the content body. Emacs

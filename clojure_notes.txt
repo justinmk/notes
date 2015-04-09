@@ -1,4 +1,5 @@
 todo:
+    https://howistart.org/posts/clojure/1
     http://www.blaenkdenum.com/notes/clojure/
     http://yogthos.github.io/ClojureDistilled.html
     "Typed Clojure in Practice": https://www.youtube.com/watch?v=a0gT0syAXsY
@@ -21,6 +22,10 @@ http://clojure.org/cheatsheet
 
 amazing book/tutorial:
     http://www.braveclojure.com/
+
+deploy CLI app:
+    http://yobriefca.se/blog/2014/03/02/building-command-line-apps-with-clojure/
+    http://www.rkn.io/2014/02/27/clojure-cookbook-command-line-args/
 
 web app:
     http://blog.josephwilk.net/clojure/building-clojure-services-at-scale.html

@@ -39,7 +39,8 @@ subshells and pipelines  http://stackoverflow.com/a/2188223/152142
     In a pipeline, all commands run concurrently (with their stdout/stdin connected by pipes)
     in different processes.
 
-    Parentheses ( ...; ) create a subshell with its own temporary environment and scope.
+    Parentheses ( ...; ) create a _subshell_ with its own temporary environment
+    and scope.
 
     Braces { ...; } _group_ commands in the _current_ shell context. If that
     group is part of a pipeline, it runs in a separate process, like any other
@@ -47,10 +48,63 @@ subshells and pipelines  http://stackoverflow.com/a/2188223/152142
 
     Examples:
         # concatenate 'date' and 'top'
-        $ { date; top -b -n1 | head ; } > logfile
+        { date; top -b -n1 | head ; } > logfile
 
         # timestamp a build log
-        $ { date; make 2>&1; date; } | tee logfile
+        { date; make 2>&1; date; } | tee logfile
+
+process substitution
+command substitution
+
+
+    When you connect to processes in a pipe such as ...
+ 
+        a | b
+ 
+    you connect stdout (fd #1) of a to stdin (fd #0) of b. Technically,
+    the shell process will create a pipe, which is two filedescriptors connected
+    back to back. It then will fork two times (create two copies of itself)
+    where it replaces standard output (filedescriptor 1) of the first copy by
+    one end of the pipe and replaces standard input (filedescriptor 0) of the
+    second copy by the other end of the pipe. Then the first copy will replace
+    itself (exec) by a, the second copy will replace itself (exec) by b.
+    Everything that a writes to stdout will appear on stdin of b.
+
+    But nothing prevents the shell from replacing any other filedescriptor by
+    pipes. And when you create a subprocess by writing
+        <(c)
+    in your commandline, it's just one additional fork for the shell, and one
+    additional filedescriptor pair to be created. One side, as in the simple
+    case, will replace stdin (fd #0) of "c"... and because the input side of
+    this pipe doesn't have a predefined output of "a" (stdout is already taken
+    by "|b") the shell will somehow have to tell "a" what filedescriptor the
+    pipe uses. Under Linux one can refer to opened filedescriptors as
+    "/dev/fd/<FDNUM>" (symlink to /proc/self/fd/<FDNUM> which itself is
+    a symlik to /proc/<PID>/fd/<FDNUM>), so that's what's replaced as a "name"
+    to refer to the substituted process on "a"'s command line:
+
+    Try this:
+ 
+        $ echo $$
+        12345  # <--- PID of your shell
+        $ tee >( sort ) >( sort ) >( sort ) otherfile | sort
+ 
+    and in a second terminal:
+ 
+        $ pstree 12345 # <--- PID of your shell
+        zsh,301
+          ├─sort,3600 # <-- this one reads from the other end of the shell's fd #14
+          ├─sort,3601 # <-- this one reads from the other end of the shell's fd #15
+          ├─sort,3602 # <-- this one reads from the other end of the shell's fd #15
+          ├─sort,3604 # <-- this one reads from stdout of tee
+          └─tee,3603 /proc/self/fd/14 /proc/self/fd/15 /proc/self/fd/16 otherfile
+ 
+    If your system doesn't support the convenient /proc/self/fd/<NUM>
+    shortcut, the shell might decide not to create a pipe, but rather create
+    temporary fifos in /tmp and use those to connect the filedescriptors.
+
+    You can watch the syscalls as they are made:
+        $ strace -fe fork,pipe,close,dup,dup2,execve bash -c 'tee <(sort) <(sort)'
 
 pipe as input stream to a command (e.g., vim)
         vim -Nu <(echo 'set rtp+=~/.vim/bundle/neocomplete.vim/')
