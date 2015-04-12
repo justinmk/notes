@@ -1,0 +1,94 @@
+action items:
+    - www.myconnectwise.net needs to be "akamaized"
+    - enable persistent connections (PCONNs)
+        - ensure origin allows PCONN (keep-alive)
+    - enable SureRoute, Enhanced Akamai Protocol
+        - deploy SureRoute test object, must return 200
+        - "SR test object should be large enough to reflect packet loss on the route"
+    - deploy SLA test object (SLA mgmt report)
+    - prefetch?
+
+possible improvements:
+    - cache GetCustomImage.rails
+    - upload user documents to NetStorage instead of origin
+      - Akamai "Fast File Upload" add-on
+
+Russia: no edges
+China: "China CDN"
+
+goal: 1 hop from user to content
+
+CP code: arbitrary "tag" number to associate content with a contract (billing)
+    - can be used to arbitrarily separate content groups in reports, purging, etc.
+
+NetStorage: simple filesytem for serving static resources, eg CW updates.
+
+GTM (Global Traffic Mgmt): "datacenter load balancing"
+    - test agents perform continual checks for origin "liveness" and performance
+
+DPC: ?
+
+Akamai Instant
+
+cache-control HTTP headers are _not_ honored by default
+
+if origin returns a "vary" header that is anything other than 
+"vary-accept-encoding", akamai will NOT cache that resource.
+
+SureRoute: enable this. ("avoids the BGP bottleneck")
+    seed a SureRoute Test Object whose sizes matches the typical payload
+    of an application request.
+
+API: 
+    fetch/create Events: https://control.akamai.com/events-dl/restdoc/
+    other: Configure > Tools > Web Services > ...
+
+cache refreshing, [10-min delay] (two approaches):
+    purge: remove object, forces a full GET on next request
+    invalidate:
+        remove & replace IFF a newer version is available at origin.
+        IMS ("if-modified-since") GET request to the origin
+    CCU
+    ECCU
+
+reporting:
+    Monitor > URLS > Top URLs
+    Monitor > Origin Performance
+    Monitor > Offload
+    Site Analyzer: actively monitors/diagnoses perf & availability
+    Instant Check
+
+debugging:
+    $ dig 
+    $ mtr
+    $ curl -I -H 'Pragma:akamai-x-cache-on, akamai-x-cache-remote-on, akamai-x-check-cacheable, akamai-x-get-cache-key, akamai-x-get-extracted-values, akamai-x-get-nonces, akamai-x-get-ssl-client-session-id, akamai-x-get-true-cache-key, akamai-x-serial-no' http://www.myconnectwise.net
+
+    Resolve > Diagnostic > Site Wellness
+        - submit "gateway" (edge) error code to troubleshoot
+
+    Akamai browser profile: http://edc.edgesuite.net 
+
+    Pragma:	akamai-x-cache-on, akamai-x-cache-remote-on, akamai-x-check-cacheable, akamai-x-get-cache-key, akamai-x-get-extracted-values, akamai-x-get-nonces, akamai-x-get-ssl-client-session-id, akamai-x-get-true-cache-key, akamai-x-serial-no
+        - tells Akamai to return X-Cache-Foo headers for debugging.
+
+    X-Cache: TCP_MISS from a168-143-243-34 (AkamaiGHost/6.11.0.1-10451734) (-)
+                           ^
+                           Akamai server IP addr
+    X-Cache-Key: /D/3571/142636/000/origin-www.myconnectwise.net/
+                         ^-CP billing code
+
+    anything that is prefetched will have this header (grep the logs):
+        X-Akamai-Prefetched-Object
+
+"Digital Property" (mnemonic): jmk.www.foo.com 
+    "Edge key hostname": CNAME -> jmk.www.foo.com.edgesuite-staging.net 
+    "cnamed to origin (specified in the config)"
+    "config/metadata" (mnemonic): jmk.www.foo.com.xml  
+        rules for SR
+        caching
+        DPC
+        MDR
+        ...
+        origin -> www.foo.com 
+    
+

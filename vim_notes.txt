@@ -248,6 +248,8 @@ NEW USER NOTES
 :preserve saves new files, even files without a name. Try :recover on a :new
 file, you might be surprised.
 
+:find foo<tab> (with path^=**) is a lot more useful than you think!
+
 vim is a concept
     - modal editing, atomic edits, edit grammar
     - can be implemented in any editor/IDE
