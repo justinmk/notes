@@ -553,6 +553,13 @@ inclusive vs exclusive (:help inclusive)
         dvb     inclusive `b`
         dve     exclusive `e`
 
+how do I "zoom" a window temporarily without messing up the existing window layout?
+    :tab split
+
+:find only opens the first file matching a glob expression. How can I open
+_all_ files matching a glob?
+    :args {glob}
+
 PERFORMANCE FAQ
 ============
     - if 'listchars' contains characteres not available in your font, your OS

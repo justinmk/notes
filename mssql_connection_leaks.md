@@ -9,7 +9,9 @@ Tell-tale exception:
 > System.InvalidOperationException: Timeout expired. The timeout period elapsed prior to obtaining a connection from the pool.
 > This may have occurred because all pooled connections were in use and max pool size was reached.
 
-exec sp_who2
+## Observing from SQL Server
+
+exec `sp_who2`
 
 ```
 SPID Status      Login                DBName        Command           ProgramName
@@ -24,3 +26,41 @@ SPID Status      Login                DBName        Command           ProgramNam
 84   sleeping    NT AUTHORITY\SYSTEM  FooApp        AWAITING COMMAND  .Net SqlClient Data Provider
 ```
 
+The `sp_who2` list is more convenient if you set the `Application Name`
+parameter in your SQL connection string.
+
+```cs
+    + ";Application Name=" + this.appName + "/Database/" + subModuleName + ";";
+```
+
+## Observing from the .NET application
+
+Windows *performance counters* can be used to observe the connection pool
+behavior. Awkwardly derive the "instance name" from the application name, then
+PerformanceCounter.NextValue() should report the value.
+`NumberOfReclaimedConnections` is probably the one you care about for leaks.
+
+```cs
+using System.Runtime.InteropServices;
+
+[DllImport("kernel32.dll", SetLastError = true)]
+static extern int GetCurrentProcessId();
+
+private void openConnectionIfNecessary() {
+    // Open a connection and create the performance counters.
+    // http://msdn.microsoft.com/en-us/library/ms254503%28v=vs.80%29.aspx
+
+    string instanceName = AppDomain.CurrentDomain.FriendlyName.Replace('(','[')
+        .Replace(')',']').Replace('#','_').Replace('/','_').Replace('\\','_').ToLower()
+        + "[" + GetCurrentProcessId() + "]";
+
+    connection.Open();
+
+    var p = new PerformanceCounter {
+        CategoryName = ".NET Data Provider for SqlServer",
+                     CounterName = "NumberOfReclaimedConnections",
+                     InstanceName = instanceName
+    };
+    DebugOutput.Output("NumberOfReclaimedConnections: "+p.NextValue());
+}
+```
