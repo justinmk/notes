@@ -85,7 +85,7 @@ special buffers:
     q/
 
 motion:
-    + and - are actually useful (but remap them to CTRL-J/CTRL-K). To get
+    + (aka <cr> or <c-m>) and - are actually useful (remap - to <c-cr>). To get
     similar behavior at the end of the line, use $ to move to the EOL, then j/k
     will "stick" to the end of the line.
 
@@ -567,6 +567,13 @@ what if i SSH into a machine? will it still show unicode chars correctly?
     sends back the correct terminal sequences, your terminal can display them.
     (Note that Vim cares a lot about what $TERM you declare, whereas Nvim tends
     to assume you're running a modern terminal of some sort.)
+
+when is ' mark useful instead of ` mark?
+    When you want linewise motion instead of characterwise.
+    Example:
+            1: 111[cursor]222
+            2: 333[mark `]444
+        To delete the *entire* lines 1-2: d''
 
 PERFORMANCE FAQ
 ============

@@ -1,5 +1,6 @@
 todo:
     http://www.infoq.com/presentations/latency-pitfalls
+    http://web.mit.edu/2.75/resources/random/How%20Complex%20Systems%20Fail.pdf
 
     distribute systems theory:
         introductory (a "gem"):
@@ -14,6 +15,11 @@ todo:
         http://www.andrew.cmu.edu/course/15-749/READINGS/required/
         http://christophermeiklejohn.com/distributed/systems/2013/07/12/readings-in-distributed-systems.html
         http://courses.csail.mit.edu/6.852/05/papers/
+
+
+http://ferd.ca/lessons-learned-while-working-on-large-scale-server-software.html
+    Crash Early, Crash Often: Violent _early_ failure on 1/Nth of your system
+    is far better than slow, silent corruption in 100% of it.
 
 CAP:
     http://thislongrun.blogspot.com/2015/03/the-confusing-cap-and-acid-wording.html
