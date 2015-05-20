@@ -560,6 +560,14 @@ how do I "zoom" a window temporarily without messing up the existing window layo
 _all_ files matching a glob?
     :args {glob}
 
+what if i SSH into a machine? will it still show unicode chars correctly?
+    Display of characters is up to the _final_ device. Incidentally, this is
+    still reflected in the name "terminal": it's the end-user device. Even if
+    you're tunneled to a unix machine without X, as long as the remote process
+    sends back the correct terminal sequences, your terminal can display them.
+    (Note that Vim cares a lot about what $TERM you declare, whereas Nvim tends
+    to assume you're running a modern terminal of some sort.)
+
 PERFORMANCE FAQ
 ============
     - if 'listchars' contains characteres not available in your font, your OS

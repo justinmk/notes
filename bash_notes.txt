@@ -117,6 +117,19 @@ pipe as input stream to a command (e.g., vim)
 "command" command
     Execute command, ignoring any function "shadow". (like `normal!` in Vim)
 
+BEST PRACTICES / LINT
+    shellcheck is amazing
+        https://github.com/koalaman/shellcheck
+
+    http://www.etalabs.net/sh_tricks.html
+        printf %s\\n "$var"
+            - use `printf` instead of `echo`
+            - see also: https://github.com/koalaman/shellcheck/issues/274
+
+        IFS= read -r var
+            - reads a line of input, terminated by a newline or EOF or error
+              condition, from stdin and stores the result in var.
+
 TOOLS:
     iftop
     iotop
@@ -128,6 +141,14 @@ FAQ:
     you don't need to protect the end-of-line with a backslash if:
         - the line ends with the pipe symbol
         - you are in an unclosed string
+
+    var=$(dirname "$f")
+            http://www.etalabs.net/sh_tricks.html
+        Because most commands writing a newline at the end of their output,
+        Bourne-style command substitution was designed to strip _all_ trailing
+        newlines from the output. In the above command, if f contains any
+        trailing newlines in the last directory component, they will be
+        stripped, yielding a different directory name.
 
 ssh
     To disconnect a client from a hung host:
