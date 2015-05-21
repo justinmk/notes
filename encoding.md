@@ -87,9 +87,9 @@ None of this matters if you stick to one of the following:
 After [migrating Plan 9 to Unicode][plan9], Pike and Thompson concluded:
 
 > the actual encoding is relatively unimportant to the software; the adoption
-> of large characters and a byte-stream encoding[2] *per se* are much deeper issues.
+> of large characters and a byte-stream encoding[2][3] *per se* are much deeper issues.
 
-In other words, once a [system][system][3] no longer _inspects or manipulates_ strings under the assumption that each character 
+In other words, once a [system][system][4] no longer _inspects or manipulates_ strings under the assumption that each character 
 in the string is a byte, then the internal representation is academic: because
 `Replace()`, `Substring()`, `IndexOf()`, etc., are now *characterwise* operations.
 If the system receives a byte stream that must be treated as a string (say,
@@ -116,7 +116,7 @@ run the above program and it shows this output:
 
 Notice that although the cmd.exe terminal displays the pasted cp1252 characters
 (‡vˆ / 87-76-88), those bytes are not sent to stdin of `smurf.exe`. Instead,
-because `Console.InputEncoding` is IBM437[4], `ReadLine()` returns IBM437-encoded
+because `Console.InputEncoding` is IBM437[5], `ReadLine()` returns IBM437-encoded
 string (╪v^ / D8-76-5E). Good times.
 
 But you can read the incoming bytes like this:
@@ -160,9 +160,60 @@ Strings may be regarded as naked byte streams as long as they aren't manipulated
 > They only recognize ASCII characters and control codes such as '\n' which do not change in any way under UTF-8.
 
 In Linux, you can save a filepath consisting of random bytes, and those bytes
-won't be changes by the kernel at all. You can send and save a string's bytes 
-as much as you like. But as soon as you want to inspect or modify the *byte* sequence
-as a *character* sequence, you must decode it using the precise encoding with which it was created.
+won't be changes by the kernel at all.
+
+    http://yarchive.net/comp/linux/utf8.html
+    Filename is a sequence of bytes, no more and no less.  Anything beyond that
+    belongs to applications.
+    ...
+    The only things that have special meanings are:
+        octet 0x2f ('/') splits the pathname into components
+        "." as a component has a special meaning
+        ".." as a component has a special meaning.
+
+    http://article.gmane.org/gmane.linux.kernel/182479
+    The kernel is _agnostic_ in what it does. As it should be. It doesn't
+    really care AT ALL what you feed it, as long as it is a byte-stream.
+    Now, that implies that if you want to have extended characters, then YOU
+    HAVE TO USE UTF-8.
+
+    http://yarchive.net/comp/linux/utf8.html
+    http://article.gmane.org/gmane.linux.kernel/182548
+      Done right, user space will _not_ barf on them, because it won't try to
+      "normalize" any UTF-8 strings. If the string has garbage in it, user space
+      should just pass the garbage through.
+
+      We've had this _exact_ issue before. Long before people worried about
+      UTF-8, people worried about the fact that programs like "ls" shouldn't
+      print out the extended ASCII characters as-is, because that would cause bad
+      problems on a terminal as they'd be seen as terminal control characters.
+
+      Does that mean that unix tools like "rm" cannot remove those files? Hell
+      no! It just means that when you do "rm -i *", the filename that is printed
+      may not have special characters in it that you don't see.
+
+      Same goes for UTF-8. A "broken" UTF-8 string (ie something that isn't
+      really UTF-8 at all, but just extended ASCII) won't _print_ right, but that
+      doesn't mean that the tools won't work. You'll still be able to edit the
+      file.
+
+      Try it with a regular C locale. Do a simple
+
+        echo > åäö
+
+      (that's latin1), and do a "rm -i åäö", and see what it says.
+
+      Right: it does the _right_ thing, and it prints out:
+
+        torvalds@home:~> rm -i åäö rm: remove regular file `\345\344\366'?
+
+      In other words, you have a program that doesn't understand a couple of the
+      characters (because they don't make sense in its "locale"), but it still
+      _works_. It just can't print them.
+
+You can send and save a string's bytes as much as you like. But as soon as you
+want to inspect or modify the *byte* sequence as a *character* sequence, you
+must decode it using the precise encoding with which it was created.
 
 Decoding a byte array using the wrong rules (ie the wrong encoding) is lossy.
 A byte array may contain byte sequences that have no defined codepoint for an encoding to map to.
@@ -229,8 +280,12 @@ depage, so byte sequence `3F` is used in their place.
     >
     > So there can be no endian issues with UTF-8.
 
-[3] such as C# which represents Unicode strings internally as UTF16 byte sequences
-[4] cmd.exe happens to default to IBM437 codepage, the
+[3] "UTF-8 single-byte sequences are in range 0-127 with obvious mapping to
+    ASCII.  All bytes in UTF-8 multi-byte sequences are in range 128-255."
+    http://article.gmane.org/gmane.linux.kernel/181168
+
+[4] such as C# which represents Unicode strings internally as UTF16 byte sequences
+[5] cmd.exe happens to default to IBM437 codepage, the
     [same codepage as MSDOS](http://en.wikipedia.org/wiki/Code_page_437). FFS, people!
     `chcp` reports the current codepage in cmd.exe:
     ```

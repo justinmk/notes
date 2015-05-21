@@ -4,11 +4,6 @@ files.catwell.info
     avoid globals in modules
     use pl.strict in your test suite
 
-lint
-    https://github.com/philips/lualint
-    https://code.google.com/p/lua-checker/
-    http://lua-users.org/wiki/LuaInspect
-
 module organization
     LTN7: http://www.lua.org/notes/ltn007.html
 
