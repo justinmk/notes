@@ -113,6 +113,8 @@ substitute (search/replace):
                  ^--ignore errors
 
 multi-repeat / global apply:
+    http://vim.wikia.com/wiki/Power_of_g
+
     :[range]g/{pattern}/[cmd]    apply cmd to lines matching {pattern}
     :[range]g!/{pattern}/[cmd]   inversion (apply to lines NOT matching)
 
@@ -124,11 +126,11 @@ multi-repeat / global apply:
         change (substitute) foo to bar only on #comment lines:
             :g/^\s*#/s/foo/bar/g
         delete lines that match foo:
-            :g/foo/d
+            :g/foo/d_
             :g/foo/normal dd
-        append all lines matching foo to register a:
-            :g/foo/y A
-            :g/foo/normal "Ay
+        append all lines matching foo to @a ("qaq" clears @a):
+            qaq:g/foo/y A
+            qaq:g/foo/normal "Ayy
         execute any command(s) for each line of a match:
             :g/foo/cmd | cmd | cmd
         append the result of col('.') to lines 265-292:

@@ -141,6 +141,13 @@ FAQ:
     you don't need to protect the end-of-line with a backslash if:
         - the line ends with the pipe symbol
         - you are in an unclosed string
+    return value of `local` assignment:
+        `local foo=$(...); echo $?` always returns zero!
+            http://unix.stackexchange.com/a/146900/14626
+        workaround: always declare the `local` var first:
+            local foo
+            foo=$(...)
+            echo $?
 
     var=$(dirname "$f")
             http://www.etalabs.net/sh_tricks.html
