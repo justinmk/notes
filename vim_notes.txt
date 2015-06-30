@@ -528,6 +528,8 @@ omnifunc is _not_ the same thing as completefunc: https://github.com/guns/vim-cl
     completefunc: User defined completion       :h compl-function
     omnifunc:     filetype-specific completion  :h compl-omni
 
+'complete' option allows arbitrary files to be used for completion lists.
+
 syntax plugin, ftplugin:
     http://www.reddit.com/r/vim/comments/2fdys2/question_custom_highlighting_in_vim/ck8dpxf
 

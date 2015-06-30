@@ -1,3 +1,18 @@
+quick start: https://news.ycombinator.com/item?id=9806126
+    "Making an API in Clojure using Swagger gives you a full, interactive UI
+    and documentation for your API, while also having a schema which makes sure
+    you know what is submitted and that it validates."
+    Making a Swagger app with Luminus is as simple as:
+        lein new luminus myapp +swagger
+        cd myapp
+        lein run
+    once the server starts, browse to
+        http://localhost:3000/swagger-ui/index.html
+    to see your Swagger API
+
+quick start screencast (eclipse, ring)
+    http://www.youtube.com/watch?v=VVd4ow-ZcX0
+
 todo:
     https://howistart.org/posts/clojure/1
     http://www.blaenkdenum.com/notes/clojure/
@@ -39,9 +54,6 @@ Solving the Expression Problem with Clojure 1.2
     http://www.ibm.com/developerworks/java/library/j-clojure-protocols/index.html#datatypes
 
 macros: http://aphyr.com/posts/305-clojure-from-the-ground-up-macros
-
-quick start screencast (eclipse, ring)
-    http://www.youtube.com/watch?v=VVd4ow-ZcX0
 
 http://thinkrelevance.com/blog/2013/06/04/clojure-workflow-reloaded
 
