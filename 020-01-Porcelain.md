@@ -1,7 +1,8 @@
-# Really, really useful porcelain tricks
+# Reallyreallyreally useful "porcelain"
+
+git log --oneline --graph --decorate
+git log -5
 
 git log -G
 git log --grep
-git log --oneline --graph --decorate
-git log -5
 git grep
