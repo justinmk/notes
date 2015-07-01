@@ -1,3 +1,3 @@
-rebase:
+rebase: what is actually happening?
 
-merge:
+merge: what is actually happening?
