@@ -247,6 +247,11 @@ AFFIRMATIONS of common project management wisdom:
 
 NEW USER NOTES
 ==============
+transpose: Vim is "do exactly what I say". Compare Emacs "transpose" operation,
+    which is DWIM. It is usually smart, but in Vim, we "exchange" instead of
+    "transpose"--it is flexible and precise, not smart.
+    https://github.com/tommcdo/vim-exchange
+
 :preserve saves new files, even files without a name. Try :recover on a :new
 file, you might be surprised.
 
@@ -578,6 +583,27 @@ when is ' mark useful instead of ` mark?
             1: 111[cursor]222
             2: 333[mark `]444
         To delete the *entire* lines 1-2: d''
+
+What is the purpose of "magic"? The choices of special and non-special
+characters seems very unintuitive.
+
+  - The default ("magic") mode should be thought of as: only a few
+    *commonly-used* special chars are considered special. This is for
+    quick-and-dirty work. `$^[].*` are very commonly needed when searching, so
+    they are considered special by default "magic".
+      - You might be surprised `+()` are not special, but... you'll get used to
+        it. The idea is that you *usually* want `/` to do a *literal* search
+        (except for the workhorse `$^[].*` functions).
+  - Any time you're doing real work, use `\v` ("very magic"). Everything that
+    can be special, is special.
+
+  *When in doubt*, just plop a `\v` at the front of your expression.
+
+      :g/\vfoo+/d
+
+  Eventually you'll get tired of doing this and realize that if you only need
+  a few special characters like `.*` or `$`, then the default "magic" is
+  actually really convenient.
 
 PERFORMANCE FAQ
 ============

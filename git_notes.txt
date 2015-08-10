@@ -174,6 +174,10 @@ MERGING, REBASING, SVN
 
 GIT INTERNALS: http://git-scm.com/book/en/Git-Internals-Plumbing-and-Porcelain
     Git is a content-addressable filesystem with a VCS UI written on top of it.
+    Q: what does that mean?
+    A: check out Joe Armstrong's talk. "content-addressing" differs from
+       "reference address" because it is immutable
+       It's important for reliability / attempt to solve entropy.
 
     core parts of Git:
     .git/
@@ -181,3 +185,18 @@ GIT INTERNALS: http://git-scm.com/book/en/Git-Internals-Plumbing-and-Porcelain
         index       stores staging area information
         objects/    stores all database content
         refs/       stores pointers (branches) to commit objects in objects/
+
+    HOW TO NOT LOSE DATA:
+        `git add` adds the file immediately to `.git`, and will be available
+        even after `git reset`, etc., even if you never committed it.
+
+    PACKFILES:
+        `git extract-objects` unpacks a packfile into a zlib-compressed object
+        file (.git/objects/xx/*).
+        To see the contents of an object:
+            cat .git/objects/c0/fb67ab3fda7909000da003f4b2ce50a53f43e7 | zlib-flate -uncompress;
+
+    LAST SLIDE:
+        "Git has become a protocol/platform in addition to a VCS."
+        https://git-annex.branchable.com/
+
