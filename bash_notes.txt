@@ -118,8 +118,27 @@ pipe as input stream to a command (e.g., vim)
     Execute command, ignoring any function "shadow". (like `normal!` in Vim)
 
 BEST PRACTICES / LINT
+    #!/bin/bash
+    set -o pipefail
+    set -o nounset # prevents referencing undefined
+                   # variables (which default to "")
+
+    But don't use "set -o errexit".
+        http://lists.gnu.org/archive/html/bug-bash/2012-12/msg00093.html
+
     shellcheck is amazing
         https://github.com/koalaman/shellcheck
+
+    http://robertmuth.blogspot.com/2012/08/better-bash-scripting-in-15-minutes.html
+        - User functions behave like other commands; use them liberally.
+        - Strive to annotate most variables with either `local` or `readonly`.
+        - Favor $() over backticks, especially for nesting.
+        - [[]] (double brackets) avoids problems like unexpected pathname
+          expansion.
+        - $* is rarely the right choice, prefer "$@" (including quotes).
+        - Run script wth _expanded_ trace: bash -x myscript.sh
+            - Use "set -o xtrace" to do this from the script itself => useful if
+              the script is run on a remote machine, e.g. a build-bot.
 
     http://www.etalabs.net/sh_tricks.html
         printf %s\\n "$var"
