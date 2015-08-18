@@ -293,6 +293,7 @@ vim vs emacs:
     - smaller surface area
     - backwards compatibility:
         - emacs plugins embrace the bleeding edge and commonly require latest emacs.
+          - magit requires recent version of git: https://www.reddit.com/r/emacs/comments/3h81ct/magit_v220_released/cu5duih
         - vim reluctance to add features means plugins must find workarounds,
           which means they will be backwards-compatible.
       work only with 24.3 or even 24.4, which is the bleeding edge.
