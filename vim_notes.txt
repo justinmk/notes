@@ -648,13 +648,17 @@ characters seems very unintuitive.
   - Any time you're doing real work, use `\v` ("very magic"). Everything that
     can be special, is special.
 
-  *When in doubt*, just plop a `\v` at the front of your expression.
+  *When in doubt*, just plop a `\v` at the front of your expression. (I don't
+  recommend _defaulting_ to `\v`: opt-in is easier than opt-out).
 
       :g/\vfoo+/d
 
   Eventually you'll get tired of doing this and realize that if you only need
   a few special characters like `.*` or `$`, then the default "magic" is
   actually really convenient.
+
+Default 'path': opt-in is easier than opt-out
+  https://github.com/neovim/neovim/issues/3209#issuecomment-133183790
 
 PERFORMANCE FAQ
 ============
