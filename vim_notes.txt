@@ -534,6 +534,19 @@ omnifunc is _not_ the same thing as completefunc: https://github.com/guns/vim-cl
     completefunc: User defined completion       :h compl-function
     omnifunc:     filetype-specific completion  :h compl-omni
 
+ctrl-x mode offers _new_ ideas, _precision_ completion:
+    https://www.youtube.com/watch?v=3TX3kV3TICU
+
+    - Most people recommend ctrl-p because they want to search _up_ in the file
+      (sort previous words first), rather than _down_ (sort later words first).
+
+    - ctrl-x_ctrl-p (as opposed to just ctrl-p) offers _context-sensitive_
+      completion. Note:
+        - type nothing else except ctrl-x ctrl-p after each completion--while
+          the menu is showing, do _not_ hit <esc> or <cr> or anything.
+          ctrl-x_ctrl-p_ctrl-x_ctrl-p_...
+        - 'completeopt' must not contain "longest"
+
 'complete' option allows arbitrary files to be used for completion lists.
 
 syntax plugin, ftplugin:
