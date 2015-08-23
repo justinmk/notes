@@ -1,0 +1,13 @@
+To see the sequences that your terminal is _actually_ sending:
+    showkey -a
+
+terminfo/termcap is a database that maps terminal inputs to terminal codes.
+    `infocmp -L` prints out the current mappings.
+    To see the mapping for `key_backspace`:
+        infocmp -L | grep key_backspace
+    To update a termcode mapping:
+        1. Write a new terminfo file with the updated mapping:
+            infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
+        2. Instruct the terminal to "recompile" its terminfo:
+            tic $TERM.ti
+
