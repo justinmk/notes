@@ -480,6 +480,43 @@ isn't positioned to address.
         tilde, period) rather than using out of band signalling, and catting
         binary files into your terminal can mess it up permanently.
 
+    It's keymaps all the way down:
+        terminal (possibly GUI) settings =>
+        [tmux keymaps] =>
+        terminfo/termcap =>
+        stty/termios?/ioctl =>
+        vim keymaps
+            https://blog.nelhage.com/2009/12/a-brief-introduction-to-termios-termios3-and-stty/
+        https://gitter.im/neovim/neovim?at=55daecb204a6730031626642
+          Q keymap is what? Does it map keys to something? And what is a key
+            anyway, is it a sequence of bytes?
+
+          Q What is terminfo and what does it do? Who is reading and who is
+            writing it? How is it lying? How does a file lie in the first place?
+            How are programs handling these lies?
+          A terminfo is basically another keymap, just like vim's keymap or
+            tmux's keymap.
+            "terminfo" is a database (files on disk) keyed by the terminal name
+            ($TERM) that explains what sequences of bytes you should send it to
+            make it do things (like move the cursor or set it bold), or what
+            sequences of bytes you should expect to see from it when users press
+            keys.
+            Most TI DBs report key_backspace incorrectly: they claim that the
+            backspace key sends the 0x08 byte (ASCII BS, "Ctrl-H"), whereas
+            their actual observed behavoiur is that actually they send 0x7f
+            (ASCII DEL)
+            Most programs basically ignore the key_backspace cap, and query
+            termios instead.
+                Example (Vim): https://github.com/vim/vim/blob/cde885473099296c4837de261833f48b24caf87c/src/os_unix.c#L3493-L3503
+          Q What's the alternative?
+          A Report terminfo bug to your distro. Fixing key_backspace won't
+            hurt software that contains the workaround.
+            Other alternative: terminal "feature detection. Example: 
+                LeoNerd: libtickit infers that it can support 256 colour mode, by trying to set colour 255 and seeing if it succeeds
+                LeoNerd: Becuse almost no terminal will respond to the question
+                LeoNerd: Whereas prettymuch any terminal that can support 256 colours also supports the colour query
+            There is a "query" feature for terminals, but few implement it.
+
 sed becomes second nature as a side-effect of normal, prolific Vim usage.
 Searching for ^\s.+ becomes an actually desirable thing to reach for, 
 because then you can `cgn` the matches. Regex (even if quirky) becomes 
