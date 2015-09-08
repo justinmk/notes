@@ -12,4 +12,7 @@ semantics:
 
     git log --all-match --grep=frotz --author=Linus
 
+### Git 2.5 added --invert-grep
+    git log --grep='^patch' --invert-grep e271909..HEAD
+
 http://gitster.livejournal.com/30195.html
