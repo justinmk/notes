@@ -20,11 +20,6 @@ synopsis of shell and terminal modes included in Emacs
 tips, env vars
     http://snarfed.org/why_i_run_shells_inside_emacs
 
-http://www.reddit.com/r/emacs/comments/1p6m82/making_emacs_work_for_me/
-
-golang repl:
-    https://github.com/sergey-pashaev/gore-mode
-
 
 MODE HOOKS
 ==========

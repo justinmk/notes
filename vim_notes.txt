@@ -125,6 +125,8 @@ multi-repeat / global apply:
             :g/re/#
         change (substitute) foo to bar only on #comment lines:
             :g/^\s*#/s/foo/bar/g
+        reference the :g match in a substitute command:
+            :g/.*\(foo\).*/s//\1/
         delete lines that match foo:
             :g/foo/d_
             :g/foo/normal dd
@@ -247,6 +249,13 @@ AFFIRMATIONS of common project management wisdom:
 
 NEW USER NOTES
 ==============
+autochdir: This setting should not exist. If you're using it, ask why. The
+    concept of a "working directory" is useful, why trash it? _Numerous_ Vim
+    operations (bufdo, windo, argdo, all kinds of plugins...) that work with
+    buffers will change your WD as a side-effect of this option. If you want to
+    work with a buffer's directory, just use this map instead:
+        nnoremap cd :lcd %:p:h<bar>pwd<cr>
+    Notice that changes the _local_ working directory.
 transpose: Vim is "do exactly what I say". Compare Emacs "transpose" operation,
     which is DWIM. It is usually smart, but in Vim, we "exchange" instead of
     "transpose"--it is flexible and precise, not smart.
@@ -305,6 +314,15 @@ vim vs emacs:
         - communicate with other instances (nvim msgpack, --remote)
         - similar to VMs, containers (docker), etc.
         - unlike emacs, which encourages a long-running instance.
+    - The extreme malleability of emacs is not so important in practice: it is
+      strongly discouraged for plugins or users to override arbitrary functions;
+      instead, overrides should occur at "add-hook" or "after-load" events.
+      http://www.gnu.org/software/emacs/manual/html_node/emacs/Hooks.html
+        > Hooks are an important mechanism for customizing Emacs [...] to be
+        > called on some well-defined occasion.
+      Emacs extension points, then, are explicitly provided and known--to avoid
+      chaos--as they would be in any flexible system. In the end,
+      monkey-patching is a niche feature.
 why vim?
     The big players are distracted by real problems, like compiler performance,
     debugging, and enterprise support. For this reason there will always be
@@ -572,6 +590,7 @@ omnifunc is _not_ the same thing as completefunc: https://github.com/guns/vim-cl
     omnifunc:     filetype-specific completion  :h compl-omni
 
 ctrl-x mode offers _new_ ideas, _precision_ completion:
+    "Let Vim do the typing" (George Brocklehurst)
     https://www.youtube.com/watch?v=3TX3kV3TICU
 
     - Most people recommend ctrl-p because they want to search _up_ in the file

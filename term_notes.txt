@@ -1,0 +1,139 @@
+ailu1 #archlinux send me upstream to ncurses, but i dont think they will change it..
+LeoNerd Then you might be stuck just running with fixed TI in $HOME
+marvim 13:32
+ailu1 yes :worried:
+marvim 13:57
+Earnestly There's someone called ailu1 complaining about a terminfo being incorrect. He's not very willing to explain the situation. Can someone here tell me what the problem with the xterm terminfo is wrt sending ^H instead of \177?
+Earnestly (And more importantly, why neovim thinks this is a problem with the terminfo and not itself)
+LeoNerd Hi
+LeoNerd Right; this one :smile:
+LeoNerd So... in Debian, they standardized on \177 for the Backspace key, rather than ^H. This means that the piece-of-plastic labeled "Backspace" is clearly distinct from the pieces-of-plastic labeled "Ctrl" and "H" together.
+LeoNerd This is good, because it's nice for programs such as neovim to be able to sensibly recognise any piece-of-plastic keypress
+Earnestly Debian is not an authority on this.
+LeoNerd Now, most other OS's terminfo files claim that key_backspace=^H but then terminals themselves tend to be configured to send \177 anyway
+Earnestly And should not be used as such
+Earnestly No, this isn't about "other OS's terminfo files"
+Earnestly This is about upstream's terminfo files, directly from ncurses.
+LeoNerd So, this in the first instance is a problem because now the terminfo file does not accurately describe the behaviour of the terminal
+LeoNerd Right.
+LeoNerd OK, so the upstream files claim that, etc etc... It's just that debian change theirs
+Earnestly I don't care what Debian does, they have packages with over a thousand patches against it
+LeoNerd Now, the reason it's more an issue with neovim than most other programs is that most other programs either literally do not care to distinguish Backspace from Ctrl-H, or a few special cases like (legacy) vim and tmux have taken to not trusting the terminfo database anyway
+Earnestly Most terminfos from screen to xterm to rxvt are ^H
+LeoNerd To state again: legacyvim and tmux know that terminfo lies and do not believe it; intead they ask termios(3) what the VERASE byte is, and use that instead of asking for key_backspace.
+Earnestly Vte uses \177
+LeoNerd This gives legacyvim and tmux an almost-unique ability to actually distinguish Ctrl-H from Backspace, where most programs cannot
+marvim 14:02
+Earnestly LeoNerd: Then why isn't this fixed in ncurses?
+Earnestly If it is indeed a problem
+LeoNerd Where this becomes a problem for neovim is that we've taken the not-entirely-unreeasonable view that this is silly; and that if terminfo cannot be trusted then what's the use of using it at all? Terminfo should accurately describe the behaviour of the terminal
+LeoNerd I do not know why it isn't fixed upstream by ncurses; I have not talked with them.
+LeoNerd I should possibly do that, as I blieve it's Thomas Dickey in charge these days and I'm reasonable terms with him
+Earnestly Yes, he is the current maintainer
+LeoNerd So it might be possible to talk him into fixing that, given he's ncurses + xterm anyway.
+Earnestly If you can get this change upstream, that would be appreciated. We're not in the business of tampering with upstream source
+LeoNerd Sure
+Earnestly And please, in future, don't base your development on Debian. They're not an authority and often wrong (Cf. openssl)
+LeoNerd I can appreciate that... I just came at this from the point of view of only recently realising that most other OSes have ^H there, because I just use debian boxes
+Earnestly If some feature debian adds to a package is important enough for you to depend on it, please seek getting that change upstream
+LeoNerd In any case, we have a workaround for this (and a couple of other terminfo lies) by just running a tool that assists users to create a .terminfo override in their $HOME
+LeoNerd Well, to re-iterate my point: until yesterday I didn't realise this was a debian-specific fix :smile:
+LeoNerd I thought it was just "hey it's just like that" - this is all interesting information that's only recently come to light
+Earnestly I'd personally rather you didn't ignore the terminfo, but otoh, I kind of wish terminfo was dead and we just standardised on a specific set so that ncurses could eventually become a protocol instead of needing nasty escaping
+LeoNerd Oh absolutely
+LeoNerd TI has no real business these days... it would be nicer not to use it; but given everyone does use it it ought at least not to outright lie :smile:
+Earnestly xterm is slowing becoming that standard set, the new ponylang's term library just hardcodes them completely
+LeoNerd Yup
+LeoNerd Ditto my own libtickit :wink:
+LeoNerd Or fingers in pies... pick your metaphore as apprpriate
+LeoNerd I'll have word with Thomas and see what we can come up with.. I've already managed to get quite a few little bits of xterm fixed so hopefully this will be another one
+Earnestly I'm really, really irritated with debian and this constant api breakage they just love doing
+marvim 14:07
+Earnestly Soon developing on debian will mean you're locked to debian, as it is with canonical now to a degree
+Earnestly LeoNerd: Tell me, which version of glibc do you have atm?
+Earnestly LeoNerd: And ncurses
+LeoNerd ii libc6:amd64 2.19-19 amd64 GNU C Library: Shared libraries
+LeoNerd ii ncurses-term 5.9+20150516-2 all additional terminal type definitions
+Earnestly Wow
+Earnestly What a disappointment
+LeoNerd (I haven't updated the machine in a while, I should note... 3 or 4 months maybe?)
+LeoNerd Yah; both have pending new candidates
+Earnestly I don't understand why anyone would develop against such an ancient set of libraries...
+Earnestly Does neovim still depend on arbitrary commits from its supporting libraries?
+LeoNerd I wouldn't really say "against"...
+LeoNerd Not sure - I'm not a neovim dev; I'm a supporting library dev.
+Earnestly Let's see
+LeoNerd (namely, the entire terminal support ecosystem of libtermkey/libtickit/unibilium)
+Earnestly (I love how github needs javascript to use anchors apparently)
+Earnestly LeoNerd: Ah, you wrote the fix terminals page?
+LeoNerd Yes
+LeoNerd Maybe oneday in a decade or so it'll actually start to become more widely done :stuck_out_tongue_winking_eye:
+Earnestly LeoNerd: Two things come to mind; 1) that's a very nice article, thanks \o/ 2) how did you only realise these hacks were debian specific yesterday?
+Earnestly (Really dislikes debian's entire approach to packaging)
+LeoNerd "these" hacks? I mean specifically, the key_backspace one
+Earnestly LeoNerd: Yes, their downstream tampering
+marvim 14:12
+Earnestly It's pretty difficult to get a list of dependencies for neovim. It's not in their readme and there's no "INSTALL" file, hmm. It seems like they're betting on github's wiki system which is not part of the clone...
+LeoNerd I think it does tend to bundle some of the supporting bits... at one time they had their own fork of unibilium I think. Not sure if that's still the case
+Earnestly Hehe, "say no to bundled bits"
+Earnestly If it can't use latest stable versions of libraries then it's not going to be used
+LeoNerd Yah; as a big perl fan I'm quite keen on the model that says "all the supporting libraries should be stable enough to just depend on 'latest and greatest' and not bundle your stuff
+Earnestly Yep
+LeoNerd Dependencies are good; not locking them in is good. Keep upstream able to ship new bugfixes as and when they want
+Earnestly Sorry if I'm being a bit of a help vampire here, but where are the dependencies for neovim listed? I'm probably blind but I can't find them anywhere, only references to "third-part" stuff
+Earnestly LeoNerd: Yeah, I'm not against dependencies, just bundled ones
+Earnestly I guess this will have to do: https://github.com/neovim/neovim/blob/master/third-party/CMakeLists.txt
+Earnestly Yeah, still depending on arbitrary commits: https://github.com/neovim/neovim/blob/master/third-party/CMakeLists.txt#L74-96
+LeoNerd Ah that's upsetting :pensive:
+Earnestly LeoNerd: You're working on the termkey stuff right? Your website lists what I assume is a stable release but neovim is using one in a git repo hosted by them
+ailu1 LeoNerd: thanks for the explanation
+Earnestly LeoNerd: Is this officially your work?
+LeoNerd Ah.. I should fix that webpage sometime
+marvim 14:18
+Earnestly LeoNerd: I run a bunch of packages directly from git to see what breaks, from glibc to ncurses and so on.
+Earnestly [Sadly nothing breaks]
+LeoNerd It should read "libtermkey is evolutionarily dead. EOL. Please stop writing new code using it. Please use instead libtickit; any features that it can't support should be considered bugs to be reported"
+Earnestly LeoNerd: And was wondering where or even if available a VCS version of libtermkey was hosted, ideally git
+LeoNerd But neovim know this part already, and are indeed waiting on the right features in tickit, so they get an exemption
+Earnestly LeoNerd: Hm, but neovim is using libtermkey?
+LeoNerd Yeah; my advice is don't. There will not be another public release of libtermkey. The code will be entirely consumed by libtickit as part of the termdriver, and it will cease to be its own entity
+LeoNerd Yes, it's using it currently, because the features they want out of tickit aren't there yet. I have a milestone for that, which I'm slowly aiming towards.
+Earnestly LeoNerd: Wait a moment
+Earnestly LeoNerd: This tickit looks large
+Earnestly LeoNerd: This looks almost like a curses replacement such as the dead termkit project
+LeoNerd tickit is an entire terminal UI library, yes.
+LeoNerd Mhmm
+Earnestly LeoNerd: And, um, you're replacing termkey with this? Seems like a bit of a devolution to me
+LeoNerd Yes, think of it as a more modern reinvention of curses or similar ideas
+LeoNerd Not replacing as such, no.
+Earnestly On one hand you have a nice library for doing key handing, on the other you've got a curses-like replacement
+LeoNerd The problem that termkey has is that it is supposed to be just handling the bytes from the terminal to the application, and not output
+LeoNerd But you can't really do that. That doesn't work.
+Earnestly Kind of seems a bit extreme to just bundle it all together
+LeoNerd You need to be able to output bytes in order to control mode settings on the terminal. And you can't handle just output without handling input as well - you need to be able to read the responses to mode queries and the like
+LeoNerd You cannot have a library that handles just one of terminal input or output; they have to be combined.
+LeoNerd libtermkey's model fundamentally does not work.
+Earnestly LeoNerd: Ah I see, so termkey was basically crippled by not being part of something like curses properly and needs that level of integration to get the information it needs?
+LeoNerd Yes
+Earnestly That sounds reasonably fair then
+Earnestly I can understand why that might be a problem
+LeoNerd Now, tickit has many levels at which you could use it. If you want, you can use it at the higher "window" level, create an entire window tree, and treat it almost like Xlib. That's a way to use it
+Earnestly Okay, thanks. I assume that neovim might eventually move to tickit perhaps?
+marvim 14:23
+Earnestly LeoNerd: Have you considered making tickit a protocol?
+LeoNerd If you just want simple keyboard input as a replacement of termkey, you'd instead go in at the bottom later, and just create a TickitTerm object, which gives you just keypress/mouse/resize events and you can do with them what you please; and also gives you some basic drawing functions
+Earnestly LeoNerd: E.g. Martin Thompson's idea of a protocol
+LeoNerd At some point I should write an article on how to migrate from TermKey to TickitTerm, actually. that might work
+LeoNerd Yes; rightnow neovim could be using tickit instead of termkey, but that wouldn't buy them much. Instead, they're waiting on some more features around the window idea, so they can wholesale use it at the window layer for all the UI management
+Earnestly LeoNerd: Ideally the curses backend would just be that, a backend. tickit could be another backend, and so on
+Earnestly LeoNerd: bemenu does this, much simpler than an editor for sure, a library version of dmenu that works on x11, wayland and curses via backends
+Earnestly LeoNerd: Is libtickit hosted anywhere the latest code can be found? (ideally git/hg, less ideally anything else)
+Earnestly And thanks for the information about libtermkey
+LeoNerd Hrm.. Ididn't put links on my page did I.
+marvim 14:30
+LeoNerd http://www.leonerd.org.uk/code/libtickit/ now links to https://launchpad.net/libtickit
+LeoNerd Also has all the manpages, which should be quite useful as docs
+Earnestly Oh, bzr
+Earnestly emacs just got off bzr
+Earnestly That must have been a lot of work for ESR heh
+LeoNerd Eh; the import/export things, and Tailor, and other such tools tend to make that pretty easy these days
