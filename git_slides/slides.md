@@ -613,3 +613,103 @@ C:\Users\jkeyes\Desktop\git_slides\199-02-Credits.md
 * "Git from the Bottom Up" https://jwiegley.github.io/git-from-the-bottom-up/
 * Jeanine Adkisson http://www.jneen.net
     * Emoticons & Presentation format:
+
+
+
+
+
+
+
+
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+the basic data structure in git is the tree.[1]
+Git doesn’t store data as a series of changesets or differences. TREE.
+
+commit object contains (basically a text file):
+    pointer to a tree
+    pointers to parent commit(s)
+    commit message, author, date
+
+After `git init`, add 3 files.
+    `git commit` then checksums each subdirectory (in this case, just the root
+    project directory) and stores those tree objects in the Git repository, then
+    creates a commit object containing the metadata and a pointer to the root
+    project tree.
+    Your Git repository now contains five objects:
+        1x3 blobs for the contents of each file
+        1   tree that lists the directory and contents
+        1   commit with the pointer to the root tree, plus the commit metadata
+    IMAGE: https://git-scm.com/book/en/v2/book/03-git-branching/images/commit-and-tree.png
+        -> It's hashes all the way down!
+           hash of commit contents; hash of tree listing; hash of blob contents
+
+each commit records the state of a tree ("snapshot").
+this is space-efficient because most of the tree snapshots share content.
+the contents are blobs and they are hashed by their contents. this makes it
+trivial to know whether a blob can be shared between tree snapshots.
+    -> persistent data structure / rich hickey "structural sharing"
+       a "deep copy" is simply a tree that points to the shared nodes + the new
+       nodes.
+
+AGAIN: each commit points to a TREE (not a diff; not a patch).
+    -> This means that `cherry-pick` works by _computing_ a diff between the
+       commit and its parent. And `rebase` is a series of `cherry-pick`.
+
+1. https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell
+
+===
+A typical 2-parent merge is called a "3-way merge" because it uses 3 trees[1]:
+    two branch tips + common ancestor
+                      ^- notice how this means anything before the common
+                         ancestor is totally ignored.
+
+So what is a merge? It is two trees mushed together.
+So what do you think a "squash" is?
+
+Notice that a rebase is a "2-way merge" over and over--you are merging two trees
+for each commit in the series.
+
+1. https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
+
+===
+How could a branch fail to rebase onto itself?
+    A: because changes are computed based by comparing trees, and rebase by
+       default "flattens" merges. Use `rebase --preserve-merges` instead.
+       http://stackoverflow.com/a/32811891/152142
+
+Note also that rebase tries to skip "very similar" commits (have the same
+patch-id) http://git-scm.com/docs/git-patch-id
+
+===
+what could a 3-parent (or N-parent...) merge possibly mean?
+    since we know that a merge is just a two trees mashed together, it's easy to
+    imagine any number of trees mashed together. The resulting commit will list
+    N commits as its parents.
+
+===
+* branches are pointers that conveniently track each new commit
+* HEAD is a branch that you can never leave.
+* HEAD is the only "special" branch. master is not special.
+* tags are also pointers, but they never move.
+* "detached HEAD" just means HEAD is not pointing to a branch. So if you
+  checkout a tag, HEAD will be detached.
