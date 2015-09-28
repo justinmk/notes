@@ -378,6 +378,17 @@ why was / chosen for the "search" operation?
               and g is the main "auxliary namespace" for vim commands, so g/
               can be used to prefix a namespace of advanced search functions.
 
+sometimes I see a [noeol] warning when I open a file; and when I save the file
+Vim adds a newline to the end of the file (shown by `git diff`).
+    A: Text is a list of lines. Lines are separated by newline characters.
+       Many text editors (esp. on Windows) don't follow this convention. But you
+       can do a thought experiment to show that the convention makes sense: what
+       is the result of concatenating two files? If they do not end in
+       a newline, the last line of the first file will be concatenated to the
+       first line of the 2nd file.
+       Vim automatically adds a EOL to the end of such broken text files, but
+       you can disable this in recent Vim versions with `set nofixeol`.
+
 scoping (local variables): 
     let g:foo = 'qux'
     let foo = 'bar'
@@ -491,6 +502,7 @@ isn't positioned to address.
         http://stackoverflow.com/a/917031/152142
 
     'unconed' (author of TermKit) comment:
+    https://www.reddit.com/r/programming/comments/137kd9/c71iiec
         Unix magic like nested remote subshells and remote privilege escalation
         works only by accident, because the programs in between are too dumb to
         mess it up, not because of anything deliberate. Today, this means you
