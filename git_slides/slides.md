@@ -15,13 +15,22 @@ C:\Users\jkeyes\Desktop\git_slides\000-01-Git_Talk.md
 
 C:\Users\jkeyes\Desktop\git_slides\000-02-Git_Talk.md
 ========================================================
-
 # "CLI is too hard/obtuse/difficult"
 
 How many know how to run the PSA Ant build?
 (using Eclipse...)
 How many know how to use basic features of Photoshop?
 (How long did it take to learn?)
+
+========================================================
+# CLI
+
+- common language for speaking about VCS tasks
+    - compare GUI frontends: different buttons, different locations, different
+      friendly-names
+- CLIs are "backwards compatible UIs". GUIs are rarely back-compat
+- CLIs make sharing knowledge possible and full-text searchable
+- CLIs are scriptable
 
 C:\Users\jkeyes\Desktop\git_slides\001-01-Git_Insights.md
 ========================================================
@@ -93,17 +102,6 @@ Some thoughts:
 - Objects can be thrown around into any repo for
   sharing. (More on this later...)
 
-C:\Users\jkeyes\Desktop\git_slides\001-07.1-Git_Insights.md
-========================================================
-# Who cares?
-
-Some thoughts:
-- When was the last time you had to "upgrade" a git
-  repository?
-- Universal backwards compatibility is massively
-  valuable: for archives, sharing, recovery, ...
-- Objects can be thrown around into any repo for
-  sharing. (More on this later...)
 C:\Users\jkeyes\Desktop\git_slides\001-09.1-Git_Insights.md
 ========================================================
 # Who cares?
@@ -604,8 +602,6 @@ video: https://speakerdeck.com/bkeepers/git-the-nosql-database
 http://maryrosecook.com/blog/post/git-from-the-inside-out 
 
 http://wildlyinaccurate.com/a-hackers-guide-to-git/
-http://git-scm.com/book/en/v2/Git-Internals-Git-Objects
-http://git-scm.com/book/en/v2/Git-Tools-Revision-Selection
 https://rovaughn.github.io/2015-2-9.html
 
 C:\Users\jkeyes\Desktop\git_slides\199-02-Credits.md
@@ -643,7 +639,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 the basic data structure in git is the tree.[1]
-Git doesn’t store data as a series of changesets or differences. TREE.
+Git doesn't store data as a series of changesets or differences. TREE.
 
 commit object contains (basically a text file):
     pointer to a tree
@@ -667,24 +663,62 @@ each commit records the state of a tree ("snapshot").
 this is space-efficient because most of the tree snapshots share content.
 the contents are blobs and they are hashed by their contents. this makes it
 trivial to know whether a blob can be shared between tree snapshots.
-    -> persistent data structure / rich hickey "structural sharing"
+    -> persistent data structure / rich hickey "structural sharing" / immutable!
        a "deep copy" is simply a tree that points to the shared nodes + the new
        nodes.
 
 AGAIN: each commit points to a TREE (not a diff; not a patch).
     -> This means that `cherry-pick` works by _computing_ a diff between the
-       commit and its parent. And `rebase` is a series of `cherry-pick`.
+       commit and its parent; `rebase` is a series of `cherry-pick`; and
+       `merge` is (HEAD + MERGE_HEAD - MERGE_BASE).
 
 1. https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell
 
 ===
-A typical 2-parent merge is called a "3-way merge" because it uses 3 trees[1]:
+A typical 2-parent merge is called a "3-way merge" because it uses 3 patches[1]:
     two branch tips + common ancestor
                       ^- notice how this means anything before the common
                          ancestor is totally ignored.
 
 So what is a merge? It is two trees mushed together.
+    https://github.com/git/git/blob/master/Documentation/technical/trivial-merge.txt#L77-L94
+    Result: Once the merge is _committed_, its "history" doesn't matter.
+    Demo:
+        git merge --no-commit foo
+        git rm --cached bar.txt
+        git commit -m "Merged without bar.txt"
+    Look at the graph: bar.txt was added in ^2, but does not exist in HEAD. If
+    you merge foo again later, there won't be a conflict _unless_ foo has made
+    changes to foo.txt since the previous merge.
+    Why?
+    Because the patch computed from MERGE_BASE..MERGE_HEAD will not include the
+    contents of foo.txt unless foo.txt was changed.
+
+    Recording the merge base (common ancestor) was the key insight of git,
+    missing from SVN before 1.5: http://stackoverflow.com/a/612747/152142
+        > The important part of a merge is not how it handles conflicts ... but
+        > that it should meld the history together right so that you have a new
+        > solid base for future merges.
+        > In other words, the important part is the trivial part: the naming of the
+        > parents, and keeping track of their relationship. Not the clashes.
+
+        > The only thing you need to store is the state of the _tree_ before and
+        > after each change.
+        > "What files were renamed? Which ones were copied? Which ones were
+        > deleted? What lines were added? Which ones were removed? Which lines had
+        > changes made inside them? Which slabs of text were copied from one file
+        > to another?" You shouldn't have to care about any of these questions and
+        > you certainly shouldn't have to keep special tracking data in order to
+        > help you answer them: all the changes to the tree (additions, deletes,
+        > renames, edits etc) are implicitly encoded in the delta between the two
+        > states of the tree; you just track what is the _content_.
+
 So what do you think a "squash" is?
+
+What could a 3-parent (or N-parent...) merge possibly mean?
+    since we know that a merge is just a two trees mashed together, it's easy to
+    imagine any number of trees mashed together. The resulting commit will list
+    N commits as its parents.
 
 Notice that a rebase is a "2-way merge" over and over--you are merging two trees
 for each commit in the series.
@@ -701,15 +735,39 @@ Note also that rebase tries to skip "very similar" commits (have the same
 patch-id) http://git-scm.com/docs/git-patch-id
 
 ===
-what could a 3-parent (or N-parent...) merge possibly mean?
-    since we know that a merge is just a two trees mashed together, it's easy to
-    imagine any number of trees mashed together. The resulting commit will list
-    N commits as its parents.
+* branch is a ref (pointer) that conveniently moves when you commit.
+* HEAD is a ref that notes the current commit.
+* tags are also refs (pointers) (with metadata), but they never move.
+* "detached HEAD" just means `cat .git/HEAD` lists a raw SHA instead of a branch.
 
 ===
-* branches are pointers that conveniently track each new commit
-* HEAD is a branch that you can never leave.
-* HEAD is the only "special" branch. master is not special.
-* tags are also pointers, but they never move.
-* "detached HEAD" just means HEAD is not pointing to a branch. So if you
-  checkout a tag, HEAD will be detached.
+Explain each of these lines:
+    $ git pull --rebase
+    remote: Counting objects: 7, done.                                  # stdin on the remote is forwarded client-side with "remote:" prefix.
+    remote: Compressing objects: 100% (4/4), done.
+    remote: Total 7 (delta 4), reused 6 (delta 3), pack-reused 0
+    Unpacking objects: 100% (7/7), done.
+    From https://github.com/justinmk/notes
+       33fd48a..941b503  master     -> origin/master
+    First, rewinding head to replay your work on top of it...
+    Fast-forwarded master to 941b5035cc0b821b2ca1b3066f367506a103decf.
+
+    $ git fetch --all
+    Fetching upstream
+    remote: Counting objects: 862, done.
+    remote: Compressing objects: 100% (649/649), done.
+    remote: Total 862 (delta 500), reused 169 (delta 169), pack-reused 44
+    Receiving objects: 100% (862/862), 464.12 KiB | 0 bytes/s, done.
+    Resolving deltas: 100% (510/510), completed with 49 local objects.
+    From https://github.com/neovim/neovim
+       641c642..622ec95  master     -> upstream/master
+     + 7e16dfc...7d292d0 refs/pull/2506/head -> refs/pull/upstream/2506  (forced update)
+     + 59597f0...c413671 refs/pull/3042/head -> refs/pull/upstream/3042  (forced update)
+     * [new ref]         refs/pull/3395/head -> refs/pull/upstream/3395
+     * [new ref]         refs/pull/3398/head -> refs/pull/upstream/3398
+    Fetching justinmk
+    Fetching zyx
+    From https://github.com/ZyX-I/neovim
+       641c642..43dacff  master     -> zyx/master
+     + 7e16dfc...7d292d0 shada      -> zyx/shada  (forced update)
+
