@@ -694,7 +694,12 @@ So what is a merge? It is two trees mushed together.
     Because the patch computed from MERGE_BASE..MERGE_HEAD will not include the
     contents of foo.txt unless foo.txt was changed.
 
-    Recording the merge base (common ancestor) was the key insight of git,
+    ^1, ^2
+        The incoming branch (MERGE_HEAD) is always "parent 2". So if you are
+        looking at a merge commit in GitHub or GitLab, click the 2nd parent to
+        see the changes from a codereview (pull request).
+
+    Recording the merge base (common ancestor) was a key insight of git,
     missing from SVN before 1.5: http://stackoverflow.com/a/612747/152142
         > The important part of a merge is not how it handles conflicts ... but
         > that it should meld the history together right so that you have a new

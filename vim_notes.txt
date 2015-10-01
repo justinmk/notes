@@ -249,6 +249,9 @@ AFFIRMATIONS of common project management wisdom:
 
 NEW USER NOTES
 ==============
+wildignore: set this to `tags` and pretty much nothing else. Otherwise many
+    plugins will have bizarre bugs, because 'wildignore' affects the results of
+    expand(), globpath(), glob(), and inline evaluations (:help `=).
 autochdir: This setting should not exist. If you're using it, ask why. The
     concept of a "working directory" is useful, why trash it? _Numerous_ Vim
     operations (bufdo, windo, argdo, all kinds of plugins...) that work with
