@@ -130,7 +130,7 @@ multi-repeat / global apply:
         delete lines that match foo:
             :g/foo/d_
             :g/foo/normal dd
-        append all lines matching foo to @a ("qaq" clears @a):
+        append all lines matching foo to @a (use "qaq" to clear @a first!):
             qaq:g/foo/y A
             qaq:g/foo/normal "Ayy
         execute any command(s) for each line of a match:

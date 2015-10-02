@@ -194,21 +194,35 @@ first/topmost stash) as a _merge commit_--because
 `stash@{0}` / `refs/stash` is a merge commit and we
 must tell git _which_ parent we want to reference.
 
-* First parent of a stash always contains the HEAD
-  commit at time of stash.
-* Second parent always contains the index at time of
-  stash.
+* parent 1 of a stash always contains the HEAD commit at
+  time of stash.
+* parent 2 always contains the index at time of stash.
+* parent 3 contains untracked files (`git stash -u`)
 * [show gitk screenshot of the stash]
 
 To checkout a stashed file:
     $ git checkout stash@{0} -- <filename>
 
 Reference:
-* http://stackoverflow.com/a/1105666/152142 
-* http://git-scm.com/docs/git-stash 
+* http://stackoverflow.com/a/1105666/152142
+* http://git-scm.com/docs/git-stash
 C:\Users\jkeyes\Desktop\git_slides\005-01-Stash.md
 ========================================================
 ## dat stash
+
+`git stash -u` creates a merge commit with 3 parents:
+
+    $ git log stash@{0}
+
+    commit 627dcde6933c8645373415a6769dfdcd5dc7f622
+    Merge: 34c9c9c 1490b25 dbe8bec
+           ^1      ^2      ^3
+
+As always, the "current branch" at merge-time is the
+first parent (^1). `git stash` always puts untracked
+files in the third parent (^3). So you can see the
+untracked files in a stash via:
+    git show stash@{0}^3
 
 C:\Users\jkeyes\Desktop\git_slides\006-01-cat-file_vs_show.md
 ========================================================
