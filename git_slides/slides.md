@@ -691,8 +691,8 @@ AGAIN: each commit points to a TREE (not a diff; not a patch).
 ===
 A typical 2-parent merge is called a "3-way merge" because it uses 3 patches[1]:
     two branch tips + common ancestor
-                      ^- notice how this means anything before the common
-                         ancestor is totally ignored.
+                      ^- implication: history before the
+                         common ancestor is ignored.
 
 So what is a merge? It is two trees mushed together.
     https://github.com/git/git/blob/master/Documentation/technical/trivial-merge.txt#L77-L94
@@ -739,8 +739,17 @@ What could a 3-parent (or N-parent...) merge possibly mean?
     imagine any number of trees mashed together. The resulting commit will list
     N commits as its parents.
 
-Notice that a rebase is a "2-way merge" over and over--you are merging two trees
-for each commit in the series.
+Notice that a rebase is a "2-way merge" (AKA: a "patch" ;) over and over--
+merging 2 trees (instead of 3) for each commit in the series. A patch (2-way
+merge) assumes linear history, whereas a 3-way merge implies divergent history
+(branches).
+
+Now that we understand a merge, the idea of a "merge commit" becomes obvious,
+and it becomes obvious why the commits in the merged branch may appear "long
+ago" in the history graph:
+    - those commits were never actually applied to the target branch. Only the
+      _merge commit_ exists on the target branch. 
+    - the graph shows the commit ancestry; commit-date is irrelevant.
 
 1. https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
 
