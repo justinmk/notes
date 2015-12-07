@@ -1,0 +1,64 @@
+DevOps at amazon:
+    key characteristics of Amazon SOA:
+        - tools have *best-practices* baked-in, in order to improve
+          *discoverability* and self-service (naming conventions, common
+          protocols, failure modes, ...)
+        - tools (services) must be self-service (tool should *not* require
+          hand-holding for other teams to implement)
+        - tools (services) must be decoupled from other tools (otherwise SOA is
+          pointless)
+    SOA is not effective unless it is combined with organizational changes:
+        - small teams (6-8)
+        - teams have full ownership and accountability
+        - incentives are aligned within a given team
+
+S3
+    storage classes: "Standard",  "Standard-Infrequent Access", "Glacier"
+    Use HEAD command to see status (including replication progress):
+        aws s3api --head --bucket foo --key ...
+
+CloudTrail
+    S3 for medium-term storage; glacier for long-term.
+    use pre-defined CloudFormation template
+
+    Aggregate multiple AWS accounts to a _single_ S3 bucket.
+        Enable CloudTrail in all accounts.
+        Configure S3 bucket policy to authorize CloudTrail requests from the
+        AWS accounts.
+
+CloudTrail vs CloudWatch vs Config
+    ^         ^             ^config change management
+    |         `alert unusual activiy
+    `logs API calls
+
+ECS: EC2 container service
+    https://github.com/aws/amazon-ecs-cli
+    The "primitive" for distributed applications: task (job)
+    Think about "pool of resources" (cluster...), _not_ machines.
+
+Lambda
+    - Don't need to worry about: servers, capacity, deployment, scaling,
+      fault-tolerance, OS/stack updates, metrics/logging
+    - Never pay for idle
+    Built-in support for CloudWatch metrics/logs
+    Lambda blueprints: templates/quickstarts
+    Scheduled Lambdas (cron)
+
+Glacier
+    Lifecycle rules: automatically archive S3 data after expiration.
+    Best practices:
+        Store your filename in the Description field.
+
+AWS Config: visibility into configuration changes
+    configuration item (CI): standard config format
+        metadata
+        common attributes (resource ID, type, ARN, zone)
+        relationships
+        current config
+        related events: GUID that defines CloudTrail event
+    CI and diff delivered to SNS on every change
+    Config Rules: built upon AWS Config
+        AWS-managed rules (pre-built)
+            "All resources must be tagged"
+        custom rules (lambda)
+

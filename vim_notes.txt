@@ -652,7 +652,7 @@ how do I "zoom" a window temporarily without messing up the existing window layo
 
 :find only opens the first file matching a glob expression. How can I open
 _all_ files matching a glob?
-    :args {glob}
+    :n {glob}   "synonym for `:args {glob}`
 
 what if i SSH into a machine? will it still show unicode chars correctly?
     Display of characters is up to the _final_ device. Incidentally, this is
