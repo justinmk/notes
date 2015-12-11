@@ -623,6 +623,12 @@ ctrl-x mode offers _new_ ideas, _precision_ completion:
 syntax plugin, ftplugin:
     http://www.reddit.com/r/vim/comments/2fdys2/question_custom_highlighting_in_vim/ck8dpxf
 
+syntax highlighting is slow! long lines are slow! wtf?
+    Any sufficiently flexible editor will run into issues with long lines if
+    certain features are enabled.
+    See this emacs-devel discussion:
+        https://lists.gnu.org/archive/html/emacs-devel/2015-12/msg00378.html
+
 runtimepath is like bash $PATH. The order matters. Any VimL file in a plugin/
 directory anywhere in your runtime path _is_ a plugin. You can force plugins
 to run via ':runtime! foo.vim'
