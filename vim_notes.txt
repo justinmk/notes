@@ -259,10 +259,14 @@ autochdir: This setting should not exist. If you're using it, ask why. The
     work with a buffer's directory, just use this map instead:
         nnoremap cd :lcd %:p:h<bar>pwd<cr>
     Notice that changes the _local_ working directory.
-transpose: Vim is "do exactly what I say". Compare Emacs "transpose" operation,
-    which is DWIM. It is usually smart, but in Vim, we "exchange" instead of
-    "transpose"--it is flexible and precise, not smart.
-    https://github.com/tommcdo/vim-exchange
+transpose: Vim is "do exactly what I say" (cf. Emacs "transpose" which is DWIM.
+    Why does Vim move the cursor when you yank or delete? It turns out this is
+    a feature, and it can be used to transpose WORDs or words:
+        foo(), bar/baz/ zub
+    To transpose "bar/baz/" with "foo(),", move the cursor to the former and:
+        daWBP "sadly, does not work at the end of a line
+    In Vim we trade "smart" for "flexible and precise":
+        https://github.com/tommcdo/vim-exchange
 
 :preserve saves new files, even files without a name. Try :recover on a :new
 file, you might be surprised.
@@ -541,6 +545,7 @@ isn't positioned to address.
             Most programs basically ignore the key_backspace cap, and query
             termios instead.
                 Example (Vim): https://github.com/vim/vim/blob/cde885473099296c4837de261833f48b24caf87c/src/os_unix.c#L3493-L3503
+            More discussion: https://github.com/neovim/neovim/issues/3462#issuecomment-148711737
           Q What's the alternative?
           A Report terminfo bug to your distro. Fixing key_backspace won't
             hurt software that contains the workaround.

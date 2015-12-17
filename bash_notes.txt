@@ -119,6 +119,7 @@ pipe as input stream to a command (e.g., vim)
 
 BEST PRACTICES / LINT
     #!/bin/bash
+    set -e # sometimes this is a bit of a hassle...
     set -o pipefail
     set -o nounset # prevents referencing undefined
                    # variables (which default to "")

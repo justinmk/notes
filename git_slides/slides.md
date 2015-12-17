@@ -314,8 +314,11 @@ C:\Users\jkeyes\Desktop\git_slides\008-00-.git.md
                               │       └── master
                               └── tags
 
+========================================================
+# .git/ - Which files actually _matter_?
 
-
+TODO: holy grail of repo layout:
+    git help gitrepository-layout
 
 
 
@@ -586,8 +589,11 @@ Q: When was this commit merged?
 
 A: https://github.com/mhagger/git-when-merged
 
-C:\Users\jkeyes\Desktop\git_slides\025-01-packfiles.md
+packfiles
 ========================================================
+Compare "loose" (unpacked) objects which are found in[1]:
+    .git/objects/[0-9a-f][0-9a-f]
+
 "Compression is done off-line and can be delayed
 until after the primary objects are saved to backup
 media. This method provides better compression than
@@ -600,10 +606,15 @@ repository. The reduced size benefits both download
 times and overall repository performance as fewer
 pages must be mapped to operate on objects within
 a Git repository than within any other repository
-structure."[1]
+structure."[2]
 
-1: http://keithp.com/blogs/Repository_Formats_Matter/
-2: http://git-scm.com/book/en/v2/Git-Internals-Packfiles
+1: git help gitrepository-layout
+2: http://keithp.com/blogs/Repository_Formats_Matter/
+3: http://git-scm.com/book/en/v2/Git-Internals-Packfiles
+
+packfiles
+========================================================
+
 C:\Users\jkeyes\Desktop\git_slides\199-01-Reference.md
 ========================================================
 annotated micro-impl of git
@@ -707,6 +718,10 @@ So what is a merge? It is two trees mushed together.
     Why?
     Because the patch computed from MERGE_BASE..MERGE_HEAD will not include the
     contents of foo.txt unless foo.txt was changed.
+
+    `git show` on a merge-commit shows no changes. Why: by default (without -m)
+    it only shows changes _introduced_ by the merge commit itself.
+        http://haacked.com/archive/2014/02/21/reviewing-merge-commits/
 
     ^1, ^2
         The incoming branch (MERGE_HEAD) is always "parent 2". So if you are
