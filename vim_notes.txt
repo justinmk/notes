@@ -716,7 +716,9 @@ UNIQUE(?) FEATURES
 ==========================================
 persistent undo
 undo tree / :earlier / :later
-    - emacs undotree is broken. yes, really: http://comments.gmane.org/gmane.emacs.vim-emulation/2079
+    - emacs undotree is broken. yes, really:
+      http://comments.gmane.org/gmane.emacs.vim-emulation/2079
+      https://www.reddit.com/r/emacs/comments/3yt467
 folding (not in emacs): fine-grained control over folding (e.g., create an arbitrary motion-defined fold on-the-fly with zf{motion})
 
 list sources https://github.com/neovim/neovim/issues/660
