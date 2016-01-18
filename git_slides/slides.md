@@ -614,17 +614,26 @@ structure."[2]
 
 packfiles
 ========================================================
+http://githubengineering.com/counting-objects/
+    > Once Git has the full list of objects it needs to send, it needs to
+    > compress them into a single packfile (Git always sends packfiles over the
+    > network). If the packfile on disk has a given object X stored as a delta
+    > against an object Y, it could very well be the case that object X needs
+    > to be sent, but object Y doesn't. In this case, object X needs to be
+    > decompressed and delta'ed against an object that does need to be sent in
+    > the resulting packfile.
 
 C:\Users\jkeyes\Desktop\git_slides\199-01-Reference.md
 ========================================================
 annotated micro-impl of git
     http://gitlet.maryrosecook.com/docs/gitlet.html
 
+https://codewords.recurse.com/issues/three/unpacking-git-packfiles/
 http://gitolite.com/gcs.html#(8)
 
-video: https://speakerdeck.com/bkeepers/git-the-nosql-database 
+video: https://speakerdeck.com/bkeepers/git-the-nosql-database
 
-http://maryrosecook.com/blog/post/git-from-the-inside-out 
+http://maryrosecook.com/blog/post/git-from-the-inside-out
 
 http://wildlyinaccurate.com/a-hackers-guide-to-git/
 https://rovaughn.github.io/2015-2-9.html
@@ -692,12 +701,23 @@ trivial to know whether a blob can be shared between tree snapshots.
        a "deep copy" is simply a tree that points to the shared nodes + the new
        nodes.
 
-AGAIN: each commit points to a TREE (not a diff; not a patch).
+AGAIN: each commit points to a TREE (not a diff; not a patch[2]).
     -> This means that `cherry-pick` works by _computing_ a diff between the
        commit and its parent; `rebase` is a series of `cherry-pick`; and
        `merge` is (HEAD + MERGE_HEAD - MERGE_BASE).
 
 1. https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell
+2. Note that _packfiles_ often store _objects_ as deltas after packing; but
+   note a key difference from traditional CVS/SVN-likes: these are not file
+   deltas, but deltas between any objects which the packer recognizes as
+   contiguous.
+
+   http://githubengineering.com/counting-objects/
+       > When trying to minimize the size of a packfile, however, Git mostly
+       > disregards history and considers blobs in isolation. To find a delta
+       > base for a given blob, Git blindly scans for blobs that look similar
+       > to it. Sometimes it will choose the previous version of the same file,
+       > but very often it's a blob from an unrelated part of the history.
 
 ===
 A typical 2-parent merge is called a "3-way merge" because it uses 3 patches[1]:
