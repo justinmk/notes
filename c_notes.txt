@@ -26,4 +26,3 @@ strace 4.9 (with libunwind), -k option shows backtrace of syscalls
 
 GDB
     CTRL-X_CTRL-A => TUI mode (zomg!!)
-    CGDB (curses frontend, syntax highlighting): http://cgdb.github.io

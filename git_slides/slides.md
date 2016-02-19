@@ -802,6 +802,13 @@ patch-id) http://git-scm.com/docs/git-patch-id
 * HEAD is a ref that notes the current commit.
 * tags are also refs (pointers) (with metadata), but they never move.
 * "detached HEAD" just means `cat .git/HEAD` lists a raw SHA instead of a branch.
+    detached HEAD:
+        $ cat .git/HEAD
+        6c8e8f90d73d2af8a652f84337fd744ba6d76990
+    attached HEAD:
+        $ cat .git/HEAD
+        ref: refs/heads/trunk
+
 
 ===
 Explain each of these lines:

@@ -665,6 +665,10 @@ how do I "zoom" a window temporarily without messing up the existing window layo
 _all_ files matching a glob?
     :n {glob}   "synonym for `:args {glob}`
 
+you don't need https://github.com/kana/vim-textobj-user
+    - see jdaddy.vim (#inner_movement) for an elegacy text-object pattern.
+    - and of course, g@/opfunc already exist to define operators
+
 what if i SSH into a machine? will it still show unicode chars correctly?
     Display of characters is up to the _final_ device. Incidentally, this is
     still reflected in the name "terminal": it's the end-user device. Even if
