@@ -1,0 +1,8 @@
+Worst-case time of a hashtable lookup is bounded by the hash-collision strategy.
+    - Linked-list is of course O(n)...
+    - "Cuckoo hashing" offers constant-time lookup (_and_ insertion!)
+
+open addressing: alternative to linked-list
+   Double hashing: Unlike linear/quadratic probing, the interval depends on the
+                   _data_, so collisions have different bucket sequences.
+

@@ -1,0 +1,5 @@
+ring buffer / circular buffer / bounded queue
+    "blocking" variety:
+        consumer waits if queue is empty
+        producer waits if queue is full
+

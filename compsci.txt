@@ -1,5 +1,3 @@
-todo:
-    http://www.rubinsteyn.com/pl_fall_2011/recitation.html
 
 http://tomasp.net/blog/2015/against-types/
     Bertrand Russell introduced types in a paper Mathematical logic as based on the
