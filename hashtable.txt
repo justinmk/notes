@@ -1,6 +1,77 @@
+HASH FUNCTION
+================================================================================
+key concepts:
+    Mixing: Bernstein hash "does not mix well".
+    Completeness: Hash function is "complete" if the value of each output-bit
+        depends on all input-bits. Ideal: If one bit of the input (plaintext) is
+        changed, every bit of the output (ciphertext) has an average of 50%
+        probability of changing.
+    Avalanche: when an input is changed slightly (for example, flipping a single
+        bit) the output changes significantly (e.g., half the output bits flip).
+    * The most important test is distribution on a sample of expected inputs.
+    * No hash function is best for all possible inputs.
+        * A hash function should never be used blindly without testing it.
+
+hashtable example:
+    http://eternallyconfuzzled.com/tuts/datastructures/jsw_tut_hashtable.aspx
+    https://github.com/watmough/jwHash
+
+general purpose hash function:
+http://en.wikipedia.org/wiki/MurmurHash
+
+"Guidelines and rules for GetHashCode"
+http://ericlippert.com/2011/02/28/guidelines-and-rules-for-gethashcode/
+    > Multiplication is nothing more than repeated bit shifts and adds;
+    > multiplying by 33 is just shifting by five bits and adding. Basically this
+    > means "mess up the top 27 bits and keep the bottom 5 the same" in the hope
+    > that the subsequent add will mess up the lower 5 bits. Multiplying by
+    > a largish prime has the nice property that it messes up all the bits. I'm
+    > not sure where the number 33 comes from though.
+
+    > I suspect that prime numbers turn up in hash algorithms as much by tradition
+    > and superstition as by science. Using a prime number as the modulus and
+    > a different one as the multiplier can apparently help avoid clustering in
+    > some scenarios. But basically there's no substitute for actually trying out
+    > the algorithm with a lot of real-world data and seeing whether it gives you
+    > a good distribution.
+
+Myths about Hash Tables: 
+https://news.ycombinator.com/item?id=4599232
+
+HASH FUNCTIONS http://eternallyconfuzzled.com/tuts/algorithms/jsw_tut_hashing.aspx
+Avoid specialized hash functions ("best for strings" or “best for integers”): if
+it's not good for all types of data then it is probably a poor algorithm.
+
+two general properties of an ideal hash:
+  * An ideal hash will permute its internal state such that every resulting hash
+    value has exactly one input that will produce it. Any hash function that
+    uses _every part_ of the key to calculate the hash value will typically meet
+    this requirement
+  * achieves "avalanche": the resulting hash value is wildly different if even
+    a single bit is different in the key. This effect aids distribution because
+    similar keys will _not_ have similar hash values
+      => uniformly distributed => minimize collisions
+
+BAD hash algo: Additive hash
+  Any hash algorithm that relies primarily on a _commutitive_ operation will
+  have bad distribution (e.g. “abc”/“cba”/“cab” hash to the same value).
+
+BAD hash algo: XOR hash
+  Better than additive hash, but does not cause enough entropy.
+
+
+HASHTABLE
+================================================================================
+array-abstraction allowing any value to be used as an index. (cf. associative
+array)
+
 Worst-case time of a hashtable lookup is bounded by the hash-collision strategy.
     - Linked-list is of course O(n)...
     - "Cuckoo hashing" offers constant-time lookup (_and_ insertion!)
+
+Best-case is O(1).
+    _Average_ expected performance of a hash table with a good hash function is
+    betw. O(1) ~ O(log N), strong bias toward O(1).
 
 open addressing: alternative to linked-list
    Double hashing: Unlike linear/quadratic probing, the interval depends on the
