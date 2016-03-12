@@ -1,5 +1,12 @@
-ring buffer / circular buffer / bounded queue
+ring buffer / circular buffer / bounded queue / FIFO
     "blocking" variety:
         consumer waits if queue is empty
         producer waits if queue is full
+
+    struct Fifo {
+      ItemType items*
+      size_t writepos;
+      size_t readpos;
+      size_t capacity;
+    }
 

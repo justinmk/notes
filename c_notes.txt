@@ -1,8 +1,8 @@
 .i files = preprocessor output (e.g. build/src/nvim/auto/ex_docmd.i)
 
-do not cast functions that return (void *)
-    If your code lacks the declaration of the function, the compiler will
-    assume pre ANSI-C semantics and generate code returning an int.
+pointer arithmetic:
+    `ptr++` advances the pointer by the size of the pointed-to type.
+    Incrementing (void *) is illegal. http://stackoverflow.com/a/3524270/152142
 
 *_r function variants (rand_r, localtime_r, ...) are thread-reentrant ("restartable")[1]
     However, they are not "signal handler reentrant"[2]
@@ -24,5 +24,11 @@ strace 4.9 (with libunwind), -k option shows backtrace of syscalls
      > /lib64/libc-2.20.so(__libc_start_main+0xf5) [0x21b45]
      > /usr/bin/nvim(_start+0x29) [0x354f8]
 
-GDB
+DEBUGGING
+================================================================================
+gdb
     CTRL-X_CTRL-A => TUI mode (zomg!!)
+
+LINKING
+================================================================================
+https://github.com/0xAX/linux-insides/blob/master/Misc/linkers.md

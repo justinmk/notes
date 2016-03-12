@@ -1,23 +1,20 @@
 HASH FUNCTION
 ================================================================================
+goal: "avalanche" with uniform distribution
+    - cf. CRC, where the priority is _not_ uniformity of distribution, but to
+      avoid collisions for _similar_ inputs.
+
 key concepts:
-    Mixing: Bernstein hash "does not mix well".
-    Completeness: Hash function is "complete" if the value of each output-bit
-        depends on all input-bits. Ideal: If one bit of the input (plaintext) is
-        changed, every bit of the output (ciphertext) has an average of 50%
-        probability of changing.
-    Avalanche: when an input is changed slightly (for example, flipping a single
-        bit) the output changes significantly (e.g., half the output bits flip).
+    * "Rotate"/"Mix" the "internal state" to improve distribution, then XOR etc.
+    * Avalanche: when an input is changed slightly (e.g. flip 1 bit) the output
+      changes significantly (e.g., half the output bits flip).
+    * Completeness (ideal avalanche): Hash function is "complete" if _each_
+      output-bit depends on _all_ input-bits. If 1 bit of the input (plaintext)
+      is changed, every bit of the output (ciphertext) has 50% probability of
+      changing.
     * The most important test is distribution on a sample of expected inputs.
     * No hash function is best for all possible inputs.
         * A hash function should never be used blindly without testing it.
-
-hashtable example:
-    http://eternallyconfuzzled.com/tuts/datastructures/jsw_tut_hashtable.aspx
-    https://github.com/watmough/jwHash
-
-general purpose hash function:
-http://en.wikipedia.org/wiki/MurmurHash
 
 "Guidelines and rules for GetHashCode"
 http://ericlippert.com/2011/02/28/guidelines-and-rules-for-gethashcode/
@@ -31,26 +28,22 @@ http://ericlippert.com/2011/02/28/guidelines-and-rules-for-gethashcode/
     > I suspect that prime numbers turn up in hash algorithms as much by tradition
     > and superstition as by science. Using a prime number as the modulus and
     > a different one as the multiplier can apparently help avoid clustering in
-    > some scenarios. But basically there's no substitute for actually trying out
-    > the algorithm with a lot of real-world data and seeing whether it gives you
-    > a good distribution.
+    > some scenarios.
 
-Myths about Hash Tables: 
-https://news.ycombinator.com/item?id=4599232
+http://eternallyconfuzzled.com/tuts/algorithms/jsw_tut_hashing.aspx
+    Avoid specialized hash functions ("best for strings" or "best for
+    integers"): if it's not good for all types of data then it is probably
+    a poor algorithm.
 
-HASH FUNCTIONS http://eternallyconfuzzled.com/tuts/algorithms/jsw_tut_hashing.aspx
-Avoid specialized hash functions ("best for strings" or “best for integers”): if
-it's not good for all types of data then it is probably a poor algorithm.
-
-two general properties of an ideal hash:
-  * An ideal hash will permute its internal state such that every resulting hash
-    value has exactly one input that will produce it. Any hash function that
-    uses _every part_ of the key to calculate the hash value will typically meet
-    this requirement
-  * achieves "avalanche": the resulting hash value is wildly different if even
-    a single bit is different in the key. This effect aids distribution because
-    similar keys will _not_ have similar hash values
-      => uniformly distributed => minimize collisions
+    two general properties of an ideal hash:
+      * An ideal hash will permute its internal state such that every resulting
+        hash value has exactly one input that will produce it. Any hash function
+        that uses _every part_ of the key to calculate the hash value will
+        typically meet this requirement
+      * achieves "avalanche": the resulting hash value is wildly different if
+        even a single bit is different in the key. This effect aids distribution
+        because similar keys will _not_ have similar hash values
+            => uniformly distributed => minimize collisions
 
 BAD hash algo: Additive hash
   Any hash algorithm that relies primarily on a _commutitive_ operation will
@@ -62,18 +55,68 @@ BAD hash algo: XOR hash
 
 HASHTABLE
 ================================================================================
-array-abstraction allowing any value to be used as an index. (cf. associative
+Array-abstraction allowing any value to be used as an index. (cf. associative
 array)
 
+    // Get an index for the key.
+    size_t idx = hash(key, size) % table->size;
+
 Worst-case time of a hashtable lookup is bounded by the hash-collision strategy.
-    - Linked-list is of course O(n)...
-    - "Cuckoo hashing" offers constant-time lookup (_and_ insertion!)
+    - Linked-list ("chaining") is of course O(n)...
+    - Linear probing worst-case is also O(n), but gains cache locality.
+        - But chaining can be improved by moving the match to front of list:
+          "In-memory hash tables for accumulating text vocabularies"
+          http://www.mathcs.emory.edu/~whalen/Hash/Hash_Articles/In-memory%20hash%20tables%20for%20accumulating%20text%20vocabularies.pdf
 
 Best-case is O(1).
     _Average_ expected performance of a hash table with a good hash function is
     betw. O(1) ~ O(log N), strong bias toward O(1).
 
-open addressing: alternative to linked-list
-   Double hashing: Unlike linear/quadratic probing, the interval depends on the
-                   _data_, so collisions have different bucket sequences.
+Open addressing: alternative to "chaining" (linked-list)
+    - linear/quadratic probing
+    - double hashing: avoids clustering
+        - "cuckoo hashing": constant-time lookup (and insertion).
 
+Double hashing: use a different hash function to compute step size
+    // Get the initial index for the key.
+    size_t idx = hash(key, size) % table->size;
+    // Get the step size.
+    size_t step = hash2(key) % (table->size - 1) + 1;
+           ^-- Interval depends on the _data_ (unlike probing), so collisions
+               have different bucket sequences.
+
+Design of redis dict.c:  https://news.ycombinator.com/item?id=4599740
+    1. At every operation you perform there is a rehashing step.
+    2. You have a function that you can call to perform a rehashing step.
+    3. There is an higher level function where you can say "rehash for
+       N milliseconds" in case you have some idle time.
+    Another uncommon thing of dict.c is that it supports the "pick a random
+    element" operation with guaranteed O(1) behaviour.
+    * We use both chaining and incremental rehashing. This means that there is
+      no need to rehash ASAP when the hash table reached the max % of elements
+      allowed. At the same time using the incremental rehashing there is no need
+      to block.
+    * We support safe and unsafe iterators: safe iterators block the rehashing
+      when they are active, so you have the feeling you are accessing the hash
+      table in a read-only way. Unsafe iterators are ok for looping even while
+      an incremental rehashing is in progress, but is not ok to touch the hash
+      table while iterating with an unsafe iterator (otherwise the iterator no
+      longer guarantees to return all the elements, or to avoid duplicated
+      elements).
+    * The hash table is rehashed both ways: if it's too full, or if it's too
+      empty. This way there is the guarantee that a table has always
+      a percentage between a min and max. This guarantees that our random
+      element function is in the average case O(1).
+    * When we rehash, a second table is created, and stuff are moved
+      incrementally from one to the other. When we have two tables, all the
+      lookup / delete operations are run against both tables because the element
+      can be in either table. Insertions only happen in the new table.
+
+MORE
+================================================================================
+general purpose hash function
+    MurmurHash3 C port:   https://github.com/PeterScott/murmur3
+    MurmurHash3:          https://github.com/aappleby/smhasher/blob/master/src/MurmurHash3.cpp
+    MurmurHash2 in redis: https://github.com/antirez/redis/blob/0c05436cef6f65cb2d62c8764522abefeb964314/src/dict.c#L92
+
+http://www.eternallyconfuzzled.com/tuts/datastructures/jsw_tut_hashtable.aspx
