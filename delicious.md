@@ -5,6 +5,28 @@ The Netflix Tech Blog: Linux Performance Analysis in 60,000 Milliseconds
   tag="performance checklist linux devops sysadmin"
   time="2016-01-18T06:02:33Z" 
 
+How Netflix Reinvented HR
+================================================================================
+https://hbr.org/2014/01/how-netflix-reinvented-hr
+tag="work culture hiring"
+2016-03-16 19:38:31
+> The best thing you can do for employees—a perk better than foosball or free
+> sushi—is hire only “A” players to work alongside them. Excellent colleagues
+> trump everything else.
+> ...
+> we learned to offer rich severance packages.
+> ...
+> Hire, Reward, and Tolerate Only Fully Formed Adults
+> ...
+> we learned that if we asked people to rely on logic and common sense instead
+> of on formal policies, most of the time we would get better results, and at
+> lower cost.
+> ...
+>  I frequently see CEOs who are clearly winging it. ... It’s a waste of time to
+>  articulate ideas about values and culture if you don’t model and reward
+>  behavior that aligns with those goals.
+
+
 The USE Method 
 ================================================================================
   href="http://www.brendangregg.com/usemethod.html" 
