@@ -60,19 +60,24 @@ array)
 
 Worst-case time of a hashtable lookup is bounded by the hash-collision strategy.
     - Linked-list ("chaining") is of course O(n)...
-    - Linear probing worst-case is also O(n), but gains cache locality.
-        - But chaining can be improved by moving the match to front of list:
-          "In-memory hash tables for accumulating text vocabularies"
-          http://www.mathcs.emory.edu/~whalen/Hash/Hash_Articles/In-memory%20hash%20tables%20for%20accumulating%20text%20vocabularies.pdf
+        - Delete is trivial.
+        - Requires extra storage for pointers, and frustrates cache-locality.
+          - But chaining can be improved by moving the match to front of list:
+            "In-memory hash tables for accumulating text vocabularies"
+            http://www.mathcs.emory.edu/~whalen/Hash/Hash_Articles/In-memory%20hash%20tables%20for%20accumulating%20text%20vocabularies.pdf
+    - Open addressing: alt. to "chaining". Linear, Quadratic, Double-hashing...
+        - Delete is a pain.
+            - Some use a "mark" strategy, but then if many keys are deleted,
+              scan-time gets terrible though the logical load-factor is low.
+            - Thus the typical strategy is to rebuild the probe-sequence
+              following the deleted item.
+        - Worst-case is also O(n), but gains cache locality.
+        - Double hashing: avoids clustering
+            - "Cuckoo hashing": constant-time lookup (and insertion).
 
 Best-case is O(1).
     _Average_ expected performance of a hash table with a good hash function is
     betw. O(1) ~ O(log N), strong bias toward O(1).
-
-Open addressing: alternative to "chaining" (linked-list)
-    - linear/quadratic probing
-    - double hashing: avoids clustering
-        - "cuckoo hashing": constant-time lookup (and insertion).
 
 Double hashing: use a different hash function to compute step size
     // Get the initial index for the key.
