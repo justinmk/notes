@@ -1,3 +1,17 @@
+lock-free concurrency
+    C: http://concurrencykit.org/
+    mscorlib: ConcurrentQueue.cs
+        - all public/protected methods are thread-safe
+        - use CAS; "SpinWait" for backoff
+        - GetEnumerator(), ToArray(), ToList() need to take "snapshot".
+        - ConcurrentQueue is a linked list of small arrays, each node is called a
+          segment. A segment contains an array, a pointer to the next segment,
+          and m_low, m_high indices recording the first and last valid elements
+          of the array.
+    other notes:
+        copy shared state to local vars before doing work, then use CAS
+        C#: struct assignement/copying is not atomic
+
 ring buffer / circular buffer / bounded queue / FIFO
     "blocking" variety:
         consumer waits if queue is empty
@@ -10,3 +24,16 @@ ring buffer / circular buffer / bounded queue / FIFO
       size_t capacity;
     }
 
+Stacks and Queues have equivalent _average_ waiting time. Queue is important
+when _order_ of processing (or maximum waiting time) is important.
+
+
+priority queue (heap)
+    max_key() or min_key() on a Dictionary enables it to serve as a priority queue.
+    heap is one maximally efficient implementation of priority queue
+
+skip list
+
+sparse array
+
+splay tree

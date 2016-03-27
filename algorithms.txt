@@ -1,0 +1,23 @@
+sorting
+    Lower bound of sorting in general is O(n*logn).
+    This sets the lower bound for many _applications_ of sorting, including
+    "element uniqueness", "finding the mode", and "constructing convex hulls".
+
+quicksort: select a random "pivot" item `p`
+    _not_ stable
+    partition() the array in one linear scan into THREE SECTIONS:
+        1. "less than the pivot" (to the left of firsthigh)
+        2. "greater than or equal to the pivot" (between firsthigh and i)
+        3. "unexplored" (to the right of i) <= KEY IDEA: this is whatever is
+                                               left over as the linear scan &
+                                               swap progresses
+    partition() gains us:
+        * The pivot element `p` lands in its final position.
+        * After partitioning, an element never switches sides.
+        * Recursion is limited to ~lgn depth.
+    We can now sort the elements on either side of the pivot independently!
+        => naturally recursive
+        => parallelizable
+
+mergesort:
+    stable

@@ -1,9 +1,19 @@
 The Netflix Tech Blog: Linux Performance Analysis in 60,000 Milliseconds
 ================================================================================
   href="http://techblog.netflix.com/2015/11/linux-performance-analysis-in-60s.html"
-   
+
   tag="performance checklist linux devops sysadmin"
   time="2016-01-18T06:02:33Z" 
+
+Linux Performance Observability
+================================================================================
+http://www.brendangregg.com/linuxperf.html
+tag="todo performance unix linux devops sysadmin"
+
+BSD Performance Observability
+================================================================================
+http://www.brendangregg.com/blog/2015-03-06/performance-analysis-bsd.html
+tag="todo performance unix bsd devops sysadmin"
 
 The USE Method 
 ================================================================================
@@ -297,6 +307,12 @@ Markov Chains visualization
   href="http://setosa.io/blog/2014/07/26/markov-chains/index.html"
     tag="machine-learning statistics"
   time="2014-09-10T21:45:15Z" 
+
+The Little Book of Semaphores [pdf]
+================================================================================
+http://www.greenteapress.com/semaphores/downey08semaphores.pdf
+https://news.ycombinator.com/item?id=11277896
+tag="todo distributed-systems programming"
 
 Readings in Databases
 ================================================================================
@@ -1855,11 +1871,6 @@ Basic Concepts of Mathematics - by Elias Zakon
    tag="mathematics books"
   time="2010-09-19T22:27:42Z" 
 
-Sorting Algorithm Animations 
-================================================================================
-  href="http://www.sorting-algorithms.com/" 
-   tag="compsci" time="2010-09-12T21:56:43Z" 
-
 Anonymous Pro 
 ================================================================================
   href="http://www.ms-studio.com/FontSales/anonymouspro.html"
@@ -2591,12 +2602,6 @@ setting up vim for python development
   href="http://www.reddit.com/r/programming/comments/8d91k/setting_up_vim_for_python_development/"
     tag="vim programming"
   time="2009-04-17T18:33:56Z" 
-
-hatful of hollow - Visualising Sorting Algorithms
-================================================================================
-  href="http://www.hatfulofhollow.com/posts/code/visualisingsorting/index.html"
-    tag="compsci"
-  time="2009-04-17T03:13:13Z" 
 
 Official Google Webmaster Central Blog: How to start a multilingual site
 ================================================================================

@@ -2,5 +2,10 @@ vector (dynamic array), linked list, stack, queue, set, priority queue, binary s
     http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=alg_index
     http://community.topcoder.com/tc?module=MatchList
 
+allocation: http://www.smallmemory.com/6_AllocationChapter.pdf
+
 Let's code a TCP/IP stack, 1: Ethernet & ARP
     https://news.ycombinator.com/item?id=11234229
+
+DNS: The Good Parts
+https://www.petekeen.net/dns-the-good-parts

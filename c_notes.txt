@@ -32,3 +32,5 @@ gdb
 LINKING
 ================================================================================
 https://github.com/0xAX/linux-insides/blob/master/Misc/linkers.md
+    nm -A foo.o
+    objdump -S -r foo.o

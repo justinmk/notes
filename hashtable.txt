@@ -12,9 +12,6 @@ key concepts:
       output-bit depends on _all_ input-bits. If 1 bit of the input (plaintext)
       is changed, every bit of the output (ciphertext) has 50% probability of
       changing.
-    * The most important test is distribution on a sample of expected inputs.
-    * No hash function is best for all possible inputs.
-        * A hash function should never be used blindly without testing it.
 
 "Guidelines and rules for GetHashCode"
 http://ericlippert.com/2011/02/28/guidelines-and-rules-for-gethashcode/
@@ -43,14 +40,14 @@ http://eternallyconfuzzled.com/tuts/algorithms/jsw_tut_hashing.aspx
       * achieves "avalanche": the resulting hash value is wildly different if
         even a single bit is different in the key. This effect aids distribution
         because similar keys will _not_ have similar hash values
-            => uniformly distributed => minimize collisions
+        => uniformly distributed => minimize collisions
 
 BAD hash algo: Additive hash
-  Any hash algorithm that relies primarily on a _commutitive_ operation will
-  have bad distribution (e.g. “abc”/“cba”/“cab” hash to the same value).
-
+  Any hash algorithm that relies primarily on a commutative (independent of
+  order) operation will have bad distribution (e.g. abc/cba/cab hash to the same
+  value).
 BAD hash algo: XOR hash
-  Better than additive hash, but does not cause enough entropy.
+  Better than additive hash, but not enough internal mixing.
 
 
 HASHTABLE
@@ -118,5 +115,9 @@ general purpose hash function
     MurmurHash3 C port:   https://github.com/PeterScott/murmur3
     MurmurHash3:          https://github.com/aappleby/smhasher/blob/master/src/MurmurHash3.cpp
     MurmurHash2 in redis: https://github.com/antirez/redis/blob/0c05436cef6f65cb2d62c8764522abefeb964314/src/dict.c#L92
+
+string hash function:
+    https://github.com/amadvance/tommyds
+    https://github.com/torch/luajit-rocks/commit/cafad2e668764467d7846719ee964172c4e74b0b
 
 http://www.eternallyconfuzzled.com/tuts/datastructures/jsw_tut_hashtable.aspx

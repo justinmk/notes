@@ -14,11 +14,10 @@ quick start screencast (eclipse, ring)
     http://www.youtube.com/watch?v=VVd4ow-ZcX0
 
 todo:
+    ClojureScript for Skeptics - Derek Slager: https://www.youtube.com/watch?v=gsffg5xxFQI
     https://howistart.org/posts/clojure/1
     http://www.blaenkdenum.com/notes/clojure/
-    http://yogthos.github.io/ClojureDistilled.html
-    "Typed Clojure in Practice": https://www.youtube.com/watch?v=a0gT0syAXsY
-    "Tree visitors in Clojure" http://www.ibm.com/developerworks/library/j-treevisit/
+    Migrating a Leiningen Project to Boot (michielborkent.nl): https://news.ycombinator.com/item?id=9671106
 
 style/idioms:
     https://github.com/bbatsov/clojure-style-guide
