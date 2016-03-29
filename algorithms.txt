@@ -1,3 +1,31 @@
+Zipf's law
+    Nonuniform access is usually the rule, not the exception. Many real-world
+    distributions are governed by power laws. A classic example is word use in
+    English, which is modeled by Zipf's law:
+        The ith most frequently accessed key is selected with probability
+        (i − 1)/i times the probability of the (i − 1)th most-popular key.
+
+knapsack problem: resource allocation with budget constraint
+    Given a set of integers S = {s1, s2, ..., sn}, and a target T, find a subset
+    that adds up exactly to T.
+
+    "0/1" variant is most common (otherwise if subdividing objects is allowed,
+    greedy algorithm gives optimal solution!)
+
+    Same "price per pound"? greedy won't work. goal is to minimize empty space.
+    "easy cases":
+    Same cost per item, different size? => optimize for greatest number of items
+    Same size per item, different cost? => sort, then choose least-cost
+
+    heuristics (non-optimal):
+        greedy:     Inserts items according to the maximum “price per pound”.
+        first-fit:  Put the elements of S in the knapsack in left to
+                    right order if they fit.
+        best-fit:   Put the elements of S in the knapsack from smallest to
+                    largest.
+
+bin-packing problem: ("multiple knapsacks"...)
+
 sorting
     Lower bound of sorting in general is O(n*logn).
     This sets the lower bound for many _applications_ of sorting, including

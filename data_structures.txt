@@ -1,3 +1,9 @@
+A data structure is "naturally recursive" if it can be cut in half and both
+parts treated as the same type of structure. (trees, arrays, stacks, ...).
+
+Stacks and Queues have equivalent _average_ waiting time. Queue is important
+when _order_ of processing (or maximum waiting time) is important.
+
 lock-free concurrency
     C: http://concurrencykit.org/
     mscorlib: ConcurrentQueue.cs
@@ -11,6 +17,8 @@ lock-free concurrency
     other notes:
         copy shared state to local vars before doing work, then use CAS
         C#: struct assignement/copying is not atomic
+        C#: lock() is syntax-sugar for try-finally Monitor.Enter/Monitor.Exit.
+        event queue is an alternative to polling
 
 ring buffer / circular buffer / bounded queue / FIFO
     "blocking" variety:
@@ -24,16 +32,81 @@ ring buffer / circular buffer / bounded queue / FIFO
       size_t capacity;
     }
 
-Stacks and Queues have equivalent _average_ waiting time. Queue is important
-when _order_ of processing (or maximum waiting time) is important.
+sparse array
 
+tree
+    The cost of transferring data between levels of the memory hierarchy
+    (RAM-to-cache or disk-to-RAM) dominates the cost of actual computation for
+    many problems. "Cache-oblivious" data structures offer performance
+    guarantees without explicit knowledge of the block-size.
+
+    "threaded" binary tree points unused pointers to higher nodes. (Knuth 322)
+        => enables traversal without recursion!
+
+binary
+    balanced: (maxdepth - mindepth) <= 1
+
+BST
+    find(): O(lgn) (_If_ you can guarantee that the number of nodes ~halved each
+                    iteration. This is why BST must be "balanced".)
+    Other important properties:
+        can obtain the smallest element by following all the left children
+        can obtain the largest element by following all the right children
+
+heap
+    BAD  for search. "heap is not a BST"
+    GOOD for priority queue: Find the min (max) element in a set under insertion
+                             and deletion.
+    Maintains _partial_ order on the set of elements which is weaker than the
+    sorted order (=> efficient to maintain) yet stronger than random order
+    (=> fast lookup of min element).
+    _compact_ => Represents binary trees without using any pointers. Stores data
+                 as an array of keys.
 
 priority queue (heap)
     max_key() or min_key() on a Dictionary enables it to serve as a priority queue.
-    heap is one maximally efficient implementation of priority queue
-
-skip list
-
-sparse array
+    heap is a maximally efficient implementation of priority queue
 
 splay tree
+    uses rotations to move any accessed key to the root. Frequently-used or
+    recently-accessed nodes thus sit near the top of the tree, allowing faster
+    searches.
+
+B-trees
+    For data sets so large that they will not fit in main memory (say more than 1,000,000 items) your best bet will be some flavor of a B-tree. Once a data structure has to be stored outside of main memory, the search time grows by several orders of magnitude. With modern cache architectures, similar effects can also happen on a smaller scale, since cache is much faster than RAM.
+    The idea behind a B-tree is to collapse several levels of a binary search tree into a single large node, so that we can make the equivalent of several search steps before another disk access is needed. With B-tree we can access enor- mous numbers of keys using only a few disk accesses.
+
+graphs
+    TODO: BFS can be used to test bipartiteness, by starting the search at any
+          vertex and giving alternating labels to the vertices visited during
+          the search. That is, give label 0 to the starting vertex, 1 to all its
+          neighbors, 0 to those neighbors' neighbors, and so on. If at any step
+          a vertex has (visited) neighbors with the same label as itself, then
+          the graph is not bipartite.
+
+    Adjacency list is usually the best data structure to use for graphs.
+    Most real-world graphs are sparse.
+
+    Adjacency Lists:
+        space:          O(m + n)
+        insert/delete:  O(d)
+        traverse:       Θ(m + n)
+    compact representation using linked lists.
+    Harder (vs adj. matrix) to verify whether a given edge (i,j) is in G, since
+    we must search through the list. However, such queries usually are not
+    needed, instead BF/DF traversal is used and nodes are updated passively.
+
+    Adjacency Matrix:
+        space:          O(n^2)
+        insert/delete:  O(1)
+        traverse:       Θ(n^2)
+    We can represent G using an n × n matrix M, where
+    element M[i,j] = 1 if (i,j) is an edge of G, and 0 if it isn’t. This allows fast
+    answers to the question “is (i,j) in G?”, and rapid updates for edge insertion
+    and deletion. It may use excessive space for graphs with many vertices and
+    relatively few edges, however.
+
+    problem: isomorphism test: determine whether the topological structures of
+             two graphs are identical if we ignore any labels.
+    soln:    backtracking: assign each vertex in each graph a label, then
+             compare.
