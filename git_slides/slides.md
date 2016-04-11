@@ -262,6 +262,14 @@ C:\Users\jkeyes\Desktop\git_slides\007-02-DAG.md
 
 ^^ Three kinds of repository stuff. ^^
    Only DAG matters. ("content addressable")
+
+
+Git data organization / What's in a repo?
+========================================================
+Q: Why a DAG? Why not multiply-linked-list?
+A: At least one answer: if a commit tracked its children,
+   then it wouldn't be immutable.
+
 C:\Users\jkeyes\Desktop\git_slides\007-03-DAG.md
 ========================================================
 # Git data organization / What's in a repo?

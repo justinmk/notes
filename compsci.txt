@@ -1,5 +1,0 @@
-
-http://tomasp.net/blog/2015/against-types/
-    Bertrand Russell introduced types in a paper Mathematical logic as based on the
-    theory of type in 1908
-    The strong normalization property: all programs reduce to a value

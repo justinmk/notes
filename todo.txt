@@ -1,7 +1,3 @@
-vector (dynamic array), linked list, stack, queue, set, priority queue, binary search tree
-    http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=alg_index
-    http://community.topcoder.com/tc?module=MatchList
-
 allocation: http://www.smallmemory.com/6_AllocationChapter.pdf
 
 Let's code a TCP/IP stack, 1: Ethernet & ARP
@@ -9,3 +5,8 @@ Let's code a TCP/IP stack, 1: Ethernet & ARP
 
 DNS: The Good Parts
 https://www.petekeen.net/dns-the-good-parts
+
+http://tomasp.net/blog/2015/against-types/
+    Bertrand Russell introduced types in a paper Mathematical logic as based on the
+    theory of type in 1908
+    The strong normalization property: all programs reduce to a value

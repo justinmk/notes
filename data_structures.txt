@@ -76,6 +76,8 @@ B-trees
     For data sets so large that they will not fit in main memory (say more than 1,000,000 items) your best bet will be some flavor of a B-tree. Once a data structure has to be stored outside of main memory, the search time grows by several orders of magnitude. With modern cache architectures, similar effects can also happen on a smaller scale, since cache is much faster than RAM.
     The idea behind a B-tree is to collapse several levels of a binary search tree into a single large node, so that we can make the equivalent of several search steps before another disk access is needed. With B-tree we can access enor- mous numbers of keys using only a few disk accesses.
 
+    TODO: http://patshaughnessy.net/2014/11/11/discovering-the-computer-science-behind-postgres-indexes
+
 graphs
     TODO: BFS can be used to test bipartiteness, by starting the search at any
           vertex and giving alternating labels to the vertices visited during
