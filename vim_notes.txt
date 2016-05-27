@@ -249,6 +249,18 @@ AFFIRMATIONS of common project management wisdom:
 
 NEW USER NOTES
 ==============
+"what is a buffer? why make the distinction between a file and a buffer"?
+    a buffer is the "Untitled-1.txt" that most text editors create when you
+    start a new "file", but haven't saved that "file" yet. The thing that holds
+    the text which hasn't been saved to disk yet, is called a "buffer". Most
+    text editors don't call it anything, you just say "Untitled-1.txt" is an
+    "unsaved file". Editors like emacs and Vim treat buffers as a first-class
+    concept, and saving the buffer to disk is an optional thing you may choose
+    to do with the buffer. But many buffers never exist as files: they're used
+    for things like dialogs, UIs, message lists, etc. Being able to use the same
+    editing and layout facilities for any of these text applications, compounds
+    the utility of those facilities.
+
 wildignore: set this to `tags` and pretty much nothing else. Otherwise many
     plugins will have bizarre bugs, because 'wildignore' affects the results of
     expand(), globpath(), glob(), and inline evaluations (:help `=).

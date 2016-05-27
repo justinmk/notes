@@ -81,6 +81,16 @@ Here are a few random things that come to mind as often missed by users
     tag="guava google programming"
   time="2015-12-29T21:33:40Z" 
 
+TensorFlow
+================================================================================
+http://googleresearch.blogspot.com/2015/12/how-to-classify-images-with-tensorflow.html
+
+> At Jetpac my colleagues and I built mustache detectors to recognize bars full of hipsters, blue sky detectors to find pubs with beer gardens, and dog detectors to spot canine-friendly cafes. At first, we used the traditional computer vision approaches that I'd used my whole career, writing a big ball of custom logic to laboriously recognize one object at a time. For example, to spot sky I'd first run a color detection filter over the whole image looking for shades of blue, and then look at the upper third. If it was mostly blue, and the lower portion of the image wasn't, then I'd classify that as probably a photo of the outdoors.
+> I'd been an engineer working on vision problems since the late 90's, and the sad truth was that unless you had a research team and plenty of time behind you, this sort of hand-tailored hack was the only way to get usable results. As you can imagine, the results were far from perfect and each detector I wrote was a custom job, and didn't help me with the next thing I needed to recognize. This probably seems laughable to anybody who didn't work in computer vision in the recent past! It's such a primitive way of solving the problem, it sounds like it should have been superseded long ago.
+> That's why I was so excited when I started to play around with deep learning. It became clear as I tried them out that the latest approaches using convolutional neural networks were producing far better results than my hand-tuned code on similar problems. Not only that, the process of training a detector for a new class of object was much easier. I didn't have to think about what features to detect, I'd just supply a network with new training examples and it would take it from there.
+
+tag="deep-learning machine-learning random-forests compsci"
+
 Random forests
 ================================================================================
   http://research.microsoft.com/pubs/155552/decisionForests_MSR_TR_2011_114.pdf Random forests &quot;can handle classification, regression, semi-supervised learning, manifold learning, and density estimation. The paper gives an introduction to each of these topics as well as a unified framework to implement each algorithm.&quot; &quot;The paper is well-written and easy to understand for someone without a deep background in machine learning.&quot;
@@ -416,6 +426,13 @@ Minimum Viable Block Chain - igvita.com
    
   tag="bitcoin blockchain trust-network p2p todo"
   time="2014-05-05T17:15:08Z" 
+
+Call for a Temporary Moratorium on “The DAO”
+================================================================================
+  https://news.ycombinator.com/item?id=11788283
+  https://docs.google.com/document/d/10kTyCmGPhvZy94F7VWyS-dQ4lsBacR2dUgGTtV98C40/mobilebasic
+   
+  tag="todo bitcoin blockchain trust-network p2p DAO distributed-autonomous-organization"
 
 NSA Spying Documents to be Released As Result of EFF Lawsuit
 ================================================================================

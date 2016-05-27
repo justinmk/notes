@@ -3,6 +3,7 @@ send email from command line: MSMPT
     https://wiki.archlinux.org/index.php/msmtp
 
 http://matt.might.net/articles/bash-by-example/
+style guide: https://google.github.io/styleguide/shell.xml
 
 http://en.wikipedia.org/wiki/Bash_(Unix_shell)#Keyboard_shortcuts
 
