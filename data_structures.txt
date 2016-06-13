@@ -54,6 +54,8 @@ BST
         can obtain the largest element by following all the right children
 
 heap
+    TODO: https://github.com/wincent/command-t/blob/master/ruby/command-t/heap.c
+
     BAD  for search. "heap is not a BST"
     GOOD for priority queue: Find the min (max) element in a set under insertion
                              and deletion.

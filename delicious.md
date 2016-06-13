@@ -10,10 +10,12 @@ Linux Performance Observability
 http://www.brendangregg.com/linuxperf.html
 tag="todo performance unix linux devops sysadmin"
 
-BSD Performance Observability
+Scaling to 100M: MySQL is a Better NoSQL
 ================================================================================
-http://www.brendangregg.com/blog/2015-03-06/performance-analysis-bsd.html
-tag="todo performance unix bsd devops sysadmin"
+http://blog.wix.engineering/2015/12/10/scaling-to-100m-mysql-is-a-better-nosql/
+https://news.ycombinator.com/item?id=11763287
+
+tag="todo performance distributed-systems scaling mysql databases"
 
 How Netflix Reinvented HR
 ================================================================================
