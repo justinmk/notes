@@ -1,4 +1,4 @@
-send email from command line: MSMPT
+send email from command line: MSMTP
     https://code.google.com/p/google-gadgets-for-linux/wiki/MSMPTQuickStart
     https://wiki.archlinux.org/index.php/msmtp
 
