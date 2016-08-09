@@ -489,6 +489,12 @@ xperf Profiler
   tag="programming performance profiling windows"
   time="2013-11-08T22:33:39Z" 
 
+PyParallel: How we removed the GIL and exploited all cores
+================================================================================
+  https://speakerdeck.com/trent/pyparallel-how-we-removed-the-gil-and-exploited-all-cores
+  https://news.ycombinator.com/item?id=11866562
+  tag="programming performance iocp io-completion-ports syscall windows"
+
 I can't believe I'm praising Tcl
 ================================================================================
   href="http://www.yosefk.com/blog/i-cant-believe-im-praising-tcl.html"
@@ -517,6 +523,15 @@ document.createDocumentFragment
    
   tag="webdesign javascript programming performance"
   time="2013-10-15T19:18:16Z" 
+
+ipinfo.io:
+================================================================================
+https://ipinfo.io/
+IP address lookup, geolocation, API
+ASN (Autonomous System Number) lookup, e.g.: https://ipinfo.io/AS32934
+
+tag="tools web ip api internet"
+2016-08-09 00:04:38
 
 OpenRefine / fka Google Refine
 ================================================================================
