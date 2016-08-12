@@ -672,10 +672,9 @@ NPR: Planet Money Podcast
   href="http://www.npr.org/rss/podcast.php?id=510289" 
    tag="podcast" time="2013-06-26T04:08:54Z" 
 
-.net rocks 
+“DIAGNOSTIC WITH CODE FIX” USING ROSLYN API
 ================================================================================
-  href="http://www.dotnetrocks.com/archives.aspx" 
-   tag="podcast" time="2013-06-26T04:07:27Z" 
+tag=roslyn .net-compiler-platform programming visual-studio
 
 hanselminutes 
 ================================================================================
@@ -689,6 +688,16 @@ URL encoding
    
   tag="programming webdev encoding uri rfc url"
   time="2013-06-24T14:21:50Z" 
+
+History of the URL: Domain, Protocol, and Port
+================================================================================
+https://eager.io/blog/the-history-of-the-url-domain-and-protocol/
+tag="todo programming webdev uri rfc url history"
+
+History of the URL: Path, Fragment, Query, and Auth
+================================================================================
+https://eager.io/blog/the-history-of-the-url-path-fragment-query-auth/
+tag="todo programming webdev uri rfc url history"
 
 modern.IE
 ================================================================================
@@ -3324,17 +3333,26 @@ Slashdot | IT Worker Shortages Everywhere
     tag="politics it"
   time="2007-04-27T03:20:29Z" 
 
-FireBug Tips and Tricks | Seifi.org
+IMF admits disastrous love affair with the euro and apologises for the immolation of Greece
 ================================================================================
-  href="http://seifi.org/node/477"  
-  tag="programming" time="2007-04-26T07:21:34Z" 
+http://www.telegraph.co.uk/business/2016/07/28/imf-admits-disastrous-love-affair-with-euro-apologises-for-the-i/
+Ambrose Evans-Pritchard 29 JULY 2016 • 11:27AM
 
-Lifehacker: Control multiple computers with a single keyboard and mouse
-================================================================================
-  GPL, cross-platform
-  href="http://www.lifehacker.com/software/dual-monitor/hack-attack-control-multiple-computers-with-a-single-keyboard-and-mouse-254648.php"
-    tag="oss"
-  time="2007-04-26T07:19:04Z" 
+> The International Monetary Fund’s top staff misled their own board, made
+> a series of calamitous misjudgments in Greece, became euphoric cheerleaders
+> for the euro project, ignored warning signs of impending crisis, and
+> collectively failed to grasp an elemental concept of currency theory. 
+>
+> This is the lacerating verdict of the IMF’s top watchdog on the fund’s tangled
+> political role in the eurozone debt crisis, the most damaging episode in the
+> history of the Bretton Woods institutions. 
+>
+> It describes a “culture of complacency”, prone to “superficial and
+> mechanistic” analysis, and traces a shocking breakdown in the governance of
+> the IMF, leaving it unclear who is ultimately in charge of this extremely
+> powerful organisation.
+
+tag="economics politics government-failure"
 
 The Problem with Programming
 ================================================================================

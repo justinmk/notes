@@ -14,3 +14,20 @@ http://tomasp.net/blog/2015/against-types/
 TensorFlow
     http://tflearn.org/
     https://github.com/tflearn/tflearn/blob/0.1.0/examples/README.md
+
+bookmarks
+---------
+https://news.ycombinator.com/item?id=11262150 "a few things about PyPy3 support"
+
+microservices: http://blog.plataformatec.com.br/2015/01/organizing-microservices-in-a-single-git-repository/
+dep vs dup: http://yosefk.com/blog/redundancy-vs-dependencies-which-is-worse.html
+On Designing and Deploying Internet-Scale Services: https://www.usenix.org/legacy/event/lisa07/tech/full_papers/hamilton/hamilton_html/
+Notes on Google's Site Reliability Engineering book: http://danluu.com/google-sre-book/
+http://eli.thegreenplace.net/2015/directed-graph-traversal-orderings-and-applications-to-data-flow-analysis/
+https://daniel.haxx.se/http2/
+http://arstechnica.com/security/2015/08/how-security-flaws-work-the-buffer-overflow/
+https://jimshaver.net/2015/02/11/decrypting-tls-browser-traffic-with-wireshark-the-easy-way/
+https://www.facebook.com/notes/facebook-engineering/scalable-memory-allocation-using-jemalloc/480222803919
+
+
+
