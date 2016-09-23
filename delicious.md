@@ -757,6 +757,11 @@ Arrow's impossibility theorem - Wikipedia, the free encyclopedia
   tag="game-theory politics paradox cogsci voting logic"
   time="2013-05-07T23:10:53Z" 
 
+Windyty: weather visualizer
+================================================================================
+https://www.windyty.com
+tag="visualization tools weather wind-patterns web"
+
 Google Books Ngram Viewer
 ================================================================================
   corpus of text n-grams (contiguous sequence of n items) from the google books project http://books.google.com/ngrams/info raw datasets: http://books.google.com/ngrams/datasets
@@ -1297,6 +1302,12 @@ Data | The World Bank
   href="http://data.worldbank.org/"  
   tag="datasets statistics data-mining"
   time="2011-08-21T02:36:00Z" 
+
+http://setosa.io
+================================================================================
+Visual explanations. Victor Powell
+tag="pedagogy mathematics learning"
+2016-08-09 01:44:45
 
 Machine Learning - Stanford University
 ================================================================================

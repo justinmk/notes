@@ -1,0 +1,12 @@
+2016-09-22
+spilled water into macbook vent, display warped then shut down
+
+2016-09-23 14:48:47
+http://blog.viktorpetersson.com/post/100148585299/how-to-fix-kerneltask-cpu-usage-on-yosemite
+“Fixing” kernel_task CPU Problems in MacOS
+http://www.rdoxenham.com/?p=259
+$ system_profiler -detailLevel mini | grep "Model Identifier:"
+      Model Identifier: MacBookPro8,1
+
+$ cd /System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/ACPI_SMC_PlatformPlugin.kext/Contents/Resources
+$ mv MacBookPro8_1.plist MacBookPro8_1.plist.bk
