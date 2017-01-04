@@ -24,6 +24,10 @@ strace 4.9 (with libunwind), -k option shows backtrace of syscalls
      > /lib64/libc-2.20.so(__libc_start_main+0xf5) [0x21b45]
      > /usr/bin/nvim(_start+0x29) [0x354f8]
 
+REFERENCE
+================================================================================
+C: A Reference Manual, Fifth Edition. http://www.careferencemanual.com
+
 DEBUGGING
 ================================================================================
 gdb

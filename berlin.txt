@@ -3,4 +3,21 @@
 kreuzberg:
 - bells at noon and dusk
 
+two kinds of traffic: cars and bicyles. Cyclists have their own lanes with their
+own traffic signals. Pedestrian must be doubling attentive at each crossing.
+Traffic signals are fast and frequent instead of lingering and infrequent.
 
+Subway: no turnstiles, self-administered (random checks).
+
+at end of school day, the children at kita (voluntarily) hug each other
+
+week 2: vimfest => friendly people, gave a talk on Neovim, attended Bram's talk
+on Vim 8, had dinner with Bram et al. Sven Guckes gave informal tour of the
+city. Visited hardware hacker house.
+
+
+Amazing trivia:
+  - Any hill (except Viktoria park) in Berlin, is not a natural hill, but
+    actually a pile of rubble from WWII
+    https://en.wikipedia.org/wiki/Schuttberg
+  - Any building that does not have bullet holes is restored or post-war.

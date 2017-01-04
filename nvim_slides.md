@@ -215,6 +215,21 @@ painful. boring. necessary.
 
 
 
+refactoring outcomes
+====================================================
+Vim goes to great lengths to support many terminal configurations.
+Nvim completely replaced Vim's terminal code. Result:
+
+1. Better handling of "common scenarios".
+2. Worse handling of uncommon scenarios[1].
+3. Most important: Abstracted screen drawing =>
+   decoupled UI => completely externalized UI
+   (incl. TUI, which runs on its own thread).
+   - cf.: gVim is essentially a terminal emulator
+
+1: https://github.com/neovim/neovim/issues/5385
+
+
 refactoring risks
 ====================================================
 - introduce new bugs
@@ -352,6 +367,26 @@ since the beginning.
 - CI
 - advanced compiler features
 - strict coding guidelines (+automation)
+
+
+
+
+
+
+
+criticism: Users want features, not refactoring
+====================================================
+> It's going to be an awful lot of work, with the result
+> that not all systems will be supported, new bugs
+> introduced and what's the gain for the end user exactly? 
+https://groups.google.com/d/msg/vim_dev/x0BF9Y0Uby8/94tmiaBvFOgJ
+
+Nvim added features while refactoring.
+Vim eventually added a subset of similar features.
+Nvim still has more features.
+
+
+
 
 
 

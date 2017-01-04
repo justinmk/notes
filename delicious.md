@@ -1330,6 +1330,11 @@ Google Libraries API
   tag="programming google web javascript jquery"
   time="2011-08-05T14:16:46Z" 
 
+Friendly Options: Better understand your stock option grants.
+================================================================================
+https://friendlyoptions.org/
+  tag="finance employee employment work career options stock compensation"
+
 Ruxum Exchange 
 ================================================================================
   href="https://x.ruxum.com/"  
@@ -1686,6 +1691,14 @@ orgtheory.net
   href="http://orgtheory.net/"  
   tag="blog organization-theory economics"
   time="2011-01-20T08:18:24Z" 
+
+http://timharford.com/2016/10/theres-magic-in-mess-why-you-should-embrace-a-disorderly-desk/
+================================================================================
+> Categorising documents of any kind is harder than it seems. ... Jorge Luis
+> Borges once told of a fabled Chinese encyclopaedia, the “Celestial Emporium of
+> Benevolent Knowledge”, which organised animals into categories such as: a)
+> belonging to the emperor, c) tame, d) sucking pigs, f) fabulous, h) included
+> in the present classification, and m) having just broken the water pitcher.
 
 UNHOSTED - Freedom from web 2.0's monopoly platforms
 ================================================================================
@@ -3381,6 +3394,12 @@ XSLT Standard Library
 Articles on &quot;Electricity&quot;
 ================================================================================
   &quot;Babylonian approach to science understanding&quot; by William J. Beaty. intuitive explanations. addresses misconceptions.
+  misconceptions: http://amasci.com/miscon/elect.html
   href="http://amasci.com/ele-edu.html"  
   tag="science learning pedagogy" time="2007-04-25T07:10:51Z" 
 
+Europass: Curriculum Vitae
+================================================================================
+http://europass.cedefop.europa.eu/documents/curriculum-vitae
+create CV online. import/export
+tag="visa europe germany berlin immigration"

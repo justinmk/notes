@@ -1,3 +1,8 @@
+TTY demystified
+  http://www.linusakesson.net/programming/tty/
+Introduction to Termios: Termios(3) and Stty
+  https://blog.nelhage.com/2009/12/a-brief-introduction-to-termios-termios3-and-stty/
+
 To see the sequences that your terminal is _actually_ sending:
     showkey -a
 

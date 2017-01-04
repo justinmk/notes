@@ -1,3 +1,5 @@
+AWS open guide: https://github.com/open-guides/og-aws
+
 DevOps at amazon:
     key characteristics of Amazon SOA:
         - tools have *best-practices* baked-in, in order to improve
