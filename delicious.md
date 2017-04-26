@@ -17,6 +17,61 @@ https://news.ycombinator.com/item?id=11763287
 
 tag="todo performance distributed-systems scaling mysql databases"
 
+Mike Pall comment on "Why Python, Ruby and JS are slow"
+================================================================================
+https://www.reddit.com/r/programming/comments/19gv4c/why_python_ruby_and_js_are_slow/c8o29zn/?context=3
+
+tag="performance jit dynamic-pl pl programming"
+
+> While I agree with the first part ("excuses"), the "hard" things mentioned in
+> the second part are a) not that hard and b) solved issues (just not in PyPy).
+>
+> Hash tables: Both v8 and LuaJIT manage to specialize hash table lookups and
+> bring them to similar performance as C structs (*). Interestingly, with very
+> different approaches. So there's little reason NOT to use objects, dictionaries,
+> tables, maps or whatever it's called in your favorite language.
+>
+> (*) If you really, really care about the last 10% or direct interoperability
+> with C, LuaJIT offers native C structs via its FFI. And PyPy has inherited the
+> FFI design, so they should be able to get the same performance someday. I'm sure
+> v8 has something to offer for that, too.
+>
+> Allocations: LuaJIT has allocation sinking, which is able to eliminate the
+> mentioned temporary allocations. Incidentally, the link shows how that's done
+> for a x,y,z point class! And it works the same for ALL cases: arrays {1,2,3} (on
+> top of a generic table), hash tables {x=1,y=2,z=3} or FFI C structs.
+>
+> String handling: Same as above -- a buffer is just a temporary allocation and
+> can be sunk, too. Provided the stores (copies) are eliminated first. The
+> extracted parts can be forwarded to the integer conversion from the original
+> string. Then all copies and references are dead and the allocation itself can be
+> eliminated. LuaJIT will get all of that string handling extravaganza with the
+> v2.1 branch -- parts of the new buffer handling are already in the git repo. I'm
+> sure the v8 guys have something up their sleeves, too.
+>
+> I/O read buffer: Same reasoning. The read creates a temporary buffer which is
+> lazily interned to a string, ditto for the lstrip. The interning is sunk, the
+> copies are sunk, the buffer is sunk (the innermost buffer is reused). This turns
+> it into something very similar to the C code.
+>
+> Pre-sizing aggregates: The size info can be backpropagated to the aggreagate
+> creation from scalar evolution analysis. SCEV is already in LuaJIT (for ABC
+> elimination). I ditched the experimental backprop algorithm for 2.0, since I had
+> to get the release out. Will be resurrected in 2.1.
+>
+> Missing APIs: All of the above examples show you don't really need to define new
+> APIs to get the desired performance. Yes, there's a case for when you need
+> low-level data structures -- and that's why higher-level languages should have
+> a good FFI. I don't think you need to burden the language itself with these
+> issues.
+>
+> Heuristics: Well, that's what those compiler textbooks don't tell you: VMs and
+> compilers are 90% heuristics. Better deal with it rather than fight it.
+>
+> tl;dr: The reason why X is slow, is because X's implementation is slow,
+> unoptimized or untuned. Language design just influences how hard it is to make
+> up for it. There are no excuses.
+
 How Netflix Reinvented HR
 ================================================================================
 https://hbr.org/2014/01/how-netflix-reinvented-hr
@@ -1334,6 +1389,12 @@ Friendly Options: Better understand your stock option grants.
 ================================================================================
 https://friendlyoptions.org/
   tag="finance employee employment work career options stock compensation"
+
+What I Wish I'd Known About Equity Before Joining A Unicorn
+================================================================================
+https://gist.github.com/yossorion/4965df74fd6da6cdc280ec57e83a202d
+https://news.ycombinator.com/item?id=13426494
+tag="finance employee employment work career options stock compensation"
 
 Ruxum Exchange 
 ================================================================================
@@ -2725,11 +2786,6 @@ fix OS X keyboard shortcuts
     tag="todo osx"
   time="2009-03-30T01:38:37Z" 
 
-TradeDojo.net stock trading tips
-================================================================================
-  href="http://www.tradedojo.net/"  
-  tag="blog finance" time="2009-03-30T01:31:34Z" 
-
 Things to do in Amsterdam‚Äîan unconventional guide
 ================================================================================
   href="http://thomer.com/amsterdam/"  
@@ -3385,12 +3441,6 @@ The Problem with Programming
     tag="cpp programming"
   time="2007-04-26T07:03:53Z" 
 
-XSLT Standard Library
-================================================================================
-  a set of XSLT templates for commonly used functions, implemented purely in XSLT.
-  href="http://xsltsl.sourceforge.net/"  
-  tag="programming xsl xml" time="2007-04-25T22:19:09Z" 
-
 Articles on &quot;Electricity&quot;
 ================================================================================
   &quot;Babylonian approach to science understanding&quot; by William J. Beaty. intuitive explanations. addresses misconceptions.
@@ -3403,3 +3453,16 @@ Europass: Curriculum Vitae
 http://europass.cedefop.europa.eu/documents/curriculum-vitae
 create CV online. import/export
 tag="visa europe germany berlin immigration"
+
+Idioglossia
+================================================================================
+https://en.wikipedia.org/wiki/Idioglossia
+tag="concepts cogsci"
+
+Version SAT, Russ Cox
+================================================================================
+https://research.swtch.com/version-sat
+VERSION is reducible to 3-SAT.
+tag="dependency-management compsci"
+
+<!-- vim: iskeyword+== -->

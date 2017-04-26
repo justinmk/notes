@@ -59,9 +59,8 @@ command substitution
 
 
     When you connect to processes in a pipe such as ...
- 
         a | b
- 
+
     you connect stdout (fd #1) of a to stdin (fd #0) of b. Technically,
     the shell process will create a pipe, which is two filedescriptors connected
     back to back. It then will fork two times (create two copies of itself)
@@ -85,13 +84,11 @@ command substitution
     to refer to the substituted process on "a"'s command line:
 
     Try this:
- 
         $ echo $$
         12345  # <--- PID of your shell
         $ tee >( sort ) >( sort ) >( sort ) otherfile | sort
- 
+
     and in a second terminal:
- 
         $ pstree 12345 # <--- PID of your shell
         zsh,301
           ├─sort,3600 # <-- this one reads from the other end of the shell's fd #14
@@ -99,13 +96,15 @@ command substitution
           ├─sort,3602 # <-- this one reads from the other end of the shell's fd #15
           ├─sort,3604 # <-- this one reads from stdout of tee
           └─tee,3603 /proc/self/fd/14 /proc/self/fd/15 /proc/self/fd/16 otherfile
- 
+
     If your system doesn't support the convenient /proc/self/fd/<NUM>
     shortcut, the shell might decide not to create a pipe, but rather create
     temporary fifos in /tmp and use those to connect the filedescriptors.
 
     You can watch the syscalls as they are made:
         $ strace -fe fork,pipe,close,dup,dup2,execve bash -c 'tee <(sort) <(sort)'
+    Use -y or -yy to get more info.
+        http://jvns.ca/blog/2016/06/07/strace-y/
 
 pipe as input stream to a command (e.g., vim)
         vim -Nu <(echo 'set rtp+=~/.vim/bundle/neocomplete.vim/')
@@ -119,6 +118,8 @@ pipe as input stream to a command (e.g., vim)
     Execute command, ignoring any function "shadow". (like `normal!` in Vim)
 
 BEST PRACTICES / LINT
+    http://redsymbol.net/articles/unofficial-bash-strict-mode/
+
     #!/bin/bash
     set -e # sometimes this is a bit of a hassle...
     set -o pipefail

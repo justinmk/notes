@@ -1,3 +1,7 @@
+TODO:
+    Rapid DHCP: Or, how do Macs get on the network so fast?
+    http://cafbit.com/entry/rapid_dhcp_or_how_do
+
 TCP performance profiling tool: https://github.com/fastos/tcpdive
 
 http://jvns.ca/blog/2016/03/16/tcpdump-is-amazing/
@@ -12,3 +16,7 @@ http://jvns.ca/blog/2016/03/16/tcpdump-is-amazing/
         19858  76.771803    10.0.2.15 -> 10.0.2.2     SSH 1516 Encrypted response packet len=1460
         19859  76.772656    10.0.2.15 -> 10.0.2.2     SSH 560 Encrypted response packet len=504
         19860  76.772870     10.0.2.2 -> 10.0.2.15    TCP 62 57434 > ssh [ACK] Seq=10465 Ack=12908205 Win=65535 Len=0
+
+https://mitmproxy.org/
+> interactive console program that allows traffic flows to be intercepted,
+> inspected, modified and replayed.

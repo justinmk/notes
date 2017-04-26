@@ -33,8 +33,35 @@ DEBUGGING
 gdb
     CTRL-X_CTRL-A => TUI mode (zomg!!)
 
+rr: gdb replacment with efficient reverse execution http://rr-project.org
+
 LINKING
 ================================================================================
+http://jvns.ca/blog/2013/12/10/day-40-learning-about-linkers/
 https://github.com/0xAX/linux-insides/blob/master/Misc/linkers.md
     nm -A foo.o
     objdump -S -r foo.o
+
+"Delete an inline function, save 794 kB"
+https://randomascii.wordpress.com/2017/01/22/delete-an-inline-function-save-794-kb/
+
+  > how symbol resolution works in linkers: Linkers start out with the set of
+  > object files that you have specified on the command line – the contents of
+  > these object files will be included in the final binary (unless the linker
+  > can prove that removing them makes no difference). Then the linker builds up
+  > a list of unresolved symbols and starts scanning through the set of
+  > libraries that were specified on the command line – the object files in
+  > these libraries will be included as-needed. Whenever a needed symbol is
+  > found in one of the library object files then that object file is added to
+  > the list to be linked – it becomes like one of the command-line object
+  > files. The process continues until all symbols are resolved.
+
+  > The symbol search order is unspecified by C++ and due to the One Definition
+  > Rule (ODR) the search order should not matter. But, an obvious
+  > implementation is to repeatedly scan through the libraries, looking for
+  > symbols, until there are no more unresolved. This means that if you have two
+  > copies of the same symbol then it is undefined which you will get – it
+  > depends where you are when you first find that you need it. Since pulling in
+  > a symbol pulls in the rest of its object file this means that linking is
+  > fundamentally unpredictable. And, if you have ODR violations (as we did)
+  > then the results are not even defined.

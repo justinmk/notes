@@ -160,6 +160,7 @@ macros (complex-repeat):
 window management:
     ctrl-w-[v s o]
     ctrl-w-[c h j k l]
+      dependent on cursor position! https://github.com/neovim/neovim/issues/6051#issuecomment-277378836
     ctrl-w-[= | _]
     zN<enter>               resize vim height to N (useful for...?)
 

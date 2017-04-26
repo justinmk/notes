@@ -19,6 +19,20 @@ todo:
     http://www.blaenkdenum.com/notes/clojure/
     Migrating a Leiningen Project to Boot (michielborkent.nl): https://news.ycombinator.com/item?id=9671106
 
+web:
+  https://github.com/Day8/re-frame
+    Reagent Framework For Writing SPAs, in Clojurescript.
+
+boot:
+  https://news.ycombinator.com/item?id=13399073
+    My current CLJS setup is boot with boot-cljs, boot-reload and boot-cljs-repl. They're configured using normal Clojure code in a build.boot file and the entry points are configured in live-reloadable *.edn files.
+    That setup is simpler and far more powerful than anything else I've seen in other languages.
+    I was using leiningen previously but boot proved to be more powerful for less work in my case.
+    https://github.com/boot-clj/boot
+    https://github.com/boot-clj/boot-cljs
+    https://github.com/adzerk-oss/boot-reload
+    https://github.com/adzerk-oss/boot-cljs-repl
+
 style/idioms:
     https://github.com/bbatsov/clojure-style-guide
 
