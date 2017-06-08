@@ -1,0 +1,8 @@
+C pitfalls:
+http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_14.html
+http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_21.html
+
+- "compatible with amiga": check the TODOs in os_amiga.c
+- "benefit to the users": Windows build should provide curl, avoid hacks like
+  vimrun.exe, etc.
+

@@ -1,0 +1,4 @@
+
+TODO:
+    create a minimally viable Bitcoin client
+    http://www.samlewis.me/2017/06/a-peek-under-bitcoins-hood/

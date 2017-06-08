@@ -1,0 +1,193 @@
+Neovim / brain dump
+
+author of Xi editor mentions neovim:
+https://www.youtube.com/watch?v=SKtQgFBRUvQ
+
+discussion of ActualVim before Neovim existed:
+https://news.ycombinator.com/item?id=6668388
+
+role of Vim in 2015:
+    emacs/vim are in the class "lifestyle editors" (absurdly customizable). It
+    is an identity that this type of application will continue to be a niche
+    (define niche as <5% of developers), because as soon as it is _not_ a niche,
+    it will be addressed by the popular projects (eclipse, VS) and vim/emacs
+    will then become historical curiosities (only used by the "collector class")
+    instead of first-order productivity tools.
+
+    lack of constraints (customization) causes entropy:
+        https://www.youtube.com/watch?v=lKXe3HUG2l4
+
+project management:
+    be friendly to everyone because: they may be testing the waters, don't scare
+    them away (don't assume users are being "lazy", maybe they are just new)
+
+    why do we care about popularity? free bug testers. more users => more robust
+
+    reputation is valuable: tarruda's tmux commits gave him reputation
+    ...but confidence and delivery are more valuable (again, this usually comes from one's past experience)
+
+working together:
+    trust networks work
+    intuition is the #1 most important characteristic of a project member
+        OSS projects organically select for this (formal orgs / commercial
+        companies can't, so they have hyper-reactive interview processes)
+
+lessons from bram/Vim:
+    ignore drive-by opinions
+    back compat is a feature
+    lack of features _can be_ a feature, if the plugin solution is not a burden
+
+    http://www.agide.org
+    Bram's own Agide project once had aspirations of a similar sort of extensibility
+    as Neovim: Agide is not a monolitic application. Separate tools can be plugged
+    in. Thus you are not forced to use one editor. ... Each tool implements part of
+    the plugin interface. Even Stefan Monnier admits that in some cases a fork is
+    necessary: https://lists.gnu.org/archive/html/emacs-devel/2015-01/msg00171.html
+
+    http://www.free-soft.org/FSM/english/issue01/vim.html Bram's equation for number
+    of contributors to a project:
+        available = interested x ability x motivation
+    "...The motivation factor is the big unknown in this formula. How many of the
+    people that are able to write the program are actually willing to do it?"
+
+Neovim is a fork, though you may call it a knife.
+
+neovim vision:
+    stability of runtime
+    stability of UI decisions
+    [don't break userspace] prime directive for a fork is: do not regress from origin.
+
+people are willing to pay for things that are good.
+...but marketing is still a requirement.
+
+open source has a powerful ability to fill in the "wide but shallow" work by sourcing small,
+one-time commits from the "long tail" of passers-by
+
+tools matter documentation matters branding matters attitude matters: neovim
+attracts even C novices and winds up getting very useful commits from people who
+might otherwise have been intimidated professionalism matters There are a few
+things that impress me with the neovim project
+1. The speed in the refactoring.
+2. The (apparent) ability to come to a consensus quickly.
+3. The quality and depth of the communication of the progress and ideas.
+   https://news.ycombinator.com/item?id=7862576 Incredible, how fast they move.
+   And it feels very professional & friendly.
+
+how to make a fork succeed:
+
+
+build a "big tent": be compatible with origin as much as possible; users should
+be able to move to the fork with zero effort keep the vibe positive,
+professional, and welcoming. co-opt untapped resources even amateur C devs have
+made many valuable contributions to Neovim Neovim attracted devs that were
+turned off by the old development model solve the pain points and don't
+introduce new ones. stay focused, avoid feature creep, avoid hero complex. be
+able to benefit from "upstream" with very little effort "duplicate" work? avoid
+duplicate work by porting keeping up with upstream changes "divided" effort?
+Most Neovim devs did not previously work on Vim source, so this is work that is
+being done that otherwise would have been directed elsewhere (for better or
+worse...) Neovim has contributed to other important projects: luarocks timeout
+handling CC handling libuv mkdtemp function improved performance of uv_hrtime
+
+why vim instead of emacs?
+
+1. Vim is a manageable quanitity (~300k LOC + VimL, vs Emacs 300k for core + 1M
+   elisp)
+
+2. guile emacs isn't anywhere close to becoming a reality:
+   http://lwn.net/Articles/615220/
+   https://lists.gnu.org/archive/html/emacs-devel/2014-09/msg00354.html Eli
+   Zaretskii > Guile ... needs some serious work to be reasonably portable to
+   platforms other than GNU. > the considerations for how to unify Guile with
+   Emacs, i.e. which Emacs > objects and methods should be based on Guile, are
+   entirely non-trivial
+   https://lists.gnu.org/archive/html/emacs-devel/2014-09/msg00434.html Stefan
+   Monnier > Many people are thinking "cool, so I'll be able to > write
+   extensions in Scheme", but I'm not sure defining Emacs as "this > editor that
+   comes with N extensions languages" is a good idea.
+   https://lists.gnu.org/archive/html/emacs-devel/2014-09/msg00445.html David
+   Kastrup > I think that the basic idea is quite workable.  What I doubt is
+   that the > GUILE project will readily scale to accommodate Emacs.  We've seen
+   a lot > of growing pains when Emacs jumped on board of Bazaar, a project
+   > unprepared for the challenges of a project of Emacs' size with regard to
+   > both computational and social scalability.
+   https://lists.gnu.org/archive/html/emacs-devel/2014-09/msg00496.html Taylan
+   Ulrich Bayirli/Kammer If some Emacs developers gave Guile-Emacs some love, it
+   might land in a couple years I'd guess
+
+Being able to easily extend emacs with arbitrary languages isn't going to happen
+in the next 10 years. And, as silly as it sounds, that's going to hamper
+popularity and development, because most people won't learn elisp to get
+a feature they want. They'll implement the feature in python for sublime, or
+javascript for atom--or python or javascript, for Neovim. Emacs has a lot of
+baggage to juggle. Vim has an order of magnitude less baggage (300k LOC vs 1.5
+million LOC). This means that Vim has traditionally had relatively fewer
+features, but that's going to change because Neovim will catalyze an inflection
+point. The un-cleverness of the VimL interpreter also turned out to be
+a blessing for this reason, because re-implementing it is a cakewalk compared to
+re-implementing elisp.
+
+http://steve-yegge.blogspot.com/2008/04/xemacs-is-dead-long-live-xemacs.html
+A lot of people were switching over to XEmacs by the mid-1990s: the fancy
+widgets and pretty colors attracted GNU Emacs users like moths to a bug-zapper.
+Problem was, it could actually zap you. The downside of the Bazaar I personally
+tried to use XEmacs many times over a period of many years. I was jealous of its
+features. However, I never managed to use XEmacs for very long, because it
+crashed a lot. ... I assume its propensity for inopportune heart attacks is
+a function of several things, including (a) old-school development without unit
+tests, (b) the need to port it to a gazillion platforms, including many that
+nobody actually uses, (c) a culture of rapid addition of new features. ...
+[importance of defaults and out-of-the-box sanity:] Emacs, like Firefox, can be
+configured to back up your state periodically, so that in theory it can recover
+after a crash. That's part of the problem: you didn't actually have to configure
+Firefox to get that behavior. It does it automatically. ... Features and
+stability aside, XEmacs is looking pretty shabby in the performance department.
+... If Emacs can't find a way to evolve into (or merge with) Firefox, then
+Firefox or some other extensible browser is going to eclipse Emacs. [emacs-devel
+has essentially guaranteed JS interop won't happen, and refuses to use non-GPL
+code in general] ... Emacs also needs to take a page from the JVM/CLR/Parrot
+efforts and treat itself as a VM (that's what it is, for all intents) and start
+offering first-class support for other languages.  [emacs-devel has essentially
+guaranteed this won't happen] ... [CLR-hosted language interop] is clearly one
+of the hardest technical challenges facing our industry for the next 10 years,
+but it's also one of the most obviously necessary. And Emacs is going to have to
+play that game. I'm not talking about hacked-together process bridges like
+PyMacs or el4r, either — I mean first-class support and all that it entails.
+[Neovim is a bid to see where a hacked-together bridge takes us :)]
+
+---
+
+> The Emacs core is fairly small, compared with his Elisp codebase.
+
+The emacs core is actually about ~300k lines of C, same as Vim. The rest is more
+than 1 million lines of elisp, whereas Vim has about ~100k lines of viml. That
+elisp code does a lot and is difficult to change (guilemacs is the best chance
+they have, but it is at least 5 years away from truly replacing emacs as we know
+it).
+
+Emacs is a better concept but Vim has relatively much less *baggage* which
+allows it to be "pivoted" instead of slowly fading into irrelevance. Neovim
+turns things inside out, that's why it's very interesting (let emacs do its
+thing, but try this other thing at the same time; parallel experiments). Neovim
+is only possible because Vim is comparatively "incomplete": think of it as
+a starter kit. The Neovim experiment cannot practically be applied to emacs, for
+technical, cultural, and legal reasons (RMS/Eli/Stephan do not like non-GPL
+extensions, they don't even like MELPA).
+
+> I guess it allowed you to modify more parts of your Emacs experience.
+
+It does, and yet some key parts aren't practically modifiable in a useful way.
+Defaults, conventions, and culture matter, extremely so when you're trying to
+adopt an editor with thousands of concepts. If those concepts and the culture
+have missing pieces, then you don't benefit from the network effects of other
+users/plugins/documentation. Beyond a certain thresholds, saying "you can change
+emacs as you like" is the same as saying "you can build your own editor". That
+is a cop-out because if most users wanted to build an editor they wouldn't be
+looking for an already-existing editor.
+
+So I'm interested in an editor that has strong defaults/conventions, and
+provides useful hooks and gets out of the way everywhere else. Emacs culture has
+a counterproductive obsession with re-inventing everything in elisp. Imagine how
+many things could have been improved if, instead of building CEDET, they had
+leverage existing external tools. Now CEDET has reached a moderate maturity, yet
+it's eclipsed by things like clang (which GNU crowd refuses to touch)...

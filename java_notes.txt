@@ -1,0 +1,11 @@
+GC
+================================================================================
+https://github.com/cirosantilli/java-cheat/search?utf8=%E2%9C%93&q=garbage&type=
+
+Why I don't like System.gc()
+http://jeremymanson.blogspot.de/2015/12/why-i-dont-like-systemgc.html
+
+PROFILING
+================================================================================
+sampling profiler (uses SIGPROF, see http://jeremymanson.blogspot.de/2010/07/why-many-profilers-have-serious.html)
+https://github.com/jvm-profiling-tools/honest-profiler

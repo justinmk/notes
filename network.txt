@@ -1,4 +1,7 @@
 TODO:
+    https://arstechnica.com/information-technology/2017/03/802-eleventy-what-a-deep-dive-into-why-wi-fi-kind-of-sucks/
+    https://news.ycombinator.com/item?id=12315814
+    https://www.destroyallsoftware.com/compendium/network-protocols?share_key=97d3ba4c24d21147
     Rapid DHCP: Or, how do Macs get on the network so fast?
     http://cafbit.com/entry/rapid_dhcp_or_how_do
 

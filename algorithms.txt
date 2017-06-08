@@ -1,3 +1,6 @@
+todo:
+    https://github.com/cirosantilli/algorithm-cheat
+
 Zipf's law
     Nonuniform access is usually the rule, not the exception. Many real-world
     distributions are governed by power laws. A classic example is word use in
