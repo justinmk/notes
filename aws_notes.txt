@@ -14,11 +14,6 @@ DevOps at amazon:
         - teams have full ownership and accountability
         - incentives are aligned within a given team
 
-S3
-    storage classes: "Standard",  "Standard-Infrequent Access", "Glacier"
-    Use HEAD command to see status (including replication progress):
-        aws s3api --head --bucket foo --key ...
-
 CloudTrail
     S3 for medium-term storage; glacier for long-term.
     use pre-defined CloudFormation template
@@ -34,9 +29,18 @@ CloudTrail vs CloudWatch vs Config
     `logs API calls
 
 ECS: EC2 container service
-    https://github.com/aws/amazon-ecs-cli
     The "primitive" for distributed applications: task (job)
     Think about "pool of resources" (cluster...), _not_ machines.
+    https://github.com/aws/amazon-ecs-cli
+        "Run applications locally or on ECS using the same Docker Compose file
+        format and familiar Compose commands."
+
+    Task
+    https://forums.aws.amazon.com/thread.jspa?threadID=175819
+    "When creating a task, you can omit the 'Host port' option (or set it to 0)
+    and a port will automatically be chosen when it's started. You can find out
+    which port was chosen by describing the running task."
+
 
 Lambda
     - Don't need to worry about: servers, capacity, deployment, scaling,
@@ -48,8 +52,7 @@ Lambda
 
 Glacier
     Lifecycle rules: automatically archive S3 data after expiration.
-    Best practices:
-        Store your filename in the Description field.
+    Best practices: Store the filename in the Description field.
 
 AWS Config: visibility into configuration changes
     configuration item (CI): standard config format
@@ -64,3 +67,11 @@ AWS Config: visibility into configuration changes
             "All resources must be tagged"
         custom rules (lambda)
 
+Network trouble / cannot connect
+    "If you associate an IPv6 CIDR block with your VPC and subnets, your route
+    tables must include separate routes for IPv6 traffic."
+    http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html
+
+    502 Bad Gateway
+        If the ALB considers all instances "unhealthy", it will route to "all",
+        and you will get random 502 errors depending on which node was routed-to.

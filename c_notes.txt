@@ -37,6 +37,22 @@ rr: gdb replacment with efficient reverse execution http://rr-project.org
 
 LINKING
 ================================================================================
+todo:
+  "ELF Hello World Tutorial" http://www.cirosantilli.com/elf-hello-world/
+
+Main functions of linker:
+    RESOLVE undefined symbols.
+    DEDUPLICATE. A symbol may be defined only once.
+    ADDRESS RELOCATION
+        Relocation edits the .text section of object files to translate object
+        file address into the final address of the executable. This must be done
+        by the linker because the compiler only sees one input file at a time.
+
+        Compare:
+            objdump -dr foo.o
+        to:
+            objdump -dr foo.out
+
 http://jvns.ca/blog/2013/12/10/day-40-learning-about-linkers/
 https://github.com/0xAX/linux-insides/blob/master/Misc/linkers.md
     nm -A foo.o

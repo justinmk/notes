@@ -1,3 +1,5 @@
+vim: ft=text iskeyword+==
+
 The Netflix Tech Blog: Linux Performance Analysis in 60,000 Milliseconds
 ================================================================================
   href="http://techblog.netflix.com/2015/11/linux-performance-analysis-in-60s.html"
@@ -3656,4 +3658,38 @@ https://research.swtch.com/version-sat
 VERSION is reducible to 3-SAT.
 tag="dependency-management compsci"
 
-<!-- vim: ft=text iskeyword+== -->
+Cloud Foundry
+================================================================================
+https://news.ycombinator.com/item?id=14532127
+tag="paas dcos orchestration deployment sre devops"
+
+> It's the most mature out of all of these, has been soak tested to 250,000 running applications[0], can be deployed to any major IaaS or bare metal, comes with routing, logging, service injection, healing, no-downtime upgrading and I forget what other headlines I usually pick out of the several hundred features it now includes.
+> The Cloud Foundry Foundation includes Pivotal (my employer), IBM, SAP, Google, DellEMC, VMWare, Cisco, Suse and those are just the fancy tech names.
+> The reason you don't hear about it is that we and our partners have focused on competing for enterprise sales. It's not how you get publicity on HN, but it does mean that PivotalCF -- our commercial distribution -- has the fastest-growing sales of an opensource-based product in history. And sales are still zooming up and to the right.
+> The nice thing is that we and other partners get very broad, specific feedback from customers who are already at massive scale and who expect utter, non-negotiable reliability. We run a public service ourselves (Pivotal Web Services), SAP have HANA Cloud, IBM runs BlueMix.
+> We and other Cloud Foundry contributors have had the benefit of that dogfooding and feedback for longer than any other container-based platform in existence. And it turns out, there are so many things that can go wrong. So many. It's crazy.
+> Lastly, Cloud Foundry teams have massive investments in project automation. This gives us two capabilities: one is that we can roll out complete rebuilds of the whole platform within hours of an upstream CVE patch. Users can then apply these fixes to their platform live, in-place, without any running apps noticing that it has occurred. BOSH[1] will roll out the deployment with canaries, and Diego[2] will relaunch containers as they are reaped during upgrade.
+> The second capability is that we are confident in making very deep, very aggressive changes if it proves necessary, because we have tests upon tests upon mountains of more tests. And again: nobody notices, except that their platform gets faster or becomes reliable under even more extreme circumstances.
+> If I sound like an utterly biased fan, it's because I am an utterly biased fan. I've watched this thing evolve up-close for years. It is amazing.
+> We build installable superpowers.
+> Disclosure: If it's not obvious, I work for Pivotal on Cloud Foundry.
+> [0] https://content.pivotal.io/blog/250k-containers-in-production-a-real-test-for-the-real-world
+> [1] http://bosh.io/
+> [2] https://github.com/cloudfoundry/diego-design-notes
+
+China uncovers massive underground network of Apple employees selling customers’ personal data
+================================================================================
+https://www.hongkongfp.com/2017/06/08/china-uncovers-massive-underground-network-apple-employees-selling-customers-personal-data/
+tag="security infosec"
+
+> employees of an Apple “domestic direct sales company and outsourcing company”.
+> ... used an internal company computer system to gather users’ names, phone
+> numbers, Apple IDs, and other data, which they sold as part of a scam worth
+> more than 50 million yuan (US$7.36 million).
+> ... charged between 10 yuan (US$1.50) and 180 yuan (US$26.50)
+>
+> In December, an investigation by the Southern Metropolis Daily newspaper
+> exposed a black market for private data gathered from police and government
+> databases. Reporters successfully obtained a trove of material on one
+> colleague — including flight history, hotel checkouts and property holdings
+> — in exchange for a payment of 700 yuan (US$100).

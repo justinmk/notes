@@ -114,8 +114,8 @@ pipe as input stream to a command (e.g., vim)
         let g:neocomplete#enable_at_startup = 1
         EOF)
 
-"command" command
-    Execute command, ignoring any function "shadow". (like `normal!` in Vim)
+command CMD
+    Execute CMD, ignoring any function "shadow". (like `normal!` in Vim)
 
 BEST PRACTICES / LINT
     http://redsymbol.net/articles/unofficial-bash-strict-mode/
