@@ -99,7 +99,7 @@ The USE Method
 ================================================================================
   href="http://www.brendangregg.com/usemethod.html" 
   
-  tag="performance troubleshooting debugging distributed-systems checklist"
+  tag="performance troubleshooting debug distributed-systems checklist"
   time="2016-01-18T05:59:59Z" 
 
 U.S. defense lawyers to seek access to DEA hidden intelligence evidence | Reuters
@@ -722,13 +722,10 @@ Advanced R programming
   tag="r-lang programming statistics"
   time="2013-11-17T18:45:14Z" 
 
-Docker-friendly Vagrant boxes - Phusion Corporate Blog
+Docker examples
 ================================================================================
-  docker-compatible kernel; cgroups; swap accounting. https://oss-binaries.phusionpassenger.com/vagrant/boxes/ https://github.com/phusion/open-vagrant-boxes
-  href="http://blog.phusion.nl/2013/11/08/docker-friendly-vagrant-boxes/"
-   
-  tag="docker programming devops container virtualization linux vagrant"
-  time="2013-11-10T23:01:44Z" 
+https://github.com/jessfraz/dockerfiles/blob/master/irssi/Dockerfile
+tag="docker programming devops container virtualization linux"
 
 xperf Profiler 
 ================================================================================
@@ -1233,7 +1230,7 @@ JRuby casting null support
   java PermGen = class definition heap avoid static references to class definitions &quot;The JDK's permanent memory behaves differently depending on whether a debugger is enabled&quot; http://wiki.caucho.com/Java.lang.OutOfMemoryError:_PermGen_space
   href="http://frankkieviet.blogspot.com/2006/10/how-to-fix-dreaded-permgen-space.html"
    
-  tag="heap permgen debugging profiling programming java"
+  tag="heap permgen debug profiling programming java"
   time="2012-04-20T23:06:14Z" 
 
 Code, Collaborate, Compile - compilify.net
@@ -1256,6 +1253,96 @@ Distributed Systems Programming. Which Level Are You? ¬´ Incubaid Research
    
   tag="concurrency architecture programming distributed-systems"
   time="2012-04-04T16:48:46Z" 
+
+More study of diff: Walter Tichy's papers
+================================================================================
+http://bryanpendleton.blogspot.de/2010/04/more-study-of-diff-walter-tichys-papers.html
+tag="programming algorithms diff"
+
+two papers by Walter Tichy:
+
+- The String-to-String Correction Problem with Block Moves
+  http://docs.lib.purdue.edu/cstech/378/
+- Delta Algorithms: An Empirical Analysis
+  http://portal.acm.org/citation.cfm?id=279310.279321
+
+The first paper is almost 30 years old, and dates from Tichy's work at Purdue
+during the development of RCS. From the introduction:
+
+The string-to-string correction problem is to find a minimal sequence of edit
+operations for changing a given string into another given string. The length of
+the edit sequence is a measure of the differences between the two strings.
+
+At the time, the best-known diff algorithm was Doug McIlroy's Unix diff
+algorithm (more on that in a future post), which is based on the detection of
+the Longest Common Subsequence. As Tichy shows, the LCS-based algorithms, while
+computationally related to the edit sequence programs, are not necessarily the
+best for use in difference construction.
+
+Tichy's basic algorithm is surprisingly simple to state:
+
+    Start at the left end of the target string T, and try to find prefixes of
+    T in S. If no prefix of T occurs in S, remove the first symbol from T and
+    start over. If there are prefixes, choose the longest one and record it as
+    a block move. Then remove the matched prefix from T and try to match
+    a longest prefix of the remaining tail of T, again starting at the beginning
+    of S. This process continues until T is exhausted. The recorded block moves
+    constitute a minimal covering set of block moves.
+
+After working through a proof of the basic algorithm, Tichy briefly touches on
+two variations:
+
+Program text and prose have the property of few repeated lines. ... To speed up
+comparisons, the program should use hashcodes for lines of text rather than
+performing character-by-character comparisons.
+
+An important element in the Knuth-Morris-Pratt algorithm is an auxiliary array
+N which indicates how far to shift a partially matched pattern or block move
+after a mismatch. ... Fortunately, N can also be computed incrementally.
+
+The first variation finds an interesting expression 15 years later in the work
+of Andrew Tridgell on the rsync algorithm, which I'll discuss in a future post.
+
+Delta Algorithms: An Empirical Analysis describes Tichy's work in benchmarking
+diff algorithms. The paper contains dozens of scatter-plot diagrams of the
+various benchmark tests, as well as a fine high-level discussion of the
+complexity of building a suitable benchmark for diff:
+
+    The first problem encountered when defining a benchmark is finding an
+    appropriate data set that is both large enough for the results to be
+    statistically significant and representative of real world applications. For
+    delta algorithms, the most important quality of any benchmark is that it
+    contain a wide spectrum of change examples. This means that both the size of
+    the changes represented and the size of the files involved should vary
+    considerably. Large changes on small files and small changes on large files
+    should be included as well as small changes on small files and large changes
+    on large files.
+
+Furthermore, the benchmark should contain a variety of formats, in particular
+pure text, pure object code, and pseudo text.
+
+The paper also describes a diff algorithm variation which they call vdelta:
+
+    Vdelta is a new technique that combines both data compression and data
+    differencing. It is a refinement of W.F. Tichy's block-move algorithm, in
+    that, instead of a suffix tree, vdelta uses a hash table approach inspired
+    by the data parsing scheme in the 1978 Ziv-Lempel compression technique.
+    Like block-move, the Ziv-Lempel technique is also based on a greedy approach
+    in which the input string is parsed by longest matches to previously seen
+    data. ... Vdelta generalizes Ziv-Lempel and block-move by allowing for
+    string matching to be done both within the target data and between a source
+    data and a target data. For efficiency, vdelta relaxes the greedy parsing
+    rule so that matching prefixes are not always maximally long.
+
+With diff algorithms, it is becoming clear that two things are true:
+
+- There have been a variety of diff algorithms discovered and re-discovered over
+  the years, but many of them are not well-described nor easy to find: the
+  papers are scattered, hard to locate, and behind ACM or IEEE paywalls; and
+  when the papers are tracked down, they are confusing and hard to read.
+- The two Myers papers ("A file comparison program" and "An O(ND) difference
+  algorithm and its variations") are so well-written and so well-known that they
+  have pretty much dominated the discussion.
 
 google-diff-match-patch - Google Code
 ================================================================================
@@ -1305,10 +1392,80 @@ repl.it - Online IDE
 
 Windows File System Redirection (Diagnosing weird problems - a Stack Overflow case study)
 ================================================================================
-  extended="For 32-bit programs running on 64-bit Windows, the &quot;File System Redirector&quot; transparently redirects calls to System32 folder to the SysWOW64 folder. SysWOW64: 32-bit binaries System32: 64-bit binaries A 32-bit process can access the &quot;real&quot; System32 as %WINDIR%\Sysnative to bypass the filesystem redirection that would otherwise give you SysWOW64. If you try to write to a file under \Program Files as a regular user, it will appear to work but you'll really be writing to %LOCALAPPDATA%\VirtualStore\Program Files. Similarly, registry writes to the HKLM hive are redirected to the HKCU hive."
-  href="http://www.reddit.com/r/programming/comments/qzo96/diagnosing_weird_problems_a_stack_overflow_case/"
-    tag="debugging kernel windows"
-  time="2012-03-19T21:00:04Z" 
+http://www.reddit.com/r/programming/comments/qzo96/diagnosing_weird_problems_a_stack_overflow_case/
+tag="debug kernel windows"
+
+For 32-bit programs running on 64-bit Windows, the &quot;File System
+Redirector&quot; transparently redirects calls to System32 folder to the
+SysWOW64 folder.
+SysWOW64: 32-bit binaries
+System32: 64-bit binaries
+A 32-bit process can access the "real" System32 as %WINDIR%\Sysnative
+to bypass the filesystem redirection that would otherwise give you SysWOW64. If
+you try to write to a file under \Program Files as a regular user, it will
+appear to work but you'll really be writing to
+%LOCALAPPDATA%\VirtualStore\Program Files. Similarly, registry writes to the
+HKLM hive are redirected to the HKCU hive.
+
+Container isolation gone wrong / By Gianluca Borello on May 22, 2017
+================================================================================
+https://sysdig.com/blog/container-isolation-gone-wrong/
+tag="debug kernel linux perf perf-tools"
+
+As a last step, we can try to quantify the performance hit from the hash table point of view. To recap, the lookup in the hash table becomes slower because the array of buckets is of fixed size and it’s never resized at runtime, since it’s very large to begin with. As we put more objects inside the table, the length of the linked lists in each bucket will inevitably increase, and this will cause more iterations on average in order to find the object we are looking for.
+
+We can verify all this with perf. Using perf probe, we can see which lines inside the __d_lookup function we can attach a tracing counter to, and all this can happen at runtime:
+
+$ sudo perf probe -L __d_lookup
+      0  struct dentry * __d_lookup(struct dentry * parent, struct qstr * name)
+      1  {
+      2         unsigned int len = name->len;
+      3         unsigned int hash = name->hash;
+      4         const unsigned char *str = name->name;
+      5         struct hlist_head *head = d_hash(parent,hash);
+                struct dentry *found = NULL;
+                struct hlist_node *node;
+                struct dentry *dentry;
+
+                rcu_read_lock();
+
+     12         hlist_for_each_entry_rcu(dentry, node, head, d_hash) {
+                        struct qstr *qstr;
+
+     15                 if (dentry->d_name.hash != hash)
+                                continue;
+     17                 if (dentry->d_parent != parent)
+                                Continue;
+...
+Luckily, the function is very simple and we can quickly identify, at line 12, the loop that iterates over the linked list containing all the dentry objects matching the hash of the path component that is being looked up. We can then add two dynamic trace points: one at the beginning of the function (__d_lookup) and one at the beginning of the loop (__d_lookup_loop). This way, we’ll be able to really tell how many list iterations were done on average for each path lookup:
+
+$ sudo perf probe --add __d_lookup
+Added new event:
+  probe:__d_lookup     (on __d_lookup)
+
+$ sudo perf probe --add __d_lookup_loop=__d_lookup:15
+Added new events:
+  probe:__d_lookup_loop (on __d_lookup:15)
+And we can then run perf another time to actually instrument the kernel while we simulate the two scenarios:
+
+$ sudo perf stat -p 18189 -e "probe:__d_lookup" -e "probe:__d_lookup_loop" -- sleep 60
+ Performance counter stats for process id '18189':
+
+         2,763,816      probe:__d_lookup
+        75,503,432      probe:__d_lookup_loop
+
+      60.001285559 seconds time elapsed
+
+$ sudo perf stat -p 18189 -e "probe:__d_lookup" -e "probe:__d_lookup_loop" -- sleep 60
+ Performance counter stats for process id '18189':
+
+         3,800,247      probe:__d_lookup
+         3,811,830      probe:__d_lookup_loop
+
+      60.002976808 seconds time elapsed
+The results are very interesting, but not surprising at this point. In the first scenario (the slow one), the hash table is clearly clogged and there are almost 30 collisions for each lookup (75M loop iterations / 2.7M lookups = ~30). In the last one, the hash table is correctly empty, and there are almost no collisions since each dentry lookup takes one single iteration in the list (3.8M loop iterations / 3.8M lookups = 1), resulting in a faster execution of the lstat() system call.
+
+
 
 A Rebase Workflow for Git | RandyFay.com
 ================================================================================
@@ -1440,7 +1597,7 @@ Using System.Net Tracing - Durgaprasad Gorti's WebLog - MSDN Blogs
 ================================================================================
   You can see clearly that 1) The Remote Certificate is being clearly presented in the log file. 2) Any errors in the remote certificate are logged. 3) In this case we are returning true for NAME MISMATCH if the server is local or intranet [Please see the remore certificate validation callback code] 4) The fact that we accepted the certificate is also logged. 5) Then at the sockets level you can see encrypted data being sent 6) At the System.Net level (application level) you can see the decrypted data.
   href="http://blogs.msdn.com/b/dgorti/archive/2005/09/18/471003.aspx"
-    tag="debugging .net"
+    tag="debug .net"
   time="2011-09-28T10:09:06Z" 
 
 google-guice - Guice
@@ -2634,7 +2791,7 @@ Eastern Eyes
 .NET Debugging 101 with Tess Ferrandez
 ================================================================================
   href="http://www.hanselminutes.com/default.aspx?showID=204"
-    tag=".net debugging todo"
+    tag=".net debug todo"
   time="2009-11-22T20:57:29Z" 
 
 The Dead Zone: The Implicit Marginal Tax Rate
@@ -2969,7 +3126,7 @@ It's 10PM: Do you know your RAID/BBU/consistency status? at time to bleed
 Tess Ferrandez blog: If broken it is, fix it you should
 ================================================================================
   href="http://blogs.msdn.com/tess/"  
-  tag="microsoft blog debugging programming asp.net .net"
+  tag="microsoft blog debug programming asp.net .net"
   time="2009-04-03T21:59:40Z" 
 
 fix OS X keyboard shortcuts

@@ -14,6 +14,7 @@ quick start screencast (eclipse, ring)
     http://www.youtube.com/watch?v=VVd4ow-ZcX0
 
 todo:
+    The Re-frame Guide https://purelyfunctional.tv/guide/re-frame-building-blocks/
     ClojureScript for Skeptics - Derek Slager: https://www.youtube.com/watch?v=gsffg5xxFQI
     https://howistart.org/posts/clojure/1
     http://www.blaenkdenum.com/notes/clojure/

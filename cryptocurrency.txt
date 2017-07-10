@@ -1,4 +1,11 @@
-
 TODO:
-    create a minimally viable Bitcoin client
-    http://www.samlewis.me/2017/06/a-peek-under-bitcoins-hood/
+    "create a minimally viable Bitcoin client" http://www.samlewis.me/2017/06/a-peek-under-bitcoins-hood/
+
+Bitcoin whitepaper https://bitcoin.org/bitcoin.pdf
+    The race between the honest chain and an attacker chain can be characterized
+    as a Binomial Random Walk. The success event is the honest chain being
+    extended by one block, increasing its lead by +1, and the failure event is
+    the attacker's chain being extended by one block, reducing the gap by -1.
+
+    The probability of an attacker catching up from a given deficit is analogous
+    to a Gambler's Ruin problem.

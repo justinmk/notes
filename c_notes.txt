@@ -28,7 +28,7 @@ REFERENCE
 ================================================================================
 C: A Reference Manual, Fifth Edition. http://www.careferencemanual.com
 
-DEBUGGING
+DEBUG
 ================================================================================
 gdb
     CTRL-X_CTRL-A => TUI mode (zomg!!)

@@ -1,0 +1,9 @@
+DEBUG
+=====
+
+sudo perf top -d 2 --stdio
+
+KERNEL DEBUG
+============
+slabinfo, slabtop : kernel heap objects
+
