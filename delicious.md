@@ -19,6 +19,19 @@ https://news.ycombinator.com/item?id=11763287
 
 tag="todo performance distributed-systems scaling mysql databases"
 
+Disable Transparent Hugepages
+================================================================================
+https://blog.nelhage.com/post/transparent-hugepages/
+https://alexandrnikitin.github.io/blog/transparent-hugepages-measuring-the-performance-impact/
+tag="programming sysadmin devops kernel linux performance memory"
+> When transparent hugepage support works well, it can garner up to about a 10% performance improvement on certain benchmarks. However, it also comes with at least two serious failure modes:
+> Memory Leaks
+> THP attempts to create 2MB mappings. However, it’s overly greedy in doing so, and too unwilling to break them back up if necessary. If an application maps a large range but only touches the first few bytes, it would traditionally consume only a single 4KB page of physical memory. With THP enabled, khugepaged can come and extend that 4KB page into a 2MB page, effectively bloating memory usage by 512x (An example reproducer on this bug report actually demonstrates the 512x worst case!).
+> Go’s GC had to include an explicit workaround for it, and Digital Ocean documented their woes with Redis, THP, and the jemalloc allocator.
+> Pauses and CPU usage
+> In steady-state usage by applications with fairly static memory allocation, the work done by khugepaged is minimal. However, on certain workloads that involve aggressive memory remapping or short-lived processes, khugepaged can end up doing huge amounts of work to merge and/or split memory regions, which ends up being entirely short-lived and useless. This manifests as excessive CPU usage, and can also manifest as long pauses, as the kernel is forced to break up a 2MB page back into 4KB pages before performing what would otherwise have been a fast operation on a single page.
+> Several applications have seen 30% performance degradations or worse with THP enabled, for these reasons.
+
 Mike Pall comment on "Why Python, Ruby and JS are slow"
 ================================================================================
 https://www.reddit.com/r/programming/comments/19gv4c/why_python_ruby_and_js_are_slow/c8o29zn/?context=3
@@ -125,11 +138,16 @@ CONSENSUS: BRIDGING THEORY AND PRACTICE
 
 The web of names, hashes and UUIDs
 ================================================================================
-  Joe Armstrong's &quot;reversing entropy plan&quot;. As soon as we name something there is an implied context - take away the context, or use the name in a different context and we are lost.
+  Joe Armstrong's ‟reversing entropy plan”. As soon as we name something there is an implied context - take away the context, or use the name in a different context and we are lost.
   href="http://joearms.github.io/2015/03/12/The_web_of_names.html"
-   
+
   tag="compsci content-addressable distributed-systems uuid"
   time="2015-12-30T03:39:36Z" 
+
+PHP Sadness
+================================================================================
+http://phpsadness.com/
+tag="programming"
 
 Here are a few random things that come to mind as often missed by users
 ================================================================================
@@ -382,7 +400,7 @@ If you're lucky enough to be in high enough demand that you can consider either 
 Frequency illusion / Baader-Meinhof Phenomenon
 ================================================================================
   href="http://en.wikipedia.org/wiki/List_of_cognitive_biases#Frequency_illusion"
-    tag="cogsci"
+    tag="concepts cogsci mental-model"
   time="2015-02-13T19:03:21Z" 
 
 Apdex - Wikipedia, the free encyclopedia
@@ -392,6 +410,55 @@ Apdex - Wikipedia, the free encyclopedia
   
   tag="monitoring performance apdex metrics measurement"
   time="2015-02-11T21:31:36Z" 
+
+FreeNAS Community Hardware Recommendations Guide
+================================================================================
+https://forums.freenas.org/index.php?resources/hardware-recommendations-guide.12/
+tag="performance sysadmin devops hardware system"
+
+Power Supply
+    Seasonic is known for the consistent performance of its PSUs.
+    ...
+    At ~2.5A spin-up current per drive, this makes the SATA connector suitable
+    only for a single drive. Backplanes typically use one SATA connector per 1.5
+    drives. A practical consequence is that Y-cables should connect to the
+    source using a Molex connector, not a SATA connector, and should be limited
+    to 3-4 drives.
+Additional SATA/SAS connectivity
+    the only reliable solution is to add an LSI/Avago/Broadcom SAS controller
+SATA Port Multipliers
+    • are "cheap alternatives to SAS expanders" and should be avoided.
+
+Effective Engineer
+================================================================================
+http://www.effectiveengineer.com/
+https://gist.github.com/rondy/af1dee1d28c02e9a225ae55da2674a6f
+tag="books engineering programming"
+
+
+Ambarella | Embedded Computer Vision SoCs
+================================================================================
+https://www.ambarella.com/
+tag="machine-learning computer-vision software programming embedded soc"
+
+tensorflow/cleverhans
+================================================================================
+https://github.com/tensorflow/cleverhans
+tag="machine-learning software programming software-engineering"
+An adversarial example library for constructing attacks, building defenses, and benchmarking both
+
+osquery
+================================================================================
+https://github.com/facebook/osquery/
+https://osquery.io/
+tag="monitoring metrics sysadmin devops hardware system query sql"
+Relational (SQL) data-model for OS/system info.
+
+netdata
+================================================================================
+https://github.com/firehol/netdata
+tag="monitoring dashboard performance metrics sysadmin devops hardware"
+server stats/dashboard
 
 A Guide to the Deceptions, Misinformation, and Word Games Officials Use to Mislead the Public About NSA Surveillance | Electronic Frontier Foundation
 ================================================================================
@@ -406,11 +473,6 @@ New Intel Doc: Do Not Be 'Led Astray' By 'Commonly Understood Definitions' - The
   href="https://firstlook.org/theintercept/2014/09/29/new-intel-doc-led-astray-commonly-understood-definitions"
     tag="nsa police-state politics"
   time="2015-02-11T21:00:18Z" 
-
-‚ñ∂ Introduction to Git with Scott Chacon of GitHub - YouTube
-================================================================================
-  href="https://www.youtube.com/watch?v=ZDR433b0HJY" 
-   tag="git video todo" time="2015-01-31T05:35:17Z" 
 
 VICTORY: Judge Releases Information about Police Use of Stingray Cell Phone Trackers | American Civil Liberties Union
 ================================================================================
@@ -645,13 +707,48 @@ How SQL Server Generates the Query Plan
     tag="sqlserver sql database rdbms"
   time="2014-07-01T15:30:09Z" 
 
-Out of Prohibition‚Äôs Reach: How Technology Cures Toxic Policy
+Out of Prohibition's Reach: How Technology Cures Toxic Policy
 ================================================================================
   The shutdown also motivated improvements as new marketplaces started offering features like faster services, private messaging that requires encryption, and bitcoin escrow services that eliminate the possibility of the marketplace scamming users. / In terms of scam prevention, most marketplaces actively work to make scamming unattractive. Anyone that wants to sell as a vendor is required to post a bond until they reach a certain amount of sales and positive reviews. / Decentralized marketplaces like the experimental ‚ÄúDarkMarket‚Äù platform, recently renamed ‚ÄúOpenBazaar‚Äù, are the next step towards the cure. DarkMarket is peer-to-peer which means that every user serves up their own buyer or seller page, as opposed to that page being served up by a server like on traditional websites or current anonymous marketplaces.
   href="http://stanfordreview.org/article/out-of-prohibitions-reach-how-technology-cures-toxic-policy/"
    
   tag="libertarianism free-market economics"
   time="2014-06-07T19:16:44Z" 
+
+What happens when patients find out how good their doctors are? (2004)
+================================================================================
+https://news.ycombinator.com/item?id=15840525
+tag="science medicine health data measurement metrics quantification"
+> As a physician, I often think about how we lack truely objective assessment of
+> patient outcomes (either in the context of evaluating physician competence or,
+> probably more importantly, assessing and improving upon clinical practises).
+>
+> There are several issues which are particularly vexing:
+>
+> - The distinct lack of verifiable, objective markers of physician competence.
+>
+> - Each patient's case is unique and cases with the highest levels of
+>   difficulty are often treated by the most experienced people. These cases, of
+>   course, are likely to have worse outcomes than simple cases which may be
+>   treated by less experienced (worse?) physicians.
+>
+> - Clinical outcomes are largely recorded by the same people treating the
+>   patient so reported outcomes are often erroneous or frankly fraudulent.
+>
+> - This is made worse by the hierarchical nature of clinical medicine and
+>   deference to seniority and title.
+>
+> - Medicine is parochial so clinical practises for the same disorder vary
+>   tremendously. You might be treated a dozen different ways for the same
+>   disorder and presentation depending on the facility and especially on the
+>   specialty that ends up treating you.
+>
+> - Outcomes are not necessarily determined by clinician ability. There are
+>   several other factors at play: the pre- and post-care (such as work-up by
+>   ancillary staff or ICU care after a surgery), the cohesiveness of the
+>   facility and its efficiencies (or lack thereof), availability and
+>   preferences for resources such as medical devices, drugs and hospital
+>   equipment which may be largely out of the hands of the physician.
 
 cancer
 ================================================================================
@@ -664,15 +761,23 @@ Pythagorean Cup (Greedy Cup)
 ================================================================================
   &quot;Hydrostatic pressure creates a siphon through the central column, causing the entire contents of the cup to be emptied through the hole at the bottom of the stem.&quot;
   href="http://en.wikipedia.org/wiki/Pythagorean_cup" 
-   tag="concepts economics physics"
+   tag="concepts economics physics mental-model"
   time="2014-06-02T03:58:58Z" 
+
+"Bitcoin's Academic Pedigree" Narayanan & Clark
+================================================================================
+http://queue.acm.org/detail.cfm?id=3136559
+tag="bitcoin blockchain trust-network p2p cryptocurrency"
+https://news.ycombinator.com/item?id=15135442
+    "original Bitcoin codebase ... It's brilliant code. ... One of the earliest commits in the SVN repo contains 36 thousand lines of code. "Satoshi" (or this group of people) must have worked months or a year on this before putting it up on source control. The code also uses irc to find seed nodes, which is amusing. It just connects to #bitcoin and assumes that some of the people in the channel are running bitcoin nodes. That's a cool way around the "What if all the hardcoded seed nodes fail?" problem. I know it's probably a standard tactic, but bitcoin integrates so many standard tactics so well in addition to its academic work.
+    "It's worth repeating: This is a C++ codebase. It listens to open ports on the public Internet. One single remote exploit and you lose all your money. The author basically threw code over the wall and the open source community where contributors come and go all the time took over. And one single remote exploit is all it takes. (This causation is perhaps less true today when it is more common to use encrypted or even hardware wallets, but before that everyone just used the standard wallet.) Yet none of this has happened. The odds of this seems vanishingly unlikely. Then there's the risk of consensus problems that would enable double spending, which is very difficult to test for. At the same time original Bitcoin was far from perfect. Someone wrote up a summary of important changes Hal Finney did which I can't seem to find. He pointed out a lot of problems which would have made Bitcoin not work at all which resulted in some early redesigns and the removal of many opcodes. Parts of Bitcoin also went nowhere, notably the marketplace, pay-to-IP and payment channels. The ideas live on as Openbazaar and Lightning but completely redesigned from the Satoshi origins. In so many ways it is an enigma."
 
 Minimum Viable Block Chain - igvita.com
 ================================================================================
   https://news.ycombinator.com/item?id=7699332
   href="http://www.igvita.com/2014/05/05/minimum-viable-block-chain/"
    
-  tag="bitcoin blockchain trust-network p2p todo"
+  tag="bitcoin blockchain trust-network p2p cryptocurrency todo"
   time="2014-05-05T17:15:08Z" 
 
 Call for a Temporary Moratorium on “The DAO”
@@ -680,7 +785,7 @@ Call for a Temporary Moratorium on “The DAO”
   https://news.ycombinator.com/item?id=11788283
   https://docs.google.com/document/d/10kTyCmGPhvZy94F7VWyS-dQ4lsBacR2dUgGTtV98C40/mobilebasic
    
-  tag="todo bitcoin blockchain trust-network p2p DAO distributed-autonomous-organization"
+  tag="todo bitcoin cryptocurrency blockchain trust-network p2p DAO distributed-autonomous-organization"
 
 NSA Spying Documents to be Released As Result of EFF Lawsuit
 ================================================================================
@@ -713,7 +818,7 @@ Eclipse Java REPL / albertlatacz/java-repl ¬∑ GitHub
 Path dependence 
 ================================================================================
   href="http://en.wikipedia.org/wiki/Path_dependence" 
-   tag="concepts economics compsci dynamics"
+   tag="concepts economics compsci dynamics mental-model"
   time="2013-11-26T17:57:56Z" 
 
 Advanced R programming 
@@ -805,6 +910,24 @@ FLOSS Weekly | TWiT.TV
   href="http://twit.tv/show/floss-weekly"  
   tag="podcast" time="2013-09-30T14:26:16Z" 
 
+
+Beyond Corp: The Access Proxy
+================================================================================
+https://research.google.com/pubs/pub45728.html
+https://news.ycombinator.com/item?id=16204208
+tag="security networks beyondcorp it sysadmin devops"
+
+> - Instead of a single VPN that will expose your entire squishy corporate LAN to anyone who gets VPN access, each application gets its own protected proxy.
+> - The protected proxies query a centrally-aggregated auth/authz database, which can work with client-side software to ensure qualities such as private key possession, full disk encryption, software updates, etc. In Google's case, this is combined with a host-rewriting browser extension for usability.
+> - Access proxies can easily funnel HTTP traffic, but some more clever solutions involving tunnels exist for plain old TCP and UDP.
+>
+> By giving every application its own authentication and access control proxy, each application is secured on its own, hence "zero-trust."
+
+BeyondCorp: The User Experience
+================================================================================
+https://research.google.com/pubs/pub46366.html
+tag="security networks beyondcorp it sysadmin devops"
+
 IP Listen List
 ================================================================================
   Problems arise when third party applications (not using the HTTP Server APIs) bind to IP address and port 80 pairs on the machine. The HTTP Server API provides a way to configure the list of IP addresses that it binds and solves this coexistence issue. also: http://toastergremlin.com/?p=320
@@ -812,6 +935,31 @@ IP Listen List
    
   tag="networks iis it http windows tcpip sysadmin"
   time="2013-09-05T20:45:27Z" 
+
+Documenting your architecture: Wireshark, PlantUML and a REPL to glue them all
+================================================================================
+https://news.ycombinator.com/item?id=15325649
+http://danlebrero.com/2017/04/06/documenting-your-architecture-wireshark-plantuml-and-a-repl/
+tag="networks sysadmin devops"
+
+
+Linux Raw Sockets
+================================================================================
+http://schoenitzer.de/blog/2018/Linux%20Raw%20Sockets.html<Paste>
+tag="networks programming linux sockets"
+traditional socket: UDP based datagram socket via IPv4
+    sockfd = socket(AF_INET, SOCK_DGRAM, 0);
+still only receive the type of packet specified (here UDP), but this time you will not only receive the data but also the layer 4 (TCP/UDP) header and you're also responsible to set the layer 4 header yourself.
+    sockfd = socket(AF_INET, SOCK_RAW, IPPROTO_UDP);
+    sockfd = socket(AF_INET6, SOCK_RAW, IPPROTO_UDP);
+> AF_INET and AF_INET6 for raw sockets is the endianness: unlike IPv4 raw sockets, all data sent via IPv6 raw sockets must be in the network byte order and all data received via raw sockets will be in the network byte order.
+packet socket: raw IPv6 packets at the device driver level (layer 2):
+    sockfd = socket(AF_PACKET, SOCK_DGRAM, htons(ETHERTYPE_IPV6));
+raw packets (ALL) at the device driver level (layer 2):
+    sockfd = socket(AF_PACKET, SOCK_DGRAM, htons(ETH_P_ALL));
+ethernet frames:
+    sockfd = socket(AF_PACKET, SOCK_RAW, htons(ETH_P_ALL));
+
 
 favicon cheat sheet
 ================================================================================
@@ -825,19 +973,19 @@ The Changelog Podcast
   href="http://thechangelog.com/podcast/"  
   tag="podcast" time="2013-08-27T20:06:09Z" 
 
-description="" 
+In situ
 ================================================================================
   href="http://en.wikipedia.org/wiki/In_situ" 
-   tag="pedantry latin concepts"
+   tag="pedantry latin concepts mental-model"
   time="2013-07-29T06:47:43Z" 
 
-The IPython Notebook ‚Äî IPython
+IPython Notebook
 ================================================================================
-  &amp;quot;live&amp;quot; backpack-like document containing text, graphs, images, etc, resulting from python expressions.
+  "live" backpack-like document containing text, graphs, images, etc, resulting from python expressions.
   href="http://ipython.org/notebook.html"  
   tag="python programming repl" time="2013-07-28T23:30:49Z" 
 
-Welcome to Emacs IPython Notebook‚Äôs documentation! ‚Äî Emacs IPython Notebook 0.2.1alpha1 documentation
+Welcome to Emacs IPython Notebook documentation! Emacs IPython Notebook 0.2.1alpha1 documentation
 ================================================================================
   href="http://tkf.github.io/emacs-ipython-notebook/" 
    tag="python editor programming emacs oss repl"
@@ -974,10 +1122,16 @@ Warning Signs in Experimental Design and Interpretation
   tag="cogsci psychology skepticism scientific-error science"
   time="2013-05-09T18:08:55Z" 
 
+Peter Norvig: pytudes: Python programs to practice or demonstrate skills.
+================================================================================
+https://github.com/norvig/pytudes
+tag="programming todo"
+
+
 Retraction Watch 
 ================================================================================
-  href="http://retractionwatch.wordpress.com/" 
-  
+http://retractionwatch.com/
+
   tag="skepticism scientific-error medical-industrial-complex research science"
   time="2013-05-09T17:52:20Z" 
 
@@ -989,17 +1143,17 @@ only 11% of 53 published cancer research papers were reproducible
   tag="skepticism scientific-error medical-industrial-complex research cancer science"
   time="2013-05-09T17:19:41Z" 
 
-description="" 
+Voting paradox
 ================================================================================
   href="http://en.wikipedia.org/wiki/Voting_paradox" 
-   tag="politics paradox cogsci voting"
+   tag="politics paradox cogsci voting mental-model"
   time="2013-05-07T23:13:12Z" 
 
-Arrow's impossibility theorem - Wikipedia, the free encyclopedia
+Arrow's impossibility theorem
 ================================================================================
   href="http://en.wikipedia.org/wiki/Arrow%27s_impossibility_theorem"
    
-  tag="game-theory politics paradox cogsci voting logic"
+  tag="game-theory politics paradox cogsci voting logic mental-model"
   time="2013-05-07T23:10:53Z" 
 
 Windyty: weather visualizer
@@ -1014,6 +1168,20 @@ Google Books Ngram Viewer
   tag="books visualization tools google data-mining datasets data ngram machine-learning statistics"
   time="2013-04-25T22:40:25Z" 
 
+Apache Arrow and the "10 Things I Hate About pandas"
+================================================================================
+http://wesmckinney.com/blog/apache-arrow-pandas-internals/
+tag="pandas python data-science machine-learning statistics"
+
+> my rule of thumb for pandas is that you should have 5 to 10 times as much RAM
+  as the size of your dataset. So if you have a 10 GB dataset, you should really
+  have about 64, preferably 128 GB of RAM if you want to avoid memory management
+  problems.
+> There are additional, hidden memory killers in the project, like the way that
+  we use Python objects (like strings) for many internal details, so it's not
+  unusual to see a dataset that is 5GB on disk take up 20GB or more in memory.
+> Future (pandas2): Apache Arrow
+
 Instaparse
 ================================================================================
   attempting to make context-free grammars as easy to use as regular expressions
@@ -1021,10 +1189,10 @@ Instaparse
    tag="clojure programming compiler cfg peg parser"
   time="2013-04-12T17:16:06Z" 
 
-description="" 
+blockchain.info
 ================================================================================
   href="http://blockchain.info/"  
-  tag="bitcoin" time="2013-02-28T05:26:07Z" 
+  tag="bitcoin cryptocurrency" time="2013-02-28T05:26:07Z" 
 
 llex.c - Lua parser in c 
 ================================================================================
@@ -1066,11 +1234,19 @@ AMP Camp
    tag="todo machine-learning"
   time="2012-11-05T02:25:13Z" 
 
-Mullvad 
+guardianproject/haven
 ================================================================================
-  href="https://mullvad.net/"  
-  tag="anonymous privacy vpn paranoia security"
-  time="2012-11-04T21:36:40Z" 
+https://github.com/guardianproject/haven
+Haven is for people who need a way to protect their personal spaces and possessions without compromising their own privacy, through an Android app and on-device sensors
+tag="paranoia security app mobile phone"
+
+Algo: personal IPSEC VPN in the cloud
+================================================================================
+https://github.com/trailofbits/algo
+https://blog.trailofbits.com/2016/12/12/meet-algo-the-vpn-that-works/
+tag="anonymous privacy vpn paranoia security ipsec"
+
+Does not require client software (unlike OpenVPN).
 
 Color Scheme Designer 
 ================================================================================
@@ -1141,8 +1317,28 @@ Alistair.Cockburn.us | Characterizing people as non-linear, first-order componen
   People _failure modes_: - Since consistency of action is a common failure mode, we can safely predict that the documentation will not be up to date. - Individual personalities easily dominate a project. People _success modes_: - People are communicating beings, doing best face-to-face - People are highly variable, varying from day to day - People generally [...] are good at looking around, taking initiative --- - Low precision artifacts use the strengths of people to lower development costs. The most significant single factor is ‚Äúcommunication‚Äù.
   href="http://alistair.cockburn.us/Characterizing+people+as+non-linear%2c+first-order+components+in+software+development"
    
-  tag="methodology project-management programming"
+  tag="softwareengineering methodology project-management programming"
   time="2012-07-23T03:44:27Z" 
+
+My 20-Year Experience of Software Development Methodologies
+================================================================================
+https://zwischenzugs.wordpress.com/2017/10/15/my-20-year-experience-of-software-development-methodologies/
+tag="softwareengineering methodology project-management programming"
+
+> humans require ‘collective fictions’ so that we can collaborate in larger
+> numbers than the 150 or so our brains are big enough to cope with by default
+
+> Meetings were called ‘scrums’ now, but otherwise it felt very similar to what
+> went on before.
+> As a collective fiction it worked, because it kept customers and project
+> managers off our backs while we wrote the software.
+> Since then I’ve worked in a company that grew to 700 people, and now work in
+> a corporation of 100K+ employees, but the pattern is essentially the same:
+> which incantation of the liturgy will satisfy this congregation before me?
+
+> If software methodologies didn’t exist we’d have to invent them, because how
+> else would we work together effectively? You need these fictions in order to
+> function at scale.
 
 Stripe 
 ================================================================================
@@ -1347,10 +1543,8 @@ With diff algorithms, it is becoming clear that two things are true:
 google-diff-match-patch - Google Code
 ================================================================================
   robust diff/patch library Myer's diff algorithm Bitap matching algorithm more sophisticated than GNU patch
-  href="http://code.google.com/p/google-diff-match-patch/"
-   
-  tag="google library programming algorithms diff"
-  time="2012-04-03T23:10:43Z" 
+  href="https://github.com/google/diff-match-patch"
+  tag="google library programming algorithms diff lua"
 
 High Scalability - 7 Years of YouTube Scalability Lessons in 30¬†Minutes
 ================================================================================
@@ -1618,24 +1812,6 @@ SAP Developer Network (SDN)
   href="http://www.sdn.sap.com/"  
   tag="sap programming" time="2011-09-26T17:17:14Z" 
 
-CoinLab
-================================================================================
-  center for incubating¬†Bitcoin projects and¬†potential businesses
-  href="http://www.coinlab.com/"  
-  tag="bitcoin" time="2011-09-24T17:15:20Z" 
-
-12 stunning Icon Packs for Android Phones
-================================================================================
-  href="http://www.tehkseven.net/news/12-stunning-icon-packs-for-android-phones"
-    tag="icons android"
-  time="2011-09-24T16:38:06Z" 
-
-bitpay Mobile Checkout
-================================================================================
-  Mobile Checkout from Bit-Pay allows customers to pay from their smart phones.
-  href="https://bit-pay.com/aboutMobile.html" 
-   tag="bitcoin android" time="2011-09-24T01:33:54Z" 
-
 Signals and Systems | MIT OpenCourseWare
 ================================================================================
   introduction to analog and digital signal processing¬† Fourier transform¬† Filtering and filter design, modulation, and sampling¬†
@@ -1713,6 +1889,14 @@ http://setosa.io
 Visual explanations. Victor Powell
 tag="pedagogy mathematics learning"
 2016-08-09 01:44:45
+
+Cantor's enumeration of pairs
+================================================================================
+https://en.wikipedia.org/wiki/Pairing_function#Cantor_pairing_function
+https://stackoverflow.com/a/682485/152142
+tag="mathematics algorithm mental-model"
+> a pairing function is a process to uniquely encode two natural numbers into a single natural number.
+
 
 Machine Learning - Stanford University
 ================================================================================
@@ -2262,12 +2446,17 @@ Authorize.Net .NET SDK for AIM - Authorize.Net Developer Community
     tag=".net programming ecommerce sdk"
   time="2010-12-07T19:51:10Z" 
 
+Sua sponte: "on its own motion"
+================================================================================
+https://en.wikipedia.org/wiki/Sua_sponte
+tag="concepts mental-model"
+
 Simpson's paradox
 ================================================================================
   &amp;quot;an apparent paradox in which a correlation (trend) present in different groups is reversed when the groups are combined.&amp;quot; Q: why should a story, not data, dictate choices? A: the story encodes the causal relationships among the variables. Once we extract these relationships, we can represent them in a Causal Bayesian Network graph which we can test algorithmically. - Berkeley sex bias case - Kidney stone treatment
   href="http://en.wikipedia.org/wiki/Simpson_s_paradox"
    
-  tag="paradox cogsci mathematics statistics"
+  tag="paradox cogsci mathematics statistics concepts mental-model"
   time="2010-11-30T05:00:20Z" 
 
 DE(E)SU - Libert√© Linux
@@ -2440,14 +2629,14 @@ Really Really Free Market
 ================================================================================
   also: http://www.reallyreallyfree.org/ &quot;The NYC Really Really Free Market happens every last Sunday of every month! Located @ 55 Washington Square South at the Judson Memorial Church.&quot; http://www.facebook.com/pages/New-York-NY/Really-Really-Free-Market-NYC/288012211374
   href="http://en.wikipedia.org/wiki/Really_Really_Free_Market"
-    tag="haggle shopping"
+    tag="haggle shopping freeganism barter-economy"
   time="2010-08-27T06:20:05Z" 
 
 Second-order simulacra
 ================================================================================
   A system whose legitimacy is implied by its complexity. E.g., psychology/psychoanalysis, alchemy, astrology, chiropractic are presumed valuable because they are complicated and have experts. The foundation of the system is not questioned because people are too busy debating the higher-order results of the system.
   href="http://en.wikipedia.org/wiki/Second-order_simulacra"
-    tag="cogsci"
+    tag="concepts cogsci mental-model"
   time="2010-08-23T06:16:25Z" 
 
 Public Surplus: Government Surplus Auctions
@@ -2554,11 +2743,11 @@ Motley Fool: Rick Aristotle Munarriz's Bio and Archive
     tag="blog finance"
   time="2010-05-10T18:55:56Z" 
 
-Nootropic - Wikipedia, the free encyclopedia
+Nootropic
 ================================================================================
   smart drugs, memory enhancers, and cognitive enhancers: drugs, supplements, nutraceuticals, and functional foods that are purported to improve mental functions.
   href="http://en.wikipedia.org/wiki/Nootropic" 
-   tag="cogsci learning" time="2010-05-07T21:33:38Z" 
+   tag="cogsci learning physiology" time="2010-05-07T21:33:38Z" 
 
 FRPAX Franklin PA Tax-Free Income A
 ================================================================================
@@ -3091,16 +3280,11 @@ All About Circuits : Free Electric Circuits Textbooks
   href="http://www.allaboutcircuits.com/"  
   tag="engineering circuits" time="2009-04-20T04:50:01Z" 
 
-Rails Searchable API Doc 
+gspread: Google Spreadsheets Python API
 ================================================================================
-  href="http://railsapi.com/"  
-  tag="programming rails ruby" time="2009-04-18T04:53:22Z" 
-
-setting up vim for python development
-================================================================================
-  href="http://www.reddit.com/r/programming/comments/8d91k/setting_up_vim_for_python_development/"
-    tag="vim programming"
-  time="2009-04-17T18:33:56Z" 
+https://github.com/burnash/gspread
+tag="python library programming development google spreadsheet data data-science"
+http://tinaja.computer/2017/10/27/gspread.html
 
 Official Google Webmaster Central Blog: How to start a multilingual site
 ================================================================================
@@ -3291,24 +3475,6 @@ LDAP (AD, Active Directory) Browser/Editor Java Applet
   href="http://www.mcs.anl.gov/~gawor/ldap/applet/applet.html"
     tag="programming"
   time="2009-01-13T15:46:11Z" 
-
-XS4ALL internet: internetprovider voor toegang en hosting
-================================================================================
-  neutral hosting provider
-  href="http://www.xs4all.nl/"  
-  tag="vpn paranoia privacy" time="2009-01-11T19:51:53Z" 
-
-XeroBank - Internet Privacy, Identity Protection and Anonymous Browsing
-================================================================================
-  href="http://xerobank.com/"  
-  tag="vpn privacy security paranoia"
-  time="2009-01-11T19:50:52Z" 
-
-SwissVPN - Surf the safer way! 
-================================================================================
-  href="http://swissvpn.net/"  
-  tag="vpn security privacy paranoia"
-  time="2009-01-11T19:49:34Z" 
 
 22. U.S. Government Repressed Marijuana-Tumor Research | Project Censored
 ================================================================================
@@ -3798,16 +3964,61 @@ Articles on &quot;Electricity&quot;
   href="http://amasci.com/ele-edu.html"  
   tag="science learning pedagogy" time="2007-04-25T07:10:51Z" 
 
+Google Song-Maker
+================================================================================
+https://musiclab.chromeexperiments.com/Song-Maker
+tag="music learning pedagogy fun app webapp kids"
+https://goo.gl/pf5Q9Y "Heroes Forever"
+
 Europass: Curriculum Vitae
 ================================================================================
 http://europass.cedefop.europa.eu/documents/curriculum-vitae
 create CV online. import/export
 tag="visa europe germany berlin immigration"
 
+True Name
+================================================================================
+https://en.wikipedia.org/wiki/True_name
+tag="concepts cogsci mental-model"
+> The notion that language, or some specific sacred language, refers to things by their true names has been central to philosophical study as well as various traditions of magic, religious invocation and mysticism (mantras) since antiquity.
+> ...
+> The true name of the Egyptian sun god Ra was revealed to Isis through an elaborate trick. This gave Isis complete power over Ra.
+> ...
+> the German fairytale of Rumpelstiltskin: within Rumpelstiltskin and all its variants, the girl can free herself from the power of a supernatural helper who demands her child by learning its name
+
 Idioglossia
 ================================================================================
 https://en.wikipedia.org/wiki/Idioglossia
-tag="concepts cogsci"
+tag="concepts cogsci mental-model"
+
+Principal–agent problem
+================================================================================
+https://en.wikipedia.org/wiki/Principal%E2%80%93agent_problem
+tag="concepts politics economics mental-model"
+> one person or entity (the "agent") is able to make decisions on behalf of another person or entity: the "principal".
+
+Reality has a surprising amount of detail
+================================================================================
+http://johnsalvatier.org/blog/2017/reality-has-a-surprising-amount-of-detail
+tag="concepts cogsci emergence mental-model"
+> This surprising amount of detail is is not limited to “human” or “complicated” domains, it is a near universal property of everything from space travel to sewing, to your internal experience of your own mind.
+> ...
+> Before you’ve noticed important details they are, of course, basically
+> invisible. ... But after you see them they quickly become so integrated into
+> your intuitive models of the world that they become essentially transparent.
+> ...
+> This means it’s really easy to get stuck. Stuck in your current way of seeing
+> and thinking about things. Frames are made out of the details that seem
+> important to you. The important details you haven’t noticed are invisible to
+> you, and the details you have noticed seem completely obvious and you see right
+> through them. This all makes makes it difficult to imagine how you could be
+> missing something important.
+
+Emergence
+================================================================================
+https://en.wikipedia.org/wiki/Emergence
+tag="concepts emergence mental-model"
+
 
 Version SAT, Russ Cox
 ================================================================================

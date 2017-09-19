@@ -1,0 +1,35 @@
+CRF Guide (Constant Rate Factor in x264 and x265)  http://slhck.info/video/2017/02/24/crf-guide.html
+
+ffmpeg
+==============================================================================
+https://github.com/leandromoreira/ffmpeg-libav-tutorial
+
+https://superuser.com/a/490691
+Besides ffmpeg's options, encoders have "private options". To see all options:
+
+    ffmpeg -h full
+
+-movflags faststart
+    Mandatory for online video: this will move some metadata to the beginning of
+    the file so that playback can begin before it is completely downloaded.
+
+Quality
+-------
+
+Quality is controlled either by bitrate (-b:v (video), -b:a (audio), presets
+(slow, fast, etc.)), or by codec-specific options. E.g. x264 supports various
+encoding methods, with the Constant Rate Factor (CRF) being the most
+sophisticated: it produces variable bitrate, but overall good quality in
+a single pass. Range is 0-51 (sane range is 19~26), 23 is default.
+
+    ffmpeg -i input.mp4 -c:v libx264 -crf 23 output.mp4
+
+x264 *presets* primarily affect encoding speed vs compression
+(quality-per-filesize), they do not change VISUAL quality, only final bitrate
+(and therefore output file size).
+
+The problem with hardware encoders is that they use outdated versions of the
+codec. For older codecs like x264 that is less of an issue, but for x265 the
+difference is huge.
+
+

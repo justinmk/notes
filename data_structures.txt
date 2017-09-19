@@ -1,3 +1,7 @@
+♡ DICTIONARY OF ALGORITHMS & DATA STRUCTURES: https://xlinux.nist.gov/dads/
+
+---
+
 A data structure is "naturally recursive" if it can be cut in half and both
 parts treated as the same type of structure. (trees, arrays, stacks, ...).
 
@@ -47,6 +51,8 @@ binary
     balanced: (maxdepth - mindepth) <= 1
 
 BST
+    TODO: treap https://jvns.ca/blog/2017/09/09/data-structure--the-treap-/
+
     find(): O(lgn) (_If_ you can guarantee that the number of nodes ~halved each
                     iteration. This is why BST must be "balanced".)
     Other important properties:
@@ -79,6 +85,9 @@ B-trees
     The idea behind a B-tree is to collapse several levels of a binary search tree into a single large node, so that we can make the equivalent of several search steps before another disk access is needed. With B-tree we can access enor- mous numbers of keys using only a few disk accesses.
 
     TODO: http://patshaughnessy.net/2014/11/11/discovering-the-computer-science-behind-postgres-indexes
+
+Merkle tree
+    TODO: https://blog.cloudflare.com/introducing-certificate-transparency-and-nimbus/
 
 graphs
     TODO: BFS can be used to test bipartiteness, by starting the search at any
@@ -114,3 +123,24 @@ graphs
              two graphs are identical if we ignore any labels.
     soln:    backtracking: assign each vertex in each graph a label, then
              compare.
+
+
+MEMORY MODELS http://canonical.org/~kragen/memory-models/
+=========================================================
+COBOL: nested records
+    - fixed-size fields
+LISP: object graph (labeled, directed)
+    - requires GC
+    - Serializing an object graph is a bit tricky, both because it can contain circular references, but also because the part you want to serialize may contain references to a part you don’t want to serialize, and you have to special-case both of these. For example, in some systems, a class instance contains a reference to its class, and the class contains references not only to the current versions of all the methods but also to its superclass, but maybe you don’t want to serialize the entire bytecode for the class in every serialized object. 
+    - Most popular programming languages use this model
+FORTRAN: parallel arrays
+    - parallel arrays are cache-friendly, support different visibility for different attributes, support setting watchpoints, provide a sequence that can be meaningful, and support multidimensional indexing (where an attribute is a property of a tuple of entities, rather than just one entity). I would add that they also allow you to write subroutines that abstract over attributes, since they reify each attribute at run-time: you can write a sum function or a covariance function that can be applied to arbitrary attributes.
+    - Octave, Matlab, APL, J, K, PV-WAVE IDL, Lush, S, S-Plus, and R are all significant parallel-array-oriented programming languages; Numpy, Pandas, and OpenGL are parallel-array-oriented libraries; and as I explained above, Perl4, awk, and Tcl are to some extent parallel-dictionary-oriented.
+    - Various features of modern hardware increase the pressure to use parallel arrays to get better performance: the increasing gap between CPU speed and memory speed, the SIMT architecture of GPUs, and the SIMD instructions that have been added to CPUs to increase the ratio of ALU silicon to control silicon.
+MAGNETIC-TAPE: pipes ("flow-based programming")
+    - This kind of append-only storage turns out to be entirely adequate for some algorithms; MapReduce is not far from operating in this fashion, but also the typical problem of tokenization with lex, for example, uses just such a minimal interface to its input.
+    - Python’s iterators and generators, the C++ STL’s forward iterators, D’s forward ranges, and Golang’s channels are all examples of such pipes or channels, with their purely sequential data access.
+MULTICS: directories (string-labeled tree with blob leaves)
+SQL: relations (collection of mutable multivalued finite functions)
+
+

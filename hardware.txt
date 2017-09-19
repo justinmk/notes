@@ -1,0 +1,14 @@
+DISK MONITORING / FAILURE DETECTION
+===================================
+    Failure Trends in a Large Disk Drive Population / Pinheiro, Weber, Barroso
+    https://static.googleusercontent.com/media/research.google.com/en//archive/disk_failures.pdf
+        > Some SMART parameters (scan errors, reallocation counts, offline
+          reallocation counts, and probational counts) have a large impact on
+          failure probability.
+        > 56% of failed drives had no count in any of the four strong SMART
+          signals ... models based only on those signals can never predict more
+          than half of the failed drives
+        - 2-6% failure rate year in first year
+        - key finding: no consistent pattern of higher failure rates for higher
+          temperature or higher utilization
+

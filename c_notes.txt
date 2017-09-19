@@ -24,9 +24,19 @@ strace 4.9 (with libunwind), -k option shows backtrace of syscalls
      > /lib64/libc-2.20.so(__libc_start_main+0xf5) [0x21b45]
      > /usr/bin/nvim(_start+0x29) [0x354f8]
 
+SYSTEMS/PLATFORM/OS PROGRAMMING
+================================================================================
+cross-platform syscall reference:
+    https://github.com/giampaolo/psutil
+    https://github.com/facebook/osquery
+
+linux-only:
+    "procps" https://gitlab.com/procps-ng/procps
+
 REFERENCE
 ================================================================================
 C: A Reference Manual, Fifth Edition. http://www.careferencemanual.com
+"Secure C Coding" SEI CERT C Coding Standard https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=87152038
 
 DEBUG
 ================================================================================

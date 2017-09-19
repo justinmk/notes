@@ -1,0 +1,164 @@
+blog
+----
+- What is it you’re building?
+  I'm working on Neovim, a cooperative fork of the Vim text editor, designed to
+  encourage contributions and extensions. Besides maintenance (reviewing and
+  integrating pull requests, fixing bugs, maintaining the build system,
+  supporting users), I'm working on a major new feature: multicursor support.
+- Why is it important? How will people use it?
+  Multicursor support in Neovim (and Vim, eventually) will change the way users
+  and plugin authors use vim, because (1) the design of multicursor requires
+  exposing user actions as "atoms" and (2) cursor states are managed as
+  contexts. These new concepts--atoms and contexts--are valuable for use-cases
+  beyond multicursor. For example, because the vim motion "3j" is now tracked as
+  an atom, you can repeat that motion with a keybinding that repeats the tail of
+  the atoms queue. Another example: because Neovim now has a model of "context",
+  we can pass contexts to peer `nvim` instances (even remote instances).
+- What progress or things did you build over the course of the fellowship?
+  - Modeled vim actions as atoms, exposed via the Nvim API
+  - Modeled vim state as a context object, exposed via the Nvim API
+  - Implemented multicursor feature for normal-mode and insert-mode
+  - Improved logging/visibility of the UI and event-loop subsystems
+  - Fixed related event-loop bugs
+- Where do you see this going in the next 6 months?
+  Based on feedback from core contributors and users, we will (1) adjust how
+  various user actions are defined as atoms, and (2) adjust behavior of multiple
+  cursors under certain circumstances (such as when a cursor hits the edge of
+  a buffer).  I also plan to to re-use the upcoming work on "Extended Marks" for
+  resolving cursor positions in the presence of text changes.
+- What was the hardest or most unexpected part of what you built?
+  The implementation of vim's editing model is ad-hoc: the "state transitions"
+  are mostly implicit, and dependendent on global state flags.
+  Most projects that re-implement vim (e.g. https://github.com/vrapper/vrapper),
+  model operations as "pipelines" that produce nice, composed Commands which are
+  then Executed. But Vim (Neovim) wasn't implemented like that. For example:
+  many normal-mode operations are implemented by pushing keys onto the internal
+  input queue, as if the user had typed them. Clever, but hard to reason about.
+
+  I ended up throwing out three different prototypes. After I accepted the idea
+  of "annotating" the operations at their implementations, by tracking them in
+  a global queue, the problem became manageable.
+
+Here's a gif showing (1) placement of 2 extra cursors, (2) cursor-local
+registers, (3) cascade of normal-mode commands, and (4) cascade of insert-mode
+input.
+
+https://asciinema.org/a/4oj9EHJs5izZ8QuhH3XaMxU74
+
+Regarding this passage from my previous email:
+
+> Most projects that re-implement vim (e.g. https://github.com/vrapper/vrapper),
+  model operations as "pipelines" that produce nice, composed Commands which are
+  then Executed. But Vim (Neovim) wasn't implemented like that. For example:
+  many normal-mode operations are implemented by pushing keys onto the internal
+  input queue, as if the user had typed them. Clever, but hard to reason about.
+  And hard to leverage programmatically.
+
+`nv_optrans()` is a concrete example of that. When you type the `x` built-in
+normal-mode command--which one might assume is a primitive operation--it is
+actually translated by `nv_optrans()` to an equivalent sequence, `dl`.  The `dl`
+sequence is pushed onto a special-purpose internal buffer (`stuffReadbuff()`).
+When the main loop checks for another "input" char, it will notice these new
+characters.
+
+Atoms API
+=========
+
+Diagram:
+    normal-mode
+        user input
+            execute command
+            push command atom onto atoms queue
+            foreach non-primary cursor:
+                execute command
+
+
+The key achievement of atoms is to chunk user commands into repeatable things.
+When Vim processes user input, it executes the input and then immediately
+forgets any understanding of what it processed. When a macro is recorded, only
+the raw input stream is stored:
+
+    macro: ll3jddgUUiabc
+
+With the multicursor work, Nvim now tracks the atoms:
+
+    macro: ll3jddgUUiabc
+           ^^^ ^ ^  ^ atoms
+
+User scripts, plugins, and remote clients can query the atoms queue at any time
+via the Nvim API.
+
+For example, here's the last 3 items in the atoms queue from a sample editing
+session:
+
+    :echo nvim_get_atoms()[-3:]
+    [{'seq': 1, 'type': 8, 'keys': 'k'}, {'seq': 2, 'type': 10, 'keys': '^D'}, {'seq': 1, 'type': 8, 'keys': '3j'}]
+
+You can see that this is extremely useful for applications beyond multicursor,
+such as introspection of user editing patterns, or a mapping that repeats the
+last "thing" . Using the current implementation, the following code maps "space"
+to repeat the last atom (unlike dot-repeat, this repeats motions, navigation,
+etc.):
+
+    :nnoremap <space> :call feedkeys(filter(nvim_get_atoms(),'v:val.keys!~#":"')[-1].keys)<CR>
+
+Context API
+===========
+
+In the current implementation, context is used internally to manage cursor-local
+registers. It's also exposed via the nvim_get_context() API function:
+
+    :echo nvim_get_context()
+    { 'pos': {'lnum': 0, 'col': 0, 'coladd': 0},
+      'registers': {'a': {'lines': ['current_SID']},
+                    'b': {'lines': ['vim_FullName']},
+                    'c': {'lines': ['"apjwldi)kllllllllllldrf)j^C^C']}, ...,
+                    '0': {'lines': ['VV_TYPE_FUNC']},
+                    '1': {'lines': ['foo']}, ...,
+                    }
+    }
+
+Before now the only way to inspect Nvim state was by parsing the "shada" file
+(Nvim replacement of Vim "viminfo"), or by gathering bits and pieces exposed in
+the VimL functions. And some imporant pieces aren't exposed at all.
+
+With context as a first-class feature, we can start to think about serialization
+scenarios: "bootstrapping" child Nvim instances for multiprocessing; sharing
+state between peer instances; persisting state for fast restart; and less
+obvious ideas ...
+
+
+Developer Experience (DX)
+-------------------------
+  - DX first: API and architecture are the killer features (not job control,
+    terminal, 'inccommand', ...)
+  - portable install on all OSes
+  - actualvim, VSCodeVim, Oni
+      - next: intellij...
+
+LSP ("codeservice")
+--------------------------
+
+LSP is the protocol, but the protocol is the least interesting part.
+The important core features:
+! auto-detection of LSP backend
+! healthcheck
+- PR: notifications
+- PR: floating window
+- PR: granular buffer-change notifications
+- popup menu
+- refactoring
+    - rename symbol: mapping, workflow
+    - : mapping, workflow
+- "outline" feature: mapping (gO)
+- "find references": mapping, workflow
+
+mcursor_set(
+  {list of getpos()-like tuples}) 
+mcursor_get() => list of getpos()-like tuples
+  [
+    [{lnum}, {col}, {off}, {curswant}],
+    [{lnum}, {col}, {off}, {curswant}],
+    ...,
+  ]
+

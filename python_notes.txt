@@ -1,3 +1,10 @@
 PROFILING
 ================================================================================
 https://github.com/rkern/line_profiler
+
+MEMORY LEAKS
+================================================================================
+objgraph: https://www.darkcoding.net/software/finding-memory-leaks-in-python-with-objgraph/
+tracemalloc (Python 3.6+): https://docs.python.org/3/library/tracemalloc.html
+
+

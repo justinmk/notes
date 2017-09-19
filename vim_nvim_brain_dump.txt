@@ -1,10 +1,15 @@
 Neovim / brain dump
 
+fundamental rule of technology: There Is No Third Ecosystem  https://news.ycombinator.com/item?id=16370602
+
 author of Xi editor mentions neovim:
 https://www.youtube.com/watch?v=SKtQgFBRUvQ
 
 discussion of ActualVim before Neovim existed:
 https://news.ycombinator.com/item?id=6668388
+
+terminal hacks
+    does anybody like doing this nonsense? https://sunaku.github.io/vim-256color-bce.html
 
 role of Vim in 2015:
     emacs/vim are in the class "lifestyle editors" (absurdly customizable). It
@@ -43,6 +48,10 @@ lessons from bram/Vim:
     in. Thus you are not forced to use one editor. ... Each tool implements part of
     the plugin interface. Even Stefan Monnier admits that in some cases a fork is
     necessary: https://lists.gnu.org/archive/html/emacs-devel/2015-01/msg00171.html
+
+    https://code.google.com/archive/p/codecheck/
+    Another attempt sponsored by Bram to provide "IDE features" in Vim.
+    > CodeCheck is a script (or a set of scripts), which will provide on-the-fly code checking for Vim. It will basically mimic the similar feature in Eclipse IDE.
 
     http://www.free-soft.org/FSM/english/issue01/vim.html Bram's equation for number
     of contributors to a project:

@@ -194,7 +194,7 @@ TOOLS:
     iotop
     lsof "replaces ps and netstat"  http://danielmiessler.com/study/lsof/
         lsof -c tmux        see what files and network connections tmux is using
-        losf /var/log/*     see everything that is interacting with /var/log/*
+        lsof /var/log/*     see everything that is interacting with /var/log/*
 
 FAQ:
     you don't need to protect the end-of-line with a backslash if:

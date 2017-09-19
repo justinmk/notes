@@ -1,3 +1,14 @@
+data science:
+  + https://www.dataquest.io/blog/making-538-plots/
+  + http://pandas.pydata.org/pandas-docs/stable/10min.html
+  + https://github.com/jvns/pandas-cookbook
+  ? https://jakevdp.github.io/PythonDataScienceHandbook/
+  ? TensorFlow: http://tflearn.org/
+  ? TensorFlow: https://github.com/tflearn/tflearn/blob/0.1.0/examples/README.md
+
+PL
+  + How to Write a (Lisp) Interpreter (in Python) http://norvig.com/lispy.html
+
 allocation: http://www.smallmemory.com/6_AllocationChapter.pdf
 
 Let's code a TCP/IP stack, 1: Ethernet & ARP
@@ -11,14 +22,13 @@ http://tomasp.net/blog/2015/against-types/
     theory of type in 1908
     The strong normalization property: all programs reduce to a value
 
-TensorFlow
-    http://tflearn.org/
-    https://github.com/tflearn/tflearn/blob/0.1.0/examples/README.md
-
 bookmarks
 ---------
-https://news.ycombinator.com/item?id=11262150 "a few things about PyPy3 support"
+Ask HN: Which is your favourite tech talk? https://news.ycombinator.com/item?id=16838460
+"a few things about PyPy3 support" https://news.ycombinator.com/item?id=11262150
 
+System Design Cheatsheet: https://gist.github.com/vasanthk/485d1c25737e8e72759f
+server performance, nginx: https://blogs.dropbox.com/tech/2017/09/optimizing-web-servers-for-high-throughput-and-low-latency/
 microservices: http://blog.plataformatec.com.br/2015/01/organizing-microservices-in-a-single-git-repository/
 dep vs dup: http://yosefk.com/blog/redundancy-vs-dependencies-which-is-worse.html
 On Designing and Deploying Internet-Scale Services: https://www.usenix.org/legacy/event/lisa07/tech/full_papers/hamilton/hamilton_html/
@@ -28,6 +38,7 @@ https://daniel.haxx.se/http2/
 http://arstechnica.com/security/2015/08/how-security-flaws-work-the-buffer-overflow/
 https://jimshaver.net/2015/02/11/decrypting-tls-browser-traffic-with-wireshark-the-easy-way/
 https://www.facebook.com/notes/facebook-engineering/scalable-memory-allocation-using-jemalloc/480222803919
+Learning How to Learn: https://www.coursera.org/learn/learning-how-to-learn
 
 
 

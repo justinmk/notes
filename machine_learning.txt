@@ -1,5 +1,6 @@
 TODO:
     http://course.fast.ai/
+    https://developers.google.com/machine-learning/crash-course/
 
 https://news.ycombinator.com/item?id=14485362
     > You don’t need Google-scale data to use deep learning. Using all of the above
@@ -7,16 +8,23 @@ https://news.ycombinator.com/item?id=14485362
     > benefit from deep learning. With all of these techniques you can mitigate the
     > variance issue, while still benefitting from the flexibility.
     |
-    └─   The easiest way to use deep learning without a lot of data: download
-        a pretrained model and fine-tune the last few layers on your small dataset.
-        In many domains (like image classification, the task in this blog post)
-        fine-tuning works extremely well, because the pretrained model has learned
-        generic features in the early layers that are useful for many datasets, not
+    └─  _Transfer Learning_
+        "Easiest way to use deep learning without a lot of data: download
+        a pretrained model and fine-tune the last few layers on your small
+        dataset. In many domains (like image classification) fine-tuning works
+        extremely well, because the pretrained model has learned generic
+        features in the early layers that are useful for many datasets, not
         just the one trained on. Even the best skin cancer classifier
-        [http://www.nature.com/articles/nature21056] was pretrained on ImageNet.
+        (http://www.nature.com/articles/nature21056) was pretrained on ImageNet.
         |
         └─ "This is how the great http://course.fast.ai course begins - download VGG16,
-            finetune the top layer with a single dense layer, get amazing results. The
-            second or third class shows how to make the top layers a bit more complex to get
-            even better accuracy."
+        |   finetune the top layer with a single dense layer, get amazing results. The
+        |   second or third class shows how to make the top layers a bit more complex to get
+        |   even better accuracy."
+        |
+        └─ Remove the last "layer" of the neural net. Then you can use
+           a classifier (e.g. SVM) to add the layer back, for your specific
+           application. E.g. with deep learning, the NN finds features, these
+           are in the last "hidden layer". That layer is generalized, you can
+           use those features to train for your specific application.
 

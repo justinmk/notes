@@ -1,1 +1,54 @@
 Liberating the Smalltalk lurking in C and Unix: https://www.youtube.com/watch?v=LwicN2u6Dro
+
+procps https://gitlab.com/procps-ng/procps :
+    provides ps, top--but also lesser-known things like w, pmap, pwdx, slabtop.
+
+graph processes/fifos/pipes/sockets  https://github.com/zevv/lsofgraph
+    sudo lsof -n -F | ./lsofgraph | dot -Tpng > foo.png
+
+IPC
+    Beej's Guide to Unix IPC  http://beej.us/guide/bgipc/
+
+STDIO buffering  http://www.pixelbeat.org/programming/stdio_buffering/
+    Default buffering modes:
+        stdin : buffered (line-buffered if TTY)
+        stdout: buffered (line-buffered if TTY)
+        stderr: always unbuffered
+    Default buffer size:
+        - based on the kernel page-size (typically 4096)
+        - TTY-connected stdin/stdout default size = 1024
+    Example:
+        $ tail -f access.log | cut -d' ' -f1 | uniq
+        - `cut` stdout buffer collects 4096-byte chunks before sending to uniq.
+          `tail` would also have this problem, except `tail -f` calls fflush()
+          on the stdout stream when new data is received (as do `tcpdump -l`,
+          `grep --line-buffered` and `sed --unbuffered`).
+        - `uniq` stdout buffer is TTY-connected, so it is automatically flushed when a newline is written to it.
+    `stdbuf` command can be used to control these properties:
+        $ for i in $(seq 1 99); do printf "$i" ; sleep 1 ; done | stdbuf -o0 head
+
+
+show processes in "D" state (waiting-on-IO, "U" on macOS) every 5:  http://bencane.com/2012/08/06/troubleshooting-high-io-wait-in-linux/
+    for x in `seq 1 1 10`; do ps -eo state,pid,cmd | grep "^D"; echo "----"; sleep 5; done
+
+autotools, pkgconfig
+    # generate build files
+    sudo apt install autoconf libtool
+    aclocal
+    autoconf  # requires libtool
+    automake --add-missing
+    autoreconf -vfi  # kick it if something went wrong
+    # build it…
+    ./configure
+    make
+    sudo make install
+    # verify that the lib was installed
+    ldconfig -p | grep ltc
+    sudo ldconfig -v  # kick it if something went wrong
+
+
+linux
+    debug
+        sudo perf top -d 2 --stdio
+    kernel debug
+        slabinfo, slabtop : kernel heap objects

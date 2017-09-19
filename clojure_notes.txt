@@ -14,6 +14,7 @@ quick start screencast (eclipse, ring)
     http://www.youtube.com/watch?v=VVd4ow-ZcX0
 
 todo:
+    https://www.stuttaford.me/2018/02/18/a-clojure-learning-journey/
     The Re-frame Guide https://purelyfunctional.tv/guide/re-frame-building-blocks/
     ClojureScript for Skeptics - Derek Slager: https://www.youtube.com/watch?v=gsffg5xxFQI
     https://howistart.org/posts/clojure/1
@@ -63,6 +64,9 @@ web app:
 
 datomic discussion and video link:
     http://www.reddit.com/r/Clojure/comments/1t6h2v/datomicjunk_a_bunch_of_datomic_utility_functions/
+
+datomic
+    https://augustl.com/blog/2018/datomic_look_at_all_the_things_i_am_not_doing/
 
 Solving the Expression Problem with Clojure 1.2
     http://www.ibm.com/developerworks/java/library/j-clojure-protocols/index.html#datatypes

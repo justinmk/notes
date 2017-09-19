@@ -1,5 +1,7 @@
 todo:
-    https://github.com/cirosantilli/algorithm-cheat
+    + graphs, visualization: https://github.com/coells/100days
+    ~ http://jeffe.cs.illinois.edu/teaching/algorithms/
+    ~ https://github.com/cirosantilli/algorithm-cheat
 
 Zipf's law
     Nonuniform access is usually the rule, not the exception. Many real-world

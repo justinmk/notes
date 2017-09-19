@@ -1,7 +1,18 @@
 todo:
+    "Distributed systems theory for the distributed systems engineer" https://news.ycombinator.com/item?id=11688124
+    "Why Logical Clocks are Easy" https://queue.acm.org/detail.cfm?id=2917756
+    https://blog.separateconcerns.com/2015-07-07-four-easy-reads-distsys.html
+    https://www.microsoft.com/en-us/research/publication/byzantine-generals-problem/
+      - the core, basic understanding needed to build distributed systems
+      - Need lots of (consistent) metadata across all nodes before you can
+        finalize a transaction. The metadata and how fast you could move it
+        on the network is the constraint on how fast you can run transactions.
     http://www.infoq.com/presentations/latency-pitfalls
     http://web.mit.edu/2.75/resources/random/How%20Complex%20Systems%20Fail.pdf
     https://github.com/aphyr/distsys-class
+    https://github.com/heathermiller/dist-prog-book
+        RPC, Futures & Promises, Message-passing,  CAP, Consistency, & CRDTs, Large-scale Parallel Batch Processing, Large-scale Streaming,
+
 
     distribute systems theory:
         introductory (a "gem"):
@@ -80,6 +91,21 @@ CAP:
         batch computation, stream processing -- these are all techniques for
         optimizing query functions and bringing the latency down to an
         acceptable level.
+
+Log ("journal" or "data log", not human-readable "text log"):
+    https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying
+    - Append-only, time-ordered sequence of records.
+    - Each entry has a unique sequential number.
+    convenient property: it is decoupled from a physical clock. Essential for distributed systems.
+    solves two problems:
+      - ordering changes
+      - distributing data
+
+
+    Sometimes called write-ahead logs or commit logs or transaction logs.
+    For data integration, real time processing, and system building.
+
+
 
 paxos: http://blog.willportnoy.com/2012/06/lessons-learned-from-paxos.html
 

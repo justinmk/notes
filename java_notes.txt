@@ -1,3 +1,7 @@
+TODO
+================================================================================
+https://shipilev.net/jvm-anatomy-park/
+
 GC
 ================================================================================
 https://github.com/cirosantilli/java-cheat/search?utf8=%E2%9C%93&q=garbage&type=

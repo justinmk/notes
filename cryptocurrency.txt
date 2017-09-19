@@ -1,5 +1,8 @@
 TODO:
-    "create a minimally viable Bitcoin client" http://www.samlewis.me/2017/06/a-peek-under-bitcoins-hood/
+    http://www.samlewis.me/2017/06/a-peek-under-bitcoins-hood/
+  ♡ https://www.igvita.com/2014/05/05/minimum-viable-block-chain/
+    http://queue.acm.org/detail.cfm?id=3136559 "Bitcoin's Academic Pedigree" Narayanan & Clark
+    http://adilmoujahid.com/posts/2018/03/intro-blockchain-bitcoin-python/
 
 Bitcoin whitepaper https://bitcoin.org/bitcoin.pdf
     The race between the honest chain and an attacker chain can be characterized
