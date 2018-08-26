@@ -1,0 +1,51 @@
+NTP
+========================================================================
+https://www.raspberrypi.org/forums/viewtopic.php?t=1970&start=225
+
+NTP will serve the time estimate that the host has. It includes the quality
+(dispersion, source info, last correction, etc) so the client can judge which
+source to use. If the GPS dies, the quality will decline; eventually to the
+point that clients will pick another of its sources. Note that time doesn't
+instantly go bad. The GPS merely adjusts ('disciplines' in ntp speak) the
+local clock. If the local clock is stable (no wild temperature, power, load
+changes) and NTP has run long enough to converge the driftfile, the time will
+remain accurate for a 'long' time.
+
+GPS
+========================================================================
+
+- GPS delivers 14 numbers: x, y, z, t, vx, vy, vz, and error estimates for
+  each of those 7 coordinates. This is a "TPV" (time-position-velocity)
+  report. GPS is a TPV oracle.
+- gpsd delivers those numbers to user applications with minimum fuss.
+
+Almanac
+  The time required for a GPS to get a fix (Time To First Fix (TTFF)) can vary
+  from 15s to 30min. The main factors affecting this latency are (a) whether
+  it has an almanac available, (b) whether it has satellite ephemerides
+  available, and (c) whether it has recent fix available. Of course the
+  quality of signal at your location matters as well.
+
+  If a GPS has not been on for several months, then it has no current almanac.
+  It must wait to download one before it can generate a fix. This can take
+  ~15min.
+
+  While the almanac download takes 15 minutes, you have to be there for the
+  start of it, otherwise you have to wait for the next cycle. So if you are
+  unlucky and just miss the start of one, it could take just under 29 minutes
+  to obtain, and on average closer to 22 min.
+
+  If a GPS has not been on for ~1day then it has a valid almanac but no valid
+  satellite ephemerides, and must download at least four before it can
+  generate an accurate fix. Each satellite has its own ephemeris that must be
+  downloaded if a current copy is not fresh.
+
+
+
+
+gpsd
+    tools:
+        gpsprof: collects accuracy and latency statistics on GPSes and the GPS+gpsd combination
+        ???: tool for decoding RTCM104 reports on satellite health, almanacs,
+             and pseudorange information from differential-GPS radios and
+             reference stations.

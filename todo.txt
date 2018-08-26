@@ -22,6 +22,12 @@ http://tomasp.net/blog/2015/against-types/
     theory of type in 1908
     The strong normalization property: all programs reduce to a value
 
+papers
+------
+
+Purely Functional Data Structures, Chris Okasaki
+Einstein's statement of special relativity
+
 bookmarks
 ---------
 Ask HN: Which is your favourite tech talk? https://news.ycombinator.com/item?id=16838460

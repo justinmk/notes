@@ -48,7 +48,7 @@ autotools, pkgconfig
 
 
 linux
-    debug
-        sudo perf top -d 2 --stdio
+    perf/debug
+        sudo perf top -d8 --stdio  # -g shows callstack
     kernel debug
         slabinfo, slabtop : kernel heap objects

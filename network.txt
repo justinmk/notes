@@ -7,12 +7,13 @@ TOOLS
 ================================================================================
 TCP performance profiling: https://github.com/fastos/tcpdive
 
+https://jvns.ca/blog/2018/06/19/what-i-use-wireshark-for/
 http://jvns.ca/blog/2016/03/16/tcpdump-is-amazing/
     `tcpdump` works on a lower level. `tshark` (wireshark command-line tool)
     shows higher-level descriptions. wireshark/tshark _understands_ protocols
     (HTTP, even Monogo db...).
 
-    sudo tcpdump -i eth1
+    sudo tcpdump -i any
         13:21:15.025449 IP 10.0.2.2.57434 > 10.0.2.15.ssh: Flags [.], ack 8911568, win 65535, length 0
         13:21:15.025936 IP 10.0.2.15.ssh > 10.0.2.2.57434: Flags [.], seq 8911568:8913028, ack 6425, win 52560, length 1460
     sudo tshark -i any
@@ -46,6 +47,29 @@ connections are made during that time, ssh will exit.
 SSH simple port forwarding
 ================================================================================
     ssh -p 22 -N -L localhost:8082:localhost:8082 user@server
+
+
+CONCEPTS
+================================================================================
+https://jvns.ca/blog/2018/07/24/ip-addresses-routing/
+
+    packet
+        Almost every packet (with some exceptions like ARP packets) has an IP header.
+        14 fields in the IP header. 3 important ones:
+          1. source IP address
+          2. destination IP address
+          3. TTL: decremented by 1 at each hop (ensures packets don’t get into infinite loops)
+          4. ‘protocol’ field tells you the protocol (like TCP/UDP).
+        port isn’t in the IP header! That's at the TCP/UDP protocol layer. (and is why
+        TCP port 8080 and UDP port 8080 are different ports, and can run different
+        services!)
+
+    subnet
+        CIDR notation – 168.23.0.0/8 means “all the packets that have the same
+        first 8 bits as the packet 168.23.0.0”. In this case 168.*.*.*, or any
+        packet beginning in 168.
+
+
 
 PROTOCOLS
 ================================================================================

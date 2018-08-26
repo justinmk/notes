@@ -1,4 +1,4 @@
-vim: ft=text iskeyword+==
+vim: ft=text iskeyword+== comments=s1\:/*,mb\:*,ex\:*/,\://,b\:#,\:%,\:XCOMM,n\:>,fb\:-
 
 The Netflix Tech Blog: Linux Performance Analysis in 60,000 Milliseconds
 ================================================================================
@@ -251,6 +251,11 @@ After seven years, exactly one person gets off the gov‚Äôt no-fly list | Ars
     tag="police-state government-failure"
   time="2015-03-26T04:45:02Z" 
 
+Why not add an option for that?
+================================================================================
+http://neugierig.org/software/blog/2018/07/options.html
+tag="programming softwareengineering design ux ui options"
+
 This Week In Startups | This Week In Startups
 ================================================================================
   href="http://thisweekinstartups.com/"  
@@ -411,6 +416,22 @@ Apdex - Wikipedia, the free encyclopedia
   tag="monitoring performance apdex metrics measurement"
   time="2015-02-11T21:31:36Z" 
 
+Introducing Project Mentat, a flexible embedded knowledge store
+================================================================================
+https://medium.com/project-tofino/introducing-datomish-a-flexible-embedded-knowledge-store-1d7976bff344
+tag="system-design software-engineering scalability performance database"
+great description of CQRS:
+    > The CQRS approach, at its root, is to separate the ‘command’ from the
+    > ‘query’: store a data model that’s very close to what the writer knows
+    > (typically a stream of events), and then materialize as many query-side
+    > data stores as you need to support your readers. When you need to support
+    > a new kind of fast read, you only need to do two things: figure out how to
+    > materialize a view from history, and figure out how to incrementally
+    > update it as new events arrive. You shouldn’t need to touch the base
+    > storage schema at all. When a consumer is ripped out of the product, you
+    > just throw away their materialized views.
+
+
 FreeNAS Community Hardware Recommendations Guide
 ================================================================================
 https://forums.freenas.org/index.php?resources/hardware-recommendations-guide.12/
@@ -433,7 +454,15 @@ Effective Engineer
 ================================================================================
 http://www.effectiveengineer.com/
 https://gist.github.com/rondy/af1dee1d28c02e9a225ae55da2674a6f
+https://henrikwarne.com/2017/01/15/book-review-the-effective-engineer/
 tag="books engineering programming"
+- Optimize for learning
+- Invest in time-saving tools
+- Shorten the debugging loop
+- Don’t sprint in the middle of a marathon
+- Recovery over prevention
+- Automate mechanics, not decision making
+- Make batch processes idempotent
 
 
 Ambarella | Embedded Computer Vision SoCs
@@ -599,6 +628,11 @@ The assumption that any practical Nock interpreter will be optimized for the
 specific formulas it is expected to execute, jet-propelling all well-known inner
 loops, allows Nock to discard many programming-language features normally
 considered essential to efficiency - from cyclic graphs, to built-in arithmetic.
+
+Hoon and You - An FP Perspective
+================================================================================
+https://github.com/famousj/hoon-lc2018/blob/master/hoon-talk.md
+tag="urbit hoon functional-programming fp programming"
 
 PGP and You 
 ================================================================================
@@ -1545,6 +1579,23 @@ google-diff-match-patch - Google Code
   robust diff/patch library Myer's diff algorithm Bitap matching algorithm more sophisticated than GNU patch
   href="https://github.com/google/diff-match-patch"
   tag="google library programming algorithms diff lua"
+
+"I See What You Mean" by Peter Alvaro
+================================================================================
+https://www.youtube.com/watch?v=R2Aa4PivG0g&t=2295s
+tag="datalog query language"
+
+Dedalus: Datalog in Time and Space
+================================================================================
+https://www2.eecs.berkeley.edu/Pubs/TechRpts/2009/EECS-2009-173.html
+tag="datalog query language"
+
+Bloom
+================================================================================
+https://github.com/bloom-lang/bud
+Dedalus rewrite
+tag="datalog query language"
+
 
 High Scalability - 7 Years of YouTube Scalability Lessons in 30¬†Minutes
 ================================================================================
@@ -2796,6 +2847,55 @@ Confessions of a Car Salesman
     tag="negotiation thrift"
   time="2010-04-02T17:39:07Z" 
 
+
+How Not to Bomb Your Offer Negotiation
+================================================================================
+https://haseebq.com/my-ten-rules-for-negotiating-a-job-offer/
+https://haseebq.com/how-not-to-bomb-your-offer-negotiation/
+tag="negotiation"
+
+The ten rules of negotiating
+    1. Get everything in writing (and write everything down)
+        Send a follow-up e-mail confirming all of the details you discussed with your recruiter so you have a paper trail. “Just wanted to confirm I had all the details right.“
+    2. Always keep the door open
+    3. Information is power
+    4. Always be unequivocally positive
+        Your excitement is one of your most valuable assets in a negotiation. Despite whatever is happening in the negotiation, give the company the impression that 1) you still like the company, and that 2) you’re still excited to work there, even if the numbers or the money or the timing is not working out.
+    5. Don’t be the decision maker
+        "I’ll look over some of these details and discuss it with X. I’ll reach out to you if I have any questions."
+    6. Have alternatives
+    7. Proclaim reasons for everything
+    8. Be motivated by more than just money
+    9. Understand what they value
+    10. Be winnable
+
+A good negotiator is empathetic and collaborative. They don’t try to control you
+or issue ultimatums. Rather, they try to think creatively about how to fulfill
+both your and their needs.
+
+Slicing up the cake
+    good negotiators bend the rules. They question assumptions and ask unexpected
+    questions. They dig to find the core what everyone values and looks for creative
+    ways to widen the terrain of negotiation.
+    While you were thinking about how to haggle over slices, I’m thinking about how
+    to give both of us more than just half of a cake.
+
+Phone vs Email
+    Talking on the phone not only signals confidence, but more
+    importantly, it allows you to build a strong relationship with your recruiter.
+    The best deals get made between friends. It’s hard to make friends over e-mail.
+
+Have Alternatives
+    But what if you don’t manage to get any other offers? Does all the negotiating just go out the window?
+    Not at all. What’s important here is not actually having other offers. 
+    A negotiation needs stakes.
+    BATNA (Best Alternative To a Negotiated Agreement).
+    Your best alternative might be “interview at more companies” or “go to grad
+    school” or “stay at your current job” or “go on sabbatical” ...
+    Thus, you need to communicate your BATNA. (Note: whenever you signal your
+    BATNA, you should also re-emphasize your interest in reaching an agreement).
+    You should make your decision seem genuinely close for it to be a strong BATNA.
+
 BLACK FLAMINGO: im coco for some choco chips!
 ================================================================================
   Ingredients: 40 saltine crackers 1 cup of rolled oats 1/2 cup of applesauce 1/4 cup of vegetable oil 3/4 cup of hazelnut milk 1/4 cup of agave nectar 1 tsp of cinnamon 1/4 cup of stevia 1 tbs of corn starch 1 tbs pure cocoa powder 1/2 cup dark choc chips 1/4 cup earth balance Directions: 0. preheat oven to 350 deg 1. crush saltine crackers into fine pieces 2. mix in oats, applesauce, and the rest of the ingredients. 3. fold in the oil and milk until it becomes a dough 4. spread out in cooking tin 5. bake for 24 minutes
@@ -3125,11 +3225,6 @@ An Intuitive Explanation of Fourier Theory
   href="http://enteos2.area.trieste.it/russo/LabInfoMM2005-2006/ProgrammaEMaterialeDidattico/daStudiare/009-FourierInSpace.html"
     tag="mathematics todo"
   time="2009-08-10T14:11:36Z" 
-
-kuler: color themes generator/sharing
-================================================================================
-  href="http://kuler.adobe.com/"  
-  tag="graphic-design" time="2009-08-04T18:12:26Z" 
 
 MakerBot Industries - Robots That Make Things.
 ================================================================================
@@ -3893,27 +3988,10 @@ fundamentals javascript concepts
    tag="programming javascript"
   time="2007-05-17T19:27:53Z" 
 
-Tango Icon Library 
-================================================================================
-  href="http://tango.freedesktop.org/Tango_Icon_Library"
-    tag="icons graphic-design"
-  time="2007-05-06T10:10:04Z" 
-
-Color tools 
-================================================================================
-  href="http://www.colorschemes.org/"  
-  tag="graphic-design" time="2007-05-06T08:22:41Z" 
-
 XML Notepad open source
 ================================================================================
   href="http://www.codeplex.com/xmlnotepad" 
    tag=".net xml xsl" time="2007-04-30T22:30:06Z" 
-
-Crystal Clear Icons 
-================================================================================
-  href="http://commons.wikimedia.org/wiki/Crystal_Clear"
-    tag="icons graphic-design"
-  time="2007-04-29T07:22:25Z" 
 
 Principality of Sealand
 ================================================================================
@@ -3976,6 +4054,16 @@ http://europass.cedefop.europa.eu/documents/curriculum-vitae
 create CV online. import/export
 tag="visa europe germany berlin immigration"
 
+Pedophrasty, Bigoteering, and Other Modern Scams
+================================================================================
+https://medium.com/incerto/pedophrasty-bigoteering-and-other-modern-scams-c84bd70a29e8
+tag="concepts cogsci mental-model"
+Pedophrasty: Argument involving children to prop up a rationalization and make the opponent look like an asshole, as people are defenseless and suspend all skepticism in front of suffering children: nobody has the heart to question the authenticity or source of the reporting. Often done with the aid of pictures.
+Bigoteering: tagging someone (or someone’s opinions) as “racist”, “chauvinist” or somethinglikeit-ist in situations where these are not warranted. This is a shoddy manipulation to exploit the stigmas accompanying such labels and force the opponent to spent time and energy explaining “why he/she is not a bigot”.
+Nabothizing: Production of false accusation, just as Jezebel did to dispossess Naboth.
+Partializing: Exploiting the unsavory attributes of one party in a conflict without revealing those of the other party.
+
+
 True Name
 ================================================================================
 https://en.wikipedia.org/wiki/True_name
@@ -4024,7 +4112,40 @@ Version SAT, Russ Cox
 ================================================================================
 https://research.swtch.com/version-sat
 VERSION is reducible to 3-SAT.
-tag="dependency-management compsci"
+tag="dependency-management compsci sat-solver graph-theory"
+
+Library for solving packages and reading repositories
+================================================================================
+https://github.com/openSUSE/libsolv
+tag="dependency-management compsci sat-solver graph algorithm"
+
+Pubgrub: Dart's version-solving algorithm
+================================================================================
+https://github.com/dart-lang/pub/blob/master/doc/solver.md
+tag="dependency-management compsci sat-solver graph algorithm"
+Pubgrub solves these issues by adapting state-of-the-art techniques for solving
+Boolean satisfiability and related difficult search problems.
+
+Modern SAT solvers: fast, neat and underused 
+================================================================================
+https://codingnest.com/modern-sat-solvers-fast-neat-underused-part-1-of-n/
+tag="dependency-management compsci sat-solver graph algorithm"
+
+Google Optimization Tools
+================================================================================
+https://developers.google.com/optimization/
+tag="compsci sat-solver graph optimization algorithm"
+Google Optimization Tools (OR-Tools) is a fast and portable software suite for
+solving combinatorial optimization problems. The suite contains:
+    A constraint programming solver.
+    A simple and unified interface to several linear programming and mixed integer
+    programming solvers, including CBC, CLP, GLOP, GLPK, Gurobi, CPLEX, and SCIP.
+    Graph algorithms (shortest paths, min cost flow, max flow, linear sum
+    assignment).
+    Algorithms for the Traveling Salesman Problem and Vehicle Routing Problem.
+    Bin packing and knapsack algorithms.
+    For instruction on installing OR-Tools for C++, Python, Java, or .Net
+
 
 Cloud Foundry
 ================================================================================

@@ -1,5 +1,14 @@
 AWS open guide: https://github.com/open-guides/og-aws
 
+EC2
+    Get metadata of the current EC2 instance
+    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html
+        Amazon Linux ships with ec2-metadata tool:
+            $ /opt/aws/bin/ec2-metadata
+        Magic endpoint "169.254.169.254" gives metadata of the current instance:
+            $ curl http://169.254.169.254/latest/meta-data/
+
+
 DevOps at amazon:
     key characteristics of Amazon SOA:
         - tools have *best-practices* baked-in, in order to improve

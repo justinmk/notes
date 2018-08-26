@@ -8,3 +8,50 @@ objgraph: https://www.darkcoding.net/software/finding-memory-leaks-in-python-wit
 tracemalloc (Python 3.6+): https://docs.python.org/3/library/tracemalloc.html
 
 
+asyncio
+================================================================================
+* `await` on a coroutine (more generally an "awaitable") yields to the event-loop.
+  * Example: `await asyncio.sleep(2)` does not block the loop, it yields and
+    schedules a Future on the loop for the specified time. When the Future
+    is executed, control is restored and the caller is unblocked.
+    source: https://github.com/python/cpython/blob/cca4eec3c0a67cbfeaf09182ea6c097a94891ff6/Lib/asyncio/tasks.py#L580
+* Event loop does not preempt, only a coroutine can pause itself.
+* Calling a coroutine initializes (not executes) it.
+* asyncio.sleep is a coroutine.
+
+https://news.ycombinator.com/item?id=17714304
+    - asyncio is mostly very low level. you probably don't want to use it directly. E.G: for http requests, use aiohttp.
+    - Use asyncio.run_until_complete(), not asyncio.run_forever(). The former will crash on any exception, making debugging easy.
+    - Activate the various debug features when not in prod (https://docs.python.org/3/library/asyncio-dev.html#debug-mode-of-asyncio).
+    - CPU intensive code blocks the event loop. loop.run_in_executor() use threads by default, hence it doesn't protect you from that. If you have CPU intensive code, like zipping a lot of files or calculating your own precious fibonacci, create a "ProcessPoolExecutor" and use run_in_executor() with it.
+    - Don't use asyncio before Python 3.5.3. There is a incredibly major bug with "asyncio.get_event_loop()" that makes it unusable for anything that involve mixing threads and loops.
+    CONCEPTS:
+        * Future: thing to execute.
+        * Task: subclass of future. The thing to execute is a coroutine, and the coroutine is immediately scheduled in the event loop when the task is instantiated. ensure_future(coroutine) returns a Task.
+        * coroutine: generator with some syntaxic sugar.
+        * coroutine function: function declared with "async def". Returns a coroutine.
+        * awaitable: any object with an __await__ method. coroutines, tasks and futures are awaitables.
+        * event loop: the magic "while True" loop that takes awaitables, and execute them.
+        * executor: an object that takes code, execute it in a __different__
+          context, and return a future you can await in your __current__
+          context. You will use them to run stuff in threads or separate
+          processes, but magically await the result in your current code like
+          it's regular asyncio. It's very handy to naturally integrate blocking
+          code in your workflow.
+
+    asyncio.gather() is the most important function in asyncio
+    -----------------------------------------------------------
+    Never, ever, have an dangling awaitable.
+    Always keep a reference on all your awaitables.
+    Decide where in the code you think their life should end.
+
+    asyncio.gather() will block until all awaitables are done.
+    Don't:
+        asyncio.ensure_future(bar())
+        asyncio.get_event_loop().run_in_executor(None, barz)
+        await asyncio.sleep(10)
+    Do:
+        foo = asyncio.ensure_future(bar())
+        fooz = asyncio.get_event_loop().run_in_executor(None, barz)
+        await asyncio.sleep(10)
+        await asyncio.gather(foo, fooz)  # this is The One True Way
