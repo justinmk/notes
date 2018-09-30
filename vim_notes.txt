@@ -250,6 +250,9 @@ AFFIRMATIONS of common project management wisdom:
 
 NEW USER NOTES
 ==============
+- Define :commands for tedious workflows (even infrequent).
+- Define leader-mappings for (frequent) user-specific junk.
+- Define mnemonic uppercase-marks for frequent bookmarks.
 It's not really a matter of saving time, but eliminating friction (context-switches). Editing is a chore, and fiddling with text while taking notes, or debugging, or thinking about a problem, has a cost.
 It's also quite alarming to reach a level of proficiency where you can make non-trivial edits without looking at what you're editing, and know that the edits are correct. Again, this avoids context-switches.
 That's why Vim is so focused on precision ("do exactly this") rather than DWIM ("Do What I Mean [usually]": the emacs/IDE approach).

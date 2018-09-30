@@ -178,7 +178,7 @@ N.S.A. Foils Basic Safeguards of Privacy on Web
   The agency has circumvented or cracked much of the encryption, or digital scrambling, that guards global commerce and banking systems, protects sensitive data like trade secrets and medical records, and automatically secures the e-mails, Web searches, Internet chats and phone calls of Americans and others around the world, the documents show. ... The N.S.A.‚Äôs Commercial Solutions Center, for instance, invites the makers of encryption technologies to present their products to the agency with the goal of improving American cybersecurity. But a top-secret N.S.A. document suggests that the agency‚Äôs hacking division uses that same program to develop and ‚Äúleverage sensitive, cooperative relationships with specific industry partners‚Äù to insert vulnerabilities into Internet security products. ... But by 2006, an N.S.A. document notes, the agency had broken into communications for three foreign airlines, one travel reservation system.
   href="http://www.nytimes.com/2013/09/06/us/nsa-foils-much-internet-encryption.html?_r=0"
    
-  tag="police-state surveillance usgov government state security"
+  tag="police-state surveillance usgov government state security encryption"
   time="2015-09-23T18:37:42Z" 
 
 U.S. directs agents to cover up program used to investigate Americans
@@ -791,6 +791,26 @@ cancer
    tag="cancer science medicine nanotech health"
   time="2014-06-07T18:36:52Z" 
 
+Mutatis mutandis
+================================================================================
+https://en.m.wikipedia.org/wiki/Mutatis_mutandis
+tag="concepts mental-model"
+Medieval Latin phrase meaning "the necessary changes having been made".
+    1. collect underpants
+    2. mutatis mutandis
+    3. profit
+
+System dynamics
+================================================================================
+https://en.wikipedia.org/wiki/System_dynamics
+https://www.anylogic.com/
+tag="concepts model systems system-design stock-and-flow mental-model"
+System dynamics (SD) is an approach to understanding the nonlinear behaviour of complex systems over time using stocks, flows, internal feedback loops, table functions and time delays.
+- Teach "system-thinking" reflexes
+- Analyze/compare assumptions and mental models
+- Gain qualitative insight into the workings of a system or the consequences of a decision
+- Recognize archetypes of dysfunctional systems in everyday practice
+
 Pythagorean Cup (Greedy Cup)
 ================================================================================
   &quot;Hydrostatic pressure creates a siphon through the central column, causing the entire contents of the cup to be emptied through the hole at the bottom of the stem.&quot;
@@ -1126,6 +1146,17 @@ History of the URL: Path, Fragment, Query, and Auth
 https://eager.io/blog/the-history-of-the-url-path-fragment-query-auth/
 tag="todo programming webdev uri rfc url history"
 
+Napoleon Bonaparte PBS Documentary
+================================================================================
+https://www.youtube.com/watch?v=MrbiSUgZEbg
+tag="video history"
+- Napoleon established the "Civil Code" which still underpins the French system.
+- "I am the instrument of providence, she will use me as long as I accomplish
+  her designs, then she will break me like a glass."
+- British mothers would tell their children: "If you don't say your prayers,
+  Boney will come and get you."
+- "Conquest alone made me what I am. Conquest alone can keep me there."
+
 modern.IE
 ================================================================================
   free official virtualbox images with internet explorer
@@ -1331,6 +1362,33 @@ TACK :: Trust Assertions for Certificate Keys
    
   tag="cryptography certificate-authentication paranoia security"
   time="2012-08-30T05:35:44Z" 
+
+Prediction Markets: When Do They Work?
+================================================================================
+https://thezvi.wordpress.com/2018/07/26/prediction-markets-when-do-they-work/
+tag="market prediction-market economics mental-model"
+
+Remember, if you can’t spot the sucker in your first half hour at the table,
+then you are the sucker.
+...
+Another class of ‘natural’ traders are gamblers or noise traders, who demand
+liquidity for no particular reason. They too can be the sucker.
+
+Hybrid cryptosystem
+================================================================================
+https://en.wikipedia.org/wiki/Hybrid_cryptosystem
+tag="security cryptography encryption"
+
+Problem:  Public-key (asymmetric) cryptopgraphy is expensive (~1000x worse)
+          compared to symmetric-key cryptopgraphy.
+          Example: compare AES to RSA using `openssl speed`.
+Solution: Hybrid cryptosystem:
+            - key encapsulation scheme, which is a public-key cryptosystem, and
+            - data encapsulation scheme, which is a symmetric-key cryptosystem.
+
+All practical implementations of public-key cryptography employ a hybrid system.
+Example: TLS = Diffie-Hellman + AES.
+
 
 Convergence
 ================================================================================
@@ -2896,6 +2954,109 @@ Have Alternatives
     BATNA, you should also re-emphasize your interest in reaching an agreement).
     You should make your decision seem genuinely close for it to be a strong BATNA.
 
+What a Job Negotiation Means to an Employer
+
+    Now say you end up turning down their offer. They’ve spent over $24,000 just
+    extending this single offer to you (to say nothing of opportunity costs), and
+    now they’ll essentially have to start over from scratch.
+
+    Understand that salary is only one part of the cost of employing you. An
+    employer also has to pay for your benefits, your equipment, space, utilities,
+    other random expenses, and employment taxes on top of all of that. Your
+    actual salary often comprises less than 50% of the total cost of employing you.
+    ref: http://web.mit.edu/e-club/hadzima/pdf/how-much-does-an-employee-cost.pdf
+
+    (Which means they expect that your value to the company, in terms of the revenue you’ll generate, to be more than 2x your salary.)
+
+    When you are agonizing over whether to ask for another few thousand dollars,
+    what they’re doing is praying with bated breath that you’ll sign the offer.
+
+    It’s your role that will determine your performance expectations, not how much
+    you negotiated. Making 5k more or less in salary doesn’t matter at all. Your
+    manager will literally just not care about this.
+
+    How to Give the First Number
+    If a company asks you “what are your salary expectations?” you might say:
+
+    I don’t have any particular numbers in mind. I’m more interested in learning whether this will be a good mutual fit. If it is, I’m open to exploring any offer so long as it’s competitive.
+
+    Q: Okay, look, you’re being difficult. Let’s not waste each other’s time. What’s an offer that you’d be willing to take?
+
+    (This is a decision point. They’re trying to take away your negotiating power and pin you to a premature decision.
+    But you can give a number here without actually giving a number.)
+
+    A: Well, okay. I know that the average software engineer in Silicon Valley makes roughly 120K a year salary. So I think that’s a good place to start.
+
+    (I didn’t actually answer the question “what’s an offer you’d be willing to take,” I merely anchored the conversation around the fulcrum of “the average software engineer salary.”
+    So if you’re forced to give a number, do so by appealing to an objective metric, such as an industry average (or your current salary). And make it clear that you’re merely starting the negotiation there, not ending it.)
+
+How to Ask for More
+    First, reiterate your interest in the company.
+        There are two choices here: you can say that you’re on the fence and that an
+        improvement might convince you, or you can go stronger and say that you’re
+        outright dissatisfied with the offer. Which approach you choose depends on
+        how much leverage you have, how weak the offer is relative to your BATNA,
+        and whether you have other offers (the weaker your
+        negotiating position, generally the more tentative you should be).
+
+    - Be unfailingly polite.
+    - Stating a reason--any reason--makes your request feel human and important.
+      Just saying “can you improve the salary?” sounds like you’re boringly
+      motivated by money. But “I really want to buy a house within the next year;
+      what can we do to improve the salary?” seems a lot more legitimate.
+
+Equity Shenanigans
+    Many companies will try to play mindgames with you when it comes to equity:
+    - presenting the total value of the stock grant rather than the annualized
+      value, despite the the stock not vesting evenly, or vesting over 5 years
+      instead of the standard 4.
+    - most egregious: “okay, we’re worth this much now, but at the rate we’re
+      growing we’re going to be worth 10X that in a year.”
+      - Why that's stupid: valuation is determined by investors, who already took
+        the 10x growth rate into account.
+
+The Path to Signing
+    It’s not enough to just continually ask for stuff. Companies need to sense that
+    you’re actually moving toward a final decision, and not just playing games with
+    them.
+    - Don’t go dark on people. Be open and communicative.
+    - Be honest. You should protect information that might weaken your negotiating
+      position, but you should be as communicative as possible about everything else
+      (which is most things).
+    - Be winnable. Give any company you’re talking to a clear path on how to win
+      you. Be clear and unequivocal with your preferences and timeline.
+
+Making the Final Decision
+    1. Be clear about your deadline. ("weekend with the family")
+       When you start negotiating you probably don’t have a deadline yet. But once you
+       get into intermediary stages, you should set for yourself a deadline on which
+       you’ll sign. It can be for an arbitrary reason (or no reason at all), but just
+       pre-committing to a deadline will allow you to negotiate more clearly and
+       powerfully.
+    2. Assert your deadline continually.
+       Companies should all be totally aware of when you’re going to make your
+       decision. This will raise the stakes and galvanize negotiations as the
+       deadline approaches.
+    3. Use your final decision as your trump card.
+       This deadline also lets you defer your decision while still improving
+       offers. Your narrative should be “I want to see the strongest offer your
+       company can muster. Then I will go into my cave, meditate for
+       10 days, and when I emerge I will have decided in my heart which company
+       to join.” This gives you enormous power to avoid any on-the-spot decision
+       points or premature promises.
+
+    Even if there’s only one company in the running, you should always always
+    wait until the last day to sign your offer. Yes, even if you’re certain
+    you’re going to sign and even if it’s your dream job. I’ve seen many
+    scenarios in which offers spontaneously improved as deadlines approached, or
+    a fallen player gets up and presents you the holy grail in the 11th hour.
+    Either way, there’s no harm.
+
+    Finally, your trump card. Save this for the very end. Your trump card is
+    these words: “If you can do X, I will sign.” Note, this is NOT “If you give
+    me X, the offer will be more compelling blah blah blah.” Fuck that. It’s
+    time to make a promise.
+
 BLACK FLAMINGO: im coco for some choco chips!
 ================================================================================
   Ingredients: 40 saltine crackers 1 cup of rolled oats 1/2 cup of applesauce 1/4 cup of vegetable oil 3/4 cup of hazelnut milk 1/4 cup of agave nectar 1 tsp of cinnamon 1/4 cup of stevia 1 tbs of corn starch 1 tbs pure cocoa powder 1/2 cup dark choc chips 1/4 cup earth balance Directions: 0. preheat oven to 350 deg 1. crush saltine crackers into fine pieces 2. mix in oats, applesauce, and the rest of the ingredients. 3. fold in the oil and milk until it becomes a dough 4. spread out in cooking tin 5. bake for 24 minutes
@@ -3070,6 +3231,28 @@ Don't vote. Play the lottery instead. - By Steven E. Landsburg
   &amp;quot;If Kerry (or Bush) has just a slight edge, so that each of your fellow voters has a 51 percent likelihood of voting for him, then your chance of casting the tiebreaker is about one in 10^1046‚Äîapproximately the same chance you have of winning the Powerball jackpot 128 times in a row.&amp;quot;
   href="http://www.slate.com/id/2107240/"  
   tag="politics voting" time="2009-12-06T20:49:59Z" 
+
+
+What is the probability your vote will make a difference?
+================================================================================
+http://www.nber.org/papers/w15220.pdf
+Andrew Gelman, Nate Silver, Aaron Edlin
+NBER Working Paper No. 15220
+August 2009
+NBER Program(s):Law and Economics, Public Economics
+---
+In a presidential election, the probability that your vote is decisive is equal
+to the probability that your state is necessary for an electoral college win,
+times the probability the vote in your state is tied in that event.
+...
+On average, a voter in America had a 1 in 60 million chance of being
+decisive in the presidential election.
+...
+A probability of 1 in 10 million is tiny but, as discussed by Edlin, Gelman, and
+Kaplan (2007), can provide a rational reason for voting; in this perspective,
+a vote is like a lottery ticket with a 1 in 10 million chance of winning, but
+the payoff is the chance to change national policy.
+
 
 Eastern Eyes
 ================================================================================

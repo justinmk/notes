@@ -31,7 +31,7 @@ STDIO buffering  http://www.pixelbeat.org/programming/stdio_buffering/
 show processes in "D" state (waiting-on-IO, "U" on macOS) every 5:  http://bencane.com/2012/08/06/troubleshooting-high-io-wait-in-linux/
     for x in `seq 1 1 10`; do ps -eo state,pid,cmd | grep "^D"; echo "----"; sleep 5; done
 
-autotools, pkgconfig
+The autotools/pkgconfig dance:
     # generate build files
     sudo apt install autoconf libtool
     aclocal
@@ -43,9 +43,13 @@ autotools, pkgconfig
     make
     sudo make install
     # verify that the lib was installed
-    ldconfig -p | grep ltc
+    ldconfig -p | grep foo
     sudo ldconfig -v  # kick it if something went wrong
 
+The cmake dance:
+    mkdir build
+    cd build
+    cmake ../
 
 linux
     perf/debug
