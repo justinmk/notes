@@ -10,8 +10,13 @@ Carnival / Theme parks
 Nachtleben:
   https://berlin-atonal.com/
   https://de.m.wikipedia.org/wiki/Kraftwerk_Berlin
-  About blank
+  about:blank
   Old Tresor
+  Golden Gate : U8 ausgang Schicklerstr. "under S-Bahn, knock on door" (rec by Jo)
+
+Health:
+  https://www.kvberlin.de/60arztsuche/index.html
+  http://www.aerzte-berlin.de/_php/therapie30/fach.php
 
 German language:
   raster
@@ -24,6 +29,9 @@ German language:
   Koffer
   je
   hell = bright
+  Geist = psyche / mind / ghost
+  Essen = food / essence
+  Art = type / kind / way
 
 Observations:
   No lizards

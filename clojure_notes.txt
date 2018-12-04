@@ -118,5 +118,8 @@ PHILOSOPHY
       https://www.youtube.com/watch?v=cidchWg74Y4
 
 LIBRARIES
+    specter (like Haskell "Lens"): composable navigation
+        http://nathanmarz.com/blog/clojures-missing-piece.html
+        https://github.com/nathanmarz/specter
     http://blog.korny.info/2014/03/08/xml-for-fun-and-profit.html#zippers
     clojure.zip/xml-zip => like xpath

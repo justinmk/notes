@@ -101,6 +101,11 @@ Log ("journal" or "data log", not human-readable "text log"):
       - ordering changes
       - distributing data
 
+      The log-centric approach to distributed systems arises from this State Machine Replication Principle:
+        > If two identical, deterministic processes begin in the same state and
+        > get the same inputs in the same order, they will produce the same output
+        > and end in the same state.
+
 
     Sometimes called write-ahead logs or commit logs or transaction logs.
     For data integration, real time processing, and system building.
