@@ -1,0 +1,40 @@
+HoBT: Heap or B+Tree (generic term for index or lack thereof)
+
+clustered index: each data page organized in a linked list
+B-Tree
+    each node points to n child nodes (unlike binary tree)
+B+Tree
+    SQL Server uses this for indexes
+    efficient for inserts, deletes
+    each level is a doubly-linked list
+    level 0 = leaf (no leaves at any other level)
+
+Heap = table that _lacks_ a [clustered] index 
+    points to row (RID) directly
+    one HoBT per partition (currently):
+        sys.partitions.hobt_id == sys.partitions.partition_id 
+        actully aliased from sys.sysrowsets.rowsetid
+            thehobt.blogspot.com/2009/02/what-heck-is...
+
+Clustered index leaf
+    stores the actual column data (at leaf level)
+        only 1 clustered index per table, so all other [non-clustered] index leaves store the clustered key
+        footnote: you can actually add "included columns" indexes which in effect create another clustered key
+            on a given table, which effectively duplicates the table data--so this is generally advised against.
+    sorted, so moves have a cost
+
+Nonclustered index leaf
+    store RID or clustered key
+    non-sorted, so moves are cheap
+
+3 ways for SQL server to read data
+    scan
+        table scan
+            used for heaps only
+            needs to read ALL pages to satisfy WHERE clause
+        clustered index scan
+            reads almost all pages
+    seek
+        clustered index seek
+    lookup
+

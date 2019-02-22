@@ -59,9 +59,9 @@ Main functions of linker:
         by the linker because the compiler only sees one input file at a time.
 
         Compare:
-            objdump -dr foo.o
+            objdump -d -r foo.o
         to:
-            objdump -dr foo.out
+            objdump -d -r foo.out
 
 http://jvns.ca/blog/2013/12/10/day-40-learning-about-linkers/
 https://github.com/0xAX/linux-insides/blob/master/Misc/linkers.md
@@ -91,3 +91,85 @@ https://randomascii.wordpress.com/2017/01/22/delete-an-inline-function-save-794-
   > a symbol pulls in the rest of its object file this means that linking is
   > fundamentally unpredictable. And, if you have ODR violations (as we did)
   > then the results are not even defined.
+
+C STANDARD LIBRARY
+================================================================================
+
+https://begriffs.com/posts/2019-01-19-inside-c-standard-lib.html
+
+  - NULL is not a reserved word: compiler treats 0 specially in a pointer
+    context and transforms it to whatever value represents NULL on the given
+    architecture. Thus NULL is typically a macro for ((void *)0). As such it
+    can’t be assigned to a function pointer because data pointers needn’t be the
+    same size as function pointers. Instead cast zero, e.g. (int (*)(void))0.
+  - Similarly, the C standard treats `main() { return 0; }` and `exit(0)`
+    specially: they are mapped to the system-specific success code!
+  - Use EXIT_FAILURE macro to portably indicate failure. The raw value 1 is
+    considered "success" on some platforms.
+
+  - Comparing ARIBTRARY pointers is undefined behavior. BUT you can compare
+    pointers within the SAME _primary data object_ (such as different cells in
+    the same array).
+    - Pointer arithmetic on (void*) is a GNU-ism not permitted in portable C.
+    - Some memmove() implementations assume its arguments are in the same data
+      object! So one should not indiscriminately/defensively use memmove()
+      instead of memcpy().
+
+  - If size_t is the largest integer type, then ptrdiff_t can be no larger, yet
+    the latter loses one bit to hold the sign. So it’s possible to make an array
+    with cells too far apart for ptrdiff_t to measure.
+
+  - offsetof
+
+  - stdio.h
+    BUFFERING
+      The standard library provides setvbuf() to change the size and location of
+      a stream’s buffer, and to choose line or block buffering. By default, stdin
+      and stdout are line and block buffered respectively, and stderr is unbuffered.
+      setvbuf() must be called immediately after a stream is opened, before I/O
+      happens, to have any chance of working.
+
+    OPENING/CLOSING FILES
+      TOCTOU happens with fopen() when trying to create but not replace a file:
+      C99 fixes this with “x” (exclusive) mode: fopen will fail if the file
+      already exists or cannot be created.
+
+          FILE *fp = fopen("foo.txt","r");
+          // <-- attacker gets busy here
+          if (!fp) {
+            fp = fopen("foo.txt","w");  // C99: use "wx" to avoid TOCTOU risk.
+            ...
+            fclose(fp);
+          }
+          else { fclose(fp); }
+
+      Treat FILE pointers as totally opaque. Don’t even try to make
+      a copy of the FILE structure because some implementations rely on magic
+      memory addresses.
+
+      fflush() MIGHT force items in the buffer to be processed, but there is no
+      guarantee. fflush(NULL) flushes all streams.
+
+      Some OSes will not actually create a file that you fopen() and fclose()
+      unless you write something.
+
+  - unsigned char: has special guarantees that make it ideal for representing
+    arbitrary binary data.
+    - Unsigned char is guaranteed to have no padding bits. All bits contribute
+      to the value of the data. Other types on some architectures include
+      things like parity bits which don’t affect the value but do use space.
+    - No bitwise operation starting from an unsigned char value, when
+      converted back into that type, can produce overflow, trap
+      representations or undefined behavior. It can be freely manipulated.
+      "Trap representations" are certain bit patterns reserved for exceptional
+      circumstances, such as NaN in floating point numbers.
+    - Accessing parts of a larger data object with an unsigned char pointer
+      will not violate any “aliasing rules.” The unsigned char pointer will be
+      guaranteed to see all modifications of the data object.
+  - "plain" (not unsigned) char has some distinct use-cases:
+    - codeset characters
+    - small numbers
+    - units of storage (unsigned recommended)
+    - small bit patterns (unsigned recommended)
+
+

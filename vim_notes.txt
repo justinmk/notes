@@ -250,6 +250,7 @@ AFFIRMATIONS of common project management wisdom:
 
 NEW USER NOTES
 ==============
+- Hallmark of a serious editor: does it have buffers?
 - Define :commands for tedious workflows (even infrequent).
 - Define leader-mappings for (frequent) user-specific junk.
 - Define mnemonic uppercase-marks for frequent bookmarks.

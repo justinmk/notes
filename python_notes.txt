@@ -1,6 +1,12 @@
-PROFILING
+DEBUGGING
 ================================================================================
-https://github.com/rkern/line_profiler
+https://wiki.python.org/moin/DebuggingWithGdb
+    # Python debugging extensions: debugging symbols and gdb commands (py-xx).
+    $ apt install python3.5-dbg
+    $ gdb `which python3` 19284
+    (gdb) py-bt
+    (gdb) py-list
+
 
 MEMORY LEAKS
 ================================================================================

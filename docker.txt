@@ -1,5 +1,12 @@
+DEVELOPMENT
+==============================================================================
+
+Build and run:
+
+  docker build --rm -t fleetscanner . && docker run fleetscanner:latest
+
 OPS
-===
+==============================================================================
 
 Attach to running container TTY:
   docker attach --sig-proxy=false <container-id>
@@ -11,13 +18,13 @@ Get runtime info, post-mortem, env, etc.:
   docker inspect <container-id>
 
 NETWORK
-=======
+==============================================================================
 
 Can use `lsof` to find assigned host ports:
   sudo lsof | grep 'docker.*TCP.*LISTEN'
 
 EVENT LOG
-=========
+==============================================================================
 
 Print global docker events since 5 minutes:
   docker events --since "$(date +%Y-%m-%dT%H:%M:%S --date '-5 minutes')" --until "$(date +%Y-%m-%dT%H:%M:%S)"
@@ -25,8 +32,15 @@ Print global docker events since 5 minutes:
 - "container die … exitCode=137" means the container was killed with SIGKILL
   (128 + signalNumber). Look for "container kill … signal=9" in previous messages.
 
+GDB BACKTRACE
+==============================================================================
+
+To use strace, gdb, etc., the SYS_PTRACE capability must be enabled:
+
+  docker run --cap-add=SYS_PTRACE --security-opt seccomp=unconfined
+
 JAVA BACKTRACE
-==============
+==============================================================================
 
 send SIGQUIT (3)
 ----------------

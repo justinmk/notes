@@ -1,5 +1,20 @@
 Neovim / brain dump
 
+Why excited about neovim?
+- fast engine, luajit, not available in any other major editor
+- small, therefore cheap and flexible. Can spin up dozens of peers.
+- the structures and conventions are already there in Vim culture, just need to build on top of it
+- solve problems for many people. Fixing things in a personal config is a drag.
+- reach many people, but remember: slowness and deliberation are also features. Knowing that upstream is not going to pull the rug out is very valuable to users. This also applies to emacs, but the plugin culture doesn't follow it: most require latest Emacs.
+- neovim is a pivot. Very fancy new UIs are being pioneered in VScode, sublime, atom, intellij. We should reuse that work, not reinvent it.
+
+achievements:
+- Nvim provides portable downloads for Linux, macOS, and Windows.
+  No install required, so you can use Nvim on a Windows server or macOS without
+  clicking through an installer.
+- Only Nvim offers a macOS binary, not Vim.
+
+
 fundamental rule of technology: There Is No Third Ecosystem  https://news.ycombinator.com/item?id=16370602
 
 author of Xi editor mentions neovim:

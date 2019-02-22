@@ -60,6 +60,32 @@ subshells and pipelines  http://stackoverflow.com/a/2188223/152142
         # timestamp a build log
         { date; make 2>&1; date; } | tee logfile
 
+    https://lobste.rs/s/mb14bg/what_should_be_output_this_command_echo
+    Q: What is the output of:
+        $ (echo red; echo green 1>&2) | echo blue
+    A: Processes started on either side of the pipe are not run in any
+       particular order. The shell just forks two processes with their stdout
+       and stdin hooked together.
+       .
+       LHS forks a subshell process with stdout redirected to the pipe. That
+       subshell process forks and executes `echo red`, that output goes into the
+       pipe, and `echo red` terminates. That subshell process then forks and
+       executes `echo green 1>&2`, that output goes to the shell’s stderr, and
+       `echo green` terminates. Neither echo processes block.
+       .
+       Sometimes `echo blue` will run AND terminate before the OS schedules
+       `echo red` to run. The OS will then send SIGPIPE to `echo red`. It will
+       terminate without writing.
+       .
+       But then the subshell should fork and execute `echo green 1>&2`, right?
+       Actually no. `echo` is a bash builtin, meaning the subshell performs the
+       write, so it receives SIGPIPE and terminates before starting
+       `echo green 1>&2`.
+       .
+       Even though both stages fork the same number of times, the left subshell
+       makes more syscalls, so echo blue still usually runs first.
+
+
 process substitution
     Imagine you want to see the difference between the output of two commands:
         head -n 1 .dictionary > file1

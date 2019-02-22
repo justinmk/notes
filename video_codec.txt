@@ -33,3 +33,19 @@ codec. For older codecs like x264 that is less of an issue, but for x265 the
 difference is huge.
 
 
+control async/vsync
+  : https://stackoverflow.com/questions/49718317/append-black-frames-to-video-when-audio-is-longer-in-ffmpeg
+  https://trac.ffmpeg.org/ticket/4674
+    > encoding with -async 1 works fine but produces silent moments.
+  does "-vsync 1" dup frames to keep sync with audio?
+  PTS = presentation timestamps
+    filter: setpts
+    https://ffmpeg.org/ffmpeg-filters.html#setpts_002c-asetpts
+  http://forum.doom9.org/archive/index.php/t-163290.html
+    > use "-async 1" instead "-vsync 0" and "-r 23.976"...
+    or:
+    > ffmpeg -fflags +genpts+igndts -i <input> <other encoding options> -r:v 30 -vsync 2 -async 1 -map 0:v,0:a -map 0:a <output.mp4>
+    > That effectively tries to sync the video to the audio and drops frames to
+    > prevent frames with same pts, flags the stream as 30fps (was proper for
+    > this particular source, adjust to yours) and keeps it VFR still (i.e. does
+    > not output duplicate frames).

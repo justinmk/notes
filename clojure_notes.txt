@@ -117,6 +117,16 @@ PHILOSOPHY
 - Ousterhout's Dichotomy Isn't (Part 2 of the Simplicity/Power/Focus Series) - Stuart Halloway
       https://www.youtube.com/watch?v=cidchWg74Y4
 
+LOGGING
+    pretty-print any expression  http://emacsninja.com/posts/fixing-my-annoyance-with-clojure.html
+        (defn dbg
+          ([thing]
+           (dbg "XXX" thing))
+          ([prefix thing]
+           (println prefix)
+           (print (with-out-str (clojure.pprint/pprint thing)))
+           thing))
+
 LIBRARIES
     specter (like Haskell "Lens"): composable navigation
         http://nathanmarz.com/blog/clojures-missing-piece.html

@@ -1,9 +1,8 @@
 vim: ft=text iskeyword+== comments=s1\:/*,mb\:*,ex\:*/,\://,b\:#,\:%,\:XCOMM,n\:>,fb\:-
 
-The Netflix Tech Blog: Linux Performance Analysis in 60,000 Milliseconds
+Netflix Tech Blog: Linux Performance Analysis in 60,000 Milliseconds
 ================================================================================
   href="http://techblog.netflix.com/2015/11/linux-performance-analysis-in-60s.html"
-
   tag="performance checklist linux devops sysadmin"
   time="2016-01-18T06:02:33Z" 
 
@@ -16,8 +15,116 @@ Scaling to 100M: MySQL is a Better NoSQL
 ================================================================================
 http://blog.wix.engineering/2015/12/10/scaling-to-100m-mysql-is-a-better-nosql/
 https://news.ycombinator.com/item?id=11763287
-
 tag="todo performance distributed-systems scaling mysql databases"
+
+IOWait, hung IO tasks, "task foo:3450 blocked for more than 120 seconds", hung_task_timeout_secs
+================================================================================
+tag="kernel linux io os error troubleshooting filesystem"
+https://github.com/ncw/rclone/issues/1762
+https://forums.aws.amazon.com/thread.jspa?threadID=220452
+
+IOWait, if not associated with IO errors (failed resources), may be caused by:
+- Not enough free memory for the OS to cache disk blocks.
+- Filesystem disk usage above 80%, excessive fragmentation.
+- Choose good buffer sizes when performing IO operations.
+
+SYMPTOMS: syslog messages like this:
+
+    kernel: [999041.133917] INFO: task updatedb.mlocat:8211 blocked for more than 120 seconds.
+    kernel: [999041.133922] updatedb.mlocat D    0  8211   8210 0x00000000
+    kernel: [999041.133923] Call Trace:
+    kernel: [999041.133929]  schedule+0x2c/0x80
+    kernel: [999041.133931]  io_schedule+0x16/0x40
+                            ...
+    kernel: [999041.133949]  ext4_readdir+0x64c/0xa10
+
+    kernel: [ 8700.913097] INFO: task rsync:5626 blocked for more than 120 seconds.
+    kernel: [ 8700.913114] rsync           D    0  5626      1 0x00000004
+    kernel: [ 8700.913120] Call Trace:
+    kernel: [ 8700.913138]  schedule+0x2c/0x80
+    kernel: [ 8700.913144]  rwsem_down_write_failed+0x169/0x360
+    kernel: [ 8700.913152]  call_rwsem_down_write_failed+0x17/0x30
+
+    kernel: [15226.144976] INFO: task pool:14317 blocked for more than 120 seconds.
+    kernel: [15226.144983] pool            D    0 14317      1 0x00000000
+    kernel: [15226.144985] Call Trace:
+    kernel: [15226.144993]  schedule+0x2c/0x80
+    kernel: [15226.144995]  io_schedule+0x16/0x40
+                            ...
+    kernel: [15226.145004]  blk_get_request+0x17/0x20
+
+    kernel: [28155.189289] INFO: task kworker/u24:1:11350 blocked for more than 120 seconds.
+    kernel: [28155.189294] kworker/u24:1   D    0 11350      2 0x80000000
+    kernel: [28155.189298] Workqueue: writeback wb_workfn (flush-8:0)
+    kernel: [28155.189299] Call Trace:
+    kernel: [28155.189304]  schedule+0x2c/0x80
+    kernel: [28155.189306]  io_schedule+0x16/0x40
+                            ...
+    kernel: [28155.189315]  ext4_io_submit+0x4c/0x60
+                            ...
+    kernel: [28155.189325]  ? ext4_mark_inode_dirty+0x1d0/0x1d0
+
+WORKAROUND: reduce time between fscache->disk flushes.
+
+    # Check current values:
+    $ sysctl vm.dirty_background_ratio
+    $ sysctl vm.dirty_ratio
+
+    $ sudo sysctl -w vm.dirty_ratio=20
+    $ sudo sysctl -w vm.dirty_background_ratio=10
+    # commit the change
+    $ sudo sysctl -p
+
+    To make permanent:
+
+    # /etc/sysctl.conf
+    vm.dirty_background_ratio = 5
+    vm.dirty_ratio = 10
+
+RCU (read-copy-update)
+================================================================================
+tag="rcu data-structure adt programming kernel linux compsci os operating-system"
+https://www.kernel.org/doc/Documentation/RCU/whatisRCU.txt
+https://en.wikipedia.org/wiki/Read-copy-update
+http://www.rdrop.com/users/paulmck/RCU/
+> mutex strategy optimized for read-heavy tasks, at the cost of more space.
+>
+> RCU allows multiple threads to efficiently read from shared memory by
+> deferring updates after pre-existing reads to a later time while
+> simultaneously marking the data, ensuring new readers will read the updated
+> data. This makes all readers proceed as if there were no synchronization
+> involved, hence they will be fast, but also making updates more difficult.
+>
+> key property of RCU is that readers can access a data structure even when it
+> is in the process of being updated: RCU updaters cannot block readers or force
+> them to retry their accesses
+>
+> RCU works by replacing a data structure with a modified version and keeps an
+> old copy. This copy is hidden from view so that no new references are attached
+> to it.
+>
+> RCU update sequence:
+>   1. Remove pointer to data structure, so subsequent readers can’t acquire a reference to it.
+>   2. Wait ("grace period") for previous readers to complete their RCU read-side critical section.
+>   3. Now it is safe to reclaim the region.
+
+What does an idle CPU do?
+================================================================================
+https://manybutfinite.com/post/what-does-an-idle-cpu-do/
+tag="programming kernel linux compsci c os operating-system"
+- OS (Linux) sets a timer interrupt to wake up the CPU every N ms, called
+  "scheduling-clock interrupts".
+    - Purpose: for workloads with many tasks using short bursts of CPU =>
+      frequent but brief idle periods, reduces the overhead of switching
+       to/from idle and transitioning between user/kernel execution.
+    - Problem: this is "OS jitter".
+        1. Inefficient for light workload with long idle periods.
+        2. Unwanted jitter for Realtime/HPC workload with a single runnable task
+- Typically 100-250 Hz. Configurable by CONFIG_HZ.
+- "tickless" kernel can improve perf/energy usage.
+  https://lwn.net/Articles/549580/
+- Kernel design proposal:
+  https://github.com/torvalds/linux/blob/v3.17/Documentation/timers/NO_HZ.txt
 
 Disable Transparent Hugepages
 ================================================================================
@@ -32,11 +139,15 @@ tag="programming sysadmin devops kernel linux performance memory"
 > In steady-state usage by applications with fairly static memory allocation, the work done by khugepaged is minimal. However, on certain workloads that involve aggressive memory remapping or short-lived processes, khugepaged can end up doing huge amounts of work to merge and/or split memory regions, which ends up being entirely short-lived and useless. This manifests as excessive CPU usage, and can also manifest as long pauses, as the kernel is forced to break up a 2MB page back into 4KB pages before performing what would otherwise have been a fast operation on a single page.
 > Several applications have seen 30% performance degradations or worse with THP enabled, for these reasons.
 
+Andy Chu comment on Python slow-startup, distribution/delivery, self-contained apps
+================================================================================
+https://news.ycombinator.com/item?id=16979544
+tag="performance programming python init bootstrap"
+
 Mike Pall comment on "Why Python, Ruby and JS are slow"
 ================================================================================
 https://www.reddit.com/r/programming/comments/19gv4c/why_python_ruby_and_js_are_slow/c8o29zn/?context=3
-
-tag="performance jit dynamic-pl pl programming"
+tag="performance jit dynamic-pl pl programming python"
 
 > While I agree with the first part ("excuses"), the "hard" things mentioned in
 > the second part are a) not that hard and b) solved issues (just not in PyPy).
@@ -1041,6 +1152,69 @@ https://github.com/firehol/netdata
 tag="monitoring dashboard performance metrics sysadmin devops hardware"
 server stats/dashboard
 
+The log/event processing pipeline you can't have
+================================================================================
+https://apenwarr.ca/log/20190216
+tag="log monitoring performance metrics sysadmin devops"
+.
+- PRINTK_PERSIST patch to make Linux reuse the dmesg buffer across reboots.
+  https://gfiber.googlesource.com/kernel/lockdown/+/0e8afb589c4f746019436a437c05626967721503
+    - Everybody should use PRINTK_PERSIST on every computer, virtual or
+      physical. Seriously. It's so good.
+    - https://lwn.net/Articles/486272/
+      > even after a kernel panic or non-panic hard lockup, on the next boot
+      > userspace will be able to grab the kernel messages leading up to it
+      > ...
+      > works with soft reboot (ie. reboot -f).  Since some BIOSes wipe the
+      > memory during boot, you might not have any luck.
+- loguploader C client
+  https://gfiber.googlesource.com/vendor/google/platform/+/master/logupload/client/
+- devcert, a tool (and Debian package) which auto-generates a self signed
+  "device certificate" wherever it's installed, to identify itself to a server.
+  https://gfiber.googlesource.com/vendor/google/platform/+/master/devcert/
+.
+> It's nice to have real-time alerts, but if I have to choose between somewhat
+> delayed alerts or randomly losing log messages when things get ugly, I'll have
+> to accept the delayed alerts. Don't lose log messages! You'll regret it.
+>
+> The best way to not lose messages is to minimize the work done by your log receiver.
+.
+> our reliability, persistence, and scaling problems are solved: as long as we
+> have enough log receiver instances to handle all our devices, and enough disk
+> quota to store all our logs, we will never again lose a log message.
+>
+> That means the rest of our pipeline can be best-effort, complicated, and
+> frequently exploding.
+.
+> what makes this a killer design compared to starting with structured events in
+> the first place - is that we can, at any time, change our minds about how to
+> parse the logs, without redeploying all the software that produces them.
+.
+> It turns out you rarely need full-text indexing. ... On the other hand, being
+> able to retrieve the exact series of logs (the "narrative") from a particular
+> time period across a subset of devices is super useful.
+.
+> Rather than alerting on behaviour of individual core routers, it turned out
+> that the end-to-end behaviour observed by devices in the field were a better
+> way to detect virtually any problem. Alert on symptoms, not causes, as the
+> SREs like to say. Who has the symptoms? End users.
+.
+> We had our devices ping different internal servers periodically and log the
+> round trip times; in aggregate, we had an amazing view of overloading, packet
+> loss, bufferbloat, and poor backbone routing decisions, across the entire
+> fleet
+.
+> We detected some weird configuration problems with the DNS servers in one city
+> by comparing the 90th percentile latency of DNS lookups across all the devices
+> in every city.
+.
+> We diagnosed a manufacturing defect in a particular batch of devices, just
+> based on their CPU temperature curves and fan speeds.
+.
+> we spotted a kernel panic that would happen randomly every 10,000 CPU-hours,
+> but for every 100,000 devices, that's still 10 times per
+> hour of potential clues.
+
 A Guide to the Deceptions, Misinformation, and Word Games Officials Use to Mislead the Public About NSA Surveillance | Electronic Frontier Foundation
 ================================================================================
   When government officials can‚Äôt directly answer a question with a secret definition, officials will often answer a different question than they were asked. For example, if asked, ‚Äúcan you read Americans‚Äô email without a warrant,‚Äù officials will answer: ‚Äúwe cannot target Americans‚Äô email without a warrant.‚Äù / Bush administration‚Äôs strategy for the ‚ÄúTerrorist Surveillance Program‚Äù: The term ‚ÄúTSP‚Äù ended up being a meaningless label, created by administration officials after the much larger warrantless surveillance program was exposed by the New York Times in 2005. They used it to give the misleading impression that the NSA‚Äôs spying program was narrow and aimed only at intercepting the communications of terrorists. In fact, the larger program affected all Americans.
@@ -1343,6 +1517,14 @@ cancer
    tag="cancer science medicine nanotech health"
   time="2014-06-07T18:36:52Z" 
 
+Uncleftish Beholding
+================================================================================
+https://en.wikipedia.org/wiki/Uncleftish_Beholding
+tag="concepts mental-model language"
+written using almost exclusively words of Germanic origin
+The title Uncleftish beholding calques "atomic theory".
+Around, from Old French reond (Modern French rond), has completely displaced Old English ymbe (cognate to German um), leaving no native English word for this concept.
+
 Noisy-channel coding theorem
 ================================================================================
 https://en.wikipedia.org/wiki/Noisy-channel_coding_theorem
@@ -1376,6 +1558,21 @@ Pythagorean Cup (Greedy Cup)
   href="http://en.wikipedia.org/wiki/Pythagorean_cup" 
    tag="concepts economics physics mental-model"
   time="2014-06-02T03:58:58Z" 
+
+Gauss's Principle of Least Constraint
+================================================================================
+http://preetum.nakkiran.org/misc/gauss/
+tag="concepts physics mental-model"
+.
+> Gauss noticed that, roughly, the CONSTRAINED motion of masses is as close as
+> possible to their UNCONSTRAINED motions, while still satisfying the
+> constraints. For example, a pendulum bob would naturally fall straight down,
+> but is constrained to a circle by its string -- so its true acceleration will
+> be as close as possible to straight down, while still remaining on the string.
+> This generalizes to essentially any constrained system. Specifically, to find
+> the true accelerations of masses in a constrained system, we first find the
+> accelerations as if they were unconstrained, and then PROJECT to the closest
+> acceleration that satisfies the constraints.
 
 "Bitcoin's Academic Pedigree" Narayanan & Clark
 ================================================================================
@@ -2127,6 +2324,23 @@ Affordances - Interaction-Design.org: HCI, Usability, Information Architecture, 
     tag="design hci patterns ui usability"
   time="2012-04-10T05:35:50Z" 
 
+
+convey the global structure (BIG PICTURE) of programs
+================================================================================
+http://akkartik.name/about
+tag="software architecture programming project-management engineering complexity documentation"
+
+- Deemphasize interfaces in favor of tests. Automated tests are great not just
+  for avoiding regressions and encouraging a loosely-coupled architecture, but
+  also for conveying the BIG PICTURE of a project.
+- Deemphasize abstractions in favor of traces. For example, the repository for
+  a text editor might guide new programmers first to a trace of the events that
+  happen between pressing a key and printing a character to screen, demarcating
+  the major sub-systems of the codebase in the process and allowing each line in
+  the logs to point back at code, silently jumping past details like what the
+  precise function boundaries happen to be at the moment.
+
+
 Distributed Systems Programming. Which Level Are You? ¬´ Incubaid Research
 ================================================================================
   Partial Failure ... These failure modes are the very defining property of distributed systems. &quot;A distributed system is one in which the failure of a computer you didn‚Äôt even know existed can render your own computer unusable&quot; (Leslie Lamport) abandon the idea of network transparency, and attack the handling of partial failure distributed state machine: &quot;multi-paxos implementation on top of TCP&quot; Unit testing: The problem however is reproducing the failure scenario is difficult, if not impossible concurrency causes indeterminism, but you can‚Äôt abandon it--you just have to ban it from mingling with your distributed state machine (No IO, No Concurrency). you can only get to a new state via a new message. Benefits: Perfect control, reproducibility, tracibility. Costs: You‚Äôre forced to reify all your actions. You have to model every change that needs your attention into a message.
@@ -2230,6 +2444,42 @@ google-diff-match-patch - Google Code
   robust diff/patch library Myer's diff algorithm Bitap matching algorithm more sophisticated than GNU patch
   href="https://github.com/google/diff-match-patch"
   tag="google library programming algorithms diff lua"
+
+[Toybox] More than you really wanted to know about patch.
+================================================================================
+http://lists.landley.net/pipermail/toybox-landley.net/2019-January/010049.html
+tag="programming tools unix algorithms diff patch"
+
+> So generally what you do _now_ (and what tools like svn/mercurial/git simulate
+> behind the scenes) is back up one directory, have two full trees (the vanilla
+> project and your modified version), and "diff -ruN" the two subdirectories.
+> That's why tools like git create diffs that start like:
+>
+>    +++ a/path/to/file
+>    --- b/path/to/file
+>
+> Each hunk starts with a @@ line:
+>
+>     @@ -start,len +start,len @@ comment
+>
+>     - "start" is the line number in that file the hunk starts applying at, and
+>       "len" is the number of lines described in that file.
+>     - The "comment" part can be anything. It's ignored.
+>
+> Each hunk line starts with one of three characters:
+>
+> 1. + this line is only in the new version (it was added).
+> 2. - this line is only in the old version (it was removed).
+> 3. " " (space) = this line is the same in both (context line).
+>
+> - Must have the same number of leading and trailing context lines, unless you're
+>   at the start/end of a file. Else it's not a valid hunk and patch barfs on the
+>   corrupted patch. And the number of leading/trailing context lines not being
+>   the same means the patch program will try to MATCH the start/end of the file,
+>   and fail if it can't.
+> - Hunks must apply in order, and this INCLUDES the context lines. A line that's
+>   been "seen" as a trailing context line won't match against the leading context
+>   of the next hunk.
 
 Data Laced with History: Causal Trees & Operational CRDTs
 ================================================================================
@@ -2439,11 +2689,25 @@ Session_Start or Session_OnStart?
     tag="asp.net programming"
   time="2011-11-28T03:41:49Z" 
 
-D√©j√† Dup in Launchpad
+GoogleContainerTools/distroless
 ================================================================================
-  Easy back up the Right Way (encrypted, off-site, and regular)
-  href="https://launchpad.net/deja-dup"  
-  tag="linux oss backup software" time="2011-11-16T15:56:33Z" 
+https://github.com/GoogleContainerTools/distroless/blob/master/base/README.md
+tag="linux oss google gce cloud container distro"
+gcr.io/distroless/base and gcr.io/distroless/static
+Image Contents
+This image contains a minimal Linux, glibc-based system. It is intended for use directly by "mostly-statically compiled" languages like Go, Rust or D.
+.
+Statically compiled applications (Go) that do not require libc can use the gcr.io/distroless/static image, which contains:
+.
+ca-certificates
+A /etc/passwd entry for a root user
+A /tmp directory
+tzdata
+Most other applications (and Go apps that require libc/cgo) should start with gcr.io/distroless/base, which contains all of the packages in gcr.io/distroless/static, and
+.
+glibc
+libssl
+openssl
 
 3 Misconceptions That Need to Die
 ================================================================================
@@ -2480,6 +2744,36 @@ The (Illegal) Private Bus System That Works - Lisa Margonelli - National - The A
   tag="economics transportation government-failure"
   time="2011-10-17T12:48:11Z" 
 
+mergerfs
+================================================================================
+https://github.com/trapexit/mergerfs
+tag="filesystem union jbod data-management raid fuse"
+union filesystem (JBOD solution)
+> mergerfs is a union filesystem geared towards simplifying storage and
+> management of files across numerous commodity storage devices. It is similar
+> to mhddfs, unionfs, and aufs.
+>
+> Works with heterogeneous filesystem types
+
+
+Amazon six-pager
+================================================================================
+https://news.ycombinator.com/item?id=19115686
+tag="documentation communication work habits teams"
+principles of the 6-pager:
+- 6 pages is the upper limit; the memo can be shorter
+- The format is designed to drive the meeting structure by requiring attendees
+  to read the memo in the first 10 minutes of a meeting, followed by discussion
+- You can push extra information into the appendix if needed to convince those
+  looking for more evidence
+- The memo is self-sufficient as a unit of information, unlike a Powerpoint that
+  relies on the presenter to contextualize and connect the information
+The basic thrust is to bring the discipline of scientific style article writing
+into office communications (and avoid Powerpoint anti-patterns in the process).
+> "Writing is nature's way of letting you know how sloppy your thinking is." -Dick Guindon, via Leslie Lamport
+
+
+
 Protocol Buffers - Google's data interchange format
 ================================================================================
   Protocol Buffers are a way of encoding structured data in an efficient yet extensible format. Google uses Protocol Buffers for almost all of its internal RPC protocols and file formats. also: http://code.google.com/p/protobuf-net/
@@ -2501,6 +2795,13 @@ Using System.Net Tracing - Durgaprasad Gorti's WebLog - MSDN Blogs
   href="http://blogs.msdn.com/b/dgorti/archive/2005/09/18/471003.aspx"
     tag="debug .net"
   time="2011-09-28T10:09:06Z" 
+
+compute bricks – small-form-factor fanless PCs
+================================================================================
+http://esr.ibiblio.org/?p=8195
+tag="hardware compute engineering small-form-factor fanless embedded soc"
+Players in this space include Jetway, Logic Supply, Partaker, and Shuttle.
+Poke a search engine with “fanless PC” to get good hits.
 
 google-guice - Guice
 ================================================================================
@@ -3090,6 +3391,44 @@ EDITORIAL: TSA comes to your bus stop - Washington Times
     tag="politics police-state tsa"
   time="2011-01-11T00:59:23Z" 
 
+
+Spaced Repetition
+================================================================================
+https://ncase.me/remember/
+tag="cogsci neuroplasticity memory mnemonics anki spaced-repetition"
+.
+SPACED REPETITION is essentially "flashcards" with an emphasis on:
+    1. time
+    2. connections/mnemonics
+       - best practice: "small (atomic), connected, meaningful"
+.
+* "Mnemonic" comes from "Mnemosyne" Greek "goddess of Memory" (mother of the Muses, "goddesses of inspiration").
+* Hermann Ebbinghaus: you forget most of what you learn in the first 24 hours, then – if you don’t practice recall – your remaining memories decay exponentially.
+* Memory “rate of decay” slows down each time you actively recall it. (versus passively re-reading it)
+
+Augmenting Long-term Memory
+================================================================================
+http://augmentingcognition.com/ltm.html
+tag="cogsci neuroplasticity memory mnemonics anki spaced-repetition"
+.
+SYNTOPIC reading with Anki (grok an unfamiliar field/literature)
+> Avoid orphan questions: questions too disconnected from your other interests lack the original motivating context.
+> to really grok an unfamiliar field, you need to engage deeply with key papers – like the AlphaGo paper. What you get from deep engagement with important papers is more significant than any single fact or technique: you get a sense for what a powerful result in the field looks like. It helps you imbibe the healthiest norms and standards of the field. It helps you internalize how to ask good questions in the field, and how to put techniques together. You begin to understand what made something like AlphaGo a breakthrough – and also its limitations, and the sense in which it was really a natural evolution of the field. Such things aren't captured individually by any single Anki question. But they begin to be captured collectively by the questions one asks when engaged deeply enough with key papers.
+
+AnkiWeb: Shared Decks
+================================================================================
+https://ankiweb.net/shared/decks/
+tag="cogsci neuroplasticity memory mnemonics anki spaced-repetition"
+☃ german deck: https://ankiweb.net/shared/info/785874566
+
+
+Every 7.8μs your computer’s memory has a hiccup
+================================================================================
+https://blog.cloudflare.com/every-7-8us-your-computers-memory-has-a-hiccup/
+tag="dram hardware engineering performance computer telemetry measurement intrumentation statistics"
+    Problem:    the data turns out to be very noisy. It's very hard to see if there is a noticeable delay related to the refresh cycles
+    Solution:   Since we want to find a fixed-interval event, we can feed the data into the FFT (fast fourier transform) algorithm, which deciphers the underlying frequencies
+
 Can You Build a Better Brain? - Newsweek
 ================================================================================
   neuroplasticity
@@ -3505,10 +3844,29 @@ Confessions of a Car Salesman
   time="2010-04-02T17:39:07Z" 
 
 
+How To Be Successful
+================================================================================
+tag="career startup entrepreneurship"
+https://blog.samaltman.com/how-to-be-successful
+.
+1. Compound yourself (LEVERAGE)
+   Compounding is magic. Look for it everywhere. Exponential curves are the key to wealth generation.
+2. Have almost too much self-belief
+3. Learn to think independently
+4. Get good at “sales”
+   Show up in person whenever it’s important.
+5. Make it easy to take risks
+6. Focus
+   Focus is a force multiplier on work.
+11. Build a network
+   Effective way to build a network is to help people as much as you can.
+   Develop a reputation for really taking care of the people who work with you.
+   Be overly generous with sharing the upside; it will come back to you 10x.
+
 Don't Call Yourself A Programmer, And Other Career Advice
 ================================================================================
 https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/
-tag="negotiation business"
+tag="negotiation business career"
 - Don’t call yourself a programmer. Instead, describe how you increased revenues
   or reduced costs.
 - Most jobs are never available publicly, just like most worthwhile candidates
@@ -3537,11 +3895,28 @@ tag="negotiation business"
 - If you are part of a team effort, the right note to hit is “It was a privilege
   to assist my team by leading the effort on $X".
 
+Salary Negotiation: Make More Money, Be More Valued
+================================================================================
+https://www.kalzumeus.com/2012/01/23/salary-negotiation/
+tag="negotiation salary business hiring career game-theory"
+
+- Negotiating never makes (worthwhile) offers worse.  This means you need what
+  political scientists call a _commitment strategy_: you always, as a matter of
+  policy, negotiate all offers. 
+- "Competence Triggers": if you must judge someone’s skill based on a series of
+  brief interactions, you’re going to pattern-match their behavior against other
+  people who you like.  When people with hiring-authority think of winners, they
+  think of people _like them_ who understand business. Therefore, the act of
+  negotating signals competence.
+- “Interesting” is a wonderful word: it is positive and non-commital at the same
+  time.  If they tell you a number, tell them it is an “interesting” number, not
+  a “wonderful” number.
+
 How Not to Bomb Your Offer Negotiation
 ================================================================================
 https://haseebq.com/my-ten-rules-for-negotiating-a-job-offer/
 https://haseebq.com/how-not-to-bomb-your-offer-negotiation/
-tag="negotiation salary game-theory"
+tag="negotiation salary business hiring career game-theory"
 
 The ten rules of negotiating
     1. Get everything in writing (and write everything down)
@@ -3942,21 +4317,8 @@ Innovative Minds Don't Think Alike
 ================================================================================
   the &quot;curse of knowledge&quot;. &quot;It‚Äôs why engineers design products ultimately useful only to other engineers. It‚Äôs why managers have trouble convincing the rank and file to adopt new processes.&quot;
   href="http://www.nytimes.com/2007/12/30/business/30know.html"
-   
   tag="learning engineering cogsci business"
   time="2009-10-07T22:20:27Z" 
-
-Surely there is a decent container data structure library for C
-================================================================================
-  Apple's Core Foundation library http://www.opensource.apple.com/tarballs/CF/CF-550.tar.gz . http://developer.apple.com/mac/library/documentation/CoreFoundation/Conceptual/CFCollections/CFCollections.html . sys/queue.h &quot;a variety of list implementations&quot;.
-  href="http://www.reddit.com/r/programming/comments/9ridg/surely_there_is_a_decent_container_data_structure/"
-    tag="c programming"
-  time="2009-10-07T13:12:39Z" 
-
-CarlH's C Programming Lessons 
-================================================================================
-  href="http://www.reddit.com/r/carlhprogramming/" 
-   tag="c" time="2009-10-02T15:42:58Z" 
 
 A Stick Figure Guide to the Advanced Encryption Standard (AES)
 ================================================================================
@@ -3977,6 +4339,11 @@ The RFP Database: government, corporate, and non-profit Requests for Proposals
   You can gain credits by uploading RFPs to the website. Where can I find more RFPs? One of the easiest ways to find RFPs is by logging in and using our internet rfp search area. Or do a web search for &quot;tampa procurement&quot; or &quot;rfp 2009 web&quot; or &quot;rfp 2009 programming&quot;.
   href="http://www.rfpdb.com/"  
   tag="rfp contracting" time="2009-09-15T21:51:20Z" 
+
+littlefs: fail-safe filesystem designed for microcontrollers
+================================================================================
+https://github.com/ARMmbed/littlefs
+tag="software programming embedded soc microcontrollers filesystem tools"
 
 Tahoe-LAFS: a secure, decentralized, fault-tolerant filesystem.
 ================================================================================
@@ -4302,7 +4669,7 @@ Fabulous Adventures In Coding : Locks and exceptions do not mix
 Time Machine for every Unix out there - IMHO
 ================================================================================
   href="http://blog.interlinked.org/tutorials/rsync_time_machine.html"
-    tag="todo linux"
+    tag="linux"
   time="2009-03-07T20:32:59Z" 
 
 deterministic finite automaton (DFA) minimization
@@ -4869,6 +5236,17 @@ http://europass.cedefop.europa.eu/documents/curriculum-vitae
 create CV online. import/export
 tag="visa europe germany berlin immigration"
 
+multi-armed bandit problem (explore/exploit dilemma)
+================================================================================
+https://en.wikipedia.org/wiki/Multi-armed_bandit
+tag="concepts mental-model"
+scheduling/operations theory.
+Problem in which a fixed limited set of resources must be allocated between
+competing (alternative) choices in a way that maximizes their expected gain,
+when each choice's properties are only partially known at the time of
+allocation, and may become better understood as time passes or by allocating
+resources to the choice.
+
 Pedophrasty, Bigoteering, and Other Modern Scams
 ================================================================================
 https://medium.com/incerto/pedophrasty-bigoteering-and-other-modern-scams-c84bd70a29e8
@@ -4945,6 +5323,51 @@ Modern SAT solvers: fast, neat and underused
 ================================================================================
 https://codingnest.com/modern-sat-solvers-fast-neat-underused-part-1-of-n/
 tag="dependency-management compsci sat-solver graph algorithm"
+
+SAT Solvers as Smart Search Engines
+================================================================================
+https://www.msoos.org/2019/02/sat-solvers-as-smart-search-engines/
+tag="compsci sat-solver graph algorithm"
+.
+TAKEAWAY: SAT solvers are like brute-force with "save points" (Partial value assignments).
+.
+- SAT solver _without_ intermediate variables is essentially brute force!
+- SAT solver depends on human to _model_ the problem, to yield useful
+  intermediate variables.
+- Brute-force vs. SAT-solver:
+    - Brute-force completely erases its state, takes another input and runs the
+      whole algorithm again.
+    - SAT-solver calculates what variables were affected by one of the input
+      bits, unsets these variables, flips the input bit value, and resumes
+      the calculation. This has the following requirements:
+        1. Quickly determine which intermediate values depend on which other
+           ones so we can unset variables and know which intermediate, already
+           calculated, dependent variables also need to be unset.
+           (SAT-solvers only do this in reverse chronological order.)
+        2. Quickly unset variables.
+        3. A good set of intermediate values so we can keep as much state of the
+           calculation as possible. This requires _modeling_ (human decision).
+
+
+What I've Learned About Optimizing Python
+================================================================================
+https://gregoryszorc.com/blog/2019/01/10/what-i've-learned-about-optimizing-python/
+tag="python optimization"
+
+re2c: lexer generator for C/C++
+================================================================================
+http://re2c.org/
+https://github.com/skvadrik/re2c
+tag="dfa automata lexer optimization c programming"
+.
+> generates fast lexers. Instead of using traditional table-driven approach,
+> re2c encodes the generated finite state automata directly in the form of
+> conditional jumps and comparisons. The resulting programs are faster and often
+> smaller than their table-driven analogues, and they are much easier to debug
+> and understand.
+.
+Used by Oil shell: https://github.com/oilshell/oil
+
 
 Google Optimization Tools
 ================================================================================

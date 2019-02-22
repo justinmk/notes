@@ -24,7 +24,7 @@ STDIO buffering  http://www.pixelbeat.org/programming/stdio_buffering/
           on the stdout stream when new data is received (as do `tcpdump -l`,
           `grep --line-buffered` and `sed --unbuffered`).
         - `uniq` stdout buffer is TTY-connected, so it is automatically flushed when a newline is written to it.
-    `stdbuf` command can be used to control these properties:
+    `stdbuf` command (uses setvbuf()) can control this:
         $ for i in $(seq 1 99); do printf "$i" ; sleep 1 ; done | stdbuf -o0 head
 
 
@@ -60,13 +60,40 @@ debug
 linux
     Linux perf 60-second checklist  https://medium.com/netflix-techblog/linux-performance-analysis-in-60-000-milliseconds-accc10403c55
         uptime            # load of "0.22 0.00 0.00" means "system was idle until recently"
-        dmesg -T | tail   # kernel often says what's wrong
+        dmesg -wH         # kernel often says what's wrong
         vmstat 1
         mpstat -P ALL 1   # CPU balance
         pidstat 1         # per-CPU work
         iostat -xz 1
+            - r/s, w/s, rkB/s, wkB/s: Delivered reads, writes, read Kbytes, and
+              write Kbytes per second to the device.
+            - await: Average time for I/O in milliseconds. This is the time that
+              the application suffers, as it includes both time queued and time
+              being serviced. Large average times can indicate device
+              saturation, or device problems.
+            - avgqu-sz: The average number of requests issued to the device.
+              Values greater than 1 can be evidence of saturation (although
+              devices can typically operate on requests in parallel, especially
+              virtual devices which front multiple back-end disks.)
+            - %util: Device utilization. This is really a busy percent, showing
+              the time each second that the device was doing work. Values
+              greater than 60% typically lead to poor performance (which should
+              be seen in await). ~100% may indicate saturation. But if the
+              storage device is a logical device fronting many backend disks,
+              then 100% utilization may just mean that some I/O is being
+              processed 100% of the time, however, the back-end disks may be far
+              from saturated, and may be able to handle much more work.
+        free -h
+            - buffers: buffer cache used for block device I/O.
+            - cached: page cache used by file systems.
         sar -n DEV 1
+            - network interface throughput: rxkB/s and txkB/s, as a measure of workload
         sar -n TCP,ETCP 1
+            - active/s  : Locally-initiated TCP connections per second (e.g. connect()).
+            - passive/s : Remotely-initiated TCP connections per second (e.g. accept()).
+            - retrans/s : TCP retransmits per second. Indicative of a network or
+              server issue (unreliable network, or server overloaded and dropping
+              packets).
     Perf-triggered core dumps!  https://github.com/Microsoft/ProcDump-for-Linux
         # Trigger core dump at CPU >= 65%, up to 3 times, 10-second intervals.
         procdump -C 65 -n 3 -p 1234

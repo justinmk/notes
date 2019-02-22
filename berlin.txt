@@ -19,6 +19,20 @@ Health:
   http://www.aerzte-berlin.de/_php/therapie30/fach.php
 
 German language:
+  https://wickedchicken.github.io/post/german-for-programmers/
+    Verbs are “immer Position 2”
+    .
+    Nominativ = subject
+    Akkusativ = direct object
+    Dativ     = indirect object
+
+  Article signals  https://www.youtube.com/watch?v=6vHSJp0QlxQ
+    article   ending (after "~" means "~80% reliable")
+    ------------------------------------------------------------
+    der       ig ling or ismus ~ er
+    das       tum chen ma ment um lein ~ nis
+    die       heit ung keit ei schaft ion ität ik ~ ur e
+
   raster
   das All
   kennen
