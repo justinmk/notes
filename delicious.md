@@ -1,4 +1,4 @@
-vim: ft=text iskeyword+== comments=s1\:/*,mb\:*,ex\:*/,\://,b\:#,\:%,\:XCOMM,n\:>,fb\:-
+vim: sw=2 ft=text iskeyword+== comments=s1\:/*,mb\:*,ex\:*/,\://,b\:#,\:%,\:XCOMM,n\:>,fb\:-
 
 Netflix Tech Blog: Linux Performance Analysis in 60,000 Milliseconds
 ================================================================================
@@ -19,7 +19,7 @@ tag="todo performance distributed-systems scaling mysql databases"
 
 IOWait, hung IO tasks, "task foo:3450 blocked for more than 120 seconds", hung_task_timeout_secs
 ================================================================================
-tag="kernel linux io os error troubleshooting filesystem"
+tag="kernel linux io os syscall error troubleshooting filesystem virtual-memory"
 https://github.com/ncw/rclone/issues/1762
 https://forums.aws.amazon.com/thread.jspa?threadID=220452
 
@@ -1360,6 +1360,43 @@ Hoon and You - An FP Perspective
 https://github.com/famousj/hoon-lc2018/blob/master/hoon-talk.md
 tag="urbit hoon functional-programming fp programming"
 
+
+A Founder's Farewell
+================================================================================
+https://urbit.org/posts/essays/a-founders-farewell/
+tag="urbit distributed-systems software-engineering programming compsci systems network interop"
+Big ideas:
+1. Validation
+  > 20th-century languages underrate the centrality of communication to computing.
+  > Their type systems expect all data to live in a single memory forever. They
+  > don't consider data serialization and validation to be core competencies of
+  > a programming language.
+  >
+  > So serialization/validation is handled either ad hoc, or by intermediate data
+  > description systems which have inherent impedance mismatches with the language
+  > proper. Not only is work done over and over – but most network security
+  > breaches exploit seams in custom or complex deserialization and validation
+  > code.
+  >
+  > In Urbit there is one kind of data, a noun, which is an atom (unsigned
+  > integer) or a cell (ordered pair of nouns). There is one serialization model
+2. Idempotence
+  > Acks are not end-to-end transactions.
+  > This means you can't write a command protocol where your commands get
+  > executed exactly once. You can only choose “at least once” or “at most
+  > once.”
+3. Dependencies
+  > Linking causes a problem known as “dependency hell”.
+  > Urbit build system has no trouble including multiple versions of the same library.
+Avoid "premature explanation".
+  > Urbit's internal opacity persists for two reasons, one good and one bad. The
+  > bad reason is just laziness. The good reason is justified fear of premature
+  > explanation, which like premature optimization ruins the annealing process.
+  >
+  > When you don't know exactly what you're doing, preserve as much ambiguity as
+  > possible.
+
+
 PGP and You 
 ================================================================================
   href="http://robots.thoughtbot.com/pgp-and-you" 
@@ -1760,6 +1797,49 @@ BeyondCorp: The User Experience
 https://research.google.com/pubs/pub46366.html
 tag="security networks beyondcorp it sysadmin devops"
 
+
+YubiKey via USB PCSC protocol
+================================================================================
+https://news.ycombinator.com/item?id=19567338
+tag="security networks yubikey 2fa tfa"
+application for YubiKeys - using the YKOATH functionality to sign AWS API
+requests with HMAC-SHA256 (https://github.com/pyauth/exile). Yubikey's protocol
+documentation is good, but their tools are pretty bad, and none of them should
+be used. Instead, talk to the smartcard interface through the lowest level
+library that's already bundled with the major OSs:
+winscard/pcsclite/PCSC.framework (three implementations of the same API).
+The app I wrote includes Python ctypes bindings for all three implementations:
+https://github.com/pyauth/exile/tree/master/exile/scard
+Example of how to use them:
+https://github.com/pyauth/exile/blob/master/exile/ykoath
+
+
+pyu2f (USB HID protocol)
+================================================================================
+https://github.com/google/pyu2f
+tag="security networks yubikey 2fa tfa"
+python based U2F host library for interacting with a U2F device over USB.
+
+
+Site to Site WireGuard: Part 1
+================================================================================
+https://christine.website/blog/site-to-site-wireguard-part-1-2019-04-02
+https://lobste.rs/s/pje6iw/site_site_wireguard_part_1
+tag="vpn wireguard security networks "
+.
+- VPN over a single UDP port.
+- Custom TLS Certificate Authority: create TLS certificates for any domain.
+- Expose TCP/UDP services to machines across network segments
+
+
+UDP-based Data Transfer Protocol
+================================================================================
+https://en.wikipedia.org/wiki/UDP-based_Data_Transfer_Protocol
+tag="networks tcp udp data-transfer"
+High-performance data transfer protocol designed for transferring large
+volumetric datasets over wide area networks.
+
+
 IP Listen List
 ================================================================================
   Problems arise when third party applications (not using the HTTP Server APIs) bind to IP address and port 80 pairs on the machine. The HTTP Server API provides a way to configure the list of IP addresses that it binds and solves this coexistence issue. also: http://toastergremlin.com/?p=320
@@ -1828,17 +1908,6 @@ IPython Notebook
   "live" backpack-like document containing text, graphs, images, etc, resulting from python expressions.
   href="http://ipython.org/notebook.html"  
   tag="python programming repl" time="2013-07-28T23:30:49Z" 
-
-Welcome to Emacs IPython Notebook documentation! Emacs IPython Notebook 0.2.1alpha1 documentation
-================================================================================
-  href="http://tkf.github.io/emacs-ipython-notebook/" 
-   tag="python editor programming emacs oss repl"
-  time="2013-07-28T23:25:39Z" 
-
-description="" 
-================================================================================
-  href="http://www.gitminutes.com/"  
-  tag="podcast git" time="2013-07-20T05:25:29Z" 
 
 git-annex
 ================================================================================
@@ -1935,6 +2004,13 @@ History of the URL: Path, Fragment, Query, and Auth
 ================================================================================
 https://eager.io/blog/the-history-of-the-url-path-fragment-query-auth/
 tag="todo programming webdev uri rfc url history"
+
+algernon web server
+================================================================================
+https://github.com/xyproto/algernon
+tag="programming http web server lua go redis"
+Small self-contained pure-Go web server with Lua, Markdown, HTTP/2, QUIC,
+Redis and PostgreSQL support https://algernon.roboticoverlords.org/
 
 Napoleon Bonaparte PBS Documentary
 ================================================================================
@@ -2049,7 +2125,7 @@ blockchain.info
   href="http://blockchain.info/"  
   tag="bitcoin cryptocurrency" time="2013-02-28T05:26:07Z" 
 
-llex.c - Lua parser in c 
+llex.c - Lua parser in c
 ================================================================================
   href="http://www.lua.org/source/5.1/llex.c.html" 
    tag="compiler lua parser"
@@ -2061,12 +2137,49 @@ ANTLR Parser Generator
   href="http://www.antlr.org/"  
   tag="programming compiler parser" time="2013-02-01T01:13:23Z" 
 
-PEG.js ‚Äì Parser Generator for JavaScript
+PEG.js: Parser Generator for JavaScript
 ================================================================================
   http://news.ycombinator.com/item?id=1198683 &quot;PEGs are a recent concept&quot; distinct from CFGs. http://news.ycombinator.com/item?id=1199271 &quot;the problem with PEGs: / implies ordering of the search (parsing) space. You need to order your / operators so that special cases (e.g. longer matches) appear first. Unfortunately, if you don't do this, nothing will tell you you have a problem with your grammar, it will simply not parse some inputs.&quot; =&gt; must exhaustively test PEG parser.
   href="http://pegjs.majda.cz/"  
   tag="hardware-dev programming compiler parser"
   time="2013-02-01T00:57:03Z" 
+
+21 Compilers and 3 Orders of Magnitude in 60 Minutes
+================================================================================
+https://lobste.rs/s/fcm3dc/21_compilers_3_orders_magnitude_60
+http://venge.net/graydon/talks/CompilerTalk-2019.pdf
+tag="programming compiler optimization history"
+.
+Proebsting's Law:
+  "Compiler Advances Double Computing Power Every 18 Years"
+  Empirical observation: Optimizations seem to only win ~3-5x, after 60+ years of work.
+Always remember: balance cost tradeoffs by _context_.
+80% _best-case_ perf comes from:
+  Inline
+  Unroll (& Vectorize)
+  CSE
+  DCE
+  Code Motion
+  Constant Fold
+  Peephole: aka "window"; recognize small set of instructions that can be replaced by shorter/faster instructions.
+Balance between interpretation and compilation is context-dependent.
+Bytecode interpreter = 1/4 of the performance of optimizing native-code
+                       compilers, at 1/20 of the impl cost.
+Variation #5: Only compile some functions, interpret the rest
+  - Cost of interpreter only bad at inner loops or fine-grain. Outer loops or
+    coarse-grain (eg. function calls) similar to virtual dispatch
+  - Selectively compile hot functions ("fast mode") at coarse grain.
+Partial Evaluation Tricks
+  - Consider program in terms of parts that are static (will not change anymore)
+    or dynamic (may change).
+  - Partial evaluator (a.k.a. "specializer") runs the parts that depend only on
+    static info, emits residual program that only depends on dynamic info.
+  - 🎅 Interpreter takes two inputs: program to interpret, and program's own
+    input. First is static, but redundantly treated as dynamic.
+    - 🎅 Thus: _compiling is partial evaluation of an interpreter_, eliminating
+      the redundant dynamic treatment in its first input.
+Variation #7: Forget IR and/or AST!
+  - Likely means no optimization aside from peephole.
 
 Handling Growth with Postgres: 5 Tips From Instagram - Instagram Engineering
 ================================================================================
@@ -2095,12 +2208,12 @@ https://github.com/guardianproject/haven
 Haven is for people who need a way to protect their personal spaces and possessions without compromising their own privacy, through an Android app and on-device sensors
 tag="paranoia security app mobile phone"
 
-Algo: personal IPSEC VPN in the cloud
+Algo VPN: personal IPSEC VPN in the cloud
 ================================================================================
 https://github.com/trailofbits/algo
 https://blog.trailofbits.com/2016/12/12/meet-algo-the-vpn-that-works/
 tag="anonymous privacy vpn paranoia security ipsec"
-
+.
 Does not require client software (unlike OpenVPN).
 
 Color Scheme Designer 
@@ -2144,6 +2257,13 @@ Joda Time - Java date and time API - Home
   href="http://joda-time.sourceforge.net/" 
    tag="library programming java datetime"
   time="2012-09-13T18:27:35Z" 
+
+Vert.x
+================================================================================
+https://vertx.io/
+tag="library programming java concurrency"
+Eclipse Vert.x is event driven and non blocking. This means your app can handle a lot of concurrency using a small number of kernel threads. Vert.x lets your app scale with minimal hardware.
+
 
 TACK :: Trust Assertions for Certificate Keys
 ================================================================================
@@ -2880,12 +3000,19 @@ Why do electron orbitals in the molecular orbital theory form in those specific 
     tag="science pedagogy learning"
   time="2011-08-26T02:37:22Z" 
 
-Android app development tutorial series
+asciinema
 ================================================================================
-  href="http://www.youtube.com/playlist?list=PL34F010EEF9D45FB8"
-   
-  tag="android programming video tutorial"
-  time="2011-08-23T21:31:05Z" 
+https://asciinema.org/
+tag="video screencast"
+.
+SETUP
+    pip3 install --upgrade asciinema
+    npm install --global asciicast2gif
+USAGE
+    asciinema rec foo.json
+    # https://github.com/asciinema/asciicast2gif
+    asciicast2gif foo.json foo.gif
+
 
 Data | The World Bank 
 ================================================================================
@@ -4154,6 +4281,13 @@ A Visual Git Reference
     tag="git dvcs programming"
   time="2010-02-26T06:14:30Z" 
 
+Git for Plan 9: git/fs
+================================================================================
+https://lobste.rs/s/bpzl12/git_fs_native_git_implementation_for_plan
+https://bitbucket.org/oridb/git9
+tag="git dvcs programming protocol"
+Plan 9 C implementation of git file formats and wire formats.
+
 HashRocket MSA (Master Services Agreement) - Obie Fernandez: (MSA Series #3) Work Provisions
 ================================================================================
   &quot;I prefer so-called &quot;Time and Materials&quot; (T&amp;M) engagements, and with a good MSA you can usually fit your SOW onto one page.&quot; http://blog.obiefernandez.com/content/2008/09/master-services-agreement-part-1.html http://blog.obiefernandez.com/content/2008/10/msa-series-2-cooperation-and-reliance.html http://blog.obiefernandez.com/content/2008/12/msa-series-3-work-provisions.html
@@ -4733,7 +4867,57 @@ reAnimator: Regular Expression FSA Visualizer
   href="http://osteele.com/tools/reanimator/" 
    tag="compsci" time="2009-01-25T17:23:53Z" 
 
-Monoids and Finger Trees: sequences, priority queues, search trees and priority search queues for free : programming
+Are Frequent-Flier Miles About to Lose Value?
+================================================================================
+https://news.ycombinator.com/item?id=18752850
+tag="life-hack credit-card finance airline"
+> To anyone who wishes to simply not have to deal with airline miles earned on credit cards ever again, here's a great option I found: if you have $100k+ across checking + investment accounts at Bank of America + Merrill Edge (their low-cost brokerage arm) you get...
+> 1. 2.625% cash back on BofA's Premium Rewards/Travel Rewards credit card. No messing around with airline miles. Just buy whatever ticket you want. Or, you know, pocket the cash.
+> 2. 5.25% cash back on BofA's Cash Rewards card for "online purchases," up to $2500 per quarter.
+> 3. 100 free trades per month at Merrill Edge. You're not locked into any fund companies and can buy whatever you want. I buy-and-hold Vanguard ETFs.
+> 4. Free BofA checking account, with unlimited ATM rebates + a free safe deposit box. It pays negligible interest, so you may want to use another checking option if you hold larger cash balances, but it's helpful to have around just in case you need a physical branch for anything.
+
+"The SRE regular-expression notation", Olin Shivers, August 1998
+================================================================================
+http://www.ccs.neu.edu/home/shivers/papers/sre.txt
+tag="compsci regex automata lisp emacs"
+.
+Preamble: 100% and 80% solutions
+  [rant on worse-is-better...]
+.
+SRE: regular-expression system used in scsh (Scheme shell).
+- s-expression notation for encoding regular expressions. This notation has
+  several advantages over the traditional string-based notation.
+- Abstract data type (ADT) representation for regexp values.
+  Traditional regular-expression systems compute regular expressions
+  from run-time values using strings. This can be awkward. Scsh, instead,
+  provides a separate data type for regexps, with a set of basic constructor
+  and accessor functions; regular expressions can be dynamically computed
+  and manipulated using these functions.
+- Parsers and unparsers that can convert between external representations
+  and the regexp ADT. The supported external representations are
+      + Posix strings
+      + S-expression notation
+  Being able to convert regexps to Posix strings allows implementations
+  to implement regexp matching using standard Posix C-based engines.
+.
+Examples
+  ;;; Upper-case letter, lower-case vowel, or digit
+    (| upper ("aeiou") digit)
+  ;;; Various forms of non-vowel letter
+    (- alpha ("aeiouAEIOU"))
+    (w/nocase (- alpha ("aeiou")))
+    (- (/"azAZ") ("aeiouAEIOU"))
+Discussion and design notes
+  S-expressions, are more verbose for simple forms, but paying this cost
+  up-front gets you a general framework that is extremely extensible.
+  SRE can be a very rich syntax.
+  Compare:
+      SRE:     (w/nocase (word+ (~ ("aeiou"))))
+      POSIX:   "[[:<:]]([b-df-hj-np-tv-zB-DF-HJ-NP-TV-Z])+[[:>]]"
+
+
+Monoids and Finger Trees: sequences, priority queues, search trees and priority search queues for free
 ================================================================================
   &quot;...using monoids for annotations. The standard textbook treatment of annotated search trees would be greatly improved in precision, pedagogy and generality by introducing this abstraction.&quot;
   href="http://www.reddit.com/r/programming/comments/7r4bp/monoids_and_finger_trees_sequences_priority/"
@@ -4861,8 +5045,33 @@ An Intuitive Guide To Exponential Functions &amp; e
 Ulrich Drepper: What Every Programmer Should Know About Memory
 ================================================================================
   href="http://www.reddit.com/r/programming/info/615x1/comments/"
-    tag="todo programming"
+    tag="todo programming virtual-memory"
   time="2008-05-27T02:32:11Z" 
+
+
+The Unscalable, Deadlock-prone, Thread Pool
+================================================================================
+https://news.ycombinator.com/item?id=19251516
+tag="kernel linux macos os syscall programming virtual-memory process job-control systems-programming containers threading multithreading concurrency"
+- The mlock [1] system call allows you to lock chosen virtual memory into RAM. What about using that in combination with a memory pool which you manage yourself?
+  [1] https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/mlock.2.html
+- mlockall on Linux can lock all future allocations, including those made by shared libraries. You don’t need to manage a memory pool yourself.
+.
+Node suffers similar problems:
+  1. All Node's async IO is lumped together into the same threadpool.
+  2. There is no distinction between the nature of each async IO task.
+  3. Async CPU tasks (fs.stat hitting the fs cache, async multi-core crypto, async native addons) complete orders of magnitude faster than async disk tasks (SSD or HDD), and these can be orders of magnitude faster than async network tasks (dns requests to a broken dns server).
+  4. There are three basic async performance profiles, fast (CPU), slow (disk), very slow (dns), but Node has no concept of this.
+  5. This leads to the Convoy effect. Imagine what happens when you race trucks, cars, and F1... all on the same race track.
+  6. The threadpool has a default size of only 4 threads, on the assumption that this reflects the typical number of CPU cores (and reduces context switches).
+  7. 4 threads is a bad default because it leads to surprising behavior (4 slow dns requests to untrusted servers are enough to DoS the process).
+  8. 4 threads is a bad default because libuv's memory cost of 128 threads is cheap.
+  9. 4 threads is a bad default because it prevents the CPU scheduler from running async CPU tasks while slow disk and slower DNS tasks are running. Concurrent CPU tasks should rather be limited to the number of cores available, while concurrent disk and DNS tasks should be given more than the number of cores available (context switches are better amortized for these).
+  10. Because everything is conflated, hard concurrency limits can't be enforced on fast, slow or slower tasks. It's all or nothing.
+  There are efforts underway to support multiple threadpools in Node
+  (a threadpool for fast tasks sized to the number of cores, a threadpool for
+  slow tasks sized larger, and a threadpool for slower tasks also sized larger):
+  https://github.com/libuv/libuv/pull/1726
 
 TripIt - travel organizer
 ================================================================================
@@ -5358,7 +5567,7 @@ re2c: lexer generator for C/C++
 ================================================================================
 http://re2c.org/
 https://github.com/skvadrik/re2c
-tag="dfa automata lexer optimization c programming"
+tag="dfa regex automata lexer optimization c programming"
 .
 > generates fast lexers. Instead of using traditional table-driven approach,
 > re2c encodes the generated finite state automata directly in the form of
@@ -5420,3 +5629,45 @@ tag="security infosec"
 > databases. Reporters successfully obtained a trove of material on one
 > colleague — including flight history, hotel checkouts and property holdings
 > — in exchange for a payment of 700 yuan (US$100).
+
+DECYPHERING THE BUSINESS CARD RAYTRACER
+================================================================================
+tag="programming compsci c graphics ppm image ray-tracing"
+http://fabiensanglard.net/rayTracing_back_of_business_card/index.php
+http://www.cs.utah.edu/~aek/code/card.cpp
+
+    #include <stdlib.h>   // card > aek.ppm
+    #include <stdio.h>
+    #include <math.h>
+    typedef int i;typedef float f;struct v{
+    f x,y,z;v operator+(v r){return v(x+r.x
+    ,y+r.y,z+r.z);}v operator*(f r){return
+    v(x*r,y*r,z*r);}f operator%(v r){return
+    x*r.x+y*r.y+z*r.z;}v(){}v operator^(v r
+    ){return v(y*r.z-z*r.y,z*r.x-x*r.z,x*r.
+    y-y*r.x);}v(f a,f b,f c){x=a;y=b;z=c;}v
+    operator!(){return*this*(1/sqrt(*this%*
+    this));}};i G[]={247570,280596,280600,
+    249748,18578,18577,231184,16,16};f R(){
+    return(f)rand()/RAND_MAX;}i T(v o,v d,f
+    &t,v&n){t=1e9;i m=0;f p=-o.z/d.z;if(.01
+    <p)t=p,n=v(0,0,1),m=1;for(i k=19;k--;)
+    for(i j=9;j--;)if(G[j]&1<<k){v p=o+v(-k
+    ,0,-j-4);f b=p%d,c=p%p-1,q=b*b-c;if(q>0
+    ){f s=-b-sqrt(q);if(s<t&&s>.01)t=s,n=!(
+    p+d*t),m=2;}}return m;}v S(v o,v d){f t
+    ;v n;i m=T(o,d,t,n);if(!m)return v(.7,
+    .6,1)*pow(1-d.z,4);v h=o+d*t,l=!(v(9+R(
+    ),9+R(),16)+h*-1),r=d+n*(n%d*-2);f b=l%
+    n;if(b<0||T(h,l,t,n))b=0;f p=pow(l%r*(b
+    >0),99);if(m&1){h=h*.2;return((i)(ceil(
+    h.x)+ceil(h.y))&1?v(3,1,1):v(3,3,3))*(b
+    *.2+.1);}return v(p,p,p)+S(h,r)*.5;}i
+    main(){printf("P6 512 512 255 ");v g=!v
+    (-6,-16,0),a=!(v(0,0,1)^g)*.002,b=!(g^a
+    )*.002,c=(a+b)*-256+g;for(i y=512;y--;)
+    for(i x=512;x--;){v p(13,13,13);for(i r
+    =64;r--;){v t=a*(R()-.5)*99+b*(R()-.5)*
+    99;p=S(v(17,16,8)+t,!(t*-1+(a*(R()+x)+b
+    *(y+R())+c)*16))*3.5+p;}printf("%c%c%c"
+    ,(i)p.x,(i)p.y,(i)p.z);}}

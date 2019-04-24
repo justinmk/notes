@@ -1,25 +1,31 @@
 TODO:
     https://arstechnica.com/information-technology/2017/03/802-eleventy-what-a-deep-dive-into-why-wi-fi-kind-of-sucks/
-    https://news.ycombinator.com/item?id=12315814
+    TCP Puzzlers https://news.ycombinator.com/item?id=12315814
     Rapid DHCP: Or, how do Macs get on the network so fast? http://cafbit.com/entry/rapid_dhcp_or_how_do
 
 TOOLS
 ================================================================================
-TCP performance profiling: https://github.com/fastos/tcpdive
+wireshark
+    Analyze remote traffic in wireshark
+        ssh -t user@host 'mkfifo traffic ; sudo tcpdump -U -s0 "not port 22" -i any -w traffic'
+        ssh user@host 'cat traffic' | wireshark -k -i -
 
-https://jvns.ca/blog/2018/06/19/what-i-use-wireshark-for/
-http://jvns.ca/blog/2016/03/16/tcpdump-is-amazing/
-    `tcpdump` works on a lower level. `tshark` (wireshark command-line tool)
-    shows higher-level descriptions. wireshark/tshark _understands_ protocols
-    (HTTP, even Monogo db...).
+    Filter examples:
+        frame contains "mozilla"    search for “mozilla” anywhere in the packet
+        tcp.port == 443             tcp port
+        dns.resp.len > 0            all DNS responses
+        ip.addr == 52.7.23.87       source or dest IP address
 
-    sudo tcpdump -i any
-        13:21:15.025449 IP 10.0.2.2.57434 > 10.0.2.15.ssh: Flags [.], ack 8911568, win 65535, length 0
-        13:21:15.025936 IP 10.0.2.15.ssh > 10.0.2.2.57434: Flags [.], seq 8911568:8913028, ack 6425, win 52560, length 1460
-    sudo tshark -i any
-        19858  76.771803    10.0.2.15 -> 10.0.2.2     SSH 1516 Encrypted response packet len=1460
-        19859  76.772656    10.0.2.15 -> 10.0.2.2     SSH 560 Encrypted response packet len=504
-        19860  76.772870     10.0.2.2 -> 10.0.2.15    TCP 62 57434 > ssh [ACK] Seq=10465 Ack=12908205 Win=65535 Len=0
+    https://jvns.ca/blog/2018/06/19/what-i-use-wireshark-for/
+    http://jvns.ca/blog/2016/03/16/tcpdump-is-amazing/
+        tcpdump is low-level, whereas wireshark/tshark _understands_ protocols (HTTP, even Monogo db...).
+        tcpdump -i any
+            13:21:15.025449 IP 10.0.2.2.57434 > 10.0.2.15.ssh: Flags [.], ack 8911568, win 65535, length 0
+            13:21:15.025936 IP 10.0.2.15.ssh > 10.0.2.2.57434: Flags [.], seq 8911568:8913028, ack 6425, win 52560, length 1460
+        tshark -i any
+            19858  76.771803    10.0.2.15 -> 10.0.2.2     SSH 1516 Encrypted response packet len=1460
+            19859  76.772656    10.0.2.15 -> 10.0.2.2     SSH 560 Encrypted response packet len=504
+            19860  76.772870     10.0.2.2 -> 10.0.2.15    TCP 62 57434 > ssh [ACK] Seq=10465 Ack=12908205 Win=65535 Len=0
 
 https://mitmproxy.org/
 > interactive console program that allows traffic flows to be intercepted,
@@ -27,6 +33,9 @@ https://mitmproxy.org/
 
 list TCP, UDP ports on localhost ("nmap is not the best tool for this": https://superuser.com/a/1265254):
     ss -tunpo state listening
+
+TCP performance profiling: https://github.com/fastos/tcpdive
+
 
 SSH "application-level port forwarding" / SOCKS5
 ================================================================================

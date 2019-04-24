@@ -86,9 +86,9 @@ linux
         free -h
             - buffers: buffer cache used for block device I/O.
             - cached: page cache used by file systems.
-        sar -n DEV 1
+        sar -n DEV 10
             - network interface throughput: rxkB/s and txkB/s, as a measure of workload
-        sar -n TCP,ETCP 1
+        sar -n TCP,ETCP 10
             - active/s  : Locally-initiated TCP connections per second (e.g. connect()).
             - passive/s : Remotely-initiated TCP connections per second (e.g. accept()).
             - retrans/s : TCP retransmits per second. Indicative of a network or
@@ -104,3 +104,9 @@ linux
     network perf/debug
         netstat -s
         tcpretrans
+    network: simulate slow perf using `tc` ("traffic control")  https://stackoverflow.com/a/615757
+        # `tc qdisc add` creates a rule of the interface. `change` modifies the rule.
+        tc qdisc {add,change} dev {eth0,wlan0,…} root netem delay 2000ms 10ms 25%
+        # undo
+        tc qdisc del dev {eth0,wlan0,…} root
+

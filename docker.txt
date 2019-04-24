@@ -5,6 +5,30 @@ Build and run:
 
   docker build --rm -t fleetscanner . && docker run fleetscanner:latest
 
+Minimal container by leveraging "base image" concept:
+  https://gist.github.com/jrockway/cceef8bb5dcef62743f8bcbc044cd2ad
+  > Build your application in a convenient container, then copy the resulting
+  > binary into a barebones container (nothing except SSL certificates and the
+  > time zone database, for Go code anyway).
+
+  Dockerfile:
+      FROM golang:alpine AS build
+      RUN apk add git bzr gcc musl-dev
+      WORKDIR /whatever/
+      COPY go.mod go.sum ./
+      ARG GOPROXY
+      RUN go mod download
+
+      COPY . .
+      ARG VERSION
+      RUN go install -ldflags "-X <internal package>.Version=$VERSION" -v ./your/app
+
+      FROM alpine:latest
+      RUN apk add ca-certificates tzdata
+      WORKDIR /
+      COPY --from=build /go/bin/app /go/bin/app
+      CMD ["/go/bin/app"]
+
 OPS
 ==============================================================================
 

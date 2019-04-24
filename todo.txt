@@ -23,19 +23,22 @@ http://tomasp.net/blog/2015/against-types/
     The strong normalization property: all programs reduce to a value
 
 papers
-------
-
+------------------------------------------------------------------------------
 Purely Functional Data Structures, Chris Okasaki
 Einstein's statement of special relativity
 
-bookmarks
----------
+books
+------------------------------------------------------------------------------
+
+The Power Broker, Robert A. Caro.  https://news.ycombinator.com/item?id=19600640
+
+web
+------------------------------------------------------------------------------
 Ask HN: Which is your favourite tech talk? https://news.ycombinator.com/item?id=16838460
 "a few things about PyPy3 support" https://news.ycombinator.com/item?id=11262150
 
 System Design Cheatsheet: https://gist.github.com/vasanthk/485d1c25737e8e72759f
 server performance, nginx: https://blogs.dropbox.com/tech/2017/09/optimizing-web-servers-for-high-throughput-and-low-latency/
-microservices: http://blog.plataformatec.com.br/2015/01/organizing-microservices-in-a-single-git-repository/
 dep vs dup: http://yosefk.com/blog/redundancy-vs-dependencies-which-is-worse.html
 On Designing and Deploying Internet-Scale Services: https://www.usenix.org/legacy/event/lisa07/tech/full_papers/hamilton/hamilton_html/
 Notes on Google's Site Reliability Engineering book: http://danluu.com/google-sre-book/

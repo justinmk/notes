@@ -1,0 +1,155 @@
+vim: sw=2 ft=text iskeyword+== comments=s1\:/*,mb\:*,ex\:*/,\://,b\:#,\:%,\:XCOMM,n\:>,fb\:-
+==============================================================================
+PROBLEM:
+Heztner sent an alert that unsecured redis service was public-accessible.
+  - NB: apparently German government does roaming security scans and sends
+    emails to service providers: https://reports.cert-bund.de/
+
+INFO:
+- UFW was enabled and configured to default-deny.
+- Recently working on a Docker stack with redis.
+
+Why aren't the UFW rules blocking the redis port?
+`ufw status verbose` confirms:
+  - it is enabled
+  - "Default: deny"
+  - port 6379 is not listed
+
+    $ sudo ufw status verbose
+    Status: active
+    Logging: off
+    Default: deny (incoming), allow (outgoing), deny (routed)
+    New profiles: skip
+    To                         Action      From
+    --                         ------      ----
+    9753                       ALLOW IN    Anywhere
+    8989                       ALLOW IN    Anywhere
+    ...
+
+`ss` shows that 6379 is listening:
+    $ sudo nmap -sS -O -p 6379 94.130.64.175
+    "ss" command shows that port 6379 (redis) is listening on ALL.
+    $ ss -tunpo state listening
+    Netid              Local Address:Port
+    tcp                127.0.0.53%lo:53
+    tcp                      0.0.0.0:9753
+    tcp                    127.0.0.1:25
+    tcp                    127.0.0.1:8889
+    tcp                    127.0.0.1:8125
+    tcp                    127.0.0.1:19999
+    tcp                            *:32777
+    tcp                            *:6379
+    tcp                            *:32780
+    tcp                         [::]:9753
+    tcp                        [::1]:25
+    tcp                            *:8001
+
+`iptables` shows that 6379 is open:
+    $ sudo iptables -nvL
+    shows a DOCKER chain:
+    Chain DOCKER (3 references)
+     pkts bytes target     prot opt in     out     source               destination
+      144  8416 ACCEPT     tcp  --  !br-5668a89a8e3e br-5668a89a8e3e  0.0.0.0/0            172.08.0.2           tcp dpt:8989
+       18   776 ACCEPT     tcp  --  !br-5668a89a8e3e br-5668a89a8e3e  0.0.0.0/0            172.08.0.4           tcp dpt:8989
+       38  2072 ACCEPT     tcp  --  !br-f43fd3312eae br-f43fd3312eae  0.0.0.0/0            172.09.0.2           tcp dpt:6379
+        5   224 ACCEPT     tcp  --  !br-f43fd3312eae br-f43fd3312eae  0.0.0.0/0            172.09.0.4           tcp dpt:8001
+
+
+CAUSE:
+Docker changes iptable rules (and this is not reflected in UFW).
+https://docs.docker.com/network/iptables/
+  > By default, all external source IPs are allowed to connect to the Docker
+  > daemon. To allow only a specific IP or network to access the containers,
+  > insert a negated rule at the top of the DOCKER filter chain.
+
+ATTEMPTED:
+Rules can be added to the "DOCKER-USER" iptables chain, which all traffic passes
+through and won't be touched by Docker.
+
+Add a rule to the "DOCKER-USER" chain which hands off the traffic to one of
+UFW's chains.
+
+    iptables -I DOCKER-USER 1 -j ufw-user-input
+    iptables -I DOCKER-USER -i ext_if ! -s 127.0.0.1 -j DROP
+
+RESOLUTION:
+Docker supports a "DOCKER-USER" iptables chain that allows us to redirect
+traffic to the UFW chain. But I couldn't get that to work (see ATTEMPTED).
+I used a different approach:
+
+https://github.com/moby/moby/issues/4737#issuecomment-419705925
+  Append to /etc/ufw/after.rules (replace eth0 with your external facing interface):
+      # Put Docker behind UFW
+      *filter
+      :DOCKER-USER - [0:0]
+      :ufw-user-input - [0:0]
+
+      -A DOCKER-USER -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+      -A DOCKER-USER -m conntrack --ctstate INVALID -j DROP
+      -A DOCKER-USER -i eth0 -j ufw-user-input
+      -A DOCKER-USER -i eth0 -j DROP
+      COMMIT
+
+  Restart UFW, docker.
+      ufw disable
+      ufw enable
+      systemctl restart docker
+
+==============================================================================
+PROBLEM:
+Want to observe traffic between emacs client <-> daemon.
+
+SOLUTION:
+
+terminal 1:
+    emacs --daemon
+    strace -o s.txt -s9999 -p $(pgrep emacs)
+terminal 2:
+    emacsclient -t
+terminal 3:
+    tail -F s.txt
+
+NOTES:
+
+emacsclient lifecycle:
+  emacsclient sends client environment to server via "-env" directive.
+  Includes "-tty" which is later used by the server to write to the tty!
+      read(6, "-env ... -tty /dev/pts/9 tmux-256color \n", 4096) = 3000
+
+  https://github.com/emacs-mirror/emacs/blob/ba80961/lib-src/emacsclient.c#L1827
+      /* Send over our environment and current directory. */
+      if (create_frame)
+        {
+          for (char *const *e = environ; *e; e++)
+            {
+              send_to_emacs (emacs_socket, "-env ");
+              quote_argument (emacs_socket, *e);
+              send_to_emacs (emacs_socket, " ");
+            }
+        }
+
+  server sends client some info, e.g. the server PID:
+      write(6, "-emacs-pid 32449\n", 17)      = 17
+
+  server opens the tty forwarded by the client!
+      openat(AT_FDCWD, "/dev/pts/9", O_RDWR|O_NOCTTY|O_CLOEXEC) = 7
+      ioctl(7, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+
+  emacsclient loops over strings (simple directives) from recv():
+  https://github.com/emacs-mirror/emacs/blame/ba809612c06bcabd05dcbaae79da39dcb0925992/lib-src/emacsclient.c#L1977
+      while (exit_status == EXIT_SUCCESS)
+        {
+          do
+            {
+              act_on_signals (emacs_socket);
+              rl = recv (emacs_socket, string, BUFSIZ, 0);
+            }
+          while (rl < 0 && errno == EINTR);
+          ...
+
+  emacs server sends terminal sequences directly to the client tty to draw the
+  statusline/minibuffer/etc (fd 7 refers to `-tty /dev/pts/9` sent by the client
+  earlier):
+      write(7, "\33[10;1H\33[30m\33[47m-UUU:@----F2  \33[39;49m\33[1m\33[30m\33[47m*scratch*   \33[0m\33[39;49m\33[30m\33[47m   All (5,0)      (Lisp Interaction  SP Undo-Tree MR\33[39;49m\r\n\33[37m\33[44mCRM\33[39;49m\33[37m\33[44m \33[39;49m\33[37m\33[44mBuffer\33[39;49m\33[37m\33[44m              \33[39;          49m\33[37m\33[44m   Size\33[39;49m\33[37m\33[44m \33[39;49m\33[37m\33[44mMode\33[39;49m\33[37m\33[44m             \33[39;                                   49m\33[37m\33[44mFile                        \33[39;49m\r\n\33[37m\33[40m.   \33[39;49m\33[1m\33[37m\33[40m*scratch*\33[0m\33[39;                           49m\33[37m\33[40m               191 Lisp Interaction                             \33[39;49m\r\n\33[37m\33[40m %* \33[39;49m\33[1m\33[37m\33[40m*Messages*   \33[0m\33[39;49m\33[37m\33[40m              733 Messages                                     \33[39;49m\r\n\33[37m\33[40m %* \33[39;49m\33[1m\33[37m\33[40m*Warnings*\33[0m\33[39;49m\33[37m\33[40m              364 Special                                      \33[39;49m\r\n", 812) = 812
+
+==============================================================================

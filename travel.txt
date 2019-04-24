@@ -9,6 +9,7 @@ checklist
   tissues/napkins
   ibuprofen
   packing cubes
+  melatonin
 
 todo:
   https://naildrivin5.com/blog/2018/01/25/how-to-travel-to-san-francisco-every-other-month-for-five-years.html

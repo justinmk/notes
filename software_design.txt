@@ -1,0 +1,2 @@
+Software architecture: decisions which are both important and hard to change.
+-- Martin Fowler
