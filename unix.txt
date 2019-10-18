@@ -109,4 +109,6 @@ linux
         tc qdisc {add,change} dev {eth0,wlan0,…} root netem delay 2000ms 10ms 25%
         # undo
         tc qdisc del dev {eth0,wlan0,…} root
+        # Show all TCP,UDP sockets in LISTEN state.
+        ss -tunpo state listening
 

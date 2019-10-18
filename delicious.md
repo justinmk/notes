@@ -5671,3 +5671,28 @@ http://www.cs.utah.edu/~aek/code/card.cpp
     99;p=S(v(17,16,8)+t,!(t*-1+(a*(R()+x)+b
     *(y+R())+c)*16))*3.5+p;}printf("%c%c%c"
     ,(i)p.x,(i)p.y,(i)p.z);}}
+
+
+AWS: compute the minimal permission set needed to perform some requests(s)?
+================================================================================
+https://news.ycombinator.com/item?id=21228386
+tag="programming software-engineering debugging security amazon aws"
+.
+- script (GPLv2): https://github.com/KanoComputing/aws-tools/blob/master/bin/aws-policy-minimize
+  uses python picire[1] (a delta-debugging[2] framework) to generate a minimal
+  permission set by re-executing a caller-supplied boto script with different
+  permissions until all(?) combinations have been tried.
+- Netflix [repokid](https://github.com/Netflix/repokid) project "watches API
+  calls for a Role and then suggests minimum privilege changes to the attached
+  policy".
+- Consider chalice's analyzer.py which generates policies for Python web apps:
+  https://github.com/aws/chalice/blob/master/chalice/analyzer.py
+.
+[1] https://pypi.org/project/picire/
+[2] https://www.st.cs.uni-saarland.de/dd/
+
+
+Kerbal Space Program: Create and Manage Your Own Space Program
+================================================================================
+https://www.kerbalspaceprogram.com
+tag="game software kids learning science space pedagogy"
