@@ -5,7 +5,7 @@ Heztner sent an alert that unsecured redis service was public-accessible.
   - NB: apparently German government does roaming security scans and sends
     emails to service providers: https://reports.cert-bund.de/
 
-INFO:
+ANALYSIS:
 - UFW was enabled and configured to default-deny.
 - Recently working on a Docker stack with redis.
 
@@ -109,7 +109,7 @@ terminal 2:
 terminal 3:
     tail -F s.txt
 
-NOTES:
+ANALYSIS:
 
 emacsclient lifecycle:
   emacsclient sends client environment to server via "-env" directive.
@@ -151,5 +151,29 @@ emacsclient lifecycle:
   statusline/minibuffer/etc (fd 7 refers to `-tty /dev/pts/9` sent by the client
   earlier):
       write(7, "\33[10;1H\33[30m\33[47m-UUU:@----F2  \33[39;49m\33[1m\33[30m\33[47m*scratch*   \33[0m\33[39;49m\33[30m\33[47m   All (5,0)      (Lisp Interaction  SP Undo-Tree MR\33[39;49m\r\n\33[37m\33[44mCRM\33[39;49m\33[37m\33[44m \33[39;49m\33[37m\33[44mBuffer\33[39;49m\33[37m\33[44m              \33[39;          49m\33[37m\33[44m   Size\33[39;49m\33[37m\33[44m \33[39;49m\33[37m\33[44mMode\33[39;49m\33[37m\33[44m             \33[39;                                   49m\33[37m\33[44mFile                        \33[39;49m\r\n\33[37m\33[40m.   \33[39;49m\33[1m\33[37m\33[40m*scratch*\33[0m\33[39;                           49m\33[37m\33[40m               191 Lisp Interaction                             \33[39;49m\r\n\33[37m\33[40m %* \33[39;49m\33[1m\33[37m\33[40m*Messages*   \33[0m\33[39;49m\33[37m\33[40m              733 Messages                                     \33[39;49m\r\n\33[37m\33[40m %* \33[39;49m\33[1m\33[37m\33[40m*Warnings*\33[0m\33[39;49m\33[37m\33[40m              364 Special                                      \33[39;49m\r\n", 812) = 812
+
+==============================================================================
+PROBLEM:
+AWS EC2 Linux machine root filesystem is out of disk space.
+`du -hs /*` only accounts for 1.5 GB out of 8 GB.
+
+ANALYSIS:
+
+    $ sudo lsof | grep deleted
+    COMMAND     PID     USER   FD      TYPE             DEVICE  SIZE/OFF      NODE NAME
+    ...
+    dhclient   2113     root  txt       REG              202,1     551912     402047 /sbin/dhclient (deleted)
+    dhclient   2240     root  txt       REG              202,1     551912     402047 /sbin/dhclient (deleted)
+    tcpdump   21356  tcpdump    2u      CHR              136,0        0t0          3 /dev/pts/0 (deleted)
+    tcpdump   21356  tcpdump    4w      REG              202,1 6744252416     409592 /home/ec2-user/tcp.out (deleted)
+
+A weeks-old `tcpdump` process was writing to a fifo ("tcp.out") without
+a reader. The fifo was deleted weeks ago, but the tcpdump process didn't notice
+this and kept writing to the file descriptor, which grew to fill all remaining
+space (6 GB) in the partition.
+
+SOLUTION:
+
+kill the `tcpdump` process (pid 21356), so that the file handle is released.
 
 ==============================================================================

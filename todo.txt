@@ -1,3 +1,13 @@
+backup:
+  https://lobste.rs/s/y4myxv/alternative_rsync_batch_mode_for_storing
+laptop:
+  Dell Precision 5530 ?
+
+------------------------------------------------------------------------------
+hashtable: https://github.com/jamesroutley/write-a-hash-table
+
+coroutines, trampolining, …: https://www.dabeaz.com/coroutines/index.html
+
 data science:
   + https://www.dataquest.io/blog/making-538-plots/
   + http://pandas.pydata.org/pandas-docs/stable/10min.html
@@ -14,14 +24,6 @@ allocation: http://www.smallmemory.com/6_AllocationChapter.pdf
 Let's code a TCP/IP stack, 1: Ethernet & ARP
     https://news.ycombinator.com/item?id=11234229
 
-DNS: The Good Parts
-https://www.petekeen.net/dns-the-good-parts
-
-http://tomasp.net/blog/2015/against-types/
-    Bertrand Russell introduced types in a paper Mathematical logic as based on the
-    theory of type in 1908
-    The strong normalization property: all programs reduce to a value
-
 papers
 ------------------------------------------------------------------------------
 Purely Functional Data Structures, Chris Okasaki
@@ -29,7 +31,6 @@ Einstein's statement of special relativity
 
 books
 ------------------------------------------------------------------------------
-
 The Power Broker, Robert A. Caro.  https://news.ycombinator.com/item?id=19600640
 
 web
@@ -37,17 +38,12 @@ web
 Ask HN: Which is your favourite tech talk? https://news.ycombinator.com/item?id=16838460
 "a few things about PyPy3 support" https://news.ycombinator.com/item?id=11262150
 
-System Design Cheatsheet: https://gist.github.com/vasanthk/485d1c25737e8e72759f
 server performance, nginx: https://blogs.dropbox.com/tech/2017/09/optimizing-web-servers-for-high-throughput-and-low-latency/
-dep vs dup: http://yosefk.com/blog/redundancy-vs-dependencies-which-is-worse.html
 On Designing and Deploying Internet-Scale Services: https://www.usenix.org/legacy/event/lisa07/tech/full_papers/hamilton/hamilton_html/
 Notes on Google's Site Reliability Engineering book: http://danluu.com/google-sre-book/
 http://eli.thegreenplace.net/2015/directed-graph-traversal-orderings-and-applications-to-data-flow-analysis/
 https://daniel.haxx.se/http2/
 http://arstechnica.com/security/2015/08/how-security-flaws-work-the-buffer-overflow/
-https://jimshaver.net/2015/02/11/decrypting-tls-browser-traffic-with-wireshark-the-easy-way/
 https://www.facebook.com/notes/facebook-engineering/scalable-memory-allocation-using-jemalloc/480222803919
 Learning How to Learn: https://www.coursera.org/learn/learning-how-to-learn
-
-
-
+Crypto 101 (cryptography course): https://www.crypto101.io/

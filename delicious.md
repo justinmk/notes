@@ -1,4 +1,33 @@
-vim: sw=2 ft=text iskeyword+== comments=s1\:/*,mb\:*,ex\:*/,\://,b\:#,\:%,\:XCOMM,n\:>,fb\:-
+vim: sw=2 ft=text comments=s1\:/*,mb\:*,ex\:*/,\://,b\:#,\:%,\:XCOMM,n\:>,fb\:-
+
+Solving Problems the Clojure Way - Rafal Dittwald
+================================================================================
+https://www.youtube.com/watch?v=vK1DazRK_a0
+tag="clojure functional-programming compsci"
+OOP:
+  - model: interacting agents (objects)
+  - organize state
+FP:
+  - model: pipeline of input=>output
+  - avoid state
+  - has functions (closures) as opposed to _procedures_
+To avoid mutable state and other side-effects:
+  1. minimize: avoid/eliminate where possible
+    - derive (compute) values instead of extra state
+    - copy instead of mutate-in-place
+  2. concentrate: keep it in a central place
+  3. defer: queue operations to the last step or an external system
+Pure functions are ...
+  - easy to test
+  - easy to reason about
+  - easy to parallelize
+  - each to cache (referential transparency)
+
+
+Unraveling the JPEG
+================================================================================
+https://parametric.press/issue-01/unraveling-the-jpeg/
+tag="todo image format encoding huffman"
 
 Netflix Tech Blog: Linux Performance Analysis in 60,000 Milliseconds
 ================================================================================
@@ -16,6 +45,13 @@ Scaling to 100M: MySQL is a Better NoSQL
 http://blog.wix.engineering/2015/12/10/scaling-to-100m-mysql-is-a-better-nosql/
 https://news.ycombinator.com/item?id=11763287
 tag="todo performance distributed-systems scaling mysql databases"
+
+Common mistakes in PostgreSQL
+================================================================================
+https://wiki.postgresql.org/wiki/Don%27t_Do_This
+tag="sql postgresql databases"
+- `text` is equivalent to `varchar`. Just use `text`.
+- Use `numeric` instead of `money`.
 
 IOWait, hung IO tasks, "task foo:3450 blocked for more than 120 seconds", hung_task_timeout_secs
 ================================================================================
@@ -243,9 +279,60 @@ SWAT-Team Nation - The New Yorker
 CONSENSUS: BRIDGING THEORY AND PRACTICE
 ================================================================================
   href="https://ramcloud.stanford.edu/~ongaro/thesis.pdf"
-   
   tag="raft cap distributed-systems compsci todo papers"
   time="2016-01-07T22:10:02Z" 
+
+The UNIX Time-Sharing System / Dennis M. Ritchie and Ken Thompson
+================================================================================
+https://people.eecs.berkeley.edu/~brewer/cs262/unix.pdf
+tag="operating-system unix compsci papers"
+.
+> An entry for each special file resides in directory /dev, although a link may
+> be made to one of these files just like an ordinary file. Thus, for example,
+> to punch paper tape, one may write on the file /dev/ppt.
+> ...
+> To do random (direct access) I/O, it is only necessary to move the read or
+> write pointer to the appropriate location in the file.
+>   location = seek(filep, base, offset)
+> The pointer associated with filep is moved to a position offset
+> bytes from the beginning of the file, from the current position of the
+> pointer, or from the end of the file, depending on base.
+> ...
+> Removing (deleting) a file is done by decrementing the link-count of the
+> i-node specified by its directory entry and erasing the directory entry. If
+> the link-count drops to 0, any disk blocks in the file are freed and the
+> i-node is deallocated.
+> ...
+> To the user, both reading and writing of files appear to be synchronous and
+> unbuffered. That is immediately after return from a read call the data are
+> available, and conversely after a write the user’s workspace may be reused.
+> In fact the system maintains a rather complicated buffering mechanism which
+> reduces greatly the number of I/O operations required to access a file.
+> ...
+> An image is a computer execution environment. It includes a core image,
+> general register values, status of open files, current directory, and the
+> like. An image is the current state of a pseudo computer. A process is the
+> execution of an image. While the processor is executing on behalf of
+> a process, the image must reside in core;
+> ...
+> A new process can come into existence only by use of the fork system call:
+>   processid = fork (label)
+> When fork is executed by a process, it splits into two independently executing
+> processes. The two processes have independent copies of the original core
+> image, and share any open files.
+> ...
+> Processes may communicate with related processes using the same system read
+> and write calls that are used for file system I/O. The call
+>   filep = pipe()
+> returns a file descriptor filep and creates an interprocess channel called
+> a pipe. This channel, like other open files, is passed from parent to child
+> process in the image by the fork call. A read using a pipe file descriptor
+> waits until another process writes using the file descriptor for the same
+> pipe.
+> ...
+>   processid = wait()
+> causes its caller to suspend execution until one of its children has completed
+> execution. Then wait returns the processid of the terminated process.
 
 The web of names, hashes and UUIDs
 ================================================================================
@@ -366,6 +453,31 @@ Why not add an option for that?
 ================================================================================
 http://neugierig.org/software/blog/2018/07/options.html
 tag="programming softwareengineering design ux ui options"
+
+Google's internal code review guidelines
+================================================================================
+https://news.ycombinator.com/item?id=20891738
+tag="programming softwareengineering teams code-review google"
+> Review code in this order: protocol buffers, unit tests, headers,
+> implementation. It's common for a new employee to be an expert on C++ or Java
+> or whatever languages but it's very uncommon to meet anyone who knows how to
+> define a decent protocol message. The tests should give the reviewer a very
+> clear idea of what's happening in the code (and this should be congruent with
+> the description of the change), if not send back to author at this point. The
+> headers should contain clear interfaces, types, and comments and should not
+> contain anything that's not part of the API (when this is technically
+> possible). Finally look in the CC file; at this point the reviewer should see
+> things they were already expecting and no funny business.
+>
+> Any claims about speed, efficiency, or performance whether in comments or
+> during the review must have accompanying microbenchmarks or they should be
+> deleted. Wrong ideas about software performance abound, and even correct
+> beliefs become incorrect with time, in which case the microbenchmarks are
+> critical to evaluating the continued value of the code.
+>
+> When sending a changelist for review, always clear all automated warnings or
+> errors before wasting the reviewers' time. Nobody wants to see code that
+> doesn't build, breaks a bunch of tests, doesn't lint, etc.
 
 This Week In Startups | This Week In Startups
 ================================================================================
@@ -1236,6 +1348,24 @@ VICTORY: Judge Releases Information about Police Use of Stingray Cell Phone Trac
     tag="police-state government privacy"
   time="2015-01-28T04:03:34Z" 
 
+IRS sends warning letters to more than 10k cryptocurrency holders
+================================================================================
+https://news.ycombinator.com/item?id=20536951
+tag="police-state government taxes legal"
+    https://www.irs.gov/newsroom/irs-has-begun-sending-letters-to-virtual-currency-owners-advising-them-to-pay-back-taxes-file-amended-returns-part-of-agencys-larger-efforts
+    https://www.reddit.com/r/Bitcoin/comments/chupoe/irs_we_have_information_that_you_have_or_had_one/
+    https://www.irsmind.com/audits/irs-begins-targeting-taxpayers-who-misreport-virtual-currency-transactions/
+    > Letter 6174:   This is a soft notice informing the taxpayer that there is a likelihood that they did not report their virtual currency transactions. The notice asks them to check their return and, if necessary, file an amended return to correct the misreporting. The taxpayer is not required to respond to the notice and the IRS intends not to follow up on these notices. In short, this is information only to the taxpayer and education on how they comply.
+    > Letter 6174-A: This is a “not so soft notice” from the IRS. As in Letter 6174, this letter tells the taxpayer that there is potential misreporting of virtual currency transactions. However, this notices states that the IRS may follow-up with future enforcement action. Again, no response is required if the taxpayer believes that they are in compliance. Taxpayers who receive this notice should be aware that they have been put on “notice” that they have been identified as a noncompliant taxpayer for potential future enforcement.
+    > Letter 6173:   Requires a response. This notice requests a response from the taxpayer about the alleged noncompliance. The letter provides instructions on responding to the IRS. The IRS intends to follow up on these responses to determine if the taxpayer is in compliance.
+
+Don’t Put Your Work Email on Your Personal Phone
+================================================================================
+https://news.ycombinator.com/item?id=20514833
+tag="corporate workplace legal security"
+Using *any* personal device for work makes *all* of your personal devices
+subject to seizure if your employer is under investigation.
+
 Noisebridge 
 ================================================================================
   href="https://www.noisebridge.net/"  
@@ -1481,6 +1611,61 @@ Sockets are an unnecessary concept:
     Replacing them are a generalised binding mechanism—essentially `bind()`
     by the server and `open()` by the client—and simple reads and writes to
     files."
+
+
+"Less is exponentially more", Rob Pike
+================================================================================
+http://lambda-the-ultimate.org/node/4554
+https://commandcenter.blogspot.com/2012/06/less-is-exponentially-more.html
+> Alain Fournier once told me that he considered the lowest form of academic
+> work to be taxonomy.
+.
+> OO is great for problems where an interface applies naturally to a wide range
+> of types, not so good for managing polymorphism (the machinations to get
+> collections into OO languages are astounding to watch and can be hellish to
+> work with), and remarkably ill-suited for network computing. That's why
+> I reserve the right to match the language to the problem, and even--often--to
+> coordinate software written in several languages towards solving a single
+> problem.
+>
+> It's that last point--different languages for different subproblems--that
+> sometimes seems lost to the OO crowd. In a typical working day I probably use
+> a half dozen languages--C, C++, Java, Python, Awk, Shell--and many more
+> little languages you don't usually even think of as languages--regular
+> expressions, Makefiles, shell wildcards, arithmetic, logic, statistics,
+> calculus--the list goes on.
+.
+Rob Pike 2004:
+> This is not the first time databases and file systems have collided, merged,
+> argued, and split up, and it won't be the last. The specifics of whether you
+> have a file system or a database is a rather dull semantic dispute, a contest
+> to see who's got the best technology, rigged in a way that neither side wins.
+> Well, as with most technologies, the solution depends on the problem; there is
+> no single right answer.
+>
+> What's really interesting is how you think about accessing your data. File
+> systems and databases provide different ways of organizing data to help find
+> structure and meaning in what you've stored, but they're not the only
+> approaches possible. Moreover, the structure they provide is really for one
+> purpose: to simplify accessing it. Once you realize it's the access, not the
+> structure, that matters, the whole debate changes character.
+>
+> One of the big insights in the last few years, through work by the internet
+> search engines but also tools like Udi Manber's glimpse, is that data with no
+> meaningful structure can still be very powerful if the tools to help you
+> search the data are good. In fact, structure can be bad if the structure you
+> have doesn't fit the problem you're trying to solve today, regardless of how
+> well it fit the problem you were solving yesterday. So I don't much care any
+> more how my data is stored; what matters is how to retrieve the relevant
+> pieces when I need them.
+>
+> Grep was the definitive Unix tool early on; now we have tools that could be
+> characterized as `grep my machine' and `grep the Internet'. GMail, Google's
+> mail product, takes that idea and applies it to mail: don't bother organizing
+> your mail messages; just put them away for searching later. It's quite
+> liberating if you can let go your old file-and-folder-oriented mentality.
+> Expect more liberation as searching replaces structure as the way to handle
+> data.
 
 
 Hello World: USENIX Winter 1993 paper by Rob Pike and Ken Thompson on UTF-8 under Plan 9
@@ -1838,6 +2023,25 @@ https://en.wikipedia.org/wiki/UDP-based_Data_Transfer_Protocol
 tag="networks tcp udp data-transfer"
 High-performance data transfer protocol designed for transferring large
 volumetric datasets over wide area networks.
+
+
+TCP is an underspecified two-node consensus algorithm and what that means for your proxies
+================================================================================
+https://morsmachine.dk/tcp-consensus
+tag="networks proxy tcp tcp-ip protocol"
+.
+> Cannot rely on a proxy to pass through the behavior (including keepalive!) of
+> the TCP connection. Workaround: application-level ping.
+.
+> example of the end-to-end principle in action:
+> On the IP layer, datagrams can be split into multiple parts for when the
+> underlying physical transport cannot support a packet of a given size. The idea
+> was that IP datagrams would be split and then recombined by the routers in the
+> middle of the network when the physical layer would support a packet of that
+> size again. This turned out to be disastrous in practice. Hosts would often get
+> partial datagrams that would never be able to recombine and they would also have
+> no way to tell the host on the other end that a packet was lost (the packet
+> acknowledgement is in the TCP layer).
 
 
 IP Listen List
@@ -2342,6 +2546,28 @@ tag="softwareengineering methodology project-management programming"
 > else would we work together effectively? You need these fictions in order to
 > function at scale.
 
+The Empty Promise of Data Moats / by Martin Casado and Peter Lauten
+================================================================================
+https://a16z.com/2019/05/09/data-network-effects-moats/
+tag="startup network-effects dependencies data moat mental-model"
+> scale effect has limited value as a defensive strategy for many companies.
+.
+> Most data network effects are really scale effects:
+> Most discussions around data defensibility actually boil down to scale
+> effects, a dynamic that fits a looser definition of network effects in which
+> there is no direct interaction between nodes.
+> ... Unlike traditional economies of scale, where the economics of fixed,
+> upfront investment can get increasingly favorable with scale over time, the
+> exact opposite dynamic often plays out with data scale effects: The cost of
+> adding unique data to your corpus may actually go up, while the value of
+> incremental data goes down!
+.
+> Bootstrapping what we think of as the “minimum viable corpus” is sufficient to start training against, 
+.
+> Even taking on all the upfront costs to assemble, clean, and standardize big
+> pools of public datasets can create a scale effect that emerging competitors
+> will have to recreate from the ground up.
+
 Stripe 
 ================================================================================
   href="https://stripe.com/"  
@@ -2423,7 +2649,7 @@ JRuby casting null support
   href="http://jira.codehaus.org/browse/JRUBY-3865" 
    tag="repl java jruby" time="2012-04-28T00:08:08Z" 
 
-&quot;java.lang.OutOfMemoryError: PermGen space&quot; exception (classloader leaks)
+"java.lang.OutOfMemoryError: PermGen space" exception (classloader leaks)
 ================================================================================
   java PermGen = class definition heap avoid static references to class definitions &quot;The JDK's permanent memory behaves differently depending on whether a debugger is enabled&quot; http://wiki.caucho.com/Java.lang.OutOfMemoryError:_PermGen_space
   href="http://frankkieviet.blogspot.com/2006/10/how-to-fix-dreaded-permgen-space.html"
@@ -2468,6 +2694,11 @@ Distributed Systems Programming. Which Level Are You? ¬´ Incubaid Research
    
   tag="concurrency architecture programming distributed-systems"
   time="2012-04-04T16:48:46Z" 
+
+UNDERSTANDING HASH FUNCTIONS by Geoff Pike
+================================================================================
+https://github.com/google/farmhash/blob/master/Understanding_Hash_Functions
+tag="programming compsci algorithms hash-function"
 
 More study of diff: Walter Tichy's papers
 ================================================================================
@@ -2656,11 +2887,46 @@ GWT Handler Registrations
   tag="memoryleak eventbus programming gwt"
   time="2012-03-22T16:37:35Z" 
 
-repl.it - Online IDE 
+Baby's First Garbage Collector
 ================================================================================
-   href="http://repl.it/"
-    tag="repl tools online programming"
-  time="2012-03-19T22:29:10Z" 
+http://journal.stuffwithstuff.com/2013/12/08/babys-first-garbage-collector/
+tag="gc garbage-collector compsci programming-language"
+  //
+  // mark-and-sweep gc implementation
+  //
+  void mark(Object* object) {
+    /* If already marked, we're done. Check this first
+       to avoid recursing on cycles in the object graph. */
+    if (object->marked) return;
+
+    object->marked = 1;
+
+    if (object->type == OBJ_PAIR) {
+      mark(object->head);
+      mark(object->tail);
+    }
+  }
+  void sweep(VM* vm)
+  {
+    Object** object = &vm->firstObject;
+    while (*object) {
+      if (!(*object)->marked) {
+        /* This object wasn't reached, so remove it from the list
+           and free it. */
+        Object* unreached = *object;
+
+        *object = unreached->next;
+        free(unreached);
+      } else {
+        /* This object was reached, so unmark it (for the next GC)
+           and move on to the next. */
+        (*object)->marked = 0;
+        object = &(*object)->next;
+      }
+    }
+  }
+
+
 
 Windows File System Redirection (Diagnosing weird problems - a Stack Overflow case study)
 ================================================================================
@@ -3993,7 +4259,7 @@ https://blog.samaltman.com/how-to-be-successful
 Don't Call Yourself A Programmer, And Other Career Advice
 ================================================================================
 https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/
-tag="negotiation business career"
+tag="negotiation business career compensation"
 - Don’t call yourself a programmer. Instead, describe how you increased revenues
   or reduced costs.
 - Most jobs are never available publicly, just like most worthwhile candidates
@@ -4025,7 +4291,7 @@ tag="negotiation business career"
 Salary Negotiation: Make More Money, Be More Valued
 ================================================================================
 https://www.kalzumeus.com/2012/01/23/salary-negotiation/
-tag="negotiation salary business hiring career game-theory"
+tag="negotiation salary business hiring career game-theory compensation"
 
 - Negotiating never makes (worthwhile) offers worse.  This means you need what
   political scientists call a _commitment strategy_: you always, as a matter of
@@ -4043,7 +4309,7 @@ How Not to Bomb Your Offer Negotiation
 ================================================================================
 https://haseebq.com/my-ten-rules-for-negotiating-a-job-offer/
 https://haseebq.com/how-not-to-bomb-your-offer-negotiation/
-tag="negotiation salary business hiring career game-theory"
+tag="negotiation salary business hiring career game-theory compensation"
 
 The ten rules of negotiating
     1. Get everything in writing (and write everything down)
@@ -4554,6 +4820,13 @@ Motion Mountain: The Free Physics Textbook
   href="http://motionmountain.com/"  
   tag="physics books science" time="2009-07-06T17:28:21Z" 
 
+"Concerning the Soul", Hermann Hesse
+================================================================================
+http://jsomers.net/concerning_the_soul.pdf
+tag="literature books"
+  contemplation:
+  > At the moment when desire ceases and contemplation, pure seeing, and self-surrender begin, everything changes. Man ceases to be useful or dangerous, interesting or boring, genial or rude, strong or weak. He becomes nature, he becomes beautiful and remarkable as does everything that is an object of clear contemplation.
+
 Cato Unbound &quot; Blog Archive &quot; Beyond Folk Activism
 ================================================================================
   &quot;When we read in the evening paper that we‚Äôre footing the bill for another bailout, we react by complaining to our friends, suggesting alternatives, and trying to build coalitions for reform. This primal behavior is as good a guide for how to effectively reform modern political systems as our instinctive taste for sugar and fat is for how to eat nutritiously.&quot; ... &quot;Folk activism treats policies and institutions as the result of specific human intent. But policies are in large part an emergent behavior of institutions, and institutions are an emergent behavior of the global political ecosystem.&quot;
@@ -4724,6 +4997,19 @@ Tess Ferrandez blog: If broken it is, fix it you should
   tag="microsoft blog debug programming asp.net .net"
   time="2009-04-03T21:59:40Z" 
 
+Tess Ferrandez blog: If broken it is, fix it you should
+================================================================================
+https://blogs.msdn.microsoft.com/tess/2006/04/12/asp-net-memory-if-your-application-is-in-production-then-why-is-debugtrue/
+tag="microsoft deploy production debug programming asp.net .net"
+If debug="true"...
+  - asp.net requests will not time out
+  - creates one dll per aspx, asax, or ascx page and this dll is compiled in debug mode
+  - In order to be able to step through code line by line the JITter can’t really optimize the code
+  - Much more memory is used within the application at runtime
+  - Scripts and images downloaded from the WebResources.axd handler are not cached
+http://blogs.msdn.com/tess/archive/2006/04/13/575364.aspx
+http://weblogs.asp.net/scottgu/archive/2006/04/11/Don_1920_t-run-production-ASP.NET-Applications-with-debug_3D001D20_true_1D20_-enabled.aspx
+
 fix OS X keyboard shortcuts
 ================================================================================
   fix OS X PgUp/PgDn/Home/End behaviour
@@ -4774,11 +5060,23 @@ The Big Takeover: The global Economic Crisis Isn't About Money, It's About Power
     tag="todo politics"
   time="2009-03-22T22:59:31Z" 
 
-&quot;You and your Research.&quot; A lecture on how to win a Nobel Prize.
+"You and your Research", Richard Hamming
 ================================================================================
-  href="http://www.reddit.com/r/science/comments/862en/you_and_your_research_a_lecture_on_how_to_win_a/"
-    tag="todo"
-  time="2009-03-22T22:57:43Z" 
+http://www.cs.virginia.edu/~robins/YouAndYourResearch.html
+tag="compsci engineering learning mental-model"
+.
+http://www.reddit.com/r/science/comments/862en/you_and_your_research_a_lecture_on_how_to_win_a/
+> Be completely unafraid to utter whatever crazy idea you have at the moment and
+> bounce it off someone--even if it turns out to be completely useless, which it
+> usually will be, the kind of thoughts generated from such situations build
+> over time to generate much greater work. If you think about something often
+> and repeatedly approach it from different angles, you're far more likely to
+> have that "lucky" strike of insight.
+
+"Learning how to learn", Idries Shah
+================================================================================
+https://en.wikipedia.org/wiki/Learning_How_to_Learn
+tag="learning pedagogy cogsci"
 
 Is there really such a thing as &quot;random&quot;?
 ================================================================================
@@ -5006,10 +5304,10 @@ Creative Loafing Tampa | Food &amp; Drink
 
 Recovering Lawns, Failed States, and Reasons for Hope by William Norman Grigg
 ================================================================================
-  Somalia, anarchy
-  href="http://www.lewrockwell.com/grigg/grigg-w40.html"
-    tag="politics"
-  time="2008-09-14T20:11:23Z" 
+Somalia, anarchy
+href="https://www.lewrockwell.com/2008/08/william-norman-grigg/failed-states-and-other-good-news/"
+tag="politics"
+time="2008-09-14T20:11:23Z" 
 
 Obie Fernandez: Do the Hustle
 ================================================================================
@@ -5018,11 +5316,43 @@ Obie Fernandez: Do the Hustle
     tag="work contracting"
   time="2008-09-14T18:49:57Z" 
 
-##C on Freenode
+Regality theory and cultural selection theory
 ================================================================================
-  irc authority on practical C
-  href="http://iso-9899.info/"  
-  tag="programming c" time="2008-08-06T06:26:01Z" 
+https://agner.org/cultsel/
+tag="concepts history culture politics"
+> Regality theory: people show a preference for strong leadership in times of
+> war or collective danger, but a preference for an egalitarian political system
+> in times of peace and safety. ... A society in danger will develop in the
+> direction called regal, which includes strong nationalism, discipline, strict
+> religiosity, patriarchy, strict sexual morals, and perfectionist art.
+> A society in peace will develop in the opposite direction called kungic, which
+> includes egalitarianism and tolerance.
+
+Lesser Key of Solomon
+================================================================================
+https://en.wikipedia.org/wiki/Lesser_Key_of_Solomon
+tag="concepts history occult"
+aka Clavicula Salomonis Regis
+aka Lemegeton
+17th-century grimoire on demonology
+divided into 5 books: Ars Goetia, Ars Theurgia-Goetia, Ars Paulina, Ars Almadel, Ars Notoria.
+72 Demons
+
+
+Transitus Fluvii
+================================================================================
+https://en.wikipedia.org/wiki/Transitus_Fluvii
+tag="concepts history occult"
+("passing through the river" in Latin), or Passage Du Fleuve (French).
+occult alphabet of 22 characters described by Heinrich Cornelius
+Agrippa in his Third Book of Occult Philosophy (Cologne, 1533)
+derived from the Hebrew alphabet
+
+
+Beej's Guide to Network Programming
+================================================================================
+http://beej.us/guide/bgnet/
+tag="programming c network systems unix"
 
 The Paintings of Fred Einaudi 
 ================================================================================
@@ -5360,6 +5690,13 @@ How to use LINQ to do dynamic queries
     tag="programming .net linq"
   time="2007-05-29T18:04:35Z" 
 
+Creating Trimmed Self Contained Executables in .NET Core
+================================================================================
+https://dev.to/jeremycmorgan/creating-trimmed-self-contained-executables-in-net-core-4m08
+tag="programming .net deploy ship cross-platform"
+command:
+  dotnet publish -r win-x64 -c Release /p:PublishSingleFile=true /p:PublishTrimmed=true
+
 ASP.NET RSS Toolkit 
 ================================================================================
   href="http://www.codeplex.com/ASPNETRSSToolkit" 
@@ -5629,6 +5966,16 @@ tag="security infosec"
 > databases. Reporters successfully obtained a trove of material on one
 > colleague — including flight history, hotel checkouts and property holdings
 > — in exchange for a payment of 700 yuan (US$100).
+
+
+Co-routines as an alternative to state machines
+================================================================================
+https://eli.thegreenplace.net/2009/08/29/co-routines-as-an-alternative-to-state-machines
+tag="programming compsci coroutine state-machine"
+coroutines are to state machines what recursion is to stacks:
+- recursion helps process nested data structures without employing explicit stacks.
+- coroutines help solve problems involving state, without using explicit state machines.
+
 
 DECYPHERING THE BUSINESS CARD RAYTRACER
 ================================================================================

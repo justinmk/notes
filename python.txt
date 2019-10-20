@@ -1,17 +1,35 @@
+LIBRARIES
+================================================================================
+date/time: https://github.com/dateutil/dateutil
+
 DEBUGGING
 ================================================================================
 https://wiki.python.org/moin/DebuggingWithGdb
     # Python debugging extensions: debugging symbols and gdb commands (py-xx).
     $ apt install python3.5-dbg
-    $ gdb `which python3` 19284
+    $ gdb $(which python3) 19284
     (gdb) py-bt
     (gdb) py-list
+
+Fancy TUI debugger:  https://github.com/pdbpp/pdbpp
+
+? https://github.com/cool-RR/PySnooper
 
 
 MEMORY LEAKS
 ================================================================================
 objgraph: https://www.darkcoding.net/software/finding-memory-leaks-in-python-with-objgraph/
 tracemalloc (Python 3.6+): https://docs.python.org/3/library/tracemalloc.html
+
+
+string format(), f-string
+================================================================================
+    f'{datetime.datetime.now():%m-%d-%y}'   # instead of datetime.stftime()
+    f'{878:b}'      => '1101101110'         # base-2
+    f'{878:x}'      => '36e'                # base-16
+    f'{878:e}'      => '8.780000e+02'       # sci notation
+    f'{1/3:?=8.2f}' => '????0.33'           # pad, fill, precision
+    f'{"foo":^10}'  => '   foo    '         # center text
 
 
 asyncio
@@ -61,3 +79,70 @@ https://news.ycombinator.com/item?id=17714304
         fooz = asyncio.get_event_loop().run_in_executor(None, barz)
         await asyncio.sleep(10)
         await asyncio.gather(foo, fooz)  # this is The One True Way
+
+FEATURES
+================================================================================
+python "data model" (underscore methods, etc.): https://docs.python.org/3/reference/datamodel.html
+
+iter()      # https://docs.python.org/3/library/functions.html#iter
+partial()   # useful to create zero-argument lambdas
+            from functools import partial
+            with open('mydata.db', 'rb') as f:
+                for block in iter(partial(f.read, 64), b''):
+                    process_block(block)
+next()      # goes to next `yield`
+inspect.getsource()
+__code__    # reflect on user-defined functions
+            def foo():
+              a=42
+              b='foo'
+            foo.__code__.co_varnames  # ('a', 'b')
+
+metaclass:  # manipulate class at define-time. cf. Java "classloader"
+            class Foo(object, metaclass=something):
+
+contextmanager:
+            # Enforce ordered __init__, __enter__, __exit__ sequence.
+            @contextlib.contextmanager
+            def foo(*args, **kwds):
+              r = get_resource(*args, **kwds)  # Acquire resource.
+              try:
+                yield r  # Content managers are generators!
+              finally:
+                release_resource(r)  # Release resource.
+            with foo(timeout=3600) as r:
+              ...
+
+loop backwards:
+  for o in reversed(foo):
+
+custom sort:
+  sorted(foo, key=len)  # "almost never need cmp=…"
+
+initialize dicts with iterators
+  d = dict(zip(foo, bar))
+  d = dict(enumerate(foo))
+
+extend dicts
+  d = ChainMap(d1, d2, ...)
+
+LRU cache (memoize): compare running time with/without @lru_cache decorator:
+    import functools
+    @functools.lru_cache(maxsize=512)
+    def fib(n: int) -> int:
+        if n < 2:
+            return n
+        return fib(n-1) + fib(n-2)
+    >>> [fib(n) for n in range(16)]
+    [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610]
+    >>> fib.cache_info()
+    CacheInfo(hits=28, misses=16, maxsize=512, currsize=16)
+
+(3.7+) Data Classes  https://docs.python.org/3/library/dataclasses.html
+    import dataclasses
+    @dataclasses.dataclass
+    class Foo:  # Don't need __init__()
+        foo:  float
+        bar:  int = 1
+        name: str
+    f = Foo(foo=0.3, bar=42, name='zub')

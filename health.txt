@@ -1,4 +1,11 @@
 ================================================================================
+joints
+  https://news.ycombinator.com/item?id=21219041
+    L-Ascorbic Acid (vitamin c)
+    L-Lysine (essential amino acid => meat/chicken/fish/milk/legumes)
+    Glucosamine Chondroitin Complex
+    Instaflex Advanced
+================================================================================
 Sleep
 https://www.youtube.com/watch?v=pwaWilO_Pig
 
@@ -36,17 +43,21 @@ You need a period during the day, where you’re hungry.
 counterpoints: https://www.reddit.com/r/longevity/comments/alajlf
 
 ================================================================================
-Wim Hof breathing
-- Full & Deep Inhale: belly chest head, in that order
-- Exhale (just let go of the held breath, don't push out).
-- Repeat 30 times. You may get light-headed & feel tingling. This is normal.
-- Exhale & hold the exhalation out for as long as is comfortable.
-- When you cannot hold the exhalation anymore, take a long, deep breath through
-  the nose into the stomach & hold the breath for 15 seconds.
-- Exhale.
-- This marks a complete round.
-- Repeat for 3-5 rounds every morning.
-- Best performed on an empty stomach.
+Wim Hof method (breathing)
+  - Full & Deep Inhale: belly chest head, in that order
+  - Exhale (just let go of the held breath, don't push out).
+  - Repeat 30 times. You may get light-headed & feel tingling. This is normal.
+  - Exhale & hold the exhalation out for as long as is comfortable.
+  - When you cannot hold the exhalation anymore, take a long, deep breath through
+    the nose into the stomach & hold the breath for 15 seconds.
+  - Exhale.
+  - This marks a complete round.
+  - Repeat for 3-5 rounds every morning.
+  - Best performed on an empty stomach.
+
+Doctor Dissects the Wim Hof Method  https://www.youtube.com/watch?v=D6EPuUdIC1E
+  - cyclical hyperventilation,      hypoventilation
+             ^hypocapnia (low CO2)  ^hypoxia (low oxygen)
 
 ================================================================================
 ankle sprain

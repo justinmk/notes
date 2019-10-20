@@ -2,6 +2,61 @@ todo:
     + graphs, visualization: https://github.com/coells/100days
     ~ http://jeffe.cs.illinois.edu/teaching/algorithms/
     ~ https://github.com/cirosantilli/algorithm-cheat
+    huffman codes (zip/compression)
+
+TCO (tail recursion, tail-call optimization)
+    https://eli.thegreenplace.net/2017/on-recursion-continuations-and-trampolines/
+    Reuse the stack frame! Avoids allocating a new stack frame because the
+    caller only returns the value from the callee (no caller state!).
+    tail-recursive:
+        def fact_tailrec(n, result=1):
+          ...
+          return fact_tailrec(n - 1, result * n)
+    NOT tail-recursive:
+        def fact_rec(n):
+          ...
+          return n * fact_rec(n - 1)
+
+trampoline: a loop that iteratively invokes thunk-returning functions (continuation-passing style)
+    def trampoline(f, *args):
+        v = f(*args)
+        while callable(v):
+          v = v()
+        return v
+    # CPS version of factorial, transformed to return a thunk.
+    # The transformation is straightforward: wrap the tail calls in an
+    # argument-less lambda.
+    def fact_cps_thunked(n, cont):
+        if n == 0:
+          return cont(1)
+        else:
+          return lambda: fact_cps_thunked(
+              n - 1,
+              lambda value: lambda: cont(n * value))
+    # Then to compute the factorial of 6:
+    >>> trampoline(fact_cps_thunked, 6, end_cont)
+    720
+    # The stack doesn't grow! Instead of calling itself, fact_cps_thunked
+    # returns a thunk, so the call is done by the trampoline.
+
+    # Tracing the function calls for the recursive factorial we get:
+        fact_rec(6)
+          fact_rec(5)
+            fact_rec(4)
+              fact_rec(3)
+                fact_rec(2)
+                  fact_rec(1)
+                    fact_rec(0)
+
+    # Tracing the function calls for the thunked version we get:
+        trampoline(<callable>, 6, <callable>)
+          fact_cps_thunked(6, <callable>)
+          fact_cps_thunked(5, <callable>)
+          fact_cps_thunked(4, <callable>)
+          fact_cps_thunked(3, <callable>)
+          fact_cps_thunked(2, <callable>)
+          fact_cps_thunked(1, <callable>)
+          fact_cps_thunked(0, <callable>)
 
 Zipf's law
     Nonuniform access is usually the rule, not the exception. Many real-world
@@ -29,7 +84,11 @@ knapsack problem: resource allocation with budget constraint
         best-fit:   Put the elements of S in the knapsack from smallest to
                     largest.
 
-bin-packing problem: ("multiple knapsacks"...)
+bin-packing: ("multiple knapsacks"...)
+    NP-hard
+    heuristic: first-fit Θ(nlogn) (fast but often non-optimal): place each item into the first bin in which it will fit.
+        - For each item, place in the first bin with enough space. If no bin is found, open a new bin.
+        - The number of bins used by this algorithm is no more than twice the optimal number of bins.
 
 sorting
     Lower bound of sorting in general is O(n*logn).
@@ -54,3 +113,56 @@ quicksort: select a random "pivot" item `p`
 
 mergesort:
     stable
+
+timsort:  https://lobste.rs/s/crfy2d
+    complex, but justified when:
+        - Comparisons are (very) expensive
+          (E.g. dynamic dispatch => used by Python).
+          This is because TimSort itself performs a bunch of branches and
+          integer comparisons to keep track of galloping scores and the stack
+          invariant.
+        - You need a stable sort.
+    cf. Quicksort:
+      + fast
+      + easy to implement
+      + in-place
+      - unstable
+      - bad worst-case perf (pre-sorted data in the naïve implementation)
+        + mitigation=introsort: start with quicksort, but bail out to
+          a guaranteed O(n log n) sort like heapsort if it takes too long.
+          In the bail-out case, you lose constant-factor performance
+          compared to if you had used heapsort in the first place, but you
+          avoid quicksort’s O(n^2) worst case, while still getting its good
+        performance in non-pathological cases. It’s used in practice in .NET
+        and some C++ STL implementations.
+
+LCS longest common subsequence
+    Find the longest SUBSEQUENCE common to all sequences in a set of sequences.
+    cf. longest common SUBSTRING: unlike substrings, subsequences are not required to be contiguous in the original sequences.
+    complexity:
+        - NP-hard for the general case
+        - polynomial-time with fixed inputs + memoization
+
+consistent hash "ring":
+    why: avoid full rehash (EXPENSIVE for e.g. load-balanced cluster) when nodes/buckets are added/removed
+
+    https://akshatm.svbtle.com/consistent-hash-rings-theory-and-implementation
+        consistent hashing, in a nutshell, does this:
+        - STOP trying to keep one value at exactly one location. Let one location house multiple values from multiple keys.
+        - DON’T number your locations consecutively. Assign effectively random numbers (0~INT_MAX).
+        - DON’T compute (hash % buckets). Instead, use the nearest bucket ≥ hash(key). (Wrap-around if greater than all buckets.)
+
+    how: "hash both objects AND caches"
+    use-case: distributed KV store, distributed cache, load balancing
+    examples:
+        cassandra
+        Amazon Dynamo  https://www.allthingsdistributed.com/2007/10/amazons_dynamo.html
+        BitTorrent distributed tracker
+    CLIENT only! No cooperation needed from the servers/targets.
+    Only ~k/N keys need to be remapped where k is the number of keys and N is the number of servers.
+
+    R+W > N => "strongly consistent" (e.g. write 2, read 2 with 3 replicas)
+
+    alternative: Rendezvous hashing, aka highest random weight (HRW) hashing
+                 distributed k-agreement (consistent hashing is k=1)
+

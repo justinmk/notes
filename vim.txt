@@ -90,8 +90,10 @@ motion:
     will "stick" to the end of the line.
 
 search
-    ';' is a special offset to "chain" searches. Example:
-        ab/;/cd     search for "cd" after the next "ab"
+    `:help search-offset`
+        /foo/e
+        /foo/0
+        /foo/;/bar  use the `;` offset to "chain" searches.
     :%s/foo//gn     count matches of "foo"
 
 vim regex features:
@@ -522,10 +524,6 @@ isn't positioned to address.
         Vim needs its own representation of keycodes because it runs on a variety of platforms.
         Vim can act upon its own keycodes, and leave the assignment of terminal keycodes to
         autodetection or to manual setup by the user.
-
-    terminal on Windows: https://groups.google.com/forum/#!msg/libuv/EhwAn3y9wWo/T-yyLvVmIrYJ
-        "The ability to automate interactive programs using libuv would be a killer feature,
-        libuv could be used as a replacement for libexpect and node.js a replacement for expect"
 
     NOTE(jkeyes): emacs calls these two concepts "function keys" and "control keys".
         http://stackoverflow.com/a/917031/152142

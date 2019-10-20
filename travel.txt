@@ -1,6 +1,8 @@
 checklist
+  headphones
+  health insurance
   passport
-  snacks
+  snacks/food
   thermos/water bottle
   power converter
   lotion
@@ -10,6 +12,13 @@ checklist
   ibuprofen
   packing cubes
   melatonin
+  gloves
+  sunglasses
+  umbrella
+  jacket
+  phone, charger
+  pen/pencil
+
 
 todo:
   https://naildrivin5.com/blog/2018/01/25/how-to-travel-to-san-francisco-every-other-month-for-five-years.html

@@ -52,10 +52,21 @@ The cmake dance:
     cmake ../
 
 debug
-    # see all open() calls performed by foo and descendants
-    strace -f -e open foo
-    #      ^   ^ event (syscall) filter
-    #      follow subprocesses
+    show all open() calls performed by foo and descendants
+        strace -f -e open foo
+        #      ^   ^ event (syscall) filter
+        #      follow subprocesses
+
+    strace -k shows application backtrace (requires strace 4.9 +libunwind)
+        strace -k -e trace=chdir nvim -u NONE -echdir -c ":q"
+            chdir("/home/raf")                      = 0
+             > /lib64/libc-2.20.so(chdir+0x7) [0xd8d27]
+             > /usr/bin/nvim(uv_chdir+0x9) [0x1ac3e9]
+             > /usr/bin/nvim(init_homedir+0x62) [0xa0c82]
+             > /usr/bin/nvim(early_init+0xae) [0x15c47e]
+             > /usr/bin/nvim(main+0xa9) [0x33129]
+             > /lib64/libc-2.20.so(__libc_start_main+0xf5) [0x21b45]
+             > /usr/bin/nvim(_start+0x29) [0x354f8]
 
 linux
     Linux perf 60-second checklist  https://medium.com/netflix-techblog/linux-performance-analysis-in-60-000-milliseconds-accc10403c55
@@ -112,3 +123,35 @@ linux
         # Show all TCP,UDP sockets in LISTEN state.
         ss -tunpo state listening
 
+Linux scheduler
+    Scheduler maintains hierarchicy of "scheduling domains" based on the physical _hardware_ layout.
+    Higher-level scheduling domains group physically adjacent scheduling domains, such as chips on the same book.
+    migration = moving a virtual CPU from one run-queue to another
+                happens when the wait time is too long, run-queue is full, or
+                another run-queue is under-utilized
+
+mmap  https://lobste.rs/s/gfllo3/use_mmap_with_care
+    mmap dedicates a region of address space to some kind of backing storage.
+    The particular kind of backing storage makes all the difference.
+    People colloquially use "mmap" to mean "mmap of a conventional disk file", but that is only a particular case.
+    * sbrk is a legacy path that essentially amounts to an anonymous mmap.
+
+    the mmap() model sort of assumes no errors happen. This breaks when files are
+    truncated and you get SIGBUS. It can also break if files disappear (failing
+    media or removed USB stick) or network filesystem.
+
+context switch
+    store/restore the state (context) of a process so that execution can be resumed later.
+
+    1. save execution state (all registers and many special control structures)
+       of current running process to memory
+    2. load execution state of other process (read in from memory).
+    3. TLB flush (if needed) is a small part of total overhead.
+
+    5-7 microseconds
+
+    cache invalidation is The Largest Contributor to context-switch costs
+
+    Indirect costs:
+    loss of effectiveness for all "cache like" CPU state: caches, TLBs, branch
+    prediction stuff (branch direction, branch target, return buffer), etc.

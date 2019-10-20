@@ -1,5 +1,9 @@
 Stuff to do:
   http://www.exberliner.com/whats-on
+  Viktorianisches Picknick (Leipzig)
+
+culture?
+  http://needleberlin.com/2018/03/30/danilo-rosato-berlin-portraits/
 
 Carnival / Theme parks
   https://www.howtogermany.com/pages/themeparks.html
@@ -21,10 +25,17 @@ Health:
 German language:
   https://wickedchicken.github.io/post/german-for-programmers/
     Verbs are “immer Position 2”
-    .
+  https://www.quora.com/What-is-the-simplest-explanation-for-the-difference-between-nominative-accusative-dative-and-genitive-articles
     Nominativ = subject
     Akkusativ = direct object
     Dativ     = indirect object
+    Genitive  = possessive
+      Example:
+        Consider these nouns: Der Junge, Der Knochen, Der Hund, Der Nachbar
+        Consider this sentence:
+          Der Junge gab dem Hund des Nachbarn einen Knochen.
+          ^             ^        ^                  ^
+          Nominative    Dativ    Genitive           Akkusativ
 
   Article signals  https://www.youtube.com/watch?v=6vHSJp0QlxQ
     article   ending (after "~" means "~80% reliable")
@@ -33,12 +44,18 @@ German language:
     das       tum chen ma ment um lein ~ nis
     die       heit ung keit ei schaft ion ität ik ~ ur e
 
-  Modal particles ("dispensible")  https://www.youtube.com/watch?v=-Awhco_VHWE
-    doch    emphasis, contrary
-    halt
-    mal     polite (Höflich)
-    eben
-    ja      "really", "of course", "as you know"
+  Füllwörtern
+    Flickwörter
+      also      "so"
+      eigentlich
+      quasi     "kind of"
+      sozusagen "so to say"
+    Modalpartikeln ("dispensable")  https://www.youtube.com/watch?v=-Awhco_VHWE
+      doch      emphasis, contrary
+      halt      "just"
+      mal       polite (Höflich)
+      eben      "just"
+      ja        "really", "of course", "as you know"
 
   raster
   das All
@@ -56,6 +73,7 @@ German language:
 
 Observations:
   No lizards
+  No cockroaches!
   Lots of wide open spaces
   Le Crobag
   Wasser pumper

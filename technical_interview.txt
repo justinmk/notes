@@ -1,0 +1,15 @@
+system design:
+  0. Listen and comprehend the question.
+  1. gather requirements:
+    - API, SLA, CAP, security (CORS,SSL), features, scale, userbase, state
+    - AAA: auth, auditing, accounting/billing
+    - quantify!
+  2. draw LOGICAL diagram showing dataflow & state
+    - draw PHYSICAL diagram? (LB, servers, WAF, CDN, …)
+  3. end-to-end explain (component details)
+    - scaling
+    - API
+    - db table
+    - estimates/calculations
+    - technologies
+

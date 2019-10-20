@@ -1,11 +1,7 @@
 http://www.luafaq.org/#T1.11
 https://en.blog.nic.cz/2015/08/12/embedding-luajit-in-30-minutes-or-so/
 
-files.catwell.info
-    avoid globals in modules
-    use pl.strict in your test suite
-
-module organization
+Module organization
     LTN7: http://www.lua.org/notes/ltn007.html
 
     Use a fixed local name for the package (e.g. Public), and then assign this
@@ -39,3 +35,27 @@ module organization
     Following these guidelines, the connection between the two functions does
     not depend on the package name.
 
+Memoize with weak references  https://www.lua.org/pil/17.1.html
+    A naive color factory generates a new color for each new request:
+        function createRGB (r, g, b)
+          return {red = r, green = g, blue = b}
+        end
+    Using the memoize technique, we can reuse the same table for the same color.
+        local results = {}
+        setmetatable(results, {__mode = "v"})  -- make values weak
+        function createRGB (r, g, b)
+          local key = r .. "-" .. g .. "-" .. b
+          if results[key] then return results[key]
+          else
+            local newcolor = {red = r, green = g, blue = b}
+            results[key] = newcolor
+            return newcolor
+          end
+        end
+    - user can compare colors using the primitive equality operator, because two
+      coexistent equal colors are always represented by the same table.
+      - Note that the same color may be represented by different tables at
+        different times, if a GC cycle clears the results table. But as long as
+        a given color is in use, it is not removed from results. So if a color
+        survives long enough to be compared with a new one, its representation
+        also survives long enough to be reused by the new color.

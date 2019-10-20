@@ -12,24 +12,16 @@ pointer arithmetic:
 popen() essentially does a combination of (pipe, dup stdin/stdout/stderr, fork, execl)
 http://stackoverflow.com/a/24296225/152142
 
-strace 4.9 (with libunwind), -k option shows backtrace of syscalls
-        https://github.com/neovim/neovim/issues/1932#issuecomment-72747152
-    strace -k -e trace=chdir nvim -u NONE -echdir -c ":q"
-    chdir("/home/raf")                      = 0
-     > /lib64/libc-2.20.so(chdir+0x7) [0xd8d27]
-     > /usr/bin/nvim(uv_chdir+0x9) [0x1ac3e9]
-     > /usr/bin/nvim(init_homedir+0x62) [0xa0c82]
-     > /usr/bin/nvim(early_init+0xae) [0x15c47e]
-     > /usr/bin/nvim(main+0xa9) [0x33129]
-     > /lib64/libc-2.20.so(__libc_start_main+0xf5) [0x21b45]
-     > /usr/bin/nvim(_start+0x29) [0x354f8]
+bit array:  https://lobste.rs/s/ueuxgt/implementing_bit_arrays_c
+    #define SetBit(A,k)     ( A[(k/32)] |= (1 << (k%32)) )
+    #define ClearBit(A,k)   ( A[(k/32)] &= ~(1 << (k%32)) )
+    #define TestBit(A,k)    ( A[(k/32)] & (1 << (k%32)) )
 
-SYSTEMS/PLATFORM/OS PROGRAMMING
+CROSS-PLATFORM/OS
 ================================================================================
 cross-platform syscall reference:
     https://github.com/giampaolo/psutil
     https://github.com/facebook/osquery
-
 linux-only:
     "procps" https://gitlab.com/procps-ng/procps
 

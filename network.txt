@@ -11,10 +11,10 @@ wireshark
         ssh user@host 'cat traffic' | wireshark -k -i -
 
     Filter examples:
-        frame contains "mozilla"    search for “mozilla” anywhere in the packet
-        tcp.port == 443             tcp port
-        dns.resp.len > 0            all DNS responses
-        ip.addr == 52.7.23.87       source or dest IP address
+        (frame contains "mozilla")    search for “mozilla” anywhere in the packet
+        (tcp.port eq 443)             tcp port
+        (dns.resp.len > 0)            all DNS responses
+        (ip.addr eq 52.7.23.87)       source or dest IP address
 
     https://jvns.ca/blog/2018/06/19/what-i-use-wireshark-for/
     http://jvns.ca/blog/2016/03/16/tcpdump-is-amazing/
@@ -58,144 +58,297 @@ SSH simple port forwarding
     ssh -p 22 -N -L localhost:8082:localhost:8082 user@server
 
 
-CONCEPTS
+DNS
 ================================================================================
-https://jvns.ca/blog/2018/07/24/ip-addresses-routing/
+How DNS works: hierarchy of servers.
 
-    packet
-        Almost every packet (with some exceptions like ARP packets) has an IP header.
-        14 fields in the IP header. 3 important ones:
-          1. source IP address
-          2. destination IP address
-          3. TTL: decremented by 1 at each hop (ensures packets don’t get into infinite loops)
-          4. ‘protocol’ field tells you the protocol (like TCP/UDP).
-        port isn’t in the IP header! That's at the TCP/UDP protocol layer. (and is why
-        TCP port 8080 and UDP port 8080 are different ports, and can run different
-        services!)
+    $ dig +trace sink.io
 
-    subnet
-        CIDR notation – 168.23.0.0/8 means “all the packets that have the same
-        first 8 bits as the packet 168.23.0.0”. In this case 168.*.*.*, or any
-        packet beginning in 168.
+    ; <<>> DiG 9.10.6 <<>> +trace sink.io
+    ;; global options: +cmd
+    .                       84993   IN      NS      g.root-servers.net.
+    …
+    .                       84993   IN      NS      b.root-servers.net.
+    ;; Received 540 bytes from 192.168.2.1#53(192.168.2.1) in 44 ms
+    io.                     172800  IN      NS      ns-a1.io.
+    io.                     172800  IN      NS      ns-a3.io.
+    …
+    ;; Received 803 bytes from 199.9.14.201#53(b.root-servers.net) in 198 ms
+    sink.io.                86400   IN      NS      ns1hnx.name.com.
+    sink.io.                86400   IN      NS      ns2kry.name.com.
+    …
+    ;; Received 647 bytes from 74.116.178.1#53(ns-a3.io) in 27 ms
+    sink.io.                300     IN      CNAME   justinmk.github.io.
+    ;; Received 66 bytes from 162.88.60.47#53(ns2kry.name.com) in 17 ms
+
+    $ dig +trace sink.io
+                                  # Q: A-record for sink.io?
+        b.root-servers.net        # A: NS servers for the io. TLD
+                                  # Q: A-record for sink.io?
+          ns-a3.io                # A: NS servers for the sink.io. zone
+                                  # Q: A-record for sink.io?
+            ns2kry.name.com       # A: CNAME
 
 
-
-PROTOCOLS
+UDP
 ================================================================================
+TCP is optimized for accurate rather than timely delivery and can incur
+relatively long delays (~seconds) while waiting for out-of-order messages or
+re-transmissions. Thus real-time applications such as VoIP use UDP instead.
+
+
+TCP/IP
+================================================================================
+IP _delivers_ the data, TCP _tracks_ the data (segments).
+
+TCP accepts data from a stream, divides it into chunks, adds header.
+After packaging, the segment is "encapsulated" into an IP datagram, and exchanged with peers.
+
+Because TCP packets do NOT include a session identifier, both endpoints identify
+the session by client address + port.
+
+IP packet
+    Almost every packet (with some exceptions like ARP packets) has an IP header.
+    14 fields in the IP header. 3 important ones:
+      1. source IP address
+      2. destination IP address
+      3. TTL (hop limit): decremented by 1 at each hop (prevent infinite loop in case of routing error)
+      4. ‘protocol’ field tells you the protocol (TCP/UDP/…).
+    port isn’t in the IP header! That's at the TCP/UDP protocol layer. (and is why
+    TCP port 8080 and UDP port 8080 are different ports, and can run different
+    services!)
+
+subnet
+    CIDR notation – 168.23.0.0/8 means “all the packets that have the same
+    first 8 bits as the packet 168.23.0.0”. So 168.*.*.*
+    8 = # of leading ones in network mask => 255.0.0.0
+
+loopback  https://blog.cloudflare.com/this-is-strictly-a-violation-of-the-tcp-specification/
+    - loopback has no buffering, congestion, or packet loss (unless the
+      listening application does not call accept() fast enough)
+    - loopback works magically: when an application sends packets to it, they
+      immediately get delivered within the send() syscall
+    - calling send() over loopback triggers iptables, network stack delivery
+      mechanisms and delivers the packet to the appropriate queue of the target
+      application.
+
+TCP PDU: segment = (TCP header + data)
+    header: 10 mandatory fields + optional extension field
+    data:   length NOT specified in the TCP header! Calculated by subtracting (TCP
+            header + encapsulating IP header) from the total IP datagram length (specified
+            in the IP header).
+
+TCP header fields:
+    Source port (16 bits)
+    Destination port (16 bits)
+    Sequence number (32 bits)
+    Acknowledgment number (32 bits): (+ACK flag)
+    Data offset (4 bits): TCP header size in 32-bit words (min 5, max 15 => 20-60 bytes)
+    Reserved (3 bits)
+    Flags (9 bits) (aka Control bits)
+      URG (1 bit): enables the Urgent field
+      ACK (1 bit): enables the Acknowledgment field. All packets after the initial SYN packet sent by the client should have this flag set.
+      PSH (1 bit): Push function. Asks to push the buffered data to the receiving application.
+      RST (1 bit): Reset the connection
+      SYN (1 bit): Synchronize sequence numbers. Only the first packet from each end should have this flag set.
+      FIN (1 bit): Last packet from sender.
+      ...
+    Window size (16 bits): receive-window size, for Flow control and Window Scaling.
+    Checksum (16 bits)
+    Urgent pointer (16 bits): (+URG flag) indicates the last urgent data byte.
+    Options (Variable 0–320 bits)
+    Padding: zero-padding to ensure TCP header ends at 32-bit boundary.
+
+TCP phases: connection establishment, data transfer, connection termination
+
+TCP states:
+    LISTEN (server) waiting for a connection request
+    SYN-SENT (client) waiting for a matching connection request after having sent one.
+    SYN-RECEIVED (server) waiting for a confirming connection request ACK after having both received and sent.
+    ESTABLISHED (both) open connection, data received can be delivered to the user. The normal state for the data transfer phase of the connection.
+    FIN-WAIT-1 (both) waiting for termination request from remote TCP, or ACK of the termination request previously sent.
+    FIN-WAIT-2 (both) waiting for termination request from remote TCP.
+    CLOSE-WAIT (both) waiting for termination request (close()) from local user (application). Socket can be in CLOSE_WAIT indefinitely until the application calls close()!
+    CLOSING (both) waiting for a connection termination request acknowledgment from the remote TCP.
+    LAST-ACK (both) waiting for ACK of termination request previously sent
+    TIME-WAIT (either) waiting for enough time to pass to be sure the remote TCP received ACK of termination request.
+    CLOSED (both) no connection state.
+
+
+https://morsmachine.dk/tcp-consensus
+> TCP connection state is defined largely by per-implementation heuristics.
+> A box in the middle of the network can guess the state of a TCP connection
+  only by guessing the meaning of a sequence of TCP/IP packets.
+
+
 https://www.destroyallsoftware.com/compendium/network-protocols?share_key=97d3ba4c24d21147
     The network stack does several seemingly-impossible things:
       - reliable transmission over our unreliable networks
       - adapts smoothly to network congestion
-      - provides addressing to billions of active nodes routes packets around
-        damaged network infrastructure, reassembling them in - the correct order
-        on the other side
+      - provides addressing to billions of active nodes
+      - routes packets around damaged network infrastructure, reassembling them
+        in the correct order on the other side
       - accommodates esoteric analog hardware needs, like balancing the charge
         on the two ends of an Ethernet cable
 
     Network routing
 
-    We can't provide a direct, uninterruptible path from each machine to each
-    other machine it wants to talk to.
-    Instead, data is bucket-brigaded – handed off from one router to the next, in a chain, each one bringing it closer to its destination. Each router between my laptop and google.com is connected to a number of other routers, maintaining a crude routing table showing which routers are closer to which parts of the Internet. When a packet arrives destined for google.com, a quick lookup in the routing table tells the router where the packet should go next to bring it closer to Google. The packets are small, so each router in the chain ties up the next router for only a tiny fraction of a second.
+    We can't provide a direct, uninterruptible path between each machine.
+    Instead, data is bucket-brigaded: handed off from one router to the next,
+    maintaining a crude routing table showing which routers are closer.
 
-    Routing breaks down into two sub-problems. First, addressing: what is the data's destination? This is handled by IP, the Internet Protocol, whence IP addresses. IPv4 still the most common version of IP, provides only 32 bits of address space. It's now fully allocated, so adding a node to the public Internet requires reusing an existing IP address. IPv6 allows 2128 addresses (about 1038), but only has about 20% adoption as of 2017.
-
-    Now that we have addresses, we need to know how to route a packet through the Internet toward its destination. Routing happens fast, so there's no time to query remote databases for routing information. As an example, Cisco ASR 9922 routers have a maximum capacity of 160 terabits per second. Assuming full 1500 byte packets (12000 bits), that's 13333333333 packets per second in a single 19 inch rack!
-
-    To route quickly, routers maintain routing tables indicating the paths to various groups of IP addresses. When a new packet arrives, the router looks it up in the table, telling it which peer is closest to the destination. It sends the packet to that peer and moves on to the next. BGP's job is to communicate this routing table information between different routers, ensuring up-to-date route tables.
-
-    IP and BGP together don't make a useful Internet, unfortunately, because they provide no way to transfer data reliably. If a router becomes overloaded and drops a packet, we need a way to detect the loss and request retransmission.
+    Routing is two sub-problems:
+      addressing. handled by IP
+      routing.
+        Cisco ASR 9922 routers have capacity of 160 terabits per second. Assuming full 1500 byte packets (12000 bits), that's 13333333333 packets per second in a single 19 inch rack!
+        BGP communicates updates route tables between different routers.
 
     Packet switching
-    If the Internet works by routers handing data to each other down the line, what happens when the data is large? What if we request the 88.5 MB video of The Birth & Death of JavaScript?
+    What happens when the data is large? What if we request the 88.5 MB video of The Birth & Death of JavaScript?
 
     We could try to design a network where the 88.5 MB document is sent from the web server to the first router, then to the second, and so on. Unfortunately, that network wouldn't work at Internet scale, or even at intranet scale.
 
-    First, computers are finite machines with finite amounts of storage. If a given router has only 88.4 MB of buffer memory available, it simply can't store the 88.5 MB video file. The data will be dropped on the floor and, worse, I'll get no indication. If a router is so busy that it's dropping data, it can't take the time to tell me about dropped data.
-
-    Second, computers are unreliable. Sometimes, routing nodes fail. Sometimes, ships' anchors accidentally damage underwater fiber-optic cables, taking out large portions of the Internet.
-
-    For these reasons and more, we don't send 88.5 MB messages across the Internet. Instead, we break them down into packets, usually in the neighborhood of 1400 bytes each. Our video file will be broken into 63214 or so separate packets for transmission.
+    Instead, we break them down into packets, usually in the neighborhood of 1400 bytes each.
+    Our video file will be broken into 63214 or so separate packets for transmission.
 
     Out-of-order packets
-    Measuring an actual transfer of The Birth & Death of JavaScript with the packet capture tool Wireshark, I see a total of 61807 packets received, each 1432 bytes. Multiplying those two, we get 88.5 megabytes, which is the size of the video. (This doesn't include the overhead added by various protocols; if it did, we'd see a slightly higher number.)
+    TCP packet reassembly is done using the simplest imaginable mechanism:
+    a counter. Each packet is assigned a sequence number when it's sent. On the
+    receiving side, the packets are put in order by sequence number.
 
-    The transfer was done over HTTP, a protocol layered over TCP, the Transmission Control Protocol. It only took 14 seconds, so the packets arrived at an average rate of about 4400 per second, or about 250 microseconds per packet. In 14 seconds, my machine received all 61807 of those packets, possibly out-of-order, reassembling them into the full file as they came in.
+    How do we know when the file is finished, though? TCP doesn't say anything
+    about that; it's the job of higher-level protocols. For example, HTTP
+    responses contain a "Content-Length" header specifying the response length
+    in bytes. The client reads the Content-Length, then keeps reading TCP
+    packets, assembling them back into their original order, until it has all of
+    the bytes specified by Content-Length. This is one reason that HTTP headers
+    (and most other protocols' headers) come before the response payload:
+    otherwise, we wouldn't know the payload's size.
 
-    TCP packet reassembly is done using the simplest imaginable mechanism: a counter. Each packet is assigned a sequence number when it's sent. On the receiving side, the packets are put in order by sequence number. Once they're all in order, with no gaps, we know the whole file is present.
-
-    (Actual TCP sequence numbers tend not to be integers simply increasing by 1 each time, but that detail isn't important here.)
-
-    How do we know when the file is finished, though? TCP doesn't say anything about that; it's the job of higher-level protocols. For example, HTTP responses contain a "Content-Length" header specifying the response length in bytes. The client reads the Content-Length, then keeps reading TCP packets, assembling them back into their original order, until it has all of the bytes specified by Content-Length. This is one reason that HTTP headers (and most other protocols' headers) come before the response payload: otherwise, we wouldn't know the payload's size.
-
-    When we say "the client" here, we're really talking about the entire receiving computer. TCP reassembly happens inside the kernel, so applications like web browsers and curl and wget don't have to manually reassemble TCP packets. But the kernel doesn't handle HTTP, so applications do have to understand the Content-Length header and know how many bytes to read.
+    When we say "the client" here, we're really talking about the entire
+    receiving computer. TCP reassembly happens inside the kernel, so
+    applications like web browsers and curl and wget don't have to manually
+    reassemble TCP packets. But the kernel doesn't handle HTTP, so applications
+    do have to understand the Content-Length header and know how many bytes to
+    read.
 
     With sequence numbers and packet reordering, we can transmit large sequences of bytes even if the packets arrive out-of-order. But what if a packet is lost in transit, leaving a hole in the HTTP response?
 
     Transmission windows and slow start
-    I did a normal download of The Birth & Death of JavaScript with Wireshark turned on. Scrolling through the capture, I see packet after packet being received successfully.
+    I did a normal download of The Birth & Death of JavaScript with Wireshark
+    turned on. Scrolling through the capture, I see packet after packet being
+    received successfully.
 
-    For example, a packet with sequence number 563321 arrived. Like all TCP packets, it had a "next sequence number", which is the number used for the following packet. This packet's "next sequence number" was 564753. The next packet did, in fact, have sequence number 564753 so everything was good. This happens thousands of times per second once the connection gets up to speed.
+    For example, a packet with sequence number 563321 arrived. Like all TCP
+    packets, it had a "next sequence number", which is the number used for the
+    following packet. This packet's "next sequence number" was 564753. The next
+    packet did, in fact, have sequence number 564753 so everything was good.
+    This happens thousands of times per second once the connection gets up to
+    speed.
 
-    Occasionally, my computer sends a message to the server saying, for example, "I've received all packets up to and including packet number 564753." That's an ACK, for acknowledgement: my computer acknowledges receipt of the server's packets. On a new connection, the Linux kernel sends an ACK after every ten packets. This is controlled by the TCP_INIT_CWND constant, which we can see defined in the Linux kernel's source code.
+    Occasionally, my computer sends a message to the server saying, for example,
+    "I've received all packets up to and including packet number 564753." That's
+    an ACK. On a new connection, the Linux kernel sends an ACK after every ten
+    packets. This is controlled by the TCP_INIT_CWND constant (CWND = congestion
+    window: the amount of data allowed in flight at once. If the network becomes
+    congested (overloaded), the window size will be reduced, slowing packet
+    transmission.).
 
-    (CWND in TCP_INIT_CWND stands for congestion window: the amount of data allowed in flight at once.) If the network becomes congested (overloaded), the window size will be reduced, slowing packet transmission.)
+    Ten packets is about 14 KB, so we're limited to 14 KB of data in flight at
+    a time. This is part of TCP slow start: connections begin with small
+    congestion windows. If no packets are lost, the receiver will continually
+    increase the congestion window, allowing more packets in flight at once.
 
-    Ten packets is about 14 KB, so we're limited to 14 KB of data in flight at a time. This is part of TCP slow start: connections begin with small congestion windows. If no packets are lost, the receiver will continually increase the congestion window, allowing more packets in flight at once.
+    Eventually, a packet will be lost, so the receive window will be decreased,
+    slowing transmission. By automatically adjusting the congestion window, as
+    well as some other parameters, the sender and receiver keep data moving as
+    quickly as the network will allow, but no quicker.
 
-    Eventually, a packet will be lost, so the receive window will be decreased, slowing transmission. By automatically adjusting the congestion window, as well as some other parameters, the sender and receiver keep data moving as quickly as the network will allow, but no quicker.
-
-    This happens on both sides of the connection: each side ACKs the other side's messages, and each side maintains its own congestion window. Asymmetric windows allow the protocol to take full advantage of network connections with asymmetric upstream and downstream bandwidth, like most residential and mobile Internet connections.
+    This happens on both sides of the connection: each side ACKs the other
+    side's messages, and each side maintains its own congestion window.
+    Asymmetric windows allow the protocol to take full advantage of network
+    connections with asymmetric upstream and downstream bandwidth, like most
+    residential and mobile Internet connections.
 
     Reliable transmission
-    Computers are unreliable; networks made of computers are extra unreliable. On a large-scale network like the Internet, failure is a normal part of operation and must be accommodated. In a packet network, this means retransmission: if the client receives packets number 1 and 3 but doesn't receive 2 then it needs to ask the server to re-send the missing packet.
+    Computers are unreliable; networks made of computers are extra unreliable.
+    Failure is a normal part of operation and must be accommodated. In a packet
+    network, this means retransmission: if the client receives packets number
+    1 and 3 but doesn't receive 2 then it needs to ask the server to re-send.
 
-    When receiving thousands of packets per second, as in our 88.5 MB video download, mistakes are almost guaranteed. To demonstrate that, let's return to my Wireshark capture of the download. For thousands of packets, everything goes normally. Each packet specifies a "next sequence number", followed by another packet with that number.
+    When receiving thousands of packets per second, as in our 88.5 MB video
+    download, mistakes are almost guaranteed. To demonstrate that, let's return
+    to my Wireshark capture of the download. For thousands of packets,
+    everything goes normally. Each packet specifies a "next sequence number",
+    followed by another packet with that number.
 
-    Suddenly, something goes wrong. The 6269th packet has a "next sequence number" of 7208745 but that packet never comes. Instead, a packet with sequence number 7211609 arrives. This is an out-of-order packet: something is missing.
+    Suddenly, something goes wrong. The 6269th packet has a "next sequence
+    number" of 7208745 but that packet never comes. Instead, a packet with
+    sequence number 7211609 arrives. This is an out-of-order packet: something
+    is missing.
 
-    We can't tell exactly what went wrong here. Maybe one of the intermediate routers on the Internet was overloaded. Maybe my local router was overloaded. Maybe someone turned a microwave on, introducing electromagnetic interference and slowing my wireless connection. In any case, the packet was lost and the only indication is the unexpected packet.
+    We can't tell exactly what went wrong here. Maybe one of the intermediate
+    routers on the Internet was overloaded. Maybe my local router was
+    overloaded. Maybe someone turned a microwave on, introducing electromagnetic
+    interference and slowing my wireless connection. In any case, the packet was
+    lost and the only indication is the unexpected packet.
 
-    TCP has no special "I lost a packet!" message. Instead, ACKs are cleverly reused to indicate loss. Any out-of-order packet causes the receiver to re-ACK the last "good" packet – the last one in the correct order. In effect, the receiver is saying "I received packet 5 which I'm ACKing. I also received something after that, but I know it wasn't packet 6 because it didn't match the next sequence number in packet 5."
+    TCP has no special "I lost a packet!" message. Instead, ACKs are cleverly
+    reused to indicate loss. Any out-of-order packet causes the receiver to
+    re-ACK the last "good" packet – the last one in the correct order. In
+    effect, the receiver is saying "I received packet 5 which I'm ACKing. I also
+    received something after that, but I know it wasn't packet 6 because it
+    didn't match the next sequence number in packet 5."
 
-    If two packets simply got switched in transit, this will result in a single extra ACK and everything will continue normally after the out-of-order packet is received. But if the packet was truly lost, unexpected packets will continue to arrive and the receiver will continue to send duplicate ACKs of the last good packet. This can result in hundreds of duplicate ACKs.
+    If two packets simply got switched in transit, this will result in a single
+    extra ACK and everything will continue normally after the out-of-order
+    packet is received. But if the packet was truly lost, unexpected packets
+    will continue to arrive and the receiver will continue to send duplicate
+    ACKs of the last good packet. This can result in hundreds of duplicate ACKs.
 
-    When the sender sees three duplicate ACKs in a row, it assumes that the following packet was lost and retransmits it. This is called TCP fast retransmit because it's faster than the older, timeout-based approach. It's interesting to note that the protocol itself doesn't have any explicit way to say "please retransmit this immediately!" Instead, multiple ACKs arising naturally from the protocol serve as the trigger.
+    When the sender sees three duplicate ACKs in a row, it assumes that the
+    following packet was lost and retransmits it. This is called TCP fast
+    retransmit because it's faster than the older, timeout-based approach. It's
+    interesting to note that the protocol itself doesn't have any explicit way
+    to say "please retransmit this immediately!" Instead, multiple ACKs arising
+    naturally from the protocol serve as the trigger.
 
     (An interesting thought experiment: what happens if some of the duplicate ACKs are lost, never reaching the sender?)
 
     Retransmission is common even in networks working normally. In a capture of our 88.5 MB video download, I saw this:
-
-    The congestion window quickly increases to about a megabyte due to continuing successful transmission.
-    A few thousand packets show up in order; everything is normal.
-    One packet comes out of order.
-    Data continues pouring in at megabytes per second, but the packet is still missing.
-    My machine sends dozens of duplicate ACKs of the last known-good packet, but the kernel also stores the pending out-of-order packets for later reassembly.
-    The server receives the duplicate ACKs and resends the missing packet.
-    My client ACKs both the previously-missing packet and the later ones that were already received due to out-of-order transmission. This is done by simply ACKing the most recent packet, which implicitly ACKs all earlier ones as well.
-    The transfer continues, but with a reduced congestion window due to the lost packet.
-    This is normal; it's happened in every capture of the full download that I've done. TCP is so successful at its job that we don't even think of networks as being unreliable in our daily use, even though they fail routinely under normal conditions.
+      Congestion window quickly increases to ~1 megabyte due to continuing successful transmission.
+      A few thousand packets show up in order; everything is normal.
+      One packet comes out of order.
+      Data continues pouring in at megabytes per second, but the packet is still missing.
+      My machine sends dozens of duplicate ACKs of the last known-good packet, but the kernel also stores the pending out-of-order packets for later reassembly.
+      The server receives the duplicate ACKs and resends the missing packet.
+      My client ACKs both the previously-missing packet and the later ones that were already received due to out-of-order transmission. This is done by simply ACKing the most recent packet, which implicitly ACKs all earlier ones as well.
+      The transfer continues, but with a reduced congestion window due to the lost packet.
+      This is normal; it's happened in every capture of the full download that I've done. TCP is so successful at its job that we don't even think of networks as being unreliable in our daily use, even though they fail routinely under normal conditions.
 
     Physical networking
-    All of this network data has to be transferred over physical media like copper, fiber optics, and wireless radio. Of the physical layer protocols, Ethernet is the most well known. Its popularity in the early days of the Internet led us to design other protocols to accommodate its limitations.
+    All of this network data has to be transferred over physical media like
+    copper, fiber optics, and wireless radio. Of the physical layer protocols,
+    Ethernet is the most well known. Its popularity in the early days of the
+    Internet led us to design other protocols to accommodate its limitations.
 
-    First, let's get the physical details out of the way. Ethernet is most closely associated with RJ45 connectors, which look like bigger eight-pin versions of older four-pin phone jacks. It's also associated with cat5 (or cat5e, or cat6 or cat7) cable, which contains eight total wires twisted into four pairs. Other media exist, but these are the ones we're most likely to encounter at home: eight wires wrapped in a sheath connected to an eight-pin jack.
+    As a protocol, ethernet has two primary jobs:
+    1. each device needs to notice that it's connected to something, and some
+       parameters like connection speed need to be negotiated.
+    2. After link is established, carry data.
 
-    Ethernet is a physical layer protocol: it describes how the bits turn into electrical signals in a cable. It's also a link layer protocol: it describes the direct connection of one node to another. However, it's purely point-to-point and says nothing about how data is routed on a network. There's no concept of a connection in the sense of a TCP connection, or of reassignable addresses in the sense of an IP address.
+    A full Ethernet packet contains:
 
-    As a protocol, ethernet has two primary jobs. First, each device needs to notice that it's connected to something, and some parameters like connection speed need to be negotiated.
-
-    Second, once link is established, Ethernet needs to carry data. Like the higher-level protocols TCP and IP, Ethernet data is broken into packets. The core of a packet is a frame, which has a 1500 byte payload, plus another 22 bytes for header information like source and destination MAC address, payload length, and checksum. These fields are familiar: programmers often deal with addresses and lengths and checksums, and we can imagine why they're necessary.
-
-    The frame is then wrapped in yet another layer of headers to form the full packet. These headers are... weird. They start to bump up against the underlying reality of analog electrical systems, so they look like nothing we would ever put in a software protocol. A full Ethernet packet contains:
-
-    The preamble, which is 56 bits (7 bytes) of alternating 1s and 0s. The devices use this to synchronize their clocks, sort of like when people count off "1-2-3-GO!" Computers can't count past 1 so they synchronize by saying "10101010101010101010101010101010101010101010101010101010".
-    An 8-bit (1 byte) start frame delimiter, which is the number 171 (10101011 in binary). This marks the end of the preamble. Notice that it's "10" repeated again, until the end where there's a "11".
-    The frame itself, which contains the source and destination addresses, the payload, etc., as described above.
-    An interpacket gap of 96 bits (12 bytes) where the line is left idle. Presumably, this is to let the devices rest because they are tired.
-    Putting this all together: what we want is to transmit our 1500 bytes of data. We add 22 bytes to create a frame, which indicates the source, destination, size, and checksum. We add another 20 bytes of extra data accommodating the hardware's needs, creating a full Ethernet packet.
-
-    You might think this is the bottom of the stack. It's not, but things do get weirder because the analog world pokes through even more.
+      - The preamble, which is 56 bits (7 bytes) of alternating 1s and 0s. The
+        devices use this to synchronize their clocks, sort of like when people
+        count off "1-2-3-GO!" Computers can't count past 1 so they synchronize
+        by saying "10101010101010101010101010101010101010101010101010101010".
+      - An 8-bit (1 byte) start-frame delimiter, which is the number 171
+        (10101011 in binary). This marks the end of the preamble. Notice that
+        it's "10" repeated again, until the end where there's a "11".
+      - The frame itself, which contains the source and destination addresses,
+        the payload, etc., as described above.
+      - An interpacket gap of 96 bits (12 bytes) where the line is left idle.
 
     Networking meets the real world
     Digital systems don't exist; everything is analog.
@@ -226,11 +379,7 @@ https://www.destroyallsoftware.com/compendium/network-protocols?share_key=97d3ba
     - IP provides a layer of addressing, allowing routers and large-scale networks to exist, but it's connectionless.
     - Packets are fired into the ether, with no indication of whether they arrived or not.
     - TCP adds a layer of reliable transmission by using sequence numbers, acknowledgement, and retransmission.
-    - Application-level protocols like HTTP are layered on top of TCP. At this
-      level, we already have addressing and the illusion of reliable
-      transmission and persistent connections. IP and TCP save application
-      developers from constantly reimplementing packet retransmission and
-      addressing and so on.
+    - Application-level protocols like HTTP are layered on top of TCP.
 
     The independence of these layers is important. For example, when packets
     were lost during my 88.5 MB video transfer, the Internet's backbone routers
@@ -250,8 +399,55 @@ https://www.destroyallsoftware.com/compendium/network-protocols?share_key=97d3ba
 
     Likewise, the TCP packet needs to fit within the IP packet. TCP also has a minimum header size of 20 bytes, leaving a maximum TCP payload of 1480 - 20 = 1460 bytes. In practice, other headers and protocols can cause further reductions. 1400 is a conservative TCP payload size.
 
-    The 1400 byte limit influences modern protocols' designs. For example, HTTP requests are generally small. If we fit them into one packet instead of two, we reduce the probability of losing part of the request, with a correspondingly reduced likelihood of TCP retransmissions. To squeeze every byte out of small requests, HTTP/2 specifies compression for headers, which are usually small. Without context from TCP, IP, and Ethernet, this seems silly: why add compression to a protocol's headers to save only a few bytes? Because, as the HTTP/2 spec says in the introduction to section 2 compression allows "many requests to be compressed into one packet".
+    The 1400 byte limit influences modern protocols' designs. For example, HTTP
+    requests are generally small. If we fit them into one packet instead of two,
+    we reduce the probability of losing part of the request, with
+    a correspondingly reduced likelihood of TCP retransmissions. To squeeze
+    every byte out of small requests, HTTP/2 specifies compression for headers,
+    which are usually small.
 
-    HTTP/2 does header compression to meet the constraints of TCP, which come from constraints in IP, which come from constraints in Ethernet, which was developed in the 1970s, introduced commercially in 1980 and standardized in 1983.
+    HTTP/2 does header compression to meet the constraints of TCP, which come
+    from constraints in IP, which come from constraints in Ethernet, which was
+    developed in the 1970s, introduced commercially in 1980 and standardized in
+    1983.
 
-    One final question: why is the Ethernet payload size set at 1500 bytes? There's no deep reason; it's just a nice trade-off point. There are 42 bytes of non-payload data needed for each frame. If the payload maximum were only 100 bytes, only 70% (100/142) of time would be spent sending payload. A payload of 1500 bytes means about 97% (1500/1542) of time is spent sending payload, which is a nice level of efficiency. Pushing the packet size higher would require larger buffers in the devices, which we can't justify simply to get another percent or two of efficiency. In short: HTTP/2 has header compression because of the RAM limitations of networking devices in the late 1970s.
+    One final question: why is the Ethernet payload size set at 1500 bytes?
+    There's no deep reason; it's just a nice trade-off point. There are 42 bytes
+    of non-payload data needed for each frame. If the payload maximum were only
+    100 bytes, only 70% (100/142) of time would be spent sending payload.
+    A payload of 1500 bytes means about 97% (1500/1542) of time is spent sending
+    payload, which is a nice level of efficiency. Pushing the packet size higher
+    would require larger buffers in the devices, which we can't justify simply
+    to get another percent or two of efficiency. In short: HTTP/2 has header
+    compression because of the RAM limitations of networking devices in the late
+    1970s.
+
+
+OSI model
+================================================================================
+At each level N, two entities at the communicating devices (layer N peers)
+exchange protocol data units (PDUs) by means of a layer N protocol. Each PDU
+contains a payload (service data unit = SDU) plus headers/footers.
+
+- Layer 1: Physical Layer [baud = PPS] [ex: RS-232, RJ45]
+  xmit unstructured raw data between a device and a physical transmission medium.
+  Converts digital bits into electrical/radio/optical signals.
+  timing and frequency for wireless devices.
+
+- Layer 2: Data Link Layer [frame] [ex: Ethernet]
+  NODE-TO-NODE (not network!) data transfer: link between two directly connected nodes.
+  Frame delimiting and recognition; handling address space; transparent data
+  transfer of LLC PDUs; CRC Checking; control of access to the physical
+  transmission medium, like Token passing and CSMA/CD
+
+  sublayer 1: MAC control (Medium access): control how devices in a network gain access/permission to transmit data.
+  sublayer 2: LLC (Logical link control)
+
+- Layer 3: Network Layer [packet] [ex: IP, ICMP]
+  Multi-node NETWORK: nodes can xmit merely providing a message + address and letting the network deliver it.
+  Transfer variable-length data sequences (packets).
+
+- Layer 4: Transport Layer [segment, datagram] [ex: TCP, UDP]
+  RELIABLE (QoS) transfer of data between session-entities (ACK, track segments, re-transmit failed)
+
+- Layer 7: application

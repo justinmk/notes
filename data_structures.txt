@@ -75,19 +75,51 @@ priority queue (heap)
     max_key() or min_key() on a Dictionary enables it to serve as a priority queue.
     heap is a maximally efficient implementation of priority queue
 
+bloom filter
+    probabilistic data structure: NO or PROBABLY
+    time- AND space-efficient
+    applications:
+        webbrowser: check potential spam URL without hitting the network
+        cache (Akamai): store in cache only if requested at least once before
+        database: avoid disk lookup of non-existent rows/columns.
+    to insert an element: O(1)
+      1. Imagine you have k distinct, _deterministic_ hash functions.
+      2. For a given element, each hash function returns a different value
+         (collisions are okay).
+      3. Using the output of each hash function as an index into a bit-array,
+         set array[i]=true for each index i.
+      - Time-cost is O(1) because each insertion runs a constant number of
+        hash functions and sets a constant number of array indices
+    to check for membership: O(1)
+      1. Run it through all of the same hash functions again! Because the hash
+         functions are deterministic, the same input should return the same
+         output.
+      2. For each index (hash result), check if array[i] == true.
+         - If each case is true, result is PROBABLY (element was probably
+           inserted in the past).
+         - If any case is false, result is NO (no false negatives).
+
 splay tree
     uses rotations to move any accessed key to the root. Frequently-used or
     recently-accessed nodes thus sit near the top of the tree, allowing faster
     searches.
 
-B-trees
-    For data sets so large that they will not fit in main memory (say more than 1,000,000 items) your best bet will be some flavor of a B-tree. Once a data structure has to be stored outside of main memory, the search time grows by several orders of magnitude. With modern cache architectures, similar effects can also happen on a smaller scale, since cache is much faster than RAM.
-    The idea behind a B-tree is to collapse several levels of a binary search tree into a single large node, so that we can make the equivalent of several search steps before another disk access is needed. With B-tree we can access enormous numbers of keys using only a few disk accesses.
+B-tree
+    For data larger than main memory (~1M+ items).
+    self-balancing tree
+    generalization of a binary search tree: N children per node
+    concept: collapse several levels of a binary search tree into a single large
+             node, so we can do several search steps before another disk access
+             is needed. Can access enormous numbers of keys using only a few
+             disk accesses.
 
     TODO: http://patshaughnessy.net/2014/11/11/discovering-the-computer-science-behind-postgres-indexes
 
 Merkle tree
     TODO: https://blog.cloudflare.com/introducing-certificate-transparency-and-nimbus/
+
+trie (ReTRIEval, "prefix trie", "suffix trie", …)
+    examples: autocomplete, spellcheck, hierarchical routing (e.g. ip ranges)
 
 graphs
     TODO: BFS can be used to test bipartiteness, by starting the search at any

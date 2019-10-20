@@ -1,6 +1,6 @@
 todo:
-    "Distributed systems theory for the distributed systems engineer" https://news.ycombinator.com/item?id=11688124
     "Why Logical Clocks are Easy" https://queue.acm.org/detail.cfm?id=2917756
+    "A Note on Distributed Computing" https://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.41.7628
     https://blog.separateconcerns.com/2015-07-07-four-easy-reads-distsys.html
     https://www.microsoft.com/en-us/research/publication/byzantine-generals-problem/
       - the core, basic understanding needed to build distributed systems
@@ -12,7 +12,7 @@ todo:
     https://github.com/aphyr/distsys-class
     https://github.com/heathermiller/dist-prog-book
         RPC, Futures & Promises, Message-passing,  CAP, Consistency, & CRDTs, Large-scale Parallel Batch Processing, Large-scale Streaming,
-
+    "Impossibility of consensus" http://courses.csail.mit.edu/6.852/05/papers/
 
     distribute systems theory:
         introductory (a "gem"):
@@ -22,11 +22,47 @@ todo:
         theoretical:
             http://dcg.ethz.ch/lectures/podc_allstars/
 
-    papers:
-        http://www.cs.cornell.edu/courses/cs6410/2014fa/sched.htm
-        http://www.andrew.cmu.edu/course/15-749/READINGS/required/
-        http://christophermeiklejohn.com/distributed/systems/2013/07/12/readings-in-distributed-systems.html
-        http://courses.csail.mit.edu/6.852/05/papers/
+DISTRIBUTED SYSTEMS TOOLBOX
+  queue
+    - break big messages into chunks! (e.g. S3 files)
+  sharding
+  zookeeper ("consensus system")
+  map/reduce (ex: spark)
+  kafka (AWS: kinesis): real-time data pipeline/streaming. ordered, exactly-once messages. Horizontally scalable, fault-tolerant, fast.
+  CDN
+  LB: layer3 (ip-address), layer4 (DNS), layer7 (app)
+  gossip protocol (ex: SWIM https://prakhar.me/articles/swim/ )
+    - peer-to-peer virus-like communication amongst all members of an ad-hoc
+      network (no central registry)
+    - rely on each member to pass it along to their neighbors
+    - expect packet loss and partitions
+    - membership protocol answers "who are my peers?"
+  sql vs nosql
+    sql: ACID; scale horizontally by sharding
+    nosql (cassandra, bigtable): efficiency, not correctness. write-heavy. eventually consistent.
+  consistent hashing
+  distributed lock
+  distributed cache
+  distributed datastore: each node has partial backup of some other node.
+  replication
+    leaderless replication = "Dynamo technique" https://en.wikipedia.org/wiki/Dynamo_(storage_system)
+  eventual consistency
+
+PRIMITIVES  https://www.the-paper-trail.org/post/2014-08-09-distributed-systems-theory-for-the-distributed-systems-engineer/
+  - Leader election , e.g. http://en.wikipedia.org/wiki/Bully_algorithm
+  - Consistent snapshotting  http://research.microsoft.com/en-us/um/people/lamport/pubs/chandy.pdf
+  - Consensus
+    2PC https://the-paper-trail.org/blog/consensus-protocols-two-phase-commit/
+    3PC https://the-paper-trail.org/blog/consensus-protocols-three-phase-commit/
+  - Distributed state machine replication  http://en.wikipedia.org/wiki/State_machine_replication
+    - Broadcast: delivering messages to more than one node at once
+    - Atomic broadcast: can you deliver a message to all nodes in a group, or none?
+    - Gossip
+      classic paper: http://bitsavers.informatik.uni-stuttgart.de/pdf/xerox/parc/techReports/CSL-89-1_Epidemic_Algorithms_for_Replicated_Database_Maintenance.pdf
+    - Causal multicast (but also consider the enjoyable back-and-forth between Birman and Cheriton).
+  - Chain replication: neat way of ensuring consistency and ordering of writes
+    by organizing nodes into a virtual linked list.
+    - original paper: http://www.cs.cornell.edu/home/rvr/papers/OSDI04.pdf
 
 
 http://ferd.ca/lessons-learned-while-working-on-large-scale-server-software.html
@@ -40,17 +76,13 @@ CAP:
     http://blog.foundationdb.com/minimal-explanation-of-the-cap-theorem
         - Choosing (C) only requires stopping the machines that got
           disconnected, not the whole system!
-
         - 'Availability' in CAP refers to "perfect availabilty", where _all_
           nodes are _always_ up.
-
         - By choosing (A) you don't really have one database anymore, you have
           two or more! Either the database or the application needs to
           reconcile this problem and eventually re-sync to get back to the
           normal state.
-
         - Choosing (A) excludes the possibility of ACID transactions.
-
         - There will only be incoming reads and writes to the disconnected
           computer if there are clients that are still connected to it (on the
           same side of the partition).
@@ -71,14 +103,13 @@ CAP:
             - you assume short periods of unavailability are insignificant
 
     🎅  http://nathanmarz.com/blog/how-to-beat-the-cap-theorem.html
-        Incremental updates and the CAP theorem really don't play well
-        together; mutable values require read-repair in an eventually
-        consistent system. By rejecting incremental updates, embracing
-        immutable data, and computing queries from scratch each time, you avoid
-        that complexity. The CAP theorem has been beaten.
+        Incremental updates and the CAP theorem really don't play well together;
+        mutable values require read-repair in an eventually consistent system.
+        By rejecting incremental updates, embracing immutable data, and
+        computing queries from scratch each time, you avoid that complexity. The
+        CAP theorem has been beaten.
 
         Key properties of what a real solution will look like:
-
             1. The system makes it easy to store and scale an immutable,
                constantly-growing dataset
             2. The primary write operation is adding new immutable facts
@@ -91,6 +122,41 @@ CAP:
         batch computation, stream processing -- these are all techniques for
         optimizing query functions and bringing the latency down to an
         acceptable level.
+
+distributed lock
+    properties:
+      1. mutex
+      2. deadlock-free => TTL + monotonic fence
+      3. fault-tolerant
+    https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html
+    > you need to include a fencing token with every write request: a number
+    > that increases (e.g. incremented by the lock service) every time a client
+    > acquires the lock. For example, if you are using ZooKeeper as lock
+    > service, you can use the zxid or znode version number as fencing token.
+
+
+zookeeper ("consensus system")  https://martin.kleppmann.com/2015/05/11/please-stop-calling-databases-cp-or-ap.html
+    ZK by default does not provide linearizable reads. Each client is connected
+    to one of the server nodes, reads see only the data on that node, even if
+    there are more up-to-date writes on another node. This makes reads much
+    faster than if you had to assemble a quorum or contact the leader for every
+    read, but it also means that ZK by default does not meet CAP-consistency.
+
+    It is possible to make linearizable reads in ZK by preceding a read with
+    a `sync` command. That isn’t the default though, because it comes with
+    a performance penalty.
+
+    What availability? Well, ZK requires a majority quorum in order to reach
+    consensus, i.e. in order to process writes. In a partition, the majority
+    side continues to function, but the minority side can’t process writes.
+    Thus, writes in ZK are not CAP-available under a partition (even though the
+    majority side can continue to process writes).
+
+    Calling ZK “not consistent”, just because it’s not linearizable by default,
+    badly misrepresents its features. It actually provides an excellent level of
+    consistency! It provides _atomic broadcast_ (which is reducible to
+    consensus) combined with the session guarantee of causal consistency.
+
 
 Log ("journal" or "data log", not human-readable "text log"):
     https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying
@@ -112,7 +178,13 @@ Log ("journal" or "data log", not human-readable "text log"):
 
 
 
+Paxos Made Simple: http://research.microsoft.com/en-us/um/people/lamport/pubs/paxos-simple.pdf
 paxos: http://blog.willportnoy.com/2012/06/lessons-learned-from-paxos.html
 
 raft: http://thesecretlivesofdata.com/raft/
     - leader is elected via a random timeout
+
+testing/correctness
+    - Lineage-driven Fault Injection (LDFI): observes what succeeds without
+      faults, then induces targeted faults starting from the last successful
+      operation, working backwards.
