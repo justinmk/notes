@@ -13,3 +13,55 @@ PROFILING
 ================================================================================
 sampling profiler (uses SIGPROF, see http://jeremymanson.blogspot.de/2010/07/why-many-profilers-have-serious.html)
 https://github.com/jvm-profiling-tools/honest-profiler
+
+CONCURRENCY
+================================================================================
+ForkJoinPool#commonPool()
+  Threadpool with thread-count / behavior decided by getParallelism():
+    getParallelism() = (CPU_COUNT - 1):
+      > 2: JDK creates (CPU_COUNT - 1) threads for commonPool
+           !This is why common spool should be avoided for blocking tasks!
+      = 1: JDK creates a new thread for every task
+      = 0: task is executed on caller thread
+  Two major concepts use commonPool:
+    CompletableFuture: can specify thread-pool to avoid commonPool
+    parallel(): can NOT specify own thread-pool to avoid commonPool
+      Trick to avoid commonPool: https://stackoverflow.com/a/22269778
+  Demo:
+      import java.util.concurrent.*;
+      import java.util.stream.*;
+      import java.time.*;
+      import java.util.*;
+      public class CommonPoolTest {
+          public static void main(String[] args) {
+              System.out.println("CPU Core: " + Runtime.getRuntime().availableProcessors());
+              System.out.println("CommonPool Parallelism: " + ForkJoinPool.commonPool().getParallelism());
+              System.out.println("CommonPool Common Parallelism: " + ForkJoinPool.getCommonPoolParallelism());
+              long start = System.nanoTime();
+              List<CompletableFuture<Void>> futures = IntStream.range(0, 100)
+                      .mapToObj(i -> CompletableFuture.runAsync(CommonPoolTest::blockingOperation))
+                      .collect(Collectors.toUnmodifiableList());
+              CompletableFuture.allOf(futures.toArray(CompletableFuture[]::new)).join();
+              System.out.println("Processed in " + Duration.ofNanos(System.nanoTime() - start).toSeconds() + " sec");
+          }
+          private static void blockingOperation() {
+              try {
+                  Thread.sleep(1000);
+              } catch (InterruptedException e) {
+                  e.printStackTrace();
+              }
+          }
+      }
+
+    $ docker run -it --cpus 4 -v ${PWD}:/app --workdir /app adoptopenjdk/openjdk11 java CommonPoolTest.java
+    CPU Core: 4
+    CommonPool Parallelism: 3
+    CommonPool Common Parallelism: 3
+    Processed in 34 sec
+
+  ForkJoinPool.ManagedBlocker:  https://stackoverflow.com/a/46073118
+    informs the Fork/Join pool that a task may potentially block, so the pool
+    can create compensation threads when it recognizes that a worker thread is
+    about to block.
+
+

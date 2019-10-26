@@ -37,6 +37,9 @@ gdb
 
 rr: gdb replacment with efficient reverse execution http://rr-project.org
 
+Compiler Explorer: https://godbolt.org
+    compare optimization/assembly per-compiler/per-platform
+
 LINKING
 ================================================================================
 todo:
