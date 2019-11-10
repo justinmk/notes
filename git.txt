@@ -36,6 +36,10 @@ RANGES (see: git help rev-parse > "Specifying ranges")
 
     git merge-tree `git merge-base bob/master` master bob/master
 
+SELECT/FILTER COMMITS
+    # Show commits on `my-feature` and NOT on `master` (complement):
+    git log my-feature ^master
+
 CONFIGURATION: ALIASES
     ! runs at the root of the repo. To make ! commands relative to the current
     directory, cd to $GIT_PREFIX:

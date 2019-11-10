@@ -295,9 +295,8 @@ From the Sublime Text docs:
 
 multiple cursors
 ====================================================
-- multicursors are vim-like: think of them as
-  "enhanced marks"
-- Like 'inccommand', it is a zero-cost net gain
+- Multicursors are like "super marks".
+- Like 'inccommand', zero-cost net gain
 - Semantic "ring" of recent actions is a killer
   feature.
 - Serendipitous results:
@@ -306,12 +305,12 @@ multiple cursors
   - Manging "global state" as a context is key to
     p2p nvim ...
 
-multiple ... contexts
+Multiple ... contexts
 ====================================================
 Replace "cursor" with "context", now it's obvious.
 (call it "multiple marks", "enhanced macros", whatever.)
 
-multicursor behavior
+Multicursor behavior
 ====================================================
 undo
 redo
@@ -319,12 +318,12 @@ dot-repeat
 cursor-local registers
 macro
 
-multicursor behavior
+Multicursor behavior
 ====================================================
 Q
 q<BS>
 
-multicursor design: atoms
+Multicursor design: atoms
 ====================================================
 macro: lllljjj3jddukdiw
        ^^^ where are the atoms?
@@ -332,31 +331,26 @@ macro: lllljjj3jddukdiw
 model: user actions are atoms
 state machine: cascade atom at state transition
 
-multicursor demo
+Multicursor demo
 ====================================================
 nvim_get_atoms()
 
 :echo filter(nvim_get_atoms(),'v:val.keys!~#":"')[-1].keys
 
-multicursor design: mode?
+Multicursor design: mode?
 ====================================================
 Multicursor is not a "mode" in the Vim sense of
 a mode (Normal, Insert, Visual, Terminal, ...).
 Multicursor means only this:
 1. Buffer has multiple cursors ("super marks")
-2. Some (not all) user actions "cascade" to all
-   cursors.
-
+2. Some (not all) user actions "cascade" to all cursors.
 Normal-mode with multiple cursors is just normal-mode
 with extra effects.
-
-multicursor design: mode?
-====================================================
 - No new "multicursor mode".
 - No `:mnoremap` mapping namespace
 - No "-- MULTICURSOR --" message.
 
-multicursor design: API
+Multicursor design: API
 ====================================================
 There is an API, of course!
 - User/scripts can add/remove cursors at any time.

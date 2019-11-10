@@ -1,5 +1,8 @@
 Neovim / brain dump
 
+"Foolish consistency is the hobgoblin of little minds".
+But also the converse: foolish liberty. Constraints are useful for reasoning about a system.
+
 Why excited about neovim?
 - fast engine, luajit, not available in any other major editor
 - small, therefore cheap and flexible. Can spin up dozens of peers.
@@ -17,8 +20,8 @@ achievements:
 
 fundamental rule of technology: There Is No Third Ecosystem  https://news.ycombinator.com/item?id=16370602
 
-author of Xi editor mentions neovim:
-https://www.youtube.com/watch?v=SKtQgFBRUvQ
+"certainly it's inspired by Neovim" —Raph Levien, author of Xi editor
+https://youtu.be/SKtQgFBRUvQ?t=264
   - xi editor followup/retrospective: https://github.com/xi-editor/xi-editor/issues/1187#issuecomment-491473599
     > For syntax highlighting, any form of OT or CRDT is overkill; the highlighting is a stateless function of the document, so if there's a conflict, you can just toss the highlighting state and start again.
     > ... By now we have lots of examples where trying to design features around the structure imposed by CRDT turned out to be a lot more complicated than it would be in a more synchronous world.

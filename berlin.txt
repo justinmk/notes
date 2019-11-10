@@ -70,6 +70,10 @@ German language:
   Geist = psyche / mind / ghost
   Essen = food / essence
   Art = type / kind / way
+  vernichten
+  senken
+  schleppen
+  quer
 
 Observations:
   No lizards

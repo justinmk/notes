@@ -631,7 +631,23 @@ Frequency illusion / Baader-Meinhof Phenomenon
     tag="concepts cogsci mental-model"
   time="2015-02-13T19:03:21Z" 
 
-Apdex - Wikipedia, the free encyclopedia
+
+Habitat fragmentation
+================================================================================
+https://en.wikipedia.org/wiki/Habitat_fragmentation
+Ecological thinning: https://en.wikipedia.org/wiki/Ecological_thinning
+_Impact of forest paths upon adjacent vegetation_: S. Godefroid, N. Koedam, 2004
+tag="concepts ecology mental-model"
+.
+> Edge effects alter the conditions of the outer areas of the fragment, greatly
+> reducing the amount of true forest interior habitat.
+>
+> A large number of small forest "islands" typically cannot support the same
+> biodiversity that a single contiguous forest would hold, even if their
+> combined area is much greater than the single forest.
+
+
+Apdex
 ================================================================================
   for a threshold of t: Apdex_t = (Satisfied Count + Tolerating Count / 2) / Total Samples // http://mvolo.com/why-average-latency-is-a-terrible-way-to-track-website-performance-and-how-to-fix-it/
   href="http://en.wikipedia.org/wiki/Apdex" 
@@ -5413,6 +5429,14 @@ Programming and Computation
 ================================================================================
   href="http://okmij.org/ftp/Computation/" 
    tag="compsci todo" time="2008-03-31T06:34:44Z" 
+
+
+Alan Kay
+================================================================================
+tag="compsci history"
+Francis Bacon = origin of science.
+Science= heuristics to get around bad brains.
+
 
 regular expression generator 
 ================================================================================

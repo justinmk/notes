@@ -1,6 +1,9 @@
 http://www.luafaq.org/#T1.11
 https://en.blog.nic.cz/2015/08/12/embedding-luajit-in-30-minutes-or-so/
 
+Userdata: represents C values in Lua
+Light Userdata: represents C pointers in Lua
+
 Module organization
     LTN7: http://www.lua.org/notes/ltn007.html
 
