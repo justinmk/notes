@@ -1880,6 +1880,23 @@ Kubernetes: The Surprisingly Affordable Platform for Personal Projects
 https://www.doxsey.net/blog/kubernetes--the-surprisingly-affordable-platform-for-personal-projects
 tag="kubernetes cloud orchestration sre paas dcos gce gcr google programming devops container virtualization sysadmin deployment"
 
+Evaluating Bazel for building Firefox
+================================================================================
+https://news.ycombinator.com/item?id=21389206
+tag="bazel build google programming devops dependencies"
+Hermetic declarative build system
+- query the dependency graph
+- track all accesses to files
+- example: compiling a few C++ files into a binary is just:
+    cc_binary(
+      name = "app",
+      srcs = glob([ "*.hpp", "*.cpp" ]),
+    )
+xxx:
+> it is pretty simple to poison the cache.
+> Bazel does not really hash any of the system stuff -- like system headers, and system-provided .a and .so files
+>> On any large team your compiler should be checked into revision control or have a way to fetch a specific artifact & have that pointer checked in
+
 Docker examples
 ================================================================================
 https://github.com/jessfraz/dockerfiles/blob/master/irssi/Dockerfile
@@ -6058,6 +6075,8 @@ tag="programming software-engineering debugging security amazon aws"
   policy".
 - Consider chalice's analyzer.py which generates policies for Python web apps:
   https://github.com/aws/chalice/blob/master/chalice/analyzer.py
+.
+TODO: maybe SimulatePrincipalPolicy API is useful? https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html
 .
 [1] https://pypi.org/project/picire/
 [2] https://www.st.cs.uni-saarland.de/dd/
