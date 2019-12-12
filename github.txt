@@ -1,0 +1,34 @@
+GitHub Actions
+
+  Working example:
+    .github/workflows/main.yml:
+        name: CI
+        on:
+          push:
+            branches:
+            - master
+            - release-*
+        jobs:
+          fix-merge-commit:
+            runs-on: [ubuntu-latest]
+            # if: github.ref == 'master'
+            steps:
+            - uses: actions/checkout@v1
+            - name: Rewrite merge-commit message
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                SED_PATTERN: "[pP]ull [rR]equest \\?"
+              run: |
+                git config user.email "actions@github"
+                git config user.name "Github Actions"
+                git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+                if git --no-pager log -1 --format='%B' | grep "$SED_PATTERN" ; then
+                  echo "rewriting commit-message..."
+                  git commit --amend -m "$(git --no-pager log -1 --format='%B' | sed "1s/$SED_PATTERN//")"
+                  git push --force origin HEAD:${GITHUB_REF}
+                else
+                  echo "commit looks ok, skipped"
+                fi
+
+  see also:
+    https://github.com/jessfraz/branch-cleanup-action

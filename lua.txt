@@ -4,6 +4,22 @@ https://en.blog.nic.cz/2015/08/12/embedding-luajit-in-30-minutes-or-so/
 Userdata: represents C values in Lua
 Light Userdata: represents C pointers in Lua
 
+Scopes
+    upvalue = "External local variable" used in an inner function (closure).
+              I.e. non-global, non-local, closed-over scope.
+              Lua maintains upvalues separately from the stack, for each closure.
+              http://www.lua.org/manual/5.1/manual.html#2.6
+
+    Each execution of `local` defines new local variables.
+    Example: Each of closure created in the loop uses a different y variable,
+    but all of them share the same x.
+        a = {}
+        local x = 20
+        for i=1,10 do
+          local y = 0
+          a[i] = function () y=y+1; return x+y end
+        end
+
 Module organization
     LTN7: http://www.lua.org/notes/ltn007.html
 

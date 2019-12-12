@@ -364,6 +364,21 @@ http://googleresearch.blogspot.com/2015/12/how-to-classify-images-with-tensorflo
 
 tag="deep-learning machine-learning random-forests compsci"
 
+The Bitter Lesson, Rich Sutton, 2019
+================================================================================
+http://www.incompleteideas.net/IncIdeas/BitterLesson.html
+tag="deep-learning machine-learning compsci engineering moores-law scale"
+The bitter lesson:
+> 1) AI researchers have often tried to build knowledge into their agents,
+> 2) this always helps in the short term, and is personally satisfying to the researcher, but
+> 3) in the long run it plateaus and even inhibits further progress, and
+> 4) breakthrough progress eventually arrives by an opposing approach based on scaling computation by search and learning. The eventual success is tinged with bitterness, and often incompletely digested, because it is success over a favored, human-centric approach.
+Takeaway:
+> The great power of general purpose methods, of methods that continue to scale
+> with increased computation.
+> 2 methods that scale arbitrarily in this way: SEARCH and LEARNING.
+
+
 Random forests
 ================================================================================
   http://research.microsoft.com/pubs/155552/decisionForests_MSR_TR_2011_114.pdf Random forests &quot;can handle classification, regression, semi-supervised learning, manifold learning, and density estimation. The paper gives an introduction to each of these topics as well as a unified framework to implement each algorithm.&quot; &quot;The paper is well-written and easy to understand for someone without a deep background in machine learning.&quot;
@@ -1442,7 +1457,7 @@ tag="blog economics china" time="2014-12-02T01:05:58Z"
 UNQUALIFIED RESERVATIONS: The future of search
 ================================================================================
 https://unqualified-reservations.blogspot.de/2010/03/future-of-search.html
-tag="urbit search future distributed-systems"
+tag="urbit p2p search future distributed-systems"
 
 Commodity search, if there is any such thing, is clearly the Future of Search.
 But commodity search cannot be search as we know it. It cannot be the same
@@ -1480,10 +1495,29 @@ a general-purpose namespace of extremely consistent general quality, which will
 attract high traffic from the legacy Web and thus be highly searchable, even
 through Google.
 
+Urbit
+================================================================================
+https://urbit.org/blog/stable-arvo/
+tag="urbit p2p versioning"
+> "Continuity" or "permanence" is arguably Urbit's killer feature: you start
+> your ship, it just works, forever.
+.
+> With the recent 0.9.0 release we’ve gotten to the point where we can make
+> almost all our upgrades over the air. Even the language is now upgradeable
+> over the wire.
+
+Urbit explanation
+================================================================================
+https://news.ycombinator.com/item?id=21674120
+tag="urbit p2p"
+> The system being a top to bottom rewrite of the stack in such a way so as to sidestep the client/server relationship entirely. A lot of services rely upon positioning themselves as the server, as the big computer you have timeshared access to, and they monetise your usage. For things like photo storage, or basic communication, or permissioned access to your files, this is pointless. Any computer could do it, but the internet is itself based upon asking a server for something and getting it. And running a server sucks.
+> Any other peer to peer solution is partial, and therefore not able to compete with the internet as is. Urbit basically plans around an identity system that prevents spam and abuse; a hierarchical packet routing structure for those identities that doubles as a de facto governance model (due to having a vested interest in the network, the higher up you go); a kernel designed to freeze, and its entire OS on top a series of event logs that mark down computations and new states; a functional language for this "internet where every computer is a database", and the encrypted networking protocol that uses UDP while still ensuring packets always find you.
+> So if you wanted to, say, have a group of people set as a peer list that others can subscribe to or join, or build or use applications that lets that peer list join chats or see a set of files based upon some arbitrary marker (like giving you $5/mo?) ... you don't need a million services to spread the load, one task per service, each person joining each service. You can just use your own computer. It's a personal server platform for a peer to peer internet. It's an internet designed to resist bad actors, and to resist AOL, to resist Facebook and Google
+
 Urbit: functional programming from scratch
 ================================================================================
 http://moronlab.blogspot.co.uk/2010/01/urbit-functional-programming-from.html
-tag="urbit nock functional-programming"
+tag="urbit p2p nock functional-programming"
 
 if your goal is merely to _model_ data, you neither need nor want cyclic graphs
 nor pointer identity. (Note that while nouns containing replicated subtrees can
@@ -1504,13 +1538,13 @@ considered essential to efficiency - from cyclic graphs, to built-in arithmetic.
 Hoon and You - An FP Perspective
 ================================================================================
 https://github.com/famousj/hoon-lc2018/blob/master/hoon-talk.md
-tag="urbit hoon functional-programming fp programming"
+tag="urbit p2p hoon functional-programming fp programming"
 
 
 A Founder's Farewell
 ================================================================================
 https://urbit.org/posts/essays/a-founders-farewell/
-tag="urbit distributed-systems software-engineering programming compsci systems network interop"
+tag="urbit p2p distributed-systems software-engineering programming compsci systems network interop"
 Big ideas:
 1. Validation
   > 20th-century languages underrate the centrality of communication to computing.
@@ -1541,6 +1575,18 @@ Avoid "premature explanation".
   >
   > When you don't know exactly what you're doing, preserve as much ambiguity as
   > possible.
+
+
+urbit features
+================================================================================
+https://news.ycombinator.com/item?id=15300676
+tag="urbit p2p distributed-systems systems network"
+- All events are transactions, down to the VM level. There's no concept of an event that left garbage around because power was cut or the machine was rebooted. You can always crash an event, making it as if it never happened.
+- Single-level store. Never worry about ORM because your in-memory state never goes away (because all events are transactions).
+- Persistent connections with exactly-once messaging. Disconnection is just seen as long latency.
+- Strict, purely functional language with a strong type system but no Hindley-Milner (so you don't need category theory).
+- Sane indentation for a functional language, known as "backstep".
+- The file system is a typed revision control system, which allows intelligent diffs on types other than plain text.
 
 
 PGP and You 
@@ -1996,6 +2042,11 @@ FLOSS Weekly | TWiT.TV
 ================================================================================
   href="http://twit.tv/show/floss-weekly"  
   tag="podcast" time="2013-09-30T14:26:16Z" 
+
+On The Brink with Castle Island, Matt Walsh and Nic Carter
+================================================================================
+https://castleisland.libsyn.com/urbit-christian-lingales-and-logan-allen-ep17
+tag="podcast bitcoin urbit decentralization"
 
 
 Beyond Corp: The Access Proxy
@@ -5360,6 +5411,11 @@ tag="concepts history culture politics"
 > religiosity, patriarchy, strict sexual morals, and perfectionist art.
 > A society in peace will develop in the opposite direction called kungic, which
 > includes egalitarianism and tolerance.
+
+Doing Business In Japan
+================================================================================
+https://www.kalzumeus.com/2014/11/07/doing-business-in-japan/
+tag="culture japan travel"
 
 Lesser Key of Solomon
 ================================================================================
