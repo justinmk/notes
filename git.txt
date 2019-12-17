@@ -138,6 +138,19 @@ REMOTES
     git remote add <name> git://<ip-address>/<directory-containing-.git>
     git remote add smurf ssh://user@<HOST_IP>:9999/~/.git
 
+PER-REPO SSH KEYS
+    ~/.ssh/config:
+        Host host1
+        HostName github.com
+        User git
+        IdentityFile ~/.ssh/host1_key
+    .git/config:
+        [user]
+          name  = user1              # github username
+          email = user1@example.com  # github email
+    $ ssh-add -D  # delete cached keys!
+    $ git push ...
+
 VIRTUALBOX CONFIGURATION
     * in guest host:
         $ sudo ip link set dev ethX down
