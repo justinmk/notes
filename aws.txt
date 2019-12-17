@@ -34,7 +34,7 @@ CloudTrail
 
 CloudTrail vs CloudWatch vs Config
     ^         ^             ^config change management
-    |         `alert unusual activiy
+    |         `alert unusual activity
     `logs API calls
 
 ECS: EC2 container service
@@ -62,6 +62,10 @@ Lambda
 Glacier
     Lifecycle rules: automatically archive S3 data after expiration.
     Best practices: Store the filename in the Description field.
+
+Xray
+    Trace: end-to-end data related to a single request across all services
+    Segments: trace fragment corresponding to a single service.
 
 AWS Config: visibility into configuration changes
     configuration item (CI): standard config format
