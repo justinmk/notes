@@ -13,3 +13,15 @@ system design:
     - estimates/calculations
     - technologies
 
+3 words about me:
+  leverage
+  visibility (fail early)
+  unblock (adaptive)
+
+startup life:
+  1. fleetscanner: RO filesystem hack
+  2. pathtopark: circular route
+  3. in-car dashboard: ship now, update OTA
+  4. data lake: overlay filesystem
+  5. DS pipeline: Luigi + parallel
+  6. segment ids: Open Location Code (OLC) https://plus.codes

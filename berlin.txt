@@ -74,6 +74,11 @@ German language:
   senken
   schleppen
   quer
+  entschuldigen = "unguilt"
+  Stimmung = "inner voice"
+  Lebensmut = "life grit"
+  Einsam = "one peace"
+  Wehmut = "sore mood"
 
 Observations:
   No lizards

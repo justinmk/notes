@@ -5707,13 +5707,8 @@ The Hangover That Lasts - New York Times
 ================================================================================
   heavy drinking in early or middle adolescence ... can lead to diminished control over cravings for alcohol and to poor decision-making. exercise has been shown to stimulate the regrowth and development of normal neural tissue.
   href="http://www.nytimes.com/2007/12/29/opinion/29steinberg.html?_r=1&amp;oref=slogin"
-    tag="health"
+  tag="health neuroplasticity"
   time="2007-12-30T22:38:32Z" 
-
-RonPaulTshirts.com 
-================================================================================
-  href="http://www.giftedtwisted.com/"  
-  tag="ronpaul" time="2007-12-27T06:31:39Z" 
 
 RepRap
 ================================================================================
@@ -5721,6 +5716,22 @@ RepRap
   href="http://www.reprap.org/"  
   tag="3d_printing self-replication programming electronics engineering"
   time="2007-12-25T00:45:09Z" 
+
+Got-It
+================================================================================
+https://news.ycombinator.com/item?id=21805248
+time="20191216"
+tag="design vlsi ise labels tags inventory rfid bluetooth proximity programming electronics engineering software startup"
+> Ultra thin Bluetooth labels called Got-it (https://got-it.com)
+> Got-it is for tracking things at work as a team. Simply peel and stick, no different from a barcode sticker. But, these are active Bluetooth labels. They're flexible and roughly the size of a little Avery barcode label (28mm x 76mm) and less than 0.5mm thick. They communicate with the phones already in employee pockets, even in background mode. That means no scanning like RFID, and no readers or gateway infrastructure to install in the ceiling or the doorways.
+> ... a way to make our Bluetooth beacon firmware more reliably trigger background processing in phones, while still preserving ultra low power consumption. To do so, we ended up writing low-level embedded code, in less than 1.5KB and 135 Bytes RAM, to control the radio registers directly, without a BLE stack. Phones receive just enough information from our labels to enable a lean, low-power positioning algorithm we wrote.
+> ... passive components, like inductors and capacitors using these inks and laminates by taking advantage of the thin geometry of the substrate itself. Our bill of materials is just a few lines long, so sourcing in China isn’t needed.
+> ... electrochemically coating our circuit to form our own battery source that lasts over a year.
+.
+paulgerhardt:
+> All commercial circuit boards are designed with computer aided design tools. An unfortunate consequence of these tools are monocultural, emergent styling decisions that stem from the tooling's schema. John Maeda has half a dozen books on this - he suggests one must design ones own tools if you don't want to look like everyone else and compete with the same strengths and weaknesses as everyone else.
+> ...
+> What makes Got-It special is not just that the broke the conventions of the traditional EE design patterns but that they broke them in so many different places. Where most people would use a readily available Bluetooth Chip, it sounds like they sourced the core to half-a-chip (Bluetooth MCU chips are often a combination of Arm processor, memory, radio, power management, and communication cores - it's not common to just take a few of these things - they're sold as a package but all those parts take power and this thing has a very tight power budget). They wrote their own Bluetooth stack (this alone is a multi-year project). That stack they wrote took into account weird specification...divergences...that the Bluetooth SIG says one should do but Apple/Android don't. The circuit they designed only works with the manufacturing process they had to develop for this chip - designs are usually done on rectangular boards, not tape. Most people don't make their own passive components they source them. Most people don't think about their circuit in 4D (that is 3D+movement as it bends in use). Most people don't think about making their own manufacturing equipment to serve a SaaS like business goal. I'm not even getting into the battery part which is bananas. The list goes on, as Brian enumerated above, but the combination of so many of these things represents a radical departure from 'business as usual' and the start of a new design movement as has happened when people transitioned from using drafting tables to computers decades ago.
 
 Globalization and localization demystified in ASP.NET 2.0
 ================================================================================
