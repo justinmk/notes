@@ -146,8 +146,9 @@ PER-REPO SSH KEYS
         IdentityFile ~/.ssh/host1_key
     .git/config:
         [user]
-          name  = user1              # github username
           email = user1@example.com  # github email
+        [remote "origin"]
+          url = git@host1:justinmk/repo1.git
     $ ssh-add -D  # delete cached keys!
     $ git push ...
 
