@@ -282,6 +282,11 @@ CONSENSUS: BRIDGING THEORY AND PRACTICE
   tag="raft cap distributed-systems compsci todo papers"
   time="2016-01-07T22:10:02Z" 
 
+Things we (finally) know about network queues
+================================================================================
+https://apenwarr.ca/log/20170814
+tag="queue-theory network compsci"
+
 The UNIX Time-Sharing System / Dennis M. Ritchie and Ken Thompson
 ================================================================================
 https://people.eecs.berkeley.edu/~brewer/cs262/unix.pdf
@@ -1270,6 +1275,30 @@ Though asymmetric insurgent warfare can be extremely effective, over time compet
 5. Mutually Assured Destruction
 
 Somewhat paradoxically, the stronger two opponents become, the less likely they may be to destroy one another. This process of mutually assured destruction occurs not just in warfare, as with the development of global nuclear warheads, but also in business, as with the avoidance of destructive price wars between competitors. However, in a fat-tailed world, it is also possible that mutually assured destruction scenarios simply make destruction more severe in the event of a mistake (pushing destruction into the “tails” of the distribution).
+
+Pomodoro technique
+================================================================================
+http://baomee.info/pdf/technique/1.pdf
+tag="work productivity habits focus concentration time-management"
+1 Pomodoro (30 minutes) = 25 minutes of work + 5-minute break
+- When the timer rings, this signals that the current activity is peremptorily
+  (though temporarily) finished. You’re not allowed to keep on working “just for
+  a few more minutes”, even if you’re convinced that in those few minutes you
+  could complete the task at hand. The 3-5 minute break gives you the time you
+  need to “disconnect” from your work. This allows the mind to assimilate what’s
+  been learned in the last 25 minutes.
+- Every 4 Pomodoros, stop the activity you’re working on and take a longer
+  break, 15~30 minutes.
+- During breaks, the important thing is not to do anything complex, otherwise
+  your mind won’t be able to reorganize and integrate what you’ve learned, and
+  as a result you won’t be able to give the next Pomodoro your best effort.
+  Obviously, during this break too you need to stop thinking about what you did
+  during the last Pomodoros.
+- If you finish a task while the Pomodoro is still ticking, the following rule
+  applies: If a Pomodoro Begins, It Has to Ring. It’s a good idea to take
+  advantage of the opportunity for overlearning (17), using the remaining
+  portion of the Pomodoro to review or repeat what
+- Task complexity: "If It Lasts More Than 5-7 Pomodoros, Break It Down."
 
 Ambarella | Embedded Computer Vision SoCs
 ================================================================================
@@ -5805,12 +5834,6 @@ tag="programming .net deploy ship cross-platform"
 command:
   dotnet publish -r win-x64 -c Release /p:PublishSingleFile=true /p:PublishTrimmed=true
 
-ASP.NET RSS Toolkit 
-================================================================================
-  href="http://www.codeplex.com/ASPNETRSSToolkit" 
-   tag="programming asp.net"
-  time="2007-05-24T17:41:45Z" 
-
 Lightweight Invisible CAPTCHA Validator Control
 ================================================================================
   href="http://haacked.com/archive/2006/09/26/Lightweight_Invisible_CAPTCHA_Validator_Control.aspx"
@@ -5823,11 +5846,6 @@ fundamentals javascript concepts
   href="http://odetocode.com/Articles/473.aspx" 
    tag="programming javascript"
   time="2007-05-17T19:27:53Z" 
-
-XML Notepad open source
-================================================================================
-  href="http://www.codeplex.com/xmlnotepad" 
-   tag=".net xml xsl" time="2007-04-30T22:30:06Z" 
 
 Principality of Sealand
 ================================================================================
@@ -5846,8 +5864,9 @@ Slashdot | IT Worker Shortages Everywhere
 IMF admits disastrous love affair with the euro and apologises for the immolation of Greece
 ================================================================================
 http://www.telegraph.co.uk/business/2016/07/28/imf-admits-disastrous-love-affair-with-euro-apologises-for-the-i/
+tag="economics politics government-failure"
 Ambrose Evans-Pritchard 29 JULY 2016 • 11:27AM
-
+.
 > The International Monetary Fund’s top staff misled their own board, made
 > a series of calamitous misjudgments in Greece, became euphoric cheerleaders
 > for the euro project, ignored warning signs of impending crisis, and
@@ -5862,7 +5881,6 @@ Ambrose Evans-Pritchard 29 JULY 2016 • 11:27AM
 > the IMF, leaving it unclear who is ultimately in charge of this extremely
 > powerful organisation.
 
-tag="economics politics government-failure"
 
 The Problem with Programming
 ================================================================================
@@ -6153,3 +6171,50 @@ Kerbal Space Program: Create and Manage Your Own Space Program
 ================================================================================
 https://www.kerbalspaceprogram.com
 tag="game software kids learning science space pedagogy"
+
+No nuances, just buggy code (was: related to Spinlock implementation and the Linux Scheduler)
+================================================================================
+https://news.ycombinator.com/item?id=21959692
+https://www.realworldtech.com/forum/?threadid=189711&curpostid=189752
+tag="linux scheduler rtos os"
+Takeaway:
+- Don't use spinlocks in userspace. Userspace spinlocking is not legible to the
+  kernel. Therefore anytime you attempt it you are in the situation of fighting
+  the scheduler.
+- sched_yield() is almost always a mistake because it does not convey intent
+  (except in narrow realtime scenarios). Instead tell the kernel why you want to
+  yield CPU: work with the kernel, not against it.
+  Do you want to ...
+  - wait until some future point in time? Use sleep.
+  - wait for some I/O? Use poll or variants.
+  - wait for a signal from another thread? Use mutexes, conditions, etc. that call
+    futex under the hood.
+Linus Torvalds:
+> sched_yield() is basically historical garbage ... Most people expect it to be
+> a very light-weight operation exactly because they (incorrectly) think it's
+> trivial, and they have literally tuned their load for that case.
+>
+> Do you think, for example, that the system should do a very expensive "check
+> every single CPU thread to see if one of them has a runnable thread but is
+> running something else, and break the CPU affinity of that thread and bring it
+> to this CPU"? Yes, that other thread isn't running right now, but bringing it
+> to this CPU might slow it down enormously because now all the caches are gone
+> because all the historical data it was working on is in another NUMA domain.
+>
+> Yes, certain simple schedulers get exactly the behavior you want. The best way
+> to get exactly your behavior is to have a single run-queue for the whole
+> system, and make 'sched_yield()' always put the thread at the back of that
+> run-queue, and pick the front one instead.
+>
+> Any locking model that uses "sched_yield()" is simply garbage. Really. If you
+> use "sched_yield()" you are basically doing something random. Imagine what
+> happens if you use your "sched_yield()" for locking in a game, and somebody
+> has a background task that does virus scanning, updates some system DB ...
+>
+> Btw, locking can be simple too. If you do a lot of work, and the locking is
+> something "occasional", you can use things like just passing a token over
+> a pipe (or even a network connection) as your locking mechanism. ... Create
+> a counting semaphore by initialize a pipe with N characters (where N is your
+> parallelism for the semaphore), and then anybody who wants to get the lock
+> does a one-byte read() call and anybody who wants to release the lock writes
+> a single byte back to the pipe.

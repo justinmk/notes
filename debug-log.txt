@@ -177,3 +177,14 @@ SOLUTION:
 kill the `tcpdump` process (pid 21356), so that the file handle is released.
 
 ==============================================================================
+20200104
+
+https://drewdevault.com/2020/01/04/Slow.html
+https://lobste.rs/s/dnfxpk/hello_world
+
+Q: How to get a rough idea of syscalls done by a program?
+A: `strace -c` reports stats on syscalls.
+
+    strace -c -- bash -c 'echo hi' 2>&1
+
+==============================================================================

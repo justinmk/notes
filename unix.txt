@@ -58,7 +58,7 @@ debug
         #      follow subprocesses
 
     strace -k shows application backtrace (requires strace 4.9 +libunwind)
-        strace -k -e trace=chdir nvim -u NONE -echdir -c ":q"
+        strace -k -e trace=chdir nvim -u NONE -echdir +":q"
             chdir("/home/raf")                      = 0
              > /lib64/libc-2.20.so(chdir+0x7) [0xd8d27]
              > /usr/bin/nvim(uv_chdir+0x9) [0x1ac3e9]

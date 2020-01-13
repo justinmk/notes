@@ -28,7 +28,10 @@ DISTRIBUTED SYSTEMS TOOLBOX
   sharding
   zookeeper ("consensus system")
   map/reduce (ex: spark)
-  kafka (AWS: kinesis): real-time data pipeline/streaming. ordered, exactly-once messages. Horizontally scalable, fault-tolerant, fast.
+  pulsar: https://pulsar.apache.org  https://news.ycombinator.com/item?id=21936252
+    "Kafka is dead"
+    pub/sub (SQS) + log (Kinesis, Kafka)
+                                  ^Kafka (AWS: Kinesis): real-time data pipeline/streaming. ordered, exactly-once messages. Horizontally scalable, fault-tolerant, fast.
   CDN
   LB: layer3 (ip-address), layer4 (DNS), layer7 (app)
   gossip protocol (ex: SWIM https://prakhar.me/articles/swim/ )

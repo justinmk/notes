@@ -1,5 +1,5 @@
 send email from command line: MSMTP
-    https://code.google.com/p/google-gadgets-for-linux/wiki/MSMPTQuickStart
+    https://github.com/marlam/msmtp-mirror
     https://wiki.archlinux.org/index.php/msmtp
 
 http://matt.might.net/articles/bash-by-example/
@@ -202,6 +202,8 @@ BEST PRACTICES / LINT
         - [[]] (double brackets) avoids problems like unexpected pathname
           expansion.
         - $* is rarely the right choice, prefer "$@" (including quotes).
+          "$*" => "$1 $2 $3..."
+          "$@" => "$1" "$2" "$3"...
         - Run script wth _expanded_ trace (debug): bash -x myscript.sh
             - Use "set -o xtrace" to do this from the script itself => useful if
               the script is run on a remote machine, e.g. a build-bot.
