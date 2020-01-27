@@ -38,12 +38,13 @@ NAD decreases lactic acid, muscle fatigue.
 > 0.5 g of resveratrol each morning.
 > 1.0 g metformin each night. Protects against alzheimers.
 
-You need a period during the day, where you’re hungry.
+You need a period every day, where you’re hungry.
 
 counterpoints: https://www.reddit.com/r/longevity/comments/alajlf
 
 ================================================================================
-Wim Hof method (breathing)
+Wim Hof method
+breathing
   - Full & Deep Inhale: belly chest head, in that order
   - Exhale (just let go of the held breath, don't push out).
   - Repeat 30 times. You may get light-headed & feel tingling. This is normal.
@@ -54,6 +55,9 @@ Wim Hof method (breathing)
   - This marks a complete round.
   - Repeat for 3-5 rounds every morning.
   - Best performed on an empty stomach.
+cold shower: 2-min at start of each day
+  - wakes up vascular system => heart does less work
+  - lowers heart-rate => lower stress, healthier heart
 
 Doctor Dissects the Wim Hof Method  https://www.youtube.com/watch?v=D6EPuUdIC1E
   - cyclical hyperventilation,      hypoventilation
@@ -101,3 +105,27 @@ Post
   It can be hard for patients to tell if a sprain has healed because even an
   ankle with a chronic tear can be highly functional.
 
+================================================================================
+avoid: PFAS chemicals in water, clothing
+https://news.ycombinator.com/item?id=22116696
+
+- PFAS = perfluoroalkyl substances
+- byproduct of Teflon, Scotchguard, firefighting foam production process
+- bio-accumulates (body does not quickly flush/degrade this substance)
+toxicological implications:  https://news.ycombinator.com/item?id=22119403
+> doesn't degrade and accumulates in the body
+> half-life of 3.8 years in human blood
+
+> Of tap water samples taken by EWG from 44 sites in 31 states and Washington D.C., only one location, Meridian, Mississippi, which relies on 700 foot (215 m) deep wells, had no detectable PFAS.
+> Only Seattle and Tuscaloosa, Alabama had levels below 1 part per trillion (PPT),
+
+> EPA has known since at least 2001 about the problem of PFAS in drinking water
+
+> PFAS chemicals are sprayed liberally onto the surface of clothing, and furniture, and this may account for far more human PFAS consumption than drinking water.
+> widely used for waterproofing fabrics. Industry term is DWR -- Durable Water Repellent.
+> "stain/water resistant" clothes, carpeting
+> Scotchgard
+> "compostable" grease-proof bowls you see at Qdoba, Chipotle, etc.
+
+Europe: https://news.ycombinator.com/item?id=22117397
+> around factories, airports, military bases in Germany

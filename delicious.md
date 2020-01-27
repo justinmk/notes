@@ -5429,6 +5429,26 @@ Obie Fernandez: Do the Hustle
     tag="work contracting"
   time="2008-09-14T18:49:57Z" 
 
+Long-time nuclear waste warning messages
+================================================================================
+https://en.wikipedia.org/wiki/Long-time_nuclear_waste_warning_messages
+tag="concepts history future weird semiotics iconography"
+> messages are intended to deter human intrusion at nuclear waste repositories
+> in the far future, within or above the order of
+> magnitude of 10,000 years. Nuclear semiotics ... Human Interference Task Force
+> since 1981.
+>
+>   This place is a message... and part of a system of messages ...pay attention to it!
+>   Sending this message was important to us. We considered ourselves to be a powerful culture.
+>   This place is not a place of honor ... no highly esteemed deed is commemorated here... nothing valued is here.
+>   What is here was dangerous and repulsive to us. This message is a warning about danger.
+>   The danger is in a particular location... it increases towards a center... the center of danger is here... of a particular size and shape, and below us.
+>   The danger is still present, in your time, as it was in ours.
+>   The danger is to the body, and it can kill.
+>   The form of the danger is an emanation of energy.
+>   The danger is unleashed only if you substantially disturb this place physically. This place is best shunned and left uninhabited.
+
+
 Regality theory and cultural selection theory
 ================================================================================
 https://agner.org/cultsel/
@@ -5971,6 +5991,67 @@ Emergence
 ================================================================================
 https://en.wikipedia.org/wiki/Emergence
 tag="concepts emergence mental-model"
+
+L-system
+================================================================================
+https://en.wikipedia.org/wiki/L-system
+https://onlinemathtools.com/l-system-generator
+tag="cellular-automata cells tree graph compsci algorithm visualization"
+Generate organic structures (similar to cellular-automata?).
+> Lindenmayer used L-systems to describe the behaviour of plant cells and to
+> model the growth processes of plant development. L-systems have also been used
+> to model the morphology of a variety of organisms[1] and can be used to
+> generate self-similar fractals.
+Example 1: Algae growth
+  variables : A B
+  constants : none
+  axiom : A
+  rules : (A → AB), (B → A)
+produces:
+  n = 0 : A
+  n = 1 : AB
+  n = 2 : ABA
+  n = 3 : ABAAB
+  n = 4 : ABAABABA
+  n = 5 : ABAABABAABAAB
+  n = 6 : ABAABABAABAABABAABABA
+  n = 7 : ABAABABAABAABABAABABAABAABABAABAAB
+
+Algorithm for Drawing Trees
+================================================================================
+https://rachel53461.wordpress.com/2014/04/20/algorithm-for-drawing-trees/
+tag="tree graph compsci algorithm visualization"
+NB: Reingold-Tilford Algorithm is for binary trees.
+.
+> The main trouble is determining an appropriate X position for each node.
+ALGORITHM: DECIDE X-POSITION OF EACH NODE
+1. Do a post-order traversal of the tree
+2. Assign an X value to each node of 0 if it’s a left-most node, or leftSibling.X + 1 if it’s not.
+3. For each parent node, we want the node centered over the children. This would
+   be the midway point between the first child’s X position, and the last
+   child’s X position.
+   .
+   If the parent has no left sibling, change it’s X value to this midpoint
+   value. If it has a left sibling, we’re going to store it in another node
+   property. I’m calling this property Mod just because that’s what I see it
+   called in other examples.
+   .
+   The Mod property is used to determine how much to modify the children’s
+   X values in order to center them under the parent node, and will be used when
+   we’re done with all our calculates to determine the final X value of each
+   node. It should actually be set to Parent.X – MiddleOfChildrenX to determine
+   the correct amount to shift the children by.
+4. Check that this tree does not conflict with any of the previous sibling
+   trees, and adjust the Mod property if needed. This means looping through each
+   Y level in the current node, and checking that the right-most X value of any
+   sibling to the left of the node does not cross the left-most X value of any
+   child in the current node.
+5. Do a second walk through the tree to determine that no children will be drawn
+   off-screen, and adjust the Mod property if needed. This can happen when if
+   the Mod property is negative.
+6. Do a third walk through the tree to determine the final X values for each
+   node. This will be the X of the node, plus the sum of all the Mod values of
+   all parent nodes to that node. Now lets go through each step in more detail.
 
 
 Version SAT, Russ Cox

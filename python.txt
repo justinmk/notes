@@ -91,6 +91,13 @@ partial()   # useful to create zero-argument lambdas
                 for block in iter(partial(f.read, 64), b''):
                     process_block(block)
 next()      # goes to next `yield`
+
+"generator comprehension"
+            # () instead of []
+            >>> a = (x for x in [1,2,3,4,5])
+            >>> type(a)
+            <class 'generator'>
+
 inspect.getsource()
 __code__    # reflect on user-defined functions
             def foo():
@@ -107,7 +114,7 @@ contextmanager:
             def foo(*args, **kwds):
               r = get_resource(*args, **kwds)  # Acquire resource.
               try:
-                yield r  # Content managers are generators!
+                yield r  # Context managers are generators!
               finally:
                 release_resource(r)  # Release resource.
             with foo(timeout=3600) as r:
