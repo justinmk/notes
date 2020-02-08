@@ -1315,7 +1315,7 @@ osquery
 ================================================================================
 https://github.com/facebook/osquery/
 https://osquery.io/
-tag="monitoring metrics sysadmin devops hardware system query sql"
+tag="monitoring metrics sysadmin devops hardware system query sql facebook"
 Relational (SQL) data-model for OS/system info.
 
 netdata
@@ -4646,6 +4646,14 @@ Moserware: Wetware Refactorings
   href="http://www.moserware.com/2009/01/wetware-refactorings.html"
     tag="todo learning cogsci"
   time="2010-03-14T01:26:26Z" 
+
+
+PyRobot: open source robotics platform
+================================================================================
+https://www.pyrobot.org/
+tag="senior-project electronics engineering programming facebook"
+getting a robot, current price points:
+https://news.ycombinator.com/item?id=22212035
 
 en/MikroKopter - Wiki: MikroKopter.de
 ================================================================================

@@ -52,6 +52,9 @@ The cmake dance:
     cmake ../
 
 debug
+    strace: relative timestamps, log to file
+        strace -o log -r python -c 'import time; time.sleep(1);'
+
     show all open() calls performed by foo and descendants
         strace -f -e open foo
         #      ^   ^ event (syscall) filter

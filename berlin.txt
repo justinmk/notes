@@ -5,6 +5,11 @@ Stuff to do:
 culture?
   http://needleberlin.com/2018/03/30/danilo-rosato-berlin-portraits/
 
+history:
+  - "Any hill" (except Viktoria park) in Berlin is not natural, but actually
+    a pile of rubble from WWII https://en.wikipedia.org/wiki/Schuttberg
+  - "Any building" that does not have bullet holes is restored or post-war.
+
 Carnival / Theme parks
   https://www.howtogermany.com/pages/themeparks.html
     Europa Park
@@ -79,6 +84,8 @@ German language:
   Lebensmut = "life grit"
   Einsam = "one peace"
   Wehmut = "sore mood"
+  herz => "heart", related to "herz, 1/s" ?
+  funzt => slang, "es funktioniert", "the sound of opening a beer bottle"
 
 Observations:
   No lizards

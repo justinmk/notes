@@ -201,9 +201,10 @@ BEST PRACTICES / LINT
         - Favor $() over backticks, especially for nesting.
         - [[]] (double brackets) avoids problems like unexpected pathname
           expansion.
-        - $* is rarely the right choice, prefer "$@" (including quotes).
-          "$*" => "$1 $2 $3..."
-          "$@" => "$1" "$2" "$3"...
+        - $* is never the right choice, prefer "$@" (including quotes). It is
+          a special case: produces multiple quoted forms.
+          "$*" => "$1 $2 $3 ..."
+          "$@" => "$1" "$2" "$3" ...
         - Run script wth _expanded_ trace (debug): bash -x myscript.sh
             - Use "set -o xtrace" to do this from the script itself => useful if
               the script is run on a remote machine, e.g. a build-bot.
