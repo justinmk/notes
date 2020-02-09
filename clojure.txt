@@ -128,8 +128,10 @@ LOGGING
            thing))
 
 LIBRARIES
-    specter (like Haskell "Lens"): composable navigation
+    like Haskell "Lens": composable navigation
         http://nathanmarz.com/blog/clojures-missing-piece.html
-        https://github.com/nathanmarz/specter
+        https://github.com/redplanetlabs/specter
+        https://github.com/vvvvalvalval/supdate
+        https://github.com/noprompt/meander
     http://blog.korny.info/2014/03/08/xml-for-fun-and-profit.html#zippers
     clojure.zip/xml-zip => like xpath
