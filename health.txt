@@ -129,3 +129,68 @@ toxicological implications:  https://news.ycombinator.com/item?id=22119403
 
 Europe: https://news.ycombinator.com/item?id=22117397
 > around factories, airports, military bases in Germany
+
+================================================================================
+EXERCISE/WORKOUT
+
+  Exercise benefits:
+    anti-osteoporosis: bone is a living tissue that must be stressed to maintain strength
+    reduces depression
+    reduces back pain
+    reduces RSI, arthritis
+    regulates/helps sleep
+      REM "boosts brain cell numbers"  https://www.bbc.com/news/health-23932577
+      deep sleep increase production, reduces breakdown of proteins
+      sleep is needed for proper nervous system function
+    reduces blood pressure
+      high blood pressure causes brain damage  https://news.ycombinator.com/item?id=4759667
+    regenerates neural tissue
+      "The Hangover That Lasts", Paul Steinberg NYT 2007, https://www.nytimes.com/2007/12/29/opinion/29steinberg.html
+    must be combined with "light-intensity activities"
+      "The Men Who Stare at Screens", Gretchen Reynolds, NYT 2010, https://well.blogs.nytimes.com/2010/07/14/phys-ed-the-men-who-stare-at-screens/
+        Regular workout sessions do not appear to fully undo the effects of prolonged sitting.
+        Before the advent of computers/TVs ... people spent more time completing "light-intensity activities", which require 1.5-3 METs.
+        Conclusion: do light-intensity activities (walk, mop, garden, take out the trash, ...) in addition to normal exercise.
+        light-intensity activity (even fidgeting) improves VO2 max (https://well.blogs.nytimes.com/2011/05/11/fidgeting-your-way-to-fitness)
+
+  Vitamin D (D3 not D2) target 5000 IU/day.
+    5000IU capsules, 1 capsule/day.
+    Egg yolks have 200 IU.
+    B12
+
+  bodyweight progressions  https://www.reddit.com/r/bodyweightfitness/
+    "If you keep your position straight, you get all-body workout, develop concentration and balance at the same time."
+    arm push ups
+    one arm chin ups
+    hand-stand push ups
+    nordic curls
+    Planche: http://en.wikipedia.org/wiki/Planche_(exercise)
+    Bulgarian squat
+    Pistol squat: http://youtu.be/MLBAbqEZIeU
+    Sumo squat: http://youtu.be/jbA8akeUmpo 
+
+  Tabata intervals: 20s of *maximum intensity* exercise, followed by 10s of rest. Repeat cycle 8 times (total of 4 minutes).
+    Research assumes that a true *maximal effort* is applied.
+    Examples:
+      outdoor sprinting: sprint 20s, then rest (walk) 10s, then continue until you have completed 8 x 20s sprints. Always begin with a moderate warm-up and cool down session.
+      heavy bag: punch non-stop for 20s, followed by 10s of rest.
+
+  https://en.wikipedia.org/wiki/Super_Slow
+    There is no difference between stronger, larger, and firmer muscles. ... The only three variables you can influence with any type of exercise are: muscle mass, muscle shape, and the amount of body fat.
+    Each pound of muscle (1 pound = 0.45 kilograms) burns 75-100 calories every day simply by being.
+    1 pound of body fat stores 3500 calories.
+    Muscles do not grow during exercise. The body strengthens the muscles while you are resting.
+    Amount of rest needed in order for muscles to grow depends on their current size. The larger it is, the more it needs to rest.
+      Gym beginners should rest at least two days between exercise.
+      After a year in the gym you should probably rest three days. And so on.
+      By exercising every day you are hurting your body and retarding muscle growth!
+    The only way to know that you have stimulated muscles enough is to train to failure.
+      If the muscle is unable to move for 15 seconds even though you are willing it to, then you know that you have provided maximum stimuli.
+      Your body doesn't care if your muscle failed after five repetitions of an exercise or after 50.
+      Use the weight that allows you to do 4-8 repetitions for maximum safety and time efficiency. And there is no reason to do more than one set.
+    You can hurt yourself during exercise if you apply excessive force to your muscles. The force when lifting a weight is F = m*(a + g), where m is the mass of the weight, a is the acceleration, and g is the force of gravity. Mass usually doesn't vary greatly.
+      If you can lift 100 pounds 10 times, the max you can lift once is 133 pounds (33% increase).
+      But people who use quick, jerky movements experience acceleration differences of over 400%.
+      So work very slowly. Raise the weight for 10 seconds and lower it for ten seconds.
+    There is a myth that says that "aerobic" exercise is good for you heart.
+      But if you keep breaks very short (~1 minute), your pulse should be at 120-180, exactly what people try to achieve with "aerobic" exercise.

@@ -4884,6 +4884,12 @@ Elon Musk - Wikipedia, the free encyclopedia
   href="http://en.wikipedia.org/wiki/Elon_Musk" 
    tag="entrepreneurs" time="2009-09-01T03:25:01Z" 
 
+Starlink satellite tracker
+================================================================================
+https://james.darpinian.com/satellites/
+tag="space spacex science satellites starlink isp internet network"
+Tells you when to go outside to see satellites as they pass overhead.
+
 How to Debug Bash Scripts 
 ================================================================================
   href="http://aymanh.com/how-debug-bash-scripts" 
