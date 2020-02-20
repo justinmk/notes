@@ -6313,3 +6313,15 @@ Linus Torvalds:
 > parallelism for the semaphore), and then anybody who wants to get the lock
 > does a one-byte read() call and anybody who wants to release the lock writes
 > a single byte back to the pipe.
+
+Spanish flu
+================================================================================
+https://en.wikipedia.org/wiki/Spanish_flu
+tag="concepts epidemic pandemic statistics exponential-growth infection bacteria superinfection"
+1918 influenza pandemic: January 1918 – December 1920: colloquially known as Spanish flu.
+First of the two pandemics involving H1N1 influenza virus, with the second being the swine flu in 2009.
+- 500 million infected (~27% of world population).
+- 17~50 million dead.
+Wartime censors minimized early reports of illness and mortality in Germany/UK/France/USA.
+Not censored in Spain, which created a false impression, giving rise to the nickname "Spanish flu".
+Most deaths caused by bacterial superinfection (result of malnourishment, overcrowded hospitals, poor hygiene).
