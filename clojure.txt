@@ -135,3 +135,6 @@ LIBRARIES
         https://github.com/noprompt/meander
     http://blog.korny.info/2014/03/08/xml-for-fun-and-profit.html#zippers
     clojure.zip/xml-zip => like xpath
+    Python bindings
+        https://github.com/clj-python/libpython-clj
+        http://gigasquidsoftware.com/blog/2020/01/10/hugging-face-gpt-with-clojure/

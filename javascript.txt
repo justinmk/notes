@@ -1,4 +1,4 @@
-javascript
+JAVASCRIPT
 ==============================================================================
 object vs Map:  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
 
@@ -9,7 +9,7 @@ Function.prototype.bind(fn[, ...])  https://developer.mozilla.org/en-US/docs/Web
     // NB: console.error() expects `this` to be `window.console`.
     foo(…).catch(console.error.bind(console, 'foo: '))
 
-node.js
+NODE.JS
 ==============================================================================
 globals  https://nodejs.org/api/globals.html#globals_global
   global
@@ -21,14 +21,32 @@ globals  https://nodejs.org/api/globals.html#globals_global
     process.nextTick() queue is always processed before the microtask queue
     within each turn of the Node.js event loop."
 
-setImmediate(), process.nextTick(), …
-  setImmediate executes immediately after the current stack completes (before waiting I/O) and nextTick executes at he end of the next tick (after waiting I/O).
-  Use setImmediate if you want to queue the function after whatever I/O event callbacks that are already in the event queue.
-    Example: to break up a long running, CPU-bound recursive job, use setImmediate rather than process.nextTick to queue the next iteration (otherwise any I/O event callbacks wouldn't get the chance to run between iterations).
-  Use process.nextTick to effectively queue the function at the head of the event queue so that it executes immediately after the current function completes.
-    Callbacks passed to process.nextTick will usually be called at the end of the current flow of execution, and are thus approximately as fast as calling a function synchronously. Left unchecked, this would starve the event loop, preventing any I/O from occurring. setImmediates are queued in the order created, and are popped off the queue once per loop iteration. This is different from process.nextTick which will execute process.maxTickDepth queued callbacks per iteration. setImmediate will yield to the event loop after firing a queued callback to make sure I/O is not being starved.
+setImmediate(), process.nextTick(), …  https://nodejs.org/api/process.html#process_process_nexttick_callback_args
+  nextTick(): queues a function BEFORE pending I/O callbacks
+    Adds callback to the "next tick queue" (essentially the head of the event queue). This queue is fully drained after the current JS stack runs to completion and before the event loop continues.
+      up to process.maxTickDepth queued callbacks per iteration
+      potential infinite loop
+      potentially starves I/O
+    Almost as fast as a synchronous call (much more efficient than setTimeout(fn,0)).
+    Use case: to give users the opportunity to assign event handlers on object-construction but before I/O has occurred.
+  setImmediate(): queues a function AFTER pending I/O callbacks
+    Will yield to the event loop after firing a queued callback to ensure I/O is not starved.
+    Use case: to break up a long running CPU-bound job, use setImmediate rather than process.nextTick to queue the next iteration (otherwise any I/O event callbacks wouldn't get the chance to run between iterations).
 
-typescript
+event-loop phases  https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/
+  timers:            execute callbacks scheduled by setTimeout()/setInterval().
+  pending callbacks: execute I/O callbacks deferred to the next loop iteration.
+  idle, prepare:     only used internally.
+  poll:              gather new I/O events;
+                     execute I/O callbacks (=> all callbacks except close callbacks, timer callbacks, and setImmediate());
+                     node may block here.
+  check:             execute setImmediate() callbacks.
+  close callbacks:   some close callbacks, e.g. socket.on('close', …).
+
+  > Between each run of the event-loop, Node.js checks if it is waiting for any
+  > asynchronous I/O or timers and shuts down cleanly if there are not any.
+
+TYPESCRIPT
 ==============================================================================
 https://httptoolkit.tech/blog/5-big-features-of-typescript-3.7/
 
@@ -44,3 +62,6 @@ optional chaining x
   let result = data?.key1?.key2 ?? 'default';
   // GOTCHA: returns undefined for missing values, even if they were null.
   (null)?.key  // returns undefined
+
+Declare a motherfucking map:
+  const things: { [key: string]: boolean } = {}
