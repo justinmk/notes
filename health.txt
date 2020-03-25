@@ -164,10 +164,11 @@ EXERCISE/WORKOUT
     one arm chin ups
     hand-stand push ups
     nordic curls
-    Planche: http://en.wikipedia.org/wiki/Planche_(exercise)
-    Bulgarian squat
-    Pistol squat: http://youtu.be/MLBAbqEZIeU
-    Sumo squat: http://youtu.be/jbA8akeUmpo 
+    planche: http://en.wikipedia.org/wiki/Planche_(exercise)
+    bulgarian squat
+    pistol squat: http://youtu.be/MLBAbqEZIeU
+    sumo squat: http://youtu.be/jbA8akeUmpo
+    deadlift: start from ground and lift only ~5 inches.
 
   Tabata intervals: 20s of *maximum intensity* exercise, followed by 10s of rest. Repeat cycle 8 times (total of 4 minutes).
     Research assumes that a true *maximal effort* is applied.

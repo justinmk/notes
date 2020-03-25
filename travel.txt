@@ -19,7 +19,6 @@ checklist
   phone, charger
   pen/pencil
 
-
 todo:
   https://naildrivin5.com/blog/2018/01/25/how-to-travel-to-san-francisco-every-other-month-for-five-years.html
     - luggage: "Briggs & Riley Baseline Domestic Carry-On Exp Spinner" https://www.amazon.com/dp/B00XDIRKRC/

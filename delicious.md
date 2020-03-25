@@ -1446,7 +1446,7 @@ How I Rewired My Brain to Become Fluent in Math - Issue 17: Big Bangs - Nautilus
 
 Michael Pettis' CHINA FINANCIAL MARKETS
 ================================================================================
-http://blog.mpettis.com/
+https://blog.mpettis.com/
 tag="blog economics china" time="2014-12-02T01:05:58Z" 
 
 > http://blog.mpettis.com/2014/09/not-with-a-bank-but-a-whimper/
@@ -4192,22 +4192,11 @@ Second-order simulacra
     tag="concepts cogsci mental-model"
   time="2010-08-23T06:16:25Z" 
 
-Public Surplus: Government Surplus Auctions
-================================================================================
-  href="http://www.publicsurplus.com/"  
-  tag="haggle shopping" time="2010-08-20T00:10:38Z" 
-
 Blue Brain Project
 ================================================================================
-  &quot;attempt to reverse-engineer the mammalian brain, in order to understand brain function and dysfunction through detailed simulations.&quot;
-  href="http://bluebrain.epfl.ch/"  
-  tag="ai cogsci" time="2010-08-17T19:19:29Z" 
-
-T-Mobile Samsung Vibrant (Galaxy S) GPS fix
-================================================================================
-  href="http://www.intomobile.com/2010/07/21/t-mobile-samsung-vibrant-galaxy-s-gps-issues-fix-tutorial/"
-    tag="android"
-  time="2010-08-16T01:32:07Z" 
+attempt to reverse-engineer the mammalian brain, in order to understand brain function and dysfunction through detailed simulations.
+https://www.epfl.ch/research/domains/bluebrain/
+tag="ai cogsci"
 
 Antarctic Peninsula
 ================================================================================
@@ -4230,10 +4219,11 @@ App Inventor for Android
 
 As a 20-year-old female, I spent 4 months wandering through Indonesia ...
 ================================================================================
-  &quot;friendly and safe people, perfect blue-green water, rainforests and a dirth of tourists&quot;. &quot;Bahasa Indonesia is also one of the easiest languages in the world&quot;. Gear: http://www.reddit.com/r/IAmA/comments/cg60e/as_a_20yearold_female_i_spent_4_months_wandering/c0scahg &quot;STAY AWAY FROM KUTA. If you must go, just visit and then leave.&quot;. Cobra blood.
-  href="http://www.reddit.com/r/IAmA/comments/cg60e/as_a_20yearold_female_i_spent_4_months_wandering/"
-    tag="travel"
-  time="2010-06-25T21:23:21Z" 
+"friendly and safe people, perfect blue-green water, rainforests and a dirth of tourists".
+"Bahasa Indonesia is also one of the easiest languages in the world".
+Gear: http://www.reddit.com/r/IAmA/comments/cg60e/as_a_20yearold_female_i_spent_4_months_wandering/c0scahg &quot;STAY AWAY FROM KUTA. If you must go, just visit and then leave.&quot;. Cobra blood.
+href="http://www.reddit.com/r/IAmA/comments/cg60e/as_a_20yearold_female_i_spent_4_months_wandering/"
+tag="travel"
 
 Lending Club Review 
 ================================================================================
@@ -6325,3 +6315,173 @@ First of the two pandemics involving H1N1 influenza virus, with the second being
 Wartime censors minimized early reports of illness and mortality in Germany/UK/France/USA.
 Not censored in Spain, which created a false impression, giving rise to the nickname "Spanish flu".
 Most deaths caused by bacterial superinfection (result of malnourishment, overcrowded hospitals, poor hygiene).
+
+Scala War Stories with Paul Phillips (2013)
+================================================================================
+https://lobste.rs/s/tk0hjk/scala_war_stories_with_paul_phillips_2013
+takeaways:
+- > "Unification can burn":
+  > By definition, you are eliminating a distinction … if your cover is not
+  > airtight, breakage will ensue wherever the distinction appears.
+  Like “leaky abstraction”, but abstraction is additive whereas “unification” is
+  reductive, it takes away. Eliminating needless distinctions is very desirable,
+  but it must be _total_.
+- Interop is hard, particularly for type-obsessed languages.
+
+================================================================================
+20200315
+Federal Reserve Actions to Support the Flow of Credit to Households and Businesses
+https://www.federalreserve.gov/newsevents/pressreleases/monetary20200315b.htm
+tag="politics economics federal-reserve monetary-policy inflation"
+> the Board has reduced reserve requirement ratios to zero percent effective on
+> March 26, the beginning of the next reserve maintenance period. This action
+> eliminates reserve requirements for thousands of depository institutions and
+> will help to support lending to households and businesses.
+
+================================================================================
+20200324
+Modern Monetary Theory
+https://www.reddit.com/r/wallstreetbets/comments/fnkbdh/dont_bet_against_mmt_you_will_lose_even_if_you/fla4bve/
+tag="economics mmt federal-reserve monetary-policy"
+>>>> QE and Fed intervention in a market is only for stabilization to prevent
+>>>> total credit seizure (even in 08 we didn't have a total failure). Once the
+>>>> loan is paid back it is destroyed in an M0 sense, it doesn't accumulate in
+>>>> the wider monetary supply.
+>>>>
+>>>> If "printer goes brrr" you'd see stonks and assets fucking skyrocket... But
+>>>> that's not what's happening... QE only can keep the back bone of Inter-bank
+>>>> loans and lending flowing until stable conditions.
+>>>
+>>> We still have 4 trillion dollars of "stable free markets" on the balance
+>>> sheet from 2008.
+>>>
+>>> They are trying to prop up asset prices. The effect is deflationary as soon
+>>> as people can no longer afford to repay their debt.
+>>>
+>>> If the Fed is buying that debt and sticking it on a balance sheet and taking
+>>> a loss, then it is 100 fucking percent "printer go brrrrr".
+>>
+>> A few things, a) most of the bonds are still viable, just not to privately
+>> loaned against levels and have slowly been dissipated by sheer regular
+>> schedule payments from end-borrowers b) some of the biggest moves were in
+>> 2012 when another round of particular commercial paper (mostly counter-party
+>> agreements from AIGFP) was about to clog the banking system like a chunk of
+>> cholesterol dislodged, and c) though you think that "$4T is suppoesd to keep
+>> asset prices up" let's do the math: the US economy is about $24T, the
+>> holdings have been at $4T for nearly a decade, and inflation has been minimal
+>> and in fact anemic... Hardly "printer go brr" territory unless that printer
+>> is a dot matrix for a very specific and small aspect of the global banking
+>> system lmao.
+>
+> ... I never mentioned inflation, and you ignored the deflationary forces
+> making your inflationary comment pointless since you are ignoring the cost of
+> housing, education, and pretty much every asset when you say that "inflation
+> has been minimal".
+>
+> Only a "smart money" trader who makes money off of this misery thinks what is
+> going on is fine.
+>
+> If you lend more money than an economy can realistically pay back due to
+> a lack of GDP growth, the effect is asset destruction once that loan defaults.
+> That is deflationary in nature. ... As soon as the Fed starts trying to
+> backstop it and goes ahead and forgives that debt, then that forgiven debt in
+> effect becomes free money and it immediately becomes inflationary.
+>
+> If they just give more loans, then the bubble continues to inflate and we will
+> be back here in a few years listen to you talking about how a 700 trillion
+> bailout is no big deal because inflation is minimal.
+>
+> ...
+>
+> The fact that 4 trillion of monetized government debt and mortgage backed
+> securities still sits on the fed book 10 years later means that they never
+> cleared the logjam of bloated assets from the last time.
+
+================================================================================
+20200324
+Joe Rogan Experience #1066 - Mel Gibson & Dr. Neil Riordan
+https://www.youtube.com/watch?v=OtL1fEEtLaA
+tag="health medicine technology illegal stem-cell panama"
+"Adult" (umbilical-cord) stem-cell injection heals arthritis, inflammation, MS,
+spinal-cord injury, autoimmune disease, et al.
+- umbilical cells do NOT form tumors, get flushed out by immune system after 6 months
+  - *not* embryonic. embryonic cells "want to become babies", form tumors/teratomas.
+- older cells have less regenerative capacity => less capacity to heal large problem-sites
+- finds/heals damaged cells, "retrains" the immune system
+- https://www.cellmedicine.com/
+- treatment fee: $23K
+
+================================================================================
+20200410
+Senate Transaction Report
+https://senatestockwatcher.com/
+tag="politics equity stock options"
+
+================================================================================
+20200414
+Kayfabe
+https://en.wikipedia.org/wiki/Kayfabe
+tag="concepts mental-model"
+kayfabe
+- aka "work(ed)"
+- portrayal of staged events within the industry as "real" or "true"
+- was used as a warning to other wrestlers that a mark was in the vicinity
+- suspension of disbelief
+- in-character
+"shoot": not kayfabe
+"mark": someone outside of the business
+Faces and heels
+- Faces, short for "babyfaces", are hero-type characters
+- Heels are villainous or antagonistic characters
+
+================================================================================
+20200416
+Tim Ferriss: how to master any skill by deconstructing it | The Next Web
+https://www.youtube.com/watch?v=DSq9uGs_z0E
+tag="learning cogsci language pedagogy"
+- deadlifts most effective if you start from ground and lift only ~5 inches.
+- best temperature for coffee = 180 F
+- play ~any song with 4 chords: https://www.youtube.com/watch?v=B_Smt1VsoqQ
+
+================================================================================
+20200421
+Who’s Behind the “Reopen” Domain Surge?
+https://krebsonsecurity.com/2020/04/whos-behind-the-reopen-domain-surge/
+tag="urbit search reputation"
+> several “reopen” sites that seemed to be engaged in astroturfing ... new
+> domains — including reopenmn.com, reopenpa.com, and reopenva.com ... roughly
+> coincided with contemporaneous demonstrations in Minnesota, California and
+> Tennessee where people showed up to protest quarantine restrictions over the
+> past few days. ... registered by the Dorr Brothers ... “to stir the pot and
+> make as much animosity as they can, and then raise money off that animosity.”
+
+================================================================================
+20200424
+一期一会: ichigo-ichie (“one lifetime, one encounter”)
+https://en.wiktionary.org/wiki/%E4%B8%80%E6%9C%9F%E4%B8%80%E4%BC%9A
+tag="concepts mental-model"
+You should treasure every encounter, for it will never recur.
+
+================================================================================
+20200504
+Daniel Schmachtenberger on The Portal (with host Eric Weinstein), Ep. #027 - On Avoiding Apocalypses
+https://www.youtube.com/watch?v=_b4qKv1Ctv8
+tag="economics concepts mental-model"
+"Game B"
+sense-making + choice-making
+"multipolar trap"
+"bottom-up coordination system"
+"rivalrous dynamics"
+paperclip maximizer: https://wiki.lesswrong.com/wiki/Paperclip_maximizer
+> AIs with apparently innocuous values could pose an existential threat.
+rivalrous
+  non-rivalrous
+    anti-rivalrous
+cannot reduce unique things to a metric (metricize)
+fungibility = metric-reduction
+protopian ("going in the right direction"), not utopian
+"Any hypernormal stimulus (addiction) that decreases normal stimulus ends up net bad for you."
+Being famous isn't fun for even 15 minutes
+  What you actually want is to be taken seriously by ~3000 selected people.
+Addiction => erosion of the baseline
+  "A more-effective relationship to pleasure is anti-addictive."
