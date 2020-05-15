@@ -1,5 +1,5 @@
 backup:
-  https://lobste.rs/s/y4myxv/alternative_rsync_batch_mode_for_storing
+  https://lobste.rs/s/y4myxv
 laptop:
   Dell Precision 5530 ?
 

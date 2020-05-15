@@ -441,7 +441,7 @@ Kythe steve yegge grok
 IPFS | The Permanent Web 
 ================================================================================
    href="https://ipfs.io/"
-    tag="distributed-systems web"
+    tag="distributed-systems web filesystem"
   time="2015-09-09T05:32:33Z" 
 
 Stanford Encyclopedia of Philosophy
@@ -4638,19 +4638,19 @@ Moserware: Wetware Refactorings
   time="2010-03-14T01:26:26Z" 
 
 
+================================================================================
+20200208
 PyRobot: open source robotics platform
-================================================================================
 https://www.pyrobot.org/
-tag="senior-project electronics engineering programming facebook"
-getting a robot, current price points:
-https://news.ycombinator.com/item?id=22212035
+tag="diy-project electronics engineering programming facebook"
+getting a robot, current price points: https://news.ycombinator.com/item?id=22212035
 
-en/MikroKopter - Wiki: MikroKopter.de
 ================================================================================
-  HexaKopter 6-propeller helicopter. ~1200 euros.
-  href="http://www.mikrokopter.de/ucwiki/en/MikroKopter/"
-    tag="senior-project electronics"
-  time="2010-03-13T22:08:45Z" 
+20100313
+en/MikroKopter - Wiki: MikroKopter.de
+http://www.mikrokopter.de/ucwiki/en/MikroKopter
+tag="diy-project electronics"
+HexaKopter 6-propeller helicopter. ~1200 euros.
 
 A Visual Git Reference 
 ================================================================================
@@ -4811,12 +4811,11 @@ The Eternal Value of Privacy - Bruce Schneier
     tag="politics privacy"
   time="2009-11-16T00:03:02Z" 
 
-1000mm Quad Copter Design - RC Groups
 ================================================================================
-  href="http://www.rcgroups.com/forums/showthread.php?t=768115"
-   
-  tag="engineering electronics senior-project"
-  time="2009-10-18T21:52:21Z" 
+20091018
+1000mm Quad Copter Design - RC Groups
+http://www.rcgroups.com/forums/showthread.php?t=768115
+tag="engineering electronics diy-project"
 
 Vitamin D &quot;may vanquish cancer and heart disease ... autoimmune disease (rheumatoid arthritis, lupus), diminish the occurrence of diabetes, reduce obesity, treat multiple sclerosis, osteoporosis, Parkinson‚Äôs disease ... high blood pressure ... the comm...
 ================================================================================
@@ -6485,3 +6484,285 @@ Being famous isn't fun for even 15 minutes
   What you actually want is to be taken seriously by ~3000 selected people.
 Addiction => erosion of the baseline
   "A more-effective relationship to pleasure is anti-addictive."
+
+================================================================================
+20200506
+Eric Weinstein: Geometric Unity and the Call for New Ideas, Leaders & Institutions | AI Podcast, Lex Fridman #88
+https://www.youtube.com/watch?v=rIAZJNe7YtE
+tag="physics science academia institutions"
+_The Road to Reality_ by Roger Penrose
+  "This book is a self-contained invitation to understanding our deepest nature."
+
+================================================================================
+20200508
+Secessio plebis
+https://en.wikipedia.org/wiki/Secessio_plebis
+tag="history economics politics state"
+> Secessio plebis (withdrawal of the commoners, or secession of the plebs) was
+> an informal exercise of power by Rome's plebeian citizens, similar in concept
+> to the general strike. ... the plebs would abandon the city and leave the
+> patrician order to themselves. ... all shops and workshops would shut down and
+> commercial transactions would largely cease.
+https://news.ycombinator.com/item?id=23121851
+>> The last secession was in 287 BC. Why were there not secessions after it? ...
+>> [because] Rome’s conquests really went into overdrive ... there came a lot of
+>> slaves. This totally changed the dynamics. After a while, the wealthy
+>> depended not on their poor fellow Romans to farm or make goods, but on
+>> slaves. Now it did not matter if the plebes didn’t not show up.
+>
+> Also small landholders and artisans in Italy could not compete with large
+> latifundia [1] and manufactures using 'free' slave labour and cheap grain from
+> Egypt and cheap financing (gold from conquests). The Roman conquest had been
+> financed by the state but the spoils benefitted mostly wealthy citizens (tax
+> farming in provinces).
+> But plebs still had voting rights and every year there were held elections on
+> Mars Fields and keeping the apperances of democracy was important for Roman
+> Republic (also during the what we know as Imperial period). So the giveway of
+> food and coin and entertainment to citizens had became a new norm.[2]
+> [1] https://en.m.wikipedia.org/wiki/Tiberius_Gracchus
+> [2] https://en.m.wikipedia.org/wiki/Bread_and_circuses
+>
+consolidation of small free-held farms into large estates held by senators:
+- partially driven by war debts: the State accrued debt on behalf of Roman
+  citizens => land-owning citizens are taxed more => must sell their property to
+  pay the "debt" => political/military class uses spoils of war to buy land from
+  artifically-indebted citizens
+  - analogous to US dollar
+- https://en.m.wikipedia.org/wiki/Debt_bondage
+
+================================================================================
+20200509
+Joe Rogan Experience #1309 - Naval Ravikant
+https://www.youtube.com/watch?v=3qHkcs3kG44
+tag="startups concepts mental-model philosophy technology"
+- Read the same 100 books over and over
+- Social media makes everyone a celebrity; but celebrities are the most miserable people in the world...
+- Rich and anonymous > poor and famous
+- Just like fitness can be a choice, being happy/successful can be a choice.
+- Be the person who gets there calmly, without struggle/stress/panic.
+  Don't have too _many_ desires, don't pick them up randomly ("my coffee is too cold").
+  Pick your central desire and focus on it. Let the others go, relax.
+- We are in an age of  leverage: make a podcast, hire employees, write code => 1000x impact
+- The Right Way to work is like a lion: graze.
+  Train hard, sprint, then rest/reasses.
+  You won't have linear output just by cranking every day 9-5.
+- Information Age will reverse Industrial Revolution: everyone will work for themselves.
+- If someone can tell you when to work and what to where you’re not free
+- Companies are smaller and smaller because they can externalize easily
+- Coase theorem: size of a company is a function of internal vs external
+  transaction cost.  Companies will become smaller as external transaction costs
+  reduce (the gig economy).  Startups shave small inefficiencies and turn them
+  into big markets.
+- Future gig economy: *highly-skilled* work (missions/sprints).
+- UBI doesn’t provide meaning/status
+- No AGI: we don’t even understand what really happens inside a cell, let alone the brain
+- White-collar vs blue-collar is the real battle going on
+- Everyone can broadcast anything at anytime
+- News has become commoditized, they’re not propaganda
+- We will create decentralized media that cannot be suppressed
+- Nowadays nobody has the privilege not to have political opinions
+- Some technology is neutral, some are political
+- Science is hard for people and often facts are not enough to make up their minds
+- There’s no room for nuances, people are very polarised
+- We live in a dictatorship of 51% so all your believes have to fit in one of the two sides. This doesn’t make you a clear thinker. 
+- Being alone and enjoying it is a superpower aka the art of doing nothing
+- Meditation is self-therapy 
+- Peace is happiness at rest, happiness is peace in motion
+- Peace is not about external problems but about giving up on the idea of problems itself
+- It’s easier to change yourself than to change the world
+- People are not going to giving up economic growth
+- Lower the price of cleantech
+- Being forced to articulate thoughts helps to understand them more than simply sit in a room and think about them
+- Understanding the basics of reasoning is better than memorizing advanced concepts
+- A good book you can read one page at night and then spend the rest of the night reasoning about it
+- The meaning of life is a “why” questions and it’s endless
+- You end up with Agrippa's trilemma where you have only the following 3 dead ends
+- 1 Infinite regress
+- 2 Circular reasoning
+- 3 Axiom 
+- The only answer is “because” meaning that we need to make up our own answer for the meaning of life
+- All the great questions are paradoxes
+- Thinking about them gives you insights that bring you a certain level of peace
+- Everyone can be rich
+- Imagine if tomorrow everybody was trained in software and engineering. We would create all the animation necessary not to work anymore and just focus on creativity. 
+- Richness is about education
+- The universe has infinite resources
+- Lack of material possession can make you unhappy but material possession won’t make you happy
+- If you are smart you should be able to figure out how to be happy
+- Busy minds, called also monkey minds are not peaceful
+- You have to develop peace FROM mind not peace OF mind
+- There’s a fundamental delusion about thinking that there’s something external to us that can bring us peace and happiness
+- Once you solve your money problem you stop sacrificing something today with the idea you’re gonna get something in return tomorrow
+- Do something you love, do a lot of money or live like a monk so money will stop to be an issue
+- Focus on being authentic, unique, creative and not replaceable 
+- There are 2 great depictions: heroine and a monthly salary
+- You have to ignore your peers
+- “That’s easy for you to say” and “keeping up with the Jones” is a big trap
+- Stop thinking it’s someone else’s fault
+- If you judge others you’re gonna separate yourself, feel lonely and negative
+- Reality is neutral and how you interpret it is your choice alone
+- Life is short, you’re gonna die, choose to be happy
+- Confucious: a man has 2 life, the second one is when you realize you only have one
+- Desire is suffering. Choose wisely. Choose one desire at a time
+- Force yourself to be positive until it becomes automatic
+- Smile more, hug more, get sunlight, spend time in nature, meditate
+- Trying to sound smart is a disease 
+- Good question about it: “Would I be still interested in this thing if I couldn’t tell anyone?”
+- If you are successful you’re gonna be inundated by inbound opportunities that you cannot manage and it’s harder to pick up something you by yourself
+- You’re never gonna make more money than you think you’re worth
+- Pick an aspiration hourly rate and be extremely jealous of your time
+- This will help you define the cost of things like meetings or business travels
+- Embrace what you’re doing at the moment 
+- Do art, creativity, love. Do things for their own sake
+- Work should feel like play to you so no-one can compete with you
+
+================================================================================
+20200515
+Hyperdrive v10 – a peer-to-peer filesystem
+https://blog.hypercore-protocol.org/posts/announcing-hyperdrive-10/
+tag="distributed-systems filesystem"
+https://news.ycombinator.com/item?id=23180572
+
+================================================================================
+20200515
+Port knocking
+https://en.wikipedia.org/wiki/Port_knocking
+https://news.ycombinator.com/item?id=23187662
+tag="security network protocol"
+COUNTERPOINT:
+> It is stupid to implement "IP-over-SYNpackets" (actually "password over SYN
+> packets") when we already have a perfectly good way to send packets of
+> information that doesn't expose even the complexities of TCP (e.g. slowlaris,
+> SYN flood, etc…): it's called UDP. Just send your plaintext password in
+> a UDP packet.
+ALTERNATIVES:
+- send the password in a plaintext UDP packet
+- "honey" ports: automatically block/log hosts that touch the wrong ports.
+- "single packet authorization" has a much more robust mechanism that addresses
+  criticisms of port knocking. Your packet is cryptographically signed.
+  "Take a look at fwknop for the implementation. The only issue with it is
+  there’s no easy install for pfsense."
+  - Noise protocol handshake (https://noiseprotocol.org) = "single-packet port knocking"
+- "TCP MD5 (RFC 2385) is vastly underused."  https://blog.habets.se/2019/11/TCP-MD5.html
+  - TCP option that adds an MD5 signature to every TCP packet.
+  - All unsigned packets (including SYN packets) are silently dropped.
+  - For a signed connection it’s not possible for an eavesdropper to reset the
+    connection, since the RST would need to be signed.
+  - Doesn't work through NAT, maybe with IPv6 it'll gain more traction.
+  - Used in production with BGP since the 90s, but there's nothing stopping
+    it being used for SSH too.
+
+================================================================================
+20200515
+Montevideo Convention, requirements for statehood
+https://en.wikipedia.org/wiki/Montevideo_Convention
+tag="politics state international-law"
+> The state as a person of international law should possess the following qualifications:
+> (a) a permanent population;
+> (b) a defined territory;
+> (c) government; and
+> (d) capacity to enter into relations with the other states.
+
+================================================================================
+20200519
+Python performance: it’s not just the interpreter
+https://news.ycombinator.com/item?id=23235930
+tag="performance programming python compiler interpreter optimization"
+Argument passing was responsible for 31% of time cost in the inner loop.
+The time is spent packing i into a tuple (i,) and then unpacking it again.
+    def main():
+     for j in range(20):
+       for i in range(1000000):
+         str(i)
+    main()
+Python impl of argument passing:
+    static PyObject * unicode_new(PyTypeObject *type, PyObject *args, PyObject *kwds) {
+      PyObject *x = NULL;
+      static char *kwlist[] = {"object", "encoding", "errors", 0};
+      char *encoding = NULL;
+      char *errors = NULL;
+      PyArg_ParseTupleAndKeywords(args, kwds, "|Oss:str",
+                                  kwlist, &x, &encoding, &errors))
+    }
+Notice the call to PyArg_ParseTupleAndKeywords: it takes an args tuple and
+a format string and *executes a mini interpreter to parse the arguments from the
+tuple*. It must be prepared to receive arguments as any combination of keywords
+and positional, but for a given callsite the matching will generally be static.
+
+================================================================================
+20200525
+Stanford Pupper: Inexpensive & Open-source Quadruped Robot
+https://stanfordstudentrobotics.org/pupper
+tag="diy-project electronics engineering programming"
+
+================================================================================
+20200525
+"You and Your Research" Richard Hamming
+http://www.cs.virginia.edu/~robins/YouAndYourResearch.html
+tag="engineering science academia university study research invention innovation"
+> When you are famous it is hard to work on small problems. This is what did
+> Shannon in. ... The great scientists often make this error. They fail to
+> continue to plant the little acorns from which the mighty oak trees grow. ...
+> When you get early recognition it seems to sterilize you. ... The Institute
+> for Advanced Study in Princeton, in my opinion, has ruined more good
+> scientists than any institution has created, judged by what they did before
+> they came and judged by what they did after.
+  Q: How to avoid stagnation?
+  A: Every seven years make a significant, if not complete, shift in your field. When you go to a new field, you have to start over as a baby.
+> "Knowledge and productivity are like compound interest." Given two people of
+> approximately the same ability and one person who works ten percent more than
+> the other, the latter will more than twice outproduce the former. The more you
+> know, the more you learn; the more you learn, the more you can do; the more
+> you can do, the more the opportunity - it is very much like compound interest.
+> ... I don't like to say it in front of my wife, but I did sort of neglect her
+> sometimes; I needed to study. You have to neglect things if you intend to get
+> what you want done.
+>
+> "Genius is 99% perspiration and 1% inspiration." ... The steady application of
+> effort with a little bit more work, _intelligently_ applied is what does it.
+> That's the trouble; drive, misapplied, doesn't get you anywhere.
+>
+> Great scientists tolerate ambiguity very well. ... If you believe too much
+> you'll never notice the flaws; if you doubt too much you won't get started.
+>
+> "It is a poor workman who blames his tools - the good man gets on with the job,
+> given what he's got, and gets the best answer he can."
+>
+> It is not sufficient to do a job, you have to sell it. ... is everyone is busy
+> with their own work. You must present it so well that they will set aside what
+> they are doing, look at what you've done, read it, and come back and say,
+> "Yes, that was good." ... You have to learn to write clearly ... you must
+> learn to give reasonably formal talks, and you also must learn to give
+> informal talks.
+>
+> While going to meetings I had already been studying why some papers are
+> remembered and most are not. The technical person wants to give a highly
+> limited technical talk. ... Few people in the audience may follow. You should
+> paint a general picture to say why it's important, and then slowly give
+> a sketch of what was done. ... The tendency is to give a highly restricted,
+> safe talk; this is usually ineffective. Furthermore, many talks are filled
+> with far too much information.
+>
+> I found in the early days I had believed "this" and yet had spent all week
+> marching in "that" direction. It was kind of foolish. If I really believe the
+> action is over there, why do I march in this direction? I either had to change
+> my goal or change what I did. ... It's that easy.
+>
+> The people who do great work with less ability but who are committed to it,
+> get more done that those who have great skill and dabble in it.
+>
+> I didn't say you should conform; I said "The _appearance of conforming_ gets
+> you a long way." If you chose to assert your ego in any number of ways, "I am
+> going to do it my way," you pay a small steady price throughout the whole of
+> your professional career. And this, over a whole lifetime, adds up to an
+> enormous amount of needless trouble.
+>
+> By realizing you have to use the system and studying how to get the system to
+> do your work, you learn how to adapt the system to your desires. Or you can
+> fight it steadily, as a small undeclared war, for the whole of your life.
+.
+> Ed David was concerned about the general loss of nerve in our society. ...
+> coming out of Los Alamos where we built the bomb, coming out of building the
+> radars and so on...
+cf. Peter Thiel, Eric Weinstein on the paralysis of physics progress since 1950s.
+https://www.youtube.com/watch?v=nM9f0W2KD5s
