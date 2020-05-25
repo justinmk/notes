@@ -6542,7 +6542,7 @@ tag="startups concepts mental-model philosophy technology"
 - Be the person who gets there calmly, without struggle/stress/panic.
   Don't have too _many_ desires, don't pick them up randomly ("my coffee is too cold").
   Pick your central desire and focus on it. Let the others go, relax.
-- We are in an age of  leverage: make a podcast, hire employees, write code => 1000x impact
+- We are in an age of leverage: make a podcast, hire employees, write code => 1000x impact
 - The Right Way to work is like a lion: graze.
   Train hard, sprint, then rest/reasses.
   You won't have linear output just by cranking every day 9-5.
@@ -6556,65 +6556,27 @@ tag="startups concepts mental-model philosophy technology"
 - Future gig economy: *highly-skilled* work (missions/sprints).
 - UBI doesn’t provide meaning/status
 - No AGI: we don’t even understand what really happens inside a cell, let alone the brain
-- White-collar vs blue-collar is the real battle going on
-- Everyone can broadcast anything at anytime
-- News has become commoditized, they’re not propaganda
-- We will create decentralized media that cannot be suppressed
-- Nowadays nobody has the privilege not to have political opinions
-- Some technology is neutral, some are political
-- Science is hard for people and often facts are not enough to make up their minds
-- There’s no room for nuances, people are very polarised
-- We live in a dictatorship of 51% so all your believes have to fit in one of the two sides. This doesn’t make you a clear thinker. 
-- Being alone and enjoying it is a superpower aka the art of doing nothing
-- Meditation is self-therapy 
-- Peace is happiness at rest, happiness is peace in motion
-- Peace is not about external problems but about giving up on the idea of problems itself
-- It’s easier to change yourself than to change the world
-- People are not going to giving up economic growth
-- Lower the price of cleantech
-- Being forced to articulate thoughts helps to understand them more than simply sit in a room and think about them
-- Understanding the basics of reasoning is better than memorizing advanced concepts
-- A good book you can read one page at night and then spend the rest of the night reasoning about it
-- The meaning of life is a “why” questions and it’s endless
-- You end up with Agrippa's trilemma where you have only the following 3 dead ends
-- 1 Infinite regress
-- 2 Circular reasoning
-- 3 Axiom 
-- The only answer is “because” meaning that we need to make up our own answer for the meaning of life
-- All the great questions are paradoxes
-- Thinking about them gives you insights that bring you a certain level of peace
-- Everyone can be rich
-- Imagine if tomorrow everybody was trained in software and engineering. We would create all the animation necessary not to work anymore and just focus on creativity. 
-- Richness is about education
-- The universe has infinite resources
-- Lack of material possession can make you unhappy but material possession won’t make you happy
-- If you are smart you should be able to figure out how to be happy
-- Busy minds, called also monkey minds are not peaceful
-- You have to develop peace FROM mind not peace OF mind
-- There’s a fundamental delusion about thinking that there’s something external to us that can bring us peace and happiness
-- Once you solve your money problem you stop sacrificing something today with the idea you’re gonna get something in return tomorrow
-- Do something you love, do a lot of money or live like a monk so money will stop to be an issue
-- Focus on being authentic, unique, creative and not replaceable 
-- There are 2 great depictions: heroine and a monthly salary
-- You have to ignore your peers
-- “That’s easy for you to say” and “keeping up with the Jones” is a big trap
-- Stop thinking it’s someone else’s fault
-- If you judge others you’re gonna separate yourself, feel lonely and negative
-- Reality is neutral and how you interpret it is your choice alone
-- Life is short, you’re gonna die, choose to be happy
-- Confucious: a man has 2 life, the second one is when you realize you only have one
-- Desire is suffering. Choose wisely. Choose one desire at a time
-- Force yourself to be positive until it becomes automatic
-- Smile more, hug more, get sunlight, spend time in nature, meditate
-- Trying to sound smart is a disease 
-- Good question about it: “Would I be still interested in this thing if I couldn’t tell anyone?”
-- If you are successful you’re gonna be inundated by inbound opportunities that you cannot manage and it’s harder to pick up something you by yourself
-- You’re never gonna make more money than you think you’re worth
-- Pick an aspiration hourly rate and be extremely jealous of your time
-- This will help you define the cost of things like meetings or business travels
-- Embrace what you’re doing at the moment 
-- Do art, creativity, love. Do things for their own sake
-- Work should feel like play to you so no-one can compete with you
+- Social sciences: "You can tell they're fake sciences because they have the word 'science' tacked on."
+- Peace is happiness at rest, happiness is peace in motion.
+- Peace is not about external problems but about giving up on the idea of problems itself.
+- If there were an answer to "meaning of life" we would not be free.
+- Agrippa/Münchhausen trilemma: 1 Infinite regress; 2 Circular reasoning; 3 Axiom.
+- We should be doing nuclear fusion experiments on the moon.
+- If you are smart you should be able to figure out how to be happy.
+- Busy minds ("monkey minds") are not peaceful.
+- Peace FROM mind not peace OF mind.
+- Retirement = solved your money problem, by lowering expenses/burnrate or increasing income.
+  - Allows you to stop sacrificing something today with the idea you will get something in return tomorrow.
+- Focus on being authentic, unique, creative and not replaceable.
+- Two addictions: heroine and a monthly salary.
+- Get used to ignoring your peers.
+- “Easy for you to say” and “keeping up with the Jones” is a trap.
+- Confucious: every man has 2 lives; the second life starts when you realize you only have one.
+- Force yourself to be positive until it becomes automatic.
+  Watch your mind (without judgement): "why am I having that thought?"
+- "Would I be still interested in this thing if I couldn’t tell anyone?"
+- Your brain "Hedonically adapts" to any new luxury.
+- Art = anything done for its own sake
 
 ================================================================================
 20200515
@@ -6766,3 +6728,12 @@ tag="engineering science academia university study research invention innovation
 > radars and so on...
 cf. Peter Thiel, Eric Weinstein on the paralysis of physics progress since 1950s.
 https://www.youtube.com/watch?v=nM9f0W2KD5s
+
+================================================================================
+20200526
+Kapil Gupta: Conquering the Mind
+https://nav.al/kapil
+tag="concepts mental-model philosophy health"
+> Kapil: A human being becomes his environment. It is critical to savagely and
+> surgically arrange one’s environment in a way that is in accordance with where
+> he wants to go.

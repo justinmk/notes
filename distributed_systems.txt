@@ -22,6 +22,40 @@ todo:
         theoretical:
             http://dcg.ethz.ch/lectures/podc_allstars/
 
+DISTRIBUTED SYSTEMS PRACTICES
+  - Coordination is very hard.  https://www.somethingsimilar.com/2013/01/14/notes-on-distributed-systems-for-young-bloods/
+    Avoid coordinating machines wherever possible ("horizontal scalability").
+    Independence: able to get data to machines such that communication and consensus between those machines is kept to a minimum.
+    Whenever two machines must agree on something, the service becomes harder to implement.
+    Information has an upper limit to the speed it can travel, and networked communication is flakier than you think, and your idea of what constitutes consensus is probably wrong.
+  - “It’s slow” is the hardest problem you’ll ever debug.
+  - Implement backpressure throughout your system.
+    - Drop new messages (and increment a metric)
+    - Ship errors back to users (and increment a metric)
+    - Timeouts and exponential back-offs on connections/requests
+  - Metrics are the only way to get your job done. Expose metrics (latency percentiles, increasing counters, rates of change)
+    - Knowing how the system’s behavior on day 20 is different from its behavior
+      on day 15 is the difference between successful engineering and failed
+      shamanism.
+    - Logs are often misleading. Metrics/experiments must back up the story.
+  - Use percentiles, not averages. Percentiles (50th, 99th, 99.9th, 99.99th) are
+    more accurate/informative than averages.
+    - Using a mean assumes that the metric follows a bell curve.
+  - Feature flags are how infrastructure is rolled out.
+    - Accept that having multiple versions of infrastructure/data is a norm, not an rarity.
+    - Trades local complexity (in the code, in one system) for global simplicity/resilience.
+  - Choose id spaces wisely.
+    - The more ids required to get to a piece of data, the more options you have
+      in partitioning the data. The fewer ids required to get a piece of data,
+      the easier it is to consume your system’s output.
+  - Exploit data-locality.
+    - Space-locality: the closer the processing and caching of your data is kept
+      to its persistent storage, the more efficient your processing and caching.
+    - Time-locality: If multiple users are making the same expensive request at
+      nearly the same time, perhaps their requests can be joined into one.
+  - Writing cached data back to persistent storage is bad.
+  - Homework: apply CAP to critique Russian-doll caching.
+
 DISTRIBUTED SYSTEMS TOOLBOX
   queue
     - break big messages into chunks! (e.g. S3 files)
