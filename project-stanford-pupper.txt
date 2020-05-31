@@ -1,0 +1,10 @@
+https://pupper.readthedocs.io/en/latest/
+https://stanfordstudentrobotics.org/pupper
+https://github.com/stanfordroboticsclub/StanfordQuadruped
+
+parts:
+  x 3d printed
+  x soldering iron
+  x raspi
+    multimeter
+    (optional) IMU setup: BNO080 IMU + Teensy LC
