@@ -6341,7 +6341,7 @@ tag="politics economics federal-reserve monetary-policy inflation"
 20200324
 Modern Monetary Theory
 https://www.reddit.com/r/wallstreetbets/comments/fnkbdh/dont_bet_against_mmt_you_will_lose_even_if_you/fla4bve/
-tag="economics mmt federal-reserve monetary-policy"
+tag="economics mmt federal-reserve monetary-policy equity stock options"
 >>>> QE and Fed intervention in a market is only for stabilization to prevent
 >>>> total credit seizure (even in 08 we didn't have a total failure). Once the
 >>>> loan is paid back it is destroyed in an M0 sense, it doesn't accumulate in
@@ -6734,6 +6734,78 @@ https://www.youtube.com/watch?v=nM9f0W2KD5s
 Kapil Gupta: Conquering the Mind
 https://nav.al/kapil
 tag="concepts mental-model philosophy health"
-> Kapil: A human being becomes his environment. It is critical to savagely and
-> surgically arrange one’s environment in a way that is in accordance with where
-> he wants to go.
+> Kapil: A human being becomes his environment and that is why it’s absolutely
+> critical to savagely and surgically arrange one’s environment in a way that is
+> in accordance with where he wants to go. You become that which you are most
+> consistently exposed to.
+
+================================================================================
+20200611
+https://old.reddit.com/r/wallstreetbets/comments/grj5fa/the_mouthbreathers_guide_to_the_galaxy/
+tag="economics mmt federal-reserve monetary-policy equity stock options"
+> Yup, everyone got clapped on their stupidly leveraged derivatives books. It
+> seems Citadel is “too big to fail”. On 3/18, the payout on 3/20 TQQQ puts
+> alone if it went to 0 was $468m. And every single TQQQ put expiration would
+> have had to be paid. Tens or hundreds of billions on TQQQ puts alone. I’d bet
+> my ass Citadel was on the hook for a big chunk of those.
+
+================================================================================
+20200612
+https://old.reddit.com/r/wallstreetbets/comments/h0ytcy/the_liquidity_trap_how_qe_and_low_rates_might_be/ftqgnj8/
+tag="economics mmt federal-reserve monetary-policy equity stock options"
+> look into "Dollar Milkshake Theory" https://www.youtube.com/watch?v=PWVRWUkm54M
+>
+> Most of the world's debt is held by foreign governments and companies, yet
+> these debts denominated in US dollars.
+>
+> High debt countries will experience inflation as they print money to pay
+> interest, so their currencies will fall relative to the USD.
+>
+> As you mentioned, bond yields are worthless. But this is true globally, so
+> further uncertainty will trigger capital flight from foreign nations into the
+> USD, as a safe asset.
+>
+> If the USD appreciates and earnings don't rise, foreign governments and
+> companies will have a significantly harder time servicing their USD debt
+> because their own currencies will become worthless, leading to massive global
+> insolvency, and further USD appreciation.
+>
+> The endgame of this global insolvency scenario, is the US government being
+> forced to forgive debts, and foreign governments and central banks agreeing to
+> abandon the USD as the reserve currency. Maybe even the creation a new global
+> currency.
+>
+> TL:DR The global central banking system cannot handle a deflationary USA and
+> significant USD appreciation.
+
+================================================================================
+20200613
+Pronomos Capital
+https://www.pronomos.vc/
+tag="investment finance startup"
+> VC fund ... to create a new model for urban development where the city & its
+> institutions is the product. ... work in partnership with countries to create
+> new communities that seek - through good governance - to emulate the economic
+> success of Dubai, Hong Kong, Shenzhen and Singapore. Our investors include
+> Peter Thiel, Marc Andreessen, Balaji Srinivasan, Naval Ravikant, Joe
+
+================================================================================
+20200613
+Founders Fund
+https://foundersfund.com/
+tag="investment finance startup"
+stripe, twilio, spacex, airbnb, ...
+
+================================================================================
+20200615
+vscode notebook UX
+https://github.com/microsoft/vscode/issues/91987
+tag="tools programming ide vscode javascript typescript text-editor"
+design of vscode notebook experience (cf. jupyter): kernel/backend + cells
+
+================================================================================
+20200624
+Peer-to-peer canvas app for Urbit
+https://github.com/yosoyubik/canvas
+tag="urbit app p2p programming"
+https://news.ycombinator.com/item?id=23228058

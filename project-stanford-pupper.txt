@@ -2,9 +2,43 @@ https://pupper.readthedocs.io/en/latest/
 https://stanfordstudentrobotics.org/pupper
 https://github.com/stanfordroboticsclub/StanfordQuadruped
 
+TODO:
+  ssh pi@10.0.0.99
+    passwd
+    enable/secure ssh via wifi
+
 parts:
+  x power connector adapter: XT60 male to Deans(T) female
+  x lipo battery alarm: attach to battery to avoid completely discharging the battery (dangerous)
+      https://www.youtube.com/watch?v=tTkT1fSAy9Y
   x 3d printed
   x soldering iron
   x raspi
     multimeter
     (optional) IMU setup: BNO080 IMU + Teensy LC
+    feet: for slippery surface, get rubber grommets (McMaster #90131A101) and fasten them to the pre-drilled holes in the feet.
+          "Any sort of rubber disc/washer should work. Attach with short M3x8 screws and locknuts."
+
+LIPO BATTERY:
+  Always charge in BALANCE mode.
+  DISCHARGING TOO MUCH = risk of fire.
+    Below 3V per-cell => permanent degradation.
+    Set "low-voltage cutoff" to 3.4V per cell.
+  Safest charge-rate for LiPo batteries is 1C, or 1x capacity of battery in Amps.
+    => for 5200mAh battery use 5.2A
+    if charger doesn't support 5.2A it's fine to use a lower value, just takes longer
+  STORAGE:
+    Always set LiPo to "storage charge" if you won't use it same-day.
+    Proper LiPo storage voltage = 3.8V per cell
+    LiPo battery can be damaged by sitting fully charged for as little as 1 week.
+
+software
+  use of `dd` to flash the sd card: https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
+    $ sudo dd bs=1m if=2019-09-26-raspbian-buster-lite.img of=/dev/rdisk2 ; sync
+  "using latest raspbian OS: The only thing that needed to be corrected were missing udev rules for the PS4 controller. Otherwise the software instructions were sufficient." https://groups.google.com/d/msg/stanford-quadrupeds/e01e9xvb4V4/2o81D3CeBwAJ
+
+behavior
+  Q1: Robot walks too fast. How can I control the speed of the robot?
+  A1: You can adjust the frequency of the trot in the config file here:
+      https://github.com/stanfordroboticsclub/StanfordQuadruped/blob/master/pupper/Config.py.
+      Look for two variables: self.overlap_time and self.swing_time
