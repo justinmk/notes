@@ -3,11 +3,11 @@ https://stanfordstudentrobotics.org/pupper
 https://github.com/stanfordroboticsclub/StanfordQuadruped
 
 TODO:
-  ssh pi@10.0.0.99
     passwd
-    enable/secure ssh via wifi
+    secure sshd_config
 
 parts:
+  x raspberry pi 4, model B, 2GB ram
   x power connector adapter: XT60 male to Deans(T) female
   x lipo battery alarm: attach to battery to avoid completely discharging the battery (dangerous)
       https://www.youtube.com/watch?v=tTkT1fSAy9Y
@@ -16,8 +16,8 @@ parts:
   x raspi
     multimeter
     (optional) IMU setup: BNO080 IMU + Teensy LC
-    feet: for slippery surface, get rubber grommets (McMaster #90131A101) and fasten them to the pre-drilled holes in the feet.
-          "Any sort of rubber disc/washer should work. Attach with short M3x8 screws and locknuts."
+  x feet: for slippery surface, get rubber grommets (McMaster #90131A101) and fasten them to the pre-drilled holes in the feet.
+  x       "Any sort of rubber disc/washer. Attach with short M3x8 screws and locknuts."
 
 LIPO BATTERY:
   Always charge in BALANCE mode.
@@ -32,13 +32,35 @@ LIPO BATTERY:
     Proper LiPo storage voltage = 3.8V per cell
     LiPo battery can be damaged by sitting fully charged for as little as 1 week.
 
-software
+HARDWARE
+  servo motor "crackling" noise:
+  https://www.rctech.net/forum/nitro-road/283356-servo-noise-normal.html
+    > The crackling is perfectly normal with digital servos. It usually happens
+    > when there is a very slight load on the servo and it can't quite reach
+    > neutral perfectly to stop calling on the motor. There isn't any negative
+    > effect, but as a rule I wouldn't leave it loaded and crackling for minutes
+    > at a time.
+
+
+SOFTWARE
+  problems:
+    # wlan fails in ro filesystem:
+    Feb 14 10:19:29 oppy5 dhclient[2930]: can't create /var/lib/dhcp/dhclient.wlan0.leases: Read-only file system
+  $ ssh pi@10.0.0.99  # ethernet
+  $ ssh pi@192.168.2.110  # wifi
   use of `dd` to flash the sd card: https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
     $ sudo dd bs=1m if=2019-09-26-raspbian-buster-lite.img of=/dev/rdisk2 ; sync
   "using latest raspbian OS: The only thing that needed to be corrected were missing udev rules for the PS4 controller. Otherwise the software instructions were sufficient." https://groups.google.com/d/msg/stanford-quadrupeds/e01e9xvb4V4/2o81D3CeBwAJ
+  # update wifi:
+  sudo raspi-config
+  # At boot, files are overwritten with /boot/appliance/*.
+  # To preserve wifi settings:
+  sudo cp /etc/wpa_supplicant/wpa_supplicant.conf /boot/appliance/etc/wpa_supplicant/wpa_supplicant.conf
+  # control ps4 colors, ...:
+  vim StanfordQuadruped/pupper/HardwareConfig.py
 
-behavior
-  Q1: Robot walks too fast. How can I control the speed of the robot?
-  A1: You can adjust the frequency of the trot in the config file here:
-      https://github.com/stanfordroboticsclub/StanfordQuadruped/blob/master/pupper/Config.py.
-      Look for two variables: self.overlap_time and self.swing_time
+  behavior
+    Q1: Robot walks too fast. How can I control the speed of the robot?
+    A1: You can adjust the frequency of the trot in the config file here:
+        https://github.com/stanfordroboticsclub/StanfordQuadruped/blob/master/pupper/Config.py.
+        Look for two variables: self.overlap_time and self.swing_time

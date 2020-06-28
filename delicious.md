@@ -6809,3 +6809,56 @@ Peer-to-peer canvas app for Urbit
 https://github.com/yosoyubik/canvas
 tag="urbit app p2p programming"
 https://news.ycombinator.com/item?id=23228058
+
+================================================================================
+20200627
+xi-editor retrospective
+https://raphlinus.github.io/xi/2020/06/27/xi-retrospective.html
+tag="tools programming xi rope vim neovim rust text-editor"
+
+================================================================================
+20200627
+Lezer (CodeMirror parsing system)
+https://marijnhaverbeke.nl/blog/lezer.html
+tag="programming parser syntax-highlighting text-editor"
+
+================================================================================
+20200628
+Semantic: Haskell library and command line tool for parsing, analyzing, and comparing source code
+https://github.com/github/semantic
+tag="programming parser ast syntax-highlighting code-navigation treesitter"
+Architecture:
+1. Reads blobs.
+2. Generates parse trees for those blobs with tree-sitter (an incremental parsing system for programming tools).
+3. Assigns those trees into a generalized representation of syntax.
+4. Performs analysis, computes diffs, or just returns parse trees.
+5. Renders output in one of many supported formats.
+Semantic leverages a number of interesting algorithms and techniques:
+- Myers' algorithm (SES) as described in the paper An O(ND) Difference Algorithm and Its Variations
+- RWS as described in the paper RWS-Diff: Flexible and Efficient Change Detection in Hierarchical Data.
+- Open unions and data types à la carte.
+- An implementation of Abstracting Definitional Interpreters extended to work with an à la carte representation of syntax terms.
+
+================================================================================
+20200628
+The False Dichotomy Stunting Tech
+https://www.aymannadeem.com/software/2019/08/06/The-False-Dichotomy-Stunting-Tech.html
+tag="software-engineering programming communication technology engineering"
+> Eugenia Cheng on the power of abstraction. She discussed the difference
+> between pedantry and precision.
+>
+> Pedantry is what she refers to as the noise — the opaque, ineffective
+> nerd-porn dialogue that obscures meaning by muddying it with jargon. Not only
+> can this result in gatekeeping, but it also allows incompetence to hide behind
+> unnecessarily intellectualized terminology. Precision, by contrast, was what
+> Dr. Cheng referred to as the signal — the bits of work that are expressed
+> clearly and without loss of detail.
+>
+> ... Being clear is not about being dumb, but, as Eugenia Cheng said, about
+> identifying a problem with the precision and clarity that is appropriate for
+> the context. ... Poor abstractions dumb down complexity and reduce precision.
+> Good abstractions make things more precise by creating context-appropriate
+> information and interfaces.
+>
+> “Being abstract is something profoundly different from being vague … to create
+> a new semantic level in which one can be absolutely precise.” — Edsger W. Dijkstra
