@@ -648,7 +648,7 @@ If you're lucky enough to be in high enough demand that you can consider either 
 Frequency illusion / Baader-Meinhof Phenomenon
 ================================================================================
   href="http://en.wikipedia.org/wiki/List_of_cognitive_biases#Frequency_illusion"
-    tag="concepts cogsci mental-model"
+    tag="concepts psychology mental-model"
   time="2015-02-13T19:03:21Z" 
 
 
@@ -1441,7 +1441,7 @@ How I Rewired My Brain to Become Fluent in Math - Issue 17: Big Bangs - Nautilus
 ================================================================================
   students can often grasp essentials of an important idea, but this understanding can quickly slip away without consolidation through practice and repetition. / well-ingrained chunks of expertise through practice and repetition / Understanding doesn‚Äôt build fluency; instead, fluency builds understanding. / understanding, after all, is facile, and can easily slip away.
   href="http://nautil.us/issue/17/big-bangs/how-i-rewired-my-brain-to-become-fluent-in-math-rd"
-    tag="learning cogsci math pedagogy"
+    tag="learning psychology math pedagogy"
   time="2014-12-17T00:55:04Z" 
 
 Michael Pettis' CHINA FINANCIAL MARKETS
@@ -2367,7 +2367,7 @@ Warning Signs in Experimental Design and Interpretation
   Psychology as a discipline has been especially stung by papers that cannot be reproduced. http://www.nytimes.com/2013/04/28/magazine/diederik-stapels-audacious-academic-fraud.html?pagewanted=all&amp;amp;_r=0 Uri Simonsohn &amp;quot;twenty-one word solution&amp;quot;: http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2160588 &amp;quot;p-hacking&amp;quot;, an all too common practice in science that can be detected by statistical tests: http://www.p-curve.com/ http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2259879 &amp;quot;Abstract: &amp;quot;When does a replication attempt fail? The most common standard is: when it obtains p&amp;gt;.05. Replication attempts fail when their results indicate that the effect, if it exists at all, is too small to have been detected by the original study. &amp;quot;Warning Signs in Experimental Design and Interpretation&amp;quot; http://norvig.com/experiment-design.html
   href="http://news.ycombinator.com/item?id=5680292" 
   
-  tag="cogsci psychology skepticism scientific-error science"
+  tag="psychology skepticism scientific-error science"
   time="2013-05-09T18:08:55Z" 
 
 Peter Norvig: pytudes: Python programs to practice or demonstrate skills.
@@ -2394,14 +2394,14 @@ only 11% of 53 published cancer research papers were reproducible
 Voting paradox
 ================================================================================
   href="http://en.wikipedia.org/wiki/Voting_paradox" 
-   tag="politics paradox cogsci voting mental-model"
+   tag="politics paradox psychology voting mental-model"
   time="2013-05-07T23:13:12Z" 
 
 Arrow's impossibility theorem
 ================================================================================
   href="http://en.wikipedia.org/wiki/Arrow%27s_impossibility_theorem"
    
-  tag="game-theory politics paradox cogsci voting logic mental-model"
+  tag="game-theory politics paradox psychology voting logic mental-model"
   time="2013-05-07T23:10:53Z" 
 
 Windyty: weather visualizer
@@ -3901,7 +3901,7 @@ EDITORIAL: TSA comes to your bus stop - Washington Times
 Spaced Repetition
 ================================================================================
 https://ncase.me/remember/
-tag="cogsci neuroplasticity memory mnemonics anki spaced-repetition"
+tag="psychology neuroplasticity memory mnemonics anki spaced-repetition"
 .
 SPACED REPETITION is essentially "flashcards" with an emphasis on:
     1. time
@@ -3915,7 +3915,7 @@ SPACED REPETITION is essentially "flashcards" with an emphasis on:
 Augmenting Long-term Memory
 ================================================================================
 http://augmentingcognition.com/ltm.html
-tag="cogsci neuroplasticity memory mnemonics anki spaced-repetition"
+tag="psychology neuroplasticity memory mnemonics anki spaced-repetition"
 .
 SYNTOPIC reading with Anki (grok an unfamiliar field/literature)
 > Avoid orphan questions: questions too disconnected from your other interests lack the original motivating context.
@@ -3924,7 +3924,7 @@ SYNTOPIC reading with Anki (grok an unfamiliar field/literature)
 AnkiWeb: Shared Decks
 ================================================================================
 https://ankiweb.net/shared/decks/
-tag="cogsci neuroplasticity memory mnemonics anki spaced-repetition"
+tag="psychology neuroplasticity memory mnemonics anki spaced-repetition"
 ☃ german deck: https://ankiweb.net/shared/info/785874566
 
 
@@ -3939,7 +3939,7 @@ Can You Build a Better Brain? - Newsweek
 ================================================================================
   neuroplasticity
   href="http://www.newsweek.com/2011/01/03/can-you-build-a-better-brain.html"
-    tag="cogsci"
+    tag="psychology"
   time="2011-01-04T10:21:18Z" 
 
 Christopher Hitchens
@@ -3960,14 +3960,14 @@ Panopticlick
 ================================================================================
   web browser identity, fingerprint.¬† browser configuration = web sites may be able to track you even if you disable cookies. see also:¬†http://hacks.mozilla.org/2010/03/privacy-related-changes-coming-to-css-vistited/
   href="http://panopticlick.eff.org/"  
-  tag="privacy paranoia compsci statistics security"
+  tag="privacy paranoia compsci statistics security fingerprinting webbrowser web"
   time="2010-12-21T06:33:11Z" 
 
 How Teen Experiences Affect Your Brain for Life - Newsweek
 ================================================================================
   teen years are a period of crucial brain development. mid-20s, or later, for a brain to become fully developed. one of the last parts to mature is the frontal lobe ... modulating reward, planning, impulsiveness, attention, acceptable social behavior former adolescent drinkers had ... very exaggerated responses to mild stress. kids who smoked pot before age 16 had more lifelong cognitive problems than those who started smoking after 16
   href="http://www.newsweek.com/2010/12/16/the-kids-can-t-help-it.html"
-    tag="cogsci"
+    tag="psychology"
   time="2010-12-20T07:43:01Z" 
 
 Google App Engine Pipeline API
@@ -4009,7 +4009,7 @@ Simpson's paradox
   &amp;quot;an apparent paradox in which a correlation (trend) present in different groups is reversed when the groups are combined.&amp;quot; Q: why should a story, not data, dictate choices? A: the story encodes the causal relationships among the variables. Once we extract these relationships, we can represent them in a Causal Bayesian Network graph which we can test algorithmically. - Berkeley sex bias case - Kidney stone treatment
   href="http://en.wikipedia.org/wiki/Simpson_s_paradox"
    
-  tag="paradox cogsci mathematics statistics concepts mental-model"
+  tag="paradox psychology mathematics statistics concepts mental-model"
   time="2010-11-30T05:00:20Z" 
 
 DE(E)SU - Libert√© Linux
@@ -4029,7 +4029,7 @@ Procrastination, hyperbolic discounting
 ================================================================================
   Misconception: You procrastinate because you are lazy and can‚Äôt manage your time well. Truth: Procrastination is fueled by weakness in the face of impulse and a failure to think about thinking. Now-you must trick future-you into doing what is right for both parties. ...why you keep adding movies you will never watch to your growing collection of future rentals ... the same reason you believe you will eventually do what‚Äôs best for yourself in all the other parts of your life, but rarely do. present bias = being unable to grasp that what you want will change over time hyperbolic discounting = the tendency to get more rational when you are forced to wait
   href="http://youarenotsosmart.com/2010/10/27/procrastination/"
-    tag="cogsci project-management"
+    tag="psychology project-management"
   time="2010-10-28T11:47:52Z" 
 
 Firesheep ... HTTP Session Hijacking
@@ -4072,7 +4072,7 @@ Power Posing: Fake It Until You Make It
 ================================================================================
   holding one's body in expansive, &quot;high-power&quot; poses for as little as two minutes stimulates higher levels of testosterone ... and lower levels of cortisol.
   href="http://hbswk.hbs.edu/item/6461.html" 
-   tag="cogsci" time="2010-10-13T18:28:09Z" 
+   tag="psychology" time="2010-10-13T18:28:09Z" 
 
 Feds are monitoring and tracking redditors for their comments, or &quot;How I learned to STFU and love the police state&quot;.
 ================================================================================
@@ -4122,7 +4122,7 @@ How to Think (Technology Review: Blogs: Ed Boyden's blog)
 ================================================================================
   &quot;1. Synthesize new ideas constantly. Never read passively. Annotate, model, think, and synthesize while you read...&quot; &quot;9. Document everything obsessively. If you don't record it, it may never have an impact on the world. Much of creativity is learning how to see things properly...&quot; &quot;time management... logarithmic time planning, in which events that are close at hand are scheduled with finer resolution than events that are far off.&quot;
   href="http://www.technologyreview.com/blog/boyden/21925/"
-    tag="learning cogsci"
+    tag="learning psychology"
   time="2010-09-01T00:13:29Z" 
 
 Regexes For Life 
@@ -4189,14 +4189,14 @@ Second-order simulacra
 ================================================================================
   A system whose legitimacy is implied by its complexity. E.g., psychology/psychoanalysis, alchemy, astrology, chiropractic are presumed valuable because they are complicated and have experts. The foundation of the system is not questioned because people are too busy debating the higher-order results of the system.
   href="http://en.wikipedia.org/wiki/Second-order_simulacra"
-    tag="concepts cogsci mental-model"
+    tag="concepts psychology mental-model"
   time="2010-08-23T06:16:25Z" 
 
 Blue Brain Project
 ================================================================================
 attempt to reverse-engineer the mammalian brain, in order to understand brain function and dysfunction through detailed simulations.
 https://www.epfl.ch/research/domains/bluebrain/
-tag="ai cogsci"
+tag="ai psychology"
 
 Antarctic Peninsula
 ================================================================================
@@ -4208,7 +4208,7 @@ The Cognitive Benefits of Nature : The Frontal Cortex
 ================================================================================
   &quot;interacting with nature ... improves cognitive function&quot;
   href="http://scienceblogs.com/cortex/2008/11/the_cognitive_benefits_of_natu.php"
-    tag="cogsci health"
+    tag="psychology health"
   time="2010-07-15T00:39:17Z" 
 
 App Inventor for Android 
@@ -4290,7 +4290,7 @@ Nootropic
 ================================================================================
   smart drugs, memory enhancers, and cognitive enhancers: drugs, supplements, nutraceuticals, and functional foods that are purported to improve mental functions.
   href="http://en.wikipedia.org/wiki/Nootropic" 
-   tag="cogsci learning physiology" time="2010-05-07T21:33:38Z" 
+   tag="psychology learning physiology" time="2010-05-07T21:33:38Z" 
 
 FRPAX Franklin PA Tax-Free Income A
 ================================================================================
@@ -4634,7 +4634,7 @@ Directed Edge - Blog - On Building a Stupidly Fast Graph Database
 Moserware: Wetware Refactorings 
 ================================================================================
   href="http://www.moserware.com/2009/01/wetware-refactorings.html"
-    tag="todo learning cogsci"
+    tag="todo learning psychology"
   time="2010-03-14T01:26:26Z" 
 
 
@@ -4702,7 +4702,7 @@ Are Machine-Learned Models Prone to Catastrophic Errors?
   Nassim Taleb divides phenomena into two classes: Mediocristan, consisting of phenomena that fit the bell curve model, such as games of chance, height and weight in humans, and so on. Here future observations can be predicted by extrapolating from variations in statistics based on past observation (for example, sample means and standard deviations). Extremistan, consisting of phenomena that don't fit the bell curve model, such as the search queries, the stock market, the length of wars, and so on. Sometimes such phenomena can sometimes be modeled using power laws or fractal distributions, and sometimes not. In many cases, the very notion of a standard deviation is meaningless. The current generation of machine learning algorithms can work well in Mediocristan but not in Extremistan. The very metrics these algorithms use, such as precision, recall, and root-mean square error (RMSE), make sense only in Mediocristan.
   href="http://anand.typepad.com/datawocky/2008/05/are-human-experts-less-prone-to-catastrophic-errors-than-machine-learned-models.html"
    
-  tag="compsci ai cogsci machine-learning"
+  tag="compsci ai psychology machine-learning"
   time="2010-02-02T05:07:06Z" 
 
 optionshouse.com - Stock Option Trading Broker, Online Options Trading Platform ...
@@ -4827,7 +4827,7 @@ Innovative Minds Don't Think Alike
 ================================================================================
   the &quot;curse of knowledge&quot;. &quot;It‚Äôs why engineers design products ultimately useful only to other engineers. It‚Äôs why managers have trouble convincing the rank and file to adopt new processes.&quot;
   href="http://www.nytimes.com/2007/12/30/business/30know.html"
-  tag="learning engineering cogsci business"
+  tag="learning engineering psychology business"
   time="2009-10-07T22:20:27Z" 
 
 A Stick Figure Guide to the Advanced Encryption Standard (AES)
@@ -4916,7 +4916,7 @@ Seeking: The powerful and mysterious brain circuitry that makes us love Google .
 ================================================================================
   Seeking ... is the mammalian motivational engine that each day gets us out of the bed. dopamine circuits &quot;promote states of eagerness and directed purpose&quot;. Panksepp says a way to drive animals into a frenzy is to give them only tiny bits of food.
   href="http://www.slate.com/default.aspx?id=2224932" 
-   tag="cogsci learning" time="2009-08-15T18:42:29Z" 
+   tag="psychology learning" time="2009-08-15T18:42:29Z" 
 
 An Intuitive Explanation of Fourier Theory
 ================================================================================
@@ -4940,10 +4940,14 @@ Motion Mountain: The Free Physics Textbook
 ================================================================================
 http://jsomers.net/concerning_the_soul.pdf
 tag="literature books"
-  contemplation:
-  > At the moment when desire ceases and contemplation, pure seeing, and self-surrender begin, everything changes. Man ceases to be useful or dangerous, interesting or boring, genial or rude, strong or weak. He becomes nature, he becomes beautiful and remarkable as does everything that is an object of clear contemplation.
+contemplation:
+> At the moment when desire ceases and contemplation, pure seeing, and
+> self-surrender begin, everything changes. Man ceases to be useful or
+> dangerous, interesting or boring, genial or rude, strong or weak. He becomes
+> nature, he becomes beautiful and remarkable as does everything that is an
+> object of clear contemplation.
 
-Cato Unbound &quot; Blog Archive &quot; Beyond Folk Activism
+Cato Unbound: Beyond Folk Activism
 ================================================================================
   &quot;When we read in the evening paper that we‚Äôre footing the bill for another bailout, we react by complaining to our friends, suggesting alternatives, and trying to build coalitions for reform. This primal behavior is as good a guide for how to effectively reform modern political systems as our instinctive taste for sugar and fat is for how to eat nutritiously.&quot; ... &quot;Folk activism treats policies and institutions as the result of specific human intent. But policies are in large part an emergent behavior of institutions, and institutions are an emergent behavior of the global political ecosystem.&quot;
   href="http://www.cato-unbound.org/2009/04/06/patri-friedman/beyond-folk-activism/"
@@ -5192,7 +5196,7 @@ http://www.reddit.com/r/science/comments/862en/you_and_your_research_a_lecture_o
 "Learning how to learn", Idries Shah
 ================================================================================
 https://en.wikipedia.org/wiki/Learning_How_to_Learn
-tag="learning pedagogy cogsci"
+tag="learning pedagogy psychology"
 
 Is there really such a thing as &quot;random&quot;?
 ================================================================================
@@ -5643,7 +5647,7 @@ Annals of Medicine: The Checklist: Reporting &amp; Essays: The New Yorker
 ================================================================================
   list-making. checklists improve quality.
   href="http://www.newyorker.com/reporting/2007/12/10/071210fa_fact_gawande"
-    tag="information cogsci"
+    tag="information psychology"
   time="2008-02-08T02:15:08Z" 
 
 Clarity Sought on Electronics Searches - washingtonpost.com
@@ -5945,7 +5949,7 @@ resources to the choice.
 Pedophrasty, Bigoteering, and Other Modern Scams
 ================================================================================
 https://medium.com/incerto/pedophrasty-bigoteering-and-other-modern-scams-c84bd70a29e8
-tag="concepts cogsci mental-model"
+tag="concepts psychology mental-model"
 Pedophrasty: Argument involving children to prop up a rationalization and make the opponent look like an asshole, as people are defenseless and suspend all skepticism in front of suffering children: nobody has the heart to question the authenticity or source of the reporting. Often done with the aid of pictures.
 Bigoteering: tagging someone (or someone’s opinions) as “racist”, “chauvinist” or somethinglikeit-ist in situations where these are not warranted. This is a shoddy manipulation to exploit the stigmas accompanying such labels and force the opponent to spent time and energy explaining “why he/she is not a bigot”.
 Nabothizing: Production of false accusation, just as Jezebel did to dispossess Naboth.
@@ -5955,7 +5959,7 @@ Partializing: Exploiting the unsavory attributes of one party in a conflict with
 True Name
 ================================================================================
 https://en.wikipedia.org/wiki/True_name
-tag="concepts cogsci mental-model"
+tag="concepts psychology mental-model"
 > The notion that language, or some specific sacred language, refers to things by their true names has been central to philosophical study as well as various traditions of magic, religious invocation and mysticism (mantras) since antiquity.
 > ...
 > The true name of the Egyptian sun god Ra was revealed to Isis through an elaborate trick. This gave Isis complete power over Ra.
@@ -5965,7 +5969,7 @@ tag="concepts cogsci mental-model"
 Idioglossia
 ================================================================================
 https://en.wikipedia.org/wiki/Idioglossia
-tag="concepts cogsci mental-model"
+tag="concepts psychology mental-model"
 
 Principal–agent problem
 ================================================================================
@@ -5976,7 +5980,7 @@ tag="concepts politics economics mental-model"
 Reality has a surprising amount of detail
 ================================================================================
 http://johnsalvatier.org/blog/2017/reality-has-a-surprising-amount-of-detail
-tag="concepts cogsci emergence mental-model"
+tag="concepts psychology emergence mental-model"
 > This surprising amount of detail is is not limited to “human” or “complicated” domains, it is a near universal property of everything from space travel to sewing, to your internal experience of your own mind.
 > ...
 > Before you’ve noticed important details they are, of course, basically
@@ -6437,7 +6441,7 @@ Faces and heels
 20200416
 Tim Ferriss: how to master any skill by deconstructing it | The Next Web
 https://www.youtube.com/watch?v=DSq9uGs_z0E
-tag="learning cogsci language pedagogy"
+tag="learning psychology language pedagogy"
 - deadlifts most effective if you start from ground and lift only ~5 inches.
 - best temperature for coffee = 180 F
 - play ~any song with 4 chords: https://www.youtube.com/watch?v=B_Smt1VsoqQ
@@ -6862,3 +6866,161 @@ tag="software-engineering programming communication technology engineering"
 >
 > “Being abstract is something profoundly different from being vague … to create
 > a new semantic level in which one can be absolutely precise.” — Edsger W. Dijkstra
+
+================================================================================
+20200630
+Dirtbag left
+https://en.wikipedia.org/wiki/Dirtbag_left
+tag="politics tropes concepts"
+> A mode of left-wing politics that eschews civility in order to convey
+> a socialist or left-wing populist message using subversive vulgarity. It is
+> most closely associated with American left-wing media that emerged in the
+> mid-2010s, most notably the podcast Chapo Trap House.
+
+================================================================================
+20200630
+Multi-channel network
+https://en.wikipedia.org/wiki/Multi-channel_network
+tag="software platform technology media"
+> A multi-channel network (MCN) is an organization that works with video platforms to offer assistance to a channel owner in areas such as "product, programming, funding, cross-promotion, partner management, digital rights management, monetization/sales, and/or audience development" in exchange for a percentage of the ad revenue from the channel.
+https://support.google.com/youtube/answer/2737059?hl=en
+> Multi-Channel Networks (“MCNs” or “networks”) are third-party service providers that affiliate with multiple YouTube channels to offer services that may include audience development, content programming, creator collaborations, digital rights management, monetization, and/or sales.
+
+================================================================================
+20200630
+Guy Who Reverse-Engineered TikTok Reveals the Scary Things He Learned
+https://news.ycombinator.com/item?id=23684950
+tag="security fingerprinting software technology machine-learning spam"
+> The "private data" the app collected, is used, for most part, fingerprint the unique user.
+>
+> In every MCN app, there was a huge fake user problem. If an app collect zero identifiable fingerprint, then a spammer can easily fake millions of views and manipulate ranked content. The app developers are asked think clever to collect every piece of info they can, while spammers spent night and days spoofing every parameter in a virtual machine or even on a matrix of remote controlled real phones.
+>
+> For example, if a iPhone 11 user logs in, but only with screen resolution of 320x240, is it legit? I have caught tens of thousands of fake users with simple checks like this. However the tricks expires pretty quickly, you have to move on with new feature checks, together with decision trees and bayesian networks.
+>
+> Some of the fingerprint collecting SDKs are even using native code to check some ARM specific instructions to tell if the device is fake or not. The parameters check had to be done in every important API calls, or spammers can easily pretend be good citizen during parameter checking process and swap the session to a cheaper VM/phone or spam the targeted API with scripts.
+
+================================================================================
+20200720
+Multiprotocol Label Switching Architecture
+https://tools.ietf.org/html/rfc3031
+tag="rfc network internet engineering ietf"
+next generation internet protocol / replaces tcp/ip?
+
+================================================================================
+20200720
+All of the World’s Money and Markets in One Visualization
+https://www.visualcapitalist.com/all-of-the-worlds-money-and-markets-in-one-visualization-2020/
+tag="economics finance stocks"
+All of the world’s money and markets, from the smallest to the biggest, along with sources used:
+  CATEGORY                                VALUE ($ BILLIONS, USD) SOURCE
+  ----------------------------------------------------------------------
+  Silver                                  $44                     World Silver Survey 2019
+  Cryptocurrencies                        $244                    CoinMarketCap
+  Global Military Spending                $1,782                  World Bank
+  U.S. Federal Deficit (FY 2020)          $3,800                  U.S. CBO (Projected, as of April 2020)
+  Coins & Bank Notes                      $6,662                  BIS
+  Fed's Balance Sheet                     $7,037                  U.S. Federal Reserve
+  The World's Billionaires                $8,000                  Forbes
+  Gold                                    $10,891                 World Gold Council (2020)
+  The Fortune 500                         $22,600                 Fortune 500 (2019 list)
+  Stock Markets                           $89,475                 WFE (April 2020)
+  Narrow Money Supply                     $35,183                 CIA Factbook
+  Broad Money Supply                      $95,698                 CIA Factbook
+  Global Debt                             $252,600                IIF Debt Monitor
+  Global Real Estate                      $280,600                Savills Global Research (2018 est.)
+  Global Wealth                           $360,603                Credit Suisse
+  Derivatives (Market Value)              $11,600                 BIS (Dec 2019)
+  Derivatives (Notional Value)            $558,500                BIS (Dec 2019)
+  Derivatives (Notional Value - High end) $1,000,000              Various sources (Unofficial)
+
+================================================================================
+20200720
+Gell-Mann amnesia effect
+https://en.wikipedia.org/wiki/Speeches_by_Michael_Crichton#GellMannAmnesiaEffect
+tag="concepts mental-model psychology"
+> phenomenon of experts believing news articles on topics outside of their
+> fields of expertise, even after acknowledging that articles written in the
+> same publication that are within the experts' fields of expertise are
+> error-ridden and full of misunderstanding.
+
+================================================================================
+20200720
+Turning the IDE Inside Out with Datalog
+https://news.ycombinator.com/item?id=23869592
+tag="datalog query language ide programming database"
+https://petevilter.me/post/datalog-typechecking/
+
+================================================================================
+20200720
+QUANTUMINSERT (QI), QUANTUMHAND
+https://news.ycombinator.com/item?id=23782093
+tag="police-state surveillance usgov government state security encryption nsa"
+https://blog.fox-it.com/2015/04/20/deep-dive-into-quantum-insert/
+NSA can read TCP sequence numbers or DNS query IDs, and then spoof valid response packets.
+NSA has QUANTUMINSERT capabilities since 2005.
+Detection is possible by looking for duplicate TCP packets but with different payload and other anomalies in TCP streams.
+QUANTUMHAND uses QUANTUMINSERT against targets visiting Facebook.
+Method:
+- observe HTTP requests by eavesdropping network traffic
+- inject malicious content into a specific TCP session
+- requires the capability to listen in on potentially high volumes of internet traffic, which requires substantial resources and a fast infrastructure
+Mitigation:
+- HTTPS in combination with HSTS can reduce the effectiveness of QI.
+- Using a CDN that offers low latency can make it very difficult for the QI packet to win the race with the real server.
+
+================================================================================
+20200720
+Reddit's website uses DRM for fingerprinting
+https://smitop.com/post/reddit-whiteops/
+tag="reddit security fingerprinting software technology webbrowser web"
+Reddit uses WhiteOps (third-party tool for "bot mitigation, bot prevention, and fraud protection".
+Script checks DRM and other features (does not actually need them, just for fingerprinting):
+- Contains what appears to be a Javascript engine JIT exploit/bug, "haha jit go brrrrr" appears in a part of the code
+- Obfuscated reference to res://ieframe.dll/acr.js, which can be used to exploit old Internet Explorer
+- Checks for various global variables and other indicators of headless and automated browsers.
+- Sends data to vprza.com and minkatu.com.
+- Checks if devtools is open
+- Detects installed text-to-speech voices
+- Checks if browsers have floating point errors when rounding 0.49999999999999994 and 2^52
+- Detects if some Chrome extensions are installed
+- Checks if function bodies that are implemented in the browser contain [native code] when stringified
+- Checks if toString itself is implemented in native code
+- Checks for Apple Pay support
+
+================================================================================
+20200729
+Joe Rogan Experience #1515 - Dr. Bradley Garrett
+https://www.youtube.com/watch?v=_kDKAOncclU
+tag="podcast prepper urban-explorer"
+London's "lost rivers": underground rivers converted to tunnels/sewers in the 1800s
+- River Tyburn
+- River Effra
+
+================================================================================
+20200731
+Harvard Study of Adult Development
+https://news.harvard.edu/gazette/story/2017/04/over-nearly-80-years-harvard-study-has-been-showing-how-to-live-a-healthy-and-happy-life/
+tag="psychology happiness life"
+https://news.ycombinator.com/item?id=24007274
+> Close relationships, more than money or fame, are what keep people happy
+> throughout their lives, the study revealed. Those ties protect people from
+> life’s discontents, help to delay mental and physical decline, and are better
+> predictors of long and happy lives than social class, IQ, or even genes.
+>
+> The people who were the most satisfied in their relationships at age 50 were the healthiest at age 80.
+
+================================================================================
+20200802
+Schiphol clock - Maarten Baas
+http://maartenbaas.com/real-time/schiphol-clock/
+tag="art time clock amsterdam airport"
+12-hour performance art film of Dutch artist Maarten Baas painting each minute
+of the hands of a clock.  In Schiphol Airport since 2016.
+
+================================================================================
+20200802
+GITenberg project
+https://www.gitenberg.org/
+tag="literature ebooks books pedagogy"
+- Curated, usable, attractive ebooks in the public domain.
+- Converts Project Gutenberg HTML to ePub.

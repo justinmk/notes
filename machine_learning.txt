@@ -1,5 +1,5 @@
 TODO:
-    http://course.fast.ai/
+    https://course.fast.ai/
     https://developers.google.com/machine-learning/crash-course/
 
 https://news.ycombinator.com/item?id=14485362

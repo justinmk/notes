@@ -1,5 +1,6 @@
 Stuff to do:
   http://www.exberliner.com/whats-on
+  https://www.atlasobscura.com/things-to-do/berlin-germany
   Viktorianisches Picknick (Leipzig)
 
 culture?
@@ -116,3 +117,6 @@ Besucher plan
   KitKat
   Bodenstraße / Batman electric
   Hyper-specialist shops of Berlin https://news.ycombinator.com/item?id=19785455
+
+arbeit
+  https://nu.careers Nubank (clojure)

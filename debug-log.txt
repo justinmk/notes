@@ -188,3 +188,10 @@ A: `strace -c` reports stats on syscalls.
     strace -c -- bash -c 'echo hi' 2>&1
 
 ==============================================================================
+20200807
+Get macOS temperature-based CPU throttling status.
+    $ pmset -g thermlog
+    2020-08-04 22:19:35 -0700 CPU Power notify
+            CPU_Scheduler_Limit     = 100
+            CPU_Available_CPUs      = 4
+            CPU_Speed_Limit         = 74
