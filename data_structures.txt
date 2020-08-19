@@ -9,7 +9,7 @@ Stacks and Queues have equivalent _average_ waiting time. Queue is important
 when _order_ of processing (or maximum waiting time) is important.
 
 vector vs linked-list:
-    linked-list is ~never the right choice.
+    linked-list is ~never the right choice (unless your workload is dominated by splitting/merging costs).
     linked-list traversal = scattered random memory-access (no spatial locality) => defeats caches => 10x slower
 
 lock-free concurrency

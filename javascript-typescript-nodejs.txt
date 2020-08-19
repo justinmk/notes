@@ -21,6 +21,11 @@ globals  https://nodejs.org/api/globals.html#globals_global
     process.nextTick() queue is always processed before the microtask queue
     within each turn of the Node.js event loop."
 
+Global handler for unhandled promise rejections, uncaught exceptions
+  process.on('unhandledRejection'))
+  process.on('uncaughtException')
+  VSCode extension can't use these... https://github.com/microsoft/vscode/issues/93573
+
 setImmediate(), process.nextTick(), …  https://nodejs.org/api/process.html#process_process_nexttick_callback_args
   nextTick(): queues a function BEFORE pending I/O callbacks
     Adds callback to the "next tick queue" (essentially the head of the event queue). This queue is fully drained after the current JS stack runs to completion and before the event loop continues.
@@ -48,7 +53,13 @@ event-loop phases  https://nodejs.org/en/docs/guides/event-loop-timers-and-nextt
 
 TYPESCRIPT
 ==============================================================================
+Declare a motherfucking map:
+  const things: { [key: string]: boolean } = {}
+
 https://httptoolkit.tech/blog/5-big-features-of-typescript-3.7/
+
+type transformations/composition
+  https://www.typescriptlang.org/docs/handbook/utility-types.html
 
 optional chaining x
   // With TS 3.7:
@@ -62,6 +73,3 @@ optional chaining x
   let result = data?.key1?.key2 ?? 'default';
   // GOTCHA: returns undefined for missing values, even if they were null.
   (null)?.key  // returns undefined
-
-Declare a motherfucking map:
-  const things: { [key: string]: boolean } = {}
