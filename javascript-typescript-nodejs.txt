@@ -21,10 +21,14 @@ globals  https://nodejs.org/api/globals.html#globals_global
     process.nextTick() queue is always processed before the microtask queue
     within each turn of the Node.js event loop."
 
-Global handler for unhandled promise rejections, uncaught exceptions
-  process.on('unhandledRejection'))
-  process.on('uncaughtException')
-  VSCode extension can't use these... https://github.com/microsoft/vscode/issues/93573
+UNHANDLED PROMISE REJECTIONS, UNCAUGHT EXCEPTIONS
+  https://medium.com/@nodejs/node-js-promise-reject-use-case-survey-98e3328340c9
+  nodejs option: --unhandled-rejection=strict
+  global handlers:
+    process.on('unhandledRejection'))
+    process.on('uncaughtException')
+    Problem: any package/dependency can add its own handler!
+    VSCode extension can't use? https://github.com/microsoft/vscode/issues/93573
 
 setImmediate(), process.nextTick(), …  https://nodejs.org/api/process.html#process_process_nexttick_callback_args
   nextTick(): queues a function BEFORE pending I/O callbacks
