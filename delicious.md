@@ -7024,3 +7024,30 @@ https://www.gitenberg.org/
 tag="literature ebooks books pedagogy"
 - Curated, usable, attractive ebooks in the public domain.
 - Converts Project Gutenberg HTML to ePub.
+
+================================================================================
+20200827
+QUIC: Quick UDP Internet Connections
+tag="networks proxy quic tcp udp protocol http spdy cryptopgraphy tls ssl"
+- purpose:
+  - avoid HOL blocking
+    - ...by "handling packets separately (not within TCP)"
+  - evolve Congestion Control faster (side-step OS vendors)
+- enhances UDP
+  + ordering
+  + multiplexed connections between two endpoints over UDP
+    - works in concert with HTTP/2 (SPDY) multiplexed connections, allowing multiple streams to reach endpoints independently
+    - compare: HTTP/2 over TCP can suffer head-of-line (HOL) blocking
+- reduce latency
+  - speculative DNS and TCP pre-resolution
+- monolithic: violates traditional layers. Scope includes delivery + control + security.
+- TCP:
+  - packet loss *is* the "congestion notification"
+  - "No OS API for inspecting out-of-order arrivals."
+  - TLS uses CBC (cipher block chaining: hash of the previous block is used as
+    IV of the next block) => another source of HOL blocking in TCP.
+  - Hack: to workaround TCP perf, browsers open 6 cxns to the server
+    - each cxn has its own congestion window
+    - servers add subdomains just to allow >6 cxns...
+    - circular problem: multiple congestion windows => causes fighting/variance, wastes bandwidth => causes congestion => causes retransmissions => ...
+  - TCP packet loss response is painful: AIMD (additive increase, *multiplicative* decrease)
