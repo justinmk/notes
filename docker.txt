@@ -1,5 +1,5 @@
-DEVELOPMENT
 ==============================================================================
+DEVELOPMENT
 
 Build and run:
 
@@ -29,8 +29,12 @@ Minimal container by leveraging "base image" concept:
       COPY --from=build /go/bin/app /go/bin/app
       CMD ["/go/bin/app"]
 
-OPS
 ==============================================================================
+DOCKERFILE/OCI SPEC
+  - Layers are created at the end of each RUN. If files don't exist at the end of the RUN they are not stored.
+
+==============================================================================
+OPS
 
 Attach to running container TTY:
   docker attach --sig-proxy=false <container-id>
@@ -41,14 +45,14 @@ Invoke in running container:
 Get runtime info, post-mortem, env, etc.:
   docker inspect <container-id>
 
-NETWORK
 ==============================================================================
+NETWORK
 
 Can use `lsof` to find assigned host ports:
   sudo lsof | grep 'docker.*TCP.*LISTEN'
 
-EVENT LOG
 ==============================================================================
+EVENT LOG
 
 Print global docker events since 5 minutes:
   docker events --since "$(date +%Y-%m-%dT%H:%M:%S --date '-5 minutes')" --until "$(date +%Y-%m-%dT%H:%M:%S)"
@@ -56,15 +60,15 @@ Print global docker events since 5 minutes:
 - "container die … exitCode=137" means the container was killed with SIGKILL
   (128 + signalNumber). Look for "container kill … signal=9" in previous messages.
 
-GDB BACKTRACE
 ==============================================================================
+GDB BACKTRACE
 
 To use strace, gdb, etc., the SYS_PTRACE capability must be enabled:
 
   docker run --cap-add=SYS_PTRACE --security-opt seccomp=unconfined
 
-JAVA BACKTRACE
 ==============================================================================
+JAVA BACKTRACE
 
 send SIGQUIT (3)
 ----------------

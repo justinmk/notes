@@ -1569,6 +1569,54 @@ Hoon and You - An FP Perspective
 https://github.com/famousj/hoon-lc2018/blob/master/hoon-talk.md
 tag="urbit p2p hoon functional-programming fp programming"
 
+Why Hoon? - Ted Blackman ~rovnys-ricfer
+================================================================================
+https://urbit.org/blog/why-hoon/
+tag="urbit p2p hoon functional-programming fp os system"
+- Homoiconic. Metacircular interpreter called +mule. Run userspace code
+  metacircularly ("eval"). In Lisp "eval is evil", but in Urbit eval is
+  a first-class feature.
+- Universally serializable. One serialization format, called "jam", for any
+  piece of code/data in the system. => security, portability of VM state
+- Subject-oriented. There is no implicit environment; a Hoon expression ... is
+  interpreted as a function that runs with the "subject" as the argument. It
+  contains everything that's in scope: usually the Hoon compiler and standard
+  library, plus whatever functions/variables were defined in the lexical scope.
+- Inert. There are no special objects that can't be manipulated; everything in
+  your environment is just a subtree, and you could grab it and print it out if
+  you wanted to. There's nothing like a "database handle", "websocket connection
+  object", or other mystical constructs.
+- "The way the system commands your attention is that it gives you importance in
+  exchange for being a tool."
+
+Ford Fusion
+================================================================================
+https://urbit.org/blog/ford-fusion/
+tag="urbit p2p hoon functional-programming fp os system"
+"The purpose of better architecture is to create unfair comparisons."
+> because the Nock layer is frozen, upgrading everything above that layer is
+> easier. Upgrades are also facilitated by pure-functional semantics,
+> transactional event processing, a type system oriented toward concrete data,
+> and orthogonal persistence. These features make it feasible for Urbit to
+> upgrade itself in the general case, not just some special cases.
+>
+> Ford Fusion has fixed the major upgrade issues of the past by guaranteeing three properties that in retrospect are obvious requirements, but, like much of Urbit, took many years and rewrites to identify as such:
+>
+> 1. Atomic: the update should complete or fail in one transaction.
+> 2. Self-contained: there must be no implicit dependencies or hysteresis when building the new software from source.
+> 3. Ordered: updates must be monotonically sequenced from the system's lowest layer to highest.
+>
+> Asynchronicity is an entropic state: a system will tend toward more
+> asynchronicity over time unless effort is put into keeping it synchronous. As
+> Jonathan Blow noted, LSP turns your editor into a distributed system.
+
+rote: flashcard app for Urbit Landscape
+================================================================================
+https://github.com/lukechampine/rote
+tag="urbit p2p hoon functional-programming fp app"
+- "immaculate backend code-style and documentation"
+- also functions as a full "Hoon app" walkthrough
+- Luke also kept a Notebook documenting his experience at ~watter-parter/hackathon.
 
 A Founder's Farewell
 ================================================================================
@@ -2525,13 +2573,31 @@ https://github.com/guardianproject/haven
 Haven is for people who need a way to protect their personal spaces and possessions without compromising their own privacy, through an Android app and on-device sensors
 tag="paranoia security app mobile phone"
 
-Algo VPN: personal IPSEC VPN in the cloud
 ================================================================================
+Algo VPN: personal IPSEC VPN in the cloud
 https://github.com/trailofbits/algo
 https://blog.trailofbits.com/2016/12/12/meet-algo-the-vpn-that-works/
 tag="anonymous privacy vpn paranoia security ipsec"
-.
 Does not require client software (unlike OpenVPN).
+
+================================================================================
+20200829
+sinter: user-mode application authorization system for MacOS written in Swift
+https://github.com/trailofbits/sinter
+tag="macos security infosec os"
+https://blog.trailofbits.com/2020/08/12/sinter-new-user-mode-security-enforcement-for-macos/
+> EndpointSecurity is an API that implements a callback from the macOS kernel,
+> in real time, as a particular event is about to happen. EndpointSecurity
+> clients subscribe to one or more event types that are either a NOTIFY type or
+> an AUTH (Authorization) type.
+>
+> EndpointSecurity replaces the kernel-mode equivalents for real-time event
+> authorizing on macOS (Kauth KPI and other unsupported kernel methods) and the
+> read-only event monitoring OpenBSM audit trail.
+>
+> Note that there are no network-related events in the EndpointSecurity API
+> (except UNIX domain sockets). All of these are in the Network Extension
+> framework. You can combine the use of both APIs from one System Extension.
 
 Color Scheme Designer 
 ================================================================================
@@ -2817,29 +2883,22 @@ More study of diff: Walter Tichy's papers
 ================================================================================
 http://bryanpendleton.blogspot.de/2010/04/more-study-of-diff-walter-tichys-papers.html
 tag="programming algorithms diff"
-
 two papers by Walter Tichy:
-
 - The String-to-String Correction Problem with Block Moves
   http://docs.lib.purdue.edu/cstech/378/
 - Delta Algorithms: An Empirical Analysis
   http://portal.acm.org/citation.cfm?id=279310.279321
-
 The first paper is almost 30 years old, and dates from Tichy's work at Purdue
 during the development of RCS. From the introduction:
-
-The string-to-string correction problem is to find a minimal sequence of edit
+  The string-to-string correction problem is to find a minimal sequence of edit
 operations for changing a given string into another given string. The length of
 the edit sequence is a measure of the differences between the two strings.
-
-At the time, the best-known diff algorithm was Doug McIlroy's Unix diff
+  At the time, the best-known diff algorithm was Doug McIlroy's Unix diff
 algorithm (more on that in a future post), which is based on the detection of
 the Longest Common Subsequence. As Tichy shows, the LCS-based algorithms, while
 computationally related to the edit sequence programs, are not necessarily the
 best for use in difference construction.
-
 Tichy's basic algorithm is surprisingly simple to state:
-
     Start at the left end of the target string T, and try to find prefixes of
     T in S. If no prefix of T occurs in S, remove the first symbol from T and
     start over. If there are prefixes, choose the longest one and record it as
@@ -2847,26 +2906,20 @@ Tichy's basic algorithm is surprisingly simple to state:
     a longest prefix of the remaining tail of T, again starting at the beginning
     of S. This process continues until T is exhausted. The recorded block moves
     constitute a minimal covering set of block moves.
-
 After working through a proof of the basic algorithm, Tichy briefly touches on
 two variations:
-
-Program text and prose have the property of few repeated lines. ... To speed up
+  Program text and prose have the property of few repeated lines. ... To speed up
 comparisons, the program should use hashcodes for lines of text rather than
 performing character-by-character comparisons.
-
-An important element in the Knuth-Morris-Pratt algorithm is an auxiliary array
+  An important element in the Knuth-Morris-Pratt algorithm is an auxiliary array
 N which indicates how far to shift a partially matched pattern or block move
 after a mismatch. ... Fortunately, N can also be computed incrementally.
-
-The first variation finds an interesting expression 15 years later in the work
+  The first variation finds an interesting expression 15 years later in the work
 of Andrew Tridgell on the rsync algorithm, which I'll discuss in a future post.
-
-Delta Algorithms: An Empirical Analysis describes Tichy's work in benchmarking
+  Delta Algorithms: An Empirical Analysis describes Tichy's work in benchmarking
 diff algorithms. The paper contains dozens of scatter-plot diagrams of the
 various benchmark tests, as well as a fine high-level discussion of the
 complexity of building a suitable benchmark for diff:
-
     The first problem encountered when defining a benchmark is finding an
     appropriate data set that is both large enough for the results to be
     statistically significant and representative of real world applications. For
@@ -2876,12 +2929,9 @@ complexity of building a suitable benchmark for diff:
     considerably. Large changes on small files and small changes on large files
     should be included as well as small changes on small files and large changes
     on large files.
-
 Furthermore, the benchmark should contain a variety of formats, in particular
 pure text, pure object code, and pseudo text.
-
 The paper also describes a diff algorithm variation which they call vdelta:
-
     Vdelta is a new technique that combines both data compression and data
     differencing. It is a refinement of W.F. Tichy's block-move algorithm, in
     that, instead of a suffix tree, vdelta uses a hash table approach inspired
@@ -2892,9 +2942,7 @@ The paper also describes a diff algorithm variation which they call vdelta:
     string matching to be done both within the target data and between a source
     data and a target data. For efficiency, vdelta relaxes the greedy parsing
     rule so that matching prefixes are not always maximally long.
-
 With diff algorithms, it is becoming clear that two things are true:
-
 - There have been a variety of diff algorithms discovered and re-discovered over
   the years, but many of them are not well-described nor easy to find: the
   papers are scattered, hard to locate, and behind ACM or IEEE paywalls; and
@@ -2905,15 +2953,14 @@ With diff algorithms, it is becoming clear that two things are true:
 
 google-diff-match-patch - Google Code
 ================================================================================
-  robust diff/patch library Myer's diff algorithm Bitap matching algorithm more sophisticated than GNU patch
-  href="https://github.com/google/diff-match-patch"
-  tag="google library programming algorithms diff lua"
+robust diff/patch library Myer's diff algorithm Bitap matching algorithm more sophisticated than GNU patch
+href="https://github.com/google/diff-match-patch"
+tag="google library programming algorithms diff lua"
 
 [Toybox] More than you really wanted to know about patch.
 ================================================================================
 http://lists.landley.net/pipermail/toybox-landley.net/2019-January/010049.html
 tag="programming tools unix algorithms diff patch"
-
 > So generally what you do _now_ (and what tools like svn/mercurial/git simulate
 > behind the scenes) is back up one directory, have two full trees (the vanilla
 > project and your modified version), and "diff -ruN" the two subdirectories.
@@ -2944,6 +2991,15 @@ tag="programming tools unix algorithms diff patch"
 > - Hunks must apply in order, and this INCLUDES the context lines. A line that's
 >   been "seen" as a trailing context line won't match against the leading context
 >   of the next hunk.
+
+================================================================================
+20200829
+Graphtage: A New Semantic Diffing Tool
+https://github.com/trailofbits/graphtage
+tag="programming tools algorithms diff patch merge semantic-diff"
+https://blog.trailofbits.com/2020/08/28/graphtage/
+When paired with PolyFile, you can semantically diff arbitrary file formats.
+https://blog.trailofbits.com/2019/11/01/two-new-tools-that-tame-the-treachery-of-files/
 
 Data Laced with History: Causal Trees & Operational CRDTs
 ================================================================================
@@ -7051,3 +7107,450 @@ tag="networks proxy quic tcp udp protocol http spdy cryptopgraphy tls ssl"
     - servers add subdomains just to allow >6 cxns...
     - circular problem: multiple congestion windows => causes fighting/variance, wastes bandwidth => causes congestion => causes retransmissions => ...
   - TCP packet loss response is painful: AIMD (additive increase, *multiplicative* decrease)
+
+================================================================================
+20200809
+interview with Elon Musk about SpaceX Starship
+https://www.youtube.com/watch?v=cIQ36Kt7UVg
+tag="space spacex science starship nasa"
+"If a design is taking too long, the design is wrong. ... Strive to delete parts and processes. ... Question the constraints."
+- Elon Musk
+
+================================================================================
+20200809
+WebAuthn guide
+https://webauthn.guide/
+tag="security infosec webauthn u2f fido mfa software-engineering"
+implementing MFA on a new website:
+- implement WebAuthn, not U2F (older, non-standard hack)
+
+================================================================================
+20200809
+Security Keys, webauthn (27 Mar 2018)
+https://www.imperialviolet.org/2018/03/27/webauthn.html
+tag="security infosec webauthn u2f fido mfa software-engineering"
+- "relying party": any entity trying to authenticate a user
+- U2F: "Universal 2nd factor"
+- CTAP1: version 1 “Client To Authenticator Protocol”
+  - two operations: creating a new key, and signing with an existing key.
+  - a “user presence” test before performing operations. E.g. a button or
+    capacitive sensor that you must press. While not triggered, operations
+    return a specific error code and the host is expected to retry.
+  - tokens are nearly stateless in practice.
+  - strictly monotonic "signature counter"; relying party is intended to record
+    the values and notice if a private key has been duplicated, because the
+    strictly-monotonic property will eventually be violated if multiple,
+    independent copies of the key are used.
+    - problems with this:
+      1. recall that CTAP1 tokens have very little state in order to keep costs
+         down. Because of that, most/all tokens have a single, global counter
+         shared by all keys created by the device. This means that the value and
+         growth rate of the counter is a trackable signal that’s transmitted to
+         all sites that the token is used to login with. For example, the token
+         that I’m using right now has a counter of 431 and I probably use it far
+         more often than most because I’m doing things like writing example
+         Python code to trigger signature generation. I’m probably pretty
+         identifiable because of that.
+      2. Since the counter is per-token, it’ll commonly jump several values
+         between logins to the same site because the token will have been used
+         to login elsewhere in-between. That makes the counter less effective at
+         detecting cloning.
+- CTAP2: updated standard for tokens, to take advantage of webauthn
+  - main feature: devices can be used as a 1st (and only) factor. I.e. they have
+    enough internal storage to contain a username and so both provide an
+    identity and authenticate it.
+.
+> The FIDO Javascript API is not the future, however. Instead, the W3C is defining an official Web Authentication standard (webauthn) for Security Keys.
+.
+> a relying party can determine, with some confidence, that a newly created key
+> is stored in a Yubico 4th-gen U2F device by checking the attestation
+> certificate and signature.
+>
+> FIDO does not dismiss [vendor lock-in] worries and their answer, for the
+> moment, is the metadata service (MDS). Essentially this is a unified root
+> store that all sites checking attestation are supposed to use and update from.
+> ... My advice is for sites to ignore attestation if you’re serving the public.
+
+================================================================================
+20200809
+Who needs this filesystem malarkey anyway? (20 Jul 2003)
+https://www.imperialviolet.org/2003/07/20/who-needs-this-filesystem-malarkey-anyway.html
+tag="djb filesystem kernel interface design compsci software-engineering"
+djb:
+> A small interface (for example, a descriptor allowing read() or write())
+> supports many implementations (disk files; network connections; and all sorts
+> of interesting programs via pipes), dramatically expanding the user's power to
+> combine programs. A big interface (for example, a file descriptor that allows
+> directory operations) naturally has far fewer implementations.
+
+================================================================================
+20200809
+From Benjamin Franklin to Cadwallader Colden, 29 September 1748
+https://founders.archives.gov/documents/Franklin/01-03-02-0133
+tag="history quotation benjamin-franklin role-model"
+> "I shall like to give my self ... Leisure to read, study, make Experiments,
+> and converse at large with such ingenious and worthy Men as are pleas’d to
+> honour me with their Friendship" - Benjamin Franklin
+
+================================================================================
+20200809
+Poor Richard, 1736
+https://founders.archives.gov/documents/Franklin/01-02-02-0019
+tag="history quotation benjamin-franklin"
+> Force shites upon Reason’s Back.
+> Lovers, Travellers, and Poets, will give money to be heard.
+> He that speaks much, is much mistaken.
+> Creditors have better memories than debtors.
+> Forwarn’d, forearm’d, unless in the case of Cuckolds, who are often forearm’d before warn’d.
+
+================================================================================
+20200810
+Jeremy Howard: fast.ai Deep Learning Courses and Research | Artificial Intelligence (AI) Podcast
+https://www.youtube.com/watch?v=J6XcP4JOHmk
+tag="podcast video deep-learning machine-learning compsci engineering swift healthcare"
+- swift is compelling because the whole stack uses the same language
+  (vs python = {C, numpy, CUDA, Makefile, …})
+- fast.ai moving to swift (~3 years out) + tensorflow
+  - swift "layer on top of MLIR" https://mlir.llvm.org
+- "python for tensorflow is a disaster"
+- AI concerns:
+  - how to avoid "runaway feedback loops"?
+
+================================================================================
+20200810
+MLIR: Multi-Level Intermediate Representation
+https://mlir.llvm.org/
+tag="compiler llvm"
+hybrid IR which can support multiple different requirements in a unified
+infrastructure. For example, this includes:
+- The ability to represent dataflow graph (such as TensorFlow), including
+  dynamic shapes, the user-extensible op ecosystem, TensorFlow variables, etc.
+- Optimizations and transformations typically done on a such graph (e.g. in Grappler).
+- Representation of kernels for ML operations in a form suitable for optimization.
+- Ability to host high-performance-computing-style loop optimizations across
+  kernels (fusion, loop interchange, tiling, etc) and to transform memory
+  layouts of data.
+- Code generation “lowering” transformations such as DMA insertion, explicit
+  cache management, memory tiling, and vectorization for 1D and 2D register
+  architectures.
+Non-goals:
+- We do not try to support low level machine code generation algorithms (like
+  register allocation and instruction scheduling). They are a better fit for
+  lower level optimizers (such as LLVM).
+- We do not intend MLIR to be a source language that end-users would themselves
+  write kernels in (analogous to CUDA C++). On the other hand, MLIR provides the
+  backbone for representing any such DSL and integrating it in the ecosystem.
+Outcomes:
+- For example, LLVM has non-obvious design mistakes that prevent a multithreaded
+  compiler from working on multiple functions in an LLVM module at the same
+  time. MLIR solves these problems by having limited SSA scope to reduce the
+  use-def chains and by replacing cross-function references with explicit symbol
+  reference.
+
+================================================================================
+20200812
+UPX: Ultimate Packer for eXecutables
+https://upx.github.io/
+tag="elf binary compression c"
+portable, extendable, high-performance executable packer for several executable formats.
+shrink executables by 50%
+
+================================================================================
+20200815
+Review of Paul Graham's Bel, Chris Granger's Eve, and a Silly VR Rant
+https://gist.github.com/wtaysom/7e5fda6d65807073c3fa6b92b1e25a32
+tag="datalog query language programming-paradigm vm eve light-table"
+> If Eve was so nifty, why did it fail? Technical problems:
+> (1) keying
+> (2) inspection
+> (3) reflection
+> (4) event handling
+>
+> (1) Keying proved my most common problem when trying to use Eve. I want an
+> entity per something where the something is complex: like a bid per bidder per
+> product per round. Each bid also has non-identifying properties: a price, the
+> time it was entered, who it was entered by, etc. ... Though internally Eve
+> dealt with keys, they never completed the theory nor committed to exposing the
+> details.
+>
+> (2) Then without great ways to inspect the database, I couldn't see what was
+> going on, how keys came into play.
+>
+> (3) Since Eve patterns can match against anything, I found it easy to check
+> invariants but hard to identify causes of their violation. One could not
+> reflect on how rules gave rise to derived properties. This was always a goal,
+> just never happened.
+>
+> (4) Though Eve had a decent [theoretical foundation](http://bloom-lang.net/index.html)
+> for controlled change over time, it was never exposed in a way that one could
+> easily reason about. The primary challenge being that you want an event to
+> arise in the database, effect a change, then dissipate. Whereas an imperative
+> language lets you write step one, two, three, Eve never had that view. Change
+> was managed through an intricate interplay of rules, always hidden. Dijkstra
+> makes a good point:
+>
+> > we should do our utmost to shorten the conceptual gap between the static
+> > program and the dynamic process, to make the correspondence between the
+> > program (spread out in text space) and the process (spread out in time) as
+> > trivial as possible.
+>
+> Given thought, time, practice, these issues could be have been addressed — but
+> only from grappling with ordering seriously. Why weren't (2) inspection, (3)
+> reflection, and (4) dynamics visualized? To show a thing, it cannot be
+> formless. It must be positioned, arranged in space. With Eve, they kept
+> punting, ignoring the interplay between the ordered and the unordered. Even
+> difficulties in (1) keying amounted to leaking imperative implementation
+> details.
+
+================================================================================
+20200823
+Plan A for the coronavirus
+https://medium.com/@curtis.yarvin/plan-a-for-the-coronavirus-7db3997490c1
+tag="government-failure covid19 virus curtis-yarvin"
+> Anyone repeating lines like “the Trump administration has failed” is spreading
+> an Orwellian lie. There is no “Trump administration.” There is an elected
+> showman and his cronies, fronting for an unaccountable permanent government.
+> The celebrities are neither in charge of the bureaucrats, nor deserve to be.
+
+================================================================================
+20200824
+Unregistered 116: Curtis Yarvin (AKA "Mencius Moldbug")
+https://www.youtube.com/watch?v=6GW-YMa68o4
+tag="concepts government politics philosophy curtis-yarvin history libertarianism monarchy"
+- "Sovereignty is conserved."
+- How DC works: "Everyone wants status but no one wants responsibility."
+
+================================================================================
+20200824
+POAAS 03 - Surveying Ethiopian History w/ Curtis Yarvin
+https://www.youtube.com/watch?v=BKdOoR4zhOc
+tag="concepts politics history curtis-yarvin"
+- https://en.wikipedia.org/wiki/Cursus_honorum
+  Latin for "course of honor", or colloquially "ladder of offices".
+- "Unconsidered superiority" is the attitude of a parochial barbarian.
+- "Atheist cold war Liberalism" is "secularized Christianity".
+- atheist vs. anti-theist
+
+================================================================================
+20200826
+Gray Mirror of the Nihilist Prince with Curtis Yarvin
+https://www.youtube.com/watch?v=_8o0M24DrcE
+tag="concepts government politics philosophy curtis-yarvin history libertarianism monarchy"
+- "Exit, voice, and loyalty."
+  - Exist outside of power, not in antagonism to it. Disengage.
+- "When people think of 'regime change' as implying violent discontinuity, they
+  couldn't be more wrong."
+  - Stasi officers (GDR/DDR) still receive pensions.
+- Structure of government matters much more than policies.
+  - "This is a very optimistic thought because it means the problem does not
+    require changing the minds of many people, the problem is just that the
+    structure is wrong."
+  - Leftism selects for power without responsibility.
+  - "Power without responsibility is the very definition of an oligarchy."
+- It is a very bad idea to "tempt power" (e.g. "fedposting"). Most people intuit
+  this, but they don't take that principle to an extreme, i.e. they don't
+  realize that *any* attempt to exert power is a fatal illusion.
+  - Free yourself from that illusion; merely observe.
+- Prefer abstractly inflammatory but concretely inert.
+- In general, antagonizing power is beneficial to power [because they get to
+  define/interpret your ingression: "you inhabit their frame"].
+  - 31:45-36:00 interesting!
+- "Internal exile": living like an expat without actually leaving a geopolitical
+  space. Exit spiritually but not physically. "In the closet".
+  - Impossible to physically exit the global empire.
+- Time is on your side.
+  - "When you try to matter in the short term as a dissident against an enormous
+    regime, you are just thrashing."
+  - Don't associate with anyone who is incapable of calm/intellectual outrage
+    without being able to control their expression of it.
+- Don't help the regime by trying to stabilize it.
+  - "When you slow down the regime, you're doing it a service by keeping it from
+    going crazy."
+  - "When you elect a conservative, this just increases the resonance of the
+    left's fundraising appeals. The left is never in charge, they don't want the
+    responsibility of being in power, they want to be the underdogs."
+  - "When you fight these fights, you're an actor in their fundraising pitch."
+  - "A fraction of that energy pulled away from the system and providing an
+    intellectual exit, is much more valuable."
+- _Salus populi suprema lex_. (Latin: "The health of the people is the supreme law.")
+  - Compare the modern GDP-driven motto: _Luxus populi suprema lex_.
+- National identity is superficial, is going stale.
+- "Arguing about policy is just LARPing: you're putting something that used to
+  work in a different context, into a context where it's fake and lame."
+- Rule #1 of regime change: cannot punish anyone for supporting the old regime.
+
+================================================================================
+20200828
+Robin Hanson and "Mencius Moldbug" debate futarchy at Foresight 2010
+https://www.youtube.com/watch?v=Tb-6ikXdOzE
+tag="concepts government politics philosophy curtis-yarvin history libertarianism monarchy"
+- "Government _wasteful spending_ is really _disguised profits_ going to
+  beneficiaries in the form of entitlements and overpaying."
+- "There's a crucial difference between a bet and a vote." (skin in the game)
+
+================================================================================
+20200905
+THINGS HIDDEN 17: The Glorious Yeast Infection of Christianity (Curtis Yarvin Interview)
+https://www.youtube.com/watch?v=otXb3DVGvSI
+tag="concepts government politics philosophy curtis-yarvin history libertarianism monarchy"
+- "Dept. of Homeland Security" (2001) is linguistically synonymous with NSA, but
+  "National Security" actually means "world domination": FDR declared "events
+  anywhere in the world affect the national security of the US".
+  - Ironic because the US excuse for entering WW2 was to prevent (assumed)
+    German plans for world domination.
+- Q: why didn't Japan attack Soviets w/ Germany?
+  A: "Axis" alliance was mostly PR, weren't coordinated.
+- Pagan strategy: attack enemy civilians. (wielded by both Allies and Axis, failed)
+
+================================================================================
+20200923
+Curtis Yarvin Live at the Based Deleuze Release Party in LA (Mencius Moldbug)
+https://www.youtube.com/watch?v=RRQO3VbJsMw
+tag="concepts government politics philosophy curtis-yarvin history libertarianism monarchy"
+- Trolling (US-Vietnam war): draw fire from anti-aircraft so you can destroy
+  them with countermissles. If you don't have countermissles, don't draw fire...
+- "Hide your power level."
+- History: if you can't empathize with both sides, you don't understand the
+  events.
+- Formal vs Informal power
+  - Worst case = informal power dominates.  Informal power is unaccountable,
+    thus the formal (accountable) power absorbs popuplar opposition.
+  - Best case = formal power dominates, i.e. the formal structure is the actual,
+    accountable structure.
+- "accountable monarchy" is the best form of government.
+  - Apple, Amazon, Elizabethan England
+  - CEO is "completely in charge, but completely accountable (to the board)".
+- "Industrial Revolution was actually the corporate revolution: people learned
+  how to operate in state-like (monarchical) structures"
+
+================================================================================
+20200923
+Descriptive constitution of the modern regime: a clerical oligarchy in the shell of a republic
+https://graymirror.substack.com/p/3-descriptive-constitution-of-the
+tag="concepts government politics philosophy curtis-yarvin history libertarianism monarchy"
+- Three forms of power/regime:
+  1. monarchy (rule of one)
+  2. oligarchy (rule of a minority)
+  3. democracy (rule of a majority)
+- Every stable regime must either _harness_ or _contain_ all three forms of power.
+  - Since most regimes contain two and harness one, we classify a regime by the
+    force it harnesses.
+  - USG formal (constitution) regime: monarchy+democracy
+  - USG informal (actual) regime: oligarchy (decentralized, unaccountable)
+- Best form of govt: _harness_ monarchy, _contain_ oligarchy+democracy
+
+================================================================================
+20200928
+Principles of any next regime: understand the purpose of government from scratch
+https://graymirror.substack.com/p/4-principles-of-any-next-regime
+tag="concepts government politics philosophy curtis-yarvin history libertarianism monarchy"
+> Better to know, than to see; better to see, than be seen; better to be seen, than noticed; better to be noticed, than feared; better to be feared, than hated; better to be hated, than beaten; better to be beaten, than killed; better you are killed, than your family. The fox has no illusions and is always, in principle, on the move.
+> ...
+> Absolutism, the yang of nihilism, means thinking ex nihilo: from scratch, from first principles, not relative to any specific past or present reality. Nihilists do care about reality. We care about it so much that we accept no substitutes. The motto of the Royal Society, crafted in happier times: nullius in verbum. We take no one’s word for it—that’s what it means to “believe in nothing.”
+
+================================================================================
+20200827
+Interview with Zig language creator Andrew Kelley
+https://news.ycombinator.com/item?id=24292437
+tag="programming-language zig c low-level"
+- Addresses 3 problems of C++: language complexity, compilation speed, safety.
+- Simplicity is a core principle (in the spirit of Clojure, Lua, Lisp)
+  - example: `comptime` (compile-time introspection) is a singular mechanism
+    that removes the need for special cases like generics, macros.
+  - no macros
+  - no generics
+- "Zig's simplicity hides how revolutionary it is, both in design and in potential."
+- coroutines
+- C interop (more ergonomic than rust bindgen)
+- recursion puts stack frames onto heap to avoid overflow
+
+================================================================================
+20200827
+The unreasonable effectiveness of algorithms in boosting team happiness
+https://www.balena.io/blog/the-unreasonable-effectiveness-of-algorithms-in-boosting-team-happiness/
+tag="sat-solver scheduling algorithms"
+
+================================================================================
+20200827
+American fuzzy lop – a security-oriented fuzzer
+https://lcamtuf.coredump.cx/afl/
+tag="static-analysis fuzzer algorithms"
+https://news.ycombinator.com/item?id=22171285
+AFL basic algorithm is:
+    def run_test_case(input):
+      # return a set() of instructions that the target executes when ran on `input`
+      # or throw a CrashException if the target crashes
+    def mutate(input):
+      # mess with the input- flip some bits, delete chunks, set things to 0xffffffff... randomly
+      # return the mutated input
+    def fuzz(initial_test_cases):
+      test_cases = initial_test_cases
+      coverage_seen = set()
+      # collect coverage from the initial inputs
+      for case in test_cases:
+        coverage_seen += run_test_case(case)
+      while True:
+        fuzzed = mutate(random.choice(test_cases))
+        try:
+          new_coverage = run_test_case(fuzzed) - coverage_seen
+          if new_coverage:
+            # ooh, this input did something we've never seen before!
+            # save it, so it can be used as a starting point
+            # for even more mutation
+            test_cases.add(fuzzed)
+            coverage_seen += new_coverage
+        except CrashException:
+            # we successfully crashed the target!
+            # save fuzzed off to disk or something and log a happy message
+- In practice, run_test_case() doesn't return a set of instructions, it's
+  a bitmap / psuedo-Bloom filter of basic blocks hit. (A basic block is "a
+  sequence of instructions that doesn't have any unusual control flow"--so if
+  you run the first instruction in a basic block, you'll run all the rest.)
+
+================================================================================
+20200827
+Guide to using YubiKey for GPG and SSH
+https://github.com/drduh/YubiKey-Guide
+tag="security infosec gpg ssh yubikey u2f fido mfa"
+> All YubiKeys except the blue "security key" model are compatible with this guide.
+
+================================================================================
+20200830
+Reasons Not to Become Famous
+https://tim.blog/2020/02/02/reasons-to-not-become-famous/
+tag="security privacy paranoia identity-theft"
+- Fame is for suckers (status games).
+- Use a UPS Store or other off-site mailing address for receiving packages.
+  Never have anything mailed to your address; your name/address will end up in
+  company/government databases which are rented/traded/searchable.
+
+================================================================================
+20200922
+Palantir products: Foundry, Gotham, Metropolis
+https://www.quora.com/What-are-the-main-differences-between-the-Palantir-Metropolis-and-Gotham-platforms
+tag="technology startup surveillance data data-mining datasets data-management data-science statistics visualization tools machine-learning"
+Foundry:
+- Versioning. Foundry explicitly tracks future state, independent of (and in addition to) past state. You can branch out to apply different versions of code against the same chunk of data and track, for each version of the data, which version of the code was used to create it. So you can understand what you knew at a point in time, and how the data has evolved since.
+- Branching. Building a more explicit orchestration system, and cleaned up the general idea of the "pipeline". Instead of a system that just moves data from point A to point G, we built a system that lets you move data from point A to point G, then look back at point F and say “Hey, that was interesting. Let's try some different, random variation, but make sure A-G is still happening.” Work is safe by default, and you have the freedom to test novel ideas without impacting other users.
+- Truly “democratizing” data. Creating a front end that empowers a very broad range of users to engage with data. We wanted people to be able to explore and adapt all the data they could access, in ways that are typically limited to very technical users. Today, Foundry is a platform that provides universal, secure access to all of an organization's content, for decision makers at every level, from the factory floor to the executive office.
+concepts:
+- "Ontology": a common model for integrated data that an organization can customize to represent their world. Instead of spreadsheets, columns, and rows that only people who are fluent in data understand, we model the world using concepts that everyone understands, like planes or cars or customers. Now all users in an organization speak the same language (and they customize their ontology, so they're speaking their language).
+
+================================================================================
+20200929
+Skin in the Game | Nassim Nicholas Taleb | Talks at Google
+https://www.youtube.com/watch?v=uv6KLbkvua8
+tag="statistics game-theory power politics government systems nassim-taleb monarchy"
+- Negative golden rule: don't do to others what you wouldn't want done to you.
+- Accountability:
+  - "Experts" of macro systems are not falsifiable; impossible to verify cause-effect in a macro system.
+    - Thus such experts "do not have skin in the game" (unaccountable).
+  - Progressive bureaucrats today can start horrific wars, are less accountable than monarchs.
+- Any political opinion must have a scale attached to it.
+- A public intellectual who doesn't take risks cannot be trusted.
+  - "Why do I insult people in my books? Because it signals risk-taking."
+- "Start a business. We're tired of people who want to work for NGOs."
+- dynamic vs static
+  - healthy economy if incumbent players are at risk
+  - unhealthy economy if incumbent players are effectively permanent
+- History tends to "revert to the truth", like "reversion to the mean".

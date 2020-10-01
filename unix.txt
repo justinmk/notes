@@ -71,6 +71,14 @@ debug
              > /lib64/libc-2.20.so(__libc_start_main+0xf5) [0x21b45]
              > /usr/bin/nvim(_start+0x29) [0x354f8]
 
+    which processes (PIDs) are using a file?
+        fuser -u $(which bash)
+            /usr/local/bin/bash: 47327(justin) 47349(justin)
+
+macos
+    snapshot/sample a running process
+        sample 49814 -f out.log
+
 linux
     Linux perf 60-second checklist  https://medium.com/netflix-techblog/linux-performance-analysis-in-60-000-milliseconds-accc10403c55
         uptime            # load of "0.22 0.00 0.00" means "system was idle until recently"

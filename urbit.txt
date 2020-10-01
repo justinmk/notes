@@ -1,0 +1,11 @@
+https://urbit.org/blog/pki-maze/
+Each planent has 4 billion "moons".
+A moon is a 64-bit address whose 32-bit suffix is its planet.
+3 properties; pick any 2:
+- Comets are impermanent, self sovereign, and plentiful.
+- Planets are permanent, self sovereign, and not plentiful.
+- Moons are permanent, not self sovereign, and plentiful.
+
+https://www.reddit.com/r/IAmA/comments/4bxf6f/im_curtis_yarvin_developer_of_urbit_ama/
+  > What sort of relationship do you see between something like Urbit and IPFS?
+  > Very simple: Urbit should have an IPFS client. Urbit is also a global immutable namespace, but one built on very different principles, and not solving the CDN/BitTorrent/Freenet axis that IPFS takes on.
