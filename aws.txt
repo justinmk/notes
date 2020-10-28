@@ -58,6 +58,19 @@ Lambda
     Built-in support for CloudWatch metrics/logs
     Lambda blueprints: templates/quickstarts
     Scheduled Lambdas (cron)
+    Extensions:
+        https://github.com/aws-samples/aws-lambda-extensions/blob/main/python-example-extension/python-example-extension/extension.py
+        https://aws.amazon.com/blogs/compute/introducing-aws-lambda-extensions-in-preview/
+        hook into more of the Lambda lifecycle
+        install as Layers
+        example:
+            requests.post(
+                url=f"http://{os.environ['AWS_LAMBDA_RUNTIME_API']}/2020-01-01/extension/register",
+                json={
+                    'events': [ 'INVOKE', 'SHUTDOWN' ],
+                },
+                headers=headers
+            )
 
 Glacier
     Lifecycle rules: automatically archive S3 data after expiration.

@@ -7107,6 +7107,18 @@ tag="networks proxy quic tcp udp protocol http spdy cryptopgraphy tls ssl"
     - servers add subdomains just to allow >6 cxns...
     - circular problem: multiple congestion windows => causes fighting/variance, wastes bandwidth => causes congestion => causes retransmissions => ...
   - TCP packet loss response is painful: AIMD (additive increase, *multiplicative* decrease)
+- FEC (forward error correction):
+  - Avoids NACK roundtrip.
+  - Example:
+    1. send packets A, B, C.
+    2. send XOR sum of A+B+C as final packet.
+    3. receiver can correct errors if it receives 3 out of 4 packets.
+      - similar to RAID for disk arrays
+- Problem: packet loss has 2 modes
+  1. Lose 1 packet randomly. ("uncorrelated")
+    - FEC works well for this.
+  2. Lose >=2 packets: once you lose 2, likely to lose 3 or more! ("correlated")
+    - In this mode, error correction is a waste of effort.
 
 ================================================================================
 20200809
