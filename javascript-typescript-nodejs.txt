@@ -55,6 +55,10 @@ event-loop phases  https://nodejs.org/en/docs/guides/event-loop-timers-and-nextt
   > Between each run of the event-loop, Node.js checks if it is waiting for any
   > asynchronous I/O or timers and shuts down cleanly if there are not any.
 
+known issue: "stdio buffered writes (chunked) issues & process.exit() truncation"
+  https://github.com/nodejs/node/issues/6456
+  workaround: https://www.npmjs.com/package/node-exit
+
 TYPESCRIPT
 ==============================================================================
 Declare a motherfucking map:
