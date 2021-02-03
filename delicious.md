@@ -7566,3 +7566,16 @@ tag="statistics game-theory power politics government systems nassim-taleb monar
   - healthy economy if incumbent players are at risk
   - unhealthy economy if incumbent players are effectively permanent
 - History tends to "revert to the truth", like "reversion to the mean".
+
+================================================================================
+20210202
+Semipredicate problem
+https://en.wikipedia.org/wiki/Semipredicate_problem
+tag="compsci theory concepts engineering"
+> when a subroutine intended to return a useful value can fail, but the
+> signalling of failure uses an otherwise valid return value.
+solution: Multivalued return
+  example: stdout/stderr
+cf. in-band signaling
+  Exceptions are out-of-band.
+cf. byzantine failure?
