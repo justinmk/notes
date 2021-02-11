@@ -1,3 +1,5 @@
+Meditate 60min x 60days = "mental state of inbox zero"
+
 ================================================================================
 joints
   https://news.ycombinator.com/item?id=21219041
@@ -5,6 +7,7 @@ joints
     L-Lysine (essential amino acid => meat/chicken/fish/milk/legumes)
     Glucosamine Chondroitin Complex
     Instaflex Advanced
+
 ================================================================================
 Sleep
 https://www.youtube.com/watch?v=pwaWilO_Pig
@@ -54,7 +57,7 @@ breathing
     the nose into the stomach & hold the breath for 15 seconds.
   - Exhale.
   - This marks a complete round.
-  - Repeat for 3-5 rounds every morning.
+  - Repeat 3-5 times every morning.
   - Best performed on an empty stomach.
 cold shower: 2-min at start of each day
   - wakes up vascular system => heart does less work
@@ -133,6 +136,8 @@ Europe: https://news.ycombinator.com/item?id=22117397
 
 ================================================================================
 EXERCISE/WORKOUT
+  TODO:
+    https://www.reddit.com/r/bodyweightfitness/wiki/training_guide
 
   Exercise benefits:
     anti-osteoporosis: bone is a living tissue that must be stressed to maintain strength
@@ -161,10 +166,10 @@ EXERCISE/WORKOUT
 
   bodyweight progressions  https://www.reddit.com/r/bodyweightfitness/
     "If you keep your position straight, you get all-body workout, develop concentration and balance at the same time."
-    arm push ups
-    one arm chin ups
-    hand-stand push ups
-    nordic curls
+    one-arm pushup/pullup
+    explosive/over-bar pullup
+    hand-stand pushup
+    nordic curl
     planche: http://en.wikipedia.org/wiki/Planche_(exercise)
     bulgarian squat
     pistol squat: http://youtu.be/MLBAbqEZIeU

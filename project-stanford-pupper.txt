@@ -24,9 +24,10 @@ LIPO BATTERY:
   DISCHARGING TOO MUCH = risk of fire.
     Below 3V per-cell => permanent degradation.
     Set "low-voltage cutoff" to 3.4V per cell.
-  Safest charge-rate for LiPo batteries is 1C, or 1x capacity of battery in Amps.
+  Safest charge-rate for LiPo batteries is 1C (1x Amps capacity of battery).
     => for 5200mAh battery use 5.2A
     if charger doesn't support 5.2A it's fine to use a lower value, just takes longer
+  Full charge = 4.2v/cell
   STORAGE:
     Always set LiPo to "storage charge" if you won't use it same-day.
     Proper LiPo storage voltage = 3.8V per cell
@@ -64,3 +65,8 @@ SOFTWARE
     A1: You can adjust the frequency of the trot in the config file here:
         https://github.com/stanfordroboticsclub/StanfordQuadruped/blob/master/pupper/Config.py.
         Look for two variables: self.overlap_time and self.swing_time
+
+USAGE
+  $ rw
+  $ python3 calibrate.py
+  save stuff to files

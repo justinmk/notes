@@ -558,7 +558,7 @@ tag="startup equity stock options"
 What I Wish I'd Known About Equity Before Joining A Unicorn
 ================================================================================
 https://gist.github.com/yossorion/4965df74fd6da6cdc280ec57e83a202d
-tag="startup equity stock options"
+tag="startup equity finance employee employment work career options stock compensation"
 
 Disclaimer: This piece is written anonymously. The names of a few particular companies are mentioned, but as common examples only.
 
@@ -750,7 +750,7 @@ How to Get Rich (without getting lucky): @naval
 ================================================================================
 https://twitter.com/naval/status/1002103360646823936
 https://pbs.twimg.com/media/DesoRB1V4AI6_3-.jpg:large
-tag="economics business systems leverage mental-model"
+tag="economics business systems leverage mental-model naval-ravikant"
 
 Seek wealth, not money or status. Wealth is having assets that earn while you sleep. Money is how we transfer time and wealth. Status is your place in the social hierarchy.
 Understand that ethical wealth creation is possible. If you secretly despise wealth, it will elude you.
@@ -3489,17 +3489,6 @@ Google Libraries API
    
   tag="programming google web javascript jquery"
   time="2011-08-05T14:16:46Z" 
-
-Friendly Options: Better understand your stock option grants.
-================================================================================
-https://friendlyoptions.org/
-  tag="finance employee employment work career options stock compensation"
-
-What I Wish I'd Known About Equity Before Joining A Unicorn
-================================================================================
-https://gist.github.com/yossorion/4965df74fd6da6cdc280ec57e83a202d
-https://news.ycombinator.com/item?id=13426494
-tag="finance employee employment work career options stock compensation"
 
 Ruxum Exchange 
 ================================================================================
@@ -6594,7 +6583,7 @@ consolidation of small free-held farms into large estates held by senators:
 20200509
 Joe Rogan Experience #1309 - Naval Ravikant
 https://www.youtube.com/watch?v=3qHkcs3kG44
-tag="startups concepts mental-model philosophy technology"
+tag="startups concepts mental-model philosophy technology naval-ravikant"
 - Read the same 100 books over and over
 - Social media makes everyone a celebrity; but celebrities are the most miserable people in the world...
 - Rich and anonymous > poor and famous
@@ -6842,7 +6831,7 @@ tag="economics mmt federal-reserve monetary-policy equity stock options"
 20200613
 Pronomos Capital
 https://www.pronomos.vc/
-tag="investment finance startup"
+tag="investment finance startup naval-ravikant"
 > VC fund ... to create a new model for urban development where the city & its
 > institutions is the product. ... work in partnership with countries to create
 > new communities that seek - through good governance - to emulate the economic
@@ -7559,13 +7548,133 @@ tag="statistics game-theory power politics government systems nassim-taleb monar
     - Thus such experts "do not have skin in the game" (unaccountable).
   - Progressive bureaucrats today can start horrific wars, are less accountable than monarchs.
 - Any political opinion must have a scale attached to it.
-- A public intellectual who doesn't take risks cannot be trusted.
-  - "Why do I insult people in my books? Because it signals risk-taking."
-- "Start a business. We're tired of people who want to work for NGOs."
+- Courage (risk-taking) is the highest virtue.  https://twitter.com/nntaleb/status/1307571044744671232
+  - A public intellectual who doesn't take risks cannot be trusted.
+    - "Why do I insult people in my books? Because it signals risk-taking."
+  - "Start a business. We're tired of people who want to work for NGOs."
 - dynamic vs static
   - healthy economy if incumbent players are at risk
   - unhealthy economy if incumbent players are effectively permanent
 - History tends to "revert to the truth", like "reversion to the mean".
+- Antifragile: trial and error always outperforms design.
+
+================================================================================
+20201011
+Did Instagram Bro Hero Dan Bilzerian Get His Start Thanks to His Father's Dirty Money?
+https://www.vice.com/en/article/8gk84v/did-instagram-bro-hero-dan-bilzerian-get-his-start-thanks-to-his-fathers-dirty-money-827
+tag="finance business sec"
+> The web of assets that Paul Bilzerian wove in the 90s is extremely intricate.
+> If you're inclined, you can look at numerous SEC filings, like this:
+> https://www.sec.gov/Archives/edgar/data/786620/0000950144-98-000647.txt
+> or this:
+> https://www.sec.gov/Archives/edgar/containers/fix023/1053710/0000950144-98-013882.txt
+> which are complicated to the point of essentially being written in code. If
+> you manage to decipher them, you can find stuff out like this: In 1995, Paul
+> Bilzerian and his wife, Terri Steffen, established the Paul A. Bilzerian and
+> Terri L. Steffen Family Trust of 1995, which was the limited partner of
+> Overseas Holdings Limited Partnership, which was owned by another entity
+> called Overseas Holding Company. Overseas Holdings Limited Partnership owned
+> stake in Cimetrix, a Utah software company of which Bilzerian was once
+> president. So Bilzerian could move the money he technically didn't have
+> around, like when Overseas Holding Company "borrowed" $90,000 from Bicoastal
+> Holding Company, whose sole stockholder was... Terri Steffen.
+> ...
+> Dan, Paul Bilzerian's former lawyer David Hammer, and Caligula entered into a partnership called Haircut Partners, LLP, in an attempt to collect debts from Bicoastal Holding Company, one of Paul Bilzerian's companies, by forcing it into involuntary bankruptcy. (Remember, they were one of the entities involved in Cimetrix.)
+> ...
+> Even with highly public figures, it's virtually impossible to figure out where their money is,
+
+================================================================================
+20201012
+https://kalzumeus.com/2020/10/09/four-years-at-stripe/
+tag="startup growth business organization-theory scale"
+> (In a way, every scaling startup is an experiment in empirical microeconomics
+> research on “What parts of the typical corporate form are necessary and which
+> are pageantry which we only keep around due to anchoring, the sunk cost
+> fallacy, and tradition?” Every time a startup bites the bullet and hires a VP
+> of Sales, a lifecycle email copywriter, a retirements benefits administrator,
+> or a cook, count that as a published result saying “Yep, we found this to be
+> necessary.”)
+
+================================================================================
+20201108
+Reflections on the late election
+https://graymirror.substack.com/p/reflections-on-the-late-election
+tag="concepts government politics philosophy curtis-yarvin history"
+> If anyone in the Trump administration is listening, there is exactly one
+> useful thing you can do now. The President has exactly one unilateral power
+> which is dangerous to the regime: the power to declassify.
+>
+> ... Except for weapons blueprints, America has no real secrets. Washington has
+> plenty of real secrets, though. ...
+>
+> No harm will come to America, for instance, by publishing all State Department
+> cable traffic. The whole archive. All of it. Plenty of harm will come to the
+> State Department. There is not a single file at CIA whose publication would
+> harm America. There are many—some quite old—which would harm our government.
+>
+> (And while you’re at it, Mr. President, bring the troops home—not just from
+> Syria and Afghanistan, also from Germany and Japan. Leave your successor with
+> American boots only on American soil. China Joe could invade the world right
+> back again. But will he? Now, imagine if you’d conducted the last four years
+> in this spirit.)
+
+================================================================================
+20201109
+Naval Ravikant on Happiness, Reducing Anxiety, Crypto Stablecoins, and More | The Tim Ferriss Show
+https://www.youtube.com/watch?v=HiYo14wylQw
+tag="concepts philosophy meditation health wealth naval-ravikant"
+- Meditation forces you to face anxiety, radically restructure your life
+- Meditate 60min x 60days => "mental state of inbox zero"
+- currency = "a bubble that never pops"
+- Effective self-help reduces to "choose long-term over short-term".
+- Long-term thinking gets you long-term results. Short-term thinking gets you short-term results.
+- Video games are a "shadow career" that substitutes for your real career.
+- The modern mind is over-stimulated, the modern body is under-stimulated.
+- "Hard choices = easy life, easy choices = hard life".
+- Compound interest applies everywhere: relationships, money, knowledge, career, health, ...
+
+================================================================================
+20201118
+Robinhood's business model
+https://www.bloomberg.com/opinion/articles/2018-10-16/carl-icahn-wants-to-fight-dell-again?sref=2jPYL79S
+tag="finance options stock trading markets"
+> Robinhood’s business model is:
+>
+> [high-frequency trading firms, or market makers, like Citadel Securities and
+> Two Sigma Securities] give it money.
+>
+> It uses the money to give you free stock trades.
+>
+> That really is taking money from the rich (high-frequency traders) to give to the poor, sort of (millennials who want to trade stocks on their phones). Who did you think was giving it money?
+>
+> Not only that. Payment for order flow really is “one of the most controversial practices on Wall Street,” but the controversy tends to be confused and obfuscated. The basic idea of payment for order flow is that electronic market makers want to be left alone to quietly make the spread: They want to buy stock for $99.99 and sell it at $100.01 and clip two cents on each trade. If their orders are random—if sometimes people buy and sometimes they sell, with no pattern—then that works out well for the market makers. But their big risk is what they call “adverse selection”: Sometimes, when a customer buys 100 shares at $100.01, it then buys another 100 shares at $100.02, and another 100 shares at $100.03, and keeps going until it has bought 10,000 shares and pushed the price up dramatically. The market maker who sold it the first 100 shares—and who is probably now short and needs to go out and buy those shares at a higher price—has been run over.
+>
+> This is a risk of being a market maker on the public stock exchanges: Sometimes you sell 100 shares to a small retail investor and it’s random noise; other times you sell 100 shares to Fidelity and you get run over. But if a market maker can guarantee that it will only interact with retail customers—if it can filter out big orders from institutional investors—then its risk of adverse selection goes way down. The way the market maker does this is by paying retail brokers to send it their order flow, and promising those brokers that it will execute their orders better than the public markets would. (This is called “price improvement,” and allows the retail brokers to fulfill their obligation to give their customers “best execution.”) So if a stock is quoted at $99.99 bid, $100.01 offered on the public exchanges, the market maker might buy it from retail customers for $99.991 or sell it to them at $100.009. (It’s not usually much price improvement.) It can offer a tighter spread than the public markets—and have money left over to pay the retail brokers—because it doesn’t have to worry about adverse selection. If the retail broker is, say, one designed to let young people day-trade for free on their phones, then those orders are probably particularly valuable, because they are probably particularly random.
+>
+> There are two objections to this practice. One is that it is bad for investors whose orders aren’t sold to market makers, the institutional investors who instead trade on public stock exchanges. Payment for order flow fragments the markets, takes retail order flow away from the public stock exchanges, widens out spreads on those exchanges, and, by segregating retail and institutional orders, makes institutional execution worse. This objection is probably true! If you’re a hedge-fund manager, you should dislike payment for order flow, because it makes public markets worse for you. (If you invest through mutual funds, as I do, you should also dislike it, for the same reason.)
+>
+> The other objection is that payment for order flow is bad for investors whose orders are sold to market makers, the retail investors whose orders never touch the stock exchange. If the market makers are paying to get their orders, surely they are doing something nefarious with them, right? Otherwise why would they pay? This objection seems mostly wrong. Very occasionally there is some evidence of market makers doing naughty stuff with the retail orders that they buy, but for the most part, particularly for simple market orders, the result is straightforward: Retail customers are instantly able to buy stock at a price at least as good as, and usually better than, the best price available in the public markets. And the market makers pay their brokers for the privilege, so the brokers can offer cheaper (even free!) stock trades. They are unambiguously better off than they would be if their brokers didn’t sell their orders.
+
+================================================================================
+20210113
+Noah Smith and the market for cruelty
+https://graymirror.substack.com/p/noah-smith-and-the-market-for-cruelty
+tag="history politics curtis-yarvin ww2"
+> What you usually find for two sides of a conflict ... is that each side tends
+> to be mostly right about the other. Usually they are wrong about one big
+> thing, but right about most of the other things.
+> ...
+> There were only two sides in World War II: everyone collaborated with either
+> Hitler or Stalin.
+
+================================================================================
+20210114
+Parallax
+https://en.wikipedia.org/wiki/Parallax
+tag="concepts physics"
+Displacement or difference in the apparent position of an object viewed along
+two different lines of sight. nearby objects show a larger parallax than farther
+objects when observed from different positions.
 
 ================================================================================
 20210202
@@ -7579,3 +7688,70 @@ solution: Multivalued return
 cf. in-band signaling
   Exceptions are out-of-band.
 cf. byzantine failure?
+
+================================================================================
+20210210
+What happened in 1971?
+https://wtfhappenedin1971.com
+tag="economics mmt federal-reserve monetary-policy gold-standard"
+see also: https://en.wikipedia.org/wiki/Nixon_shock
+
+================================================================================
+20210210
+Fed's Yellen expects no new financial crisis in "our lifetimes"
+https://www.reuters.com/article/us-usa-fed-yellen-idUSKBN19I2I5
+tag="economics mmt federal-reserve monetary-policy"
+> LONDON (Reuters) - U.S. Federal Reserve Chair Janet Yellen said on Tuesday
+> that she does not believe that there will be another financial crisis for at
+> least as long as she lives, thanks largely to reforms of the banking system
+> since the 2007-09 crash.
+
+================================================================================
+20210218
+Thomas Petterfy, CEO Interactive Brokers: We have come dangerously close to the collapse of the entire system.
+https://www.reddit.com/r/GME/comments/lmbupe/thomas_petterfy_ceo_interactive_brokers_we_have/gnuw6kn
+tag="economics federal-reserve stock finance"
+> I don't think you guys understand what the system breaking is. It's not just
+> a squeeze to an irrational number (or no number), it's:
+>
+> - Most or all brokers and clearing houses go insolvent/bankrupt.
+>
+> - All shares in all accounts with a margin balance at brokers that are insolvent
+>   would have some or all of their assets rehypothecated (transferred) into the
+>   general fund to settle everything, leaving in place a claim, but that means
+>   most accounts on margin would find some or all of their assets GONE, with
+>   a note to sue the broker in it's place. Sometimes this happens to cash
+>   accounts too, like at MF global, if the firms compliance is not good. I would
+>   not be surprised to find some retail brokerages don't do this correctly.
+>
+> - This then sends the collective set of institutions into a court or regulator
+>   run bankruptcy process - That means anyone on margin - GME shorts, GME longs,
+>   and people who had nothing to do with the whole thing - also now have their
+>   accounts frozen into that process. That in turn causes a system collapse and
+>   a stock market crash generally, further depressing the value of all assets
+>   elsewhere, because you'd knock out most brokers in this sort of counterparty
+>   failure scenario while trying to figure out the mess.
+>
+> - Note that even if a broker ONLY had long GME customers, they'd still owe that
+>   money to the customers but not be able to get it because of the counterparty
+>   risk on short GME customers elsewhere.
+>
+> - Even with accelerated court action, sorting that out would take years, unless
+>   the fed comes in, and provides a ton of liquidity, then sorts it out from
+>   there. At that point, the government would arbitrate, and you'd not be getting
+>   payments for $10,000 per share or something, they'd pick the last rational
+>   price at most, and probably less, as they'd work a solution where GME issues
+>   shares to serve up the need. You could also see other solutions like the index
+>   fund dump all their shares OTC in a special action during the resulting halt,
+>   which ends up collapsing price and serving up shares.
+>
+> Basically, a financial crisis where pretty much everyone loses, including the
+> 95% of investors who had absolutely nothing to do with GME.
+
+================================================================================
+20210307
+Experience curve effect, Wright's law
+https://en.wikipedia.org/wiki/Experience_curve_effects
+tag="economics technology concepts mental-model"
+Progress increases with experience: each percent increase in cumulative
+production results in a fixed percentage improvement in production efficiency.
