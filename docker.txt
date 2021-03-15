@@ -42,6 +42,9 @@ Attach to running container TTY:
 Invoke in running container:
   docker exec -it <container-id> /bin/bash
 
+Invoke in container exposing port 3000 (uses query/filter):
+  docker exec -i $(docker ps -q -f publish=3000) foo
+
 Get runtime info, post-mortem, env, etc.:
   docker inspect <container-id>
 
