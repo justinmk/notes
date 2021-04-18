@@ -7755,3 +7755,20 @@ https://en.wikipedia.org/wiki/Experience_curve_effects
 tag="economics technology concepts mental-model"
 Progress increases with experience: each percent increase in cumulative
 production results in a fixed percentage improvement in production efficiency.
+
+================================================================================
+20210330
+Mark Sisson: "Two Meals a Day: lose fat, reverse aging"
+https://open.spotify.com/episode/0YoTG8B6spV31mCHk63zqD
+tag="health fasting"
+fasting:
+- 16 hours minimum, 18 hours is better
+- most repair/recovery happens when NOT eating
+good:
+- cholesterol is good, it was vilified bc of spurious correlation
+- "starchy carbs" are ok
+bad:
+- sugar
+- industrial seed oils (canola, soy, etc.)
+- processed grains
+  - cause arthritis
