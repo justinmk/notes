@@ -6,15 +6,33 @@ TODO:
 TOOLS
 ================================================================================
 wireshark
+    UI:
+        Follow roundtrips/streams: right-click a packet, select "Follow > HTTP Stream"
+
     Analyze remote traffic in wireshark
         ssh -t user@host 'mkfifo traffic ; sudo tcpdump -U -s0 "not port 22" -i any -w traffic'
         ssh user@host 'cat traffic' | wireshark -k -i -
 
-    Filter examples:
+    Filters  https://gitlab.com/wireshark/wireshark/-/wikis/DisplayFilters
         (frame contains "mozilla")    search for “mozilla” anywhere in the packet
-        (tcp.port eq 443)             tcp port
+        (tcp.port == 443)             tcp port
         (dns.resp.len > 0)            all DNS responses
-        (ip.addr eq 52.7.23.87)       source or dest IP address
+        (ip.addr == 52.7.23.87)       source or dest IP address
+        tls and (ip.dst_host matches "50")
+
+    TLS (SSL/HTTPS)
+        https://gitlab.com/wireshark/wireshark/-/wikis/TLS
+        Capturing Node.js traffic:
+            https://gist.github.com/dfrankland/0fec2cd565f1f7b78fb0e3ededf36b89
+            1. Install "sslkeylog" package, it sets global hooks in the `https`
+               module to capture SSL keys.
+               npm i -D sslkeylog
+            2. Activate sslkeylog in your application:
+               import sslkeylog from 'sslkeylog';
+               sslkeylog.hookAll();
+            3. Start your application with SSLKEYLOGFILE set:
+               SSLKEYLOGFILE=~/foo.log node app.js
+            4. In Wireshark, input the file path in Preferences > Protocols > TLS.
 
     https://jvns.ca/blog/2018/06/19/what-i-use-wireshark-for/
     http://jvns.ca/blog/2016/03/16/tcpdump-is-amazing/

@@ -61,6 +61,8 @@ known issue: "stdio buffered writes (chunked) issues & process.exit() truncation
 
 TYPESCRIPT
 ==============================================================================
+https://basarat.gitbook.io/typescript/type-system/freshness
+
 Declare a motherfucking map:
   const things: { [key: string]: boolean } = {}
 
@@ -81,3 +83,10 @@ optional chaining x
   let result = data?.key1?.key2 ?? 'default';
   // GOTCHA: returns undefined for missing values, even if they were null.
   (null)?.key  // returns undefined
+
+NPM
+==============================================================================
+webpack will use whatever is in node_modules regardless of where it came from.
+Once bundled, it doesn't matter whether a dep was declared in package.json
+"dependencies" or "devDependencies". dev-deps only matter when others consume
+the package as a dependency.
