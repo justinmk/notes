@@ -7772,3 +7772,277 @@ bad:
 - industrial seed oils (canola, soy, etc.)
 - processed grains
   - cause arthritis
+
+================================================================================
+20210530
+The inflation economy
+http://graymirror.substack.com/p/the-inflation-economy
+tag="curtis-yarvin economics federal-reserve stock finance government banking money"
+> 20th-century “macroeconomic” central-planners define “inflation” as AB or even
+> just B, measure B, and so automatically take undeserved credit for these
+> exogenous or organic mitigations. ... You can’t mitigate A, only conceal it.
+>
+> A is monetary dilution. B is consumer appreciation. Monetary dilution causes
+> consumer price appreciation. Appreciation is a symptom; dilution is the
+> disease.
+>
+> “Inflation” is the syndrome AB—a deceptive malapropism. The main use of this
+> label is to divert attention from the simple cause A to the complex, difficult
+> syndrome AB. The label “inflation” is a semantic minefield and no one should
+> use it both sincerely and ambiguously. I’ll just say “inflation (A)” and
+> “inflation (B).”
+>
+> Although we cannot measure inflation (A), or monetary dilution, directly,
+> another proxy C is a better metric (though still imperfect and indirect). This
+> proxy, inflation (C), is wealth appreciation.
+>
+> ...
+>
+> Simple way to measure monetary dilution: catch it at the next bend in the
+> causal stream. Roughly, monetary dilution equals growth in personal net worth.
+> This is the only useful and effective measurement of inflation (A).
+>
+> This is a graph of how much money the government has secretly given away to
+> the rich. Since 1950, American personal net worth in portfolio dollars has
+> gone up by about 100x.
+>
+> ...Effectively, the high-velocity dollars of the poor are taxed to subsidize
+> the low-velocity dollars of the rich.
+>
+> “Investing” your low-velocity dollars means turning your savings into a kind
+> of inflation antenna, which is dangerous because it is also an antenna for
+> systemic risk. The biggest pools of money have high-leverage antennas and big
+> fire extinguishers. (And sometimes they still catch fire—but the poor burn
+> better, too.)
+>
+> Even before Covid, keeping the American rich (obviously, if you’re not rich,
+> you don’t have a “personal net worth”), in the style to which they are
+> accustomed, was costing the Fed somewhere around $10 trillion a year. In 2019,
+> for instance, PNW rose from $105 trillion to $118 trillion. The gray vertical
+> bars are “recessions,” in which our inflation engine somehow throws a rod and
+> peters out—or even goes into reverse. 2020, of course, was a banner year for
+> inflation (A), and might even print $20 trillion.
+>
+> ...The assets in this net worth are the capital assets of America—its farms,
+> factories, houses and offices. ... To say that in some genuine and organic
+> sense, the quality or quantity of any or all of these assets has increased by
+> 100x since 1950, is to embrace a preposterous historical delusion.
+
+================================================================================
+20210610
+Sixteen Years Old, $1.7 Million in Revenue: Max Hits It Big as a Pandemic Reseller
+https://www.wsj.com/articles/sixteen-years-old-1-7-million-in-revenue-max-hits-it-big-as-a-pandemic-reseller-11623248291
+tag="startup business entrepreneurship finance"
+> retail arbitrage ... He preordered 10 from Target’s website in September with
+> a debit card, using his own savings. “It was public knowledge but most people
+> weren’t starting to look that early,” he said.
+>
+> His early endeavors impressed his younger sister, such as when in middle
+> school he sold fidget spinners at a local fair for $8 a piece after buying
+> them for pennies from a vendor in China.
+
+================================================================================
+20210620
+The Fedcoin experiment
+https://graymirror.substack.com/p/the-fedcoin-experiment
+tag="curtis-yarvin government banking federal-reserve money finance economics cryptocurrency fedcoin stablecoin"
+1. Once someone has the power to create money, the supply of money cannot be
+   measured ("soft money").
+2. In a soft monetary system, the best way to measure inflation is not to
+   measure either money creation or consumer prices, but personal net worth.
+Thought experiment: hard money ("essentially a national bankruptcy")
+  > Merely by disabling the creation of new dollars, we’ve destroyed an entire
+  > invisible world of informal options, which were the glass pillars holding up
+  > what we believed was a solid and organic financial structure. With those
+  > pillars shattered—well, now, it does seem odd to owe $18 trillion dollars,
+  > when there are only $6 trillion dollars. Who could credibly promise 60
+  > million Bitcoins?
+  >
+  > ... And while ideally, regulators would be intolerant of 20th-century
+  > financial techniques of currency, maturity and risk transformation, these
+  > manipulations would eventually blow up and teach the market their necessary
+  > lesson, were private financial actors not gifted with the informal options
+  > (from the Fed’s protection of FDIC, to the “Greenspan put”) which, as we
+  > see, comprise most of the market’s present value. For if voiding these
+  > options makes the market much less valuable, the options must be very
+  > valuable.
+  >
+  > ... Uninsured bank runs are one path to a financial system that doesn’t have
+  > bank runs. Make sure the explosion isn’t bigger than the system, though.
+
+================================================================================
+20210620
+Rise of the neutral company
+https://graymirror.substack.com/p/rise-of-the-neutral-company
+tag="curtis-yarvin politics government realpolitik machiavelli monarchy"
+"Politics is the exercise of collective power against human opposition."
+- "parliament" literally means "chatroom"
+- Decisions should never be made communally if possible; such decisions are
+  unaccountable.
+- In all well-shaped organizations, power is accountable. The design hack in the
+  modern joint-stock company is that the CEO has authority over all other staff,
+  and all other staff are accountable to the CEO; and the CEO is accountable to
+  the board, but the board has no authority to manage the CEO.The board can only
+  replace the CEO—which keeps them (or the shareholders behind them) from
+  micromanaging the company and turning it into another kind of oligarchy. Yet
+  everyone in an operational role is fully accountable.
+- The nature of oligarchy is essentially foreign to good governance, because it
+  dissipates accountability. It is not even clear who is in charge. Positions of
+  leadership in the chat parliament are an unpredictable, informal consequence
+  of personal charisma.
+- Collective action which depends not on harnessing desire, but escaping it, can
+  be much more effective.
+- Democracy is most effective as a transient force, used to transition from one
+  absolute, non-democratic authority to another. ... This transient spirit
+  implies a crowd that can follow. A crowd of leaders cannot give power, because
+  their animal desire attaches them to power. ... Collectively, followers are
+  more powerful. ... So the art of detachment--professional detachment, ironic
+  detachment, even apathetic detachment--is actually an art of war.
+
+================================================================================
+20210620
+Realpolitik
+https://en.wikipedia.org/wiki/Realpolitik
+tag="politics government realpolitik machiavelli"
+- How to achieve liberal enlightened goals in a world that does not follow liberal enlightened rules.
+- As the liberal gains of the 1848 revolutions fell victim to coercive governments or were swallowed by powerful social forces such as class, religion and nationalism, Rochau began to think hard about how the work that had begun with such enthusiasm had failed to yield any lasting results.
+- Became associated with Otto von Bismarck's statecraft in unifying Germany in the mid 19th century.
+
+================================================================================
+20210628
+North Korean defector slams "woke" US schools
+https://nypost.com/2021/06/14/north-korean-defector-slams-woke-us-schools/
+tag="politics culture left progressive"
+> Yeonmi Park attended Columbia University and was immediately struck by what she viewed anti-Western sentiment in the classroom and a focus on political correctness that had her thinking “even North Korea isn’t this nuts.”
+>
+> "Every problem, they explained us, is because of white men." Some of the discussions of white privilege reminded her of the caste system in her native country, where people were categorized based on their ancestors, she said.
+>
+> ...she also was chided for saying she enjoyed the writings of Jane Austen.
+>
+> “I said ‘I love those books.’ I thought it was a good thing,” Park told the network. “Then she said, ‘Did you know those writers had a colonial mindset? They were racists and bigots and are subconsciously brainwashing you.’”
+
+================================================================================
+20210628
+Parachute Pants and Central Bank Money, Randal K. Quarles
+https://www.federalreserve.gov/newsevents/speech/quarles20210628a.htm
+tag="government banking federal-reserve money finance economics cryptocurrency stablecoin"
+> A Federal Reserve CBDC (central bank digital currency) could, in essence, set
+> up the Federal Reserve as a retail bank to the general public.
+
+================================================================================
+20210628
+Iron law of oligarchy
+https://en.wikipedia.org/wiki/Iron_law_of_oligarchy
+tag="government concepts oligarchy"
+- Since no sufficiently large and complex organization can function purely as
+  a direct democracy, power within an organization will always get delegated to
+  individuals within that group, elected or otherwise.
+- Organizations eventually come to be run by a "leadership class" (paid
+  administrators, executives, spokespersons, strategists, …). By controlling who
+  has access to information, those in power can centralize their power
+  successfully, often with little accountability, due to the apathy,
+  indifference and non-participation of most rank-and-file.
+- Summarized as: "Bureaucracy happens. If bureaucracy happens, power rises. Power corrupts."
+- delegation is necessary in any large organization
+- democracy and large-scale organization are incompatible
+
+================================================================================
+20210628
+Kyklos: Aristotle's three forms of government
+https://en.wikipedia.org/wiki/Kyklos
+tag="government concepts oligarchy monarchy democracy"
+3 forms of government:
+  democracy
+  aristocracy
+  monarchy
+3 degenerate forms:
+  ochlocracy (mob rule)
+  oligarchy
+  tyranny
+
+================================================================================
+20210702
+On banning ideas
+https://graymirror.substack.com/p/on-banning-ideas
+tag="curtis-yarvin politics government democracy power machiavelli realpolitik"
+> The fundamental problem with “banning CRT” is that, while culture is
+> downstream from power, no one can dam a river by taking a dump in it. Passing
+> state laws against “critical race theory” is wrong and ineffective, but not
+> because it goes too far—only because it goes nowhere near far enough.
+>
+> To be “against” something is to propound a negative—to propose a question,
+> demurely admitting the lack of an answer. Dissidents will never get anywhere
+> till they realize that history is asking them for answers, not questions—and
+> that the larger, more imaginative and more detailed their answers, the more
+> realistic these visions become.
+>
+> In other words, big things are easier than small things.
+>
+> ... To imagine that the voting taxpayers of America, through their
+> democratically elected officials, should control the curricula administered to
+> their children, is like suggesting that Elizabeth II should rule England. On
+> paper, arguably, she does. In theory, maybe even in practice—she could again.
+>
+> ... Such is democratic politics in the 2020s. All the victories of democracy
+> over oligarchy are temporary and symbolic; they consume the energy invested in
+> them, and release no energy back; their objective effect is to (a) dissipate
+> this energy, and (b) promote their promoters.
+
+================================================================================
+20210702
+Russell conjugation
+https://en.wikipedia.org/wiki/Emotive_conjugation
+tag="concepts rhetoric language psychology"
+"I am firm, you are obstinate, he is a pig-headed fool."
+
+================================================================================
+20210702
+Aarne–Thompson–Uther Index: catalogue of folktale types
+https://en.wikipedia.org/wiki/Aarne%E2%80%93Thompson%E2%80%93Uther_Index
+tag="concepts history language culture tropes"
+cf. TV tropes https://tvtropes.org
+
+================================================================================
+20210702
+OODA loop: observe–orient–decide–act
+https://en.wikipedia.org/wiki/OODA_loop
+tag="concepts military tactics strategy patterns competition"
+- also often applied to commercial operations, learning processes.
+- explains how agility can overcome raw power
+- shows that all decisions are based on observations of the evolving situation
+  tempered with implicit filtering
+- "Orient" box: much filtering of the information through our culture, genetics,
+  ability to analyze and synthesize, and previous experience
+  - It is here that decisions often get stuck, which does not lead to winning.
+- key insight
+  - Change speed and direction faster than the opponent.
+  - Getting "inside" the cycle (short-circuiting the opponent's OODA) produces
+    opportunities for the opponent to react inappropriately.
+  - Taking control of the situation is key. It is not enough to speed through
+    OODA faster.
+> The key is to obscure your intentions and make them unpredictable to your
+> opponent while you simultaneously clarify his intentions. That is, operate at
+> a faster tempo to generate rapidly changing conditions that inhibit your
+> opponent from adapting.
+
+================================================================================
+20210702
+https://github.com/wasmerio/wasmer
+tag="wasm webassembly software programming embed webbrowser javascript c"
+https://wasmer.io/
+https://github.com/wasmerio/wasmer/tree/master/lib/c-api
+Wasmer is a fast and secure WebAssembly runtime that enables super lightweight containers to run anywhere.
+- Secure by default. No file, network, or environment access, unless explicitly enabled.
+- Supports WASI and Emscripten out of the box.
+- Fast. Run WebAssembly at near-native speeds.
+- Embeddable in multiple programming languages
+- Compliant with latest WebAssembly Proposals (SIMD, Reference Types, Threads, ...)
+
+================================================================================
+20210802
+Kelly criterion
+https://en.wikipedia.org/wiki/Kelly_criterion
+tag="finance options stock trading markets"
+As you increase your trade sizing / leverage you become more likely to
+reach 1/2 of your starting equity before you double it, simply because the
+variance in returns grow large.
