@@ -8046,3 +8046,117 @@ tag="finance options stock trading markets"
 As you increase your trade sizing / leverage you become more likely to
 reach 1/2 of your starting equity before you double it, simply because the
 variance in returns grow large.
+
+================================================================================
+20210818
+For the times they are a-changing
+https://graymirror.substack.com/p/for-the-times-they-are-a-changing
+tag="curtis-yarvin politics government democracy power machiavelli realpolitik systems"
+> My first hypothesis is that, as usual in complex systems, the only choice of
+> any latent power ... is to keep the system more or less as it is, or delete
+> and replace it completely. Changing it is so impossible that the very word
+> “change” has become a sinister Orwellian jargon.
+
+================================================================================
+20210822
+Scalar: A set of tools and extensions for Git to allow very large monorepos
+https://github.com/microsoft/scalar
+tag="git dvcs programming tools"
+- Partial clone
+- Background prefetch: downloads Git object data from all remotes every hour.
+- Sparse-checkout: limits the size of your working directory.
+- File system monitor: eliminates the need for Git to scan the entire worktree.
+- Multi-pack-index: enables fast object lookups across many pack-files.
+- Incremental repack: Repacks the packed Git data into fewer pack-file without disrupting concurrent commands by using the multi-pack-index.
+(Features were merged to mainline Git, now Scalar is just a wrapper.)
+
+================================================================================
+20210906
+Curtis Yarvin (aka Mencius Moldbug): an interview
+https://im1776.com/2021/09/03/curtis-yarvin-interview/
+tag="curtis-yarvin politics government democracy power machiavelli realpolitik systems anarchism"
+> it is natural to look at a hypertrophied, dysfunctional regime and say: there
+> should be less of that. There should be less of the State. To any engineer,
+> spontaneous orders are elegant and seem to work well; competition works well,
+> bureaucracy doesn’t. Easy to start with that.
+>
+> Then Hoppe points out: we can see the premodern international order as
+> a spontaneous order! It’s actually the ultimate in libertarianism: states are
+> competing sovereign corporations. Above them, there is no government at all
+> — a global anarcho-libertarian paradise of armed ‘sovcorps’.
+>
+> Yet strangely, in this ultra-libertarian model, states are not libertarian at
+> all! A nation is a land and its settled people. The sovcorp owns both
+> — because who else would? ...
+>
+> Hoppe goes on to point that a hereditary monarchy in the classic European
+> style, far from being a barbaric relic, is simply a sovcorp that’s a family
+> business. Because the time horizon of a family is indefinite, like the time
+> horizon of a state, the hereditary monarch exhibits the least tension between
+> personal and national interests.
+>
+> An absolute hereditary monarch has no interest in employing a dysfunctional
+> bureaucracy. Since he wants to see his nation thrive, he is more likely to
+> adopt the economic and social system that seems to make nations thrive:
+> libertarian capitalism. So we come full circle, in a kind of layer-cake of
+> libertarianism, then absolute monarchy, then more libertarianism. 
+>
+> ... Jünger distinguishes between the “anarch,” who remains aloof from power
+> and strives to retain his mental independence from it, and the “anarchist,”
+> who acts out his resistance to power, usually because of uncontrolled desire
+> for power. It is always the anarchist who goes to the gulag — the anarch, in
+> fact, is often safer than even the true believer.
+>
+> ... But while the anarch always complies, he never submits. Being ordered to
+> wear a turban cannot in any way make him a Sikh; not only that, it cannot even
+> make him an anti-Sikh. Power owns his body, but has no purchase at all on his
+> soul.
+.
+- "This detachment from partisan commitments allows for a tremendous amount of interior freedom."
+- cathedral’s tendency toward “dominant ideas” rather than true or beautiful ideas
+
+================================================================================
+20210909
+htmlq: Like jq, but for HTML
+https://github.com/mgdm/htmlq
+tag="web tools programming query html shell cli"
+Uses CSS selectors to extract content from HTML files.
+
+================================================================================
+20210922
+"Exception handling is a giant mistake."
+https://news.ycombinator.com/item?id=28164247
+tag="programming softwareengineering language-design pl-design exceptions control-flow failure-modes"
+https://twitter.com/WalterBright/status/1426013845277925382
+> Working with and implementing C++ exceptions for 30 years now, including implementing exception handling for Windows, DOS extenders, and Posix (all very different), and then re-implementing them for D, I have sadly come to the conclusion that exceptions are a giant mistake.
+> 1. they are very hard to understand all the way down
+> 2. they are largely undocumented in how they're implemented
+> 3. they are slow when thrown
+> 4. they are slow when not thrown
+> 5. it is hard to write exception-safe code
+> 6. very few understand how to write exception-safe code
+> 7. there is no such thing as zero-cost exception handling
+> 8. optimizers just give up trying to do flow analysis in try-exception blocks
+> 9. consider double-fault exceptions - there's something that shows how rotten it is
+> 10. has anyone yet found a legitimate use for throwing an `int`?
+> I have quit using exceptions in my own code, making everything 'nothrow'. I regret propagating exception handling into D. Constructors that may throw are an abomination. Destructors that throw are even worse.
+
+================================================================================
+20210924
+Why We Killed Our End-to-End Test Suite
+https://building.nubank.com.br/why-we-killed-our-end-to-end-test-suite/
+tag="programming softwareengineering ci continuous-integration testing devops release-engineering"
+End-to-end integration tests:
+  1. Waiting. Engineers wait more and more to get feedback from this long-running suite.
+  2. Lack of confidence. Flaky tests => re-run to confirm false negative.
+  3. Expensive to maintain. Manual changes in our staging environment corrupted test data fixtures and maintaining the environment “clean” was a challenge.
+  4. Failures don’t point to obvious issues. Test failures were very hard to debug, specially due to our reliance on asynchronous communication that make it hard to connect the cause of failure (a message not published to a queue) with its effect (changes not made in another system).
+  5. Slower value delivery. Queueing of commits => less frequent deployments.
+  6. Not efficient. Few bugs caught in this stage. For every 1000 runs, we had 42 failures, only 1 bug.
+  7. Not effective. Bugs were still being found in production.
+Alternative: combination of:
+  - Consumer Driven Contract (CDC) testing
+  - Acceptance tests (limited E2E) for critical paths
+  - Feature flags
+  - Percentage rollouts ("dialup")
+  - A/B testing
