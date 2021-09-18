@@ -9,6 +9,24 @@ Function.prototype.bind(fn[, ...])  https://developer.mozilla.org/en-US/docs/Web
     // NB: console.error() expects `this` to be `window.console`.
     foo(…).catch(console.error.bind(console, 'foo: '))
 
+Proxy
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy
+    The Proxy object enables you to create a proxy for another object, which can
+    intercept and redefine fundamental operations for that object.
+  Observe/listen to field changes:
+    private createReactive<T extends Record<string, any>>(obj: T): T {
+      return new Proxy(obj, {
+        set: (target, prop, val, recv) => {
+          const last = Reflect.get(target, prop, recv)
+          const success = Reflect.set(target, prop, val, recv)
+          if (success && last !== val) {
+            this.emitEvent()
+          }
+          return success
+        }
+      })
+    }
+
 NODE.JS
 ==============================================================================
 globals  https://nodejs.org/api/globals.html#globals_global

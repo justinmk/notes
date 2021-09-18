@@ -8,6 +8,21 @@ EC2
         Magic endpoint "169.254.169.254" gives metadata of the current instance:
             $ curl http://169.254.169.254/latest/meta-data/
 
+ECS: EC2 container service
+    The "primitive" for distributed applications: task (job)
+    Think about "pool of resources" (cluster...), _not_ machines.
+    https://github.com/aws/amazon-ecs-cli
+        "Run applications locally or on ECS using the same Docker Compose file
+        format and familiar Compose commands."
+
+    Task
+    https://forums.aws.amazon.com/thread.jspa?threadID=175819
+    "When creating a task, you can omit the 'Host port' option (or set it to 0)
+    and a port will automatically be chosen when it's started. You can find out
+    which port was chosen by describing the running task."
+        Container:
+            easy example Docker image: https://hub.docker.com/r/nginxdemos/hello/
+
 
 DevOps at amazon:
     key characteristics of Amazon SOA:
@@ -36,19 +51,6 @@ CloudTrail vs CloudWatch vs Config
     ^         ^             ^config change management
     |         `alert unusual activity
     `logs API calls
-
-ECS: EC2 container service
-    The "primitive" for distributed applications: task (job)
-    Think about "pool of resources" (cluster...), _not_ machines.
-    https://github.com/aws/amazon-ecs-cli
-        "Run applications locally or on ECS using the same Docker Compose file
-        format and familiar Compose commands."
-
-    Task
-    https://forums.aws.amazon.com/thread.jspa?threadID=175819
-    "When creating a task, you can omit the 'Host port' option (or set it to 0)
-    and a port will automatically be chosen when it's started. You can find out
-    which port was chosen by describing the running task."
 
 
 Lambda

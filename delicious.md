@@ -8160,3 +8160,100 @@ Alternative: combination of:
   - Feature flags
   - Percentage rollouts ("dialup")
   - A/B testing
+
+================================================================================
+20210519
+SSH + security key
+https://github.blog/2021-05-10-security-keys-supported-ssh-git-operations/
+tag="git ssh security 2fa tfa mfa authentication"
+
+================================================================================
+20210525
+Google Quantum AI campus
+https://blog.google/technology/ai/unveiling-our-new-quantum-ai-campus/
+tag="google hardware research compsci"
+To build better batteries, fertilizer, medicines, we need to:
+- understand and design molecules better
+- simulate nature accurately
+With an error-corrected quantum computer, we could simulate how molecules behave
+and interact, so we can test and invent new chemical processes and new materials
+before investing in costly real-life prototypes.
+1. To get there (years), we must build the world’s first “quantum
+   transistor”--two error-corrected “logical qubits” performing quantum
+   operations together--and then figure out how to tile hundreds to thousands of
+   them to form the error-corrected quantum computer. That will take years.
+2. To get *there* (years), we need to show we can encode one logical qubit--with
+   1,000 physical qubits. Using quantum error-correction, these physical qubits
+   work together to form a long-lived nearly perfect qubit--a forever qubit that
+   maintains coherence until power is removed, ushering in the digital era of
+   quantum computing.
+3. And to get *there* (years), we need to show that the more physical qubits
+   participate in error correction, the more you can cut down on errors in the
+   first place--this is a crucial step given how error-prone physical qubits
+   are.
+
+================================================================================
+20210525
+WASI: Portable System Interface for WebAssembly
+https://github.com/bytecodealliance/wasmtime/blob/main/docs/WASI-overview.md
+tag="wasm web webassembly api os portability"
+
+================================================================================
+20210928
+Thoughts on Clojure UI framework
+https://tonsky.me/blog/clojure-ui/
+Tweak and reuse
+  fun MaterialButton(text) {
+      Hoverable {
+          Clickable {
+              RoundedRectangleClip {
+                  RippleEffect {
+                      SolidFill {
+                          Padding {
+                              Text(text) } } } } } } }
+  a. Internals are perfectly composable with each other, and
+  b. It’s trivial to write your own button!
+First‑class rendering access
+Layout: three inspirations:
+  1. one‑pass layout algorithm from Flutter: https://www.youtube.com/watch?v=UUfXWzp0-DU
+  2. Subform layout, which that layout system can be beautiful and symmetric, the
+     same units can be used for everything. https://subformapp.com/articles/why-not-flexbox/
+  3. Parents should position children. Spacing is a part of the parent’s layout,
+     thus margins are considered harmful. (components should not affect anything
+     outside)
+
+================================================================================
+20211007
+Powers of 10: Time Scales in User Experience
+https://www.nngroup.com/articles/powers-of-10-time-scales-in-ux/
+tag="work productivity focus concentration flow attention psychology"
+- "flow" is lost after 10 seconds
+
+================================================================================
+20211008
+AWS federation comes to GitHub Actions
+https://awsteele.com/blog/2021/09/15/aws-federation-comes-to-github-actions.html
+tag="aws github federation authentication login secrets programming ci continuous-integration testing devops automation release-engineering"
+> GitHub Actions has new functionality that can vend OpenID Connect credentials
+> to jobs running on the platform. ... CI/CD jobs no longer need any long-term
+> secrets to be stored in GitHub.
+>
+> How it works:
+> 1. You need an AWS IAM OIDC identity provider and an AWS IAM role that GitHub
+>    Actions can assume. You can do that by deploying this CloudFormation
+>    template ...
+> 2. You need the GitHub workflow definition in a repo:
+>    ...
+>    curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL" | jq -r '.value' > $AWS_WEB_IDENTITY_TOKEN_FILE
+>    ...
+>
+> It works because the AWS SDKs (and AWS CLI) support using the
+> AWS_WEB_IDENTITY_TOKEN_FILE and AWS_ROLE_ARN environment variables since AWS
+> EKS needed this.
+
+================================================================================
+20211008
+AWS SSM Session for Javascript
+https://github.com/bertrandmartel/aws-ssm-session
+tag="aws ec2 cloud ssm javascript nodejs"
+Javascript library for starting an AWS SSM session compatible with Browser and NodeJS
