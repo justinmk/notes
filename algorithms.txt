@@ -1,7 +1,6 @@
 todo:
     + graphs, visualization: https://github.com/coells/100days
     ~ http://jeffe.cs.illinois.edu/teaching/algorithms/
-    ~ https://github.com/cirosantilli/algorithm-cheat
     huffman codes (zip/compression)
 
 TCO (tail recursion, tail-call optimization)
@@ -83,6 +82,14 @@ knapsack problem: resource allocation with budget constraint
                     right order if they fit.
         best-fit:   Put the elements of S in the knapsack from smallest to
                     largest.
+
+graph traversal, (shortest) pathfinding
+    A*
+        - is a special case of branch-and-bound.
+        - vs other greedy best-first search algorithms: A* takes the cost/distance already traveled g(n) into account.
+        - can implement generalized depth-first search by initializing a global counter C to a very large value...
+        - Dijkstra's algorithm is a special case of A* where heuristic h(n)=0 for all nodes x.
+        - both Dijkstra and A* are special cases of dynamic programming.
 
 bin-packing: ("multiple knapsacks"...)
     NP-hard

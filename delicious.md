@@ -7749,6 +7749,112 @@ tag="economics federal-reserve stock finance"
 > 95% of investors who had absolutely nothing to do with GME.
 
 ================================================================================
+20210224
+We don't have to live like this
+https://graymirror.substack.com/p/we-dont-have-to-live-like-this
+tag="curtis-yarvin politics government state libertarianism power machiavelli realpolitik"
+> I’m a monarchist because _we don’t have to live like this_.
+>
+> How could we live otherwise? We could live with a government which was
+> competent. No one today—certainly not me—can even imagine how different
+> a life that would be.
+>
+> There are actually two state capacities we can expect from a regime.
+>
+> One: we could have a regime which was physically competent—one that solved
+> the physical problems of government—winning wars, beating pandemics, fighting
+> crime, creating work, etc.
+>
+> Two: Spiritual state capacity is Solzhenitsyn’s “living in truth.” While it
+> is normal and proper for regimes to endorse, and even defend with the secular
+> arm, unprovable statements about the supernatural world, or sometimes even
+> false or misleading statements about the past, a regime crosses the Mendoza
+> line when it forces or pressures its subjects to believe anything about the
+> real, present world that just isn’t so.
+>
+> A regime that can’t handle the truth truly “has the wolf by the ears.” ...
+> Dissidents are those who consider the regime spiritually incompetent. The
+> regime, by definition, defines itself as spiritually healthy.
+>
+> Maistre put it: the counterrevolution is not revolution in the opposite
+> direction. (This is the essential error of fascism.) It is the opposite of
+> revolution. ... Most people have no idea what this would even mean. ...
+> Psychological security under a shitty regime always revolves around
+> inculcating the idea that there is no alternative to the regime, or that any
+> alternative would be even worse.
+>
+> 10 principles for "restoring the rule of law":
+>
+> 1. salus populi suprema lex: the sole purpose of government is to sustain the
+>    well-being of its citizens. ... A regime that instead conceives itself as
+>    a universal charity, whose goal is to do as much good as possible in the
+>    world and in principle the galaxy, and which funds these good works by
+>    taxing a population of human tax-cattle, is judged harshly by this
+>    standard. ... Once the agent in a principal-agent relationship is not
+>    acting solely on behalf of the principals, the relationship is corrupted;
+>    it is no longer operating lawfully. There is no way to state a system of
+>    law that allows the HOA manager to embezzle, but only for a good cause.
+>
+> 2. Every citizen is equally protected under the law.
+>
+> 3. The law does not notice trivia (de minimis non curat lex). ... words and
+>    actions that do not cause or threaten tangible harm cannot be torts or
+>    crimes.
+>
+> ... America in the ‘20s has to live with concepts like wrongthink and
+> cancellation because the ‘60s decided to ... make it illegal to be an
+> asshole. ... Whenever a fundamental principle of jurisprudence is violated,
+> it is always to pervert the law into an arbitrary weapon of political
+> tyranny.
+>
+> 4. Every citizen has freedom of association ... Is there anything really
+>    wrong with an all-black software company, an all-Mormon Kia dealership, or
+>    an all-Chinese Chinese restaurant? Fuck you, and fuck your blender.
+>    Variety is good. Variety is human. And variety is the opposite of
+>    homogeneity.
+>
+> 5: Collective grievances are socially unacceptable
+>
+> Every collective grievance is a cold civil war. ... But what we can say is
+> that oblivion is peace. The fundamental principle of peace is that the world
+> started yesterday.
+>
+> 6: Every citizen gets the same information
+>
+> If you have something to leak in the public interest—you must leak it straight
+> to the public. ... A version of this regulation is in place in the financial
+> sector—"Reg FD"—and it is one of the best regulations ever regulated.
+>
+> The power to intermediate authentic information is the power to rule. This is
+> why we live in a press-controlled state.
+>
+> 7: The government makes all its own decisions
+>
+> A healthy organization does not extend trust outside its own permanent
+> personnel.
+>
+> 20th-century practice is for the government to extend its trust to private
+> experts. ... This power leak disrupts the epistemic process of the private
+> experts, who develop an incentive to expand this life-giving canal. The
+> experts naturally tend to favor ideas that generate power—a bias that works
+> against reason.
+>
+> And by definition, they have zero accountability to go with their authority.
+>
+> 8: The government is liable for crime
+>
+> Whatever the cause or severity of its negligence, the government has failed
+> in its duty and is responsible. Therefore, it must compensate the victim for
+> any loss.
+>
+> 9: The government is financially simple
+>
+> A healthy government does not lend or borrow. ... it does not issue
+> derivatives of any kind, formal or especially informal. Historically, when we
+> see a regime breaking any of these rules... it has one purpose, which is to
+> evade fiscal accountability.
+
+================================================================================
 20210307
 Experience curve effect, Wright's law
 https://en.wikipedia.org/wiki/Experience_curve_effects
@@ -8039,6 +8145,31 @@ Wasmer is a fast and secure WebAssembly runtime that enables super lightweight c
 - Compliant with latest WebAssembly Proposals (SIMD, Reference Types, Threads, ...)
 
 ================================================================================
+20210722
+The real Great Reset
+https://graymirror.substack.com/p/the-real-great-reset
+tag="curtis-yarvin politics government democracy power machiavelli realpolitik"
+> But in an American city, any attempt at the local suppression of disorder is no
+> more than mindless, reflexive stabbing at the “Close Door” button.
+>
+> The funny thing is that when you talk to these East Coast optimists, they
+> cheerfully admit that the actions they recommend are, in themselves,
+> completely useless and ineffectual. Their theory—a Whig theory ... it is
+> a sort of exercise... It will make them stronger, for the next, bigger,
+> assault on the enemy.
+>
+> ... It is true that, for the left, useless actions can be good and
+> stimulating and make further action easier—but this is only because the left is
+> organizing disorder. Epsilon disorder still makes more disorder epsilon easier.
+> The right is creating order—and epsilon order is utterly useless. Even if it’s
+> free.
+>
+> ...Winning the sit-lie election in SF, then seeing the law do nothing at
+> all, did not excite SF conservatives (such as they are) to greater achievements.
+> It did not stimulate and energize them. It depressed and enervated them. Once
+> they realized they could do nothing, they stopped doing anything.
+
+================================================================================
 20210802
 Kelly criterion
 https://en.wikipedia.org/wiki/Kelly_criterion
@@ -8281,3 +8412,62 @@ tag="libuv javascript nodejs buffering system os"
 >>>>
 >>>>> It's not like C where the data is buffered in libc and can be flushed.
 >>>>> The unflushed data is in some Javascript data structure in V8 and the event loop has been halted.
+
+================================================================================
+20211019
+The Beginning of Infinity
+https://nav.al/infinity
+tag="science epistemology philosophy naval-ravikant evolution memetics"
+https://nav.al/gravity
+  > The overwhelming majority of physicists are still Bayesian ... [because] this
+  > is typically what’s taught in universities and this is what passes for an
+  > intellectually rigorous way of understanding the world.
+  >
+  > But it is a species of scientism. It’s because they have a formula behind
+  > them, the Bayes theorem, which is a perfectly acceptable statistical formula.
+  > People use it all the time in perfectly legitimate ways. It’s just that it’s
+  > not an epistemology. It’s not a way of guaranteeing, or even being confident,
+  > that your theory is actually true.
+  >
+  > My favorite example of this: Prior to 1919, every single experiment that was
+  > done on gravity showed that it was consistent with Newton’s theory of gravity.
+  > What do Bayesians say in that situation? They say you’re getting more and more
+  > confident in Newton’s theory.
+https://nav.al/exceptional
+  > conjectures and their refutations and error correction is how we improve
+  > knowledge. With genetic evolution, genetic mutations, variation and natural
+  > selection weed out the ones that didn’t work. Memetic evolution ... weeds
+  > out the ideas that don’t work.
+  >
+  > Working within the current laws of physics, humans are capable of maximal
+  > knowledge and maximal awareness. That points to a world where humans are
+  > exceptional and not just another form of bacteria that got out of control
+  > and overran this planet.
+  >
+  > [This suggests] humans are special, knowledge is infinite, and as long as we
+  > don’t destroy the means of error correction and we’re always creating new
+  > knowledge, there’s good reason to be optimistic.
+
+================================================================================
+20211022
+How To Speak by Patrick Winston
+https://www.youtube.com/watch?v=Unzc731iCUY
+tag="public-speaking presentation talk"
+- start with a promise (value proposition)
+- use props (extremely effective mnemonics)
+- surprisingly, audience needs only ONE example to learn a concept
+- how to stop: say what you have done (the takeaway).
+  - last slide should always say the takeaway.
+  - do NOT end with a "questions?" or "thank you" slide, it wastes opportunity to show the takeaway for as long as possible.
+
+================================================================================
+20211024
+Putin Gets It. Why Don’t We?
+https://www.theamericanconservative.com/dreher/putin-soft-totalitarianism-live-not-by-lies-wokeness/
+tag="politics culture left progressive russia putin communism"
+Putin:
+  “We see with bemusement the paralysis unfolding in countries that have grown accustomed to viewing themselves as the flagships of progress,” Putin said during an event where he spoke for a few hours. “Of course, it’s none of our business or what is happening, the social and cultural shocks that are happening in some countries in the Western countries, some believe that aggressive blotting out of whole pages of your own history, the affirmative action in the interest of minorities, and the requirement to renounce the traditional interpretation of such basic values as mother, father, family, and the distinction between sexes are a milestone … a renewal of society.”
+  “The preparedness of the so called social progress believe that the bringing a new conscience, a new consciousness to humanity, something that is more correct,” Putin said. “But there is one thing I would like to say: The recipes they come up with are nothing new. Paradoxical as it may seem, but this is something we saw in Russia. It happened in our country before after the 1917 revolution, the Bolsheviks followed the dogmas of Marx and Engels. And they also declared that they would go into change the traditional lifestyle, the political, the economic lifestyle, as well as the very notion of morality, the basic principles for a healthy society. They were trying to destroy age and century long values, revisiting the relationship between the people, they were encouraging informing on one’s own beloved, and families. It was hailed as the march of progress. And it was very popular across the world and it was supported by many, as we see, it is happening right now.”
+  “Incidentally, the Bolsheviks were absolutely intolerant of other opinions, different from their own,” Putin continued. “I think this should remind you of something that is happening. And we see what is happening in the Western countries, it is with puzzlement that we see the practices Russia used to have and that we left behind in distant path, the fight for equality and against discrimination turns into an aggressive dogmatism on the brink of absurdity, when great authors of the past such as Shakespeare are no longer taught in schools and universities because they announced as backward classics that did not understand the importance of gender or race.”
+  “In Hollywood there are leaflets reminding what you should do in the cinema, in the films, how many personalities and actors you’ve got, what kind of color, what sex, and sometimes it’s even even tighter and stricter than what the Department of Propaganda of the Soviet Communist Party Central Committee did,” he said. “And the fight against racism, which is a lofty goal, turns into a new culture, cancel culture, and into reverse discrimination, racism on the obverse. And it brings people apart, whereas the true fighters for civic rights, they were trying to eliminate those differences. I asked my colleagues to find this quote from Martin Luther King, and he said, ‘I have a dream, that my four little children will one day live in a nation where they will not be judged by the color of their skin, but by the content of their character.’ That is a true value.”
+  “You know, the Bolsheviks were speaking about nationalizing not just the property, but also women,” Putin continued. “The proponents of new approaches go so far as they want to eliminate the whole notions of men and women, and those who dare say that men and women exist and this is a biological fact, they are all but banished. Parent number one, parent number two, or the parent that has given birth, or instead of breast milk, you say human milk. And you say all of that, so the people who are not sure of their sexual agenda are not unhappy.”
