@@ -8250,6 +8250,8 @@ tag="aws github federation authentication login secrets programming ci continuou
 > It works because the AWS SDKs (and AWS CLI) support using the
 > AWS_WEB_IDENTITY_TOKEN_FILE and AWS_ROLE_ARN environment variables since AWS
 > EKS needed this.
+https://github.blog/changelog/2021-10-27-github-actions-secure-cloud-deployments-with-openid-connect/
+https://github.com/github/roadmap/issues/249
 
 ================================================================================
 20211008
