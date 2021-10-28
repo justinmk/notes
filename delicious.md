@@ -8257,3 +8257,25 @@ AWS SSM Session for Javascript
 https://github.com/bertrandmartel/aws-ssm-session
 tag="aws ec2 cloud ssm javascript nodejs"
 Javascript library for starting an AWS SSM session compatible with Browser and NodeJS
+
+================================================================================
+20211019
+nodejs/node: stdout/stderr buffering considerations #6379
+https://github.com/nodejs/node/issues/6379
+tag="libuv javascript nodejs buffering system os"
+> Problem:
+> 1. Many calls to console.log() (e.g. in a loop) could chew up all memory and die.
+> 2. Output is sometimes truncated/dropped.
+>
+> The output has an implicit write buffer (because non-blocking) of unlimited size.
+>
+>> Of course a huge while/for loop with a ton of non-blocking IO is going to cause problems. Don't do it.
+>>
+>>> Either blocking tty writes or graceful drain of stdout/stderr upon
+>>> process.exit() would fix the problem at hand with truncated tty output.
+>>>
+>>>> Logging to the console 10000000 times in a tight loop is not real life behavior.
+>>>> Performance-oriented servers rarely log to the console, and when they do it's important that the information is output.
+>>>>
+>>>>> It's not like C where the data is buffered in libc and can be flushed.
+>>>>> The unflushed data is in some Javascript data structure in V8 and the event loop has been halted.
