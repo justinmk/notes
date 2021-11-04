@@ -27,6 +27,20 @@ Proxy
       })
     }
 
+Symbol
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol
+    Used to add unique property keys to an object, which are hidden from any mechanisms other code will typically use to access the object.
+    Example:
+      let object = {
+          aNumber: 0,
+          [Symbol.toPrimitive]() {  // cf. Object.prototype.valueOf
+              return this.aNumber;
+          }
+      };
+      object.aNumber = 5;
+      console.log(object + 2)  // 7
+    Symbol-keyed properties are completely ignored by JSON.stringify().
+
 NODE.JS
 ==============================================================================
 globals  https://nodejs.org/api/globals.html#globals_global
