@@ -6947,7 +6947,7 @@ tag="security fingerprinting software technology machine-learning spam"
 ================================================================================
 20200720
 Multiprotocol Label Switching Architecture
-https://tools.ietf.org/html/rfc3031
+https://datatracker.ietf.org/doc/html/rfc3031
 tag="rfc network internet engineering ietf"
 next generation internet protocol / replaces tcp/ip?
 
@@ -8490,3 +8490,26 @@ Putin:
   “Incidentally, the Bolsheviks were absolutely intolerant of other opinions, different from their own,” Putin continued. “I think this should remind you of something that is happening. And we see what is happening in the Western countries, it is with puzzlement that we see the practices Russia used to have and that we left behind in distant path, the fight for equality and against discrimination turns into an aggressive dogmatism on the brink of absurdity, when great authors of the past such as Shakespeare are no longer taught in schools and universities because they announced as backward classics that did not understand the importance of gender or race.”
   “In Hollywood there are leaflets reminding what you should do in the cinema, in the films, how many personalities and actors you’ve got, what kind of color, what sex, and sometimes it’s even even tighter and stricter than what the Department of Propaganda of the Soviet Communist Party Central Committee did,” he said. “And the fight against racism, which is a lofty goal, turns into a new culture, cancel culture, and into reverse discrimination, racism on the obverse. And it brings people apart, whereas the true fighters for civic rights, they were trying to eliminate those differences. I asked my colleagues to find this quote from Martin Luther King, and he said, ‘I have a dream, that my four little children will one day live in a nation where they will not be judged by the color of their skin, but by the content of their character.’ That is a true value.”
   “You know, the Bolsheviks were speaking about nationalizing not just the property, but also women,” Putin continued. “The proponents of new approaches go so far as they want to eliminate the whole notions of men and women, and those who dare say that men and women exist and this is a biological fact, they are all but banished. Parent number one, parent number two, or the parent that has given birth, or instead of breast milk, you say human milk. And you say all of that, so the people who are not sure of their sexual agenda are not unhappy.”
+
+================================================================================
+20211105
+Software Statement
+https://datatracker.ietf.org/doc/html/rfc7591#page-14
+tag="rfc oauth web json internet ietf"
+- Like a "signed user agent"?
+- A software statement is a JSON Web Token (JWT) [RFC7519] that asserts
+  metadata values about the client software as a bundle.
+  - presented to the authorization server as part of a client registration request
+  - MUST be digitally signed using JSON Web Signature (JWS) [RFC7515]
+  - MUST contain an "iss" (issuer) claim denoting the party attesting to the
+    claims in the software statement.
+  - using the "RS256" signature algorithm
+  - the "software_id" field allows authorization servers to correlate different
+    instances of software using the same software statement.
+- Example:
+    {
+      "software_id": "4NRB1-0XZABZI9E6-5SM3R",
+      "client_name": "Example Statement-based Client",
+      "client_uri": "https://client.example.net/"
+    }
+
