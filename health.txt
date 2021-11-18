@@ -41,8 +41,8 @@ David Sinclair
     NMN promotes NAD, counteracts metformin
     NAD helps blood vessel lining "respond to exercise". Decreases lactic acid, muscle fatigue.
     regimen:
-      1.0 g NMN each morning with yogurt.
-      0.5 g of resveratrol each morning.
+      1.0 g NMN each morning
+      0.5 g of resveratrol each morning with yogurt (any fat source. without fat, resveratrol absorption 5x lower).
       1.0 g metformin each night.
     You need a period every day, where you’re hungry.
     counterpoints: https://www.reddit.com/r/longevity/comments/alajlf
@@ -56,6 +56,10 @@ David Sinclair
         https://www.doctorsinclair.com
     - Hyperbaric chamber: increased oxygen followed by reduced oxygen, may be a way to "exercise without exercise".
     - Walking speed is the single best indicator of how long you will live.
+  reference
+    - "these mice are twins" https://www.youtube.com/watch?v=QRt7LjqJ45k
+    - https://fastlifehacks.com/david-sinclair-supplements/
+    - https://lifespanbook.com/4-interventions/
 
 ================================================================================
 Wim Hof method

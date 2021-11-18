@@ -8513,3 +8513,22 @@ tag="rfc oauth web json internet ietf"
       "client_uri": "https://client.example.net/"
     }
 
+================================================================================
+20211117
+Ergodicity
+https://en.wikipedia.org/wiki/Ergodicity
+tag="physics concepts mental-model statistics"
+- Ergodicity expresses the idea that a point of a moving system, either
+  a dynamical system or a stochastic process, will eventually visit all parts of
+  the space that the system moves in, in a uniform and random sense. This
+  implies that the average behavior of the system can be deduced from the
+  trajectory of a "typical" point. Equivalently, a sufficiently large collection
+  of random samples from a process can represent the average statistical
+  properties of the entire process.
+- Ergodicity is a property of the system; it is a statement that the system
+  cannot be reduced or factored into smaller components.
+- Ergodic systems capture the common-sense notions of randomness, such that
+  smoke might come to fill all of a smoke-filled room, or that a block of metal
+  might eventually come to have the same temperature throughout, or that coin
+  flips coin may come up heads and tails half the time.
+- Taleb: "Average of the function != function of the averages!"
