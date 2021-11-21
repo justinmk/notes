@@ -134,21 +134,28 @@ https://basarat.gitbook.io/typescript/type-system/freshness
 Declare a motherfucking map:
   const things: { [key: string]: boolean } = {}
 
-https://httptoolkit.tech/blog/5-big-features-of-typescript-3.7/
+assert signatures
+  function assertString(o: any): asserts o is string {  // <-- the magic
+    if (typeof o !== 'string') {
+      throw new Error('Input must be a string!');
+    }
+  }
+  function doSomething(o: string | number) {
+    assertString(o);
+    // o's type narrows to "string".
+  }
+
+"as const": quasi-immutability for simple literal expressions.
+  https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions
+  Tells the compiler to choose the NARROWEST type (literal "foo" instead of string).
+  let x = "hello" as const;             // Type '"hello"' (not string)
+  let y = [10, 20] as const;            // Type 'readonly [10, 20]' (not array)
+  let z = { text: "hello" } as const;   // Type '{ readonly text: "hello" }' (not object)
 
 type transformations/composition
   https://www.typescriptlang.org/docs/handbook/utility-types.html
 
-optional chaining x
-  // With TS 3.7:
-  // Returns the value is it's all defined & non-null, or undefined if not.
-  let result = data?.key1?.key2;
-  // The same, through an array index or property, if possible:
-  array?.[0]?.['key'];
-  // Call a method, but only if it's defined:
-  obj.method?.();
-  // Get a property, or return 'default' if any step is not defined:
-  let result = data?.key1?.key2 ?? 'default';
+optional chaining
   // GOTCHA: returns undefined for missing values, even if they were null.
   (null)?.key  // returns undefined
 

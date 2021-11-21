@@ -85,6 +85,11 @@ subshells and pipelines  http://stackoverflow.com/a/2188223/152142
        Even though both stages fork the same number of times, the left subshell
        makes more syscalls, so echo blue still usually runs first.
 
+    Implementation
+      https://www.oilshell.org/blog/2021/11/release-0.9.4.html
+        process-done notifications via waitpid(-1) are asynchronous, and
+        serialized, so shells need data structures to keep track of it all.
+
 
 process substitution
     Imagine you want to see the difference between the output of two commands:

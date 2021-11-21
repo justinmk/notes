@@ -9,6 +9,17 @@ joints
     Instaflex Advanced
 
 ================================================================================
+Eating
+
+https://news.ycombinator.com/item?id=29362284
+  > I had developed food sensitivities to the staples I had been eating,
+  > specifically Mexican food and dairy. When the immune system becomes
+  > sensitized to certain foods, it disrupts serotonin, which can lead to
+  > depression. Diets high in legumes and nightshades, without supplementation
+  > (B vitamins, minerals, fiber, probiotics, yogurt, etc), are higher risk
+  > because of how their anti-nutrients bind to the vitamins/minerals we need.
+
+================================================================================
 Sleep
 https://www.youtube.com/watch?v=pwaWilO_Pig
 
@@ -50,7 +61,9 @@ David Sinclair
     - Book: "Lifespan: Why We Age and Why We Don't Have To"
     - How to extend your (high-functioning) lifespan:
       - "Lose your breath" (hypoxia): sprint 10min 2-3x/week
-      - Skip meals. ("The idea of 'Three meals a day, never be hungry', is killing us.")
+      - Fasting. Skip meals. ("The idea of 'Three meals a day, never be hungry', is killing us.")
+        - 16 hours minimum, 18 hours is better.
+        - Most repair/recovery happens when NOT eating.
       - Consumption makes your body complacent. "We know this in great detail at the molecular level."
       - Test: if telomeres are longer, anti-aging is working
         https://www.doctorsinclair.com

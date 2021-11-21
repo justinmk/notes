@@ -5421,10 +5421,10 @@ Red wine may ward off lung cancer: study | Health | Reuters
 
 C++ and the linker | copton.net
 ================================================================================
-  Detailed analysis of C++ deficiencies. &quot;...I still believe that C++ is a dead end. The C heritage is a heavy burden. This article has lined out a mere few examples for this and on my blog there are some others (1, 2, 3, 4, 5). The fact that Bjarne Stroustrup et al. uncompromisingly pursued the design goals of efficiency and compatibility resulted in a language, which is very difficult to understand and use (6, 7, 8): Hundreds of special rules for special cases (9, 10, 11, 12, 13), language features that clash when used in particular combinations (14, 15), undefined and implementation-defined behavior everywhere (16, 17).&quot;
-  href="http://blog.copton.net/articles/linker/index.html"
-    tag="cpp programming"
-  time="2008-12-16T03:55:48Z" 
+Detailed analysis of C++ deficiencies. &quot;...I still believe that C++ is a dead end. The C heritage is a heavy burden. This article has lined out a mere few examples for this and on my blog there are some others (1, 2, 3, 4, 5). The fact that Bjarne Stroustrup et al. uncompromisingly pursued the design goals of efficiency and compatibility resulted in a language, which is very difficult to understand and use (6, 7, 8): Hundreds of special rules for special cases (9, 10, 11, 12, 13), language features that clash when used in particular combinations (14, 15), undefined and implementation-defined behavior everywhere (16, 17).&quot;
+href="http://blog.copton.net/articles/linker/index.html"
+tag="cpp linker programming"
+time="2008-12-16T03:55:48Z"
 
 Austrian School of Economics: The Concise Encyclopedia of Economics | Library of Economics and Liberty
 ================================================================================
@@ -8039,7 +8039,7 @@ tag="government banking federal-reserve money finance economics cryptocurrency s
 20210628
 Iron law of oligarchy
 https://en.wikipedia.org/wiki/Iron_law_of_oligarchy
-tag="government concepts oligarchy"
+tag="government concepts history oligarchy"
 - Since no sufficiently large and complex organization can function purely as
   a direct democracy, power within an organization will always get delegated to
   individuals within that group, elected or otherwise.
@@ -8466,6 +8466,38 @@ https://nav.al/intelligent
       these species, the wings keep arising.
     - Example: eyes
     - Example: organs for sound
+https://nav.al/compromise
+  - Popper vs Plato: Democracy is the system which allows you to remove policies
+    and rulers most efficiently without violence.
+    - error-correction mechanism, like science
+    - "via negativa"
+  - the poverty of compromise: in a situation where person A has idea X and
+    person B has idea Y, "compromise" is somewhere between X and Y: theory Z. No
+    surprise if theory Z proves not to work, because neither person ever thought
+    it was the best idea in the first place. Person A goes back to saying, “I
+    always told you that X was the correct idea,” and person B goes back to
+    saying, “I always told you that idea Y was the best idea.” They haven’t made
+    any progress whatsoever. They’ve shown that Z is wrong, but no one ever
+    thought that Z was correct in the first place. This happens in science
+    sometimes, and everywhere in politics.
+https://nav.al/social
+  - Groups search for consensus, individuals search for truth.
+  - > Social sciences are completely corrupted.
+    >
+    > First, they need to appeal to society for funding, so they are politically
+    > motivated. Then, they themselves are influenced in society because the
+    > studies and models are used to drive policy. So, of course, that ends up
+    > corrupted as well. Now even the natural sciences are under attack from the
+    > social sciences, and they’re becoming more and more socialized.
+    >
+    > The more groupthink you see involved, the farther from the truth you
+    > actually are. You can have an harmonious society while still allowing
+    > truth seekers within the society to find truth and to find the means to
+    > alter and improve reality for the entire group.
+  - Rory Sutherland has a great quote: “Marketing is the science of knowing what
+    economists are wrong about.”
+  - Academics mistakes about ergodic reasoning: they assume what’s good for the
+    ensemble is good for the individual.
 
 ================================================================================
 20211022
@@ -8532,3 +8564,232 @@ tag="physics concepts mental-model statistics"
   might eventually come to have the same temperature throughout, or that coin
   flips coin may come up heads and tails half the time.
 - Taleb: "Average of the function != function of the averages!"
+
+================================================================================
+20211121
+FDR Writes a Policy in Blood - Thomas Fleming, 2009
+https://www.historynet.com/fdr-writes-policy-blood.htm
+tag="history foreign-policy politics history fdr eisenhower ww2"
+- FDR: "The elimination of German, Japanese and Italian war power means the unconditional surrender by Germany, Italy, and Japan"
+  - Churchill was dumbfounded by Roosevelt’s announcement—and dismayed by its probable impact.
+- At the close of World War I, Theodore Roosevelt insisted on unconditional surrender.
+- From WW1, FDR acquired an intense hatred for Germany.
+- Hitler's repudiation of the war guilt clause in the Treaty of Versailles and his reckless aggressions had convinced FDR that TR and General Pershing had been correct.
+- the Germans offered to ... arrange for a peaceful surrender of the western front—if unconditional surrender were modified. Donovan rushed to the White House, only to discover FDR had no desire to negotiate with “these East German Junkers.”
+- Churchill on Germans: "They combine in the most deadly manner the qualities of the warrior and the slave."
+  Churchill on Prussia: "The core of the pestilence.”
+- 1943 Stalin told FDR "unconditional surrender" policy was a very bad idea.
+- 1944 Gen. George Marshall and the Joint Chiefs of Staff submitted a memorandum to the president, “a reassessment of the formula of unconditional surrender.”
+- 1944 FDR: “We have got to be tough with Germany and I mean the German people, not just the Nazis. You either have to castrate [them] or you have got to treat them…so they can’t just go on reproducing people who want to continue…[as] in the past.”
+  - Morgenthau Plan ... proposed to divide Germany into four parts, destroying all the industry in the Ruhr and Saar basins, and turning Central Europe and the German people into agriculturists. “I don’t care what happens to the population”.
+  - Churchill agreed with Edmund Burke, that you cannot indict an entire nation. ... it would be like chaining England to a dead body.
+- 1944: the Wehrmacht stunned the British and Americans by assembling 250000 men and 1000 tanks ... The fighting and dying in Battle of the Bulge became a saga of American courage. But in light of what we now know about unconditional surrender, it may have been unnecessary.
+  - continued resistance cost Americans 418791 dead and wounded ... the bitter fruit of unconditional surrender.
+- The last nine months of horror in Ohrdruf and the other camps might have been prevented had hatred not been the arbiter of Anglo-American diplomacy throughout the war.
+- Germany was the economic heart of Europe ... to eviscerate it would have crippled the continent’s prosperity.
+
+================================================================================
+20211121
+Notes on Software Development Waste - Henrique Carvalho Alves
+https://hcarvalhoalves.github.io/software-development-waste/
+tag="softwareengineering methodology project-management programming"
+
+================================================================================
+20211121
+Running a Star
+https://operators.urbit.org/guides/running-a-star
+tag="urbit app p2p programming technology network sysadmin"
+
+================================================================================
+20211121
+Urbit/ Network explorer
+https://network.urbit.org/
+tag="urbit app p2p programming technology network"
+
+================================================================================
+20211122
+Next big step for PLs?
+https://graydon2.dreamwidth.org/253769.html
+tag="programming softwareengineering language-design pl-design exceptions errors control-flow design failure-modes"
+- What next for PLs?
+  - Modules
+  - Errors: interlocking protocols that support error management
+      - abstraction leakages / design tradeoffs in current approaches:
+        modularity, compositionality, locality, synchronicity, soundness,
+        cognitive load, implementation costs, interface costs.
+  - Coroutines
+  - Pattern-matching
+  - Metaprogramming (+ simpler grammars, compilation models)
+- why pattern-matching: users write shorter, simpler and less failure-prone
+  programs when they can express a task in pattern/action form, and that
+  pattern-sets are amenable to extremely helpful static analysis / diagnosis
+  along the lines of exhaustiveness checking, equivalence checking, emptiness
+  checking
+
+================================================================================
+20211127
+Engineering Fundamentals Checklist
+https://microsoft.github.io/code-with-engineering-playbook/ENG-FUNDAMENTALS-CHECKLIST/
+tag="programming softwareengineering engineering project-management runbook guidelines"
+
+================================================================================
+20211127
+Google Technical writing style guide
+https://developers.google.com/style/highlights
+tag="documentation programming softwareengineering engineering project-management guidelines google"
+- no "please":
+  https://developers.google.com/style/tone#politeness-and-use-of-please
+  https://docs.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/p/please
+  https://github.com/rackerlabs/docs-aws/blob/master/docs/style-guidelines.md
+
+================================================================================
+20211127
+Microsoft Writing Style Guide
+https://docs.microsoft.com/en-us/style-guide/welcome/
+tag="documentation programming softwareengineering engineering project-management guidelines microsoft"
+
+================================================================================
+20211127
+Don't Go Down the Rabbit Hole - Charlie Warzel
+https://www.nytimes.com/2021/02/18/opinion/fake-news-media-attention.html
+tag="research critical-thinking politics propaganda"
+> Critical thinking, as we’re taught to do it, isn’t helping in the fight against misinformation.
+> SIFT:
+>   1. Stop.
+>   2. Investigate the source.
+>   3. Find better coverage.
+>   4. Trace claims, quotes and media to the original context.
+>
+> “The internet offers this illusion of explanatory depth,” he said. “Until 20
+> seconds ago, you’d never thought about, say, race and IQ, but now, suddenly,
+> somebody is treating you like an expert. It’s flattering your intellect, and
+> so you engage, but you don’t really stand a chance.”
+>
+> SIFT is not an antidote to misinformation. ... If powerful, influential people
+> with the ability to command vast quantities of attention use that power to
+> warp reality and platforms don’t intervene, no mnemonic device can stop them.
+
+================================================================================
+20211128
+To Firmly Drive Common Prosperity - Xi Jinping
+https://www.neican.org/to-firmly-drive-common-prosperity/
+tag="china economics history politics government"
+> Common prosperity is an essential requirement of socialism. ... [it] does not
+> mean prosperity for a [selected] few, nor is it neat and tidy egalitarianism.
+>
+> - Encourage industriousness and innovation as means to prosperity. We must ...
+>   enhance the human capital of the entire society and professional skills,
+>   improve the people’s ability to find employment and start businesses, and
+>   strengthen their capability to get rich. We must prevent social
+>   stratification, open up channels for upward mobility, create opportunities
+>   for more people to become rich, form a development environment with
+>   participation from everyone, and avoid [the phenomena of] “involution” and
+>   “lying flat”.
+> - While giving full play to the important role of the public sector economy in
+>   driving common prosperity, we must also promote the healthy development of
+>   the non-public sector economy ... While we should allow some people to get
+>   rich first, [they shall] lead and assist those who are not yet rich. We
+>   shall focus on encouraging industriousness, legal business operations, and
+>   those leaders of wealth acquisition who dare to pioneer.
+> - We must base the protection and improvement of the livelihood of the people
+>   on economic development and financial sustainability rather than unrealistic
+>   pursuits and expectations, and promises that cannot be fulfilled. The
+>   government cannot take care of everything. ... Even if we reach a higher
+>   level of development and acquire stronger financial resources in the future,
+>   we should not set aims that are excessively high, and/or provide excessive
+>   guarantees. We must resolutely prevent [ourselves] from falling into the
+>   trap of nurturing lazy people through “welfarism.”
+> - Make sure [students] acquire specialisations and learn what is useful.
+> - We must improve the business environment [for small business owners], reduce
+>   their burden of taxes and fees.
+> - After many years of exploration, we have a complete solution to the problem
+>   of poverty, but we still have to explore and accumulate experience on how to
+>   attain prosperity. We must protect property rights and intellectual property
+>   rights, and protect legitimate wealth creation.
+> - Not all people will become rich at the same time, nor will all regions reach
+>   the same level of affluence at the same time.
+
+================================================================================
+20211130
+Effective altruism and Xi Jinping Thought
+https://graymirror.substack.com/p/effective-altruism-and-xi-jinping
+tag="china economics curtis-yarvin history politics government democracy power machiavelli realpolitik systems anarchism"
+> Modern China exists because Mao created a dictatorship so strong that, when
+> Deng inherited it, he found it could contain the economic aristocracy of
+> capitalism. It was okay to get rich in China; the Party was strong, and rich
+> men did not threaten it. The USSR was never strong enough to tolerate the
+> imperium in imperio of capitalism—the secondary statelike structures of
+> private businesses—so it died for economic reasons.
+>
+> But politically containing a cultural aristocracy, without suppressing it
+> (thus creating a dangerous vacuum) is an even harder problem. China has no
+> answer—nobody has an answer. It has never been done. Which doesn’t mean it
+> can’t be done…
+>
+> Any regime is unstable if it does not contain and control all three forms of
+> political power: monarchy, aristocracy, and democracy. A regime built on the
+> Chinese model contains monarchy and controls democracy; it has no answer for
+> aristocracy, other than to suppress it into some bourgeois democratic pattern.
+>
+> This worked in China because of its tremendous 20th-century aristocide;
+> nothing similar has happened, or of course should happen, in the West. Yet the
+> West’s aristocracy is eating it alive. If only they could all convert to Xi
+> Jinping Thought…
+
+================================================================================
+20211220
+Zeigarnik effect
+https://en.wikipedia.org/wiki/Zeigarnik_effect
+tag="work productivity focus concentration flow attention psychology"
+We tend to remember unfinished/interrupted tasks better than completed tasks.
+Review your list of completed tasks helps counteract this.
+
+================================================================================
+20211221
+European privacy-consciousness hypocrisy
+https://news.ycombinator.com/item?id=29623512
+tag="government europe germany privacy"
+> They champion getting rid off tax-privacy, they champion getting rid off
+> non-digital currency, they champion blocking social-networks because of
+> "foreign desinformation" (i.e. domestic opposition), they take no offense that
+> a think-tank owned for-profit media-conglomerate does the domestic deletion
+> and blocking of social media accounts (Bertelsmann > Arvato -> FB/Twitter/…).
+>
+> And most hilariously, progressive luminaries like Daniel Cohn-Bendit or Volker
+> Beck – which during the 1980s gained political traction by "fighting" against
+> having A NATIONAL CENSUS AT ALL – are nowadays championing throwing out
+> medical-data privacy alltogether and having to hand out your unlocked phone to
+> the police at their whim.
+
+================================================================================
+20211221
+CIA (OSS) Simple Sabotage Field Manual (1944)
+https://www.hsdl.org/?abstract&did=750070
+tag="organization-theory organization coordination project-management leverage"
+http://svn.cacert.org/CAcert/CAcert_Inc/Board/oss/oss_sabotage.html
+https://news.ycombinator.com/item?id=29597454
+General Interference with Organizations and Production
+1. Insist on doing everything through "channels." Never permit short-cuts to be taken in order to, expedite decisions.
+2. Make "speeches." Talk as frequently as possible and at great length.
+3. When possible, refer all matters to committees, for "further study and consideration."
+4. Bring up irrelevant issues as frequently as possible.
+5. Haggle over precise wordings of communications, minutes, resolutions.
+6. Refer back to matters decided upon at the last meeting and attempt to reopen the question.
+7. Advocate "caution." Be "reasonable" and urge your fellow-conferees to be "reasonable" and avoid haste which might result in embarrassments or difficulties later on.
+8. Be worried about the propriety of any decision-raise the question of whether such action as is contemplated lies within the jurisdiction of the group or whether it might conflict with the policy of some higher echelon.
+
+================================================================================
+20211221
+libtree
+https://github.com/haampie/libtree
+tag="c linker programming os library"
+- turns ldd into a tree
+- explains how shared libraries are found or why they cannot be located
+
+================================================================================
+20211221
+The leadership IQ dilemma: when super smart people are perceived as ineffective leaders
+https://wp.unil.ch/hecimpact/article/
+tag="organization coordination startup business leadership perception psychology"
+- too high (or low) intelligence can have a negative impact on perceived leadership effectiveness.
+- paper: Antonakis, J., House, R. J., & Simonton, D. K. (2017). Journal of Applied Psychology. Can super smart leaders suffer from too much of a good thing? The curvilinear effect of intelligence on perceived leadership behavior
