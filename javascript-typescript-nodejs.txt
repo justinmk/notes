@@ -43,6 +43,10 @@ Symbol
 
 NODE.JS
 ==============================================================================
+node/v8 has a powerful microtask API for setting up execution contexts. For
+example, you can record the "entry-point" for a task which can be retrieved
+arbitrarily by any function on the same microtask callstack.
+
 globals  https://nodejs.org/api/globals.html#globals_global
   global
   process
