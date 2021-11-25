@@ -1,5 +1,46 @@
 JAVASCRIPT
 ==============================================================================
+https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth
+Agents
+  JS engine "agents" execute JavaScript.
+  Each agent has:
+    - execution contexts
+      - nodejs(?) use case: you can record the "entry-point" for a task in its
+        execution context, then later retrieve it from any function on the same
+        microtask callstack.
+    - execution context stack
+    - main thread
+    - task queue
+    - microtask queue
+    - additional threads that may be created to handle workers
+Event loops:
+  - Window event loop
+    - windows from the same origin MAY share the same event loop
+      - If one window opened the other window, they are likely to share an event loop.
+      - <iframe> window likely shares an event loop with its parent window.
+    - "window" means "browser-level container that runs web content"
+  - Worker event loop
+    - workers MAY share a single event loop
+  - Worklet event loop
+Tasks vs microtasks
+  task: any JavaScript scheduled by standard mechanisms, including setTimeout() and setInterval().
+  The difference between the task queue and the microtask queue is simple but very important:
+    - When executing tasks from the task queue, the runtime executes all tasks
+      in the queue at the moment of the current tick. Tasks added during this
+      iteration will not run until the *next* iteration.
+    - Each time a TASK exits, and the execution context stack is empty, each
+      MICROTASK in the microtask queue is executed, one after another. The
+      difference is that execution of microtasks continues until the queue is
+      empty, even if new ones are scheduled in the interim.
+  queueMicrotask(callback)  https://developer.mozilla.org/en-US/docs/Web/API/queueMicrotask
+    - what: queues a microtask to be executed before control returns to the browser event loop.
+    - why: ability to perform tasks asynchronously but in a specific order.
+    - when: useful for libraries and frameworks that need to perform final cleanup or other just-before-rendering tasks.
+    - Almost as fast as a synchronous call (much more efficient than setTimeout(fn,0)).
+    - potential infinite loop
+    - potentially starves I/O
+    - nodejs(?) Errors thrown within a queued microtask callback should be handled in the callback. Else use process.on('uncaughtException')
+
 object vs Map:  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
 
 Function.prototype.bind(fn[, ...])  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
@@ -43,19 +84,10 @@ Symbol
 
 NODE.JS
 ==============================================================================
-node/v8 has a powerful microtask API for setting up execution contexts. For
-example, you can record the "entry-point" for a task which can be retrieved
-arbitrarily by any function on the same microtask callstack.
-
 globals  https://nodejs.org/api/globals.html#globals_global
   global
   process
   require()
-  queueMicrotask(callback)
-    "The microtask queue is managed by V8 and may be used in a similar manner to
-    the process.nextTick() queue, which is managed by Node.js. The
-    process.nextTick() queue is always processed before the microtask queue
-    within each turn of the Node.js event loop."
 
 UNHANDLED PROMISE REJECTIONS, UNCAUGHT EXCEPTIONS
   https://medium.com/@nodejs/node-js-promise-reject-use-case-survey-98e3328340c9
@@ -67,15 +99,15 @@ UNHANDLED PROMISE REJECTIONS, UNCAUGHT EXCEPTIONS
     VSCode extension can't use? https://github.com/microsoft/vscode/issues/93573
 
 setImmediate(), process.nextTick(), …  https://nodejs.org/api/process.html#process_process_nexttick_callback_args
-  nextTick(): queues a function BEFORE pending I/O callbacks
-    Adds callback to the "next tick queue" (essentially the head of the event queue). This queue is fully drained after the current JS stack runs to completion and before the event loop continues.
-      up to process.maxTickDepth queued callbacks per iteration
-      potential infinite loop
-      potentially starves I/O
-    Almost as fast as a synchronous call (much more efficient than setTimeout(fn,0)).
+  nextTick()
+    DEPRECATED. Use queueMicrotask().  https://nodejs.org/api/process.html#when-to-use-queuemicrotask-vs-processnexttick
+    queues a function BEFORE pending I/O callbacks
+    Adds callback to the "next tick queue" (essentially the head of the event queue).
     Use case: to give users the opportunity to assign event handlers on object-construction but before I/O has occurred.
-  setImmediate(): queues a function AFTER pending I/O callbacks
-    Will yield to the event loop after firing a queued callback to ensure I/O is not starved.
+  setImmediate()
+    DEPRECATED. Use queueMicrotask().  https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate
+    queues a function AFTER pending I/O callbacks
+    yields to event loop after firing a queued callback to ensure I/O is not starved.
     Use case: to break up a long running CPU-bound job, use setImmediate rather than process.nextTick to queue the next iteration (otherwise any I/O event callbacks wouldn't get the chance to run between iterations).
 
 event-loop phases  https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/
