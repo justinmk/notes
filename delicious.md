@@ -8793,3 +8793,31 @@ https://wp.unil.ch/hecimpact/article/
 tag="organization coordination startup business leadership perception psychology"
 - too high (or low) intelligence can have a negative impact on perceived leadership effectiveness.
 - paper: Antonakis, J., House, R. J., & Simonton, D. K. (2017). Journal of Applied Psychology. Can super smart leaders suffer from too much of a good thing? The curvilinear effect of intelligence on perceived leadership behavior
+
+================================================================================
+20211221
+Some of you are not yet clearpilled
+https://graymirror.substack.com/p/some-of-you-are-not-yet-clearpilled
+tag="curtis-yarvin history politics government democracy power machiavelli realpolitik systems anarchism activism"
+When power is doing the wrong thing for some dumb reason ... “be water.”
+... Your action must not be reactive. Water does not push back. Water lets the enemy expend energy, expending no energy against him.
+... When you are not following Bruce Lee’s wisdom, you always think you are fighting back. Usually, what you are doing is participating—giving your energy to the enemy.
+Using energy against power, even successfully, does not create more energy. It just uses up energy. The main effect of Brexit was to dissipate the political energy that created Brexit. No power was created either by the symbolic victory or the tangible results.
+when you are out of power, your goal is to build power, not use power.
+
+================================================================================
+20211221
+Omicron and governance theater
+https://graymirror.substack.com/p/omicron-and-governance-theater
+tag="china economics curtis-yarvin history politics government democracy power machiavelli realpolitik systems anarchism"
+Governance theater:
+In a world of oligarchical democracies, “press-run states” where power derives from institutional leadership of public opinion, flowing from Science to the Fourth Estate and thence out into the broadcast-media audience, the existential task of any regime is to persuade that audience that it’s doing a good job.
+Governance theater displaces actual governance. In the West, where power depends on either managing or following public opinion, the idea of actual governance is almost unfamiliar. The wise experts who manage the public mind have one school of governance theater; the cynical sycophants who milk the populist mob have another.
+... If our levers of power are held by the managers of public opinion, ie professors and journalists, we are an oligarchy (“liberal democracy”). If they are held by the servants of public opinion, ie politicians, we are a democracy (“authoritarian populism”).
+
+================================================================================
+20211221
+horcrux
+https://github.com/jesseduffield/horcrux
+tag="security cryptography encryption"
+Split a file into encrypted fragments instead of remembering a passcode.
