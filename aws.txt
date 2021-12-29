@@ -25,7 +25,7 @@ ECS: EC2 container service
 
 ssm, sessionmanager
     https://github.com/elpy1/ssh-over-ssm
-        key feature: copies public key to remote so that ssh works seamlessly. https://github.com/elpy1/ssh-over-ssm/blob/master/ssh-ssm.sh#L26-L33
+        key feature: copies public key to remote so that ssh works seamlessly. https://github.com/elpy1/ssh-over-ssm/blob/fbe6773a6aa7cd87f64fed3fa0abd1289575c34f/ssh-ssm.sh#L26-L33
 
 
 DevOps at amazon:
