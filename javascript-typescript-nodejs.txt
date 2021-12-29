@@ -1,5 +1,10 @@
 JAVASCRIPT
 ==============================================================================
+globals
+  globalThis https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis
+    The global object (usually `window`, in nodejs module scope) which always exists in the global scope.
+    `var` (but not `let` and `const`) creates variables as properties of the global object.
+
 https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth
 Agents
   JS engine "agents" execute JavaScript.

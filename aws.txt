@@ -23,6 +23,10 @@ ECS: EC2 container service
         Container:
             easy example Docker image: https://hub.docker.com/r/nginxdemos/hello/
 
+ssm, sessionmanager
+    https://github.com/elpy1/ssh-over-ssm
+        key feature: copies public key to remote so that ssh works seamlessly. https://github.com/elpy1/ssh-over-ssm/blob/master/ssh-ssm.sh#L26-L33
+
 
 DevOps at amazon:
     key characteristics of Amazon SOA:
