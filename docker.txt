@@ -1,4 +1,29 @@
 ==============================================================================
+How to Replace Docker with Podman on a Mac
+https://news.ycombinator.com/item?id=28463212
+https://news.ycombinator.com/item?id=28464897
+
+    brew install podman
+    podman machine init
+    podman machine start
+    alias docker=podman
+
+  IIRC the podman socket is a planned thing for macOS as it'll be necessary for certain features that rely on the docker socket and don't use SSH, such as VSCode's Remote Containers extension.
+  However you can create an SSH tunnel to create the socket locally to allow non-podman clients to utilize the socket over SSH with the DOCKER_HOST environment variable.
+
+    # Get URI
+    podman system connection ls
+
+    # Create tunnel
+    ssh -nNT -L/tmp/podman.sock:/run/user/1000/podman/podman.sock -i ~/.ssh/podman-machine-default ssh://core@localhost:[PORT]
+
+    # Export socket location
+    export DOCKER_HOST='unix:///tmp/podman.sock'
+
+  https://github.com/containers/podman/issues/11462
+  https://github.com/containers/podman/issues/11397
+
+==============================================================================
 DEVELOPMENT
 
 Build and run:
