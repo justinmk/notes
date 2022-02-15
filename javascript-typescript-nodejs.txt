@@ -179,3 +179,7 @@ compile ts to wasm: https://blog.bitsrc.io/typescript-to-webassembly-the-what-th
 source kinds:
   AssemblyScript (limited TypeScript dialect)
     MISSING: closures, promises, exceptions: https://www.assemblyscript.org/status.html#promises
+WASI: system interface
+  https://twitter.com/solomonstre/status/1111004913222324225
+    > If WASM+WASI existed in 2008, we wouldn't have needed to create Docker.
+    > A standardized system interface was the missing link.

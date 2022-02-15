@@ -8864,3 +8864,21 @@ Software startups have taken off because:
 Mini Tokyo 3D: realtime tokyo transportation map
 https://minitokyo3d.com/
 tag="transportation data visualization software web tools open-source"
+
+================================================================================
+20220214
+WebContainer
+https://github.com/stackblitz/webcontainer-core
+tag="wasm webassembly web api os portability software programming embed webbrowser javascript"
+(closed source / commercial)
+small portable container and OS spec, secure by default, runs in the browser sandbox
+Components
+  - Virtual File System with lazy-loading capabilities
+  - Virtual Networking
+  - Multi-threaded/multi-process application support
+  - Inter-Process communication/process signaling
+  - POSIX-esque shell with ability to shell out between processes
+Is this a Docker container?
+  It's similar in the way that you can package and run Node.js code with
+  minimal modifications, but your Browser serves as the OS instead of
+  a separately managed virtual machine.
