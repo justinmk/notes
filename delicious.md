@@ -8328,6 +8328,19 @@ before investing in costly real-life prototypes.
 WASI: Portable System Interface for WebAssembly
 https://github.com/bytecodealliance/wasmtime/blob/main/docs/WASI-overview.md
 tag="wasm web webassembly api os portability"
+Specifies "syscalls": functions provided by the surrounding environment that can do I/O on behalf of the program.
+Capability-based security
+  Similar to how core WebAssembly provides no ability to access the outside world without calling imported functions, WASI APIs provide no ability to access the outside world without an associated capability.
+  For example, instead of a typical `open` system call, WASI provides an `openat`-like system call, requiring the calling process to have a file descriptor for a directory that contains the file, representing the capability to open files within that directory.
+Example: https://github.com/bytecodealliance/wasmtime/blob/main/docs/WASI-tutorial.md
+  $ rustup target add wasm32-wasi
+  # Install a WASI-enabled Rust toolchain.
+  $ cargo build --target wasm32-wasi
+  # Build the rust program targeting WASI.
+  $ wasmtime demo.wasm test.txt /tmp/somewhere.txt
+  error opening input test.txt: Capabilities insufficient
+  # The --dir= option instructs wasmtime to preopen a directory, and make it available to the program as a capability
+  $ wasmtime --dir=. --dir=/tmp demo.wasm test.txt /tmp/somewhere.txt
 
 ================================================================================
 20210928
