@@ -8895,3 +8895,12 @@ Is this a Docker container?
   It's similar in the way that you can package and run Node.js code with
   minimal modifications, but your Browser serves as the OS instead of
   a separately managed virtual machine.
+
+================================================================================
+20220309
+jscodeshift
+https://github.com/facebook/jscodeshift
+tag="tools programming ide refactor javascript typescript"
+jscodeshift is a toolkit for running codemods over multiple JavaScript or TypeScript files. It provides:
+- A runner, which executes the provided transform for each file passed to it. It also outputs a summary of how many files have (not) been transformed.
+- A wrapper around recast, providing a different API. Recast is an AST-to-AST transform tool and also tries to preserve the style of original code as much as possible.
