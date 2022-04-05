@@ -9623,3 +9623,10 @@ tag="work productivity habits focus concentration time-management attention"
 - Isaac Newton said: “If I have made any valuable discoveries, it has been owing more to patient attention than to any other talent.”
 - When our attention is split, we struggle “to integrate fragmented information into cohesive task structures that make sense,”
   https://www.hcii.cmu.edu/news/event/2004/10/work-fragmentation-common-practice-paradox-it-support
+
+================================================================================
+20220405
+OIDC spec (OpenID Connect Core 1.0)
+https://openid.net/specs/openid-connect-core-1_0.html#UserInfo
+tag="oidc oauth auth webapp web network softwareengineering rfc spec login"
+OpenID Connect 1.0 is a simple identity layer on top of the OAuth 2.0 protocol. It enables Clients to verify the identity of the End-User based on the authentication performed by an Authorization Server, as well as to obtain basic profile information about the End-User in an interoperable and REST-like manner.
