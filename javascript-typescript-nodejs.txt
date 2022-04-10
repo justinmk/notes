@@ -173,13 +173,9 @@ the package as a dependency.
 
 wasm / webassembly
 ==============================================================================
-wasmer: https://wasmer.io/
-  in java/kotlin: https://github.com/wasmerio/wasmer-java/issues/39
-compile ts to wasm: https://blog.bitsrc.io/typescript-to-webassembly-the-what-the-how-and-the-why-3916a2561d37
-source kinds:
-  AssemblyScript (limited TypeScript dialect)
-    MISSING: closures, promises, exceptions: https://www.assemblyscript.org/status.html#promises
+platform support
+  Go: https://github.com/golang/go/wiki/WebAssembly
 WASI: system interface
   https://twitter.com/solomonstre/status/1111004913222324225
-    > If WASM+WASI existed in 2008, we wouldn't have needed to create Docker.
-    > A standardized system interface was the missing link.
+    "If WASM+WASI existed in 2008, we wouldn't have needed to create Docker. A standardized system interface was the missing link."
+  nodejs WASI: https://nodejs.org/api/wasi.html

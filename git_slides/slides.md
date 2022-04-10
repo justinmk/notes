@@ -1,11 +1,9 @@
-C:\Users\jkeyes\Desktop\git_slides\000-00-Git_Talk.md
 ========================================================
 
 
                         Git Grip
 
 
-C:\Users\jkeyes\Desktop\git_slides\000-01-Git_Talk.md
 ========================================================
 
 
@@ -13,7 +11,6 @@ C:\Users\jkeyes\Desktop\git_slides\000-01-Git_Talk.md
             git insights and practical results
 
 
-C:\Users\jkeyes\Desktop\git_slides\000-02-Git_Talk.md
 ========================================================
 # "CLI is too hard/obtuse/difficult"
 
@@ -32,7 +29,6 @@ How many know how to use basic features of Photoshop?
 - CLIs make sharing knowledge possible and full-text searchable
 - CLIs are scriptable
 
-C:\Users\jkeyes\Desktop\git_slides\001-01-Git_Insights.md
 ========================================================
 
 
@@ -40,7 +36,6 @@ C:\Users\jkeyes\Desktop\git_slides\001-01-Git_Insights.md
 > data structure than to have 10 functions operate on
 > 10 data structures.
 -                                      Alan J. Perlis
-C:\Users\jkeyes\Desktop\git_slides\001-02-Git_Insights.md
 ========================================================
 
 
@@ -53,7 +48,6 @@ C:\Users\jkeyes\Desktop\git_slides\001-02-Git_Insights.md
 -                  ESR, _The Art of Unix Programming_
 
 http://www.faqs.org/docs/artu/
-C:\Users\jkeyes\Desktop\git_slides\001-03-Git_Insights.md
 ========================================================
 
 
@@ -65,7 +59,6 @@ C:\Users\jkeyes\Desktop\git_slides\001-03-Git_Insights.md
 -                  Rob Pike, "5 Rules of Programming"
 
 http://users.ece.utexas.edu/~adnan/pike.html
-C:\Users\jkeyes\Desktop\git_slides\001-04-Git_Insights.md
 ========================================================
 
 
@@ -76,7 +69,6 @@ C:\Users\jkeyes\Desktop\git_slides\001-04-Git_Insights.md
 -                                      Linus Torvalds
 
 https://lwn.net/Articles/193245/
-C:\Users\jkeyes\Desktop\git_slides\001-05-Git_Insights.md
 ========================================================
 
 Initial commit to "git":
@@ -90,7 +82,6 @@ https://github.com/git/git/tree/e83c5163316f89bfbde7d9ab23ca2e25604af290
   levels. Instead, build something stable and
   reliable, so that it can be _built upon_.
 
-C:\Users\jkeyes\Desktop\git_slides\001-06-Git_Insights.md
 ========================================================
 # Who cares?
 
@@ -102,7 +93,6 @@ Some thoughts:
 - Objects can be thrown around into any repo for
   sharing. (More on this later...)
 
-C:\Users\jkeyes\Desktop\git_slides\001-09.1-Git_Insights.md
 ========================================================
 # Who cares?
 
@@ -113,12 +103,10 @@ applications. (cf. bitcoin)
 - ...
 
 You can't build on an unreliable foundation.
-C:\Users\jkeyes\Desktop\git_slides\001-13-Introduction.md
 ========================================================
 ## Staging Area, Index, Cache
 
 All are synonyms. We use "index" in this presentation.
-C:\Users\jkeyes\Desktop\git_slides\001-14-Introduction.md
 ========================================================
 fetch: updates the local "database"
 (pull: not very interesting. uses fetch underneath)
@@ -136,7 +124,6 @@ Dumb HTTP:  requires a server-side post-update hook
 git:        requires a daemon
 
 https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols
-C:\Users\jkeyes\Desktop\git_slides\001-15-Introduction.md
 ========================================================
 rebase: what is actually happening?
 
@@ -150,14 +137,12 @@ how to resolve a conflict?
     1. open the file and remove these markers:
        <<<<<<<, =======, >>>>>>>
     2. `git add` the file.
-C:\Users\jkeyes\Desktop\git_slides\001-16-Introduction.md
 ========================================================
 stash:
 
 working tree ("workspace"):
 
 branch:
-C:\Users\jkeyes\Desktop\git_slides\002-00-SVN_(Berkeley DB; fsfs)_data_model.md
 ========================================================
 "The FSFS backend places one file per revision in a single
 directory; a test import of Mozilla generated hundreds of
@@ -171,7 +156,6 @@ it grew to 8.2GB. Under Git, it shrunk to 450MB."
     ConnectWise git size (July 2015):   2.3 GB
 
 http://keithp.com/blogs/Repository_Formats_Matter/ (2007)
-C:\Users\jkeyes\Desktop\git_slides\002-01-Mercurial_data_model.md
 ========================================================
 "Mercurial uses a _truncated forward delta scheme where
 file revisions are appended to the repository file, as a string of
@@ -186,7 +170,6 @@ Linux kernel which has constantly suffered from race conditions
 and other adventures."
 
 http://keithp.com/blogs/Repository_Formats_Matter/ (2007)
-C:\Users\jkeyes\Desktop\git_slides\005-00-Stash.md
 ========================================================
 ## dat stash
 You can treat stash (e.g. `stash@{0}` is
@@ -206,7 +189,6 @@ To checkout a stashed file:
 Reference:
 * http://stackoverflow.com/a/1105666/152142
 * http://git-scm.com/docs/git-stash
-C:\Users\jkeyes\Desktop\git_slides\005-01-Stash.md
 ========================================================
 ## dat stash
 
@@ -224,10 +206,8 @@ files in the third parent (^3). So you can see the
 untracked files in a stash via:
     git show stash@{0}^3
 
-C:\Users\jkeyes\Desktop\git_slides\006-01-cat-file_vs_show.md
 ========================================================
 cat-file vs show
-C:\Users\jkeyes\Desktop\git_slides\007-01-DAG.md
 ========================================================
 
 
@@ -245,7 +225,6 @@ C:\Users\jkeyes\Desktop\git_slides\007-01-DAG.md
 
 
 
-C:\Users\jkeyes\Desktop\git_slides\007-02-DAG.md
 ========================================================
 # Git data organization / What's in a repo?
 
@@ -270,7 +249,6 @@ Q: Why a DAG? Why not multiply-linked-list?
 A: At least one answer: if a commit tracked its children,
    then it wouldn't be immutable.
 
-C:\Users\jkeyes\Desktop\git_slides\007-03-DAG.md
 ========================================================
 # Git data organization / What's in a repo?
 
@@ -284,14 +262,12 @@ C:\Users\jkeyes\Desktop\git_slides\007-03-DAG.md
     * Some files (tags) hold metadata about the blobs
 * *Config...*
 * *Working copy...*
-C:\Users\jkeyes\Desktop\git_slides\007-04-DAG.md
 ========================================================
 # Git data organization / What's in a repo?
 
 * *DAG...*
 * Config
 * *Working copy...*
-C:\Users\jkeyes\Desktop\git_slides\007-05-DAG.md
 ========================================================
 # Git data organization / What's in a repo?
 
@@ -301,7 +277,6 @@ C:\Users\jkeyes\Desktop\git_slides\007-05-DAG.md
     * Plain old files. Absolutely nothing git-related
       here. Contents are identical to the case where
       you aren't using git at all.
-C:\Users\jkeyes\Desktop\git_slides\008-00-.git.md
 ========================================================
 # .git/ - Which files actually _matter_?
 
@@ -326,7 +301,7 @@ C:\Users\jkeyes\Desktop\git_slides\008-00-.git.md
 # .git/ - Which files actually _matter_?
 
 TODO: holy grail of repo layout:
-    git help gitrepository-layout
+    git help repository-layout
 
 
 
@@ -338,7 +313,6 @@ TODO: holy grail of repo layout:
 
 
 
-C:\Users\jkeyes\Desktop\git_slides\008-01-.git.md
 ========================================================
 # .git/ - your repository "database"
 
@@ -363,7 +337,6 @@ git config --local --bool core.bare false
     url = git@cwsrc2:tools/git_scripts.git
     fetch = +refs/heads/*:refs/remotes/origin/*
 
-C:\Users\jkeyes\Desktop\git_slides\008-02-.git.md
 ========================================================
 # .git/ - your repository "database"
 
@@ -399,7 +372,6 @@ ls -1 -i ../postman/.git/objects/da/16c1c6e828c760e71afa6c4e190d5c0593cab8
     806518 ../postman/.git/objects/da/16c1c6e828c760e71afa6c4e190d5c0593cab8
 find ~ -inum 806518
 ```
-C:\Users\jkeyes\Desktop\git_slides\008-03-.git.md
 ========================================================
 # .git/ - your repository "database"
 
@@ -430,7 +402,6 @@ git config --local --bool core.bare false
     url = git@cwsrc2:tools/git_scripts.git
     fetch = +refs/heads/*:refs/remotes/origin/*
 
-C:\Users\jkeyes\Desktop\git_slides\008-04-.git.md
 ========================================================
 # .git/ - your repository "database"
 
@@ -449,7 +420,6 @@ What happens if we `git init` and then dump in the
 
 
 
-C:\Users\jkeyes\Desktop\git_slides\008-05-.git.md
 ========================================================
 # .git/ - your repository "database"
 
@@ -467,15 +437,6 @@ git commit --amend --date='Wed Jul 1 17:00:00 2015 -0400'
     v( u_u)v  (7o_o)>
 
 
-
-
-
-
-
-
-
-
-C:\Users\jkeyes\Desktop\git_slides\008-06-.git.md
 ========================================================
 # .git/ - your repository "database"
 
@@ -488,15 +449,24 @@ A:
     -(n_n`)
 
 
+========================================================
+# .git/ - your repository "database"
+
+Q:  Where are refs stored?
+
+A:  refs (branches, tags, etc.) are just names for ids.
+A big repo can get a very large number of refs as a result
+of automation, pull requests, etc. So they are stored in
+various ways:
+
+1. "loose" as files in .git/refs (e.g. ".git/refs/heads/main")
+2. "packed" as entries in .git/packed_refs
+3. "reftable" (future), a sorted binary file inspired by JGit
+   https://eclipse.googlesource.com/jgit/jgit/+/refs/heads/master/Documentation/technical/reftable.md
+
+https://github.blog/2022-01-24-highlights-from-git-2-35/
 
 
-
-
-
-
-
-
-C:\Users\jkeyes\Desktop\git_slides\008-10-.git.md
 ========================================================
 # .git/logs (reflog)
 
@@ -520,7 +490,6 @@ A:
 
 
 
-C:\Users\jkeyes\Desktop\git_slides\020-01-Porcelain.md
 ========================================================
 # Reallyreallyreally useful "porcelain"
 
@@ -530,7 +499,6 @@ git log -5
 git log -G
 git log --grep
 git grep
-C:\Users\jkeyes\Desktop\git_slides\020-02-Porcelain.md
 ========================================================
 # git grep
 
@@ -547,7 +515,6 @@ C:\Users\jkeyes\Desktop\git_slides\020-02-Porcelain.md
         real    1m19.057s
         user    0m12.698s
         sys     0m34.755s
-C:\Users\jkeyes\Desktop\git_slides\020-03-Porcelain.md
 ========================================================
 # git grep
 
@@ -568,7 +535,6 @@ C:\Users\jkeyes\Desktop\git_slides\020-03-Porcelain.md
 
 Try that in VS or Windows...
 
-C:\Users\jkeyes\Desktop\git_slides\020-04-Porcelain.md
 ========================================================
 # git log --grep
 
@@ -588,7 +554,6 @@ semantics:
     git log --grep='^patch' --invert-grep e271909..HEAD
 
 http://gitster.livejournal.com/30195.html
-C:\Users\jkeyes\Desktop\git_slides\023-01-Contrib.md
 ========================================================
 # git-when-merged
 
@@ -631,7 +596,6 @@ http://githubengineering.com/counting-objects/
     > decompressed and delta'ed against an object that does need to be sent in
     > the resulting packfile.
 
-C:\Users\jkeyes\Desktop\git_slides\199-01-Reference.md
 ========================================================
 annotated micro-impl of git
     http://gitlet.maryrosecook.com/docs/gitlet.html
@@ -646,7 +610,6 @@ http://maryrosecook.com/blog/post/git-from-the-inside-out
 http://wildlyinaccurate.com/a-hackers-guide-to-git/
 https://rovaughn.github.io/2015-2-9.html
 
-C:\Users\jkeyes\Desktop\git_slides\199-02-Credits.md
 ========================================================
 * "Git from the Bottom Up" https://jwiegley.github.io/git-from-the-bottom-up/
 * Jeanine Adkisson http://www.jneen.net

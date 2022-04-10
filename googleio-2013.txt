@@ -51,7 +51,6 @@ Dart VM developed by the same guys who developed V8
     generational garbage collection
         native code is generated en masse on the fly, and discarded as patterns change
     code flushing
-    code flushing
     support debugging and profiling
 
 multi-tier adaptive compilation
