@@ -45,3 +45,10 @@ where/what
   Florida:
     https://boktowergardens.org/ (otw to Orlando...)
     Key Largo: Jules' Undersea Lodge.
+
+camping:
+  coffee grounds
+  coffee press
+  cooking pot
+  snacks
+  eggs

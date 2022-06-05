@@ -9162,6 +9162,49 @@ tag="philosophy politics"
 > virtues like Charity, Industry, and Humanity, excelling at them and making
 > their good world even better. In Dystopia, Justice is all you can hope for
 
+
+================================================================================
+20220325
+Optimal autonomous organizations (OAO)
+https://graymirror.substack.com/p/optimal-autonomous-organizations
+tag="curtis-yarvin law legal corporation systems business economics bitcoin"
+- > An OAO is a DAO running a modern version of the joint-stock design.
+  Eliminating the official rituals that slow down every official corporation,
+  while maintaining the management structure that makes those corporations
+  scalable and efficient, might produce a more equal competition between new and
+  old management forms.
+- > The basic design of the Anglo-American limited-liability joint-stock company
+  has remained roughly unchanged since the start of the Industrial
+  Revolution—which, a contrarian historian might argue, might actually have been
+  a Corporate Revolution.
+- > Vicarious conflicts of purpose often lead governors to push an organization
+  "ultra vires"—outside its constitutional definition of success. For example,
+  ... you may find meaning in directing the organization to do good rather than
+  evil ... If the purpose of the organization is to do good rather than evil,
+  this is not a conflict of purpose. If the purpose of the organization is to
+  make widgets, or to make money by selling widgets, it is.
+
+================================================================================
+20220325
+Permissive Action Link (PAL)
+https://en.wikipedia.org/wiki/Permissive_Action_Link
+tag="security operations opsec military weapons defense cryptography"
+"Positive control". Component of a nuclear weapon system to preclude arming or
+launching until the insertion of a prescribed discrete code or combination.
+- Encrypted firing parameters
+- Anti-tamper systems which intentionally mis-detonate the weapon
+- Two-man rule
+- Fail-safe: activation-critical electronics within the weapon, such as
+  capacitors, are selected so that they will fail before the safety device in
+  the event of damage
+- Critical signal detection: weapon will only respond to a specific arming
+  signal, passed to the weapon by a unique signal generator. This output is
+  specific and well-defined, precluding approximation, emulation, noise, or
+  interference from being accepted as a false positive.
+- Environmental sensing device (ESD): determines through environmental sensors
+  whether the weapon is operating in its combat environment (acceleration curve,
+  temperature, pressure, in the correct order).
+
 ================================================================================
 20220331
 Look to the Stars: Navigating the Urbit
@@ -9173,7 +9216,7 @@ Imagine an extensible, open source version of WeChat: Urbit is a one-stop-shop f
 20220407
 The Cathedral or the Bizarre
 https://...
-tag="curtis-yarvin history politics government power machiavelli systems"
+tag="curtis-yarvin history politics government power machiavelli systems monarchy"
 three sets of governed society:
   1. regime: officials (non-public)
   2. clients: entitled public depends-on the regime
@@ -9298,3 +9341,110 @@ tag="curtis-yarvin economics federal-reserve stock finance government banking mo
 > account, you actually own three promises. You have a formal promise by the
 > bank to pay you, a formal promise by FDIC to pay you if the bank doesn’t, and
 > an informal promise by the Fed that FDIC will always pay up.
+
+================================================================================
+20220530
+NASA Active Fires Map (FIRMS: Fire Information for Resource Management System)
+https://firms.modaps.eosdis.nasa.gov/map
+tag="web tools world map geography"
+
+================================================================================
+20220605
+The blockchain and the whitechain
+https://graymirror.substack.com/p/the-blockchain-and-the-whitechain
+tag="curtis-yarvin economics federal-reserve finance government banking money currency bitcoin cryptocurrency"
+- > But once the state gets to know the classic blockchain, the state likes it
+  quite a bit. The blockchain is a kind of technical perfection of the official
+  record that lies at the heart of every civilized state. ... This attraction is
+  a fatal one—because crypto is a more attractive currency than state equity.
+  Namely, it is harder. Regulating it legitimizes it and makes it more
+  dangerous.
+- > Junk money is “smart beta”—it makes money by chasing market patterns and
+  hoping they continue. This hope is also known as “risk.”
+  ... If crypto can rise in a brutal bear market for yield-returning assets as
+  fleeing investors bounce into coins instead of dollars, crypto will convince
+  the robots that it is an asset that goes up in both kinds of markets.
+
+================================================================================
+20220605
+Only a monarch can control the elites: Democracy enables the deep state to rule us
+https://unherd.com/2022/06/only-a-monarch-can-control-the-elites/
+tag="curtis-yarvin politics government realpolitik machiavelli monarchy oligarchy democracy"
+- > Bagehot, 19th-century theorist of the English Constitution, divided
+  sovereigns into the "effective" ("operating", actually in control of the
+  state) and the "dignified" ("ceremonial", a crowned Kardashian, a long-haired
+  Merovingian man-doll).
+- > One way to identify a ceremonial or dignified institution is to detect
+  a situation in which a seeming organ of power is vestigial. ... If Elizabeth
+  II passes away tomorrow, ... Whitehall would function as usual. If Parliament,
+  the Cabinet, and the voters did not exist, Whitehall would function as usual.
+- > Disruption [of bureaucracy] can be measured by number of jobs destroyed. How
+  many elite jobs did Trump destroy?
+- > Ultimately, the purpose of a ceremonial monarchy is to prevent the existence
+  of a functional monarchy. Where a puppet reigns, no one else can reign [as
+  opposed to "rule"] ... So a murky, distributed oligarchy can rule, unchallenged.
+
+================================================================================
+20220605
+Quango (Quasi-NGO)
+https://en.wikipedia.org/wiki/Quango
+tag="concepts government"
+An organisation to which a government has devolved power, but which is still
+partly controlled and/or financed by government bodies.
+
+================================================================================
+20220612
+Please, don't build another Large Hadron Collider
+https://news.ycombinator.com/item?id=31651557
+tag="physics science funding politics misallocation"
+> As a low-energy quantum physicist, I completely agree: Experimental
+> high-energy physics has become primarily an industrial subsidy scheme[1], and
+> if we want the highest chance of reaching a grand unified theory, it seems the
+> money would be much better spent elsewhere (cosmology, space-based
+> observatories, research positions for young physicists without
+> publish-or-perish incentives to run for the latest fad).
+>
+> ... Einstein and the quantum pioneers added abstractions to build physical
+> theories with prediction power, whereas current high-energy physics theory
+> seems to be mostly a mathematical exercise. This has been confirmed by
+> numerous insiders, including by Hossenfelder as mentioned in the article, and
+> Lee Smolin ("The trouble with physics") who is also a theoretical physicist.
+>
+> Things have changed a lot since accelerators became a must-have for
+> high-energy physics: Today we have detectors and computing power that let us
+> observe the natural experiment of the universe with a precision and diligence
+> that would be impossible when LHC was commissioned. I find it much more likely
+> that we would learn new physics by giving 10-year grants to 1000 young
+> physicist of revolutionary spirit, and let them use the tools they could build
+> themselves, than by handing that money to the old guard which has produced
+> nothing of significance for the last two generations.
+>
+> [1]: The industrial subsidy angle is not touched upon in TFA, but it is clear
+> that there is a large number of people and companies making a good living from
+> mega-physics.
+
+================================================================================
+20220623
+Biggest idea in software architecture: the "narrow waist"
+https://www.oilshell.org/blog/2022/03/backlog-arch.html
+tag="programming softwareengineering design compsci architecture oilshell"
+"narrow waist" (from networking theory but more generally applicable)
+- important idea, because it describes the biggest and longest-lived systems.
+- examples:
+  - text
+  - "Accidental" waists like Win32 and x86.
+  - TCP/IP, HTTP
+- related:
+  - postel's law
+  - interop
+  - intermediate representation (IDL)
+  - compression encoding?
+- inertia:
+  - XHTML and ECMAScript 4 both tried to break the web with radical changes, but they failed because of the inertia of narrow waists.
+  - downside: narrow waists can inhibit innovation. For example, hardware-software co-design is inhibited because of decades-old ISAs.
+- "A taste for minimalism that unlocks enormous functionality."
+- "A few things that compose": Software with fewer concepts composes, scales, and evolves more easily.
+- "Static types and metaprogramming are at odds. Rust favors type checking, Zig favors metaprogramming, and we don't know how to reconcile this."
+- When models and reality collide, reality wins.
+  - Rich Hickey "situated" software.
+- The Lambda Calculus is a narrow waist.
