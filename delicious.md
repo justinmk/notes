@@ -5484,7 +5484,7 @@ tag="work contracting"
 Long-time nuclear waste warning messages
 ================================================================================
 https://en.wikipedia.org/wiki/Long-time_nuclear_waste_warning_messages
-tag="concepts history future weird semiotics iconography"
+tag="concepts history future weird semiotics iconography nuclear energy"
 > messages are intended to deter human intrusion at nuclear waste repositories
 > in the far future, within or above the order of
 > magnitude of 10,000 years. Nuclear semiotics ... Human Interference Task Force
@@ -5923,7 +5923,7 @@ Principality of Sealand
 ================================================================================
   In 1967‚Äì8 Britain's Royal Navy tried to remove Bates. As they entered territorial waters, Bates tried to scare them off by firing warning shots from the former fort.
 href="http://en.wikipedia.org/wiki/Principality_of_Sealand"
-tag="politics"
+tag="politics terraforming protopia"
   time="2007-04-29T07:01:21Z" 
 
 Slashdot | IT Worker Shortages Everywhere
@@ -9424,6 +9424,30 @@ tag="physics science funding politics misallocation"
 > mega-physics.
 
 ================================================================================
+20220620
+On the crypto blizzard (The Bubble Theory of Money)
+https://graymirror.substack.com/p/on-the-crypto-blizzard
+tag="curtis-yarvin theory bubble inflation economics federal-reserve finance government banking money currency bitcoin cryptocurrency"
+The Bubble Theory of Money: "money is a bubble that doesn't pop".
+Two principles:
+  1. The pool of savings—net demand to transfer purchasing power from the
+     present to the future. (The existence of debt instruments does not change
+     the demand for savings: once the loan is closed, the borrower now holds the
+     savings of the lender.)
+     The demand for savings is the demand for money. The demand to move
+     purchasing power from present future is a human universal. Imagine a human
+     society which knew it was about to be destroyed by an asteroid in a week.
+     In such a society, though exchange might continue, who would take money in
+     exchange for anything?
+  2. The standardization of money. This is a very simple Schelling point or
+     collective agreement problem. The solution is a Nash equilibrium: choose
+     the action which is best for you if everyone else chooses it. This is the
+     famous Keynesian beauty contest.
+...In a sane financial system with a stable monetary standard, there would be no
+such thing as “passive investing.” No beta, only alpha. “Beta” investing is just
+how you avoid the monetary-dilution tax.
+
+================================================================================
 20220623
 Biggest idea in software architecture: the "narrow waist"
 https://www.oilshell.org/blog/2022/03/backlog-arch.html
@@ -9448,3 +9472,112 @@ tag="programming softwareengineering design compsci architecture oilshell"
 - When models and reality collide, reality wins.
   - Rich Hickey "situated" software.
 - The Lambda Calculus is a narrow waist.
+
+================================================================================
+20220728
+The Desperate Lives Inside Ukraine’s “Dead Cities”
+https://www.newyorker.com/magazine/2022/08/01/the-desperate-lives-inside-ukraines-dead-cities
+tag="history war ukraine russia nato europe"
+“There were pieces of people everywhere,” the officer said. “When someone died,
+we took their tourniquets off and put them on someone else. By the end, my boots
+were filled with blood.”
+
+================================================================================
+20220801
+More invested in nuclear fusion in last 12 months than past decade
+https://news.ycombinator.com/item?id=32207152
+tag="engineering science energy nuclear"
+> But where are the fusion neutrons? (See Voodoo Fusion [1])
+> [1] https://vixra.org/pdf/1812.0382v1.pdf
+>
+> I'm a professional fission guy. I started out in fusion and switched to advanced fission. These days I don't see why we don't just build lots more regular old LWR fission reactors.
+>
+> Imagining that somehow fusion is going to a) work, b) be cheap (fuel cost is only 5% of total nuclear fission cost so who cares), and c) not have the same stigma as fission is kind of weird in my mind.
+>
+> For example, there are leaks of tiny amounts of tritium at some fission plants and people lose their minds. Fusion reactors will have many orders of mag more tritium. Will people not lose their minds just the same? Tritium is notoriously hard to contain since it's so small. It can permeate through metal like a hot knife through butter.
+>
+> Also, lots of people worry about fission and nuclear weapons proliferation. So does fusion get around this? Not really. In fact it's worse. Did you know that the two materials you need to make thermonuclear weapons are tritium and plutonium? Tritium breeding is required by almost all practical fusion power plants (the other reactions are 100s to 1000s of times harder, I don't care what x random fusion CEO says, they're in it for the sweet billionaire side project money).
+>
+> Plutonium is made by irradiating natural uranium from the dirt with neutrons. Practical fusion reactors have lots of neutrons. Really high energy ones too.
+>
+> Anyway let's just do fission you guys. It's way easier. It has been working fine since the 1950s. It's zero carbon. Waste problem is solved (see Onkalo, and reprocessing). It net saves millions of lives by displacing air pollution. It runs 24/7 on a tiny land and material footprint. We have enough uranium and thorium to run the whole world for 4 billion (with a b) years using breeder reactors (demonstrated in 1952 in Idaho). Get the Koreans over here to build some ARP1400s or the Chinese to build some Hualong Ones until we figure out how to project manage again and then call it good.
+
+================================================================================
+20220801
+C23 #embed
+https://thephd.dev/finally-embed-in-c23
+tag="c legacy backwards-compatibility preprocessor build macros programming performance"
+- bug report in GCC where someone embedded a big xxd-generated array (one big
+  list of numbers), and ultimately their response to the bug report was “We Will
+  Simply Stop Keeping Error Information For All Arrays Past The 256th Element”.
+- no, you can’t just “Use a String Literal”, because MSVC has an arbitrarily
+  tiny limit of string literals in its compiler (64 kB, no they can’t raise it
+  because ABI).
+- utility of #embed and std::embed: No, You Cannot Just “implement your compiler/parser better”.
+  - GCC had to sacrifice diagnostic information to get better speed (good luck
+    if you’ve got a big array, 256 elements is enough for everybody, right?)
+  - Clang had its own issue open for large array initializers (and has
+    subsequently shrugged its shoulders);
+  - MSVC is quite literally so bad at parsing a series of integer literals on
+    its compilers that it not only ran out of memory faster than every other
+    compiler, but it lost in both compile-time and memory usage to MinGW on the
+    same computer!
+
+================================================================================
+20220801
+The return of the Earl
+https://graymirror.substack.com/p/the-return-of-the-earl
+tag="concepts mental-model politics literature shakespeare"
+- Shakespeare =? Edward de Vere, 17th Earl of Oxford. https://shakespeareoxfordfellowship.org/
+- Conquest’s law: “everyone is reactionary on the subjects they understand”
+  https://en.wikipedia.org/wiki/Robert_Conquest#Three_Laws_of_Politics
+  - many adopt a craven, but all too human, corollary: after taking a bold
+    stance in their own specialty, they have no stomach for any other fight.
+  - Reactionary enlightenment in one field should cast Bayesian doubt on other
+    fields. Instead, local enlightenment reinforces global ignorance.
+    - Logically, the specialist should reason that if his own field, which he
+      knows closely, is corrupt, other fields which he cannot examine in detail
+      may be corrupt as well.
+    - But emotionally, the cost of a general dissidence far exceeds the value of
+      extending the inference. The sweet spot is general compliance, local
+      dissidence.
+
+================================================================================
+20220805
+Neom
+https://en.wikipedia.org/wiki/Neom
+tag="saudi-arabia terraforming protopia planned-city"
+Neom (Arabic: نيوم) is a Saudi city being built in Tabuk Province in
+northwestern Saudi Arabia. It is planned to incorporate smart city technologies
+and to function as a tourist destination. The site is north of the Red Sea, east
+of Egypt across the Gulf of Aqaba, and south of Jordan. It is planned to cover
+a total area of 26,500 km2.
+Estimated cost of $500 billion.
+Linked with Travis Kalanick: https://en.wikipedia.org/wiki/Travis_Kalanick#Post-Uber_(2018%E2%80%93present)
+
+================================================================================
+20220809
+Two strokes of state
+https://graymirror.substack.com/p/two-strokes-of-state
+tag="curtis-yarvin politics government realpolitik machiavelli monarchy oligarchy democracy"
+> _Humphrey_ https://en.wikipedia.org/wiki/Humphrey%27s_Executor_v._United_States
+> says that Congress can establish “independent” agencies which are in the
+> executive branch, but not under the full power of the chief executive. In
+> specific, the President cannot just fire anyone in the executive branch he
+> wants. Therefore, he is not actually the President—not the chief executive of
+> the executive branch. And the Constitution is just a lie.
+> ...
+> The Hill micromanages their budget, policy, and personnel.
+> The White House sends them press releases which they have to pretend to obey, and appoints a small legion of empty suits who will be either captured or destroyed by the permanent civil service.
+
+================================================================================
+20220813
+Everything You Never Wanted to Know About CMake
+https://izzys.casa/2019/02/everything-you-never-wanted-to-know-about-cmake/
+tag="c build cmake programming softwareengineering"
+
+================================================================================
+20220814
+lambdaway: a web text-editor where you can write, compute and draw
+http://lambdaway.free.fr/lambdawalks/
+tag="wiki notes web hapax"
