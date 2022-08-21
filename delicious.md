@@ -6710,7 +6710,7 @@ tag="diy-project electronics engineering programming"
 20200525
 "You and Your Research" Richard Hamming
 http://www.cs.virginia.edu/~robins/YouAndYourResearch.html
-tag="engineering science academia university study research invention innovation"
+tag="productivity engineering science academia university study research invention innovation"
 > When you are famous it is hard to work on small problems. This is what did
 > Shannon in. ... The great scientists often make this error. They fail to
 > continue to plant the little acorns from which the mighty oak trees grow. ...
@@ -9581,3 +9581,45 @@ tag="c build cmake programming softwareengineering"
 lambdaway: a web text-editor where you can write, compute and draw
 http://lambdaway.free.fr/lambdawalks/
 tag="wiki notes web hapax"
+
+================================================================================
+20220821
+Diablo 1 for web browsers
+https://github.com/d07RiV/diabloweb
+tag="web wasm webassembly game software programming embed webbrowser diablo blizzard"
+
+================================================================================
+20220821
+Ultima Online for the web
+https://classicuo.org/
+tag="web wasm webassembly game software programming embed webbrowser"
+
+================================================================================
+20220821
+Nobody wants to teach anymore
+https://news.ycombinator.com/item?id=32542440
+tag="economics budget government schooling education costs society"
+> I was a school board member and did exhaustive analysis of our budget. For primary education through high school, admin is NOT the root cause. If you take any school budget, and strip away everything that is not an actual classroom teacher, you will find
+>   - 1/3 or less goes to "frontline" teaching costs.
+>   - 1/3 goes to special ed and all that is attendant with that.
+>     My district BOUGHT a car and hired a FULLTIME driver for one student who had to be taken to special programs.
+>     You have 1:1 class aids for many kids.
+>     Special ed is < 10% of kids, and even then the huge costs add up for the 1%.
+>     This is a massively subscale operation where every school is legally obligated to deliver services.
+>   - 1/3 is everything else. Food, facilities, sports, admin, transportation, etc. Admin is actually a leaner slice than most unless you are getting into really small schools where you have a principal on top of the teachers and that adds significant salary. In bigger schools this fades away with scale.
+> This data is REALLY hard to get. I had to go line by line through the budget.
+> For example, all the classroom aids are typically assigned as teaching costs. But the reality is that they are assigned to individual students with IEPs (individual education plans), ergo, they should be categorized as special ed.
+> Same thing in pulling out transportation. Or tuition to other districts. Admin dealing with special ed grants and recordkeeping. It goes on and on...
+
+================================================================================
+20220821
+The productivity tax you pay for context switching
+https://async.twist.com/context-switching/
+tag="work productivity habits focus concentration time-management attention"
+- Upon returning to a task after a distraction, it can take up to 23 minutes to re-focus.
+  https://www.washingtonpost.com/news/inspired-life/wp/2015/06/01/interruptions-at-work-can-cost-you-up-to-6-hours-a-day-heres-how-to-avoid-them/
+- Even “brief mental blocks” as a result of switching can take as much as 40% of a person’s productive time.
+  https://www.apa.org/research/action/multitask
+- Isaac Newton said: “If I have made any valuable discoveries, it has been owing more to patient attention than to any other talent.”
+- When our attention is split, we struggle “to integrate fragmented information into cohesive task structures that make sense,”
+  https://www.hcii.cmu.edu/news/event/2004/10/work-fragmentation-common-practice-paradox-it-support
