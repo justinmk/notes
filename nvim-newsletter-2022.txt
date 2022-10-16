@@ -1,0 +1,80 @@
+# State of Neovim
+
+The health of Vim and Neovim is beyond what I ever expected. After all, you need
+a [special kind of crazy] to successfully fork a major OSS project. Neovim is an
+old project now, with its own legacy. I was conscious since the start
+that we don't want to add mere entropy to the universe: we should be doing
+high-leverage work, using our human attention for a pursuits that justify the
+existence of a fork. I'm as skeptical of the urge to fork as any wise OSS
+observer. Meanwhile, project like [Helix] prove a bigger notion: practically,
+not only spiritually--all such projects are just branches of the same idea: we
+want a [hitchhiker's towel], a portable, hyper-flexible multitool, the
+CLI-resident OS for software development work, just as the browser is the
+UI-resident OS for apps (because, as ever [the OS failed its job]). (And those
+two inner-platforms may some day merge: again, temporary branches of the same
+idea).
+
+So Vim, Neovim, Emacs, Helix, are all branches of the same mindbase. Any or most 
+of these branches may eventually wither, exactly as soon as their origin becomes
+a "solved problem". But until then, we need all of those branches. They are
+computing NP-complete results and we don't know which one is best yet.
+
+Most forget that in 2014, Vim had no CI, close to zero test-coverage, and
+no plans to change. Neovim emerged from that urgency with a plan to turn the
+internals inside-out, ship a :terminal, rewrite the build system, and go all-in
+on Lua. But the real inflection point of Neovim's model was our "soft" choices:
+figuring out how to scale contributions, so that major featues could be
+contributed by, and maintained by, a swarm or coveyor-belt of roughly-aligned
+fly-by-night contributors. That ability to plug-in, and intermittently
+self-eject, on the timeline of a project's development, while maintaining Fred
+Brook's ["conceptual integrity"], is the ever-glowing ember of a successful
+long-term OSS project. Without it, you get either an eventual junkyard of
+half-broken, non-composable features, or the project just fades away.
+
+We couldn't be sure that doubling-down on Lua, or shipping a builtin LSP client,
+was the right decision. There was no mosh pit of encouraging bystanders (any
+impressions to the contrary are, I assure you, hindsight) assuring us that these
+leaps of faith would unlock pent-up demand and [double our userbase] in two
+years. We made those decisions based on engineering experience and intuition,
+and thought experiments starting from [principles] ("defaults matter more than you
+realize, even if you realize that defaults matter").
+
+It wasn't until a year or two ago that we started seeing Neovim project ownership
+actually start to scale. It's not clear exactly how or why that happened; these
+"soft" policies which by definition involve fickle first-order componenets
+called "humans", are not back-traceable to a formula, but roughly it goes
+something like: set the stage; keep iterating and refining; put in consistent
+hard work and show your progress; deliver actual results; and eventually, if
+you're doing anything actually valuable, you'll attract a snowballing herd of
+smart people with good taste.
+
+Recently a friend messaged me reflecting on how thankful he was that Neovim
+existed, Vim likely wouldn't  so that Vim-users could participate in the
+contemporary pantheon of developer tooling, beyond the artificially narrow scope
+of mere text-editing. He was so impressed with CoPilot and so happy that he
+could use it on C++ projects in Nvim.
+
+# Good and bad
+
+Weakenesses: merging relevant upstream Vim patches to Nvim is still too much
+work. We've made improvements, but we are very dependent on juggernauts like
+@janlazo and @zeertj, and without them, Nvim would be a much lower-quality
+product.
+
+Strengths: the culture of automation and build-time checks, linting and
+autoformatting, is in a position of strength, mostly thanks to @dundargoc, the
+"Highlander of ancient Nvim refactoring epics". He brought Nvim across the
+finish line for major, old planned refactors. Our C and Lua code is now fully
+auto-formatted according to our style guide. We spend essentially zero time
+discussing code style or formatting. (Still plenty of time on naming,
+though--intentionally!)
+
+We have executed on our [plan (vimconf 2021 talk)] to aggressively deprecate
+APIs, in order to search for long-term interface patterns and practices, while
+not blocking short-term progress. This results in a bit of "move fast and break
+things" environment, but with the breakage limited to specific subsystems. In
+particular, we have never made breaking changes to the RPC API, which is the
+most fragile because of its _disconnected_ nature (we don't want UIs to break
+between Nvim releases). We have written down a [path to 1.0]. We have
+[vim.deprecate]. We have [positioned :help as the single source of truth]. We
+are [developing Lua idioms].
