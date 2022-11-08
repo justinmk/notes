@@ -9632,32 +9632,130 @@ tag="oidc oauth auth webapp web network softwareengineering rfc spec login"
 OpenID Connect 1.0 is a simple identity layer on top of the OAuth 2.0 protocol. It enables Clients to verify the identity of the End-User based on the authentication performed by an Authorization Server, as well as to obtain basic profile information about the End-User in an interoperable and REST-like manner.
 
 ================================================================================
+20221007
+Export tweets to markdown
+tag="twitter data programming develop markdown formats archive"
+https://github.com/kbravh/tweet-to-markdown
+$ npx tweet-to-markdown -b  --assets --assets-path "./images"
+
+================================================================================
+20221009
+A Look at the Design of Lua
+https://www.lua.org/doc/cacm2018.pdf
+tag="lua c design pl programming-language runtime engineering"
+Lua offers exactly one general mechanism for each major aspect of programming:
+tables for data; functions for abstraction; and coroutines for control.
+
+================================================================================
+20221010
+ULID: Universally Unique Lexicographically Sortable Identifier
+https://github.com/ulid/spec
+tag="encoding number-theory compsci guid uuid ulid spec"
+improved alternative to UUID
+ulid() // 01ARZ3NDEKTSV4RRFFQ69G5FAV
+https://github.com/ulid/spec/issues/28
+  > the monotonicity issue made me walk away from ulid. A number of the blessed
+  > implementations with a checkmark indicating they conformed to the spec did
+  > not implement the randomness increment whatsoever. I wasn't sure how
+  > "serious" the conformance to spec was in general for ulid.
+compare:
+  "coordination-free ObjectIDs"
+    https://github.com/ulid/spec/issues/55#issuecomment-859110202
+    https://github.com/marrow/mongo/blob/next/marrow/mongo/util/oid.py?ts=4#L1
+
+================================================================================
+20221010
+Open Location Code (OLC)
+https://github.com/google/open-location-code
+tag="encoding compression entropy gps map compsci guid uuid spec address-space"
+Open Location Code (OLC) https://plus.codes
+Library to generate short codes, called "plus codes", that can be used as
+digital addresses where street addresses don't exist.
+compare:
+  lat/lng
+  Geohash
+  What3Words
+
+================================================================================
+20221011
+SCIP: a better code indexing format than LSIF
+https://about.sourcegraph.com/blog/announcing-scip
+tag="code-navigation lsp format semantic-analysis"
+code indexing format to code navigation features
+LSIF:
+- https://github.com/microsoft/lsif-node
+- https://github.com/Microsoft/language-server-protocol/blob/main/indexFormat/specification.md
+
+================================================================================
+20221012
+Lite XL: lightweight text editor written in Lua
+https://github.com/lite-xl/lite-xl
+tag="text-editor software application text programming"
+
+================================================================================
+20221016
+Lindy effect
+https://en.wikipedia.org/wiki/Lindy_effect
+tag="concepts mental-model antifragile mathematics"
+- The future life expectancy of some non-perishable things, like a technology or
+  an idea, is proportional to their current age. Thus, the longer something has
+  survived to exist or be used in the present, the longer its remaining life
+  expectancy. Longevity implies a resistance to change, obsolescence or
+  competition and greater odds of continued existence into the future.
+- Where the Lindy effect applies, mortality rate decreases with time.
+- Mathematically the Lindy effect corresponds to lifetimes following a Pareto
+  probability distribution.
+- Nassim Nicholas Taleb has expressed the Lindy effect in terms of "distance
+  from an absorbing barrier."
+
+================================================================================
+20221030
+"Stop Writing Dead Programs" by Jack Rusher
+https://www.youtube.com/watch?v=8Ab3ArE8W3s
+tag="programming softwareengineering repl lisp smalltalk"
+1. batch processing
+   has received by far the most PL investment
+2. time and state
+3. program representation
+   still "batch mode" paradigm in all popular langs: C, Go, Rust, JS
+4. pragmatics: studying the relationship betw language and its users
+5. interactive programming (opposite of "batch processing")
+   implies an "environment"
+
+================================================================================
 20221104
 Markdown, Asciidoc, or reStructuredText
 https://news.ycombinator.com/item?id=33468213
 tag="documentation tech-writing markup markdown"
-# Docs tooling
-## Markdown, Asciidoc, or reStructuredText
-  https://news.ycombinator.com/item?id=33468213
-  Convincing anecdotes (including successful case study from Mozilla MDN) in favor of markdown vs asciidoc /RsT.
-## MDN (mozilla docs
-  https://openwebdocs.org/content/posts/markdown-conversion/
-  >Last year we changed the source format for MDN from some extremely messy, WYSIWYG-authored HTML to something that would be easier for authors to use. We considered Asciidoc and reST, and despite its limitations, we chose Markdown (GFM specifically) for two reasons:
-  1. We get a _lot_ of casual contributors to MDN: about 180-200 unique contributors/month, most of whom we never see again. Almost all of them can contribute much more easily with Markdown than with anything else. Many of these people are unlikely to put even an half an hour into learning a new syntax.
-  2. Markdown has great tooling support. For example, if we want to run Prettier over our embedded code samples, it's really easy if we are in Markdown. If we are in Markdown we will get nice formatting just about everywhere, including GitHub of course and most people's editors.
-  >I work in an academic setting and I can second the sentiment. For a while, we used reStructuredText for writing the teaching materials. Every so often I would have the students that would get inspired to contribute something to the teaching materials, but would subsequently get demotivated by having to learn the rST syntax and tooling.
-  After a few years, I gave up and switched from rST and Sphinx to Markdown and MkDocs [2]. We addressed the limitations of Markdown with PyMdown Extensions [3]. Still haven't looked back; for our specific use case of writing (computer science) teaching materials, Markdown is a better choice than rST.
-  >rst is not user friendly, even for tech savvy people.
-## asciidoc
-  >I love Asciidoc, but the tooling is pretty crummy.
-  >Asciidoc seems to have a solid backend. But it seems to have a problem with nesting. Nesting things should be tablestakes in a markup language.
-## RsT (RestructuredText)
-  >Originally reStructuredText was "a Python thing", ... nowadays (thanks to Sphinx?) reStructuredText is also used for big systems-y projects, including the Linux kernel docs and Envoy proxy.
-## djot
-  The creator of Pandoc is creating a markup language worth looking at: https://djot.net/
-## markdoc.dev (stripe)
-  >Anything AsciiDoc can do, Markdoc can be extended to do, from variables through includes.
-  React or HTML output. AST transforms or functions. Upcoming editor support etc.
-## MyST
-  https://myst-parser.readthedocs.io/en/latest/index.html
-  >the jupyter devs created myst ([https://myst-parser.readthedocs.io/en/latest/syntax/syntax.h...](https://myst-parser.readthedocs.io/en/latest/syntax/syntax.html#syntax-core)), a superset of markdown that has almost all the features of rst, and can embed rst when it falls short.
+- markdown:
+  > Last year we (mozilla MDN) [changed the source format for MDN](https://openwebdocs.org/content/posts/markdown-conversion/) from some extremely messy, WYSIWYG-authored HTML to something that would be easier for authors to use. We considered Asciidoc and reST, and despite its limitations, we chose Markdown (GFM specifically) for two reasons:
+  > 1. We get a _lot_ of casual contributors to MDN: about 180-200 unique contributors/month, most of whom we never see again. Almost all of them can contribute much more easily with Markdown than with anything else. Many of these people are unlikely to put even an half an hour into learning a new syntax.
+  > 2. Markdown has great tooling support. For example, if we want to run Prettier over our embedded code samples, it's really easy if we are in Markdown. If we are in Markdown we will get nice formatting just about everywhere, including GitHub of course and most people's editors.
+- asciidoc:
+  > I love Asciidoc, but the tooling is pretty crummy.
+  > Seems to have a problem with nesting.
+- RsT (RestructuredText)
+  > Originally reStructuredText was "a Python thing", ... nowadays (thanks to Sphinx?) reStructuredText is also used for big systems-y projects, including the Linux kernel docs and Envoy proxy.
+  > I work in an academic setting ... we used reStructuredText ... [contributors] would get demotivated by having to learn the rST syntax and tooling.
+  > I gave up and switched from rST and Sphinx to Markdown and MkDocs. We addressed the limitations of Markdown with PyMdown Extensions [3].
+- djot
+  - The creator of Pandoc is creating a markup language worth looking at: https://djot.net/
+- markdoc.dev (stripe)
+  - > Anything AsciiDoc can do, Markdoc can be extended to do, from variables through includes.
+  - React or HTML output. AST transforms or functions. Upcoming editor support etc.
+- MyST https://myst-parser.readthedocs.io/en/latest/index.html
+  - > the jupyter devs created myst ([https://myst-parser.readthedocs.io/en/latest/syntax/syntax.h...](https://myst-parser.readthedocs.io/en/latest/syntax/syntax.html#syntax-core)), a superset of markdown that has almost all the features of rst, and can embed rst when it falls short.
+
+================================================================================
+20221108
+Cat9: a user shell script for LASH - a command-line shell that discriminates against terminal emulators, written in Lua.
+https://github.com/letoram/cat9
+tag="lua shell"
+LASH just provides some basic shared infrastructure and a recovery shell.
+    It then runs a user provided script that actually provides most of the rules for how the command line is supposed to look and behave.
+Cat9 is such a script.
+    Runs and cleanly separates multiple concurrent jobs asynchronously, with the results from 'out' and 'err' being kept until you decide to reuse or forget it.
+Arcan: among its many subprojects are SHMIF and TUI.
+    https://arcan-fe.com/2022/04/02/the-day-of-a-new-command-line-interface-shell/
+    SHMIF is an IPC system -- initially to compartment and sandbox media parsing that quickly evolved to encompass all inter-process communication needed for something on the scale of a full desktop.
+    TUI is an API layered on top of SHMIF client side, along with a text packing format (TPACK). It was first used to write a terminal emulator that came bundled with Arcan, and then evolved towards replacing all uses of ECMA-48 and related escape codes, as well as kernel-tty and userspace layers. The end goal being completely replacing all traces of ncurses, readline, in-band signalling and so on -- to get much needed improved CLIs and TUIs that cooperate with an outer graphical desktop shell rather than obliviously combat it.
