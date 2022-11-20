@@ -108,7 +108,7 @@ splay tree
     recently-accessed nodes thus sit near the top of the tree, allowing faster
     searches.
 
-B-tree
+B-tree ("balanced")
     For data larger than main memory (~1M+ items).
     self-balancing tree
     generalization of a binary search tree: N children per node

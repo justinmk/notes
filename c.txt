@@ -87,6 +87,13 @@ https://randomascii.wordpress.com/2017/01/22/delete-an-inline-function-save-794-
   > fundamentally unpredictable. And, if you have ODR violations (as we did)
   > then the results are not even defined.
 
+https://flameeyes.blog/2010/10/08/linkers-and-names/
+  a shared library “owns” several different names, on Unix-like systems based on ELF:
+    - the actual filename;
+    - the name used by the link editor (or build-time linker, ld) to link to it;
+    - the name used by the loader (or dynamic linker, ld.so) to find it.
+  > The obvious way to correlate all of them together is to use symbolic links; and that’s why your /usr/lib directory is full of those.
+
 C STANDARD LIBRARY
 ================================================================================
 

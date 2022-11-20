@@ -5734,23 +5734,13 @@ The Equity Equation
 href="http://www.paulgraham.com/equity.html" 
 tag="todo" time="2008-01-30T07:19:23Z" 
 
+================================================================================
 The Autumn of the Multitaskers 
-================================================================================
-href="http://www.theatlantic.com/doc/200711/multitasking"
+https://www.theatlantic.com/magazine/archive/2007/11/the-autumn-of-the-multitaskers/306342/
 tag="todo"
-  time="2008-01-30T07:00:11Z" 
-
-Shark pictures show amazing killing display - Telegraph
-================================================================================
-href="http://www.telegraph.co.uk/earth/main.jhtml?xml=/earth/2007/11/17/eashark117.xml"
-tag="science"
-  time="2008-01-27T23:26:23Z" 
-
-Ten myths about nuclear power 
-================================================================================
-href="http://www.spiked-online.com/index.php?/site/article/4259/"
-tag="politics science energy nuclear"
-  time="2008-01-26T19:57:54Z" 
+> Neuroscience is confirming what we all suspect: Multitasking is dumbing us
+> down and driving us crazy. One man’s odyssey through the nightmare of infinite
+> connectivity
 
 Going Nuclear
 ================================================================================
@@ -5758,18 +5748,6 @@ Going Nuclear
 href="http://www.washingtonpost.com/wp-dyn/content/article/2006/04/14/AR2006041401209.html"
 tag="politics science nuclear"
   time="2008-01-26T18:54:33Z" 
-
-Merb | Looking for a better framework?
-================================================================================
-  light, clean, modular Rails competitor
-href="http://merbivore.com/"  
-tag="programming" time="2008-01-22T02:55:56Z" 
-
-How to Cash in on a Warming Planet
-================================================================================
-href="http://www.businessweek.com/magazine/content/07_53/b4065050248104.htm?campaign_id=rss_daily"
-tag="investment finance stock-picks"
-  time="2008-01-21T05:45:33Z" 
 
 wellcare stock
 ================================================================================
@@ -9632,6 +9610,16 @@ tag="oidc oauth auth webapp web network softwareengineering rfc spec login"
 OpenID Connect 1.0 is a simple identity layer on top of the OAuth 2.0 protocol. It enables Clients to verify the identity of the End-User based on the authentication performed by an Authorization Server, as well as to obtain basic profile information about the End-User in an interoperable and REST-like manner.
 
 ================================================================================
+20220908
+The Success and Failure of Ninja
+http://neugierig.org/software/blog/2020/05/ninja.html
+tag="build-systems ninja programming softwareengineering exceptions errors design failure-modes"
+End-to-end / crash-only. ...: given that you need to run Ninja from scratch
+sometimes, if you make that fast, then you don't need to build a second "online"
+codepath. Projects that can stay memory-resident tend to eventually let their
+startup performance languish.
+
+================================================================================
 20221007
 Export tweets to markdown
 tag="twitter data programming develop markdown formats archive"
@@ -9680,7 +9668,7 @@ compare:
 20221011
 SCIP: a better code indexing format than LSIF
 https://about.sourcegraph.com/blog/announcing-scip
-tag="code-navigation lsp format semantic-analysis"
+tag="code-navigation lsp index format semantic-analysis"
 code indexing format to code navigation features
 LSIF:
 - https://github.com/microsoft/lsif-node
@@ -9768,3 +9756,385 @@ tag="aws smithy codegen typescript"
 generate HTTP server and client from smithy model
 https://aws.amazon.com/blogs/devops/smithy-server-and-client-generator-for-typescript/
 https://github.com/aws-samples/smithy-server-generator-typescript-sample
+
+================================================================================
+20221110
+Effortless Language Servers
+https://stefan-marr.de/2022/10/effortless-language-servers/
+tag="code-navigation pl grammar language lsp semantic-analysis"
+
+================================================================================
+20221113
+Communist Party of Vietnam
+https://en.wikipedia.org/wiki/Communist_Party_of_Vietnam
+tag="socialism communism capitalism economics politics government vietname marxism leninism"
+- Superiority of socialism
+  - According to Marxism–Leninism, socialism is the second-to-last stage of socio-economic development before pure communism.
+- Socialist-oriented market economy
+  - Proponents claim that the system is neither socialist nor capitalist, but "socialist-oriented." The Communist Party rejects the view that a market economy has to be capitalist.
+- Trần Bạch Đằng wrote: "The reality of Vietnam after the revolution is different from what I imagined when I joined the party ... Life has shown us that it is much more complicated. ...  we received Marxism in a theoretical sense ... through Stalin and Mao.
+
+================================================================================
+20221121
+Climate Change Debate: Bjørn Lomborg and Andrew Revkin | Lex Fridman Podcast #339
+https://www.youtube.com/watch?v=5Gk9gIpGvSE
+tag="science global-warming climate weather environmentalism podcast"
+- 90 hurricanes/year, this rate has not changed in correlation with global warming
+
+================================================================================
+20221121
+Copenhagen Consensus Center
+https://www.copenhagenconsensus.com/
+tag="science global-warming climate weather environmentalism podcast"
+> research and development for more effective and cheaper green technologies to
+> combat climate change as well as increase agricultural productivity.
+
+================================================================================
+20221126
+Azure has run out of compute [in Germany region]
+https://news.ycombinator.com/item?id=33743870
+tag="cloud azure aws"
+Unlike GCP and Azure, all AWS regions are (were) partitioned by design. This "blast radius" is (was) fantastic for resilience, security, and data sovereignty. It is (was) incredibly easy to be compliant in AWS, not to mention the ruggedness benefits.
+AWS customers with more money than cloud engineers kept clamoring for cross-region capabilities ("Like GCP has!"), and in last couple years AWS has been adding some.
+Cloud customers should be careful what they wish for. If you count on it in the data center, and you don't see it in a well-architected cloud service provider, perhaps it's a legacy pattern best left on the datacenter floor. In this case, at some point hard partitioning could become tough to prove to audit and impossible to count on for resilience.
+
+================================================================================
+20221126
+Guide to Playing Myth in 2022
+https://tain.totalcodex.net/forum/viewtopic.php?t=7461
+tag="web game software webbrowser myth bungie"
+
+================================================================================
+20221126
+Rainier Mesa (Area 12)
+https://en.wikipedia.org/wiki/Rainier_Mesa
+tag="area12 area51 government usgov military aliens"
+Rainier Mesa is one of four major nuclear test regions within the Nevada National Security Site (NNSS).
+It occupies approximately 40 square miles (100 km2) along the northern edge of the NNSS and corresponds to Area 12.
+
+================================================================================
+20221130
+Tech Layoff Tracker
+https://www.trueup.io/layoffs
+tag="business economics economy"
+
+================================================================================
+20221202
+The road to AWS Lambda SnapStart - guide through the years of JVM "cold start" tinkering - JVM Weekly #115
+https://vived.substack.com/p/the-road-to-aws-lambda-snapstart
+tag="aws java linux cache graal"
+- CRIU: Checkpoint/Restore in Userspace  https://criu.org
+  Linux feature that allows you to take a "snapshot" of an entire running application process and dump it to the disk.
+- CRaC (Coordinated Restore at Checkpoint) is the aforementioned CRIU API OpenLibert was asking for. It allows you to create a "checkpoint" - given memory dumps - at any point in the application's operation as defined by the software developer, using a command:
+  jcmd target/spring-boot-0.0.1-SNAPSHOT.jar JDK.checkpoint
+  It allows you (as a CRaC API user) to manage its state.
+    import jdk.crac.Context;
+    import jdk.crac.Core;
+    import jdk.crac.Resource;
+
+    class ServerManager implements Resource {
+    ...
+       @Override
+       public void beforeCheckpoint(Context<? extends Resource> context) throws Exception {
+           server.stop();
+       }
+
+       @Override
+       public void afterRestore(Context<? extends Resource> context) throws Exception {
+           server.start();
+       }
+    }
+- The OpenJDK mailing list had been leaking for some time that Amazon was working on improving support for Java in Serverless applications:
+  https://mail.openjdk.org/pipermail/discuss/2021-July/005863.html
+- Snapshotting mechanism provided by Firecracker:
+  https://github.com/firecracker-microvm/firecracker/blob/main/docs/snapshotting/snapshot-support.md
+
+================================================================================
+20221204
+ChatGPT: Optimizing Language Models for Dialogue
+https://openai.com/blog/chatgpt/
+tag="ai machine-learning chatgpt"
+We’ve trained a model called ChatGPT which interacts in a conversational way. The dialogue format makes it possible for ChatGPT to answer followup questions, admit its mistakes, challenge incorrect premises, and reject inappropriate requests. ChatGPT is a sibling model to InstructGPT, which is trained to follow an instruction in a prompt and provide a detailed response.
+We trained this model using Reinforcement Learning from Human Feedback (RLHF), using the same methods as InstructGPT, but with slight differences in the data collection setup. We trained an initial model using supervised fine-tuning: human AI trainers provided conversations in which they played both sides—the user and an AI assistant. We gave the trainers access to model-written suggestions to help them compose their responses.
+To create a reward model for reinforcement learning, we needed to collect comparison data, which consisted of two or more model responses ranked by quality. To collect this data, we took conversations that AI trainers had with the chatbot. We randomly selected a model-written message, sampled several alternative completions, and had AI trainers rank them. Using these reward models, we can fine-tune the model using Proximal Policy Optimization. We performed several iterations of this process.
+
+================================================================================
+20221214
+World Military Expenditures and Arms Transfers
+https://www.state.gov/world-military-expenditures-and-arms-transfers/
+tag="government government-failure military logistics budget"
+> WMEAT Will No Longer be Published
+> WMEAT 2021, which the Department of State published in December 2021, is the
+> final edition of World Military Expenditures and Arms Transfers (WMEAT).
+> Section 5114(b)(4) of the National Defense Authorization Act for Fiscal Year
+> 2022 repealed the 1994 statutory provision that required the Department of
+> State to publish an edition of WMEAT every year. Consistent with this repeal,
+> the Department of State will cease to produce and publish WMEAT.
+
+================================================================================
+20221214
+“Most transparent administration in history” stops publishing military expenditures, arms transfers report
+https://www.lawenforcementtoday.com/biden-stops-publishing-military-expenditures-arms-transfers-report/
+tag="government government-failure military logistics budget"
+> Joseph Patrick|August 27, 2022
+> WASHINGTON, DC- From the “most transparent administration in American history,” we find one item that has largely been buried by the mainstream media.
+> This week, the State Department announced that the World Military Expenditures and Arms Transfers report, which has been published for over 50 years, will no longer be produced. As usual, that provision was buried deep inside the National Defense Authorization Act for FY 2022 under Section 5114(b)(4).
+> Under that federal law, 22 U.S.C. 2593b, it required:
+>     No later than December 31 of each year, the Secretary of State shall publish an unclassified report on world military expenditures and arms transfers.
+>     Such report shall provide detailed, comprehensive, and statistical information regarding military expenditures, arms transfers, armed forces, and related economic data for each country of the world.
+>     In addition, such report shall include pertinent in-depth analyses as well as highlights with respect to arms transfers and proliferation trends and initiatives affecting such developments.
+> Now, the State Department will no longer be reporting those transfers and expenditures after the language was buried inside the most recent National Defense Authorization Act.
+> Why would the “most transparent administration in history” want to do that? Especially at a time when the money spigot has been opened to pour tens of billions of dollars in military aid to Ukraine.
+> The elimination of this important program comes as sources say that the United States is virtually unable to track what happens to the military equipment and weapons being sent to Ukraine ostensibly to fight against Vladimir Putin’s invading Russian army.
+> None other than CNN reported back in April that the U.S. “has few ways to track the substantial supply of anti-tank, anti-aircraft and other weaponry it has sent across the border into Ukraine.”
+> And this was four months ago, and the United States has poured many more tens of billions of dollars in military aid to Ukraine since then.
+> Meanwhile the administration doesn’t seem to be overly concerned by the lack of accountability, with a senior defense official telling CNN that the transfer of equipment to Ukraine was vital to holding off Russian aggression.
+> However both current and US officials and defense analysts warned that in the long-term, some of the weapons being sent to that country could end up in the hands of other militaries or militias that may be hostile to the U.S. and our allies.
+> “We have fidelity for a short time, but when it enters the fog of war, we have almost zero,” one source briefed on US intelligence told CNN. “It drops into a big black hole, and you have almost no sense of it at all after a short period of time.”
+> Meanwhile most recently, Sean O’Donnell, Acting Inspector General of the Department of Defense told Bloomberg that Ukrainian officials are not able to specify the exact location of arms and other military equipment supplied by the United States, with all of their accounting done on paper.
+> O’Donnell said Ukraine keeps track of all weapons using “hand receipts.”
+> “It’s all paper,” he said, while saying he has doubts Ukraine’s leadership has “much fidelity” as to where the arms end up.
+> He noted that “a lack of effective record keeping” also hindered efforts by the Pentagon to track weapons in both Afghanistan and Iraq.
+> Meanwhile, O’Donnell acknowledged that NATO officials are “confident that the security was sufficient for the transfer of weapons.”
+> O’Donnell’s office also promised to investigate the spending of Ukraine-related expenditures, along with intelligence sharing agreements between the Pentagon and NATO allies, the effectiveness of training of Ukrainian forces, and possible arms sales in black markets.
+
+================================================================================
+20221215
+Git partial clone (vs shallow clone)
+https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/
+tag="git dvcs compsci data-structure"
+Shallow clone (no commit history)
+  - truncates the commit history
+    git clone --depth=<N>
+  - best combined --single-branch --branch=<branch> options, to ensure only download the data for the commit we plan to use.
+  - unlike *partial* clone, commands such as `git merge-base` or `git log` show different results.
+  - fetch is much more expensive than w/ partial clone.
+  - use-case: NOT recommended (except for builds that don't later fetch).
+Partial clone (no blobs/trees)
+  - doc: https://git-scm.com/docs/git-clone#Documentation/git-clone.txt---filterltfilter-specgt
+  - enabled by specifying the --filter option in your git clone command.
+  - Blobless clones: git clone --filter=blob:none <url>
+    - will trigger a blob download whenever you need the contents of a file, but not if you only need the OID of a file.
+    - can perform commands like `git merge-base`, `git log`, or even `git log -- <path>` with the same performance as a full clone.
+  - Treeless clones: git clone --filter=tree:0 <url>
+    - downloads all reachable commits, then downloads trees and blobs on-demand.
+    - initial clone _much_ faster in a treeless clone than in a blobless or full clone
+    - use-case: for automated builds when you want to quickly clone, compile, then throw away the repository.
+    - current? limitations:
+      - a file history request such as git log -- <path>, will download root trees for almost every commit in the history!
+      - submodules behave very poorly with treeless clones.
+
+================================================================================
+20221219
+Git: Counting Objects: reachability bitmaps
+https://github.blog/2015-09-22-counting-objects/
+tag="git dvcs bitmap bloom-filter compsci data-structure"
+- Reachability queries: what objects in the graph can be reached from a set of commits?
+- Indexes (stored as bitmaps) contain the information required to answer these queries
+- To find a commit's reachable objects, we simply get its bitmap and check the
+  marked bits on it; the graph doesn’t need to be traversed anymore.
+
+================================================================================
+20221216
+vim_dev: Bug in patch 9.0.0907 causes E1312 in autocmd
+https://groups.google.com/g/vim_dev/c/Cw8McBH6DDM
+tag="vim mailing-list development text-editor history"
+Bram Moolenaar:
+> At some point I thought I should drop auto commands completely, because
+> it's just getting too complicated and too many crashes have had to be
+> fixed. And there are probably a few more that we haven't found yet.
+> .
+> But users, and especialy plugin writers, depend on auto commands, and
+> there is no good replacement, thus they are still here. But let it be
+> clear that supporting auto commands is almost infeasible, thus you can
+> expect some limitations. I currently tend to prevent things from going
+> bad rather than deal with the problems caused by them. E.g. disallow
+> closing and splitting windows rather than dealing with a window
+> disappearing "under our fingers". Sometimes it's not at all clear what
+> to do then.
+
+================================================================================
+20230101
+The Power of Toys | David Nolen | Lambda Days 2022
+https://www.youtube.com/watch?v=qDGTxyIrKJY
+tag="clojure programming systems compsci spec engineering software-engineering"
+abstraction vs generalization
+- "toy" abstraction more powerful
+- generalization implies specification (risky, costly to change if it has consumers)
+property-based testing (PBT)
+- unlike fuzzing, can do "shrinking"
+
+================================================================================
+20230104
+Ask HN: Why isn't JSON-RPC more widely adopted?
+https://news.ycombinator.com/item?id=34211796
+tag="json rpc protocol"
+JSON-RPC (vs HTTP):
+- (main problem) Method Name is a part of the body, so you must parse it to decide how to dispatch it.
+- Error Code is a part of the response, so you must parse it each time to decide if it's success.
+- JSON-RPC can be batched, which introduces a lot of unspecified use cases.
+  - how to dispatch those batched? Should they go to the same upstream? Or can it be parallelized? Should the order be preserved?
+  - With batches, the slowest request always blocks the in-flight response. What if some of them never finish?
+- ID can be a different type (int or string), which sometimes introduces two different handlers in the code.
+  - No guarantees IDs are not repeating in the same batch.
+  - Some clients rely only on request/response order ignoring the IDs.
+- No Auth, Caching, etc. (compare HTTP)
+HTTP has auth, routing, error handling, multiplexing, etc.
+
+================================================================================
+20230105
+Easy, alternative "soft delete" (postgresql): `deleted_record_insert`
+https://brandur.org/fragments/deleted-record-insert
+tag="sql postgresql database archive undelete"
+    This function will generically insert a deleted record from _any_ source table:
+        CREATE FUNCTION deleted_record_insert() RETURNS trigger
+            LANGUAGE plpgsql
+        AS $$
+            BEGIN
+                EXECUTE 'INSERT INTO deleted_record (data, object_id, table_name) VALUES ($1, $2, $3)'
+                USING to_jsonb(OLD.*), OLD.id, TG_TABLE_NAME;
+
+                RETURN OLD;
+            END;
+        $$;
+    Invoke it as an AFTER DELETE trigger on any table for which you want to retain soft deletion records:
+        CREATE TRIGGER deleted_record_insert AFTER DELETE ON credit
+            FOR EACH ROW EXECUTE FUNCTION deleted_record_insert();
+        CREATE TRIGGER deleted_record_insert AFTER DELETE ON discount
+            FOR EACH ROW EXECUTE FUNCTION deleted_record_insert();
+        CREATE TRIGGER deleted_record_insert AFTER DELETE ON invoice
+            FOR EACH ROW EXECUTE FUNCTION deleted_record_insert();
+
+================================================================================
+20230105
+Napoleon's Commentaries on the Wars of Julius Caesar
+https://www.napoleon.org/en/magazine/publications/napoleons-commentaries-wars-julius-caesar/
+tag="book caesar napoleon war tactics strategy"
+ISBN  1526716275, 9781526716279
+on caesar's death:
+  > if you destroy aristocracy, it will be recreated among the powerful families of the Third Estate.
+  > it will resurface among successful artisans and the people.
+  > a prince gains nothing by such a displacement of the aristocracy.
+  > on the contrary, he restores orde by letting it continue in its natural state,
+  > by reconstituting the ancient families on new principles. such a state of
+  > affairs was more necessary than ever at Rome. Rome needed the magic attaching
+  > to men with names like scipio, aemilius paulus, metellus, claudius, fabius.
+on claims that ceasar wanted to be king:
+  > he never thought of making himself king.
+  > the sect to which Brutus adhered would not admit of any sentiment which might
+  > cause him to hold back. Full of the notions hostile to tyranny which were
+  > taught in the Greek schools of philosophy, the assassination of any man who
+  > was effectively above the law was viewed by him as legitimate.
+caesar "did nothing without a decree from the senate".
+  > the statues of Pompey had been overturned; he restored them, to acclaim.
+
+================================================================================
+20230110
+Hard to work with.
+https://lethain.com/hard-to-work-with/
+tag="people-management work industry career"
+> folks fail in an organization primarily because they want to hold others to a higher standard than their organization’s management is willing to enforce.
+> A few examples:
+> - An interim Vice-President of Engineering (VPE) at a company whose CEO won’t finalize the role because one peer is upset they didn’t get the role. That peer has been struggling for some time, but the CEO doesn’t want to “rock the boat” so leaves them both lingering. Attempts to hold their peer accountable are viewed as “evidence they’re not ready” for permanent VPE role
+> - An engineering manager working with a product manager whose proposals are both very expensive to implement and misaligned with the company’s goals. The engineering manager flags the issue to product leadership and it gets reframed from a concern about the product manager’s performance into an issue of two peers not collaborating well. Both are pushed to “collaborate better” but the team’s impact remains poor
+> - Engineering directors at a company who instituted company-wide bar raisers because one of their peers was unwilling to maintain the shared hiring bar. The CTO was unwilling to hold that director accountable, so the other directors followed the only solution they could think of that wouldn’t be interpreted as “interpersonal conflict” by the avoidant CTO
+> common pattern: The main character is trying to do their job effectively, but can’t due to the low performance of a peer. They escalate to the appropriate manager to address the issue, but that manager transforms the performance issue into a relationship issue: it’s not that the peer isn’t performing, it’s just that the two of you don’t like each other. Instead of being the manager’s responsibility to resolve the performance issue, it’s now the main character’s responsibility. By attempting to drive accountability in their peer, the main character has blocked their own progress (“they’re just hard to work with”) without accomplishing anything.
+> the manager is almost always aware of the underlying issue, and for some reason they’re simply unwilling to confront it.
+>
+> solution:
+> - lead with constructive energy directed towards a positive outcome. Even if you can’t get your peer’s performance addressed directly, you can often overcome your peer’s bad performance by generating excitement in the direction you want to go.
+
+================================================================================
+20230115
+Emmanuel Todd (French intellectual) claims that the "Third World War has started."
+https://twitter.com/RnaudBertrand/status/1613924570725244928
+tag="foreign-policy history politics government strategy russia ukraine china nato europe usa war reserve-currency"
+> Emmanuel Todd: «La Troisième Guerre mondiale a commencé»
+> GRAND ENTRETIEN - Au-delà de l’affrontement militaire entre la Russie et l’Ukraine, l’anthropologue insiste sur la dimension idéologique et culturelle de cette guerre et sur l’opposition entre l’Occid…
+> https://www.lefigaro.fr/vox/monde/emmanuel-todd-la-troisieme-guerre-mondiale-a-commence-20230112#Echobox=1673601494-1
+> He says "it's obvious that the conflict, started as a limited territorial war and escalating to a global economic confrontation, between the whole of the West on the one hand and Russia and China on the other hand, has become a world war."
+> He believes that "Putin made a big mistake early on, which is [that] on the eve of the war [everyone saw Ukraine] not as a fledgling democracy, but as a society in decay and a “failed state” in the making. [...] I think the Kremlin's calculation was that this decaying society...
+>
+> ... would crumble at the first shock. But what we have discovered, on the contrary, is that a society in decomposition, if it is fed by external financial and military resources, can find in war a new type of balance, and even a horizon, a hope."
+> He says he agrees with Mearsheimer's analysis of the conflict: "Mearsheimer tells us that Ukraine, whose army had been overtaken by NATO soldiers (American, British and Polish) since at least 2014, was therefore a de facto member of the NATO, and that the Russians had...
+> ... announced that they would never tolerate Ukraine in NATO. From their point of view, the Russians are therefore in a war that is defensive and preventive. Mearsheimer added that we would have no reason to rejoice in the eventual difficulties of the Russians because...
+> ...since this is an existential question for them, the harder it would be, the harder they would strike. The analysis seems to hold true."
+> He however has some criticism for Mearsheimer:
+>
+> "Mearsheimer, like a good American, overestimates his country. He considers that, if for the Russians the war in Ukraine is existential, for the Americans it is basically only one 'game' of power among others. After Vietnam...
+> ...Iraq and Afghanistan, what's one more debacle? The basic axiom of American geopolitics is: 'We can do whatever we want because we are sheltered, far away, between two oceans, nothing will ever happen to us'. Nothing would be existential for America.
+>
+> Insufficient analysis which today leads Biden to proceed mindlessly. America is fragile. The resistance of the Russian economy is pushing the American imperial system towards the precipice. No one had expected that the Russian economy would hold up against the 'economic power'...
+> ...of NATO. I believe that the Russians themselves did not anticipate it.
+>
+> If the Russian economy resisted the sanctions indefinitely and managed to exhaust the European economy, while it itself remained, backed by China, American monetary and financial controls of the world...
+> ...would collapse, and with them the possibility for United States to fund their huge trade deficit for nothing. This war has therefore become existential for the United States. No more than Russia, they cannot withdraw from the conflict, they cannot let go. This is why we...
+> ... are now in an endless war, in a confrontation whose outcome must be the collapse of one or the other."
+> He firmly believes the US is in decline but sees it as bad news for the autonomy of vassal states:
+>
+> "I have just read a book by S. Jaishankar, Indian Minister of Foreign Affairs (The India Way), published just before the war, who sees American weakness, who knows that the...
+> ...confrontation between China and the US will have no winner but will give space to a country like India, and to many others. I add: but not to Europeans. Everywhere we see the weakening of the US, but not in Europe and Japan because one of the effects of the retraction of...
+>
+> ...the imperial system is that the United States strengthens its hold on its initial protectorates. As the American system shrinks, it weighs ever more heavily on the local elites of the protectorates (and I include all of Europe here). The first to lose all national autonomy...
+> ... will be (or already are) the English and the Australians. The Internet has produced human interaction with the US in the Anglosphere of such intensity that its academic, media and artistic elites are, so to speak, annexed. On the European continent we are somewhat...
+> ... protected by our national languages, but the fall in our autonomy is considerable, and rapid. Let's remember the Iraq war, when Chirac, Schröder and Putin held joint anti-war press conferences."
+> He underlines the importance of skills and education: "The US is now twice as populated as Russia (2.2 times in student age groups). But in the US only 7% are studying engineering, while in Russia it is 25%. Which means that with 2.2 times fewer people studying, Russia trains...
+> ...30% more engineers. The US fills the gap with foreign students, but they're mainly Indians and even more Chinese. This is not safe and is already decreasing. It is a dilemma of the American economy: it can only face competition from China by importing skilled Chinese labor."
+> On the ideological and cultural aspects of the war: "When we see the Russian Duma pass even more repressive legislation on 'LGBT propaganda', we feel superior. I can feel that as an ordinary Westerner. But from a geopolitical point of view, if we think in terms of...
+> ... soft power, it is a mistake. On 75% of the planet, the kinship organization was patrilineal and one can sense a strong understanding of Russian attitudes. For the collective non-West, Russia affirms a reassuring moral conservatism."
+> He continues: "The USSR had a certain form of soft power [but] communism basically horrified the whole Muslim world by its atheism and inspired nothing particular in India, outside of West Bengal and Kerala. However, today, Russia which repositioned itself as the archetype...
+> ...of the great power, not only anti-colonialist, but also patrilineal and conservative of traditional mores, can seduce much further. [For instance] it's obvious that Putin's Russia, having become morally conservative, has become sympathetic to the Saudis who I'm sure have a...
+> ...bit of a hard time with American debates over access for transgender women in the ladies' room.
+>
+> Western media are tragically funny, they keep saying, 'Russia is isolated, Russia is isolated'. But when we look at the votes at the UN, we see that 75% of the world does not...
+> ...follow the West, which then seems very small.
+>
+> With an anthropologist reading of this [divide between the West and the rest] we find that countries in the West often have a nuclear family structure with bilateral kinship systems, that is to say where male and female kinship...
+>
+> ...are equivalent in the definition of the social status of the child. [Within the rest], with the bulk of the Afro-Euro-Asian mass, we find community and patrilineal family organizations. We then see that this conflict, described by our media as a conflict of political...
+> ...values, is at a deeper level a conflict of anthropological values. It is this unconscious aspect of the divide and this depth that make the confrontation dangerous."
+
+================================================================================
+20230115
+Database is faster than filesystem
+https://www.sqlite.org/fasterthanfs.html
+tag="compsci filesystem database"
+SQLite reads and writes small blobs (for example, thumbnail images) 35% faster¹ than the same blobs can be read from or written to individual files on disk using fread() or fwrite().
+https://news.ycombinator.com/item?id=34387671
+  > Database is faster than a nominal file system, though it can't quite replace them.
+  > Microsoft tried (winfs) but ultimately it fizzled, why? Important edge cases (like swap) that databases do really poorly.
+  > Database is But for complex and compound documents using a database is a really stellar way to go.
+  > - doesn't have the "chunking" problem where allocation blocks are used for both
+  >   data and metadata in file systems so you pick a size that is least bad for
+  >   both, versus one "optimum" size for disk IO to keep the disk channel
+  >   bandwidth highly utilized and the naming/chunking part as records inside that.
+
+================================================================================
+20230116
+William Buckland
+https://en.wikipedia.org/wiki/William_Buckland
+tag="history england france louis-xiv"
+William Buckland (Dean of Westminster ca. 1845) ate the mummified heart of King Louis XIV.
+
+================================================================================
+20230130
+Carbonyl: Chromium running inside your terminal
+https://github.com/fathyb/carbonyl
+tag="terminal tui webbrowser web"
+Does not require a window server (i.e. works in a safe-mode console), and even runs through SSH.
+Carbonyl originally started as https://github.com/fathyb/html2svg and is now the runtime behind it.
+
+================================================================================
+20230131
+"Gerade in dieser Krise sieht man doch den Wahnsinn der Atomkraft", Veröffentlicht am 30.10.2022, Von Claus Christian Malzahn
+https://www.welt.de/politik/deutschland/plus241838411/Juergen-Trittin-Mit-diesem-Irrsinn-endlich-aufhoeren.html
+tag="environmentalism energy nuclear-energy climate-change politics government-policy"
+https://twitter.com/ryan_pickering_/status/1616275474577231872
+> In a recent interview, prominent German Green Party German Green Party
+> politician Jürgen Trittin (Federal Minister for the Environment, Nature
+> Conservation and Nuclear Safety from 1998 to 2005):
+> "It was clear to us that we couldn't just prevent nuclear power by protesting
+> on the street. As a result, we in the governments ... tried to make nuclear
+> power plants unprofitable by increasing the safety requirements." -October 31,
+> 2022 (translated from German)
+> In the 1970s, Germany had a plan to power most of its economy with nuclear energy.

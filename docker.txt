@@ -58,6 +58,21 @@ Minimal container by leveraging "base image" concept:
 DOCKERFILE/OCI SPEC
   - Layers are created at the end of each RUN. If files don't exist at the end of the RUN they are not stored.
 
+Multi-stage image: use "FROM … AS …" to create a stage
+  https://docs.docker.com/build/building/multi-stage/
+
+  Example Dockerfile:
+      FROM some-language-runtime:major.minor.patch as base
+      FROM base as build
+      # here are statements that build your application
+      FROM base as vscode-devcontainer
+      # Install Git to be able to use it right in the development container
+      RUN apt-get update && apt-get install git -y
+      # install further useful tools, e.g. pre-commit.org or others
+      FROM base as production-app
+      COPY --from=build /some/artifact.bin /somewhere/
+      ENTRYPOINT something
+
 ==============================================================================
 OPS
 

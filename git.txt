@@ -47,6 +47,27 @@ CONFIGURATION: ALIASES
     #Use GIT_TRACE=1 to make the alias processing transparent:
     $ GIT_TRACE=1 git foo
 
+CLONING
+    https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/
+    Shallow clone
+      - truncates the commit history
+        git clone --depth=<N>
+      - best combined --single-branch --branch=<branch> options, to ensure we only download the data for the commit we plan to use immediately.
+      - unlike *partial* clone, commands such as `git merge-base` or `git log` show different results.
+    Partial clone
+      - doc: https://git-scm.com/docs/git-clone#Documentation/git-clone.txt---filterltfilter-specgt
+      - enabled by specifying the --filter option in your git clone command.
+      - Blobless clones: git clone --filter=blob:none <url>
+        - will trigger a blob download whenever you need the contents of a file, but not if you only need the OID of a file.
+        - can perform commands like `git merge-base`, `git log`, or even `git log -- <path>` with the same performance as a full clone.
+      - Treeless clones: git clone --filter=tree:0 <url>
+        - downloads all reachable commits, then downloads trees and blobs on-demand.
+        - initial clone _much_ faster in a treeless clone than in a blobless or full clone
+        - use-case: for automated builds when you want to quickly clone, compile, then throw away the repository.
+        - current? limitations:
+          - a file history request such as git log -- <path>, will download root trees for almost every commit in the history!
+          - submodules behave very poorly with treeless clones.
+
 BRANCHING
     git checkout -b new_branch [branch to track]
 
