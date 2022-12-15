@@ -9759,3 +9759,12 @@ Arcan: among its many subprojects are SHMIF and TUI.
     https://arcan-fe.com/2022/04/02/the-day-of-a-new-command-line-interface-shell/
     SHMIF is an IPC system -- initially to compartment and sandbox media parsing that quickly evolved to encompass all inter-process communication needed for something on the scale of a full desktop.
     TUI is an API layered on top of SHMIF client side, along with a text packing format (TPACK). It was first used to write a terminal emulator that came bundled with Arcan, and then evolved towards replacing all uses of ECMA-48 and related escape codes, as well as kernel-tty and userspace layers. The end goal being completely replacing all traces of ncurses, readline, in-band signalling and so on -- to get much needed improved CLIs and TUIs that cooperate with an outer graphical desktop shell rather than obliviously combat it.
+
+================================================================================
+20221214
+Smithy Client Generator for TypeScript
+https://github.com/awslabs/smithy-typescript
+tag="aws smithy codegen typescript"
+generate HTTP server and client from smithy model
+https://aws.amazon.com/blogs/devops/smithy-server-and-client-generator-for-typescript/
+https://github.com/aws-samples/smithy-server-generator-typescript-sample
