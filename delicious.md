@@ -10138,3 +10138,52 @@ https://twitter.com/ryan_pickering_/status/1616275474577231872
 > power plants unprofitable by increasing the safety requirements." -October 31,
 > 2022 (translated from German)
 > In the 1970s, Germany had a plan to power most of its economy with nuclear energy.
+
+================================================================================
+20230124
+RFC 8628: Device Authorization Grant
+https://noise.getoto.net/2022/11/30/making-unphishable-2fa-phishable/
+tag="security phishing oidc oauth auth webapp web network softwareengineering rfc spec login"
+What is RFC 8628 Device Authorization Grant? Imagine a device that you don’t want to type a password into – either it has no input devices at all (eg, some IoT thing) or it’s awkward to type a complicated password (eg, a TV with an on-screen keyboard).
+  You want that device to be able to access resources on behalf of a user, so you want to ensure that that user authenticates the device.
+  RFC 8628 describes an approach where the device requests the credentials, and then presents a code to the user (either on screen or over Bluetooth or something), and starts polling an endpoint for a result.
+  The user visits a URL and types in that code (or is given a URL that has the code pre-populated) and is then guided through a standard auth process.
+  The key distinction is that if the user authenticates correctly, the issued credentials are passed back to the device rather than the user – on successful auth, the endpoint the device is polling will return an oauth token.
+Vulnerability: what if an attacker obfuscates tricks a user into clicking such a URL?
+  The user will then be prompted to approve the request, but the language used
+  here is typically very generic: AWS simply says “An application or device
+  requested authorization using your AWS sign-in” and has a big “Allow” button,
+  giving the user no indication at all that hitting “Allow” may give a third
+  party their credentials.
+
+================================================================================
+20230131
+AWS SSO OpenID Connect (OIDC)
+https://blog.christophetd.fr/phishing-for-aws-credentials-via-aws-sso-device-code-authentication/
+tag="security oidc oauth auth webapp web network softwareengineering rfc spec login"
+The AWS SSO OpenID Connect (OIDC) service currently implements only the portions of the OAuth 2.0 Device Authorization Grant standard (https://tools.ietf.org/html/rfc8628) that are necessary to enable SSO authentication with the AWS CLI.
+Support for other OIDC flows frequently needed for native applications, such as Authorization Code Flow (+ PKCE), will be addressed in future releases.
+https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html
+USING AWS SSO FROM THE CLI
+    $ aws configure sso
+    SSO start URL [None]: [None]: https://my-sso-portal.awsapps.com/start
+    SSO region [None]:us-east-1
+    Using a browser, open the following URL:
+    https://device.sso.eu-central-1.amazonaws.com/
+    and enter the following code:
+    QCFK-N451
+After this initial authentication flow, you can list your accessible AWS accounts and roles.
+THE *DEVICE CODE* GRANT TYPE
+  Under the hood, the following is happening:
+  1. Client app (AWS CLI) registers an OIDC client by calling sso-oidc:RegisterClient. Does not need authentication!
+  2. Client app calls sso-oidc:StartDeviceAuthorization. This generates a URL like https://device.sso.eu-central-1.amazonaws.com/?user_code=SPNB-NVKN
+  3. User opens the link and is redirected to authenticate on their identity provider (IdP).
+     If using AWS on a daily basis, it is likely they are already logged in and transparently redirected to the next step.
+  4. User opens the URL and sees the following prompt on AWS website:
+     "Are you sure? [Sign in to ...]"
+  5. Once the end user has accepted the prompt, the client app calls sso-oidc:CreateToken to get an AWS SSO access token.
+     With the access token, the client app can use the AWS SSO API to:
+     - List available AWS accounts (sso:ListAccounts)
+     - List available roles in those AWS accounts (sso:ListAccountRoles)
+     - Assume any of those roles via temporary STS credentials (sso:GetRoleCredentials)
+
