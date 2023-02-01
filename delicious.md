@@ -8562,6 +8562,7 @@ tag="physics concepts mental-model statistics"
   might eventually come to have the same temperature throughout, or that coin
   flips coin may come up heads and tails half the time.
 - Taleb: "Average of the function != function of the averages!"
+- ~Law of Large Numbers?
 
 ================================================================================
 20211121
@@ -10187,3 +10188,170 @@ THE *DEVICE CODE* GRANT TYPE
      - List available roles in those AWS accounts (sso:ListAccountRoles)
      - Assume any of those roles via temporary STS credentials (sso:GetRoleCredentials)
 
+================================================================================
+20230208
+1932 Democratic Party (FDR) Platform
+https://www.presidency.ucsb.edu/documents/1932-democratic-party-platform
+tag="history foreign-policy politics history fdr eisenhower new-deal"
+> We advocate an immediate and drastic reduction of governmental expenditures by
+> abolishing useless commissions and offices, consolidating departments and
+> bureaus, and eliminating extravagance to accomplish a saving of not less than
+> twenty-five per cent in the cost of the Federal Government. And we call upon
+> the Democratic Party in the states to make a zealous effort to achieve
+> a proportionate result.
+> ...
+> The removal of government from all fields of private enterprise except where
+> necessary to develop public works and natural resources in the common
+> interest.
+> ...
+> We advocate a firm foreign policy, including peace with all the world and the
+> settlement of international disputes by arbitration; no interference in the
+> internal affairs of other nations; ...
+> ...
+> Simplification of legal procedure and reorganization of the judicial system to
+> make the attainment of justice speedy, certain, and at less cost.
+>
+> ... the doctrine which guides us now in the hour of our country's need: equal
+> rights to all; special privilege to none.
+
+================================================================================
+20230209
+How America Took Out The Nord Stream Pipeline
+https://seymourhersh.substack.com/p/how-america-took-out-the-nord-stream
+tag="us-govt russia politics war energy"
+> In the immediate aftermath of the pipeline bombing, the American media treated
+> it like an unsolved mystery. Russia was repeatedly cited as a likely culprit,
+> spurred on by calculated leaks from the White House—but without ever
+> establishing a clear motive for such an act of self-sabotage, beyond simple
+> retribution. A few months later, when it emerged that Russian authorities had
+> been quietly getting estimates for the cost to repair the pipelines, the New
+> York Times described the news as “complicating theories about who was behind”
+> the attack. No major American newspaper dug into the earlier threats to the
+> pipelines made by Biden and Undersecretary of State Nuland.
+
+================================================================================
+20230211
+Everything I believed about nuclear waste was wrong
+https://zionlights.substack.com/p/everything-i-believed-about-waste-was-wrong
+tag="environmentalism energy nuclear-energy climate-change politics"
+- All the high-level nuclear waste produced in the world would fit in a single
+  football field to a height of approximately ten yards.
+- In France, where fuel is reprocessed, just 0.2% of all radioactive waste by
+  volume is classified as high-level waste.
+- Radioactive decay means that after only 40 years, radioactivity used fuel has
+  decreased to about 1/1000 of when it was unloaded. Less than 1% is radioactive
+  for 10,000 years.  That portion can be easily isolated and shielded to protect
+  humans and wildlife.
+- There is currently enough energy in US nuclear waste to power the entire
+  country for 100 years with clean energy.
+
+================================================================================
+20230220
+Gentle Introduction to CRDTs
+https://vlcn.io/blog/gentle-intro-to-crdts.html
+tag="todo crdt data-structure compsci"
+https://news.ycombinator.com/item?id=34746716
+
+================================================================================
+20230220
+Did Insurance Fire Brigades let uninsured buildings burn?
+https://www.tomscott.com/corrections/firemarks/
+tag="history economics"
+> In the early years of fire insurance, insurance company fire brigades seemingly made little distinction between insured and uninsured properties. They were instructed to attend and help put out all fires. The grounds for this policy included the risk of fire-spread between uninsured and insured properties, the advertising value of the firemen and their engines, and charitable acts for those who could not afford insurance.
+> In principle, this policy seems to have remained in force throughout the 18th century. In practice, though, changing circumstances led to keen rivalry between fire brigades, whether insurance company, parish or private. Firstly, monetary rewards were introduced for the earliest attendees at fires. That innovation led to engines racing each other through the streets. As the number of fire insurance companies grew, so, too, did the number of fire engines. Once at the fire, too many engines were too often competing for very limited water supplies.
+> When the nature of the firemen is added to this situation, the scene is set for more competition, and chaos. This, in turn, can reasonably be imagined as having led to conflict – both verbal and physical. With no reward, no water, and no insurance interest in a burning building, it is not difficult to envisage firemen standing back on occasion, jeering and generally interfering with rival brigades fighting a fire in which they did have an interest. Or, alternatively, simply packing up and going home. Arguably, therefore, the legend of insurance fire brigades letting uninsured buildings burn originated in the first half of the 18th century.
+> Reciprocal fire-fighting arrangements had long been made between insurance companies. They started to develop into more formal working arrangements in the decades around the turn of the 19th century. At the same time, insurance brigades continued to follow their employers’ directives to attend and extinguish all fires, whether insured or not. They were the de facto established fire service for most localities. Fire marks became redundant.
+> Despite these more formalized joint arrangements, rivalry and discord are still ascribed to firemen as the 19th century progressed. They brought “notoriety” to their employers, and sometimes “evil” to the fire-grounds – including declining to put out fires in uninsured properties. Insurance companies themselves, though, were sometimes minded not to send engines to uninsured properties, unless their expenses were guaranteed to be met.
+> Demands on the insurance brigades, and costs to their employers, grew as the 19th century progressed. Some brigades, including those for London, eventually handed over to newly established municipal fire forces. Otherwise, they soldiered on, but only on two recorded occasions did they threaten to stop attending fires in uninsured properties. These instances, in 1871 and 1895, cannot be regarded as the foundation of the legend.
+
+================================================================================
+20230220
+Holepunch: powerful suite of independent components to effortlessly construct peer-to-peer applications.
+https://docs.holepunch.to/
+tag="distributed-systems p2p peer-to-peer"
+- Hypercore: A distributed, secure append-only log is a useful tool for creating fast and scalable applications without a backend, as it is entirely peer-to-peer.
+- Corestore: A Hypercore factory designed to facilitate the management of sizable named Hypercore collections.
+- Hyperswarm: A high-level API for finding and connecting to peers who are interested in a "topic." 
+-   - @hyperswarm/dht: A DHT powering Hyperswarm. Through this DHT, each server is bound to a unique key pair, with the client connecting to the server using the server's public key.
+-   - @hyperswarm/secretstream: Secretstream is used to securely create connections between two peers in Hyperswarm.
+- Hyperbee: An append-only B-tree running on a Hypercore. It provides key-value store API, with methods for inserting and getting key/value pairs, atomic batch insertions, and creation of sorted iterators.
+- Hyperdrive: A secure, real-time distributed file system that simplifies peer-to-peer (P2P) file sharing. It provides an efficient way to store and access data across multiple connected devices in a decentralized manner.
+
+================================================================================
+20230220
+Linux Foundation purpose
+https://news.ycombinator.com/item?id=34029488
+tag="linux oss legal"
+> Linux Foundation employee here [0]. The value the Linux Foundation is
+> providing the legal infrastructure for competitors to work together and stay
+> clear of anti-trust problems. Every one of our meetings is supposed to start
+> with this slide [1] or similar [2].
+0: https://www.linkedin.com/in/ryjones/
+1: https://wiki.hyperledger.org/download/attachments/20024102/H...
+2: https://www.linuxfoundation.org/legal/antitrust-policy
+
+================================================================================
+20230220
+Google Maps not profitable?
+https://news.ycombinator.com/item?id=34029202
+tag="google maps antitrust monopoly"
+@AlbertCory: "dominance" does not equal "profits." How do I know this?
+> I was in Google Patent Litigation, and there were tons of suits against Maps.
+> In all of these, the plaintiff strains as hard as they can to find some
+> connection to Ads, because that's where the money is. Maps doesn't bring in
+> much money.
+>
+> "Oh, but imputed revenue!" you say? Well, no one has ever succeeded in
+> defining that and proving it. You can be certain that Google won't ever do it,
+> even internally, because that would end up in Discovery.
+
+================================================================================
+20230220
+You can have geothermal power everywhere if you drill deep enough
+https://www.treehugger.com/geothermal-drilling-technology-quaise-energy-5219924
+tag="energy geothermal"
+https://news.ycombinator.com/item?id=30476050
+- Outdated geothermal energy that taps underground water reservoirs near heat sources has been shown to cause earthquakes and other not good side effects.
+  All of those effects are associated with water being released from aquifers
+  that were previously sealed, or ground changes due to water incursion into
+  previously dry structures (which happened in the reference German town). These
+  guys however are digging below all of that. In fact finding water that near
+  the surface would likely cause them to determine the location unsuitable.
+- *Modern* geothermal plants are "binary" in that they have their own water loop
+  which goes down, gets heated, and then comes back as steam.
+  https://www.eia.gov/energyexplained/geothermal/geothermal-power-plants.php
+- What this proposes is essentially drilling into rock 6+ miles down. That is
+  about 5 to 10 times deeper than current plants. Using the heat from the rock
+  which is near 1000 degrees to heat water that they pump through it into steam
+  and recover through the turbines. The whole "pipe" from well head to return is
+  nominally sealed with the vitrified walls created by the microwaving process.
+  - The risk of earthquakes and other geo-technical disturbances is minimized by
+    what is essentially a closed loop system.
+  - It is true that you're going to cool the crust (energy is conserved after
+    all and if you're running turbines it means the crust is cooling) the
+    question then is how quickly is that heat returned by other actions. And of
+    course if you were to pull "all" the energy out fast enough this way you
+    could presumably "freeze" the core of the Earth and that would be a bad
+    thing, but we're talking about way more energy than the entire world
+    consumes in centuries and I'm not sure how to judge that risk compared to
+    the heat generation mechanisms inside the planet.
+
+================================================================================
+20230220
+Realtime Collaborative Diagramming: Mermaid in Notion
+https://www.happyandeffective.com/blog/realtime-collaborative-diagramming-in-notion-with-mermaidjs
+tag="mermaid diagram ascii examples"
+
+================================================================================
+20230220
+Human flesh search engine
+https://en.wikipedia.org/wiki/Human_flesh_search_engine
+tag="concept internet network"
+Chinese term for "activist" distributed research, based on massive human
+collaboration, using Internet media such as blogs and forums.
+  1. strong offline elements including information acquisition through offline channels and activism.
+  2. voluntary crowd sourcing: Web users gather together to share information, conduct investigations.
+Similar to "doxing."
+Can be used to expose government corruption, identify hit and run drivers, and
+exposing scientific fraud.
+2010 IEEE Computer Society paper A Study of the Human Flesh Search Engine: Crowd-Powered Expansion of Online Knowledge.
