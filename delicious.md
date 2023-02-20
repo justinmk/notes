@@ -10355,3 +10355,41 @@ Similar to "doxing."
 Can be used to expose government corruption, identify hit and run drivers, and
 exposing scientific fraud.
 2010 IEEE Computer Society paper A Study of the Human Flesh Search Engine: Crowd-Powered Expansion of Online Knowledge.
+
+================================================================================
+20230220
+Garage, our self-hosted distributed object storage solution
+https://garagehq.deuxfleurs.fr/blog/2022-introducing-garage/
+tag="distributed-systems storage web-hosting network p2p decentralized crdt"
+https://news.ycombinator.com/item?id=30257041
+- License: AGPL3
+- "We are a hosting association that wanted to put their servers at home _and_
+  sleep at night. This demanded inter-home redundancy of our data. But none of
+  the existing solutions (MinIO, Ceph...) are designed for high inter-node
+  latency. Hence Garage! Your cheap and proficient object store: designed to run
+  on a toaster, through carrier-pigeon-grade networks, while still supporting
+  a tons of workloads (static websites, backups, Nextcloud... you name it)"
+- Garage is a distributed storage solution, that automatically replicates your
+  data on several servers. Garage takes into account the geographical location
+  of servers, and ensures that copies of your data are located at different
+  locations when possible for maximal redundancy, a unique feature in the
+  landscape of distributed storage systems.
+- S3 protocol
+- uses CRDTs to avoid unnecessary chit-chat between servers
+- compare to SeaweedFS:
+  - Garage is easier to deploy and to operate: you don't have to manage independent components like the filer, the volume manager, the master, etc.
+    It also seems that a bucket must be pinned to a volume server on SeaweedFS.
+    In Garage, all buckets are spread on the whole cluster.
+    So you do not have to worry that your bucket fills one of your volume server.
+  - Garage works better in presence of crashes.
+    SeaweedFS "automatic master failover": uses Raft, I suppose either by running an healthcheck every second which lead to data loss on a crash, or sending a request for each transaction, which creates a huge bottleneck in their design.
+  - Better scalability: because there is no special node, there is no bottlenecks.
+    With SeaweedFS, all the requests have to pass through the master?
+- design:
+  > So let's take the example of a 9-nodes clusters with a 100ms RTT over the network to understand. In this specific (yet a little bit artificial) situation, Garage particularly shines compared to Minio or SeaweedFS (or any Raft-based object store) while providing the same consistency properties.
+  > For a Raft-based object store, your gateway will receive the write request and forward it to the leader (+ 100ms, 2 messages). Then, the leader will forward in parallel this write to the 9 nodes of the cluster and wait that a majority answers (+ 100ms, 18 messages). Then the leader will confirm the write to all the cluster and wait for a majority again (+ 100ms, 18 messages). Finally, it will answer to your gateway (already counted in the first step). In the end, our write took 300ms and generated 38 messages over the cluster.
+  > Another critical point with Raft is that your writes do not scale: they all have to go through your leader. So on the writes point of view, it is not very different from having a single server.
+  > For a DynamoDB-like object store (Riak CS, Pithos, Openstack Swift, Garage), the gateway receives the request and know directly on which nodes it must store the writes. For Garage, we choose to store every writes on 3 different nodes. So the gateway sends the write request to the 3 nodes and waits that at least 2 nodes confirm the write (+ 100ms, 6 messages). In the end, our write took 100ms, generated 6 messages over the cluster, and the number of writes is not dependent on the number of (raft) nodes in the cluster.
+  > With this model, we can still provide always up to date values. When performing a read request, we also query the 3 nodes that must contain the data and wait for 2 of them. Because we have 3 nodes, wrote at least on 2 of them, and read on 2 of them, we will necessarily get the last value. This algorithm is discussed in Amazon's DynamoDB paper[0].
+  > I reasoned in a model where there is no bandwidth, no CPU limit, no contention at all. In real systems, these limits apply, and we think that's another argument in favor of Garage :-)
+  > [0]: https://dl.acm.org/doi/abs/10.1145/1323293.1294281
