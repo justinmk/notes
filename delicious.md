@@ -6216,10 +6216,14 @@ https://research.swtch.com/version-sat
 VERSION is reducible to 3-SAT.
 tags: dependency-management compsci sat-solver graph-theory
 
-Library for solving packages and reading repositories
 ================================================================================
+Libsolv: library for solving package dependencies and reading repositories using SAT solver
 https://github.com/openSUSE/libsolv
 tags: dependency-management compsci sat-solver graph algorithm
+Used by Suse, Fedora, Haiku https://news.ycombinator.com/item?id=34881498
+Has two innovations:
+- a memory optimized format to represent packages and its dependencies, using hashed string pools
+- a SAT solver able to operate directly in this representation, battle tested in this particular scenario of complex upgrades, including hundred of testcases.
 
 Pubgrub: Dart's version-solving algorithm
 ================================================================================
@@ -10507,8 +10511,7 @@ https://news.ycombinator.com/item?id=30257041
     It also seems that a bucket must be pinned to a volume server on SeaweedFS.
     In Garage, all buckets are spread on the whole cluster.
     So you do not have to worry that your bucket fills one of your volume server.
-  - Garage works better in presence of crashes.
-    SeaweedFS "automatic master failover": uses Raft, I suppose either by running an healthcheck every second which lead to data loss on a crash, or sending a request for each transaction, which creates a huge bottleneck in their design.
+  - Garage works better in presence of crashes?
   - Better scalability: because there is no special node, there is no bottlenecks.
     With SeaweedFS, all the requests have to pass through the master?
 - design:
@@ -10519,3 +10522,31 @@ https://news.ycombinator.com/item?id=30257041
   > With this model, we can still provide always up to date values. When performing a read request, we also query the 3 nodes that must contain the data and wait for 2 of them. Because we have 3 nodes, wrote at least on 2 of them, and read on 2 of them, we will necessarily get the last value. This algorithm is discussed in Amazon's DynamoDB paper[0].
   > I reasoned in a model where there is no bandwidth, no CPU limit, no contention at all. In real systems, these limits apply, and we think that's another argument in favor of Garage :-)
   > [0]: https://dl.acm.org/doi/abs/10.1145/1323293.1294281
+
+================================================================================
+20230220
+SeaweedFS
+https://github.com/seaweedfs/seaweedfs
+tags: distributed-systems storage web-hosting network p2p decentralized crdt
+- License: Apache-2.0
+- not a "raft-based object store", hence not as chatty
+- proxy node is a volume server itself, and uses simple replication to mirror
+  its volume on another server. Raft consensus is not used for the writes. Upon
+  replication failure, the data becomes read-only [1], thus giving up partition
+  tolerance.
+  [1] https://github.com/seaweedfs/seaweedfs/wiki/Replication
+
+================================================================================
+20230223
+TypeScript Features to Avoid
+https://www.executeprogram.com/blog/typescript-features-to-avoid
+tags: programming javascript typescript
+- Avoid namespaces.
+  - Breaks the "type-level extension" rule. https://github.com/Microsoft/TypeScript/wiki/TypeScript-Design-Goals
+  - Modules have the same fundamental functionality as namespaces.
+- Avoid enums.
+  - Breaks the "type-level extension" rule. https://github.com/Microsoft/TypeScript/wiki/TypeScript-Design-Goals
+  - No advantage over union types with string literals.
+  - Union types map better to JSON and are generally easier to understand,
+    while still benefiting from type safety and typo protection.
+- Avoid `private` keyword. EcmaScript now has "#foo".
