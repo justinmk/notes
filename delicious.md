@@ -3,7 +3,7 @@ vim: sw=2 ft=text comments=s1\:/*,mb\:*,ex\:*/,\://,b\:#,\:%,\:XCOMM,n\:>,fb\:-
 Solving Problems the Clojure Way - Rafal Dittwald
 ================================================================================
 https://www.youtube.com/watch?v=vK1DazRK_a0
-tag="clojure functional-programming compsci"
+tags: clojure functional-programming compsci
 OOP:
   - model: interacting agents (objects)
   - organize state
@@ -27,35 +27,35 @@ Pure functions are ...
 Unraveling the JPEG
 ================================================================================
 https://parametric.press/issue-01/unraveling-the-jpeg/
-tag="todo image format encoding huffman"
+tags: todo image format encoding huffman
 
 Netflix Tech Blog: Linux Performance Analysis in 60,000 Milliseconds
 ================================================================================
 href="http://techblog.netflix.com/2015/11/linux-performance-analysis-in-60s.html"
-tag="performance checklist linux devops sysadmin"
+tags: performance checklist linux devops sysadmin
   time="2016-01-18T06:02:33Z" 
 
 Linux Performance Observability
 ================================================================================
 http://www.brendangregg.com/linuxperf.html
-tag="todo performance unix linux devops sysadmin"
+tags: todo performance unix linux devops sysadmin
 
 Scaling to 100M: MySQL is a Better NoSQL
 ================================================================================
 http://blog.wix.engineering/2015/12/10/scaling-to-100m-mysql-is-a-better-nosql/
 https://news.ycombinator.com/item?id=11763287
-tag="todo performance distributed-systems scaling mysql databases"
+tags: todo performance distributed-systems scaling mysql databases
 
 Common mistakes in PostgreSQL
 ================================================================================
 https://wiki.postgresql.org/wiki/Don%27t_Do_This
-tag="sql postgresql databases"
+tags: sql postgresql databases
 - `text` is equivalent to `varchar`. Just use `text`.
 - Use `numeric` instead of `money`.
 
 IOWait, hung IO tasks, "task foo:3450 blocked for more than 120 seconds", hung_task_timeout_secs
 ================================================================================
-tag="kernel linux io os syscall error troubleshooting filesystem virtual-memory"
+tags: kernel linux io os syscall error troubleshooting filesystem virtual-memory
 https://github.com/ncw/rclone/issues/1762
 https://forums.aws.amazon.com/thread.jspa?threadID=220452
 
@@ -119,7 +119,7 @@ WORKAROUND: reduce time between fscache->disk flushes.
 
 RCU (read-copy-update)
 ================================================================================
-tag="rcu data-structure adt programming kernel linux compsci os operating-system"
+tags: rcu data-structure adt programming kernel linux compsci os operating-system
 https://www.kernel.org/doc/Documentation/RCU/whatisRCU.txt
 https://en.wikipedia.org/wiki/Read-copy-update
 http://www.rdrop.com/users/paulmck/RCU/
@@ -147,7 +147,7 @@ http://www.rdrop.com/users/paulmck/RCU/
 What does an idle CPU do?
 ================================================================================
 https://manybutfinite.com/post/what-does-an-idle-cpu-do/
-tag="programming kernel linux compsci c os operating-system"
+tags: programming kernel linux compsci c os operating-system
 - OS (Linux) sets a timer interrupt to wake up the CPU every N ms, called
   "scheduling-clock interrupts".
     - Purpose: for workloads with many tasks using short bursts of CPU =>
@@ -166,7 +166,7 @@ Disable Transparent Hugepages
 ================================================================================
 https://blog.nelhage.com/post/transparent-hugepages/
 https://alexandrnikitin.github.io/blog/transparent-hugepages-measuring-the-performance-impact/
-tag="programming sysadmin devops kernel linux performance memory"
+tags: programming sysadmin devops kernel linux performance memory
 > When transparent hugepage support works well, it can garner up to about a 10% performance improvement on certain benchmarks. However, it also comes with at least two serious failure modes:
 > Memory Leaks
 > THP attempts to create 2MB mappings. However, it’s overly greedy in doing so, and too unwilling to break them back up if necessary. If an application maps a large range but only touches the first few bytes, it would traditionally consume only a single 4KB page of physical memory. With THP enabled, khugepaged can come and extend that 4KB page into a 2MB page, effectively bloating memory usage by 512x (An example reproducer on this bug report actually demonstrates the 512x worst case!).
@@ -178,12 +178,12 @@ tag="programming sysadmin devops kernel linux performance memory"
 Andy Chu comment on Python slow-startup, distribution/delivery, self-contained apps
 ================================================================================
 https://news.ycombinator.com/item?id=16979544
-tag="performance programming python init bootstrap"
+tags: performance programming python init bootstrap
 
 Mike Pall comment on "Why Python, Ruby and JS are slow"
 ================================================================================
 https://www.reddit.com/r/programming/comments/19gv4c/why_python_ruby_and_js_are_slow/c8o29zn/?context=3
-tag="performance jit dynamic-pl pl programming python"
+tags: performance jit dynamic-pl pl programming python
 
 > While I agree with the first part ("excuses"), the "hard" things mentioned in
 > the second part are a) not that hard and b) solved issues (just not in PyPy).
@@ -237,7 +237,7 @@ tag="performance jit dynamic-pl pl programming python"
 How Netflix Reinvented HR
 ================================================================================
 https://hbr.org/2014/01/how-netflix-reinvented-hr
-tag="work culture hiring"
+tags: work culture hiring
 2016-03-16 19:38:31
 > The best thing you can do for employees—a perk better than foosball or free
 > sushi—is hire only “A” players to work alongside them. Excellent colleagues
@@ -259,38 +259,38 @@ The USE Method
 ================================================================================
   href="http://www.brendangregg.com/usemethod.html" 
   
-tag="performance troubleshooting debug distributed-systems checklist"
+tags: performance troubleshooting debug distributed-systems checklist
   time="2016-01-18T05:59:59Z" 
 
 U.S. defense lawyers to seek access to DEA hidden intelligence evidence | Reuters
 ================================================================================
   Internal training documents reported by Reuters this week instruct agents not to reveal information they get from a unit of the U.S. Drug Enforcement Administration, but instead to recreate the same information by other means. A similar set of instructions was included in an IRS manual in 2005 and 2006, Reuters reported. / The DEA unit, known as the Special Operations Division, or SOD, receives intelligence from intercepts, wiretaps, informants and phone records, and funnels tips to other law enforcement agencies, the documents said. Some but not all of the information is classified.
 href="http://www.reuters.com/article/us-dea-irs-idUSBRE9761AZ20130808"
-tag="police-state government politics"
+tags: police-state government politics
   time="2016-01-09T19:11:55Z" 
 
 SWAT-Team Nation - The New Yorker
 ================================================================================
   civil-forfeiture laws, which allow police to confiscate and keep property that is allegedly tied to criminal activity, are often enforced at gunpoint against, say, nonviolent partygoers. / 80,000 combat-style home raids per year. / U.S. Department of Defense program ... has redistributed billions of dollars‚Äô worth of surplus military gear to local police forces
 href="http://www.newyorker.com/news/daily-comment/swat-team-nation"
-tag="police-state politics government"
+tags: police-state politics government
   time="2016-01-09T19:01:29Z" 
 
 CONSENSUS: BRIDGING THEORY AND PRACTICE
 ================================================================================
 href="https://ramcloud.stanford.edu/~ongaro/thesis.pdf"
-tag="raft cap distributed-systems compsci todo papers"
+tags: raft cap distributed-systems compsci todo papers
   time="2016-01-07T22:10:02Z" 
 
 Things we (finally) know about network queues
 ================================================================================
 https://apenwarr.ca/log/20170814
-tag="queue-theory network compsci"
+tags: queue-theory network compsci
 
 The UNIX Time-Sharing System / Dennis M. Ritchie and Ken Thompson
 ================================================================================
 https://people.eecs.berkeley.edu/~brewer/cs262/unix.pdf
-tag="operating-system unix compsci papers"
+tags: operating-system unix compsci papers
 .
 > An entry for each special file resides in directory /dev, although a link may
 > be made to one of these files just like an ordinary file. Thus, for example,
@@ -344,19 +344,19 @@ The web of names, hashes and UUIDs
   Joe Armstrong's ‟reversing entropy plan”. As soon as we name something there is an implied context - take away the context, or use the name in a different context and we are lost.
   href="http://joearms.github.io/2015/03/12/The_web_of_names.html"
 
-tag="compsci content-addressable distributed-systems uuid"
+tags: compsci content-addressable distributed-systems uuid
   time="2015-12-30T03:39:36Z" 
 
 PHP Sadness
 ================================================================================
 http://phpsadness.com/
-tag="programming"
+tags: programming
 
 Here are a few random things that come to mind as often missed by users
 ================================================================================
   - Multimaps.index() and Maps.uniqueIndex() - That all ImmutableCollections have deterministic iteration order and a no-cost asList() view - That there's very little reason to do integer arithmetic on the values of a map yourself -- if Multiset doesn't fit the bill, AtomicLongMap probably does
 href="https://www.reddit.com/r/java/comments/1y9e6t/ama_were_the_google_team_behind_guava_dagger/cfjfskk"
-tag="guava google programming"
+tags: guava google programming
   time="2015-12-29T21:33:40Z" 
 
 TensorFlow
@@ -367,12 +367,12 @@ http://googleresearch.blogspot.com/2015/12/how-to-classify-images-with-tensorflo
 > I'd been an engineer working on vision problems since the late 90's, and the sad truth was that unless you had a research team and plenty of time behind you, this sort of hand-tailored hack was the only way to get usable results. As you can imagine, the results were far from perfect and each detector I wrote was a custom job, and didn't help me with the next thing I needed to recognize. This probably seems laughable to anybody who didn't work in computer vision in the recent past! It's such a primitive way of solving the problem, it sounds like it should have been superseded long ago.
 > That's why I was so excited when I started to play around with deep learning. It became clear as I tried them out that the latest approaches using convolutional neural networks were producing far better results than my hand-tuned code on similar problems. Not only that, the process of training a detector for a new class of object was much easier. I didn't have to think about what features to detect, I'd just supply a network with new training examples and it would take it from there.
 
-tag="deep-learning machine-learning random-forests compsci"
+tags: deep-learning machine-learning random-forests compsci
 
 The Bitter Lesson, Rich Sutton, 2019
 ================================================================================
 http://www.incompleteideas.net/IncIdeas/BitterLesson.html
-tag="deep-learning machine-learning compsci engineering moores-law scale"
+tags: deep-learning machine-learning compsci engineering moores-law scale
 The bitter lesson:
 > 1) AI researchers have often tried to build knowledge into their agents,
 > 2) this always helps in the short term, and is personally satisfying to the researcher, but
@@ -388,7 +388,7 @@ Random forests
 ================================================================================
   http://research.microsoft.com/pubs/155552/decisionForests_MSR_TR_2011_114.pdf Random forests &quot;can handle classification, regression, semi-supervised learning, manifold learning, and density estimation. The paper gives an introduction to each of these topics as well as a unified framework to implement each algorithm.&quot; &quot;The paper is well-written and easy to understand for someone without a deep background in machine learning.&quot;
 href="https://news.ycombinator.com/item?id=4201374" 
-tag="todo machine-learning random-forests compsci"
+tags: todo machine-learning random-forests compsci
   time="2015-10-27T04:36:13Z" 
 
 N.S.A. Foils Basic Safeguards of Privacy on Web
@@ -396,7 +396,7 @@ N.S.A. Foils Basic Safeguards of Privacy on Web
   The agency has circumvented or cracked much of the encryption, or digital scrambling, that guards global commerce and banking systems, protects sensitive data like trade secrets and medical records, and automatically secures the e-mails, Web searches, Internet chats and phone calls of Americans and others around the world, the documents show. ... The N.S.A.‚Äôs Commercial Solutions Center, for instance, invites the makers of encryption technologies to present their products to the agency with the goal of improving American cybersecurity. But a top-secret N.S.A. document suggests that the agency‚Äôs hacking division uses that same program to develop and ‚Äúleverage sensitive, cooperative relationships with specific industry partners‚Äù to insert vulnerabilities into Internet security products. ... But by 2006, an N.S.A. document notes, the agency had broken into communications for three foreign airlines, one travel reservation system.
   href="http://www.nytimes.com/2013/09/06/us/nsa-foils-much-internet-encryption.html?_r=0"
    
-tag="police-state surveillance usgov government state security encryption"
+tags: police-state surveillance usgov government state security encryption
   time="2015-09-23T18:37:42Z" 
 
 U.S. directs agents to cover up program used to investigate Americans
@@ -404,80 +404,82 @@ U.S. directs agents to cover up program used to investigate Americans
   [&quot;SOD tips&quot; or &quot;SOD tip-offs&quot;, where intelligence-community information is &quot;laundered&quot; through a source that provides a tip to investigators] Law enforcement agents have been directed to conceal how such investigations truly begin - not only from defense lawyers but also sometimes from prosecutors and judges. federal agents are trained to &quot;recreate&quot; the investigative trail to effectively cover up where the information originated, ... If defendants don't know how an investigation began, they cannot know to ask to review potential sources of exculpatory evidence - information that could reveal entrapment, mistakes or biased witnesses.
   href="http://www.reuters.com/article/2013/08/05/us-dea-sod-idUSBRE97409R20130805"
    
-tag="police-state coverup government dea usgov"
+tags: police-state coverup government dea usgov
   time="2015-09-23T18:05:02Z" 
 
 This method is so acceptable, the DEA won't even release its name | Muckrock
 ================================================================================
   href="https://www.muckrock.com/news/archives/2014/feb/04/method-so-acceptable-dea-cant-even-tell-you-its-na/"
    
-tag="police-state politics government usgov dea security snowden"
+tags: police-state politics government usgov dea security snowden
   time="2015-09-23T18:02:11Z" 
 
 GeekDesk¬Æ Adjustable Height Desks - Home
 ================================================================================
 href="http://www.geekdesk.com/"  
-tag="ergonomics health rsi work standingdesk desk"
+tags: ergonomics health rsi work standingdesk desk
   time="2015-09-23T15:25:52Z" 
 
 www.versatables.com 
 ================================================================================
 href="http://www.versatables.com/"  
-tag="ergonomics health rsi work standingdesk desk"
+tags: ergonomics health rsi work standingdesk desk
   time="2015-09-23T15:25:18Z" 
 
 What forces layout/reflow. The comprehensive list.
 ================================================================================
   href="https://gist.github.com/paulirish/5d52fb081b3570c81e3a"
    
-tag="web dom chrome layout reflow programming"
+tags: web dom chrome layout reflow programming
   time="2015-09-19T18:19:43Z" 
 
 Kythe steve yegge grok
 ================================================================================
 href="http://www.kythe.io/"  
-tag="programming tools" time="2015-09-17T18:18:49Z" 
+tags: programming tools
+time="2015-09-17T18:18:49Z" 
 
 IPFS | The Permanent Web 
 ================================================================================
 href="https://ipfs.io/"
-tag="distributed-systems web filesystem"
+tags: distributed-systems web filesystem
   time="2015-09-09T05:32:33Z" 
 
 Stanford Encyclopedia of Philosophy
 ================================================================================
 href="http://plato.stanford.edu/"  
-tag="philosophy reference academia"
+tags: philosophy reference academia
   time="2015-08-04T23:38:31Z" 
 
 TI Launchpads: $10 microcontrollers
 ================================================================================
   href="http://www.ti.com/ww/en/launchpad/launchpads.html"
    
-tag="uc electronics compsci circuits engineering"
+tags: uc electronics compsci circuits engineering
   time="2015-06-15T14:30:37Z" 
 
 Think Distributed: A Distributed Systems Podcast
 ================================================================================
 href="http://thinkdistributed.io/"  
-tag="distributed-systems podcast" time="2015-03-30T23:21:42Z" 
+tags: distributed-systems podcast
+time="2015-03-30T23:21:42Z" 
 
 After seven years, exactly one person gets off the gov‚Äôt no-fly list | Ars Technica
 ================================================================================
   the government's official policy is to refuse to confirm or deny watchlist status. Nor is there any meaningful way to contest one's designation as a potential terrorist and ensure that the US government... removes or corrects inadequate records.
 href="http://arstechnica.com/tech-policy/2014/03/after-seven-years-exactly-one-person-gets-off-the-govt-no-fly-list/"
-tag="police-state government-failure"
+tags: police-state government-failure
   time="2015-03-26T04:45:02Z" 
 
 Why not add an option for that?
 ================================================================================
 http://neugierig.org/software/blog/2018/07/options.html
-tag="programming softwareengineering design ux ui options"
+tags: programming softwareengineering design ux ui options
 
 Google's internal code review guidelines
 ================================================================================
 https://news.ycombinator.com/item?id=20891738
-tag="programming softwareengineering teams code-review google"
+tags: programming softwareengineering teams code-review google
 > Review code in this order: protocol buffers, unit tests, headers,
 > implementation. It's common for a new employee to be an expert on C++ or Java
 > or whatever languages but it's very uncommon to meet anyone who knows how to
@@ -502,25 +504,27 @@ tag="programming softwareengineering teams code-review google"
 This Week In Startups | This Week In Startups
 ================================================================================
 href="http://thisweekinstartups.com/"  
-tag="podcast" time="2015-03-21T14:34:47Z" 
+tags: podcast
+time="2015-03-21T14:34:47Z" 
 
 Podcast ‚Äì The Tim Ferriss Show 
 ================================================================================
 href="http://fourhourworkweek.com/podcast/" 
-tag="podcast" time="2015-03-21T14:32:48Z" 
+tags: podcast
+time="2015-03-21T14:32:48Z" 
 
 Rich Hickey Q&amp;A, by Michael Fogus
 ================================================================================
   OO can seriously thwart reuse. ... the use of objects to represent simple informational data [generates] per-piece-of-information micro-languages, i.e. the class methods, versus far more powerful, declarative, and generic methods like relational algebra. / the great challenge for type systems in practical use is getting them to be more expressive without a corresponding‚Äîor worse‚Äîincrease in complexity. / The problems [with inheritance/hierarchy] come about when you attach something to the hierarchy. ... a method for partial overriding of the inheritance and thus, qualification of the isa implication. The implication is broken and your ability to reason about things turns to mud.
   href="http://codequarterly.com/2011/rich-hickey/" 
   
-tag="clojure richhickey programming type-systems compsci"
+tags: clojure richhickey programming type-systems compsci
   time="2015-03-05T00:45:56Z" 
 
 New research indicates ‘Unicorns’ are overvalued
 ================================================================================
 https://news.ycombinator.com/item?id=14467869
-tag="startup equity stock options"
+tags: startup equity stock options
 
 Optionality protects VCs.
 
@@ -551,14 +555,14 @@ Options vs. cash
 ================================================================================
 https://danluu.com/startup-options/
 https://news.ycombinator.com/item?id=14505378
-tag="startup equity stock options"
+tags: startup equity stock options
 
 > _Venture Deals_ by Brad Feld is a great read to understand different investment terms
 
 What I Wish I'd Known About Equity Before Joining A Unicorn
 ================================================================================
 https://gist.github.com/yossorion/4965df74fd6da6cdc280ec57e83a202d
-tag="startup equity finance employee employment work career options stock compensation"
+tags: startup equity finance employee employment work career options stock compensation
 
 Disclaimer: This piece is written anonymously. The names of a few particular companies are mentioned, but as common examples only.
 
@@ -648,7 +652,7 @@ If you're lucky enough to be in high enough demand that you can consider either 
 Frequency illusion / Baader-Meinhof Phenomenon
 ================================================================================
 href="http://en.wikipedia.org/wiki/List_of_cognitive_biases#Frequency_illusion"
-tag="concepts psychology mental-model"
+tags: concepts psychology mental-model
   time="2015-02-13T19:03:21Z" 
 
 
@@ -657,7 +661,7 @@ Habitat fragmentation
 https://en.wikipedia.org/wiki/Habitat_fragmentation
 Ecological thinning: https://en.wikipedia.org/wiki/Ecological_thinning
 _Impact of forest paths upon adjacent vegetation_: S. Godefroid, N. Koedam, 2004
-tag="concepts ecology mental-model"
+tags: concepts ecology mental-model
 .
 > Edge effects alter the conditions of the outer areas of the fragment, greatly
 > reducing the amount of true forest interior habitat.
@@ -672,13 +676,13 @@ Apdex
   for a threshold of t: Apdex_t = (Satisfied Count + Tolerating Count / 2) / Total Samples // http://mvolo.com/why-average-latency-is-a-terrible-way-to-track-website-performance-and-how-to-fix-it/
   href="http://en.wikipedia.org/wiki/Apdex" 
   
-tag="monitoring performance apdex metrics measurement"
+tags: monitoring performance apdex metrics measurement
   time="2015-02-11T21:31:36Z" 
 
 Introducing Project Mentat, a flexible embedded knowledge store
 ================================================================================
 https://medium.com/project-tofino/introducing-datomish-a-flexible-embedded-knowledge-store-1d7976bff344
-tag="system-design software-engineering scalability performance database"
+tags: system-design software-engineering scalability performance database
 great description of CQRS:
     > The CQRS approach, at its root, is to separate the ‘command’ from the
     > ‘query’: store a data model that’s very close to what the writer knows
@@ -694,7 +698,7 @@ great description of CQRS:
 FreeNAS Community Hardware Recommendations Guide
 ================================================================================
 https://forums.freenas.org/index.php?resources/hardware-recommendations-guide.12/
-tag="performance sysadmin devops hardware system"
+tags: performance sysadmin devops hardware system
 
 Power Supply
     Seasonic is known for the consistent performance of its PSUs.
@@ -714,7 +718,7 @@ Effective Engineer (AKA: Leverage)
 http://www.effectiveengineer.com/
 https://gist.github.com/rondy/af1dee1d28c02e9a225ae55da2674a6f
 https://henrikwarne.com/2017/01/15/book-review-the-effective-engineer/
-tag="engineering leverage mental-model"
+tags: engineering leverage mental-model
 
 LEVERAGE = IMPACT / TIME_COST
     Only three ways to increase leverage:
@@ -750,7 +754,7 @@ How to Get Rich (without getting lucky): @naval
 ================================================================================
 https://twitter.com/naval/status/1002103360646823936
 https://pbs.twimg.com/media/DesoRB1V4AI6_3-.jpg:large
-tag="economics business systems leverage mental-model naval-ravikant"
+tags: economics business systems leverage mental-model naval-ravikant
 
 Seek wealth, not money or status. Wealth is having assets that earn while you sleep. Money is how we transfer time and wealth. Status is your place in the social hierarchy.
 Understand that ethical wealth creation is possible. If you secretly despise wealth, it will elude you.
@@ -797,7 +801,7 @@ When you're finally wealthy, you'll realize that it wasn't what you were seeking
 Mental Models: The Best Way to Make Intelligent Decisions (109 Models Explained)
 ================================================================================
 https://fs.blog/mental-models/
-tag="concepts systems mental-model"
+tags: concepts systems mental-model
 
 Mental models are how we understand the world. Not only do they shape what we think and how we understand but they shape the connections and opportunities that we see. Mental models are how we simplify complexity, why we consider some things more relevant than others, and how we reason.
 
@@ -1279,7 +1283,7 @@ Somewhat paradoxically, the stronger two opponents become, the less likely they 
 Pomodoro technique
 ================================================================================
 http://baomee.info/pdf/technique/1.pdf
-tag="work productivity habits focus concentration time-management"
+tags: work productivity habits focus concentration time-management
 1 Pomodoro (30 minutes) = 25 minutes of work + 5-minute break
 - When the timer rings, this signals that the current activity is peremptorily
   (though temporarily) finished. You’re not allowed to keep on working “just for
@@ -1303,31 +1307,31 @@ tag="work productivity habits focus concentration time-management"
 Ambarella | Embedded Computer Vision SoCs
 ================================================================================
 https://www.ambarella.com/
-tag="machine-learning computer-vision software programming embedded soc"
+tags: machine-learning computer-vision software programming embedded soc
 
 tensorflow/cleverhans
 ================================================================================
 https://github.com/tensorflow/cleverhans
-tag="machine-learning software programming software-engineering"
+tags: machine-learning software programming software-engineering
 An adversarial example library for constructing attacks, building defenses, and benchmarking both
 
 osquery
 ================================================================================
 https://github.com/facebook/osquery/
 https://osquery.io/
-tag="monitoring metrics sysadmin devops hardware system query sql facebook"
+tags: monitoring metrics sysadmin devops hardware system query sql facebook
 Relational (SQL) data-model for OS/system info.
 
 netdata
 ================================================================================
 https://github.com/firehol/netdata
-tag="monitoring dashboard performance metrics sysadmin devops hardware"
+tags: monitoring dashboard performance metrics sysadmin devops hardware
 server stats/dashboard
 
 The log/event processing pipeline you can't have
 ================================================================================
 https://apenwarr.ca/log/20190216
-tag="log monitoring performance metrics sysadmin devops"
+tags: log monitoring performance metrics sysadmin devops
 .
 - PRINTK_PERSIST patch to make Linux reuse the dmesg buffer across reboots.
   https://gfiber.googlesource.com/kernel/lockdown/+/0e8afb589c4f746019436a437c05626967721503
@@ -1391,27 +1395,27 @@ A Guide to the Deceptions, Misinformation, and Word Games Officials Use to Misle
 ================================================================================
   When government officials can‚Äôt directly answer a question with a secret definition, officials will often answer a different question than they were asked. For example, if asked, ‚Äúcan you read Americans‚Äô email without a warrant,‚Äù officials will answer: ‚Äúwe cannot target Americans‚Äô email without a warrant.‚Äù / Bush administration‚Äôs strategy for the ‚ÄúTerrorist Surveillance Program‚Äù: The term ‚ÄúTSP‚Äù ended up being a meaningless label, created by administration officials after the much larger warrantless surveillance program was exposed by the New York Times in 2005. They used it to give the misleading impression that the NSA‚Äôs spying program was narrow and aimed only at intercepting the communications of terrorists. In fact, the larger program affected all Americans.
 href="https://www.eff.org/deeplinks/2013/08/guide-deceptions-word-games-obfuscations-officials-use-mislead-public-about-nsa"
-tag="nsa surveillance eff police-state"
+tags: nsa surveillance eff police-state
   time="2015-02-11T21:09:22Z" 
 
 New Intel Doc: Do Not Be 'Led Astray' By 'Commonly Understood Definitions' - The Intercept
 ================================================================================
   Defense Intelligence Agency document that instructs analysts to use words that do not mean what they appear to mean. / one several documents about Executive Order 12333 the ACLU obtained / So, we see that ‚Äúcollection of information‚Äù for DoD 5240.1-R purposes is more than ‚Äúgathering‚Äù ‚Äì it could be described as ‚Äúgathering, plus ‚Ä¶ ‚Äú. For the purposes of DoD 5240.1-R, ‚Äúcollection‚Äù is officially gathering or receiving information, plus an affirmative act in the direction of use or retention of that information.
 href="https://firstlook.org/theintercept/2014/09/29/new-intel-doc-led-astray-commonly-understood-definitions"
-tag="nsa police-state politics"
+tags: nsa police-state politics
   time="2015-02-11T21:00:18Z" 
 
 VICTORY: Judge Releases Information about Police Use of Stingray Cell Phone Trackers | American Civil Liberties Union
 ================================================================================
   Stingrays ‚Äúemulate a cellphone tower‚Äù and ‚Äúforce‚Äù cell phones to register their location and identifying information with the stingray instead of with real cell towers in the area. / Stingrays force cell phones in range to transmit information back ‚Äúat full signal, consuming battery faster.‚Äù / When in use, stingrays are ‚Äúevaluating all the [cell phone] handsets in the area‚Äù / between spring of 2007 and August of 2010, the Tallahassee Police had used stingrays approximately ‚Äú200 or more times.‚Äù
 href="https://www.aclu.org/blog/national-security-technology-and-liberty/victory-judge-releases-information-about-police-use"
-tag="police-state government privacy"
+tags: police-state government privacy
   time="2015-01-28T04:03:34Z" 
 
 IRS sends warning letters to more than 10k cryptocurrency holders
 ================================================================================
 https://news.ycombinator.com/item?id=20536951
-tag="police-state government taxes legal"
+tags: police-state government taxes legal
     https://www.irs.gov/newsroom/irs-has-begun-sending-letters-to-virtual-currency-owners-advising-them-to-pay-back-taxes-file-amended-returns-part-of-agencys-larger-efforts
     https://www.reddit.com/r/Bitcoin/comments/chupoe/irs_we_have_information_that_you_have_or_had_one/
     https://www.irsmind.com/audits/irs-begins-targeting-taxpayers-who-misreport-virtual-currency-transactions/
@@ -1422,32 +1426,34 @@ tag="police-state government taxes legal"
 Don’t Put Your Work Email on Your Personal Phone
 ================================================================================
 https://news.ycombinator.com/item?id=20514833
-tag="corporate workplace legal security"
+tags: corporate workplace legal security
 Using *any* personal device for work makes *all* of your personal devices
 subject to seizure if your employer is under investigation.
 
 Noisebridge 
 ================================================================================
 href="https://www.noisebridge.net/"  
-tag="sanfrancisco travel hackerspace"
+tags: sanfrancisco travel hackerspace
   time="2014-12-18T19:36:59Z" 
 
 wat2do | A map of rad things to do today
 ================================================================================
 href="http://www.sfwat2do.com/"  
-tag="travel tools sanfrancisco" time="2014-12-18T19:36:03Z" 
+tags: travel tools sanfrancisco
+time="2014-12-18T19:36:03Z" 
 
 How I Rewired My Brain to Become Fluent in Math - Issue 17: Big Bangs - Nautilus
 ================================================================================
   students can often grasp essentials of an important idea, but this understanding can quickly slip away without consolidation through practice and repetition. / well-ingrained chunks of expertise through practice and repetition / Understanding doesn‚Äôt build fluency; instead, fluency builds understanding. / understanding, after all, is facile, and can easily slip away.
 href="http://nautil.us/issue/17/big-bangs/how-i-rewired-my-brain-to-become-fluent-in-math-rd"
-tag="learning psychology math pedagogy"
+tags: learning psychology math pedagogy
   time="2014-12-17T00:55:04Z" 
 
 Michael Pettis' CHINA FINANCIAL MARKETS
 ================================================================================
 https://blog.mpettis.com/
-tag="blog economics china" time="2014-12-02T01:05:58Z" 
+tags: blog economics china
+time="2014-12-02T01:05:58Z" 
 
 > http://blog.mpettis.com/2014/09/not-with-a-bank-but-a-whimper/
 
@@ -1486,7 +1492,7 @@ tag="blog economics china" time="2014-12-02T01:05:58Z"
 UNQUALIFIED RESERVATIONS: The future of search
 ================================================================================
 https://unqualified-reservations.blogspot.de/2010/03/future-of-search.html
-tag="urbit p2p search future distributed-systems"
+tags: urbit p2p search future distributed-systems
 
 Commodity search, if there is any such thing, is clearly the Future of Search.
 But commodity search cannot be search as we know it. It cannot be the same
@@ -1527,7 +1533,7 @@ through Google.
 Urbit
 ================================================================================
 https://urbit.org/blog/stable-arvo/
-tag="urbit p2p versioning"
+tags: urbit p2p versioning
 > "Continuity" or "permanence" is arguably Urbit's killer feature: you start
 > your ship, it just works, forever.
 .
@@ -1538,7 +1544,7 @@ tag="urbit p2p versioning"
 Urbit explanation
 ================================================================================
 https://news.ycombinator.com/item?id=21674120
-tag="urbit p2p"
+tags: urbit p2p
 > The system being a top to bottom rewrite of the stack in such a way so as to sidestep the client/server relationship entirely. A lot of services rely upon positioning themselves as the server, as the big computer you have timeshared access to, and they monetise your usage. For things like photo storage, or basic communication, or permissioned access to your files, this is pointless. Any computer could do it, but the internet is itself based upon asking a server for something and getting it. And running a server sucks.
 > Any other peer to peer solution is partial, and therefore not able to compete with the internet as is. Urbit basically plans around an identity system that prevents spam and abuse; a hierarchical packet routing structure for those identities that doubles as a de facto governance model (due to having a vested interest in the network, the higher up you go); a kernel designed to freeze, and its entire OS on top a series of event logs that mark down computations and new states; a functional language for this "internet where every computer is a database", and the encrypted networking protocol that uses UDP while still ensuring packets always find you.
 > So if you wanted to, say, have a group of people set as a peer list that others can subscribe to or join, or build or use applications that lets that peer list join chats or see a set of files based upon some arbitrary marker (like giving you $5/mo?) ... you don't need a million services to spread the load, one task per service, each person joining each service. You can just use your own computer. It's a personal server platform for a peer to peer internet. It's an internet designed to resist bad actors, and to resist AOL, to resist Facebook and Google
@@ -1546,7 +1552,7 @@ tag="urbit p2p"
 Urbit: functional programming from scratch
 ================================================================================
 http://moronlab.blogspot.co.uk/2010/01/urbit-functional-programming-from.html
-tag="urbit p2p nock functional-programming"
+tags: urbit p2p nock functional-programming
 
 if your goal is merely to _model_ data, you neither need nor want cyclic graphs
 nor pointer identity. (Note that while nouns containing replicated subtrees can
@@ -1567,12 +1573,12 @@ considered essential to efficiency - from cyclic graphs, to built-in arithmetic.
 Hoon and You - An FP Perspective
 ================================================================================
 https://github.com/famousj/hoon-lc2018/blob/master/hoon-talk.md
-tag="urbit p2p hoon functional-programming fp programming"
+tags: urbit p2p hoon functional-programming fp programming
 
 Why Hoon? - Ted Blackman ~rovnys-ricfer
 ================================================================================
 https://urbit.org/blog/why-hoon/
-tag="urbit p2p hoon functional-programming fp os system"
+tags: urbit p2p hoon functional-programming fp os system
 - Homoiconic. Metacircular interpreter called +mule. Run userspace code
   metacircularly ("eval"). In Lisp "eval is evil", but in Urbit eval is
   a first-class feature.
@@ -1592,7 +1598,7 @@ tag="urbit p2p hoon functional-programming fp os system"
 Ford Fusion
 ================================================================================
 https://urbit.org/blog/ford-fusion/
-tag="urbit p2p hoon functional-programming fp os system"
+tags: urbit p2p hoon functional-programming fp os system
 "The purpose of better architecture is to create unfair comparisons."
 > because the Nock layer is frozen, upgrading everything above that layer is
 > easier. Upgrades are also facilitated by pure-functional semantics,
@@ -1613,7 +1619,7 @@ tag="urbit p2p hoon functional-programming fp os system"
 rote: flashcard app for Urbit Landscape
 ================================================================================
 https://github.com/lukechampine/rote
-tag="urbit p2p hoon functional-programming fp app"
+tags: urbit p2p hoon functional-programming fp app
 - "immaculate backend code-style and documentation"
 - also functions as a full "Hoon app" walkthrough
 - Luke also kept a Notebook documenting his experience at ~watter-parter/hackathon.
@@ -1621,7 +1627,7 @@ tag="urbit p2p hoon functional-programming fp app"
 A Founder's Farewell
 ================================================================================
 https://urbit.org/posts/essays/a-founders-farewell/
-tag="urbit p2p distributed-systems software-engineering programming compsci systems network interop"
+tags: urbit p2p distributed-systems software-engineering programming compsci systems network interop
 Big ideas:
 1. Validation
   > 20th-century languages underrate the centrality of communication to computing.
@@ -1657,7 +1663,7 @@ Avoid "premature explanation".
 urbit features
 ================================================================================
 https://news.ycombinator.com/item?id=15300676
-tag="urbit p2p distributed-systems systems network"
+tags: urbit p2p distributed-systems systems network
 - All events are transactions, down to the VM level. There's no concept of an event that left garbage around because power was cut or the machine was rebooted. You can always crash an event, making it as if it never happened.
 - Single-level store. Never worry about ORM because your in-memory state never goes away (because all events are transactions).
 - Persistent connections with exactly-once messaging. Disconnection is just seen as long latency.
@@ -1669,73 +1675,74 @@ tag="urbit p2p distributed-systems systems network"
 PGP and You 
 ================================================================================
 href="http://robots.thoughtbot.com/pgp-and-you" 
-tag="gpg todo tutorial reference"
+tags: gpg todo tutorial reference
   time="2014-11-04T22:28:46Z" 
 
 Neural Networks, Manifolds, and Topology -- colah's blog
 ================================================================================
 href="http://colah.github.io/posts/2014-03-NN-Manifolds-Topology/"
-tag="machine-learning todo"
+tags: machine-learning todo
   time="2014-10-14T22:17:27Z" 
 
 Visualizing Algorithms 
 ================================================================================
 href="http://bost.ocks.org/mike/algorithms/" 
-tag="todo algorithms compsci"
+tags: todo algorithms compsci
   time="2014-10-14T22:16:53Z" 
 
 Hyperpolyglot
 ================================================================================
   similar to learnxinyminutes.com
 href="http://hyperpolyglot.org/"  
-tag="programming reference" time="2014-10-13T22:53:20Z" 
+tags: programming reference
+time="2014-10-13T22:53:20Z" 
 
 Markov Chains visualization
 ================================================================================
   The most important conceptual point regarding Markov chains is that they are memory-less: future states depend only on the current state and not a previous history of which states have been visited. This property makes them powerful and simple to analyze. ... But the movement of a person trying to exit a museum is not well modeled by a Markov chain because he will remember which hallways lead to dead ends and be less likely to travel down them again.
 href="http://setosa.io/blog/2014/07/26/markov-chains/index.html"
-tag="machine-learning statistics"
+tags: machine-learning statistics
   time="2014-09-10T21:45:15Z" 
 
 The Little Book of Semaphores [pdf]
 ================================================================================
 http://www.greenteapress.com/semaphores/downey08semaphores.pdf
 https://news.ycombinator.com/item?id=11277896
-tag="todo distributed-systems programming"
+tags: todo distributed-systems programming
 
 Readings in Databases
 ================================================================================
   The Five-Minute Rule Ten Years Later / http://www.cs.berkeley.edu/~rxin/db-papers/5-min-rule.pdf /Paxos Made Simple / http://www.cs.berkeley.edu/~rxin/db-papers/Paxos.pdf / http://www.cs.berkeley.edu/~rxin/db-papers/OCC-Optimistic-Concurrency-Control.pdf / On Optimistic Methods for Concurrency Control / http://www.cs.berkeley.edu/~rxin/db-papers/CAP.pdf / Eric Brewer's writeup on CAP in retrospective, explaining &quot;'2 of 3' formulation was always misleading because it tended to oversimplify the tensions among properties.
   href="http://rxin.github.io/db-readings/" 
   
-tag="todo distributed-systems programming database cap concurrency"
+tags: todo distributed-systems programming database cap concurrency
   time="2014-08-29T02:21:56Z" 
 
 Project Zero: The poisoned NUL byte, 2014 edition
 ================================================================================
   An odd malloc() size will always result in an off-by-one off the end being harmless, due to malloc() minimum alignment being sizeof(void*). / Memory leaks in setuid binaries are surprisingly dangerous because they can provide a heap spray primitive. / / http://seclists.org/bugtraq/1998/Oct/109 / With the stack having shifted down 0xec bytes, it picks up the return address from the local buffer containing the exploit code.
 href="http://googleprojectzero.blogspot.com/2014/08/the-poisoned-nul-byte-2014-edition.html"
-tag="security programming infosec c"
+tags: security programming infosec c
   time="2014-08-27T22:24:33Z" 
 
 Thousand-robot swarm self-assembles into arbitrary shapes | Robohub
 ================================================================================
   decentralised, scalable, self-organizing autonomous robots. / No GPS-like system was available for them to know their location in the environment. Instead, robots had to form a virtual coordinate system using communication with, and measured distances to, neighbours. / Four specially programmed seed robots are then added to the edge of the group, marking the position and orientation of the shape. These seed robots emit a message that propagates to each robot in the blob and allows them to know how ‚Äúfar‚Äù away from the seed they are and their relative coordinates. Robots on the edge of the blob then follow the edge until they reach the desired location in the shape that is growing in successive layers from the seed. / [paper: justin.werfel@wyss.harvard.edu http://www.sciencemag.org/content/343/6172/754 ] https://news.ycombinator.com/item?id=8178978
 href="http://robohub.org/thousand-robot-swarm-self-assembles-into-arbitrary-shapes/"
-tag="cellular-automata"
+tags: cellular-automata
   time="2014-08-14T19:52:45Z" 
 
 Twenty Questions for Donald Knuth
 ================================================================================
   The supposedly &quot;most efficient&quot; algorithms [...] are too complicated to be trustworthy, even if I had a year to implement one of them. / The present state of research in algorithm design misunderstands the true nature of efficiency. / Although I was expecting your method to be the winner, because it examines much of the data only half as often as the others, it actually came out two to three times worse than Kruskal's venerable method. Part of the reason was poor cache interaction, but the main cause was a large constant factor hidden by O notation.
 href="http://www.informit.com/articles/article.aspx?p=2213858"
-tag="compsci knuth"
+tags: compsci knuth
   time="2014-07-18T19:30:37Z" 
 
 The Operating System: Should there be one? Stephen Kell
 ================================================================================
 https://www.cl.cam.ac.uk/~srk31/research/papers/kell13operating.pdf
-tag="smalltalk plan9 compsci os c programming"
+tags: smalltalk plan9 compsci os c programming
 
 powershell cf. Smalltalk "grand narrative": "Smalltalk itself has no
 solution for fragmention", except "don't fragment; use Smalltalk for
@@ -1812,20 +1819,21 @@ Hello World: USENIX Winter 1993 paper by Rob Pike and Ken Thompson on UTF-8 unde
   Unicode defines an adequate character set but an unreasonable representation. / UTF-1 advantages: It is a byte encoding and is therefore byte-order independent. ASCII control characters appear in the byte stream only as themselves, never as an element of a sequence encoding another character, so newline bytes separate lines of UTF text. / UTF-1 major disadvantage: not self-synchronizing =&gt; cannot find the character boundaries in a UTF string without reading from the beginning. / &quot;The actual encoding is relatively unimportant to the software; the adoption of large characters and a byte-stream encoding per se are much deeper issues.&quot;
   href="http://www.cl.cam.ac.uk/~mgk25/ucs/UTF-8-Plan9-paper.pdf"
    
-tag="unicode plan9 compsci strings os c programming"
+tags: unicode plan9 compsci strings os c programming
   time="2014-07-15T22:23:52Z" 
 
 What Every Programmer Absolutely, Positively Needs to Know About Encodings and Character Sets to Work With Text
 ================================================================================
   Unicode is not an encoding. Unicode defines a table of code points for characters. The character ·∏Ä has the Unicode code point U+1E00. UTF-32 is an encoding that encodes all Unicode code points using 32 bits: 4 bytes per character. UTF-16 and UTF-8 are variable-length encodings. &quot;Unicode support&quot; in a programming language or OS is not necessary as long as the runtime treats a string input as a bit stream and does not attempt to manipulate it as a specific encoding. You only need to be careful when _manipulating_ strings (slicing, trimming, counting), i.e. operations that happen on a _character_ level rather than a _byte_ level.
 href="http://kunststube.net/encoding/"  
-tag="unicode programming strings" time="2014-07-15T00:29:26Z" 
+tags: unicode programming strings
+time="2014-07-15T00:29:26Z" 
 
 How SQL Server Generates the Query Plan
 ================================================================================
   SQL Server not any perform flow analysis, so local variables in a sproc can kill the query plan. / SET ARITHABORT ON doesn't really fix performance issues, it just appears to temporarily because it is a cache key, and setting it changes the query so that a new query plan is generated. So the next execution will appear fast because it is optimized, but then later executions (using _different_ parameters) will be slow again, because they are using the query plan that was cached for the previous parameter values. The _real_ problem is related to parameter sniffing.
 href="http://www.sommarskog.se/query-plan-mysteries.html#plangenerate"
-tag="sqlserver sql database rdbms"
+tags: sqlserver sql database rdbms
   time="2014-07-01T15:30:09Z" 
 
 Out of Prohibition's Reach: How Technology Cures Toxic Policy
@@ -1833,13 +1841,13 @@ Out of Prohibition's Reach: How Technology Cures Toxic Policy
   The shutdown also motivated improvements as new marketplaces started offering features like faster services, private messaging that requires encryption, and bitcoin escrow services that eliminate the possibility of the marketplace scamming users. / In terms of scam prevention, most marketplaces actively work to make scamming unattractive. Anyone that wants to sell as a vendor is required to post a bond until they reach a certain amount of sales and positive reviews. / Decentralized marketplaces like the experimental ‚ÄúDarkMarket‚Äù platform, recently renamed ‚ÄúOpenBazaar‚Äù, are the next step towards the cure. DarkMarket is peer-to-peer which means that every user serves up their own buyer or seller page, as opposed to that page being served up by a server like on traditional websites or current anonymous marketplaces.
   href="http://stanfordreview.org/article/out-of-prohibitions-reach-how-technology-cures-toxic-policy/"
    
-tag="libertarianism free-market economics"
+tags: libertarianism free-market economics
   time="2014-06-07T19:16:44Z" 
 
 What happens when patients find out how good their doctors are? (2004)
 ================================================================================
 https://news.ycombinator.com/item?id=15840525
-tag="science medicine health data measurement metrics quantification"
+tags: science medicine health data measurement metrics quantification
 > As a physician, I often think about how we lack truely objective assessment of
 > patient outcomes (either in the context of evaluating physician competence or,
 > probably more importantly, assessing and improving upon clinical practises).
@@ -1875,13 +1883,13 @@ cancer
 ================================================================================
   Cancer is a disease that combines the trickiest parts of aging with the trickiest parts of infectious disease. Cell replication ... several trillions of times per day ... essentially copying 1 billion TB of data while detecting and fixing every error. Everybody will get cancer ... then you have a cell that your immune system has carefully trained for decades not to engage, invading and hogging every resource it can, with mutations that allow it to adapt to selective pressures, including drugs. Essentially, it's an infectious parasite, except it looks 99% like your own cells to your immune system, and is already perfectly suited to your metabolism. / From an evolutionary standpoint, no species would ever naturally develop perfect DNA replication because it would halt diversification. / [Imagine a billion nanobots...] You've basically described the immune system! Trillions of cells, thousands of genes controlling each one, hypermutations creating billions of different antibodies.
 href="https://news.ycombinator.com/item?id=7787688" 
-tag="cancer science medicine nanotech health"
+tags: cancer science medicine nanotech health
   time="2014-06-07T18:36:52Z" 
 
 Uncleftish Beholding
 ================================================================================
 https://en.wikipedia.org/wiki/Uncleftish_Beholding
-tag="concepts mental-model language"
+tags: concepts mental-model language
 written using almost exclusively words of Germanic origin
 The title Uncleftish beholding calques "atomic theory".
 Around, from Old French reond (Modern French rond), has completely displaced Old English ymbe (cognate to German um), leaving no native English word for this concept.
@@ -1889,14 +1897,14 @@ Around, from Old French reond (Modern French rond), has completely displaced Old
 Noisy-channel coding theorem
 ================================================================================
 https://en.wikipedia.org/wiki/Noisy-channel_coding_theorem
-tag="concepts mental-model compsci information-theory encoding"
+tags: concepts mental-model compsci information-theory encoding
 Noisy-channel coding theorem: For any given degree of noise in a communication channel, it is possible to communicate discrete data (digital information) nearly error-free up to a computable maximum rate.
 Shannon limit = maximum information-transfer rate of the channel, for a particular noise level.
 
 Mutatis mutandis
 ================================================================================
 https://en.m.wikipedia.org/wiki/Mutatis_mutandis
-tag="concepts mental-model"
+tags: concepts mental-model
 Medieval Latin phrase meaning "the necessary changes having been made".
     1. collect underpants
     2. mutatis mutandis
@@ -1906,7 +1914,7 @@ System dynamics
 ================================================================================
 https://en.wikipedia.org/wiki/System_dynamics
 https://www.anylogic.com/
-tag="concepts model systems system-design stock-and-flow mental-model"
+tags: concepts model systems system-design stock-and-flow mental-model
 System dynamics (SD) is an approach to understanding the nonlinear behaviour of complex systems over time using stocks, flows, internal feedback loops, table functions and time delays.
 - Teach "system-thinking" reflexes
 - Analyze/compare assumptions and mental models
@@ -1917,13 +1925,13 @@ Pythagorean Cup (Greedy Cup)
 ================================================================================
   &quot;Hydrostatic pressure creates a siphon through the central column, causing the entire contents of the cup to be emptied through the hole at the bottom of the stem.&quot;
 href="http://en.wikipedia.org/wiki/Pythagorean_cup" 
-tag="concepts economics physics mental-model"
+tags: concepts economics physics mental-model
   time="2014-06-02T03:58:58Z" 
 
 Gauss's Principle of Least Constraint
 ================================================================================
 http://preetum.nakkiran.org/misc/gauss/
-tag="concepts physics mental-model"
+tags: concepts physics mental-model
 .
 > Gauss noticed that, roughly, the CONSTRAINED motion of masses is as close as
 > possible to their UNCONSTRAINED motions, while still satisfying the
@@ -1938,7 +1946,7 @@ tag="concepts physics mental-model"
 "Bitcoin's Academic Pedigree" Narayanan & Clark
 ================================================================================
 http://queue.acm.org/detail.cfm?id=3136559
-tag="bitcoin blockchain trust-network p2p cryptocurrency"
+tags: bitcoin blockchain trust-network p2p cryptocurrency
 https://news.ycombinator.com/item?id=15135442
     "original Bitcoin codebase ... It's brilliant code. ... One of the earliest commits in the SVN repo contains 36 thousand lines of code. "Satoshi" (or this group of people) must have worked months or a year on this before putting it up on source control. The code also uses irc to find seed nodes, which is amusing. It just connects to #bitcoin and assumes that some of the people in the channel are running bitcoin nodes. That's a cool way around the "What if all the hardcoded seed nodes fail?" problem. I know it's probably a standard tactic, but bitcoin integrates so many standard tactics so well in addition to its academic work.
     "It's worth repeating: This is a C++ codebase. It listens to open ports on the public Internet. One single remote exploit and you lose all your money. The author basically threw code over the wall and the open source community where contributors come and go all the time took over. And one single remote exploit is all it takes. (This causation is perhaps less true today when it is more common to use encrypted or even hardware wallets, but before that everyone just used the standard wallet.) Yet none of this has happened. The odds of this seems vanishingly unlikely. Then there's the risk of consensus problems that would enable double spending, which is very difficult to test for. At the same time original Bitcoin was far from perfect. Someone wrote up a summary of important changes Hal Finney did which I can't seem to find. He pointed out a lot of problems which would have made Bitcoin not work at all which resulted in some early redesigns and the removal of many opcodes. Parts of Bitcoin also went nowhere, notably the marketplace, pay-to-IP and payment channels. The ideas live on as Openbazaar and Lightning but completely redesigned from the Satoshi origins. In so many ways it is an enigma."
@@ -1948,7 +1956,7 @@ Minimum Viable Block Chain - igvita.com
   https://news.ycombinator.com/item?id=7699332
   href="http://www.igvita.com/2014/05/05/minimum-viable-block-chain/"
    
-tag="bitcoin blockchain trust-network p2p cryptocurrency todo"
+tags: bitcoin blockchain trust-network p2p cryptocurrency todo
   time="2014-05-05T17:15:08Z" 
 
 Call for a Temporary Moratorium on “The DAO”
@@ -1956,13 +1964,13 @@ Call for a Temporary Moratorium on “The DAO”
   https://news.ycombinator.com/item?id=11788283
   https://docs.google.com/document/d/10kTyCmGPhvZy94F7VWyS-dQ4lsBacR2dUgGTtV98C40/mobilebasic
    
-tag="todo bitcoin cryptocurrency blockchain trust-network p2p DAO distributed-autonomous-organization"
+tags: todo bitcoin cryptocurrency blockchain trust-network p2p DAO distributed-autonomous-organization
 
 NSA Spying Documents to be Released As Result of EFF Lawsuit
 ================================================================================
   href="https://www.eff.org/deeplinks/2013/09/hundreds-pages-nsa-spying-documents-be-released-result-eff-lawsuit"
    
-tag="nsa police-state surveillance paranoia"
+tags: nsa police-state surveillance paranoia
   time="2014-03-13T00:12:50Z" 
 
 How the NSA Plans to Infect 'Millions' of Computers with Malware - The Intercept
@@ -1970,43 +1978,43 @@ How the NSA Plans to Infect 'Millions' of Computers with Malware - The Intercept
   https://news.ycombinator.com/item?id=7385390
   href="https://firstlook.org/theintercept/article/2014/03/12/nsa-plans-infect-millions-computers-malware/"
    
-tag="nsa police-state surveillance paranoia government infosec todo"
+tags: nsa police-state surveillance paranoia government infosec todo
   time="2014-03-12T23:43:48Z" 
 
 Build GIT - Learn GIT (P1) - Kushagra Gour- Creativity freak!
 ================================================================================
 href="http://kushagragour.in/blog/2014/01/build-git-learn-git/"
-tag="git tutorial todo programming"
+tags: git tutorial todo programming
   time="2014-01-20T17:41:13Z" 
 
 Eclipse Java REPL / albertlatacz/java-repl ¬∑ GitHub
 ================================================================================
   FINALLY!!!!!!
 href="https://github.com/albertlatacz/java-repl" 
-tag="repl java eclipse"
+tags: repl java eclipse
   time="2013-12-09T18:43:22Z" 
 
 Path dependence 
 ================================================================================
 href="http://en.wikipedia.org/wiki/Path_dependence" 
-tag="concepts economics compsci dynamics mental-model"
+tags: concepts economics compsci dynamics mental-model
   time="2013-11-26T17:57:56Z" 
 
 Advanced R programming 
 ================================================================================
 href="http://adv-r.had.co.nz/"  
-tag="r-lang programming statistics"
+tags: r-lang programming statistics
   time="2013-11-17T18:45:14Z" 
 
 Kubernetes: The Surprisingly Affordable Platform for Personal Projects
 ================================================================================
 https://www.doxsey.net/blog/kubernetes--the-surprisingly-affordable-platform-for-personal-projects
-tag="kubernetes cloud orchestration sre paas dcos gce gcr google programming devops container virtualization sysadmin deployment"
+tags: kubernetes cloud orchestration sre paas dcos gce gcr google programming devops container virtualization sysadmin deployment
 
 Evaluating Bazel for building Firefox
 ================================================================================
 https://news.ycombinator.com/item?id=21389206
-tag="bazel build google programming devops dependencies"
+tags: bazel build google programming devops dependencies
 Hermetic declarative build system
 - query the dependency graph
 - track all accesses to files
@@ -2023,38 +2031,38 @@ xxx:
 Docker examples
 ================================================================================
 https://github.com/jessfraz/dockerfiles/blob/master/irssi/Dockerfile
-tag="docker programming devops container virtualization linux"
+tags: docker programming devops container virtualization linux
 
 xperf Profiler 
 ================================================================================
   href="http://randomascii.wordpress.com/category/xperf/"
    
-tag="programming performance profiling windows"
+tags: programming performance profiling windows
   time="2013-11-08T22:33:39Z" 
 
 PyParallel: How we removed the GIL and exploited all cores
 ================================================================================
   https://speakerdeck.com/trent/pyparallel-how-we-removed-the-gil-and-exploited-all-cores
   https://news.ycombinator.com/item?id=11866562
-tag="programming performance iocp io-completion-ports syscall windows"
+tags: programming performance iocp io-completion-ports syscall windows
 
 I can't believe I'm praising Tcl
 ================================================================================
 href="http://www.yosefk.com/blog/i-cant-believe-im-praising-tcl.html"
-tag="programming tcl"
+tags: programming tcl
   time="2013-11-06T02:56:04Z" 
 
 The Trouble With Types 
 ================================================================================
   href="http://www.infoq.com/presentations/data-types-issues"
    
-tag="type-systems functional-programming scala video martin-odersky"
+tags: type-systems functional-programming scala video martin-odersky
   time="2013-11-05T22:11:11Z" 
 
 Maybe Not - Rich Hickey
 ================================================================================
 https://www.youtube.com/watch?v=YR5WdGrpoug
-tag="type-systems functional-programming video rich-hickey concepts distributed-systems"
+tags: type-systems functional-programming video rich-hickey concepts distributed-systems
 
 https://news.ycombinator.com/item?id=18565555
     > RDF got this surprisingly right. ... The idea of collections of
@@ -2073,7 +2081,7 @@ NSA infiltrates links to Yahoo, Google data centers worldwide, Snowden documents
   National Security Agency secretly broke into the main communications links that connect Yahoo and Google data centers. ... the agency has positioned itself to collect at will from hundreds of millions of user accounts, many of them belonging to Americans ... project called MUSCULAR ... the NSA and the GCHQ are copying entire data flows across fiber-optic cables ... unusually aggressive use of NSA tradecraft against flagship American companies ... NSA documents about the effort refer directly to ‚Äúfull take,‚Äù ‚Äúbulk access‚Äù and ‚Äúhigh volume‚Äù ... Such large-scale collection of Internet content would be illegal in the United States, but the operations take place overseas. http://www.politico.com/story/2013/10/keith-alexander-nsa-report-google-yahoo-99103.html Gen. Keith Alexander, asked about it at a Bloomberg event, denied the accusations. &quot;I don't know what the report is,&quot; Alexander cautioned, adding the NSA does not &quot;have access to Google servers, Yahoo servers.&quot;
   href="http://www.washingtonpost.com/world/national-security/nsa-infiltrates-links-to-yahoo-google-data-centers-worldwide-snowden-documents-say/2013/10/30/e51d661e-4166-11e3-8b74-d89d714ca4dd_story.html"
    
-tag="police-state paranoia nsa surveillance privacy"
+tags: police-state paranoia nsa surveillance privacy
   time="2013-10-30T22:32:15Z" 
 
 document.createDocumentFragment
@@ -2081,7 +2089,7 @@ document.createDocumentFragment
   Since the document fragment is in memory and not part of the main DOM tree, appending children to it does not cause page reflow (computation of element's position and geometry).
   href="https://developer.mozilla.org/en-US/docs/Web/API/document.createDocumentFragment"
    
-tag="webdesign javascript programming performance"
+tags: webdesign javascript programming performance
   time="2013-10-15T19:18:16Z" 
 
 ipinfo.io:
@@ -2090,47 +2098,51 @@ https://ipinfo.io/
 IP address lookup, geolocation, API
 ASN (Autonomous System Number) lookup, e.g.: https://ipinfo.io/AS32934
 
-tag="tools web ip api internet"
+tags: tools web ip api internet
 2016-08-09 00:04:38
 
 OpenRefine / fka Google Refine
 ================================================================================
   a tool for working with messy data, cleaning it up, transforming it from one format into another, extending it with web services, and linking it to databases like Freebase.
 href="https://github.com/OpenRefine"  
-tag="tools google data-mining statistics"
+tags: tools google data-mining statistics
   time="2013-10-01T21:33:52Z" 
 
 Herding Code 
 ================================================================================
 href="http://herdingcode.com/"  
-tag="podcast" time="2013-09-30T14:27:35Z" 
+tags: podcast
+time="2013-09-30T14:27:35Z" 
 
 Software Engineering Radio | The Podcast for Professional Software Developers
 ================================================================================
 href="http://www.se-radio.net/"  
-tag="softwareengineering podcast" time="2013-09-30T14:27:13Z" 
+tags: softwareengineering podcast
+time="2013-09-30T14:27:13Z" 
 
 The Pragmatic Bookshelf | Podcasts
 ================================================================================
 href="http://pragprog.com/podcasts"  
-tag="podcast" time="2013-09-30T14:26:44Z" 
+tags: podcast
+time="2013-09-30T14:26:44Z" 
 
 FLOSS Weekly | TWiT.TV 
 ================================================================================
 href="http://twit.tv/show/floss-weekly"  
-tag="podcast" time="2013-09-30T14:26:16Z" 
+tags: podcast
+time="2013-09-30T14:26:16Z" 
 
 On The Brink with Castle Island, Matt Walsh and Nic Carter
 ================================================================================
 https://castleisland.libsyn.com/urbit-christian-lingales-and-logan-allen-ep17
-tag="podcast bitcoin urbit decentralization"
+tags: podcast bitcoin urbit decentralization
 
 
 Beyond Corp: The Access Proxy
 ================================================================================
 https://research.google.com/pubs/pub45728.html
 https://news.ycombinator.com/item?id=16204208
-tag="security networks beyondcorp it sysadmin devops"
+tags: security networks beyondcorp it sysadmin devops
 
 > - Instead of a single VPN that will expose your entire squishy corporate LAN to anyone who gets VPN access, each application gets its own protected proxy.
 > - The protected proxies query a centrally-aggregated auth/authz database, which can work with client-side software to ensure qualities such as private key possession, full disk encryption, software updates, etc. In Google's case, this is combined with a host-rewriting browser extension for usability.
@@ -2141,13 +2153,13 @@ tag="security networks beyondcorp it sysadmin devops"
 BeyondCorp: The User Experience
 ================================================================================
 https://research.google.com/pubs/pub46366.html
-tag="security networks beyondcorp it sysadmin devops"
+tags: security networks beyondcorp it sysadmin devops
 
 
 YubiKey via USB PCSC protocol
 ================================================================================
 https://news.ycombinator.com/item?id=19567338
-tag="security networks yubikey 2fa tfa"
+tags: security networks yubikey 2fa tfa
 application for YubiKeys - using the YKOATH functionality to sign AWS API
 requests with HMAC-SHA256 (https://github.com/pyauth/exile). Yubikey's protocol
 documentation is good, but their tools are pretty bad, and none of them should
@@ -2163,7 +2175,7 @@ https://github.com/pyauth/exile/blob/master/exile/ykoath
 pyu2f (USB HID protocol)
 ================================================================================
 https://github.com/google/pyu2f
-tag="security networks yubikey 2fa tfa"
+tags: security networks yubikey 2fa tfa
 python based U2F host library for interacting with a U2F device over USB.
 
 
@@ -2171,7 +2183,7 @@ Site to Site WireGuard: Part 1
 ================================================================================
 https://christine.website/blog/site-to-site-wireguard-part-1-2019-04-02
 https://lobste.rs/s/pje6iw/site_site_wireguard_part_1
-tag="vpn wireguard security networks "
+tags: vpn wireguard security networks 
 .
 - VPN over a single UDP port.
 - Custom TLS Certificate Authority: create TLS certificates for any domain.
@@ -2181,7 +2193,7 @@ tag="vpn wireguard security networks "
 UDP-based Data Transfer Protocol
 ================================================================================
 https://en.wikipedia.org/wiki/UDP-based_Data_Transfer_Protocol
-tag="networks tcp udp data-transfer"
+tags: networks tcp udp data-transfer
 High-performance data transfer protocol designed for transferring large
 volumetric datasets over wide area networks.
 
@@ -2189,7 +2201,7 @@ volumetric datasets over wide area networks.
 TCP is an underspecified two-node consensus algorithm and what that means for your proxies
 ================================================================================
 https://morsmachine.dk/tcp-consensus
-tag="networks proxy tcp tcp-ip protocol"
+tags: networks proxy tcp tcp-ip protocol
 .
 > Cannot rely on a proxy to pass through the behavior (including keepalive!) of
 > the TCP connection. Workaround: application-level ping.
@@ -2210,13 +2222,13 @@ IP Listen List
   Problems arise when third party applications (not using the HTTP Server APIs) bind to IP address and port 80 pairs on the machine. The HTTP Server API provides a way to configure the list of IP addresses that it binds and solves this coexistence issue. also: http://toastergremlin.com/?p=320
   href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa364669(v=vs.85).aspx"
    
-tag="networks iis it http windows tcpip sysadmin"
+tags: networks iis it http windows tcpip sysadmin
   time="2013-09-05T20:45:27Z" 
 
 Do You Really Know CORS?
 ================================================================================
 http://performantcode.com/web/do-you-really-know-cors
-tag="http web cors security interop"
+tags: http web cors security interop
 CORS edge cases:
 - either an unreleased safari version, or the most recent version will send preflight requests even if the request meets the spec (like if the Accept-Language is set to something they don't like).
 - If you use the ReadableStream API with fetch in the browser, a preflight will be sent.
@@ -2229,13 +2241,13 @@ Documenting your architecture: Wireshark, PlantUML and a REPL to glue them all
 ================================================================================
 https://news.ycombinator.com/item?id=15325649
 http://danlebrero.com/2017/04/06/documenting-your-architecture-wireshark-plantuml-and-a-repl/
-tag="networks sysadmin devops"
+tags: networks sysadmin devops
 
 
 Linux Raw Sockets
 ================================================================================
 http://schoenitzer.de/blog/2018/Linux%20Raw%20Sockets.html<Paste>
-tag="networks programming linux sockets"
+tags: networks programming linux sockets
 traditional socket: UDP based datagram socket via IPv4
     sockfd = socket(AF_INET, SOCK_DGRAM, 0);
 still only receive the type of packet specified (here UDP), but this time you will not only receive the data but also the layer 4 (TCP/UDP) header and you're also responsible to set the layer 4 header yourself.
@@ -2254,43 +2266,46 @@ favicon cheat sheet
 ================================================================================
   https://news.ycombinator.com/item?id=6315664
 href="https://github.com/audreyr/favicon-cheat-sheet"
-tag="webdev favicon"
+tags: webdev favicon
   time="2013-09-02T17:52:34Z" 
 
 The Changelog Podcast 
 ================================================================================
 href="http://thechangelog.com/podcast/"  
-tag="podcast" time="2013-08-27T20:06:09Z" 
+tags: podcast
+time="2013-08-27T20:06:09Z" 
 
 In situ
 ================================================================================
 href="http://en.wikipedia.org/wiki/In_situ" 
-tag="pedantry latin concepts mental-model"
+tags: pedantry latin concepts mental-model
   time="2013-07-29T06:47:43Z" 
 
 IPython Notebook
 ================================================================================
   "live" backpack-like document containing text, graphs, images, etc, resulting from python expressions.
 href="http://ipython.org/notebook.html"  
-tag="python programming repl" time="2013-07-28T23:30:49Z" 
+tags: python programming repl
+time="2013-07-28T23:30:49Z" 
 
 git-annex
 ================================================================================
   cf. https://github.com/bup/bup
 href="https://git-annex.branchable.com/videos/" 
-tag="git backup" time="2013-07-20T05:19:30Z" 
+tags: git backup
+time="2013-07-20T05:19:30Z" 
 
 go-wiki - Go Language Unofficial Community Wiki - Google Project Hosting
 ================================================================================
 href="https://code.google.com/p/go-wiki/" 
-tag="golang programming documentation"
+tags: golang programming documentation
   time="2013-07-17T04:27:09Z" 
 
 description=""
 ================================================================================
   Mapp and White spent two years trying to prove McCormick knew his products didn‚Äôt work. They made inquiries in more than 20 countries and went to Belgium, France, Georgia, Lebanon, and Bahrain. They discovered he had sold more than 7,000 devices to agencies including the Hong Kong police, the Romanian airport authorities, the United Nations, and the M&amp;ouml;venpick hotel group. Most had been sold to Iraq, where an Interior Ministry investigation would eventually show that corruption on a titanic scale had made the ATSC contracts possible. In a 2011 Report to Congress, the Special Inspector General for Iraqi Reconstruction estimated that 75 percent of the value of McCormick‚Äôs sales had been spent on bribes.
 href="http://www.businessweek.com/articles/2013-07-11/in-iraq-the-bomb-detecting-device-that-didnt-work-except-to-make-money"
-tag="government-failure corruption dod"
+tags: government-failure corruption dod
   time="2013-07-15T00:58:21Z" 
 
 ‚ÄúWhy did you shoot me? I was reading a book‚Äù: The new warrior cop is out of control
@@ -2298,50 +2313,57 @@ tag="government-failure corruption dod"
   Excerpted from &amp;quot;Rise of the Warrior Cop: The Militarization of America's Police Forces&amp;quot; / Several months earlier at a local bar, Fairfax County, Virginia, detective David Baucum overheard the thirty-eight-year-old optometrist and some friends wagering on a college football game. ... After overhearing the men wagering, Baucum befriended Culosi as a cover to begin investigating him. ... Eventually Culosi and Baucum bet more than $2,000 in a single day. ... they brought in the SWAT team.
   href="http://www.salon.com/2013/07/07/%E2%80%9Cwhy_did_you_shoot_me_i_was_reading_a_book_the_new_warrior_cop_is_out_of_control/"
    
-tag="politics police-state habeas-corpus"
+tags: politics police-state habeas-corpus
   time="2013-07-08T04:06:17Z" 
 
 RockStarProgrammer - The Differences Between Mercurial and Git
 ================================================================================
   git is more granular than mercurial =&gt; very beneficial in creating new types of workflows mercurial: heads/branches are inferred by lack of children git: branches are &quot;namespaced&quot; per remote. All heads are explicit. A tag or a branch points to a particular node in the graph, and there are tools to compare the changes between two nodes; allows private branches. mercurial: history is immutable / changing history is discouraged git: mutability is normal part of workflow mercurial, the branch name is stored in the changeset. Easy to have duplicate/conflicting branch names. the branch name is in the changeset, so the branch lives forever =&gt; discourages throw-away branches / experimentation. In git, a branch is just a head. Changing a branch actually moves the pointer to the new changeset (hash/commit). This head must be _explicitly_ shared across repositories. - won't accidentally push code you don't mean to. - no fear of name collisions. / hg cannot shallow clone.
 href="http://www.rockstarprogrammer.org/post/2008/apr/06/differences-between-mercurial-and-git/"
-tag="programming mercurial dvcs git"
+tags: programming mercurial dvcs git
   time="2013-07-07T23:01:58Z" 
 
 Brendan Eich 
 ================================================================================
 href="http://brendaneich.com/"  
-tag="blog" time="2013-06-26T05:17:23Z" 
+tags: blog
+time="2013-06-26T05:17:23Z" 
 
 Eric Lippert‚Äôs Blog 
 ================================================================================
 href="http://blogs.msdn.com/b/ericlippert/" 
-tag="blog" time="2013-06-26T05:16:13Z" 
+tags: blog
+time="2013-06-26T05:16:13Z" 
 
 The Old New Thing 
 ================================================================================
 href="http://blogs.msdn.com/b/oldnewthing/atom.aspx" 
-tag="rss blog" time="2013-06-26T04:25:26Z" 
+tags: rss blog
+time="2013-06-26T04:25:26Z" 
 
 TED talks 
 ================================================================================
 href="http://feeds.feedburner.com/tedtalks_audio" 
-tag="podcast" time="2013-06-26T04:20:22Z" 
+tags: podcast
+time="2013-06-26T04:20:22Z" 
 
 The R-Podcast 
 ================================================================================
 href="http://r-podcast.org/feed/ogg/"  
-tag="podcast" time="2013-06-26T04:19:31Z" 
+tags: podcast
+time="2013-06-26T04:19:31Z" 
 
 reason.tv podcast 
 ================================================================================
 href="http://reason.com/podcast/index.xml" 
-tag="podcast" time="2013-06-26T04:09:56Z" 
+tags: podcast
+time="2013-06-26T04:09:56Z" 
 
 NPR: Planet Money Podcast 
 ================================================================================
 href="http://www.npr.org/rss/podcast.php?id=510289" 
-tag="podcast" time="2013-06-26T04:08:54Z" 
+tags: podcast
+time="2013-06-26T04:08:54Z" 
 
 “DIAGNOSTIC WITH CODE FIX” USING ROSLYN API
 ================================================================================
@@ -2350,37 +2372,38 @@ tag=roslyn .net-compiler-platform programming visual-studio
 hanselminutes 
 ================================================================================
 href="http://feeds.feedburner.com/Hanselminutes" 
-tag="podcast" time="2013-06-26T04:03:51Z" 
+tags: podcast
+time="2013-06-26T04:03:51Z" 
 
 URL encoding
 ================================================================================
   The standards do not define any way by which a URI might specify the encoding it uses, so it has to be deduced from the surrounding information. For HTTP URLs it can be the HTML page encoding, or HTTP headers. reserved characters are different for each part encoding a fully constructed URL is impossible without a syntactical awareness of the URL structure.
   href="http://blog.lunatech.com/2009/02/03/what-every-web-developer-must-know-about-url-encoding"
    
-tag="programming webdev encoding uri rfc url"
+tags: programming webdev encoding uri rfc url
   time="2013-06-24T14:21:50Z" 
 
 History of the URL: Domain, Protocol, and Port
 ================================================================================
 https://eager.io/blog/the-history-of-the-url-domain-and-protocol/
-tag="todo programming webdev uri rfc url history"
+tags: todo programming webdev uri rfc url history
 
 History of the URL: Path, Fragment, Query, and Auth
 ================================================================================
 https://eager.io/blog/the-history-of-the-url-path-fragment-query-auth/
-tag="todo programming webdev uri rfc url history"
+tags: todo programming webdev uri rfc url history
 
 algernon web server
 ================================================================================
 https://github.com/xyproto/algernon
-tag="programming http web server lua go redis"
+tags: programming http web server lua go redis
 Small self-contained pure-Go web server with Lua, Markdown, HTTP/2, QUIC,
 Redis and PostgreSQL support https://algernon.roboticoverlords.org/
 
 Napoleon Bonaparte PBS Documentary
 ================================================================================
 https://www.youtube.com/watch?v=MrbiSUgZEbg
-tag="video history"
+tags: video history
 - Napoleon established the "Civil Code" which still underpins the French system.
 - "I am the instrument of providence, she will use me as long as I accomplish
   her designs, then she will break me like a glass."
@@ -2392,7 +2415,7 @@ modern.IE
 ================================================================================
   free official virtualbox images with internet explorer
 href="http://www.modern.ie/"  
-tag="vm tools programming webdev ie virtualbox windows microsoft"
+tags: vm tools programming webdev ie virtualbox windows microsoft
   time="2013-06-14T06:02:44Z" 
 
 EDWARD SNOWDEN, THE N.S.A. LEAKER, COMES FORWARD
@@ -2400,14 +2423,14 @@ EDWARD SNOWDEN, THE N.S.A. LEAKER, COMES FORWARD
   &amp;quot;I, sitting at my desk, certainly had the authorities to wiretap anyone, from you or your accountant, to a federal judge or even the President&amp;quot; another program, called Boundless Informant, processed billions of pieces of domestic data each month James Clapper, the Director of National Intelligence, flat-out lied to the Senate when he said that the N.S.A. did not ‚Äúwittingly‚Äù collect any sort of data on millions of Americans. [Americans are] protected, he said, only by ‚Äúpolicies,‚Äù and not by law: ‚ÄúIt‚Äôs only going to get worse, until eventually there comes a time when policies change,‚Äù and ‚Äúa new leader will be elected, they‚Äôll flip the switch.‚Äù
   href="http://www.newyorker.com/online/blogs/closeread/2013/06/edward-snowden-the-nsa-leaker-comes-forward.html"
    
-tag="authoritarianism paranoia politics police-state privacy"
+tags: authoritarianism paranoia politics police-state privacy
   time="2013-06-10T05:33:06Z" 
 
 Falsehoods programmers believe about time
 ================================================================================
   also: https://news.ycombinator.com/item?id=4128208 more: http://infiniteundo.com/post/25509354022/more-falsehoods-programmers-believe-about-time-wisdom
 href="http://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time"
-tag="programming edge-cases datetime"
+tags: programming edge-cases datetime
   time="2013-06-07T19:21:33Z" 
 
 Warning Signs in Experimental Design and Interpretation
@@ -2415,20 +2438,20 @@ Warning Signs in Experimental Design and Interpretation
   Psychology as a discipline has been especially stung by papers that cannot be reproduced. http://www.nytimes.com/2013/04/28/magazine/diederik-stapels-audacious-academic-fraud.html?pagewanted=all&amp;amp;_r=0 Uri Simonsohn &amp;quot;twenty-one word solution&amp;quot;: http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2160588 &amp;quot;p-hacking&amp;quot;, an all too common practice in science that can be detected by statistical tests: http://www.p-curve.com/ http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2259879 &amp;quot;Abstract: &amp;quot;When does a replication attempt fail? The most common standard is: when it obtains p&amp;gt;.05. Replication attempts fail when their results indicate that the effect, if it exists at all, is too small to have been detected by the original study. &amp;quot;Warning Signs in Experimental Design and Interpretation&amp;quot; http://norvig.com/experiment-design.html
   href="http://news.ycombinator.com/item?id=5680292" 
   
-tag="psychology skepticism scientific-error science"
+tags: psychology skepticism scientific-error science
   time="2013-05-09T18:08:55Z" 
 
 Peter Norvig: pytudes: Python programs to practice or demonstrate skills.
 ================================================================================
 https://github.com/norvig/pytudes
-tag="programming todo"
+tags: programming todo
 
 
 Retraction Watch 
 ================================================================================
 http://retractionwatch.com/
 
-tag="skepticism scientific-error medical-industrial-complex research science"
+tags: skepticism scientific-error medical-industrial-complex research science
   time="2013-05-09T17:52:20Z" 
 
 only 11% of 53 published cancer research papers were reproducible
@@ -2436,38 +2459,38 @@ only 11% of 53 published cancer research papers were reproducible
   Amgen's findings are consistent with those of others in industry. A team at Bayer HealthCare in Germany last year reported4 that only about 25% of published preclinical studies could be validated to the point at which projects could continue. Notably, published cancer research represented 70% of the studies
   href="http://www.nature.com/nature/journal/v483/n7391/full/483531a.html"
    
-tag="skepticism scientific-error medical-industrial-complex research cancer science"
+tags: skepticism scientific-error medical-industrial-complex research cancer science
   time="2013-05-09T17:19:41Z" 
 
 Voting paradox
 ================================================================================
 href="http://en.wikipedia.org/wiki/Voting_paradox" 
-tag="politics paradox psychology voting mental-model"
+tags: politics paradox psychology voting mental-model
   time="2013-05-07T23:13:12Z" 
 
 Arrow's impossibility theorem
 ================================================================================
   href="http://en.wikipedia.org/wiki/Arrow%27s_impossibility_theorem"
    
-tag="game-theory politics paradox psychology voting logic mental-model"
+tags: game-theory politics paradox psychology voting logic mental-model
   time="2013-05-07T23:10:53Z" 
 
 Windyty: weather visualizer
 ================================================================================
 https://www.windyty.com
-tag="visualization tools weather wind-patterns web"
+tags: visualization tools weather wind-patterns web
 
 Google Books Ngram Viewer
 ================================================================================
   corpus of text n-grams (contiguous sequence of n items) from the google books project http://books.google.com/ngrams/info raw datasets: http://books.google.com/ngrams/datasets
 href="http://books.google.com/ngrams/"  
-tag="books visualization tools google data-mining datasets data ngram machine-learning statistics"
+tags: books visualization tools google data-mining datasets data ngram machine-learning statistics
   time="2013-04-25T22:40:25Z" 
 
 Apache Arrow and the "10 Things I Hate About pandas"
 ================================================================================
 http://wesmckinney.com/blog/apache-arrow-pandas-internals/
-tag="pandas python data-science machine-learning statistics"
+tags: pandas python data-science machine-learning statistics
 
 > my rule of thumb for pandas is that you should have 5 to 10 times as much RAM
   as the size of your dataset. So if you have a 10 GB dataset, you should really
@@ -2482,38 +2505,40 @@ Instaparse
 ================================================================================
   attempting to make context-free grammars as easy to use as regular expressions
 href="https://github.com/Engelberg/instaparse" 
-tag="clojure programming compiler cfg peg parser"
+tags: clojure programming compiler cfg peg parser
   time="2013-04-12T17:16:06Z" 
 
 blockchain.info
 ================================================================================
 href="http://blockchain.info/"  
-tag="bitcoin cryptocurrency" time="2013-02-28T05:26:07Z" 
+tags: bitcoin cryptocurrency
+time="2013-02-28T05:26:07Z" 
 
 llex.c - Lua parser in c
 ================================================================================
 href="http://www.lua.org/source/5.1/llex.c.html" 
-tag="compiler lua parser"
+tags: compiler lua parser
   time="2013-02-01T01:18:10Z" 
 
 ANTLR Parser Generator
 ================================================================================
   http://news.ycombinator.com/item?id=5056841 &quot;It can not only do the basic text-&gt;tree parsing from a file describing the grammar, but will also allow to specify additional grammars for traversing the generated tree and executing arbitrary code in your language of choice as particular nodes are recognized. ... Xpl.g grammar file for parsing the program text and creating the abstract syntax tree, a SemanticAnalysis.g grammar file for doing a first pass through the tree, annotating it with additional information, filling the symbol table, checking semantic correctness and then finally CodeGeneration.g for emitting JVM bytecode using the annotated tree.&quot;
 href="http://www.antlr.org/"  
-tag="programming compiler parser" time="2013-02-01T01:13:23Z" 
+tags: programming compiler parser
+time="2013-02-01T01:13:23Z" 
 
 PEG.js: Parser Generator for JavaScript
 ================================================================================
   http://news.ycombinator.com/item?id=1198683 &quot;PEGs are a recent concept&quot; distinct from CFGs. http://news.ycombinator.com/item?id=1199271 &quot;the problem with PEGs: / implies ordering of the search (parsing) space. You need to order your / operators so that special cases (e.g. longer matches) appear first. Unfortunately, if you don't do this, nothing will tell you you have a problem with your grammar, it will simply not parse some inputs.&quot; =&gt; must exhaustively test PEG parser.
 href="http://pegjs.majda.cz/"  
-tag="hardware-dev programming compiler parser"
+tags: hardware-dev programming compiler parser
   time="2013-02-01T00:57:03Z" 
 
 21 Compilers and 3 Orders of Magnitude in 60 Minutes
 ================================================================================
 https://lobste.rs/s/fcm3dc/21_compilers_3_orders_magnitude_60
 http://venge.net/graydon/talks/CompilerTalk-2019.pdf
-tag="programming compiler optimization history"
+tags: programming compiler optimization history
 .
 Proebsting's Law:
   "Compiler Advances Double Computing Power Every 18 Years"
@@ -2550,7 +2575,7 @@ Handling Growth with Postgres: 5 Tips From Instagram - Instagram Engineering
 ================================================================================
   href="http://instagram-engineering.tumblr.com/post/40781627982/handling-growth-with-postgres-5-tips-from-instagram"
    
-tag="sql scalability performance postgresql database"
+tags: sql scalability performance postgresql database
   time="2013-02-01T00:55:01Z" 
 
 kelly norton: On Layout &amp; Web Performance
@@ -2558,33 +2583,33 @@ kelly norton: On Layout &amp; Web Performance
   The following properties CAUSE LAYOUT: Element: clientHeight clientLeft clientTop clientWidth focus getBoundingClientRect getClientRects innerText offsetHeight offsetLeft offsetParent offsetTop offsetWidth outerText scrollByLines scrollByPages scrollHeight scrollIntoView scrollIntoViewIfNeeded scrollLeft scrollTop scrollWidth MouseEvent: layerX layerY offsetX offsetY Window: getComputedStyle scrollBy scrollTo scrollX scrollY Frame, Document, Image: height width
   href="http://kellegous.com/j/2013/01/26/layout-performance/"
    
-tag="programming webdev dev performance layout html web css"
+tags: programming webdev dev performance layout html web css
   time="2013-02-01T00:51:48Z" 
 
 AMP Camp 
 ================================================================================
 href="http://ampcamp.berkeley.edu/videos/" 
-tag="todo machine-learning"
+tags: todo machine-learning
   time="2012-11-05T02:25:13Z" 
 
 guardianproject/haven
 ================================================================================
 https://github.com/guardianproject/haven
 Haven is for people who need a way to protect their personal spaces and possessions without compromising their own privacy, through an Android app and on-device sensors
-tag="paranoia security app mobile phone"
+tags: paranoia security app mobile phone
 
 ================================================================================
 Algo VPN: personal IPSEC VPN in the cloud
 https://github.com/trailofbits/algo
 https://blog.trailofbits.com/2016/12/12/meet-algo-the-vpn-that-works/
-tag="anonymous privacy vpn paranoia security ipsec"
+tags: anonymous privacy vpn paranoia security ipsec
 Does not require client software (unlike OpenVPN).
 
 ================================================================================
 20200829
 sinter: user-mode application authorization system for MacOS written in Swift
 https://github.com/trailofbits/sinter
-tag="macos security infosec os"
+tags: macos security infosec os
 https://blog.trailofbits.com/2020/08/12/sinter-new-user-mode-security-enforcement-for-macos/
 > EndpointSecurity is an API that implements a callback from the macOS kernel,
 > in real time, as a particular event is about to happen. EndpointSecurity
@@ -2602,49 +2627,51 @@ https://blog.trailofbits.com/2020/08/12/sinter-new-user-mode-security-enforcemen
 Color Scheme Designer 
 ================================================================================
 href="http://colorschemedesigner.com/"  
-tag="art web tools" time="2012-11-04T20:55:04Z" 
+tags: art web tools
+time="2012-11-04T20:55:04Z" 
 
 CircuitLab | sketch, simulate, and share your circuits
 ================================================================================
   online circuit simulator
 href="https://www.circuitlab.com/"  
-tag="engineering simulation electronics"
+tags: engineering simulation electronics
   time="2012-10-22T04:24:43Z" 
 
 r twotorials 
 ================================================================================
 href="http://www.twotorials.com/"  
-tag="programming statistics r-lang tutorial"
+tags: programming statistics r-lang tutorial
   time="2012-10-17T04:47:56Z" 
 
 CommonCrawl
 ================================================================================
   open source web crawl data
 href="http://commoncrawl.org/"  
-tag="datasets" time="2012-10-17T04:07:29Z" 
+tags: datasets
+time="2012-10-17T04:07:29Z" 
 
 formlabs 
 ================================================================================
 href="http://www.formlabs.com/"  
-tag="electronics engineering self-replication 3d_printing"
+tags: electronics engineering self-replication 3d_printing
   time="2012-09-20T04:28:56Z" 
 
 noda-time - Project Hosting on Google Code
 ================================================================================
 href="http://code.google.com/p/noda-time/" 
-tag="programming .net datetime library"
+tags: programming .net datetime library
   time="2012-09-13T18:28:36Z" 
 
 Joda Time - Java date and time API - Home
 ================================================================================
 href="http://joda-time.sourceforge.net/" 
-tag="library programming java datetime"
+tags: library programming java datetime
   time="2012-09-13T18:27:35Z" 
 
 Vert.x
 ================================================================================
 https://vertx.io/
-tag="library programming java concurrency"
+tags: library programming java concurrency
 Eclipse Vert.x is event driven and non blocking. This means your app can handle a lot of concurrency using a small number of kernel threads. Vert.x lets your app scale with minimal hardware.
 
 
@@ -2653,13 +2680,13 @@ TACK :: Trust Assertions for Certificate Keys
   dynamically activated public key pinning framework that provides a layer of indirection away from Certificate Authorities, but is fully backwards compatible with existing CA certificates, and doesn't require sites to modify their existing certificate chains.
    href="http://tack.io/"
    
-tag="cryptography certificate-authentication paranoia security"
+tags: cryptography certificate-authentication paranoia security
   time="2012-08-30T05:35:44Z" 
 
 Prediction Markets: When Do They Work?
 ================================================================================
 https://thezvi.wordpress.com/2018/07/26/prediction-markets-when-do-they-work/
-tag="market prediction-market economics mental-model"
+tags: market prediction-market economics mental-model
 
 Remember, if you can’t spot the sucker in your first half hour at the table,
 then you are the sucker.
@@ -2670,7 +2697,7 @@ liquidity for no particular reason. They too can be the sucker.
 Hybrid cryptosystem
 ================================================================================
 https://en.wikipedia.org/wiki/Hybrid_cryptosystem
-tag="security cryptography encryption"
+tags: security cryptography encryption
 
 Problem:  Public-key (asymmetric) cryptopgraphy is expensive (~1000x worse)
           compared to symmetric-key cryptopgraphy.
@@ -2687,14 +2714,14 @@ Convergence
 ================================================================================
   distributed, secure strategy for replacing Certificate Authorities
 href="http://convergence.io/"  
-tag="certificate-authentication distributed-systems paranoia security cryptography"
+tags: certificate-authentication distributed-systems paranoia security cryptography
   time="2012-08-30T05:32:39Z" 
 
 White House Worked With Buyout Firm to Save Plant - WSJ.com
 ================================================================================
   White House played a central role in encouraging another private-equity firm to rescue a Philadelphia oil refinery, whose imminent closure by owner Sunoco Inc. threatened to send gasoline prices higher before the election. Gene Sperling, director of Mr. Obama's National Economic Council, helped kick-start discussions to sell the refinery to Carlyle Group, CG -0.04% a well-connected Washington, D.C., private-equity firm. [...] regulators agreed to loosen certain environmental restrictions on the refinery. Pennsylvania's Republican governor, Tom Corbett, contributed $25 million in state subsidies and other incentives. [...] The White House referred the issue to the EPA, which along with state and local environmental officials agreed to modify the decree, allowing Carlyle to transfer emissions credits from the Marcus Hook refinery, in effect giving the Philadelphia refinery greater leeway to pollute.
 href="http://online.wsj.com/article/SB10000872396390443713704577603281330597966.html"
-tag="politics regulatory-capture"
+tags: politics regulatory-capture
   time="2012-08-23T03:53:45Z" 
 
 Alistair.Cockburn.us | Characterizing people as non-linear, first-order components in software development
@@ -2702,13 +2729,13 @@ Alistair.Cockburn.us | Characterizing people as non-linear, first-order componen
   People _failure modes_: - Since consistency of action is a common failure mode, we can safely predict that the documentation will not be up to date. - Individual personalities easily dominate a project. People _success modes_: - People are communicating beings, doing best face-to-face - People are highly variable, varying from day to day - People generally [...] are good at looking around, taking initiative --- - Low precision artifacts use the strengths of people to lower development costs. The most significant single factor is ‚Äúcommunication‚Äù.
   href="http://alistair.cockburn.us/Characterizing+people+as+non-linear%2c+first-order+components+in+software+development"
    
-tag="softwareengineering methodology project-management programming"
+tags: softwareengineering methodology project-management programming
   time="2012-07-23T03:44:27Z" 
 
 My 20-Year Experience of Software Development Methodologies
 ================================================================================
 https://zwischenzugs.wordpress.com/2017/10/15/my-20-year-experience-of-software-development-methodologies/
-tag="softwareengineering methodology project-management programming"
+tags: softwareengineering methodology project-management programming
 
 > humans require ‘collective fictions’ so that we can collaborate in larger
 > numbers than the 150 or so our brains are big enough to cope with by default
@@ -2728,7 +2755,7 @@ tag="softwareengineering methodology project-management programming"
 The Empty Promise of Data Moats / by Martin Casado and Peter Lauten
 ================================================================================
 https://a16z.com/2019/05/09/data-network-effects-moats/
-tag="startup network-effects dependencies data moat mental-model"
+tags: startup network-effects dependencies data moat mental-model
 > scale effect has limited value as a defensive strategy for many companies.
 .
 > Most data network effects are really scale effects:
@@ -2750,44 +2777,47 @@ tag="startup network-effects dependencies data moat mental-model"
 Stripe 
 ================================================================================
 href="https://stripe.com/"  
-tag="startup business api ecommerce"
+tags: startup business api ecommerce
   time="2012-07-19T05:32:06Z" 
 
 Twilio | Build Scalable Voice, VoIP and SMS Applications in the Cloud
 ================================================================================
 href="http://www.twilio.com/"  
-tag="startup api telephony" time="2012-07-19T05:31:14Z" 
+tags: startup api telephony
+time="2012-07-19T05:31:14Z" 
 
 Dwolla 
 ================================================================================
 href="https://www.dwolla.com/"  
-tag="startup business ecommerce" time="2012-07-19T05:30:18Z" 
+tags: startup business ecommerce
+time="2012-07-19T05:30:18Z" 
 
 The If Works - Translation from Haskell to JavaScript of selected portions of the best introduction to monads I‚Äôve ever read
 ================================================================================
   monad: a design pattern. It says that whenever you have a class of functions that accept one type and return another type, there are two functions that can be applied across this class to make them composable: - 'bind' function: transforms any function to accept the same type as it returns, making it composable - 'unit' function: wraps a value in the type accepted by the composable functions. 'monad' pattern helps you spot accidental complexity: code that isn‚Äôt dealing directly with the problem at hand, but which is just glueing data types together.
   href="http://blog.jcoglan.com/2011/03/05/translation-from-haskell-to-javascript-of-selected-portions-of-the-best-introduction-to-monads-ive-ever-read/"
    
-tag="javascript monad functional-programming haskell"
+tags: javascript monad functional-programming haskell
   time="2012-07-19T05:23:04Z" 
 
 C++ FAQ 
 ================================================================================
 href="http://www.parashift.com/c++-faq/" 
-tag="cpp programming faq"
+tags: cpp programming faq
   time="2012-07-18T17:30:30Z" 
 
 WordNet - Princeton University Cognitive Science Laboratory
 ================================================================================
   lexical database of cognitive synonyms (synsets) interlinked by means of conceptual-semantic and lexical relations.
 href="http://wordnet.princeton.edu/"  
-tag="datasets data-mining" time="2012-07-05T03:55:32Z" 
+tags: datasets data-mining
+time="2012-07-05T03:55:32Z" 
 
 Tcl Quick Reference
 ================================================================================
   also: http://www.fundza.com/tcl/quickref_2/ Yes, [expr] is a bit clunky - in Tcl8.5 arithmetic can also be done with prefix operators: % namespace import ::tcl::mathop::* % * 3 [+ 1 2] =&gt; 9
 href="http://www.fundza.com/tcl/quickref_1/" 
-tag="reference tcl programming"
+tags: reference tcl programming
   time="2012-06-20T02:36:55Z" 
 
 OMG Ponies!!! (Aka Humanity: Epic Fail) - Jon Skeet: Coding Blog
@@ -2795,65 +2825,69 @@ OMG Ponies!!! (Aka Humanity: Epic Fail) - Jon Skeet: Coding Blog
   extended="- unicode &quot;composite characters&quot;: http://unicode.org/faq/char_combmark.html#7 - &quot;zero-width non-joiner&quot; \u200c - Turkey test java.util.Date and Calendar may or may not account for leap seconds depending on the host support CST timezone is one of { Central Standard Time US / UTC-6; Central Standard Time Australia / UTC+9.30; Central Summer Time Australia } &quot;Argentina announced that it wasn't going to use daylight saving time any more... 11 days before its next transition. The reason? Their dams are 90% full. I only heard about this due to one of my unit tests failing. For various complicated reasons, a unit test which expected to recognise the time zone for Godthab actually thought it was Buenos Aires. So due to rainfall thousands of miles away, my unit test had moved Greenland into Argentina.&quot;"
   href="http://msmvps.com/blogs/jon_skeet/archive/2009/11/02/omg-ponies-aka-humanity-epic-fail.aspx"
    
-tag="data-representation edge-cases datetime unicode programming"
+tags: data-representation edge-cases datetime unicode programming
   time="2012-06-18T16:58:06Z" 
 
 C++ Frequently Questioned Answers 
 ================================================================================
 href="http://yosefk.com/c++fqa/"  
-tag="cpp faq programming" time="2012-06-16T17:46:41Z" 
+tags: cpp faq programming
+time="2012-06-16T17:46:41Z" 
 
 My first month freelancing | Hacker News
 ================================================================================
   tptacek's excellent arguments for daily billing increments http://news.ycombinator.com/user?id=tptacek see also: http://news.ycombinator.com/item?id=3420303
 href="http://news.ycombinator.com/item?id=4101355" 
-tag="contracting freelancing"
+tags: contracting freelancing
   time="2012-06-13T03:25:41Z" 
 
 AppHarbor - AppHarbor
 ================================================================================
   .NET host, build server, deployment
 href="https://appharbor.com/"  
-tag="build_server .net hosting" time="2012-06-12T17:49:32Z" 
+tags: build_server .net hosting
+time="2012-06-12T17:49:32Z" 
 
 A Quiz About Integers in C | Hacker News
 ================================================================================
   type coercion pathology
 href="http://news.ycombinator.com/item?id=4061815" 
-tag="programming c" time="2012-06-04T16:13:07Z" 
+tags: programming c
+time="2012-06-04T16:13:07Z" 
 
 JRuby casting null support
 ================================================================================
   cast nulls in jruby. java_alias, java_method, java_send
 href="http://jira.codehaus.org/browse/JRUBY-3865" 
-tag="repl java jruby" time="2012-04-28T00:08:08Z" 
+tags: repl java jruby
+time="2012-04-28T00:08:08Z" 
 
 "java.lang.OutOfMemoryError: PermGen space" exception (classloader leaks)
 ================================================================================
   java PermGen = class definition heap avoid static references to class definitions &quot;The JDK's permanent memory behaves differently depending on whether a debugger is enabled&quot; http://wiki.caucho.com/Java.lang.OutOfMemoryError:_PermGen_space
   href="http://frankkieviet.blogspot.com/2006/10/how-to-fix-dreaded-permgen-space.html"
    
-tag="heap permgen debug profiling programming java"
+tags: heap permgen debug profiling programming java
   time="2012-04-20T23:06:14Z" 
 
 Code, Collaborate, Compile - compilify.net
 ================================================================================
 href="http://compilify.net/"  
-tag="tools programming online repl"
+tags: tools programming online repl
   time="2012-04-11T22:42:28Z" 
 
 Affordances - Interaction-Design.org: HCI, Usability, Information Architecture, User Experience, and more..
 ================================================================================
   affordance = an action possibility available to the user avoid &quot;false affordance&quot; (like a knob that cannot be turned, or a chair that cannot be sat in). an intelligent control interface is as a false affordance. http://unqualified-reservations.blogspot.com/2009/07/wolfram-alpha-and-hubristic-user.html
 href="http://www.interaction-design.org/encyclopedia/affordances.html"
-tag="design hci patterns ui usability"
+tags: design hci patterns ui usability
   time="2012-04-10T05:35:50Z" 
 
 
 convey the global structure (BIG PICTURE) of programs
 ================================================================================
 http://akkartik.name/about
-tag="software architecture programming project-management engineering complexity documentation"
+tags: software architecture programming project-management engineering complexity documentation
 
 - Deemphasize interfaces in favor of tests. Automated tests are great not just
   for avoiding regressions and encouraging a loosely-coupled architecture, but
@@ -2871,18 +2905,18 @@ Distributed Systems Programming. Which Level Are You? ¬´ Incubaid Research
   Partial Failure ... These failure modes are the very defining property of distributed systems. &quot;A distributed system is one in which the failure of a computer you didn‚Äôt even know existed can render your own computer unusable&quot; (Leslie Lamport) abandon the idea of network transparency, and attack the handling of partial failure distributed state machine: &quot;multi-paxos implementation on top of TCP&quot; Unit testing: The problem however is reproducing the failure scenario is difficult, if not impossible concurrency causes indeterminism, but you can‚Äôt abandon it--you just have to ban it from mingling with your distributed state machine (No IO, No Concurrency). you can only get to a new state via a new message. Benefits: Perfect control, reproducibility, tracibility. Costs: You‚Äôre forced to reify all your actions. You have to model every change that needs your attention into a message.
   href="http://blog.incubaid.com/2012/03/28/the-game-of-distributed-systems-programming-which-level-are-you/"
    
-tag="concurrency architecture programming distributed-systems"
+tags: concurrency architecture programming distributed-systems
   time="2012-04-04T16:48:46Z" 
 
 UNDERSTANDING HASH FUNCTIONS by Geoff Pike
 ================================================================================
 https://github.com/google/farmhash/blob/master/Understanding_Hash_Functions
-tag="programming compsci algorithms hash-function"
+tags: programming compsci algorithms hash-function
 
 More study of diff: Walter Tichy's papers
 ================================================================================
 http://bryanpendleton.blogspot.de/2010/04/more-study-of-diff-walter-tichys-papers.html
-tag="programming algorithms diff"
+tags: programming algorithms diff
 two papers by Walter Tichy:
 - The String-to-String Correction Problem with Block Moves
   http://docs.lib.purdue.edu/cstech/378/
@@ -2955,12 +2989,12 @@ google-diff-match-patch - Google Code
 ================================================================================
 robust diff/patch library Myer's diff algorithm Bitap matching algorithm more sophisticated than GNU patch
 href="https://github.com/google/diff-match-patch"
-tag="google library programming algorithms diff lua"
+tags: google library programming algorithms diff lua
 
 [Toybox] More than you really wanted to know about patch.
 ================================================================================
 http://lists.landley.net/pipermail/toybox-landley.net/2019-January/010049.html
-tag="programming tools unix algorithms diff patch"
+tags: programming tools unix algorithms diff patch
 > So generally what you do _now_ (and what tools like svn/mercurial/git simulate
 > behind the scenes) is back up one directory, have two full trees (the vanilla
 > project and your modified version), and "diff -ruN" the two subdirectories.
@@ -2996,7 +3030,7 @@ tag="programming tools unix algorithms diff patch"
 20200829
 Graphtage: A New Semantic Diffing Tool
 https://github.com/trailofbits/graphtage
-tag="programming tools algorithms diff patch merge semantic-diff"
+tags: programming tools algorithms diff patch merge semantic-diff
 https://blog.trailofbits.com/2020/08/28/graphtage/
 When paired with PolyFile, you can semantically diff arbitrary file formats.
 https://blog.trailofbits.com/2019/11/01/two-new-tools-that-tame-the-treachery-of-files/
@@ -3005,23 +3039,23 @@ Data Laced with History: Causal Trees & Operational CRDTs
 ================================================================================
 http://archagon.net/blog/2018/03/24/data-laced-with-history/
 https://news.ycombinator.com/item?id=18477756
-tag="algorithms compsci diff crdt"
+tags: algorithms compsci diff crdt
 
 "I See What You Mean" by Peter Alvaro
 ================================================================================
 https://www.youtube.com/watch?v=R2Aa4PivG0g&t=2295s
-tag="datalog query language"
+tags: datalog query language
 
 Dedalus: Datalog in Time and Space
 ================================================================================
 https://www2.eecs.berkeley.edu/Pubs/TechRpts/2009/EECS-2009-173.html
-tag="datalog query language"
+tags: datalog query language
 
 Bloom
 ================================================================================
 https://github.com/bloom-lang/bud
 Dedalus rewrite
-tag="datalog query language"
+tags: datalog query language
 
 
 High Scalability - 7 Years of YouTube Scalability Lessons in 30¬†Minutes
@@ -3029,7 +3063,7 @@ High Scalability - 7 Years of YouTube Scalability Lessons in 30¬†Minutes
   Jitter - Add Entropy Back into Your System: If your system doesn‚Äôt jitter then you get thundering herds. Debugging distributed applications is as deterministic as predicting the weather. Jitter introduces more randomness because things tend to stack up. For example, cache expirations: If everything expires at one time this creates a thundering herd. To introduce &quot;jitter&quot; you might randomly expire between 18-30 hours. Each machine actually removes entropy from the system, so you have to add some back in. Cheating - Know How to Fake Data: The fastest function call is the one that doesn‚Äôt happen. A monotonically increasing counter, like movie view counts or profile view counts, could update by a random amount and as long as it changes from odd to even people would probably believe it‚Äôs real, and the actual transactions only need to happen occasionally.
   href="http://highscalability.com/blog/2012/3/26/7-years-of-youtube-scalability-lessons-in-30-minutes.html"
    
-tag="programming architecture scalability"
+tags: programming architecture scalability
   time="2012-03-28T16:11:27Z" 
 
 DOM Events, Memory Leaks, and You - Google Web Toolkit - Google Code
@@ -3037,7 +3071,7 @@ DOM Events, Memory Leaks, and You - Google Web Toolkit - Google Code
   &quot;any reference cycle that involves a JavaScript object and a DOM element (or other native object) has a nasty tendency to never get garbage-collected&quot; &quot;as long as you don't set up any reference cycles on your own using JSNI, you can't write an application in GWT that will leak.&quot;
   href="https://developers.google.com/web-toolkit/articles/dom_events_memory_leaks_and_you"
    
-tag="programming eventbus memoryleak gwt"
+tags: programming eventbus memoryleak gwt
   time="2012-03-23T13:56:26Z" 
 
 Understanding Memory Leaks - Google Web Toolkit (GWT)
@@ -3045,7 +3079,7 @@ Understanding Memory Leaks - Google Web Toolkit (GWT)
   *widget/DOM* level, vs. application/global level. you don't need to to unregister event handlers at the widget level--only the application/global level.
   href="http://code.google.com/p/google-web-toolkit/wiki/UnderstandingMemoryLeaks"
    
-tag="eventbus memoryleak programming gwt"
+tags: eventbus memoryleak programming gwt
   time="2012-03-22T16:39:22Z" 
 
 GWT Handler Registrations
@@ -3053,13 +3087,13 @@ GWT Handler Registrations
   memory leaks: application level vs. DOM/widget level removeHandler is *never* required to avoid DOM-/browser-level memory leaks removeHandler *is* required to avoid application-level memory leaks For global EventBus with a transient event listener, the transient listener will prevent its container object from being garbage-collected until the EventBus is also garbage collected. Instead of handing the application-wide EventBus directly to an activity, wrap the EventBus in a ResettableEventBus. Then when that activity is done, ResettableEventBus.removeHandlers().
   href="http://draconianoverlord.com/2010/11/23/gwt-handlers.html"
    
-tag="memoryleak eventbus programming gwt"
+tags: memoryleak eventbus programming gwt
   time="2012-03-22T16:37:35Z" 
 
 Baby's First Garbage Collector
 ================================================================================
 http://journal.stuffwithstuff.com/2013/12/08/babys-first-garbage-collector/
-tag="gc garbage-collector compsci programming-language"
+tags: gc garbage-collector compsci programming-language
   //
   // mark-and-sweep gc implementation
   //
@@ -3100,7 +3134,7 @@ tag="gc garbage-collector compsci programming-language"
 Windows File System Redirection (Diagnosing weird problems - a Stack Overflow case study)
 ================================================================================
 http://www.reddit.com/r/programming/comments/qzo96/diagnosing_weird_problems_a_stack_overflow_case/
-tag="debug kernel windows"
+tags: debug kernel windows
 
 For 32-bit programs running on 64-bit Windows, the &quot;File System
 Redirector&quot; transparently redirects calls to System32 folder to the
@@ -3117,7 +3151,7 @@ HKLM hive are redirected to the HKCU hive.
 Container isolation gone wrong / By Gianluca Borello on May 22, 2017
 ================================================================================
 https://sysdig.com/blog/container-isolation-gone-wrong/
-tag="debug kernel linux perf perf-tools"
+tags: debug kernel linux perf perf-tools
 
 As a last step, we can try to quantify the performance hit from the hash table point of view. To recap, the lookup in the hash table becomes slower because the array of buckets is of fixed size and it’s never resized at runtime, since it’s very large to begin with. As we put more objects inside the table, the length of the linked lists in each bucket will inevitably increase, and this will cause more iterations on average in order to find the object we are looking for.
 
@@ -3178,76 +3212,79 @@ A Rebase Workflow for Git | RandyFay.com
 ================================================================================
   use 'rebase' workflow instead of 'merge' workflow
 href="http://www.randyfay.com/node/91"  
-tag="dvcs dv git" time="2012-03-01T23:05:53Z" 
+tags: dvcs dv git
+time="2012-03-01T23:05:53Z" 
 
 52 Things People Should Know To Do Cryptography
 ================================================================================
 href="http://www.cs.bris.ac.uk/Research/CryptographySecurity/knowledge.html"
-tag="compsci cryptography"
+tags: compsci cryptography
   time="2012-02-22T01:59:23Z" 
 
 L. Gordon Crovitz: You Commit Three Felonies a Day - WSJ.com
 ================================================================================
   Harvey Silverglate book: &quot;Three Felonies a Day&quot; ...securities laws, which Congress leaves intentionally vague, encouraging regulators and prosecutors to try people even when the law is unclear. Prosecutors identify defendants to go after instead of finding a law that was broken and figuring out who did it.
 href="http://online.wsj.com/article/SB10001424052748704471504574438900830760842.html"
-tag="police-state politics"
+tags: police-state politics
   time="2012-02-20T05:53:54Z" 
 
 Congresswoman who voted for the Patriot Act expresses outraged after being wiretapped
 ================================================================================
 href="https://www.youtube.com/watch?v=NFn4JXkcwLs" 
-tag="video politics police-state"
+tags: video politics police-state
   time="2012-02-20T05:26:10Z" 
 
 Use C# 4.0 dynamic to drastically simplify your private reflection code - Angle Bracket Percent - Site Home - MSDN Blogs
 ================================================================================
   Access private and internal members in other assemblies, using private reflection. foo1.AsDynamic()
 href="http://blogs.msdn.com/b/davidebb/archive/2010/01/18/use-c-4-0-dynamic-to-drastically-simplify-your-private-reflection-code.aspx"
-tag="programming reflection c# .net"
+tags: programming reflection c# .net
   time="2012-01-31T06:25:39Z" 
 
 Things to Do | tampabay.com &amp; the St. Petersburg Times
 ================================================================================
 href="http://www.tampabay.com/things-to-do/" 
-tag="fun tampa" time="2012-01-23T08:03:38Z" 
+tags: fun tampa
+time="2012-01-23T08:03:38Z" 
 
 The ultimate Vim configuration - vimrc
 ================================================================================
 href="http://amix.dk/vim/vimrc.html"  
-tag="vim" time="2012-01-20T19:06:53Z" 
+tags: vim
+time="2012-01-20T19:06:53Z" 
 
 Keeping a clean GitHub fork ‚Äì Part 1 ¬ª Evan's Blog
 ================================================================================
   - add a remote pointing to the canonical repository. - you may want to also add some other remotes of developers you follow. - your master branch should always be a mirror of the upstream master branch - --ff-only : &quot;the single safest way to update your local master branch&quot; - All work should be done in topic branches: feature/some-new-thing hotfix/BUGID-andor-description - generally, you want to branch from master - commit and push early and often
 href="http://blog.evan.pro/keeping-a-clean-github-fork-part-1"
-tag="programming git"
+tags: programming git
   time="2012-01-20T18:09:25Z" 
 
 Joel Pobar's weblog
 ================================================================================
   series on HTML Data Extraction ~Mar 2010
 href="http://callvirt.net/blog/"  
-tag="f# blog machine-learning c# .net programming"
+tags: f# blog machine-learning c# .net programming
   time="2012-01-18T15:32:03Z" 
 
 blueimp/jQuery-File-Upload - GitHub
 ================================================================================
   Excellent multiple/drag/drop file upload.
 href="https://github.com/blueimp/jQuery-File-Upload" 
-tag="programming web asp.net jquery"
+tags: programming web asp.net jquery
   time="2011-12-31T22:50:34Z" 
 
 Session_Start or Session_OnStart?
 ================================================================================
   Idiosyncrasies of global.asax event signatures... void Session_Start(object sender, EventArgs e) void Session_Start() void Session_OnStart(object sender, EventArgs e) void Session_OnStart() ALL will be called, in the order as listed.
 href="http://aspnetresources.com/articles/event_handlers_in_global_asax"
-tag="asp.net programming"
+tags: asp.net programming
   time="2011-11-28T03:41:49Z" 
 
 GoogleContainerTools/distroless
 ================================================================================
 https://github.com/GoogleContainerTools/distroless/blob/master/base/README.md
-tag="linux oss google gce cloud container distro"
+tags: linux oss google gce cloud container distro
 gcr.io/distroless/base and gcr.io/distroless/static
 Image Contents
 This image contains a minimal Linux, glibc-based system. It is intended for use directly by "mostly-statically compiled" languages like Go, Rust or D.
@@ -3268,27 +3305,27 @@ openssl
 ================================================================================
   Misconception: Most of what Americans spend their money on is made in China. Fact: Just 2.7% of personal consumption expenditures go to Chinese-made goods and services. Misconception: We owe most of our debt to China. Fact: China owns 7.8% of U.S. government debt outstanding. Misconception: We get most of our oil from the Middle East. Fact: Just 9.2% of oil consumed in the U.S. comes from the Middle East.
 href="http://www.fool.com/investing/general/2011/10/25/3-misconceptions-that-need-to-die.aspx"
-tag="politics economics"
+tags: politics economics
   time="2011-11-07T02:37:34Z" 
 
 Ilya Khrzhanovsky's Dau: &quot;The Movie Set That Ate Itself&quot;
 ================================================================================
   The fine system has also fostered a robust culture of snitching. &quot;In a totalitarian regime, mechanisms of suppression trigger mechanisms of betrayal,&quot; the director explains. ... The only acting professional in the cast is Radmila Shchegoleva ... before shooting began, she spent a full year working at a chocolate factory and a hospital, a regimen devised by Khrzhanovsky to beat the actress out of her. ... For the lead role, he had one stipulation: It had to be played by an actual genius, regardless of the discipline. ... &quot;All geniuses are foreigners,&quot; Khrzhanovsky tells me cryptically. ... Sveta, the film's comely &quot;executive producer,&quot; came here two years ago to interview Khrzhanovsky for a book on young Russian directors and stayed, divorcing her husband soon after.
 href="http://www.gq.com/entertainment/movies-and-tv/201111/movie-set-that-ate-itself-dau-ilya-khrzhanovsky"
-tag="film art bizarre"
+tags: film art bizarre
   time="2011-10-31T22:46:25Z" 
 
 Google Guava
 ================================================================================
   Google's core libraries that we rely on in our Java-based projects: collections, caching, primitives support, concurrency libraries, common annotations, string processing, I/O, etc.
 href="http://code.google.com/p/guava-libraries/" 
-tag="java google oss programming library"
+tags: java google oss programming library
   time="2011-10-19T22:53:36Z" 
 
 Stephen Colebourne's blog: Time-zone database down
 ================================================================================
 href="http://blog.joda.org/2011/10/today-time-zone-database-was-closed.html"
-tag="ip law government-failure"
+tags: ip law government-failure
   time="2011-10-17T13:07:53Z" 
 
 The (Illegal) Private Bus System That Works - Lisa Margonelli - National - The Atlantic
@@ -3296,13 +3333,13 @@ The (Illegal) Private Bus System That Works - Lisa Margonelli - National - The A
   The city's perverse policy of half-legalizing legal vans and failing to enforce laws against the unlicensed ones limits the growth of what could be a useful transit resource. --- Comment: The chief reason for the demise of privately owned mass transit and the decline of the succeeding publicly owned version was the inability of transit providers to raise fares. No politician wanted to preside over a fare increase, so fares were kept artificially and unrealistically low for decades until the 70s, when there was finally a crisis. Should the dollar vans be fully legalized, and therefore regulated, we can expect politicians -- who are universally devoid both of economic knowledge and of business sense -- to replay the former history, so that Winston and his fellows will be bankrupt within 10 years of achieving legality.
   href="http://www.theatlantic.com/national/archive/2011/10/the-illegal-private-bus-system-that-works/246166/"
    
-tag="economics transportation government-failure"
+tags: economics transportation government-failure
   time="2011-10-17T12:48:11Z" 
 
 mergerfs
 ================================================================================
 https://github.com/trapexit/mergerfs
-tag="filesystem union jbod data-management raid fuse"
+tags: filesystem union jbod data-management raid fuse
 union filesystem (JBOD solution)
 > mergerfs is a union filesystem geared towards simplifying storage and
 > management of files across numerous commodity storage devices. It is similar
@@ -3314,7 +3351,7 @@ union filesystem (JBOD solution)
 Amazon six-pager
 ================================================================================
 https://news.ycombinator.com/item?id=19115686
-tag="documentation communication work habits teams"
+tags: documentation communication work habits teams
 principles of the 6-pager:
 - 6 pages is the upper limit; the memo can be shorter
 - The format is designed to drive the meeting structure by requiring attendees
@@ -3333,7 +3370,7 @@ Protocol Buffers - Google's data interchange format
 ================================================================================
   Protocol Buffers are a way of encoding structured data in an efficient yet extensible format. Google uses Protocol Buffers for almost all of its internal RPC protocols and file formats. also: http://code.google.com/p/protobuf-net/
 href="http://code.google.com/p/protobuf/" 
-tag="library google programming protocol"
+tags: library google programming protocol
   time="2011-10-13T07:18:54Z" 
 
 s.tl() : Omniture ¬ª Custom Link Tracking: Capturing User Actions
@@ -3341,20 +3378,20 @@ s.tl() : Omniture ¬ª Custom Link Tracking: Capturing User Actions
   - based on s.tl() - used to track anything: button clicks, form values, etc. - does NOT count a page view. - Note from &quot;SiteCatalyst Implementation Guide&quot;: If linkTrackVars is set to &quot;&quot; ALL variables that have values will be sent with link data.
   href="http://blogs.omniture.com/2009/03/12/custom-link-tracking-capturing-user-actions/"
    
-tag="adobe omniture sitecatalyst webanalytics javascript"
+tags: adobe omniture sitecatalyst webanalytics javascript
   time="2011-10-04T19:10:14Z" 
 
 Using System.Net Tracing - Durgaprasad Gorti's WebLog - MSDN Blogs
 ================================================================================
   You can see clearly that 1) The Remote Certificate is being clearly presented in the log file. 2) Any errors in the remote certificate are logged. 3) In this case we are returning true for NAME MISMATCH if the server is local or intranet [Please see the remore certificate validation callback code] 4) The fact that we accepted the certificate is also logged. 5) Then at the sockets level you can see encrypted data being sent 6) At the System.Net level (application level) you can see the decrypted data.
 href="http://blogs.msdn.com/b/dgorti/archive/2005/09/18/471003.aspx"
-tag="debug .net"
+tags: debug .net
   time="2011-09-28T10:09:06Z" 
 
 compute bricks – small-form-factor fanless PCs
 ================================================================================
 http://esr.ibiblio.org/?p=8195
-tag="hardware compute engineering small-form-factor fanless embedded soc"
+tags: hardware compute engineering small-form-factor fanless embedded soc
 Players in this space include Jetway, Logic Supply, Partaker, and Shuttle.
 Poke a search engine with “fanless PC” to get good hits.
 
@@ -3362,83 +3399,85 @@ google-guice - Guice
 ================================================================================
   Guice is a lightweight dependency injection framework for Java.¬† Guice alleviates the need for factories and 'new'. Think of Guice's @Inject as the new 'new'. Your code will be easier to change, unit test and reuse in other contexts.
 href="http://code.google.com/p/google-guice/" 
-tag="programming java google"
+tags: programming java google
   time="2011-09-26T17:32:21Z" 
 
 SAP Community Network Wiki - ABAP Language and Runtime Environment
 ================================================================================
 href="http://wiki.sdn.sap.com/wiki/display/ABAP/ABAP+Language+and+Runtime+Environment"
-tag="sap programming"
+tags: sap programming
   time="2011-09-26T17:26:14Z" 
 
 SAP Developer Network (SDN) 
 ================================================================================
 href="http://www.sdn.sap.com/"  
-tag="sap programming" time="2011-09-26T17:17:14Z" 
+tags: sap programming
+time="2011-09-26T17:17:14Z" 
 
 Signals and Systems | MIT OpenCourseWare
 ================================================================================
   introduction to analog and digital signal processing¬† Fourier transform¬† Filtering and filter design, modulation, and sampling¬†
   href="http://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/"
    
-tag="pedagogy todo science engineering courses"
+tags: pedagogy todo science engineering courses
   time="2011-09-12T16:31:57Z" 
 
 Gundo - Visualize your Vim Undo Tree
 ================================================================================
 href="http://sjl.bitbucket.org/gundo.vim/" 
-tag="plugin vim oss" time="2011-09-09T18:44:00Z" 
+tags: plugin vim oss
+time="2011-09-09T18:44:00Z" 
 
 Semantic Versioning
 ================================================================================
   Version numbers have three components: major.minor.bugfix. For example: 1.2.4 or 2.13.0.Versions with a major version of 0 (e.g. 0.2.3) make no guarantees about backwards compatibility. You are free to break anything you want. It‚Äôs only after you release 1.0.0 that you begin making promises.If a release introduces backwards-incompatible changes, increment the major version number.If a release is backwards-compatible, but adds new features, increment the minor version number.If a release simply fixes bugs, refactors code, or improves performance, increment the bugfix version number.
 href="http://stevelosh.com/blog/2011/09/writing-vim-plugins/#use-semantic-versioning-so-i-can-stay-sane"
-tag="programming project-management"
+tags: programming project-management
   time="2011-09-07T05:27:33Z" 
 
 How to git-svn clone the last n revisions from a Subversion repository?
 ================================================================================
   use -r option to &quot;shallow clone&quot; big repositories: git svn clone -s -r123:HEAD http://svn.example.com/repos/ -T trunk -b branches -t tags
 href="http://stackoverflow.com/questions/747075/how-to-git-svn-clone-the-last-n-revisions-from-a-subversion-repository"
-tag="git svn programming"
+tags: git svn programming
   time="2011-09-06T04:24:42Z" 
 
 Cygwin DLL Remapping Failure
 ================================================================================
   To handle repeated failures of 'rebaseall', instruct cygwin to avoid the area of memory where an external DLL is mapped.
 href="http://code.google.com/p/chromium/wiki/CygwinDllRemappingFailure"
-tag="cygwin windows git"
+tags: cygwin windows git
   time="2011-09-06T03:32:20Z" 
 
 CO2 lags temperature - what does it mean?
 ================================================================================
 href="http://www.skepticalscience.com/co2-lags-temperature.htm"
-tag="agw science"
+tags: agw science
   time="2011-09-01T16:20:35Z" 
 
 A Guide to Efficiently Using Irssi and Screen | quadpoint.org
 ================================================================================
 href="http://quadpoint.org/articles/irssi" 
-tag="oss irc linux screen"
+tags: oss irc linux screen
   time="2011-08-29T18:15:35Z" 
 
 Irssi /channel, /network, /server and /connect ‚Äì What It Means
 ================================================================================
 href="http://pthree.org/2010/02/02/irssis-channel-network-server-and-connect-what-it-means/"
-tag="irc oss linux"
+tags: irc oss linux
   time="2011-08-29T18:14:49Z" 
 
 Why do electron orbitals in the molecular orbital theory form in those specific shapes?
 ================================================================================
   Suppose I connect the ends of the string. All of a sudden, only certain vibrations make any sense on that string, because other wavelengths won't match up at the point where the string is connected together. We refer to this as a periodic boundary condition, that the value of the wave at x must be equal to the value of the wave at x+2pi. Now imagine the same thing all the way around the surface of a sphere. Start at any point, travel in any direction for one trip around the sphere, and the function has to return to the same value for the description to be logical. Then you can take another step and talk about the family of solutions on the surface of a sphere; in one case, the trivial one, there are no nodes, the whole sphere kind of &quot;breathes&quot; together. Then we introduce one equatorial node, the north pole vibrates out and the south pole vibrates in, and then the reverse. Then we add more and more nodes of vibration.
 href="http://www.reddit.com/r/askscience/comments/ju47b/why_do_electron_orbitals_in_the_molecular_orbital/"
-tag="science pedagogy learning"
+tags: science pedagogy learning
   time="2011-08-26T02:37:22Z" 
 
 asciinema
 ================================================================================
 https://asciinema.org/
-tag="video screencast"
+tags: video screencast
 .
 SETUP
     pip3 install --upgrade asciinema
@@ -3452,20 +3491,20 @@ USAGE
 Data | The World Bank 
 ================================================================================
 href="http://data.worldbank.org/"  
-tag="datasets statistics data-mining"
+tags: datasets statistics data-mining
   time="2011-08-21T02:36:00Z" 
 
 http://setosa.io
 ================================================================================
 Visual explanations. Victor Powell
-tag="pedagogy mathematics learning"
+tags: pedagogy mathematics learning
 2016-08-09 01:44:45
 
 Cantor's enumeration of pairs
 ================================================================================
 https://en.wikipedia.org/wiki/Pairing_function#Cantor_pairing_function
 https://stackoverflow.com/a/682485/152142
-tag="mathematics algorithm mental-model"
+tags: mathematics algorithm mental-model
 > a pairing function is a process to uniquely encode two natural numbers into a single natural number.
 
 
@@ -3473,13 +3512,13 @@ Machine Learning - Stanford University
 ================================================================================
   open-registration online offering similar to cs229
 href="http://ml-class.com/"  
-tag="pedagogy video machine-learning"
+tags: pedagogy video machine-learning
   time="2011-08-17T03:13:59Z" 
 
 RStudio R IDE
 ================================================================================
 href="http://rstudio.org/"  
-tag="programming statistics r-lang"
+tags: programming statistics r-lang
   time="2011-08-07T19:05:02Z" 
 
 Google Libraries API
@@ -3487,93 +3526,96 @@ Google Libraries API
   CDN and loading architecture for the most popular, open-source JavaScript libraries. Makes it easy to serve¬†the libraries, correctly set cache headers, and get bug-fix releases.
   href="https://developers.google.com/speed/libraries/"
    
-tag="programming google web javascript jquery"
+tags: programming google web javascript jquery
   time="2011-08-05T14:16:46Z" 
 
 Ruxum Exchange 
 ================================================================================
 href="https://x.ruxum.com/"  
-tag="bitcoin finance exchange" time="2011-08-04T17:01:06Z" 
+tags: bitcoin finance exchange
+time="2011-08-04T17:01:06Z" 
 
 obfuscated-openssh
 ================================================================================
   A patch for OpenSSH which obfuscates the protocol handshake.
 href="https://github.com/brl/obfuscated-openssh" 
-tag="linux security ssh paranoia oss"
+tags: linux security ssh paranoia oss
   time="2011-08-04T06:42:10Z" 
 
 How to avoid SSH timeouts
 ================================================================================
   some routers time out idle connections. to fix, edit /etc/ssh/sshd_config on the server:¬† ClientAliveInterval 540 or edit /etc/ssh/ssh_config on the client:¬† ServerAliveInterval 540
 href="http://dan.hersam.com/2007/03/05/how-to-avoid-ssh-timeouts/"
-tag="ssh linux oss"
+tags: ssh linux oss
   time="2011-07-24T20:07:18Z" 
 
 Vowpal Wabbit
 ================================================================================
   a fast out-of-core learning system sponsored by Yahoo! Research also:¬†http://hunch.net/~vw/
 href="https://github.com/JohnLangford/vowpal_wabbit/wiki"
-tag="machine-learning programming"
+tags: machine-learning programming
   time="2011-07-22T00:53:37Z" 
 
 Machine Learning (Theory)
 ================================================================================
   a blog about academic research in machine learning and learning theory, by John Langford
 href="http://hunch.net/"
-tag="blog machine-learning statistics"
+tags: blog machine-learning statistics
   time="2011-07-22T00:50:40Z" 
 
 Ideone.com | Online IDE &amp; Debugging Tool
 ================================================================================
   online IDE for many languages
 href="http://ideone.com/"
-tag="repl online programming tools web"
+tags: repl online programming tools web
   time="2011-07-21T09:49:08Z" 
 
 Dynamic Dummy Image Generator - DummyImage.com
 ================================================================================
 href="http://dummyimage.com/"  
-tag="tools web webdesign" time="2011-07-21T09:48:06Z" 
+tags: tools web webdesign
+time="2011-07-21T09:48:06Z" 
 
 google-code-prettify
 ================================================================================
   really good automatic syntax highlighting of source code snippets in an html page, using javascript and CSS.
   href="http://code.google.com/p/google-code-prettify/"
    
-tag="programming javascript editing documentation web"
+tags: programming javascript editing documentation web
   time="2011-07-21T04:28:56Z" 
 
 Concatenating row values in T-SQL
 ================================================================================
   - Recursive CTE method - &quot;FOR XML with PATH&quot; method
 href="http://www.projectdmx.com/tsql/rowconcatenate.aspx"
-tag="sql programming"
+tags: sql programming
   time="2011-07-21T01:43:39Z" 
 
 Jon Skeet: Coding Blog 
 ================================================================================
 href="http://msmvps.com/blogs/jon_skeet/" 
-tag="blog programming .net c#"
+tags: blog programming .net c#
   time="2011-07-20T16:56:46Z" 
 
 the Data Hub (CKAN)
 ================================================================================
   Comprehensive Knowledge Archive Network (CKAN) a dedicated registry of open material¬†¬†
 href="http://ckan.net/"
-tag="statistics datasets"
+tags: statistics datasets
   time="2011-07-20T07:04:14Z" 
 
 theinfo.org data sets
 ================================================================================
   list of various data sets
 href="http://theinfo.org/get/data"  
-tag="datasets statistics" time="2011-07-20T07:00:19Z" 
+tags: datasets statistics
+time="2011-07-20T07:00:19Z" 
 
 How to fix Cygwin slow start up
 ================================================================================
   solution: in¬†/etc/profile.d/bash_completion.sh append an ampersand to the line that runs bash completion: ¬† ¬† . /etc/bash_completion &amp;
 href="http://cfc.kizzx2.com/index.php/cygwin-slow-start-up-the-culprit-discovered/"
-tag="cygwin bash windows"
+tags: cygwin bash windows
   time="2011-07-20T01:33:29Z" 
 
 Use Splatting to Simplify Your PowerShell Scripts
@@ -3581,122 +3623,126 @@ Use Splatting to Simplify Your PowerShell Scripts
   interesting, unsung parts of Windows PowerShell: -¬†Escape char = backtick (`). Also continues a line. -¬†Splatting: ability to use a dictionary or list to supply to parameters to a command. ¬† ¬† $foo =¬†@{ p1 = &quot;a1&quot; p2 = &quot;a2&quot; ... } - use splatting to write functions that call other functions -¬†Windows Presentation Foundation PowerShell Kit (WPK) -¬†Import-Module PowerShellPack
   href="http://blogs.technet.com/b/heyscriptingguy/archive/2010/10/18/use-splatting-to-simplify-your-powershell-scripts.aspx"
    
-tag="powershell programming scripting windows"
+tags: powershell programming scripting windows
   time="2011-07-14T19:00:45Z" 
 
 Woman arrested for filming the police; supporters targeted by police.
 ================================================================================
   Video of police intimidation
 href="http://www.reddit.com/r/politics/comments/i83a8/remember_the_woman_who_was_arrested_for_filming/"
-tag="police-state video"
+tags: police-state video
   time="2011-07-04T10:07:12Z" 
 
 CopWatch and OpenWatch: covert recording apps for interactions with authority figures
 ================================================================================
   &quot;OpenWatch Recorder&quot; and &quot;CopRecorder&quot; covertly record audio and transmit it to the OpenWatch site. There, it is reviewed for significance, stripped of personal information, and published.¬† other:¬† http://www.justin.tv¬† http://qik.com/
 href="http://m.boingboing.net/2011/06/24/copwatch-and-openwat.html"
-tag="paranoia police-state tools"
+tags: paranoia police-state tools
   time="2011-07-04T09:59:41Z" 
 
 Calculated Risk 
 ================================================================================
 href="http://www.calculatedriskblog.com/" 
-tag="finance blog" time="2011-06-30T21:43:19Z" 
+tags: finance blog
+time="2011-06-30T21:43:19Z" 
 
 Cop Block | Reporting Police Abuse
 ================================================================================
 href="http://www.copblock.org/"  
-tag="politics police-state" time="2011-06-29T18:56:51Z" 
+tags: politics police-state
+time="2011-06-29T18:56:51Z" 
 
 Google Web Fonts 
 ================================================================================
 href="http://www.google.com/webfonts/v2" 
-tag="google font web css"
+tags: google font web css
   time="2011-06-29T18:51:17Z" 
 
 Holistic Numerical Methods 
 ================================================================================
 href="http://numericalmethods.eng.usf.edu/" 
-tag="learning mathematics pedagogy video"
+tags: learning mathematics pedagogy video
   time="2011-06-27T19:15:50Z" 
 
 Pi-Search: Search the first four billion binary digits of Pi for a string
 ================================================================================
   although pi is conjectured to contain all finite information, the index for locating a given string is usually longer than the information itself:¬† http://www.reddit.com/r/math/comments/hi719/does_pi_contain_all_information/c1vl0i6
 href="http://pi.nersc.gov/"  
-tag="mathematics information" time="2011-05-26T03:37:10Z" 
+tags: mathematics information
+time="2011-05-26T03:37:10Z" 
 
 CATO: Map of Botched Paramilitary Police Raids
 ================================================================================
 href="http://www.cato.org/raidmap/"  
-tag="politics police-state" time="2011-05-18T00:06:16Z" 
+tags: politics police-state
+time="2011-05-18T00:06:16Z" 
 
 Marine Survives Two Tours in Iraq, SWAT Kills Him
 ================================================================================
   Indiana Supreme Court decision: &quot;there is no right to reasonably resist unlawful entry by police officers&quot;. --- &quot;In reality, knock and announce raids aren't all that different than the very rare &quot;no knock&quot; raid.&quot;:¬†http://www.reddit.com/r/Libertarian/comments/hddts/marine_survives_two_tours_in_iraq_swat_kills_him/c1uj1nn
 href="http://reason.com/blog/2011/05/16/marine-survives-two-tours-in-i"
-tag="police-state politics"
+tags: police-state politics
   time="2011-05-18T00:03:54Z" 
 
 Nassim N. Taleb Home &amp; Professional Page
 ================================================================================
   black swan theory; antifragility; small probabilities and model error¬†(convexity effects). &quot;All small probabilities are incomputable.&quot; &quot;There is no such thing as 'measurable risk' in the tails, no matter what model we use.&quot;
 href="http://www.fooledbyrandomness.com/" 
-tag="statistics finance"
+tags: statistics finance
   time="2011-04-27T15:56:54Z" 
 
 CRAN Task Views 
 ================================================================================
 href="http://cran.r-project.org/web/views/" 
-tag="r-lang statistics programming"
+tags: r-lang statistics programming
   time="2011-04-26T04:58:23Z" 
 
 CRAN Task View: Machine Learning &amp; Statistical Learning
 ================================================================================
   href="http://cran.r-project.org/web/views/MachineLearning.html"
    
-tag="statistics machine-learning ai r-lang programming"
+tags: statistics machine-learning ai r-lang programming
   time="2011-04-26T04:57:00Z" 
 
 Data Sets 
 ================================================================================
   href="http://www-users.cs.umn.edu/~kumar/dmbook/resources.htm"
    
-tag="data-mining datasets statistics machine-learning ai"
+tags: data-mining datasets statistics machine-learning ai
   time="2011-04-14T23:34:35Z" 
 
 UCI Machine Learning Repository
 ================================================================================
   large collection of standard datasets for testing machine-learning algorithms
 href="http://archive.ics.uci.edu/ml/"  
-tag="machine-learning ai data-mining statistics datasets"
+tags: machine-learning ai data-mining statistics datasets
   time="2011-04-14T22:46:52Z" 
 
 Snappy: a fast compressor/decompressor
 ================================================================================
   a compression/decompression library - aims for very high speeds and reasonable compression. - compresses at about 250+ MB/sec and decompresses at about 500+ MB/sec¬† - Snappy has previously been referred to as ‚ÄúZippy‚Äù in some presentations.
 href="http://code.google.com/p/snappy/"  
-tag="google programming oss algorithms"
+tags: google programming oss algorithms
   time="2011-04-12T18:33:19Z" 
 
 How to smooth a plot in MATLAB? 
 ================================================================================
 href="http://stackoverflow.com/questions/1515977/how-to-smoothen-a-plot-in-matlab"
-tag="matlab statistics data-mining"
+tags: matlab statistics data-mining
   time="2011-04-05T02:08:48Z" 
 
 MIT OpenCourseWare
 ================================================================================
   Free video lectures.¬† See also: http://www.youtube.com/MIT¬†
 href="http://ocw.mit.edu/"  
-tag="learning engineering pedagogy video"
+tags: learning engineering pedagogy video
   time="2011-03-29T17:59:04Z" 
 
 Stanford Engineering Everywhere
 ================================================================================
   Free video lectures.¬† See also: http://www.youtube.com/stanford¬†
 href="http://see.stanford.edu/"  
-tag="engineering learning pedagogy video"
+tags: engineering learning pedagogy video
   time="2011-03-29T17:52:51Z" 
 
 Under-used features of Windows batch files
@@ -3704,27 +3750,27 @@ Under-used features of Windows batch files
   - line continuation: ^ - open file manager in current dir: start .¬† - parsing with 'for' - substrings - path to script (as opposed to &quot;current directory&quot;): ~dp0 - wait N seconds using 'ping'
   href="http://stackoverflow.com/questions/245395/underused-features-of-windows-batch-files"
    
-tag="windows programming scripting cmd dos it"
+tags: windows programming scripting cmd dos it
   time="2011-03-24T18:10:47Z" 
 
 DOS Batch files
 ================================================================================
   Windows CMD commands and their usage in .bat (.cmd) files.
 href="http://www.robvanderwoude.com/batchfiles.php" 
-tag="scripting windows programming it cmd dos"
+tags: scripting windows programming it cmd dos
   time="2011-03-24T18:01:42Z" 
 
 DEA racketeering 
 ================================================================================
 href="http://www.reddit.com/r/politics/comments/g4zy6/the_dea_funds_itself_by_raiding_medical_marijuana/"
-tag="politics police-state"
+tags: politics police-state
   time="2011-03-16T17:18:23Z" 
 
 Understanding Verilog Blocking and Nonblocking Assignments
 ================================================================================
   href="http://www.sutherland-hdl.com/papers/1996-CUG-presentation_nonblocking_assigns.pdf"
    
-tag="verilog engineering hardware-dev usf usf-csd filetype:pdf media:document"
+tags: verilog engineering hardware-dev usf usf-csd filetype:pdf media:document
   time="2011-03-09T03:14:40Z" 
 
 How to write FSM in Verilog?
@@ -3732,87 +3778,93 @@ How to write FSM in Verilog?
   Compare/contrast 3 approaches to implementing a FSM. 1. uses a function for the combinational part. next_state is a WIRE, concurrent assignment (not sequential).¬† 2. Two 'always' blocks: the comb. block is level-sensitive to certain signals, whereas the seq. block is edge-sensitive to the clock. next_state is a REG. 3. One 'always' block, edge-sensitive to clock only. No next_state variable. Signals checked before assigning state. Notice the sequential part 'always @ (posedge clock)' waits 1ns before assigning values (e.g., 'state &lt;= ¬†#1 ¬†next_state').¬†
   href="http://www.asic-world.com/tidbits/verilog_fsm.html"
    
-tag="verilog engineering hardware-dev usf usf-csd electronics"
+tags: verilog engineering hardware-dev usf usf-csd electronics
   time="2011-03-09T03:03:31Z" 
 
 College of Engineering Poster Printing Services
 ================================================================================
 href="http://www.eng.usf.edu/posters/"  
-tag="usf" time="2011-03-09T02:07:39Z" 
+tags: usf
+time="2011-03-09T02:07:39Z" 
 
 OpenCores
 ================================================================================
   Community for development of open-source digital hardware IP cores.
 href="http://opencores.org/"  
-tag="engineering electronics hardware-dev"
+tags: engineering electronics hardware-dev
   time="2011-03-09T02:00:45Z" 
 
 PS/2 interface :: Overview :: OpenCores
 ================================================================================
   verilog ps/2 driver
 href="http://opencores.org/project,ps2"  
-tag="usf usf-csd" time="2011-03-09T01:57:00Z" 
+tags: usf usf-csd
+time="2011-03-09T01:57:00Z" 
 
 Logisim
 ================================================================================
   Logisim is an educational tool for designing and simulating digital logic circuits. Beats the hell out of Digital Works.
 href="http://ozark.hendrix.edu/~burch/logisim/" 
-tag="circuits electronics engineering pedagogy"
+tags: circuits electronics engineering pedagogy
   time="2011-02-23T09:10:15Z" 
 
 Command Line Gmail Using msmtp/mailx
 ================================================================================
   Send mail and attachments via heirloom-mailx or nail.
 href="http://klenwell.com/is/UbuntuCommandLineGmail" 
-tag="bash linux" time="2011-02-23T01:08:10Z" 
+tags: bash linux
+time="2011-02-23T01:08:10Z" 
 
 Google Prediction API
 ================================================================================
   The API accesses Google's machine learning algorithms to analyze your historic data and predict likely future outcomes. Recommendation systems¬† Spam detection Document and email classification Churn analysis Language identification
 href="https://developers.google.com/prediction/" 
-tag="google ai machine-learning data-mining"
+tags: google ai machine-learning data-mining
   time="2011-02-23T00:55:56Z" 
 
 StackExchange 
 ================================================================================
 href="http://stackexchange.com/"  
-tag="mega-search-engine" time="2011-02-22T22:41:53Z" 
+tags: mega-search-engine
+time="2011-02-22T22:41:53Z" 
 
 Search Disqus comments using Google | Whole Map
 ================================================================================
 href="http://wholemap.com/blog/search-comments-on-disqus"
-tag="mega-search-engine"
+tags: mega-search-engine
   time="2011-02-22T22:41:28Z" 
 
 Quora 
 ================================================================================
 href="http://www.quora.com/"  
-tag="mega-search-engine" time="2011-02-22T22:41:05Z" 
+tags: mega-search-engine
+time="2011-02-22T22:41:05Z" 
 
 Brewer's CAP (Consistency, Availability, Partition Tolerance) Theorem
 ================================================================================
   &quot;whilst addressing the problems of scale might be an architectural concern, the initial discussions are not. They are business decisions.&quot;
 href="http://www.julianbrowne.com/article/viewer/brewers-cap-theorem"
-tag="web programming"
+tags: web programming
   time="2011-02-21T04:58:25Z" 
 
 Khan Academy
 ================================================================================
   free, open source, video tutorials for math, science, statistics.¬†
 href="http://www.khanacademy.org/"  
-tag="learning mathematics" time="2011-02-14T01:46:34Z" 
+tags: learning mathematics
+time="2011-02-14T01:46:34Z" 
 
 What should a developer know before building a public web site?
 ================================================================================
 href="http://stackoverflow.com/questions/72394/what-should-a-developer-know-before-building-a-public-web-site"
-tag="seo programming web security"
+tags: seo programming web security
   time="2011-02-11T13:36:36Z" 
 
 Does the order of keywords matter in a page title?
 ================================================================================
   keyword _order_¬†matters.¬†putting important keywords closer to the beginning of a title improves SEO.
 href="http://webmasters.stackexchange.com/questions/6556/does-the-order-of-keywords-matter-in-a-page-title"
-tag="seo"
+tags: seo
   time="2011-02-11T13:10:29Z" 
 
 Weierstrass functions
@@ -3820,31 +3872,33 @@ Weierstrass functions
   Very useful in EE for simulating noise on circuits. Famous for being continuous everywhere, but differentiable &quot;nowhere&quot;. As the graph is zoomed, it does not become smooth (or linear) as would a differentiable function.
   href="http://www.math.washington.edu/~conroy/general/weierstrass/weier.htm"
    
-tag="mathematics engineering electronics"
+tags: mathematics engineering electronics
   time="2011-02-05T06:23:54Z" 
 
 Investing Consultant Research 
 ================================================================================
 href="http://www.investingconsultantresearch.com/" 
-tag="blog finance" time="2011-02-01T23:44:57Z" 
+tags: blog finance
+time="2011-02-01T23:44:57Z" 
 
 The Markets Are Open 
 ================================================================================
 href="http://themarketsareopen.blogspot.com/" 
-tag="blog finance" time="2011-02-01T18:48:14Z" 
+tags: blog finance
+time="2011-02-01T18:48:14Z" 
 
 BoxCar2D: About
 ================================================================================
   The design of the chromosome is probably the most important step in making a successful genetic algorithm.At the end of each generation, pairs of parents are selected to produce the next generation.¬†
 href="http://www.boxcar2d.com/about.html" 
-tag="compsci algorithms data-mining"
+tags: compsci algorithms data-mining
   time="2011-02-01T05:59:50Z" 
 
 orgtheory.net
 ================================================================================
   organization theory http://orgtheory.wordpress.com/
 href="http://orgtheory.net/"  
-tag="blog organization-theory economics"
+tags: blog organization-theory economics
   time="2011-01-20T08:18:24Z" 
 
 http://timharford.com/2016/10/theres-magic-in-mess-why-you-should-embrace-a-disorderly-desk/
@@ -3858,19 +3912,19 @@ http://timharford.com/2016/10/theres-magic-in-mess-why-you-should-embrace-a-diso
 UNHOSTED - Freedom from web 2.0's monopoly platforms
 ================================================================================
 href="http://www.unhosted.org/"  
-tag="privacy web programming distributed-systems decentralization"
+tags: privacy web programming distributed-systems decentralization
   time="2011-01-20T02:49:27Z" 
 
 What is your most productive shortcut with Vim?
 ================================================================================
 href="http://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/"
-tag="vim programming"
+tags: vim programming
   time="2011-01-19T03:45:12Z" 
 
 How to Track Ecommerce Transactions with Google Analytics
 ================================================================================
 href="http://blogs.sitepoint.com/2011/01/18/track-ecommerce-transactions-google-analytics-reports/"
-tag="ecommerce google webanalytics"
+tags: ecommerce google webanalytics
   time="2011-01-19T03:33:26Z" 
 
 Research is communication
@@ -3878,75 +3932,80 @@ Research is communication
   Structure - Abstract (4 sentences) -¬†Introduction (1 page) - The problem (1 page) - My idea (2 pages) - The details (5 pages) - Related work (1-2 pages) - Conclusions and further work (0.5 pages)¬†¬† Abstract: Four sentences [Kent Beck] 1. State the problem 2. Say why it's an interesting problem 3. Say what your solution achieves 4. Say what follows from your solution
   href="http://research.microsoft.com/en-us/um/people/simonpj/papers/giving-a-talk/writing-a-paper-slides.pdf"
    
-tag="research engineering technical-writing filetype:pdf media:document"
+tags: research engineering technical-writing filetype:pdf media:document
   time="2011-01-17T08:40:52Z" 
 
 Search engine gaming
 ================================================================================
   Human-readable paragraphs based on your keywords. Link a couple of times naturally to his site.Change description (automatically) every X number of page loads or Y number of weeks, whichever comes first.Do *not* have him do the same thing for you. Do this for him for ~6 months, then take it off of your site for a while and then have him do the same for you. You do *not* want to simply cross link.Content and context is important. You want the SE's to associate the link with the text around it.Doing this with a few friends (or a network of your own sites) can be effective if you don't tip the scale to spam. Keep it interesting for humans - measure the human CTR on the links, remove-low preforming paragraphs and add new ones in their place to refine the process. This is not only valuable for your community but this keeps the white hat on and Google happy. You also want a good human CTR, e.g. 1000 clicks for every auto-change.
 href="http://www.reddit.com/r/IAmA/comments/ev2zb/i_run_thathighcom_and_it_pays_my_rent_in_san/c1b7lp4"
-tag="seo"
+tags: seo
   time="2011-01-12T23:30:23Z" 
 
 Google Body - Google Labs 
 ================================================================================
 href="http://bodybrowser.googlelabs.com/" 
-tag="webgl google" time="2011-01-11T08:24:18Z" 
+tags: webgl google
+time="2011-01-11T08:24:18Z" 
 
 Learning WebGL 
 ================================================================================
 href="http://learningwebgl.com/"  
-tag="webgl programming" time="2011-01-11T08:19:49Z" 
+tags: webgl programming
+time="2011-01-11T08:19:49Z" 
 
 Google Fusion Tables
 ================================================================================
   Visualize and publish your data as maps, timelines and charts¬† Host your data tables online¬† Combine data from multiple people¬†
 href="http://www.google.com/fusiontables" 
-tag="google tools statistics"
+tags: google tools statistics
   time="2011-01-11T04:21:26Z" 
 
 Data Liberation
 ================================================================================
   import/export data from any Google product.
 href="http://www.dataliberation.org/"  
-tag="google programming" time="2011-01-11T04:09:37Z" 
+tags: google programming
+time="2011-01-11T04:09:37Z" 
 
 Macro Man 
 ================================================================================
 href="http://macro-man.blogspot.com/"  
-tag="blog finance forex" time="2011-01-11T02:19:20Z" 
+tags: blog finance forex
+time="2011-01-11T02:19:20Z" 
 
 Climate Audit 
 ================================================================================
 href="http://climateaudit.org/"  
-tag="science politics agw" time="2011-01-11T01:50:50Z" 
+tags: science politics agw
+time="2011-01-11T01:50:50Z" 
 
 Charlie Rose - Janet Napolitano, Secretary, Department of Homeland Security
 ================================================================================
   &quot;I think the tighter we get on aviation, we have to also be thinking now about going on to mass transit or to train or maritime. &quot;
 href="http://www.charlierose.com/view/interview/11304"
-tag="politics police-state tsa"
+tags: politics police-state tsa
   time="2011-01-11T01:32:06Z" 
 
 Full-Body Scan Technology Deployed In Street-Roving Vans
 ================================================================================
   &quot;While the biggest buyer of AS&amp;E‚Äôs machines over the last seven years has been the Department of Defense operations in Afghanistan and Iraq, Reiss says law enforcement agencies have also deployed the vans to search for vehicle-based bombs in the U.S.&quot;
 href="http://blogs.forbes.com/andygreenberg/2010/08/24/full-body-scan-technology-deployed-in-street-roving-vans/"
-tag="politics police-state tsa"
+tags: politics police-state tsa
   time="2011-01-11T01:02:42Z" 
 
 EDITORIAL: TSA comes to your bus stop - Washington Times
 ================================================================================
   Washington's Metro Transit Police Department (MTPD) on Thursday announced new search policies developed in conjunction with the Transportation Security Administration (TSA). &quot;It is important to know that implementation of random bag inspection is not a reaction to any specific threats toward the Metro system,&quot; MTPD Chief Michael A. Taborn said.
 href="http://www.washingtontimes.com/news/2010/dec/17/tsa-comes-to-your-bus-stop/"
-tag="politics police-state tsa"
+tags: politics police-state tsa
   time="2011-01-11T00:59:23Z" 
 
 
 Spaced Repetition
 ================================================================================
 https://ncase.me/remember/
-tag="psychology neuroplasticity memory mnemonics anki spaced-repetition"
+tags: psychology neuroplasticity memory mnemonics anki spaced-repetition
 .
 SPACED REPETITION is essentially "flashcards" with an emphasis on:
     1. time
@@ -3960,7 +4019,7 @@ SPACED REPETITION is essentially "flashcards" with an emphasis on:
 Augmenting Long-term Memory
 ================================================================================
 http://augmentingcognition.com/ltm.html
-tag="psychology neuroplasticity memory mnemonics anki spaced-repetition"
+tags: psychology neuroplasticity memory mnemonics anki spaced-repetition
 .
 SYNTOPIC reading with Anki (grok an unfamiliar field/literature)
 > Avoid orphan questions: questions too disconnected from your other interests lack the original motivating context.
@@ -3969,14 +4028,14 @@ SYNTOPIC reading with Anki (grok an unfamiliar field/literature)
 AnkiWeb: Shared Decks
 ================================================================================
 https://ankiweb.net/shared/decks/
-tag="psychology neuroplasticity memory mnemonics anki spaced-repetition"
+tags: psychology neuroplasticity memory mnemonics anki spaced-repetition
 ☃ german deck: https://ankiweb.net/shared/info/785874566
 
 
 Every 7.8μs your computer’s memory has a hiccup
 ================================================================================
 https://blog.cloudflare.com/every-7-8us-your-computers-memory-has-a-hiccup/
-tag="dram hardware engineering performance computer telemetry measurement intrumentation statistics"
+tags: dram hardware engineering performance computer telemetry measurement intrumentation statistics
     Problem:    the data turns out to be very noisy. It's very hard to see if there is a noticeable delay related to the refresh cycles
     Solution:   Since we want to find a fixed-interval event, we can feed the data into the FFT (fast fourier transform) algorithm, which deciphers the underlying frequencies
 
@@ -3984,7 +4043,7 @@ Can You Build a Better Brain? - Newsweek
 ================================================================================
   neuroplasticity
 href="http://www.newsweek.com/2011/01/03/can-you-build-a-better-brain.html"
-tag="psychology"
+tags: psychology
   time="2011-01-04T10:21:18Z" 
 
 Christopher Hitchens
@@ -3992,27 +4051,27 @@ Christopher Hitchens
   on social revolutions: &quot;Right away, one's in an argument, and there‚Äôs really nothing to do with utopia at all. And then temporary expedients become dogma very quickly--especially if they seem to work.&quot;
   href="http://reason.com/archives/2001/11/01/free-radical"
    
-tag="politics libertarian-role-models libertarianism"
+tags: politics libertarian-role-models libertarianism
   time="2011-01-04T07:14:52Z" 
 
 Vietnam's Mammoth Cavern - Photo Gallery - National Geographic
 ================================================================================
 href="http://ngm.nationalgeographic.com/2011/01/largest-cave/peter-photography"
-tag="travel photography"
+tags: travel photography
   time="2010-12-31T06:17:35Z" 
 
 Panopticlick
 ================================================================================
   web browser identity, fingerprint.¬† browser configuration = web sites may be able to track you even if you disable cookies. see also:¬†http://hacks.mozilla.org/2010/03/privacy-related-changes-coming-to-css-vistited/
 href="http://panopticlick.eff.org/"  
-tag="privacy paranoia compsci statistics security fingerprinting webbrowser web"
+tags: privacy paranoia compsci statistics security fingerprinting webbrowser web
   time="2010-12-21T06:33:11Z" 
 
 How Teen Experiences Affect Your Brain for Life - Newsweek
 ================================================================================
   teen years are a period of crucial brain development. mid-20s, or later, for a brain to become fully developed. one of the last parts to mature is the frontal lobe ... modulating reward, planning, impulsiveness, attention, acceptable social behavior former adolescent drinkers had ... very exaggerated responses to mild stress. kids who smoked pot before age 16 had more lifelong cognitive problems than those who started smoking after 16
 href="http://www.newsweek.com/2010/12/16/the-kids-can-t-help-it.html"
-tag="psychology"
+tags: psychology
   time="2010-12-20T07:43:01Z" 
 
 Google App Engine Pipeline API
@@ -4020,14 +4079,14 @@ Google App Engine Pipeline API
   API for connecting complex, time-consuming workflows (including human tasks).¬†
   href="http://code.google.com/p/appengine-pipeline/" 
   
-tag="google google-appengine programming project-management"
+tags: google google-appengine programming project-management
   time="2010-12-20T06:09:29Z" 
 
 Advancing in the Bash Shell
 ================================================================================
   bash history, bang bang !!, !$, :p
 href="http://samrowe.com/wordpress/advancing-in-the-bash-shell/"
-tag="bash linux"
+tags: bash linux
   time="2010-12-10T08:46:27Z" 
 
 Google Public Data Explorer
@@ -4035,231 +4094,245 @@ Google Public Data Explorer
   Visualize/animate public data over a timeline. based on gapminder.org.
   href="http://www.google.com/publicdata/home" 
   
-tag="statistics information tools google data-mining"
+tags: statistics information tools google data-mining
   time="2010-12-10T04:21:25Z" 
 
 Authorize.Net .NET SDK for AIM - Authorize.Net Developer Community
 ================================================================================
 href="http://community.developer.authorize.net/t5/The-Authorize-Net-Developer-Blog/The-Authorize-Net-NET-SDK-for-AIM/ba-p/7743"
-tag=".net programming ecommerce sdk"
+tags: .net programming ecommerce sdk
   time="2010-12-07T19:51:10Z" 
 
 Sua sponte: "on its own motion"
 ================================================================================
 https://en.wikipedia.org/wiki/Sua_sponte
-tag="concepts mental-model"
+tags: concepts mental-model
 
 Simpson's paradox
 ================================================================================
   &amp;quot;an apparent paradox in which a correlation (trend) present in different groups is reversed when the groups are combined.&amp;quot; Q: why should a story, not data, dictate choices? A: the story encodes the causal relationships among the variables. Once we extract these relationships, we can represent them in a Causal Bayesian Network graph which we can test algorithmically. - Berkeley sex bias case - Kidney stone treatment
   href="http://en.wikipedia.org/wiki/Simpson_s_paradox"
    
-tag="paradox psychology mathematics statistics concepts mental-model"
+tags: paradox psychology mathematics statistics concepts mental-model
   time="2010-11-30T05:00:20Z" 
 
 DE(E)SU - Libert√© Linux
 ================================================================================
   secure, reliable, lightweight, and easy to use LiveUSB Linux distribution intended as a communication aid in hostile environments. installs as a regular directory on a USB/SD key, and after a single-click setup, boots on any desktop computer or laptop.
 href="http://dee.su/liberte"  
-tag="security paranoia privacy linux"
+tags: security paranoia privacy linux
   time="2010-11-28T19:14:07Z" 
 
 Seeking Alpha: Stock Market News, Opinion &amp; Analysis, Investing Ideas
 ================================================================================
   search for &quot;oversold&quot; or &quot;Contrarian Ideas&quot;
 href="http://seekingalpha.com/"  
-tag="blog finance" time="2010-11-11T01:43:59Z" 
+tags: blog finance
+time="2010-11-11T01:43:59Z" 
 
 Procrastination, hyperbolic discounting
 ================================================================================
   Misconception: You procrastinate because you are lazy and can‚Äôt manage your time well. Truth: Procrastination is fueled by weakness in the face of impulse and a failure to think about thinking. Now-you must trick future-you into doing what is right for both parties. ...why you keep adding movies you will never watch to your growing collection of future rentals ... the same reason you believe you will eventually do what‚Äôs best for yourself in all the other parts of your life, but rarely do. present bias = being unable to grasp that what you want will change over time hyperbolic discounting = the tendency to get more rational when you are forced to wait
 href="http://youarenotsosmart.com/2010/10/27/procrastination/"
-tag="psychology project-management"
+tags: psychology project-management
   time="2010-10-28T11:47:52Z" 
 
 Firesheep ... HTTP Session Hijacking
 ================================================================================
   Some sites support full encryption everywhere, but don‚Äôt implement it properly by failing to set the ‚ÄúSecure‚Äù flag on authentication cookies, negating most of the benefits ... any time you type the URL ... without explicitly typing https:// ... you will inadvertently leak your cookies with that first request, prior to being redirected to the HTTPS page. ... You can‚Äôt simply avoid visiting the sites that are being attacked here. There‚Äôs an enormous amount of mixed content on the web today, such as the Facebook ‚ÄúLike‚Äù button... ... People forget things. It‚Äôs easy to be logged in to many of these services, sleep your laptop, and wake it up somewhere where it will instantly ... start spewing your cookies over the air. ... A password-protected (WPA2) wireless network or even a wired network just requires that attackers perform one more step ... ARP poisoning or DNS spoofing, neither of which are difficult to carry out. Go and download Cain &amp; Abel and try it out on your network...
 href="http://codebutler.com/firesheep-a-day-later" 
-tag="privacy paranoia security"
+tags: privacy paranoia security
   time="2010-10-26T21:49:51Z" 
 
 7 tricks to simplify your programs with LINQ
 ================================================================================
   int[] c = Enumerable.Range(0, 10).Select(i =&gt; 100 + 10 * i).ToArray(); var randomSeq = Enumerable.Repeat(0, N).Select(i =&gt; rand.Next()); IEnumerable&lt;object&gt; objEnumerable = strEnumerable.Cast&lt;object&gt;(); You could construct an array of length 1, but I prefer the LINQ Repeat operator: IEnumerable&lt;int&gt; seq = Enumerable.Repeat(myValue, 1); Iterate over all subsets of a sequence...
 href="http://igoro.com/archive/7-tricks-to-simplify-your-programs-with-linq/"
-tag="c# linq .net programming"
+tags: c# linq .net programming
   time="2010-10-26T03:01:04Z" 
 
 Less Wrong 
 ================================================================================
 href="http://lesswrong.com/"  
-tag="blog economics" time="2010-10-26T02:36:13Z" 
+tags: blog economics
+time="2010-10-26T02:36:13Z" 
 
 Overcoming Bias 
 ================================================================================
 href="http://www.overcomingbias.com/"  
-tag="blog economics" time="2010-10-26T02:35:20Z" 
+tags: blog economics
+time="2010-10-26T02:35:20Z" 
 
 SEO Is Mostly Quack Science
 ================================================================================
   &quot;Non-brain-damaged web design and link building are 100% of SEO. Anyone who tells you different is a quack that is only trying to separate you from your money.&quot;
 href="http://teddziuba.com/2010/06/seo-is-mostly-quack-science.html"
-tag="seo"
+tags: seo
   time="2010-10-25T00:03:02Z" 
 
 Vi Cheat Sheet 
 ================================================================================
 href="http://www.lagmonster.org/docs/vi.html" 
-tag="vim" time="2010-10-24T07:14:16Z" 
+tags: vim
+time="2010-10-24T07:14:16Z" 
 
 Power Posing: Fake It Until You Make It
 ================================================================================
   holding one's body in expansive, &quot;high-power&quot; poses for as little as two minutes stimulates higher levels of testosterone ... and lower levels of cortisol.
 href="http://hbswk.hbs.edu/item/6461.html" 
-tag="psychology" time="2010-10-13T18:28:09Z" 
+tags: psychology
+time="2010-10-13T18:28:09Z" 
 
 Feds are monitoring and tracking redditors for their comments, or &quot;How I learned to STFU and love the police state&quot;.
 ================================================================================
 href="http://www.reddit.com/r/Libertarian/comments/dot9b/feds_are_monitoring_and_tracking_redditors_for/"
-tag="politics police-state"
+tags: politics police-state
   time="2010-10-10T21:45:34Z" 
 
 Redditor arrested a few months ago for filming the police. ... The video and audio was tampered with (erased) by the feds, but recovered with open source software
 ================================================================================
 href="http://www.reddit.com/r/reddit.com/comments/dhf6y/the_redditor_arrested_a_few_months_ago_for/"
-tag="police-state politics"
+tags: police-state politics
   time="2010-10-10T21:44:34Z" 
 
 Simulate a Windows Service using ASP.NET to run scheduled jobs
 ================================================================================
   A hack to use ASP.NET cache expiration to schedule a task.
 href="http://www.codeproject.com/KB/aspnet/ASPNETService.aspx"
-tag="asp.net programming"
+tags: asp.net programming
   time="2010-10-04T05:28:31Z" 
 
 Mathematics formula sheet 
 ================================================================================
 href="http://www.tug.org/texshowcase/cheat.pdf" 
-tag="mathematics filetype:pdf media:document"
+tags: mathematics filetype:pdf media:document
   time="2010-10-04T03:42:15Z" 
 
 IEEE Computer Society Style Guide: References, Citations
 ================================================================================
 href="http://www.computer.org/portal/web/publications/style_refs"
-tag="technical-writing"
+tags: technical-writing
   time="2010-10-03T18:51:35Z" 
 
 Basic Concepts of Mathematics - by Elias Zakon
 ================================================================================
   This book gives students the skills they need to succeed in the first courses in Real Analysis (it is designed specifically to prepare students for the author's Mathematical Analysis I and Mathematical Analysis II) and Abstract Algebra/Modern Algebra. Students who plan to advance to upper-level classes in computer science (discrete structures, algorithms, computability, automata theory, ...), economics, or electrical and computer engineering (signal and image processing, AI, circuit design, ...) will benefit from mastering the material in this text.
 href="http://www.trillia.com/zakon1.html" 
-tag="mathematics books"
+tags: mathematics books
   time="2010-09-19T22:27:42Z" 
 
 Anonymous Pro 
 ================================================================================
 href="http://www.ms-studio.com/FontSales/anonymouspro.html"
-tag="programming font"
+tags: programming font
   time="2010-09-02T04:13:13Z" 
 
 How to Think (Technology Review: Blogs: Ed Boyden's blog)
 ================================================================================
   &quot;1. Synthesize new ideas constantly. Never read passively. Annotate, model, think, and synthesize while you read...&quot; &quot;9. Document everything obsessively. If you don't record it, it may never have an impact on the world. Much of creativity is learning how to see things properly...&quot; &quot;time management... logarithmic time planning, in which events that are close at hand are scheduled with finer resolution than events that are far off.&quot;
 href="http://www.technologyreview.com/blog/boyden/21925/"
-tag="learning psychology"
+tags: learning psychology
   time="2010-09-01T00:13:29Z" 
 
 Regexes For Life 
 ================================================================================
 href="http://rxfl.wordpress.com/"  
-tag="blog" time="2010-08-31T01:49:36Z" 
+tags: blog
+time="2010-08-31T01:49:36Z" 
 
 &gt;&gt; RIGHTSHIFT 
 ================================================================================
 href="http://rightshift.info/"  
-tag="blog" time="2010-08-31T01:33:26Z" 
+tags: blog
+time="2010-08-31T01:33:26Z" 
 
 Moserware 
 ================================================================================
 href="http://www.moserware.com/"  
-tag="blog" time="2010-08-31T01:32:17Z" 
+tags: blog
+time="2010-08-31T01:32:17Z" 
 
 Miguel de Icaza 
 ================================================================================
 href="http://tirania.org/blog/"  
-tag="blog" time="2010-08-31T01:20:33Z" 
+tags: blog
+time="2010-08-31T01:20:33Z" 
 
 Unqualified Reservations 
 ================================================================================
 href="http://unqualified-reservations.blogspot.com/" 
-tag="blog" time="2010-08-31T01:20:07Z" 
+tags: blog
+time="2010-08-31T01:20:07Z" 
 
 Labnotes 
 ================================================================================
-  href="http://labnotes.org/"   tag="blog"
+  href="http://labnotes.org/"   tags: blog
   time="2010-08-31T00:56:40Z" 
 
 Chad Perrin: SOB 
 ================================================================================
 href="http://sob.apotheon.org/"  
-tag="blog" time="2010-08-31T00:48:41Z" 
+tags: blog
+time="2010-08-31T00:48:41Z" 
 
 Parosproxy.org - Web Application Security
 ================================================================================
   &quot;Through Paros's proxy nature, all HTTP and HTTPS data between server and client, including cookies and form fields, can be intercepted and modified.&quot;
 href="http://www.parosproxy.org/"  
-tag="paranoia security" time="2010-08-30T23:31:52Z" 
+tags: paranoia security
+time="2010-08-30T23:31:52Z" 
 
 RetailMeNot.com - Coupon codes and discounts for 65,000 online stores!
 ================================================================================
 href="http://www.retailmenot.com/"  
-tag="haggle shopping" time="2010-08-27T07:18:24Z" 
+tags: haggle shopping
+time="2010-08-27T07:18:24Z" 
 
 Restaurant.com Coupon Codes - all coupons, discounts and promo codes ...
 ================================================================================
   restaurant coupons
 href="http://www.retailmenot.com/view/restaurant.com"
-tag="haggle food"
+tags: haggle food
   time="2010-08-27T07:17:04Z" 
 
 Really Really Free Market
 ================================================================================
   also: http://www.reallyreallyfree.org/ &quot;The NYC Really Really Free Market happens every last Sunday of every month! Located @ 55 Washington Square South at the Judson Memorial Church.&quot; http://www.facebook.com/pages/New-York-NY/Really-Really-Free-Market-NYC/288012211374
 href="http://en.wikipedia.org/wiki/Really_Really_Free_Market"
-tag="haggle shopping freeganism barter-economy"
+tags: haggle shopping freeganism barter-economy
   time="2010-08-27T06:20:05Z" 
 
 Second-order simulacra
 ================================================================================
   A system whose legitimacy is implied by its complexity. E.g., psychology/psychoanalysis, alchemy, astrology, chiropractic are presumed valuable because they are complicated and have experts. The foundation of the system is not questioned because people are too busy debating the higher-order results of the system.
 href="http://en.wikipedia.org/wiki/Second-order_simulacra"
-tag="concepts psychology mental-model"
+tags: concepts psychology mental-model
   time="2010-08-23T06:16:25Z" 
 
 Blue Brain Project
 ================================================================================
 attempt to reverse-engineer the mammalian brain, in order to understand brain function and dysfunction through detailed simulations.
 https://www.epfl.ch/research/domains/bluebrain/
-tag="ai psychology"
+tags: ai psychology
 
 Antarctic Peninsula
 ================================================================================
   vacation to the Antarctic Peninsula in the Summer of 2008-9
 href="http://antarctic.fury.com/"  
-tag="travel" time="2010-08-09T06:54:31Z" 
+tags: travel
+time="2010-08-09T06:54:31Z" 
 
 The Cognitive Benefits of Nature : The Frontal Cortex
 ================================================================================
   &quot;interacting with nature ... improves cognitive function&quot;
 href="http://scienceblogs.com/cortex/2008/11/the_cognitive_benefits_of_natu.php"
-tag="psychology health"
+tags: psychology health
   time="2010-07-15T00:39:17Z" 
 
 App Inventor for Android 
 ================================================================================
 href="http://appinventor.googlelabs.com/about/" 
-tag="android programming"
+tags: android programming
   time="2010-07-12T16:23:01Z" 
 
 As a 20-year-old female, I spent 4 months wandering through Indonesia ...
@@ -4268,12 +4341,12 @@ As a 20-year-old female, I spent 4 months wandering through Indonesia ...
 "Bahasa Indonesia is also one of the easiest languages in the world".
 Gear: http://www.reddit.com/r/IAmA/comments/cg60e/as_a_20yearold_female_i_spent_4_months_wandering/c0scahg &quot;STAY AWAY FROM KUTA. If you must go, just visit and then leave.&quot;. Cobra blood.
 href="http://www.reddit.com/r/IAmA/comments/cg60e/as_a_20yearold_female_i_spent_4_months_wandering/"
-tag="travel"
+tags: travel
 
 Lending Club Review 
 ================================================================================
 href="http://www.debtkid.com/lendingclub-overview" 
-tag="investment finance"
+tags: investment finance
   time="2010-06-25T06:17:09Z" 
 
 John Mackey - The New Yorker
@@ -4281,113 +4354,117 @@ John Mackey - The New Yorker
   CEO of Whole Foods.
   href="http://www.newyorker.com/reporting/2010/01/04/100104fa_fact_paumgarten"
    
-tag="libertarian-role-models entrepreneurs"
+tags: libertarian-role-models entrepreneurs
   time="2010-06-25T06:03:27Z" 
 
 Instant Verify Identity Verification - LexisNexis
 ================================================================================
   FraudPoint and Instant Verify make it very easy to go from an email address, name, basic but not identifiable information to being able to see what their SSN is.
 href="http://www.lexisnexis.com/risk/solutions/instant-identity-verification.aspx"
-tag="paranoia privacy"
+tags: paranoia privacy
   time="2010-06-25T02:23:07Z" 
 
 FraudPoint Fraud Prevention Solution - LexisNexis
 ================================================================================
   FraudPoint and Instant Verify make it very easy to go from an email address, name, basic but not identifiable information to being able to see what their SSN is.
 href="http://www.lexisnexis.com/risk/solutions/fraudpoint-fraud-prevention.aspx"
-tag="paranoia privacy"
+tags: paranoia privacy
   time="2010-06-25T02:23:03Z" 
 
 Lithium: Could It Become the Hottest Commodity of All?
 ================================================================================
   http://www.moneyweek.com/investments/commodities/two-ways-to-play-the-lithium-boom.aspx Sociedad Quimica y Minera NYSE:SQM (ADR) http://www.todaysfinancialnews.com/investment-strategies/lithium-the-commodity-with-a-profitable-future-7284.html JOHNSON CONTROL IND. [JCI]. &quot;building one of the largest lithium battery plants in the u.s.&quot;
 href="http://www.energyinvestmentstrategies.com/2008/02/02/lithium-could-it-become-the-hottest-commodity-of-all/"
-tag="stock-picks finance"
+tags: stock-picks finance
   time="2010-06-09T22:39:41Z" 
 
 Al Gore, Kleiner Perkins, venture capital
 ================================================================================
   10 of Kleiner's &quot;green&quot; investment picks: http://money.cnn.com/galleries/2007/fortune/0711/gallery.kleiner_gore.fortune/index.html Silver Spring Networks: http://www.telegraph.co.uk/earth/energy/6491195/Al-Gore-could-become-worlds-first-carbon-billionaire.html
 href="http://money.cnn.com/2007/11/11/news/newsmakers/gore_kleiner.fortune/index.htm"
-tag="stock-picks finance"
+tags: stock-picks finance
   time="2010-06-09T02:02:48Z" 
 
 Getting the most out of your Android phone
 ================================================================================
 href="http://www.reddit.com/r/Android/comments/ccuxg/andreddit_lets_collaborate_to_make_a_getting_the/"
-tag="android"
+tags: android
   time="2010-06-09T00:30:17Z" 
 
 Kids for cash scandal
 ================================================================================
   transcript: http://www.reddit.com/r/politics/comments/c3nmv/two_astoundingly_corrupt_pennsylvania_judges_who/c0pxqs3
 href="http://en.wikipedia.org/wiki/Kids_for_cash_scandal"
-tag="corruption politics"
+tags: corruption politics
   time="2010-05-13T23:19:22Z" 
 
 Motley Fool: Rick Aristotle Munarriz's Bio and Archive
 ================================================================================
 href="http://www.fool.com/about/staff/rickaristotlemunarriz/author.htm"
-tag="blog finance"
+tags: blog finance
   time="2010-05-10T18:55:56Z" 
 
 Nootropic
 ================================================================================
   smart drugs, memory enhancers, and cognitive enhancers: drugs, supplements, nutraceuticals, and functional foods that are purported to improve mental functions.
 href="http://en.wikipedia.org/wiki/Nootropic" 
-tag="psychology learning physiology" time="2010-05-07T21:33:38Z" 
+tags: psychology learning physiology
+time="2010-05-07T21:33:38Z" 
 
 FRPAX Franklin PA Tax-Free Income A
 ================================================================================
 href="http://quote.morningstar.com/fund/f.aspx?t=FRPAX"
-tag="stock-picks finance"
+tags: stock-picks finance
   time="2010-05-01T01:38:56Z" 
 
 Southern Company SO 
 ================================================================================
 href="http://quote.morningstar.com/stock/s.aspx?t=SO"
-tag="stock-picks finance"
+tags: stock-picks finance
   time="2010-05-01T01:38:18Z" 
 
 Fairholme FAIRX 
 ================================================================================
 href="http://quote.morningstar.com/fund/f.aspx?t=FAIRX"
-tag="stock-picks finance"
+tags: stock-picks finance
   time="2010-05-01T01:37:45Z" 
 
 iSendr - On Demand P2P File Transfers
 ================================================================================
 href="http://www.isendr.com/"  
-tag="tools" time="2010-04-23T17:17:25Z" 
+tags: tools
+time="2010-04-23T17:17:25Z" 
 
 FilesOverMiles: send large files directly between computers for free
 ================================================================================
   p2p file-sharing.
 href="http://www.filesovermiles.com/"  
-tag="tools" time="2010-04-23T17:16:53Z" 
+tags: tools
+time="2010-04-23T17:16:53Z" 
 
 Vice Guide to North Korea | VBS.TV
 ================================================================================
 href="http://www.vbs.tv/watch/the-vice-guide-to-travel/vice-guide-to-north-korea-1-of-3"
-tag="politics"
+tags: politics
   time="2010-04-18T22:40:10Z" 
 
 Forex Trading Training | Forex Buy Sell Signals | Forex Market Analysis
 ================================================================================
 href="http://www.forexoma.com/"  
-tag="forex finance" time="2010-04-06T20:21:03Z" 
+tags: forex finance
+time="2010-04-06T20:21:03Z" 
 
 Confessions of a Car Salesman
 ================================================================================
   selling rooms are bugged (phones have intercoms). Buyers are so eager to get out of their old car and into a new one, they overlook the true value of the trade-in. The dealership is well aware of this weakness and exploits it. see also: http://www.reddit.com/r/business/comments/blaki/11_of_the_top_car_deal_tricks_to_make_sure_they/
 href="http://www.edmunds.com/advice/buying/articles/42962/article.html"
-tag="negotiation thrift"
+tags: negotiation thrift
   time="2010-04-02T17:39:07Z" 
 
 
 How To Be Successful
 ================================================================================
-tag="career startup entrepreneurship"
+tags: career startup entrepreneurship
 https://blog.samaltman.com/how-to-be-successful
 .
 1. Compound yourself (LEVERAGE)
@@ -4407,7 +4484,7 @@ https://blog.samaltman.com/how-to-be-successful
 Don't Call Yourself A Programmer, And Other Career Advice
 ================================================================================
 https://www.kalzumeus.com/2011/10/28/dont-call-yourself-a-programmer/
-tag="negotiation business career compensation"
+tags: negotiation business career compensation
 - Don’t call yourself a programmer. Instead, describe how you increased revenues
   or reduced costs.
 - Most jobs are never available publicly, just like most worthwhile candidates
@@ -4439,7 +4516,7 @@ tag="negotiation business career compensation"
 Salary Negotiation: Make More Money, Be More Valued
 ================================================================================
 https://www.kalzumeus.com/2012/01/23/salary-negotiation/
-tag="negotiation salary business hiring career game-theory compensation"
+tags: negotiation salary business hiring career game-theory compensation
 
 - Negotiating never makes (worthwhile) offers worse.  This means you need what
   political scientists call a _commitment strategy_: you always, as a matter of
@@ -4457,7 +4534,7 @@ How Not to Bomb Your Offer Negotiation
 ================================================================================
 https://haseebq.com/my-ten-rules-for-negotiating-a-job-offer/
 https://haseebq.com/how-not-to-bomb-your-offer-negotiation/
-tag="negotiation salary business hiring career game-theory compensation"
+tags: negotiation salary business hiring career game-theory compensation
 
 The ten rules of negotiating
     1. Get everything in writing (and write everything down)
@@ -4608,78 +4685,83 @@ BLACK FLAMINGO: im coco for some choco chips!
 ================================================================================
   Ingredients: 40 saltine crackers 1 cup of rolled oats 1/2 cup of applesauce 1/4 cup of vegetable oil 3/4 cup of hazelnut milk 1/4 cup of agave nectar 1 tsp of cinnamon 1/4 cup of stevia 1 tbs of corn starch 1 tbs pure cocoa powder 1/2 cup dark choc chips 1/4 cup earth balance Directions: 0. preheat oven to 350 deg 1. crush saltine crackers into fine pieces 2. mix in oats, applesauce, and the rest of the ingredients. 3. fold in the oil and milk until it becomes a dough 4. spread out in cooking tin 5. bake for 24 minutes
 href="http://ablackflamingo.blogspot.com/2010/03/im-coco-for-some-choco-chips.html"
-tag="recipes"
+tags: recipes
   time="2010-03-31T20:44:57Z" 
 
 Painless Functional Specifications - Part 2: What's a Spec? - Joel on Software
 ================================================================================
   Specs have a disclaimer, one author, scenarios, nongoals, an overview and a lot of details. It's ok to have open issues. Text for particular audiences go into side notes. Specs need to stay alive.
 href="http://www.joelonsoftware.com/articles/fog0000000035.html"
-tag="programming project-management"
+tags: programming project-management
   time="2010-03-31T02:37:14Z" 
 
 &quot;I can say with some authority that PeerGaurdian never worked.&quot;
 ================================================================================
   &quot;There were very specific criteria that needed to be met by the person. Mainly an ISP that would play ball, this was a habitual seeder, meaning we were able to obtain a small % of at least 500-1000 different titles from that very person, and they had to be sharing a certain number of specifc titles.&quot; &quot;For the longest time people couldn't figure out why the download would stop at 98% and never finish, but it was because they had just spent the time downloading a fake file. That never happens on NNTP. ... We can't see who is downloading a file from some NNTP server, the only thing we could ever do was issue DMCA notices to the server admins to remove files when we found them, but those files would only be gone for a few minutes before someone would put them right back on.&quot;
 href="http://www.reddit.com/r/reddit.com/comments/9ubff/because_no_one_told_me_i_present_peerblock/c0ehd67"
-tag="paranoia security privacy"
+tags: paranoia security privacy
   time="2010-03-31T00:31:43Z" 
 
 Photoshop's CAF (content-aware fill) - unbelievable? Not quite.
 ================================================================================
   http://www.youtube.com/watch?v=NH0aEp1oDOI http://www.logarithmic.net/pfh/resynthesizer http://www.reddit.com/r/linux/comments/bipgn/photoshops_caf_contentaware_fill_unbelievable_not/
 href="http://o3.tumblr.com/post/470608946/photoshops-caf-content-aware-fill-unbelievable"
-tag="gimp graphic-design"
+tags: gimp graphic-design
   time="2010-03-26T20:55:52Z" 
 
 Elance | Outsource to freelancers, professionals, experts
 ================================================================================
 href="http://www.elance.com/"  
-tag="freelancing contracting" time="2010-03-24T05:25:01Z" 
+tags: freelancing contracting
+time="2010-03-24T05:25:01Z" 
 
 Guru.com ‚Äì Find Freelancers for Hire. Get Your Project Done.
 ================================================================================
 href="http://www.guru.com/"  
-tag="freelancing contracting" time="2010-03-24T05:24:36Z" 
+tags: freelancing contracting
+time="2010-03-24T05:24:36Z" 
 
 odesk.com: Outsource to Freelancers, IT Companies, Programmers, Web Designers
 ================================================================================
 href="http://www.odesk.com/"  
-tag="contracting freelancing" time="2010-03-24T05:17:20Z" 
+tags: contracting freelancing
+time="2010-03-24T05:17:20Z" 
 
 Rent A Coder: How Software Gets Done
 ================================================================================
 href="http://www.rentacoder.com/"  
-tag="freelancing contracting" time="2010-03-24T05:11:39Z" 
+tags: freelancing contracting
+time="2010-03-24T05:11:39Z" 
 
 IamA Top Coder at Rentacoder.com 
 ================================================================================
 href="http://www.reddit.com/r/iama/comments/a2485" 
-tag="freelancing contracting"
+tags: freelancing contracting
   time="2010-03-24T05:10:41Z" 
 
 Irrational fears give nuclear power a bad name, says Oxford scientist
 ================================================================================
 href="http://www.reddit.com/r/science/comments/ao6gl/irrational_fears_give_nuclear_power_a_bad_name/"
-tag="science politics energy nuclear"
+tags: science politics energy nuclear
   time="2010-03-20T01:02:04Z" 
 
 JQuery Cycle Plugin
 ================================================================================
   slideshow plugin that supports many different types of transition effects.
 href="http://malsup.com/jquery/cycle/"  
-tag="jquery programming" time="2010-03-16T06:55:35Z" 
+tags: jquery programming
+time="2010-03-16T06:55:35Z" 
 
 Directed Edge - Blog - On Building a Stupidly Fast Graph Database
 ================================================================================
 href="http://blog.directededge.com/2009/02/27/on-building-a-stupidly-fast-graph-database/"
-tag="compsci todo"
+tags: compsci todo
   time="2010-03-14T01:32:05Z" 
 
 Moserware: Wetware Refactorings 
 ================================================================================
 href="http://www.moserware.com/2009/01/wetware-refactorings.html"
-tag="todo learning psychology"
+tags: todo learning psychology
   time="2010-03-14T01:26:26Z" 
 
 
@@ -4687,59 +4769,60 @@ tag="todo learning psychology"
 20200208
 PyRobot: open source robotics platform
 https://www.pyrobot.org/
-tag="diy-project electronics engineering programming facebook"
+tags: diy-project electronics engineering programming facebook
 getting a robot, current price points: https://news.ycombinator.com/item?id=22212035
 
 ================================================================================
 20100313
 en/MikroKopter - Wiki: MikroKopter.de
 http://www.mikrokopter.de/ucwiki/en/MikroKopter
-tag="diy-project electronics"
+tags: diy-project electronics
 HexaKopter 6-propeller helicopter. ~1200 euros.
 
 A Visual Git Reference 
 ================================================================================
 href="http://marklodato.github.com/visual-git-guide/"
-tag="git dvcs programming"
+tags: git dvcs programming
   time="2010-02-26T06:14:30Z" 
 
 Git for Plan 9: git/fs
 ================================================================================
 https://lobste.rs/s/bpzl12/git_fs_native_git_implementation_for_plan
 https://bitbucket.org/oridb/git9
-tag="git dvcs programming protocol"
+tags: git dvcs programming protocol
 Plan 9 C implementation of git file formats and wire formats.
 
 HashRocket MSA (Master Services Agreement) - Obie Fernandez: (MSA Series #3) Work Provisions
 ================================================================================
   &quot;I prefer so-called &quot;Time and Materials&quot; (T&amp;M) engagements, and with a good MSA you can usually fit your SOW onto one page.&quot; http://blog.obiefernandez.com/content/2008/09/master-services-agreement-part-1.html http://blog.obiefernandez.com/content/2008/10/msa-series-2-cooperation-and-reliance.html http://blog.obiefernandez.com/content/2008/12/msa-series-3-work-provisions.html
 href="http://blog.obiefernandez.com/content/2008/12/msa-series-3-work-provisions.html"
-tag="programming contracting"
+tags: programming contracting
   time="2010-02-12T21:54:20Z" 
 
 ASP.NET Chart Control - ScottGu's Blog
 ================================================================================
 href="http://weblogs.asp.net/scottgu/archive/2008/11/24/new-asp-net-charting-control-lt-asp-chart-runat-quot-server-quot-gt.aspx"
-tag=".net asp.net programming"
+tags: .net asp.net programming
   time="2010-02-12T21:50:45Z" 
 
 Google Chart Tools API 
 ================================================================================
 href="https://developers.google.com/chart/" 
-tag="web programming google"
+tags: web programming google
   time="2010-02-12T21:49:18Z" 
 
 Derek Powazek - Spammers, Evildoers, and Opportunists
 ================================================================================
   &quot;Search Engine Optimization is not a legitimate form of marketing. ... If someone charges you for SEO, you have been conned.&quot; &quot;The good advice is obvious, the rest doesn‚Äôt work.&quot; &quot;If [Google] determine that you‚Äôve been acting in bad faith (like hiding links or keywords or other deceptive practices) ... a temporary gain may result in a lifetime ban.&quot;
 href="http://powazek.com/posts/2090"  
-tag="seo" time="2010-02-10T21:24:07Z" 
+tags: seo
+time="2010-02-10T21:24:07Z" 
 
 Microsoft.VisualBasic.FileIO.TextFieldParser Class
 ================================================================================
   .NET CSV, tab delimited, and fixed-width text parser.
 href="http://msdn.microsoft.com/en-us/library/microsoft.visualbasic.fileio.textfieldparser.aspx"
-tag="programming .net"
+tags: programming .net
   time="2010-02-02T06:10:53Z" 
 
 Are Machine-Learned Models Prone to Catastrophic Errors?
@@ -4747,58 +4830,61 @@ Are Machine-Learned Models Prone to Catastrophic Errors?
   Nassim Taleb divides phenomena into two classes: Mediocristan, consisting of phenomena that fit the bell curve model, such as games of chance, height and weight in humans, and so on. Here future observations can be predicted by extrapolating from variations in statistics based on past observation (for example, sample means and standard deviations). Extremistan, consisting of phenomena that don't fit the bell curve model, such as the search queries, the stock market, the length of wars, and so on. Sometimes such phenomena can sometimes be modeled using power laws or fractal distributions, and sometimes not. In many cases, the very notion of a standard deviation is meaningless. The current generation of machine learning algorithms can work well in Mediocristan but not in Extremistan. The very metrics these algorithms use, such as precision, recall, and root-mean square error (RMSE), make sense only in Mediocristan.
   href="http://anand.typepad.com/datawocky/2008/05/are-human-experts-less-prone-to-catastrophic-errors-than-machine-learned-models.html"
    
-tag="compsci ai psychology machine-learning"
+tags: compsci ai psychology machine-learning
   time="2010-02-02T05:07:06Z" 
 
 optionshouse.com - Stock Option Trading Broker, Online Options Trading Platform ...
 ================================================================================
   A powerful, virtual platform to test your stock and options trades.
 href="http://www.optionshouse.com/"  
-tag="investment finance" time="2010-01-29T21:42:45Z" 
+tags: investment finance
+time="2010-01-29T21:42:45Z" 
 
 Making Evidyon
 ================================================================================
   Open source C++ (Visual Studio 2008) MMORPG. http://www.reddit.com/r/programming/comments/auhiv/evidyon_goes_open_source_get_a_free_copy_of/
 href="http://unseenstudios.com/making-evidyon/" 
-tag="game-dev programming"
+tags: game-dev programming
   time="2010-01-28T00:51:34Z" 
 
 FINVIZ.com - Stock Screener
 ================================================================================
   technical indicators, insider trading.
 href="http://finviz.com/"
-tag="investment finance"
+tags: investment finance
   time="2010-01-19T23:04:06Z" 
 
 Journey of an Absolute Rookie: Paintings and Sketches - ConceptArt.org
 ================================================================================
   daily practice turns a novice into very good artist in a matter of months.
 href="http://www.conceptart.org/forums/showthread.php?t=870"
-tag="learning art"
+tags: learning art
   time="2010-01-14T17:27:23Z" 
 
 The 31 Places to Go in 2010 - NYTimes.com
 ================================================================================
 href="http://www.nytimes.com/2010/01/10/travel/10places.html"
-tag="travel"
+tags: travel
   time="2010-01-12T18:41:20Z" 
 
 Best of VIM Tips, gVIM's Key Features zzapper
 ================================================================================
 href="http://rayninfo.co.uk/vimtips.html" 
-tag="vim programming" time="2010-01-07T22:55:02Z" 
+tags: vim programming
+time="2010-01-07T22:55:02Z" 
 
 Don't vote. Play the lottery instead. - By Steven E. Landsburg
 ================================================================================
   &amp;quot;If Kerry (or Bush) has just a slight edge, so that each of your fellow voters has a 51 percent likelihood of voting for him, then your chance of casting the tiebreaker is about one in 10^1046‚Äîapproximately the same chance you have of winning the Powerball jackpot 128 times in a row.&amp;quot;
 href="http://www.slate.com/id/2107240/"  
-tag="politics voting" time="2009-12-06T20:49:59Z" 
+tags: politics voting
+time="2009-12-06T20:49:59Z" 
 
 
 What is the probability your vote will make a difference?
 ================================================================================
 http://www.nber.org/papers/w15220.pdf
-tag="politics statistics"
+tags: politics statistics
 Andrew Gelman, Nate Silver, Aaron Edlin
 NBER Working Paper No. 15220
 August 2009
@@ -4821,170 +4907,181 @@ Eastern Eyes
 ================================================================================
   &quot;When you have to manufacture your own bricks in order to build your own house, you are living in a society that has no effective division of labor.&quot;
 href="http://books.stpeter.im/rand/eyes.html" 
-tag="politics" time="2009-12-03T07:48:14Z" 
+tags: politics
+time="2009-12-03T07:48:14Z" 
 
 .NET Debugging 101 with Tess Ferrandez
 ================================================================================
 href="http://www.hanselminutes.com/default.aspx?showID=204"
-tag=".net debug todo"
+tags: .net debug todo
   time="2009-11-22T20:57:29Z" 
 
 The Dead Zone: The Implicit Marginal Tax Rate
 ================================================================================
   &quot;until you get past $40,000 a year, any raise might actually sink you deeper into poverty&quot;
 href="http://mises.org/daily/3822"  
-tag="economics politics todo" time="2009-11-22T20:55:53Z" 
+tags: economics politics todo
+time="2009-11-22T20:55:53Z" 
 
 The Henry Ford of Heart Surgery
 ================================================================================
   &quot;In India, a Factory Model for Hospitals Is Cutting Costs and Yielding Profits&quot;
 href="http://online.wsj.com/article/SB125875892887958111.html"
-tag="economics todo"
+tags: economics todo
   time="2009-11-22T20:50:34Z" 
 
 Cheap Fusion Power: Dr. Bussard's talk at Google
 ================================================================================
   Dr. Robert Bussard http://en.wikipedia.org/wiki/Bussard ... http://www.talk-polywell.org/bb/index.php
 href="http://video.google.com/videoplay?docid=1996321846673788606"
-tag="todo science energy nuclear"
+tags: todo science energy nuclear
   time="2009-11-16T03:43:42Z" 
 
 The Eternal Value of Privacy - Bruce Schneier
 ================================================================================
   &quot;If I'm not doing anything wrong, then you have no cause to watch me.&quot; &quot;Because the government gets to define what's wrong, and they keep changing the definition.&quot; &quot;Because you might do something wrong with my information.&quot; ... The real choice is liberty versus control. ... Widespread police surveillance is the very definition of a police state.
 href="http://www.wired.com/politics/security/commentary/securitymatters/2006/05/70886"
-tag="politics privacy"
+tags: politics privacy
   time="2009-11-16T00:03:02Z" 
 
 ================================================================================
 20091018
 1000mm Quad Copter Design - RC Groups
 http://www.rcgroups.com/forums/showthread.php?t=768115
-tag="engineering electronics diy-project"
+tags: engineering electronics diy-project
 
 Vitamin D &quot;may vanquish cancer and heart disease ... autoimmune disease (rheumatoid arthritis, lupus), diminish the occurrence of diabetes, reduce obesity, treat multiple sclerosis, osteoporosis, Parkinson‚Äôs disease ... high blood pressure ... the comm...
 ================================================================================
   It‚Äôs difficult for most people to get optimal amounts of vitamin D. The diet, at best, will only provide a few hundred units of vitamin D. Milk is fortified with synthetic vitamin D2, which is not nearly as potent as natural D3, which is used in most dietary supplements. A glass of milk provides only 100 IU (2.5 micrograms). Fifteen minutes of sun exposure to 40-percent of the body is suggested daily for fair-skinned individuals. mortality rates for melanoma rose steeply after sunscreens came into common use, not before. Sunscreen lotion blocks the vitamin D-producing UV-B rays, while allowing the deeper-penetrating, cancer-causing UV-A rays to burn the skin. Many health food stores stock 1000 IU vitamin D pills. Most multivitamins provide no more than 400 IU .
 href="http://www.lewrockwell.com/sardi/sardi70.html" 
-tag="health" time="2009-10-08T21:33:15Z" 
+tags: health
+time="2009-10-08T21:33:15Z" 
 
 Innovative Minds Don't Think Alike
 ================================================================================
   the &quot;curse of knowledge&quot;. &quot;It‚Äôs why engineers design products ultimately useful only to other engineers. It‚Äôs why managers have trouble convincing the rank and file to adopt new processes.&quot;
 href="http://www.nytimes.com/2007/12/30/business/30know.html"
-tag="learning engineering psychology business"
+tags: learning engineering psychology business
   time="2009-10-07T22:20:27Z" 
 
 A Stick Figure Guide to the Advanced Encryption Standard (AES)
 ================================================================================
   good explanation of AES Rijndael.
 href="http://www.moserware.com/2009/09/stick-figure-guide-to-advanced.html"
-tag="compsci"
+tags: compsci
   time="2009-09-23T03:12:34Z" 
 
 African American lives with middle class black families to study low test scores‚Äîis vilified for what he finds.
 ================================================================================
   &quot;Their project yielded an unexpected conclusion: It wasn't socioeconomics, school funding, or racism, that accounted for the students' poor academic performance; it was their own attitudes, and those of their parents.&quot;
 href="http://www.reddit.com/r/Economics/comments/9mg0f/african_american_lives_with_middle_class_black/"
-tag="politics"
+tags: politics
   time="2009-09-21T05:38:30Z" 
 
 The RFP Database: government, corporate, and non-profit Requests for Proposals
 ================================================================================
   You can gain credits by uploading RFPs to the website. Where can I find more RFPs? One of the easiest ways to find RFPs is by logging in and using our internet rfp search area. Or do a web search for &quot;tampa procurement&quot; or &quot;rfp 2009 web&quot; or &quot;rfp 2009 programming&quot;.
 href="http://www.rfpdb.com/"  
-tag="rfp contracting" time="2009-09-15T21:51:20Z" 
+tags: rfp contracting
+time="2009-09-15T21:51:20Z" 
 
 littlefs: fail-safe filesystem designed for microcontrollers
 ================================================================================
 https://github.com/ARMmbed/littlefs
-tag="software programming embedded soc microcontrollers filesystem tools"
+tags: software programming embedded soc microcontrollers filesystem tools
 
 Tahoe-LAFS: a secure, decentralized, fault-tolerant filesystem.
 ================================================================================
   The &quot;Tahoe&quot; project is a distributed filesystem, which safely stores files on multiple machines to protect against hardware failures. Cryptographic tools are used to ensure integrity and confidentiality, and a decentralized architecture minimizes single points of failure. http://allmydata.org/~warner/pycon-tahoe.html
 href="http://allmydata.org/"  
-tag="linux privacy security paranoia"
+tags: linux privacy security paranoia
   time="2009-09-09T16:04:25Z" 
 
 Bulgarian Split Squat 
 ================================================================================
 href="http://www.youtube.com/watch?v=q_Q8FKO7Ueg" 
-tag="exercise health" time="2009-09-09T05:44:08Z" 
+tags: exercise health
+time="2009-09-09T05:44:08Z" 
 
 Elon Musk - Wikipedia, the free encyclopedia
 ================================================================================
   Zip2, PayPal, SpaceX, Tesla Motors, SolarCity. &quot;SpaceX was awarded a $1.6 billion NASA contract for 12 flights of their Falcon 9 rocket and Dragon spacecraft to the International Space Station, replacing the Space Shuttle after it retires in 2010.&quot;
 href="http://en.wikipedia.org/wiki/Elon_Musk" 
-tag="entrepreneurs" time="2009-09-01T03:25:01Z" 
+tags: entrepreneurs
+time="2009-09-01T03:25:01Z" 
 
 Starlink satellite tracker
 ================================================================================
 https://james.darpinian.com/satellites/
-tag="space spacex science satellites starlink isp internet network"
+tags: space spacex science satellites starlink isp internet network
 Tells you when to go outside to see satellites as they pass overhead.
 
 How to Debug Bash Scripts 
 ================================================================================
 href="http://aymanh.com/how-debug-bash-scripts" 
-tag="bash programming linux"
+tags: bash programming linux
   time="2009-08-25T15:49:00Z" 
 
 Code generation with X-Macros in C :: The Brush Blog
 ================================================================================
 href="http://blog.brush.co.nz/2009/08/xmacros/" 
-tag="c programming" time="2009-08-25T04:24:34Z" 
+tags: c programming
+time="2009-08-25T04:24:34Z" 
 
 TTL demo applets 
 ================================================================================
 href="http://tams-www.informatik.uni-hamburg.de/applets/hades/webdemos/toc.html"
-tag="engineering circuits electronics"
+tags: engineering circuits electronics
   time="2009-08-19T02:19:03Z" 
 
 OASIS Login 
 ================================================================================
 href="https://usfonline.admin.usf.edu/"  
-tag="usf" time="2009-08-18T19:00:29Z" 
+tags: usf
+time="2009-08-18T19:00:29Z" 
 
 Class Schedule Search 
 ================================================================================
 href="http://www.registrar.usf.edu/ssearch/search.php"
-tag="usf"
+tags: usf
   time="2009-08-18T18:59:44Z" 
 
 ESR 
 ================================================================================
 href="http://esr.ibiblio.org/"  
-tag="blog oss politics" time="2009-08-15T18:54:43Z" 
+tags: blog oss politics
+time="2009-08-15T18:54:43Z" 
 
 Seeking: The powerful and mysterious brain circuitry that makes us love Google ...
 ================================================================================
   Seeking ... is the mammalian motivational engine that each day gets us out of the bed. dopamine circuits &quot;promote states of eagerness and directed purpose&quot;. Panksepp says a way to drive animals into a frenzy is to give them only tiny bits of food.
 href="http://www.slate.com/default.aspx?id=2224932" 
-tag="psychology learning" time="2009-08-15T18:42:29Z" 
+tags: psychology learning
+time="2009-08-15T18:42:29Z" 
 
 An Intuitive Explanation of Fourier Theory
 ================================================================================
 href="http://enteos2.area.trieste.it/russo/LabInfoMM2005-2006/ProgrammaEMaterialeDidattico/daStudiare/009-FourierInSpace.html"
-tag="mathematics todo"
+tags: mathematics todo
   time="2009-08-10T14:11:36Z" 
 
 MakerBot Industries - Robots That Make Things.
 ================================================================================
   self-replicating machine. similar to RepRap.
 href="http://www.makerbot.com/"  
-tag="self-replication 3d_printing programming electronics engineering"
+tags: self-replication 3d_printing programming electronics engineering
   time="2009-07-09T13:15:54Z" 
 
 Motion Mountain: The Free Physics Textbook
 ================================================================================
 href="http://motionmountain.com/"  
-tag="physics books science" time="2009-07-06T17:28:21Z" 
+tags: physics books science
+time="2009-07-06T17:28:21Z" 
 
 "Concerning the Soul", Hermann Hesse
 ================================================================================
 http://jsomers.net/concerning_the_soul.pdf
-tag="literature books"
+tags: literature books
 contemplation:
 > At the moment when desire ceases and contemplation, pure seeing, and
 > self-surrender begin, everything changes. Man ceases to be useful or
@@ -4996,104 +5093,106 @@ Cato Unbound: Beyond Folk Activism
 ================================================================================
   &quot;When we read in the evening paper that we‚Äôre footing the bill for another bailout, we react by complaining to our friends, suggesting alternatives, and trying to build coalitions for reform. This primal behavior is as good a guide for how to effectively reform modern political systems as our instinctive taste for sugar and fat is for how to eat nutritiously.&quot; ... &quot;Folk activism treats policies and institutions as the result of specific human intent. But policies are in large part an emergent behavior of institutions, and institutions are an emergent behavior of the global political ecosystem.&quot;
 href="http://www.cato-unbound.org/2009/04/06/patri-friedman/beyond-folk-activism/"
-tag="politics libertarianism"
+tags: politics libertarianism
   time="2009-06-26T03:04:01Z" 
 
 the business cycle is a result of (federal reserve) market manipulation
 ================================================================================
   &quot;These two questions, that is, why businessmen seem to make periodic, not continuous, but periodic clusters of errors, and the question of why the errors always seem especially bad in the higher order stages, are the two questions that every economist has to answer if he/she is going to explain what happens in economic recessions and why they occur.&quot;
 href="http://www.reddit.com/r/Economics/comments/8uv04/peter_schiff_the_american_financial_system/c0ai9o1"
-tag="politics economics"
+tags: politics economics
   time="2009-06-23T18:23:28Z" 
 
 Pauls Online Math Notes
 ================================================================================
   calculus notes, formulae sheets.
 href="http://tutorial.math.lamar.edu/cheat_table.aspx"
-tag="mathematics pedagogy"
+tags: mathematics pedagogy
   time="2009-06-20T06:59:27Z" 
 
 Elementary Cellular Automata 
 ================================================================================
   href="http://www.gmilburn.ca/2008/12/02/elementary-cellular-automata/"
    
-tag="cellular-automata mathematics todo compsci"
+tags: cellular-automata mathematics todo compsci
   time="2009-06-20T03:18:50Z" 
 
 PolyPage
 ================================================================================
   ease the process of showing multiple page states in html mock-ups.
 href="http://code.new-bamboo.co.uk/polypage/" 
-tag="jquery wireframe programming"
+tags: jquery wireframe programming
   time="2009-06-18T22:48:29Z" 
 
 An Illustrated Guide to SSH Agent Forwarding
 ================================================================================
   Password Authentication vs. Public Key Access. see also: http://www.reddit.com/r/linux/comments/8sjfv/if_you_use_ssh_to_do_remote_login_many_times_a/c0ab6js
 href="http://unixwiz.net/techtips/ssh-agent-forwarding.html"
-tag="security linux"
+tags: security linux
   time="2009-06-15T20:06:10Z" 
 
 I2P Anonymous Network - I2P
 ================================================================================
   http://www.reddit.com/r/technology/comments/8sdcn/i2p_074_anonymous_email_browsing_chatting/ &quot;TOR is about anonymity. It reroutes packets so the source is obscured - there is no security. ... high-traffic stuff like P2P is strongly discouraged. I2P is anonymous AND secure. It's encrypted and separate from the regular internet.&quot;
 href="http://www.i2p2.de/"  
-tag="paranoia security privacy" time="2009-06-14T17:49:11Z" 
+tags: paranoia security privacy
+time="2009-06-14T17:49:11Z" 
 
 Ask /r/linux: Anyone have devices increment their number after cloning ...
 ================================================================================
   fix device names, viz., 'eth2' -&gt; 'eth0'. /etc/udev/rules.d/70-persistent-net.rules
 href="http://www.reddit.com/r/linux/comments/8h568/ask_rlinux_anyone_have_devices_increment_their/"
-tag="linux"
+tags: linux
   time="2009-05-16T16:23:44Z" 
 
 Robby on Rails : Installing Ruby on Rails and PostgreSQL on OS X
 ================================================================================
 href="http://www.robbyonrails.com/articles/2008/01/22/installing-ruby-on-rails-and-postgresql-on-os-x-third-edition"
-tag="rails osx programming"
+tags: rails osx programming
   time="2009-05-16T16:02:39Z" 
 
 Currency Forex Trading, Interbank Forex Broker, Low Spreads
 ================================================================================
 href="http://www.dukascopy.com/"  
-tag="forex finance investment" time="2009-05-14T21:01:30Z" 
+tags: forex finance investment
+time="2009-05-14T21:01:30Z" 
 
 50 Most Beautiful Icon Sets Created in 2008 | Noupe
 ================================================================================
 href="http://www.noupe.com/icons/50-most-beautiful-icon-sets-created-in-2008.html"
-tag="icons"
+tags: icons
   time="2009-05-08T17:53:07Z" 
 
 jQuery Corners
 ================================================================================
   easily create beautifully rounded corners
 href="http://www.atblabs.com/jquery.corners.html" 
-tag="jquery programming web"
+tags: jquery programming web
   time="2009-05-08T17:44:51Z" 
 
 haml (and Sass) - &quot;an external DSL for XHTML/CSS&quot;
 ================================================================================
   rails template templating framework superior to erb. can be used with ASP.NET via nhaml http://andrewpeters.net/category/nhaml/ . Sass is a CSS templating framework.
 href="http://haml.hamptoncatlin.com/"  
-tag="rails programming asp.net html css markup web"
+tags: rails programming asp.net html css markup web
   time="2009-05-08T03:01:40Z" 
 
 Richard Branson - Wikipedia, the free encyclopedia
 ================================================================================
 href="http://en.wikipedia.org/wiki/Richard_Branson" 
-tag="entrepreneurs libertarian-role-models"
+tags: entrepreneurs libertarian-role-models
   time="2009-04-30T10:30:58Z" 
 
 John D. Carmack - Wikipedia, the free encyclopedia
 ================================================================================
 href="http://en.wikipedia.org/wiki/John_D._Carmack" 
-tag="entrepreneurs libertarian-role-models"
+tags: entrepreneurs libertarian-role-models
   time="2009-04-30T10:29:36Z" 
 
 Patri Friedman - Wikipedia, the free encyclopedia
 ================================================================================
 href="http://en.wikipedia.org/wiki/Patri_Friedman" 
-tag="entrepreneurs libertarian-role-models"
+tags: entrepreneurs libertarian-role-models
   time="2009-04-30T10:28:34Z" 
 
 Peter Thiel: Cato Unbound: The Education of a Libertarian
@@ -5101,71 +5200,73 @@ Peter Thiel: Cato Unbound: The Education of a Libertarian
   &quot;the founding vision of PayPal centered on the creation of a new world currency, free from all government control and dilution ‚Äî the end of monetary sovereignty ... we must resist the temptation of technological utopianism ‚Äî the notion that technology has a momentum or will of its own, that it will guarantee a more free future, and therefore that we can ignore the terrible arc of the political in our world. ... we are in a deadly race between politics and technology.&quot;
   href="http://www.cato-unbound.org/2009/04/13/peter-thiel/the-education-of-a-libertarian/"
    
-tag="politics libertarianism entrepreneurs libertarian-role-models"
+tags: politics libertarianism entrepreneurs libertarian-role-models
   time="2009-04-30T10:27:41Z" 
 
 Writer2LaTeX
 ================================================================================
   covert OpenOffice.org OpenDocument (ODF) document format to latex (tex) format.
 href="http://writer2latex.sourceforge.net/" 
-tag="oss" time="2009-04-30T09:58:13Z" 
+tags: oss
+time="2009-04-30T09:58:13Z" 
 
 ViewSourceWith :: Firefox Add-ons
 ================================================================================
   source, js, css view
 href="https://addons.mozilla.org/en-US/firefox/addon/394"
-tag="todo"
+tags: todo
   time="2009-04-28T15:57:52Z" 
 
 Why South Africa's Over the Rainbow - TIME
 ================================================================================
   &quot;History is full of revolutionaries who failed to make the switch. Most promised people's rule but, once in power, embraced a permanent state of revolution ‚Äî some, like Robert Mugabe and Hugo Ch√°vez, conjuring up fantastical foreign enemies to fight. (To those ranks, now add the leader of the influential ANC Youth League, Julius Malema, who told the East London rally that the young would &quot;never allow them to donate this country to Britain, to the hands of the colonizers.&quot;) To their people, this never-ending war is generally experienced as dictatorship. Too many liberation leaders leave office only when another revolutionary seizes power. ... Mobutu Sese Seko, ruler of Zaire for 32 years, who took the country as personal reward for &quot;liberating&quot; it. ... In India, the Gandhi family has towered over its democracy for 60 years. ... Henning Melber ... fought in Namibia against white rule. Watching his fellow liberators turn on their own people once the war was won...&quot;
 href="http://www.time.com/time/world/article/0,8599,1890334,00.html"
-tag="politics"
+tags: politics
   time="2009-04-22T03:25:12Z" 
 
 All About Circuits : Free Electric Circuits Textbooks
 ================================================================================
 href="http://www.allaboutcircuits.com/"  
-tag="engineering circuits" time="2009-04-20T04:50:01Z" 
+tags: engineering circuits
+time="2009-04-20T04:50:01Z" 
 
 gspread: Google Spreadsheets Python API
 ================================================================================
 https://github.com/burnash/gspread
-tag="python library programming development google spreadsheet data data-science"
+tags: python library programming development google spreadsheet data data-science
 http://tinaja.computer/2017/10/27/gspread.html
 
 Official Google Webmaster Central Blog: How to start a multilingual site
 ================================================================================
   recommends putting the different language in the subdomain or subdirectory then set Webmaster Tools to reflect that so the appropriate content is served.
 href="http://googlewebmastercentral.blogspot.com/2008/08/how-to-start-multilingual-site.html"
-tag="seo programming"
+tags: seo programming
   time="2009-04-15T18:31:27Z" 
 
 Official Google Webmaster Central Blog: Specify your canonical
 ================================================================================
   explanation of canonical URL. Google answers to reader comments are provided down the page, here: http://googlewebmastercentral.blogspot.com/2009/02/specify-your-canonical.html Also: --- Q: http://mydomain.com/en/ http://mydomain.com/es/ http://mydomain.com/fr/ ...the same structure with different language content. A: Each language should have a separate URL because the content is unique. We‚Äôd advise against equating different languages using either 301s or link rel=&quot;canonical&quot;. --- http://www.seobythesea.com/?p=946 Using UTF-8 on pages may also help search engines determine a page's language: &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt; --- also use the xml:lang or lang attributes on the &lt;html&gt; tag: http://www.w3schools.com/tags/ref_standardattributes.asp
 href="http://googlewebmastercentral.blogspot.com/2009/02/specify-your-canonical.html"
-tag="seo programming"
+tags: seo programming
   time="2009-04-14T20:27:38Z" 
 
 It's 10PM: Do you know your RAID/BBU/consistency status? at time to bleed
 ================================================================================
   raid status check
 href="http://timetobleed.com/its-10pm-do-you-know-your-raid-status/"
-tag="todo linux"
+tags: todo linux
   time="2009-04-14T18:16:30Z" 
 
 Tess Ferrandez blog: If broken it is, fix it you should
 ================================================================================
 href="http://blogs.msdn.com/tess/"  
-tag="microsoft blog debug programming asp.net .net"
+tags: microsoft blog debug programming asp.net .net
   time="2009-04-03T21:59:40Z" 
 
 Tess Ferrandez blog: If broken it is, fix it you should
 ================================================================================
 https://blogs.msdn.microsoft.com/tess/2006/04/12/asp-net-memory-if-your-application-is-in-production-then-why-is-debugtrue/
-tag="microsoft deploy production debug programming asp.net .net"
+tags: microsoft deploy production debug programming asp.net .net
 If debug="true"...
   - asp.net requests will not time out
   - creates one dll per aspx, asax, or ascx page and this dll is compiled in debug mode
@@ -5179,56 +5280,58 @@ fix OS X keyboard shortcuts
 ================================================================================
   fix OS X PgUp/PgDn/Home/End behaviour
 href="http://www.reddit.com/r/programming/comments/83jyb/proscons_of_using_a_mac_as_a_development/c085px4"
-tag="todo osx"
+tags: todo osx
   time="2009-03-30T01:38:37Z" 
 
 Things to do in Amsterdam‚Äîan unconventional guide
 ================================================================================
 href="http://thomer.com/amsterdam/"  
-tag="travel" time="2009-03-25T02:12:27Z" 
+tags: travel
+time="2009-03-25T02:12:27Z" 
 
 How to get a merchant account
 ================================================================================
   &quot;guide to obtaining a merchant account, from the cash-strapped start-up‚Äôs point of view&quot;. chargebacks, 3D-secure, AVS/CV2, PCI-DSS. Start the process early; Apply to several banks; Exaggerate your volumes (realistically); Know all about fraud; Be serious to ensure the bank feels you‚Äôre a trustworthy business; Read the fine print and negotiate the terms.
 href="http://danieltenner.com/posts/0006-how-to-get-a-merchant-account.html"
-tag="ecommerce business"
+tags: ecommerce business
   time="2009-03-24T23:10:36Z" 
 
 The Three20 Project
 ================================================================================
   open source iphone library. table view, data source, text editor, URL request. http://joehewitt.com/post/the-three20-project/
 href="http://github.com/joehewitt/three20/tree/master"
-tag="programming iphone"
+tags: programming iphone
   time="2009-03-24T14:47:40Z" 
 
 Dot Net Perls - C# Problems and Solutions
 ================================================================================
 href="http://dotnetperls.com/"  
-tag="c# programming .net" time="2009-03-23T13:45:58Z" 
+tags: c# programming .net
+time="2009-03-23T13:45:58Z" 
 
 The Dangers of the Large Object Heap
 ================================================================================
   in .NET we can, for example, prevent memory from being recycled if we inadvertently hold references to objects that we are no longer using. Also, there is another serious memory problem in .NET that can happen out of the blue, especially if you are using large object arrays.
 href="http://www.simple-talk.com/dotnet/.net-framework/the-dangers-of-the-large-object-heap/"
-tag="todo .net programming"
+tags: todo .net programming
   time="2009-03-23T13:32:37Z" 
 
 25 Great Calvin and Hobbes Strips.
 ================================================================================
 href="http://progressiveboink.com/archive/calvinhobbes.htm"
-tag="art todo"
+tags: art todo
   time="2009-03-22T23:00:57Z" 
 
 The Big Takeover: The global Economic Crisis Isn't About Money, It's About Power: How Wall Street Insiders Are Using The Bailout to Stage a Revolution
 ================================================================================
 href="http://www.reddit.com/r/politics/comments/8619y/the_big_takeover_the_global_economic_crisis_isnt/"
-tag="todo politics"
+tags: todo politics
   time="2009-03-22T22:59:31Z" 
 
 "You and your Research", Richard Hamming
 ================================================================================
 http://www.cs.virginia.edu/~robins/YouAndYourResearch.html
-tag="compsci engineering learning mental-model"
+tags: compsci engineering learning mental-model
 .
 http://www.reddit.com/r/science/comments/862en/you_and_your_research_a_lecture_on_how_to_win_a/
 > Be completely unafraid to utter whatever crazy idea you have at the moment and
@@ -5241,99 +5344,102 @@ http://www.reddit.com/r/science/comments/862en/you_and_your_research_a_lecture_o
 "Learning how to learn", Idries Shah
 ================================================================================
 https://en.wikipedia.org/wiki/Learning_How_to_Learn
-tag="learning pedagogy psychology"
+tags: learning pedagogy psychology
 
 Is there really such a thing as &quot;random&quot;?
 ================================================================================
   very good discussion about randomness, determinism.
 href="http://www.reddit.com/r/programming/comments/869bp/is_there_really_such_a_thing_as_random_ive_tried/"
-tag="todo compsci philosophy"
+tags: todo compsci philosophy
   time="2009-03-22T22:55:34Z" 
 
 Computer science lectures on YouTube
 ================================================================================
 href="http://www.reddit.com/r/programming/comments/8271w/computer_science_lecturer_offers_lectures_on/"
-tag="compsci"
+tags: compsci
   time="2009-03-17T21:19:05Z" 
 
 Fabulous Adventures In Coding : Locks and exceptions do not mix
 ================================================================================
   &quot;the body of a lock should do as little as possible&quot;, contention, deadlock, threading, concurrency
 href="http://blogs.msdn.com/ericlippert/archive/2009/03/06/locks-and-exceptions-do-not-mix.aspx"
-tag="concurrency c# programming .net"
+tags: concurrency c# programming .net
   time="2009-03-16T18:12:35Z" 
 
 Time Machine for every Unix out there - IMHO
 ================================================================================
 href="http://blog.interlinked.org/tutorials/rsync_time_machine.html"
-tag="linux"
+tags: linux
   time="2009-03-07T20:32:59Z" 
 
 deterministic finite automaton (DFA) minimization
 ================================================================================
   algorithm explanation
 href="http://useless-factor.blogspot.com/2009/02/dfa-minimization.html"
-tag="compsci todo"
+tags: compsci todo
   time="2009-02-19T21:38:14Z" 
 
 Why you should never use rand()
 ================================================================================
   'tjw' comment: &quot;The proper alternative is to use the host operating system's random number generator. CryptGenRandom on Windows; /dev/urandom on everything else; fall back to rand() if all else fails.
 href="http://www.reddit.com/r/programming/comments/7yjlc/why_you_should_never_use_rand_plus_alternative/"
-tag="programming mathematics"
+tags: programming mathematics
   time="2009-02-19T21:12:34Z" 
 
 How Not To Sort By Average Rating
 ================================================================================
   using statistics to make a better rating system
 href="http://www.reddit.com/r/programming/comments/7ww4d/how_not_to_sort_by_average_rating/"
-tag="programming mathematics"
+tags: programming mathematics
   time="2009-02-13T04:16:37Z" 
 
 Pipl - People Search 
 ================================================================================
 href="http://www.pipl.com/"  
-tag="information tools privacy" time="2009-02-06T04:33:37Z" 
+tags: information tools privacy
+time="2009-02-06T04:33:37Z" 
 
 50 of the Best Ever Web Development, Design and Application Icon Sets
 ================================================================================
 href="http://speckyboy.com/2009/02/02/50-of-the-best-ever-web-development-design-and-application-icon-sets/"
-tag="icons"
+tags: icons
   time="2009-02-03T22:58:03Z" 
 
 The Freenet Project - /index 
 ================================================================================
 href="http://freenetproject.org/"  
-tag="paranoia privacy security" time="2009-01-25T21:30:12Z" 
+tags: paranoia privacy security
+time="2009-01-25T21:30:12Z" 
 
 Kinsella: Intellectual Property Information
 ================================================================================
   ip resources, criticism
 href="http://www.stephankinsella.com/ip/" 
-tag="law economics ip"
+tags: law economics ip
   time="2009-01-25T21:16:47Z" 
 
 Can someone explain finger trees without referencing a functional programming language : programming
 ================================================================================
 href="http://www.reddit.com/r/programming/comments/7s948/can_someone_explain_finger_trees_without/"
-tag="compsci"
+tags: compsci
   time="2009-01-25T21:13:54Z" 
 
 Nolo: Law Books, Legal Forms and Legal Software
 ================================================================================
-  href="http://nolo.com/"   tag="law"
+  href="http://nolo.com/"   tags: law
   time="2009-01-25T17:45:53Z" 
 
 reAnimator: Regular Expression FSA Visualizer
 ================================================================================
   generates state diagrams for regular expressions.
 href="http://osteele.com/tools/reanimator/" 
-tag="compsci" time="2009-01-25T17:23:53Z" 
+tags: compsci
+time="2009-01-25T17:23:53Z" 
 
 Are Frequent-Flier Miles About to Lose Value?
 ================================================================================
 https://news.ycombinator.com/item?id=18752850
-tag="life-hack credit-card finance airline"
+tags: life-hack credit-card finance airline
 > To anyone who wishes to simply not have to deal with airline miles earned on credit cards ever again, here's a great option I found: if you have $100k+ across checking + investment accounts at Bank of America + Merrill Edge (their low-cost brokerage arm) you get...
 > 1. 2.625% cash back on BofA's Premium Rewards/Travel Rewards credit card. No messing around with airline miles. Just buy whatever ticket you want. Or, you know, pocket the cash.
 > 2. 5.25% cash back on BofA's Cash Rewards card for "online purchases," up to $2500 per quarter.
@@ -5343,7 +5449,7 @@ tag="life-hack credit-card finance airline"
 "The SRE regular-expression notation", Olin Shivers, August 1998
 ================================================================================
 http://www.ccs.neu.edu/home/shivers/papers/sre.txt
-tag="compsci regex automata lisp emacs"
+tags: compsci regex automata lisp emacs
 .
 Preamble: 100% and 80% solutions
   [rant on worse-is-better...]
@@ -5384,107 +5490,109 @@ Monoids and Finger Trees: sequences, priority queues, search trees and priority 
 ================================================================================
   &quot;...using monoids for annotations. The standard textbook treatment of annotated search trees would be greatly improved in precision, pedagogy and generality by introducing this abstraction.&quot;
 href="http://www.reddit.com/r/programming/comments/7r4bp/monoids_and_finger_trees_sequences_priority/"
-tag="programming compsci"
+tags: programming compsci
   time="2009-01-23T01:39:54Z" 
 
 iPhone developer: App Store rewards &quot;crap&quot; apps
 ================================================================================
 href="http://www.appleinsider.com/articles/09/01/22/iphone_developer_app_store_rewards_crap_apps.html"
-tag="programming iphone"
+tags: programming iphone
   time="2009-01-22T21:45:25Z" 
 
 LDAP (AD, Active Directory) Browser/Editor Java Applet
 ================================================================================
   A Java applet that you can use to browse LDAP/AD.
 href="http://www.mcs.anl.gov/~gawor/ldap/applet/applet.html"
-tag="programming"
+tags: programming
   time="2009-01-13T15:46:11Z" 
 
 22. U.S. Government Repressed Marijuana-Tumor Research | Project Censored
 ================================================================================
 href="http://www.projectcensored.org/top-stories/articles/22-us-government-repressed-marijuana-tumor-research/"
-tag="health politics"
+tags: health politics
   time="2009-01-11T19:47:30Z" 
 
 A More Efficient Method for Paging Through Large Result Sets
 ================================================================================
   Using ROWCOUNT to Optimize Paging for SQL Server 2000
 href="http://www.4guysfromrolla.com/webtech/042606-1.shtml"
-tag="programming"
+tags: programming
   time="2009-01-09T21:35:40Z" 
 
 Red wine may ward off lung cancer: study | Health | Reuters
 ================================================================================
 href="http://in.reuters.com/article/health/idINTRE4987L120081009"
-tag="health"
+tags: health
   time="2008-12-28T22:03:33Z" 
 
 C++ and the linker | copton.net
 ================================================================================
 Detailed analysis of C++ deficiencies. &quot;...I still believe that C++ is a dead end. The C heritage is a heavy burden. This article has lined out a mere few examples for this and on my blog there are some others (1, 2, 3, 4, 5). The fact that Bjarne Stroustrup et al. uncompromisingly pursued the design goals of efficiency and compatibility resulted in a language, which is very difficult to understand and use (6, 7, 8): Hundreds of special rules for special cases (9, 10, 11, 12, 13), language features that clash when used in particular combinations (14, 15), undefined and implementation-defined behavior everywhere (16, 17).&quot;
 href="http://blog.copton.net/articles/linker/index.html"
-tag="cpp linker programming"
+tags: cpp linker programming
 time="2008-12-16T03:55:48Z"
 
 Austrian School of Economics: The Concise Encyclopedia of Economics | Library of Economics and Liberty
 ================================================================================
 href="http://www.econlib.org/library/Enc/AustrianSchoolofEconomics.html"
-tag="todo politics"
+tags: todo politics
   time="2008-12-05T09:48:03Z" 
 
 Introduction &amp; overview to the Common Law subreddit : CommonLaw
 ================================================================================
 href="http://www.reddit.com/r/CommonLaw/comments/7erku/introduction_overview_to_the_common_law_subreddit/"
-tag="todo politics"
+tags: todo politics
   time="2008-12-05T09:44:32Z" 
 
 On the bankruptcy of the US FEDERAL GOVERNMENT, 1933 : AmericanGovernment
 ================================================================================
 href="http://www.reddit.com/r/AmericanGovernment/comments/7fpg2/on_the_bankruptcy_of_the_us_federal_government/"
-tag="todo politics"
+tags: todo politics
   time="2008-12-05T09:43:45Z" 
 
 Shorpy Photo Archive | History in HD
 ================================================================================
   high-quality prints of vintage ephemera.
-  href="http://www.shorpy.com/"   tag="art"
+  href="http://www.shorpy.com/"   tags: art
   time="2008-11-19T06:45:22Z" 
 
 GovTrack.us: Tracking the U.S. Congress
 ================================================================================
 href="http://www.govtrack.us/"  
-tag="politics law" time="2008-11-10T05:18:53Z" 
+tags: politics law
+time="2008-11-10T05:18:53Z" 
 
 Native C &quot;Hello World&quot; working in emulator | Hello Android
 ================================================================================
   &quot;Next, I'm going to try and get busybox up &amp; running so we can have access to exciting programs such as 'cp'&quot;
 href="http://www.helloandroid.com/node/10" 
-tag="programming android"
+tags: programming android
   time="2008-11-10T02:09:03Z" 
 
 Creative Loafing Tampa | Food &amp; Drink
 ================================================================================
 href="http://tampa.creativeloafing.com/food" 
-tag="food tampa" time="2008-10-09T01:55:58Z" 
+tags: food tampa
+time="2008-10-09T01:55:58Z" 
 
 Recovering Lawns, Failed States, and Reasons for Hope by William Norman Grigg
 ================================================================================
 Somalia, anarchy
 href="https://www.lewrockwell.com/2008/08/william-norman-grigg/failed-states-and-other-good-news/"
-tag="politics"
+tags: politics
 time="2008-09-14T20:11:23Z" 
 
 Obie Fernandez: Do the Hustle
 ================================================================================
   consulting, Master Services Agreement + Statement of Work, &quot;work for hire&quot; (domain-specific) vs. non-exclusive, references/case study, branding, define your products (name your services, viz., &quot;3-2-1 Launch&quot;, &quot;Rescue Mission&quot;), define your clients (viz., minimum budget, requirements readiness, travel to you vs. travel to them), be easy to contact (need a phone number), track your leads (Highrise) required reading: _Predictably_Irrational_ [Dan Ariely], _Never_Eat_Alone_ [Ferrazzi and Tahl Raz], _Secrets_of_Power_Negotiating_ [Roger Dawson]
 href="http://www.infoq.com/presentations/fernandez-sales-do-the-hustle"
-tag="work contracting"
+tags: work contracting
   time="2008-09-14T18:49:57Z" 
 
 Long-time nuclear waste warning messages
 ================================================================================
 https://en.wikipedia.org/wiki/Long-time_nuclear_waste_warning_messages
-tag="concepts history future weird semiotics iconography nuclear energy"
+tags: concepts history future weird semiotics iconography nuclear energy
 > messages are intended to deter human intrusion at nuclear waste repositories
 > in the far future, within or above the order of
 > magnitude of 10,000 years. Nuclear semiotics ... Human Interference Task Force
@@ -5504,7 +5612,7 @@ tag="concepts history future weird semiotics iconography nuclear energy"
 Regality theory and cultural selection theory
 ================================================================================
 https://agner.org/cultsel/
-tag="concepts history culture politics"
+tags: concepts history culture politics
 > Regality theory: people show a preference for strong leadership in times of
 > war or collective danger, but a preference for an egalitarian political system
 > in times of peace and safety. ... A society in danger will develop in the
@@ -5516,12 +5624,12 @@ tag="concepts history culture politics"
 Doing Business In Japan
 ================================================================================
 https://www.kalzumeus.com/2014/11/07/doing-business-in-japan/
-tag="culture japan travel"
+tags: culture japan travel
 
 Lesser Key of Solomon
 ================================================================================
 https://en.wikipedia.org/wiki/Lesser_Key_of_Solomon
-tag="concepts history occult"
+tags: concepts history occult
 aka Clavicula Salomonis Regis
 aka Lemegeton
 17th-century grimoire on demonology
@@ -5532,7 +5640,7 @@ divided into 5 books: Ars Goetia, Ars Theurgia-Goetia, Ars Paulina, Ars Almadel,
 Transitus Fluvii
 ================================================================================
 https://en.wikipedia.org/wiki/Transitus_Fluvii
-tag="concepts history occult"
+tags: concepts history occult
 ("passing through the river" in Latin), or Passage Du Fleuve (French).
 occult alphabet of 22 characters described by Heinrich Cornelius
 Agrippa in his Third Book of Occult Philosophy (Cologne, 1533)
@@ -5542,37 +5650,39 @@ derived from the Hebrew alphabet
 Beej's Guide to Network Programming
 ================================================================================
 http://beej.us/guide/bgnet/
-tag="programming c network systems unix"
+tags: programming c network systems unix
 
 The Paintings of Fred Einaudi 
 ================================================================================
 href="http://fredeinaudi.blogspot.com/"  
-tag="art" time="2008-06-23T01:59:41Z" 
+tags: art
+time="2008-06-23T01:59:41Z" 
 
 Better Explained
 ================================================================================
   difficult concepts explained intuitively
 href="http://betterexplained.com/"  
-tag="learning mathematics" time="2008-06-11T01:38:28Z" 
+tags: learning mathematics
+time="2008-06-11T01:38:28Z" 
 
 An Intuitive Guide To Exponential Functions &amp; e
 ================================================================================
   e is the base amount of growth shared by all continually growing processes. e is defined to be that rate of growth if we continually compound 100% return on smaller and smaller time periods:
 href="http://betterexplained.com/articles/an-intuitive-guide-to-exponential-functions-e/"
-tag="mathematics learning"
+tags: mathematics learning
   time="2008-06-11T01:30:26Z" 
 
 Ulrich Drepper: What Every Programmer Should Know About Memory
 ================================================================================
 href="http://www.reddit.com/r/programming/info/615x1/comments/"
-tag="todo programming virtual-memory"
+tags: todo programming virtual-memory
   time="2008-05-27T02:32:11Z" 
 
 
 The Unscalable, Deadlock-prone, Thread Pool
 ================================================================================
 https://news.ycombinator.com/item?id=19251516
-tag="kernel linux macos os syscall programming virtual-memory process job-control systems-programming containers threading multithreading concurrency"
+tags: kernel linux macos os syscall programming virtual-memory process job-control systems-programming containers threading multithreading concurrency
 - The mlock [1] system call allows you to lock chosen virtual memory into RAM. What about using that in combination with a memory pool which you manage yourself?
   [1] https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/mlock.2.html
 - mlockall on Linux can lock all future allocations, including those made by shared libraries. You don’t need to manage a memory pool yourself.
@@ -5597,17 +5707,19 @@ TripIt - travel organizer
 ================================================================================
   Organize trip details into one master online itinerary. see: http://www.joelonsoftware.com/items/2008/01/31.html
 href="http://www.tripit.com/"  
-tag="travel tools" time="2008-04-02T00:24:44Z" 
+tags: travel tools
+time="2008-04-02T00:24:44Z" 
 
 Programming and Computation 
 ================================================================================
 href="http://okmij.org/ftp/Computation/" 
-tag="compsci todo" time="2008-03-31T06:34:44Z" 
+tags: compsci todo
+time="2008-03-31T06:34:44Z" 
 
 
 Alan Kay
 ================================================================================
-tag="compsci history"
+tags: compsci history
 Francis Bacon = origin of science.
 Science= heuristics to get around bad brains.
 
@@ -5615,129 +5727,138 @@ Science= heuristics to get around bad brains.
 regular expression generator 
 ================================================================================
 href="http://www.txt2re.com/index-ruby.php3" 
-tag="programming" time="2008-03-31T06:22:48Z" 
+tags: programming
+time="2008-03-31T06:22:48Z" 
 
 Pimp my Gedit (Was: Textmate for Linux)
 ================================================================================
 href="http://grigio.org/pimp_my_gedit_was_textmate_linux"
-tag="programming oss"
+tags: programming oss
   time="2008-03-30T20:48:15Z" 
 
 Good Agile, Bad Agile at Google
 ================================================================================
   most managers code at least half-time. developers can switch teams and/or projects any time. there aren't very many meetings. average 3 meetings a week, including their 1:1 with their lead. it's quiet. Engineers are quietly focused on their work, as indiv
 href="http://steve-yegge.blogspot.com/2006/09/good-agile-bad-agile_27.html"
-tag="programming management"
+tags: programming management
   time="2008-03-23T19:37:01Z" 
 
 FOXNews.com - Radley Balko: Senseless Overkill - Opinion
 ================================================================================
   So in the raid where a citizen mistakenly shot a police officer, the citizen is facing a murder charge; in the raid where a police officer shot a citizen, prosecutors declined to press charges.
 href="http://www.foxnews.com/story/0,2933,336850,00.html"
-tag="politics"
+tags: politics
   time="2008-03-16T19:48:24Z" 
 
 What makes Mathematics hard to learn?
 ================================================================================
   It really is hard to think about something until one learns enough terms to express the ideas in that this subject. ... What's the word for when you should use addition? It‚Äôs when a phenomenon is linear. What's the word for when you should use multiplic
 href="http://wiki.laptop.org/go/Marvin_Minsky#What_makes_Mathematics_hard_to_learn.3F"
-tag="learning mathematics"
+tags: learning mathematics
   time="2008-03-12T17:22:34Z" 
 
 Legal Information Institute (LII)
 ================================================================================
   law resource
 href="http://www.law.cornell.edu/"  
-tag="law" time="2008-03-08T22:50:35Z" 
+tags: law
+time="2008-03-08T22:50:35Z" 
 
 Banksy 
 ================================================================================
 href="http://www.banksy.co.uk/"  
-tag="art" time="2008-03-05T03:53:21Z" 
+tags: art
+time="2008-03-05T03:53:21Z" 
 
 Will Wilkinson - More Misbehavioral Economics
 ================================================================================
   The ‚Äúrationality‚Äù of the outcome is more a function of the structure of the institution than of the ‚Äúrationality‚Äù of those acting inside it.
 href="http://www.willwilkinson.net/flybottle/2008/02/28/more-misbehavioral-economics/"
-tag="economics"
+tags: economics
   time="2008-03-04T15:54:34Z" 
 
 Immigration: No Correlation With Crime - TIME
 ================================================================================
   while the number of illegal immigrants in the country doubled between 1994 and 2005, violent crime declined by nearly 35% and property crimes by 26% over the same period
 href="http://www.time.com/time/nation/article/0,8599,1717575,00.html?xid=rss-topstories"
-tag="politics"
+tags: politics
   time="2008-02-28T04:33:19Z" 
 
 Healthy people place biggest burden on state - Telegraph
 ================================================================================
   study led by Pieter van Baal at the Netherlands‚Äô National Institute for Public Health and Environment
 href="http://www.telegraph.co.uk/news/main.jhtml?xml=/news/2008/02/05/nhealth105.xml"
-tag="politics"
+tags: politics
   time="2008-02-26T03:54:42Z" 
 
 Willamette Week | ‚ÄúA Brush With Measure 11‚Äù | February 20th, 2008
 ================================================================================
   A Washington County jury found Rodriguez guilty in 2005 of first-degree sexual assault after police accused her of running her hands through a 13-year-old boy‚Äôs hair and pulling the back of his head against her covered chest
 href="http://wweek.com/editorial/3415/10416/" 
-tag="politics" time="2008-02-25T10:39:14Z" 
+tags: politics
+time="2008-02-25T10:39:14Z" 
 
 giver - Google Code
 ================================================================================
   simple file sharing desktop application. Other people running Giver on your network are automatically discovered. no knowledge or set up needed
 href="http://code.google.com/p/giver/"  
-tag="oss tools" time="2008-02-24T04:24:42Z" 
+tags: oss tools
+time="2008-02-24T04:24:42Z" 
 
 Annals of Medicine: The Checklist: Reporting &amp; Essays: The New Yorker
 ================================================================================
   list-making. checklists improve quality.
 href="http://www.newyorker.com/reporting/2007/12/10/071210fa_fact_gawande"
-tag="information psychology"
+tags: information psychology
   time="2008-02-08T02:15:08Z" 
 
 Clarity Sought on Electronics Searches - washingtonpost.com
 ================================================================================
   govt. searches laptops, cellphones, mp3 players; demands passwords.
 href="http://www.washingtonpost.com/wp-dyn/content/article/2008/02/06/AR2008020604763.html"
-tag="politics"
+tags: politics
   time="2008-02-07T22:48:50Z" 
 
 WebUrbanist ¬ª 7 Underground Wonders of the World: Labyrinths, Crypts, Catacombs and More
 ================================================================================
 href="http://weburbanist.com/2007/09/30/7-underground-wonders-of-the-world-labyrinths-crypts-and-catacombs/"
-tag="travel"
+tags: travel
   time="2008-02-03T18:24:03Z" 
 
 How America Lost the War on Drugs : Rolling Stone
 ================================================================================
 href="http://www.rollingstone.com/politics/story/17438347/how_america_lost_the_war_on_drugs"
-tag="todo politics"
+tags: todo politics
   time="2008-02-03T18:21:24Z" 
 
 Holding a Program in One's Head 
 ================================================================================
 href="http://www.paulgraham.com/head.html" 
-tag="todo" time="2008-01-31T03:07:52Z" 
+tags: todo
+time="2008-01-31T03:07:52Z" 
 
 Beating the Averages 
 ================================================================================
 href="http://www.paulgraham.com/avg.html" 
-tag="todo" time="2008-01-31T03:07:40Z" 
+tags: todo
+time="2008-01-31T03:07:40Z" 
 
 News from the Front 
 ================================================================================
 href="http://paulgraham.com/colleges.html" 
-tag="todo" time="2008-01-30T07:19:32Z" 
+tags: todo
+time="2008-01-30T07:19:32Z" 
 
 The Equity Equation 
 ================================================================================
 href="http://www.paulgraham.com/equity.html" 
-tag="todo" time="2008-01-30T07:19:23Z" 
+tags: todo
+time="2008-01-30T07:19:23Z" 
 
 ================================================================================
 The Autumn of the Multitaskers 
 https://www.theatlantic.com/magazine/archive/2007/11/the-autumn-of-the-multitaskers/306342/
-tag="todo"
+tags: todo
 > Neuroscience is confirming what we all suspect: Multitasking is dumbing us
 > down and driving us crazy. One man’s odyssey through the nightmare of infinite
 > connectivity
@@ -5746,61 +5867,61 @@ Going Nuclear
 ================================================================================
   founder of Greenpeace explains benefits of nuclear energy
 href="http://www.washingtonpost.com/wp-dyn/content/article/2006/04/14/AR2006041401209.html"
-tag="politics science nuclear"
+tags: politics science nuclear
   time="2008-01-26T18:54:33Z" 
 
 wellcare stock
 ================================================================================
   &quot;contracts will transfer to Patel's new ownership of Freedom and&quot;
 href="http://finance.google.com/group/google.finance.695596/browse_thread/thread/13567432f9ddfe73/a1edf88f6e698868#a1edf88f6e698868"
-tag="investment finance stock-picks"
+tags: investment finance stock-picks
   time="2008-01-21T02:06:21Z" 
 
 Wesley Snipes to Go on Trial in Tax Case - New York Times
 ================================================================================
   acquitted Joseph Banister, a former criminal investigator for the I.R.S.
 href="http://www.nytimes.com/2008/01/14/business/14tax.html?_r=2&amp;ref=business&amp;oref=slogin&amp;oref=slogin"
-tag="politics"
+tags: politics
   time="2008-01-15T06:19:38Z" 
 
 American Letter Mail Company - Wikipedia, the free encyclopedia
 ================================================================================
   USPS competitor
 href="http://en.wikipedia.org/wiki/American_Letter_Mail_Company"
-tag="politics"
+tags: politics
   time="2008-01-10T04:24:52Z" 
 
 The Liberal Blogger 
 ================================================================================
 href="http://www.theliberalblogger.com/?pp_album=main&amp;pp_cat=gory-iraq-war-images"
-tag="politics"
+tags: politics
   time="2008-01-07T03:03:14Z" 
 
 G Edward Griffin - Creature From Jekyll Island A Second Look at the Federal Reserve
 ================================================================================
 href="http://video.google.com/videoplay?docid=638447372044116845"
-tag="politics economics"
+tags: politics economics
   time="2007-12-31T03:54:01Z" 
 
 The Hangover That Lasts - New York Times
 ================================================================================
   heavy drinking in early or middle adolescence ... can lead to diminished control over cravings for alcohol and to poor decision-making. exercise has been shown to stimulate the regrowth and development of normal neural tissue.
 href="http://www.nytimes.com/2007/12/29/opinion/29steinberg.html?_r=1&amp;oref=slogin"
-tag="health neuroplasticity"
+tags: health neuroplasticity
   time="2007-12-30T22:38:32Z" 
 
 RepRap
 ================================================================================
   self-copying 3D printer - a self-replicating machine. see also: http://angry-economist.russnelson.com/beads-not-teeth.html see also: http://vimeo.com/5202148 see also: http://www.reddit.com/r/technology/comments/8zd27/the_reprap_is_the_most_awesome_machine_ever_built/
 href="http://www.reprap.org/"  
-tag="3d_printing self-replication programming electronics engineering"
+tags: 3d_printing self-replication programming electronics engineering
   time="2007-12-25T00:45:09Z" 
 
 Got-It
 ================================================================================
 https://news.ycombinator.com/item?id=21805248
 time="20191216"
-tag="design vlsi ise labels tags inventory rfid bluetooth proximity programming electronics engineering software startup"
+tags: design vlsi ise labels tags inventory rfid bluetooth proximity programming electronics engineering software startup
 > Ultra thin Bluetooth labels called Got-it (https://got-it.com)
 > Got-it is for tracking things at work as a team. Simply peel and stick, no different from a barcode sticker. But, these are active Bluetooth labels. They're flexible and roughly the size of a little Avery barcode label (28mm x 76mm) and less than 0.5mm thick. They communicate with the phones already in employee pockets, even in background mode. That means no scanning like RFID, and no readers or gateway infrastructure to install in the ceiling or the doorways.
 > ... a way to make our Bluetooth beacon firmware more reliably trigger background processing in phones, while still preserving ultra low power consumption. To do so, we ended up writing low-level embedded code, in less than 1.5KB and 135 Bytes RAM, to control the radio registers directly, without a BLE stack. Phones receive just enough information from our labels to enable a lean, low-power positioning algorithm we wrote.
@@ -5815,106 +5936,110 @@ paulgerhardt:
 Globalization and localization demystified in ASP.NET 2.0
 ================================================================================
 href="http://www.codeproject.com/KB/aspnet/localizationByVivekTakur.aspx"
-tag="asp.net programming todo"
+tags: asp.net programming todo
   time="2007-12-18T05:17:25Z" 
 
 REST: the quick pitch 
 ================================================================================
 href="http://www.megginson.com/blogs/quoderat/2007/02/15/rest-the-quick-pitch/"
-tag="programming rest"
+tags: programming rest
   time="2007-09-30T19:36:41Z" 
 
 Ergonomic products 
 ================================================================================
 href="http://www.ergomart.com/"  
-tag="health" time="2007-09-27T04:38:59Z" 
+tags: health
+time="2007-09-27T04:38:59Z" 
 
 The GNU C Library 
 ================================================================================
 href="http://www.gnu.org/software/libc/manual/html_node/index.html"
-tag="c programming"
+tags: c programming
   time="2007-09-18T05:27:10Z" 
 
 Teach Yourself C in 24 Hours 
 ================================================================================
 href="http://aelinik.free.fr/c/index.html" 
-tag="c programming" time="2007-09-18T05:25:52Z" 
+tags: c programming
+time="2007-09-18T05:25:52Z" 
 
 The C Book 
 ================================================================================
 href="http://publications.gbdirect.co.uk/c_book/" 
-tag="c programming" time="2007-09-18T05:21:40Z" 
+tags: c programming
+time="2007-09-18T05:21:40Z" 
 
 comp.lang.c FAQ 
 ================================================================================
 href="http://c-faq.com/"
-tag="c programming"
+tags: c programming
   time="2007-09-18T05:18:58Z" 
 
 Mono and XPCOM: Scripting VirtualBox - Miguel de Icaza
 ================================================================================
   COM interop on Mono + *nix
 href="http://tirania.org/blog/archive/2007/Aug-28.html"
-tag="programming mono"
+tags: programming mono
   time="2007-09-04T03:48:33Z" 
 
 Yellow Icon : Crystal icon set 
 ================================================================================
 href="http://yellowicon.com/downloads/"  
-tag="icons" time="2007-08-26T08:35:24Z" 
+tags: icons
+time="2007-08-26T08:35:24Z" 
 
 Master Pages: Tips, Tricks, and Traps
 ================================================================================
   describing the control tree mechanics of how a master page and content page are merged together at runtime, how you can programmatically switch master pages on the fly from within a page, within a page base class, and even within an HttpModule (to enforce
 href="http://odetocode.com/Articles/450.aspx" 
-tag=".net asp.net programming"
+tags: .net asp.net programming
   time="2007-06-05T00:00:11Z" 
 
 How to use LINQ to do dynamic queries
 ================================================================================
   IEnumerable&lt;T&gt;.ToQueryable(), expression tree / QueryExpression
 href="http://blogs.gotdotnet.com/mattwar/archive/2006/05/10/594966.aspx"
-tag="programming .net linq"
+tags: programming .net linq
   time="2007-05-29T18:04:35Z" 
 
 Creating Trimmed Self Contained Executables in .NET Core
 ================================================================================
 https://dev.to/jeremycmorgan/creating-trimmed-self-contained-executables-in-net-core-4m08
-tag="programming .net deploy ship cross-platform"
+tags: programming .net deploy ship cross-platform
 command:
   dotnet publish -r win-x64 -c Release /p:PublishSingleFile=true /p:PublishTrimmed=true
 
 Lightweight Invisible CAPTCHA Validator Control
 ================================================================================
 href="http://haacked.com/archive/2006/09/26/Lightweight_Invisible_CAPTCHA_Validator_Control.aspx"
-tag="asp.net programming"
+tags: asp.net programming
   time="2007-05-22T16:32:55Z" 
 
 fundamentals javascript concepts
 ================================================================================
   prototypes, namespacing
 href="http://odetocode.com/Articles/473.aspx" 
-tag="programming javascript"
+tags: programming javascript
   time="2007-05-17T19:27:53Z" 
 
 Principality of Sealand
 ================================================================================
   In 1967‚Äì8 Britain's Royal Navy tried to remove Bates. As they entered territorial waters, Bates tried to scare them off by firing warning shots from the former fort.
 href="http://en.wikipedia.org/wiki/Principality_of_Sealand"
-tag="politics terraforming protopia"
+tags: politics terraforming protopia
   time="2007-04-29T07:01:21Z" 
 
 Slashdot | IT Worker Shortages Everywhere
 ================================================================================
   exporting of Indian tech jobs to the US
 href="http://it.slashdot.org/article.pl?sid=06/11/07/1926207&amp;tid=187"
-tag="politics it"
+tags: politics it
   time="2007-04-27T03:20:29Z" 
 
 IMF admits disastrous love affair with the euro and apologises for the immolation of Greece
 ================================================================================
 http://www.telegraph.co.uk/business/2016/07/28/imf-admits-disastrous-love-affair-with-euro-apologises-for-the-i/
-tag="economics politics government-failure"
+tags: economics politics government-failure
 Ambrose Evans-Pritchard 29 JULY 2016 • 11:27AM
 .
 > The International Monetary Fund’s top staff misled their own board, made
@@ -5936,7 +6061,7 @@ The Problem with Programming
 ================================================================================
   Bjarne Stroustrup, the inventor of the C++ programming language, defends his legacy and examines what's wrong with most software code.
 href="http://www.techreview.com/Infotech/17831/page1/"
-tag="cpp programming"
+tags: cpp programming
   time="2007-04-26T07:03:53Z" 
 
 Articles on &quot;Electricity&quot;
@@ -5944,24 +6069,25 @@ Articles on &quot;Electricity&quot;
   &quot;Babylonian approach to science understanding&quot; by William J. Beaty. intuitive explanations. addresses misconceptions.
   misconceptions: http://amasci.com/miscon/elect.html
 href="http://amasci.com/ele-edu.html"  
-tag="science learning pedagogy" time="2007-04-25T07:10:51Z" 
+tags: science learning pedagogy
+time="2007-04-25T07:10:51Z" 
 
 Google Song-Maker
 ================================================================================
 https://musiclab.chromeexperiments.com/Song-Maker
-tag="music learning pedagogy fun app webapp kids"
+tags: music learning pedagogy fun app webapp kids
 https://goo.gl/pf5Q9Y "Heroes Forever"
 
 Europass: Curriculum Vitae
 ================================================================================
 http://europass.cedefop.europa.eu/documents/curriculum-vitae
 create CV online. import/export
-tag="visa europe germany berlin immigration"
+tags: visa europe germany berlin immigration
 
 multi-armed bandit problem (explore/exploit dilemma)
 ================================================================================
 https://en.wikipedia.org/wiki/Multi-armed_bandit
-tag="concepts mental-model"
+tags: concepts mental-model
 scheduling/operations theory.
 Problem in which a fixed limited set of resources must be allocated between
 competing (alternative) choices in a way that maximizes their expected gain,
@@ -5972,7 +6098,7 @@ resources to the choice.
 Pedophrasty, Bigoteering, and Other Modern Scams
 ================================================================================
 https://medium.com/incerto/pedophrasty-bigoteering-and-other-modern-scams-c84bd70a29e8
-tag="concepts psychology mental-model"
+tags: concepts psychology mental-model
 Pedophrasty: Argument involving children to prop up a rationalization and make the opponent look like an asshole, as people are defenseless and suspend all skepticism in front of suffering children: nobody has the heart to question the authenticity or source of the reporting. Often done with the aid of pictures.
 Bigoteering: tagging someone (or someone’s opinions) as “racist”, “chauvinist” or somethinglikeit-ist in situations where these are not warranted. This is a shoddy manipulation to exploit the stigmas accompanying such labels and force the opponent to spent time and energy explaining “why he/she is not a bigot”.
 Nabothizing: Production of false accusation, just as Jezebel did to dispossess Naboth.
@@ -5982,7 +6108,7 @@ Partializing: Exploiting the unsavory attributes of one party in a conflict with
 True Name
 ================================================================================
 https://en.wikipedia.org/wiki/True_name
-tag="concepts psychology mental-model"
+tags: concepts psychology mental-model
 > The notion that language, or some specific sacred language, refers to things by their true names has been central to philosophical study as well as various traditions of magic, religious invocation and mysticism (mantras) since antiquity.
 > ...
 > The true name of the Egyptian sun god Ra was revealed to Isis through an elaborate trick. This gave Isis complete power over Ra.
@@ -5992,18 +6118,18 @@ tag="concepts psychology mental-model"
 Idioglossia
 ================================================================================
 https://en.wikipedia.org/wiki/Idioglossia
-tag="concepts psychology mental-model"
+tags: concepts psychology mental-model
 
 Principal–agent problem
 ================================================================================
 https://en.wikipedia.org/wiki/Principal%E2%80%93agent_problem
-tag="concepts politics economics mental-model"
+tags: concepts politics economics mental-model
 > one person or entity (the "agent") is able to make decisions on behalf of another person or entity: the "principal".
 
 Reality has a surprising amount of detail
 ================================================================================
 http://johnsalvatier.org/blog/2017/reality-has-a-surprising-amount-of-detail
-tag="concepts psychology emergence mental-model"
+tags: concepts psychology emergence mental-model
 > This surprising amount of detail is is not limited to “human” or “complicated” domains, it is a near universal property of everything from space travel to sewing, to your internal experience of your own mind.
 > ...
 > Before you’ve noticed important details they are, of course, basically
@@ -6020,13 +6146,13 @@ tag="concepts psychology emergence mental-model"
 Emergence
 ================================================================================
 https://en.wikipedia.org/wiki/Emergence
-tag="concepts emergence mental-model"
+tags: concepts emergence mental-model
 
 L-system
 ================================================================================
 https://en.wikipedia.org/wiki/L-system
 https://onlinemathtools.com/l-system-generator
-tag="cellular-automata cells tree graph compsci algorithm visualization"
+tags: cellular-automata cells tree graph compsci algorithm visualization
 Generate organic structures (similar to cellular-automata?).
 > Lindenmayer used L-systems to describe the behaviour of plant cells and to
 > model the growth processes of plant development. L-systems have also been used
@@ -6050,7 +6176,7 @@ produces:
 Algorithm for Drawing Trees
 ================================================================================
 https://rachel53461.wordpress.com/2014/04/20/algorithm-for-drawing-trees/
-tag="tree graph compsci algorithm visualization"
+tags: tree graph compsci algorithm visualization
 NB: Reingold-Tilford Algorithm is for binary trees.
 .
 > The main trouble is determining an appropriate X position for each node.
@@ -6088,29 +6214,29 @@ Version SAT, Russ Cox
 ================================================================================
 https://research.swtch.com/version-sat
 VERSION is reducible to 3-SAT.
-tag="dependency-management compsci sat-solver graph-theory"
+tags: dependency-management compsci sat-solver graph-theory
 
 Library for solving packages and reading repositories
 ================================================================================
 https://github.com/openSUSE/libsolv
-tag="dependency-management compsci sat-solver graph algorithm"
+tags: dependency-management compsci sat-solver graph algorithm
 
 Pubgrub: Dart's version-solving algorithm
 ================================================================================
 https://github.com/dart-lang/pub/blob/master/doc/solver.md
-tag="dependency-management compsci sat-solver graph algorithm"
+tags: dependency-management compsci sat-solver graph algorithm
 Pubgrub solves these issues by adapting state-of-the-art techniques for solving
 Boolean satisfiability and related difficult search problems.
 
 Modern SAT solvers: fast, neat and underused 
 ================================================================================
 https://codingnest.com/modern-sat-solvers-fast-neat-underused-part-1-of-n/
-tag="dependency-management compsci sat-solver graph algorithm"
+tags: dependency-management compsci sat-solver graph algorithm
 
 SAT Solvers as Smart Search Engines
 ================================================================================
 https://www.msoos.org/2019/02/sat-solvers-as-smart-search-engines/
-tag="compsci sat-solver graph algorithm"
+tags: compsci sat-solver graph algorithm
 .
 TAKEAWAY: SAT solvers are like brute-force with "save points" (Partial value assignments).
 .
@@ -6135,13 +6261,13 @@ TAKEAWAY: SAT solvers are like brute-force with "save points" (Partial value ass
 What I've Learned About Optimizing Python
 ================================================================================
 https://gregoryszorc.com/blog/2019/01/10/what-i've-learned-about-optimizing-python/
-tag="python optimization"
+tags: python optimization
 
 re2c: lexer generator for C/C++
 ================================================================================
 http://re2c.org/
 https://github.com/skvadrik/re2c
-tag="dfa regex automata lexer optimization c programming"
+tags: dfa regex automata lexer optimization c programming
 .
 > generates fast lexers. Instead of using traditional table-driven approach,
 > re2c encodes the generated finite state automata directly in the form of
@@ -6155,7 +6281,7 @@ Used by Oil shell: https://github.com/oilshell/oil
 Google Optimization Tools
 ================================================================================
 https://developers.google.com/optimization/
-tag="compsci sat-solver graph optimization algorithm"
+tags: compsci sat-solver graph optimization algorithm
 Google Optimization Tools (OR-Tools) is a fast and portable software suite for
 solving combinatorial optimization problems. The suite contains:
     A constraint programming solver.
@@ -6171,7 +6297,7 @@ solving combinatorial optimization problems. The suite contains:
 Cloud Foundry
 ================================================================================
 https://news.ycombinator.com/item?id=14532127
-tag="paas dcos orchestration deployment sre devops"
+tags: paas dcos orchestration deployment sre devops
 
 > It's the most mature out of all of these, has been soak tested to 250,000 running applications[0], can be deployed to any major IaaS or bare metal, comes with routing, logging, service injection, healing, no-downtime upgrading and I forget what other headlines I usually pick out of the several hundred features it now includes.
 > The Cloud Foundry Foundation includes Pivotal (my employer), IBM, SAP, Google, DellEMC, VMWare, Cisco, Suse and those are just the fancy tech names.
@@ -6190,7 +6316,7 @@ tag="paas dcos orchestration deployment sre devops"
 China uncovers massive underground network of Apple employees selling customers’ personal data
 ================================================================================
 https://www.hongkongfp.com/2017/06/08/china-uncovers-massive-underground-network-apple-employees-selling-customers-personal-data/
-tag="security infosec"
+tags: security infosec
 
 > employees of an Apple “domestic direct sales company and outsourcing company”.
 > ... used an internal company computer system to gather users’ names, phone
@@ -6208,7 +6334,7 @@ tag="security infosec"
 Co-routines as an alternative to state machines
 ================================================================================
 https://eli.thegreenplace.net/2009/08/29/co-routines-as-an-alternative-to-state-machines
-tag="programming compsci coroutine state-machine"
+tags: programming compsci coroutine state-machine
 coroutines are to state machines what recursion is to stacks:
 - recursion helps process nested data structures without employing explicit stacks.
 - coroutines help solve problems involving state, without using explicit state machines.
@@ -6216,7 +6342,7 @@ coroutines are to state machines what recursion is to stacks:
 
 DECYPHERING THE BUSINESS CARD RAYTRACER
 ================================================================================
-tag="programming compsci c graphics ppm image ray-tracing"
+tags: programming compsci c graphics ppm image ray-tracing
 http://fabiensanglard.net/rayTracing_back_of_business_card/index.php
 http://www.cs.utah.edu/~aek/code/card.cpp
 
@@ -6260,7 +6386,7 @@ http://www.cs.utah.edu/~aek/code/card.cpp
 AWS: compute the minimal permission set needed to perform some requests(s)?
 ================================================================================
 https://news.ycombinator.com/item?id=21228386
-tag="programming software-engineering debugging security amazon aws"
+tags: programming software-engineering debugging security amazon aws
 .
 - script (GPLv2): https://github.com/KanoComputing/aws-tools/blob/master/bin/aws-policy-minimize
   uses python picire[1] (a delta-debugging[2] framework) to generate a minimal
@@ -6281,13 +6407,13 @@ TODO: maybe SimulatePrincipalPolicy API is useful? https://docs.aws.amazon.com/I
 Kerbal Space Program: Create and Manage Your Own Space Program
 ================================================================================
 https://www.kerbalspaceprogram.com
-tag="game software kids learning science space pedagogy"
+tags: game software kids learning science space pedagogy
 
 No nuances, just buggy code (was: related to Spinlock implementation and the Linux Scheduler)
 ================================================================================
 https://news.ycombinator.com/item?id=21959692
 https://www.realworldtech.com/forum/?threadid=189711&curpostid=189752
-tag="linux scheduler rtos os"
+tags: linux scheduler rtos os
 Takeaway:
 - Don't use spinlocks in userspace. Userspace spinlocking is not legible to the
   kernel. Therefore anytime you attempt it you are in the situation of fighting
@@ -6333,7 +6459,7 @@ Linus Torvalds:
 Spanish flu
 ================================================================================
 https://en.wikipedia.org/wiki/Spanish_flu
-tag="concepts epidemic pandemic statistics exponential-growth infection bacteria superinfection"
+tags: concepts epidemic pandemic statistics exponential-growth infection bacteria superinfection
 1918 influenza pandemic: January 1918 – December 1920: colloquially known as Spanish flu.
 First of the two pandemics involving H1N1 influenza virus, with the second being the swine flu in 2009.
 - 500 million infected (~27% of world population).
@@ -6358,7 +6484,7 @@ takeaways:
 20200315
 Federal Reserve Actions to Support the Flow of Credit to Households and Businesses
 https://www.federalreserve.gov/newsevents/pressreleases/monetary20200315b.htm
-tag="politics economics federal-reserve monetary-policy inflation"
+tags: politics economics federal-reserve monetary-policy inflation
 > the Board has reduced reserve requirement ratios to zero percent effective on
 > March 26, the beginning of the next reserve maintenance period. This action
 > eliminates reserve requirements for thousands of depository institutions and
@@ -6368,7 +6494,7 @@ tag="politics economics federal-reserve monetary-policy inflation"
 20200324
 Modern Monetary Theory
 https://www.reddit.com/r/wallstreetbets/comments/fnkbdh/dont_bet_against_mmt_you_will_lose_even_if_you/fla4bve/
-tag="economics mmt federal-reserve monetary-policy equity stock options"
+tags: economics mmt federal-reserve monetary-policy equity stock options
 >>>> QE and Fed intervention in a market is only for stabilization to prevent
 >>>> total credit seizure (even in 08 we didn't have a total failure). Once the
 >>>> loan is paid back it is destroyed in an M0 sense, it doesn't accumulate in
@@ -6427,7 +6553,7 @@ tag="economics mmt federal-reserve monetary-policy equity stock options"
 20200324
 Joe Rogan Experience #1066 - Mel Gibson & Dr. Neil Riordan
 https://www.youtube.com/watch?v=OtL1fEEtLaA
-tag="health medicine technology illegal stem-cell panama"
+tags: health medicine technology illegal stem-cell panama
 "Adult" (umbilical-cord) stem-cell injection heals arthritis, inflammation, MS,
 spinal-cord injury, autoimmune disease, et al.
 - umbilical cells do NOT form tumors, get flushed out by immune system after 6 months
@@ -6441,13 +6567,13 @@ spinal-cord injury, autoimmune disease, et al.
 20200410
 Senate Transaction Report
 https://senatestockwatcher.com/
-tag="politics equity stock options"
+tags: politics equity stock options
 
 ================================================================================
 20200414
 Kayfabe
 https://en.wikipedia.org/wiki/Kayfabe
-tag="concepts mental-model"
+tags: concepts mental-model
 kayfabe
 - aka "work(ed)"
 - portrayal of staged events within the industry as "real" or "true"
@@ -6464,7 +6590,7 @@ Faces and heels
 20200416
 Tim Ferriss: how to master any skill by deconstructing it | The Next Web
 https://www.youtube.com/watch?v=DSq9uGs_z0E
-tag="learning psychology language pedagogy"
+tags: learning psychology language pedagogy
 - deadlifts most effective if you start from ground and lift only ~5 inches.
 - best temperature for coffee = 180 F
 - play ~any song with 4 chords: https://www.youtube.com/watch?v=B_Smt1VsoqQ
@@ -6473,7 +6599,7 @@ tag="learning psychology language pedagogy"
 20200421
 Who’s Behind the “Reopen” Domain Surge?
 https://krebsonsecurity.com/2020/04/whos-behind-the-reopen-domain-surge/
-tag="urbit search reputation"
+tags: urbit search reputation
 > several “reopen” sites that seemed to be engaged in astroturfing ... new
 > domains — including reopenmn.com, reopenpa.com, and reopenva.com ... roughly
 > coincided with contemporaneous demonstrations in Minnesota, California and
@@ -6485,14 +6611,14 @@ tag="urbit search reputation"
 20200424
 一期一会: ichigo-ichie (“one lifetime, one encounter”)
 https://en.wiktionary.org/wiki/%E4%B8%80%E6%9C%9F%E4%B8%80%E4%BC%9A
-tag="concepts mental-model"
+tags: concepts mental-model
 You should treasure every encounter, for it will never recur.
 
 ================================================================================
 20200504
 Daniel Schmachtenberger on The Portal (with host Eric Weinstein), Ep. #027 - On Avoiding Apocalypses
 https://www.youtube.com/watch?v=_b4qKv1Ctv8
-tag="economics concepts mental-model"
+tags: economics concepts mental-model
 "Game B"
 sense-making + choice-making
 "multipolar trap"
@@ -6516,7 +6642,7 @@ Addiction => erosion of the baseline
 20200506
 Eric Weinstein: Geometric Unity and the Call for New Ideas, Leaders & Institutions | AI Podcast, Lex Fridman #88
 https://www.youtube.com/watch?v=rIAZJNe7YtE
-tag="physics science academia institutions"
+tags: physics science academia institutions
 _The Road to Reality_ by Roger Penrose
   "This book is a self-contained invitation to understanding our deepest nature."
 
@@ -6524,7 +6650,7 @@ _The Road to Reality_ by Roger Penrose
 20200508
 Secessio plebis
 https://en.wikipedia.org/wiki/Secessio_plebis
-tag="history economics politics state"
+tags: history economics politics state
 > Secessio plebis (withdrawal of the commoners, or secession of the plebs) was
 > an informal exercise of power by Rome's plebeian citizens, similar in concept
 > to the general strike. ... the plebs would abandon the city and leave the
@@ -6561,7 +6687,7 @@ consolidation of small free-held farms into large estates held by senators:
 20200509
 Joe Rogan Experience #1309 - Naval Ravikant
 https://www.youtube.com/watch?v=3qHkcs3kG44
-tag="startups concepts mental-model philosophy technology naval-ravikant"
+tags: startups concepts mental-model philosophy technology naval-ravikant
 - Read the same 100 books over and over
 - Social media makes everyone a celebrity; but celebrities are the most miserable people in the world...
 - Rich and anonymous > poor and famous
@@ -6609,7 +6735,7 @@ tag="startups concepts mental-model philosophy technology naval-ravikant"
 20200515
 Hyperdrive v10 – a peer-to-peer filesystem
 https://blog.hypercore-protocol.org/posts/announcing-hyperdrive-10/
-tag="distributed-systems filesystem"
+tags: distributed-systems filesystem
 https://news.ycombinator.com/item?id=23180572
 
 ================================================================================
@@ -6617,7 +6743,7 @@ https://news.ycombinator.com/item?id=23180572
 Port knocking
 https://en.wikipedia.org/wiki/Port_knocking
 https://news.ycombinator.com/item?id=23187662
-tag="security network protocol"
+tags: security network protocol
 COUNTERPOINT:
 > It is stupid to implement "IP-over-SYNpackets" (actually "password over SYN
 > packets") when we already have a perfectly good way to send packets of
@@ -6645,7 +6771,7 @@ ALTERNATIVES:
 20200515
 Montevideo Convention, requirements for statehood
 https://en.wikipedia.org/wiki/Montevideo_Convention
-tag="politics state international-law"
+tags: politics state international-law
 > The state as a person of international law should possess the following qualifications:
 > (a) a permanent population;
 > (b) a defined territory;
@@ -6656,7 +6782,7 @@ tag="politics state international-law"
 20200519
 Python performance: it’s not just the interpreter
 https://news.ycombinator.com/item?id=23235930
-tag="performance programming python compiler interpreter optimization"
+tags: performance programming python compiler interpreter optimization
 Argument passing was responsible for 31% of time cost in the inner loop.
 The time is spent packing i into a tuple (i,) and then unpacking it again.
     def main():
@@ -6682,13 +6808,13 @@ and positional, but for a given callsite the matching will generally be static.
 20200525
 Stanford Pupper: Inexpensive & Open-source Quadruped Robot
 https://stanfordstudentrobotics.org/pupper
-tag="diy-project electronics engineering programming"
+tags: diy-project electronics engineering programming
 
 ================================================================================
 20200525
 "You and Your Research" Richard Hamming
 http://www.cs.virginia.edu/~robins/YouAndYourResearch.html
-tag="productivity engineering science academia university study research invention innovation"
+tags: productivity engineering science academia university study research invention innovation
 > When you are famous it is hard to work on small problems. This is what did
 > Shannon in. ... The great scientists often make this error. They fail to
 > continue to plant the little acorns from which the mighty oak trees grow. ...
@@ -6760,7 +6886,7 @@ https://www.youtube.com/watch?v=nM9f0W2KD5s
 20200526
 Kapil Gupta: Conquering the Mind
 https://nav.al/kapil
-tag="concepts mental-model philosophy health"
+tags: concepts mental-model philosophy health
 > Kapil: A human being becomes his environment and that is why it’s absolutely
 > critical to savagely and surgically arrange one’s environment in a way that is
 > in accordance with where he wants to go. You become that which you are most
@@ -6769,7 +6895,7 @@ tag="concepts mental-model philosophy health"
 ================================================================================
 20200611
 https://old.reddit.com/r/wallstreetbets/comments/grj5fa/the_mouthbreathers_guide_to_the_galaxy/
-tag="economics mmt federal-reserve monetary-policy equity stock options"
+tags: economics mmt federal-reserve monetary-policy equity stock options
 > Yup, everyone got clapped on their stupidly leveraged derivatives books. It
 > seems Citadel is “too big to fail”. On 3/18, the payout on 3/20 TQQQ puts
 > alone if it went to 0 was $468m. And every single TQQQ put expiration would
@@ -6779,7 +6905,7 @@ tag="economics mmt federal-reserve monetary-policy equity stock options"
 ================================================================================
 20200612
 https://old.reddit.com/r/wallstreetbets/comments/h0ytcy/the_liquidity_trap_how_qe_and_low_rates_might_be/ftqgnj8/
-tag="economics mmt federal-reserve monetary-policy equity stock options"
+tags: economics mmt federal-reserve monetary-policy equity stock options
 > look into "Dollar Milkshake Theory" https://www.youtube.com/watch?v=PWVRWUkm54M
 >
 > Most of the world's debt is held by foreign governments and companies, yet
@@ -6809,7 +6935,7 @@ tag="economics mmt federal-reserve monetary-policy equity stock options"
 20200613
 Pronomos Capital
 https://www.pronomos.vc/
-tag="investment finance startup naval-ravikant"
+tags: investment finance startup naval-ravikant
 > VC fund ... to create a new model for urban development where the city & its
 > institutions is the product. ... work in partnership with countries to create
 > new communities that seek - through good governance - to emulate the economic
@@ -6820,40 +6946,40 @@ tag="investment finance startup naval-ravikant"
 20200613
 Founders Fund
 https://foundersfund.com/
-tag="investment finance startup"
+tags: investment finance startup
 stripe, twilio, spacex, airbnb, ...
 
 ================================================================================
 20200615
 vscode notebook UX
 https://github.com/microsoft/vscode/issues/91987
-tag="tools programming ide vscode javascript typescript text-editor"
+tags: tools programming ide vscode javascript typescript text-editor
 design of vscode notebook experience (cf. jupyter): kernel/backend + cells
 
 ================================================================================
 20200624
 Peer-to-peer canvas app for Urbit
 https://github.com/yosoyubik/canvas
-tag="urbit app p2p programming"
+tags: urbit app p2p programming
 https://news.ycombinator.com/item?id=23228058
 
 ================================================================================
 20200627
 xi-editor retrospective
 https://raphlinus.github.io/xi/2020/06/27/xi-retrospective.html
-tag="tools programming xi rope vim neovim rust text-editor"
+tags: tools programming xi rope vim neovim rust text-editor
 
 ================================================================================
 20200627
 Lezer (CodeMirror parsing system)
 https://marijnhaverbeke.nl/blog/lezer.html
-tag="programming parser syntax-highlighting text-editor"
+tags: programming parser syntax-highlighting text-editor
 
 ================================================================================
 20200628
 Semantic: Haskell library and command line tool for parsing, analyzing, and comparing source code
 https://github.com/github/semantic
-tag="programming parser ast syntax-highlighting code-navigation treesitter"
+tags: programming parser ast syntax-highlighting code-navigation treesitter
 Architecture:
 1. Reads blobs.
 2. Generates parse trees for those blobs with tree-sitter (an incremental parsing system for programming tools).
@@ -6870,7 +6996,7 @@ Semantic leverages a number of interesting algorithms and techniques:
 20200628
 The False Dichotomy Stunting Tech
 https://www.aymannadeem.com/software/2019/08/06/The-False-Dichotomy-Stunting-Tech.html
-tag="software-engineering programming communication technology engineering"
+tags: software-engineering programming communication technology engineering
 > Eugenia Cheng on the power of abstraction. She discussed the difference
 > between pedantry and precision.
 >
@@ -6894,7 +7020,7 @@ tag="software-engineering programming communication technology engineering"
 20200630
 Dirtbag left
 https://en.wikipedia.org/wiki/Dirtbag_left
-tag="politics tropes concepts"
+tags: politics tropes concepts
 > A mode of left-wing politics that eschews civility in order to convey
 > a socialist or left-wing populist message using subversive vulgarity. It is
 > most closely associated with American left-wing media that emerged in the
@@ -6904,7 +7030,7 @@ tag="politics tropes concepts"
 20200630
 Multi-channel network
 https://en.wikipedia.org/wiki/Multi-channel_network
-tag="software platform technology media"
+tags: software platform technology media
 > A multi-channel network (MCN) is an organization that works with video platforms to offer assistance to a channel owner in areas such as "product, programming, funding, cross-promotion, partner management, digital rights management, monetization/sales, and/or audience development" in exchange for a percentage of the ad revenue from the channel.
 https://support.google.com/youtube/answer/2737059?hl=en
 > Multi-Channel Networks (“MCNs” or “networks”) are third-party service providers that affiliate with multiple YouTube channels to offer services that may include audience development, content programming, creator collaborations, digital rights management, monetization, and/or sales.
@@ -6913,7 +7039,7 @@ https://support.google.com/youtube/answer/2737059?hl=en
 20200630
 Guy Who Reverse-Engineered TikTok Reveals the Scary Things He Learned
 https://news.ycombinator.com/item?id=23684950
-tag="security fingerprinting software technology machine-learning spam"
+tags: security fingerprinting software technology machine-learning spam
 > The "private data" the app collected, is used, for most part, fingerprint the unique user.
 >
 > In every MCN app, there was a huge fake user problem. If an app collect zero identifiable fingerprint, then a spammer can easily fake millions of views and manipulate ranked content. The app developers are asked think clever to collect every piece of info they can, while spammers spent night and days spoofing every parameter in a virtual machine or even on a matrix of remote controlled real phones.
@@ -6926,14 +7052,14 @@ tag="security fingerprinting software technology machine-learning spam"
 20200720
 Multiprotocol Label Switching Architecture
 https://datatracker.ietf.org/doc/html/rfc3031
-tag="rfc network internet engineering ietf"
+tags: rfc network internet engineering ietf
 next generation internet protocol / replaces tcp/ip?
 
 ================================================================================
 20200720
 All of the World’s Money and Markets in One Visualization
 https://www.visualcapitalist.com/all-of-the-worlds-money-and-markets-in-one-visualization-2020/
-tag="economics finance stocks"
+tags: economics finance stocks
 All of the world’s money and markets, from the smallest to the biggest, along with sources used:
   CATEGORY                                VALUE ($ BILLIONS, USD) SOURCE
   ----------------------------------------------------------------------
@@ -6960,7 +7086,7 @@ All of the world’s money and markets, from the smallest to the biggest, along 
 20200720
 Gell-Mann amnesia effect
 https://en.wikipedia.org/wiki/Speeches_by_Michael_Crichton#GellMannAmnesiaEffect
-tag="concepts mental-model psychology"
+tags: concepts mental-model psychology
 > phenomenon of experts believing news articles on topics outside of their
 > fields of expertise, even after acknowledging that articles written in the
 > same publication that are within the experts' fields of expertise are
@@ -6970,14 +7096,14 @@ tag="concepts mental-model psychology"
 20200720
 Turning the IDE Inside Out with Datalog
 https://news.ycombinator.com/item?id=23869592
-tag="datalog query language ide programming database"
+tags: datalog query language ide programming database
 https://petevilter.me/post/datalog-typechecking/
 
 ================================================================================
 20200720
 QUANTUMINSERT (QI), QUANTUMHAND
 https://news.ycombinator.com/item?id=23782093
-tag="police-state surveillance usgov government state security encryption nsa"
+tags: police-state surveillance usgov government state security encryption nsa
 https://blog.fox-it.com/2015/04/20/deep-dive-into-quantum-insert/
 NSA can read TCP sequence numbers or DNS query IDs, and then spoof valid response packets.
 NSA has QUANTUMINSERT capabilities since 2005.
@@ -6995,7 +7121,7 @@ Mitigation:
 20200720
 Reddit's website uses DRM for fingerprinting
 https://smitop.com/post/reddit-whiteops/
-tag="reddit security fingerprinting software technology webbrowser web"
+tags: reddit security fingerprinting software technology webbrowser web
 Reddit uses WhiteOps (third-party tool for "bot mitigation, bot prevention, and fraud protection".
 Script checks DRM and other features (does not actually need them, just for fingerprinting):
 - Contains what appears to be a Javascript engine JIT exploit/bug, "haha jit go brrrrr" appears in a part of the code
@@ -7014,7 +7140,7 @@ Script checks DRM and other features (does not actually need them, just for fing
 20200729
 Joe Rogan Experience #1515 - Dr. Bradley Garrett
 https://www.youtube.com/watch?v=_kDKAOncclU
-tag="podcast prepper urban-explorer"
+tags: podcast prepper urban-explorer
 London's "lost rivers": underground rivers converted to tunnels/sewers in the 1800s
 - River Tyburn
 - River Effra
@@ -7023,7 +7149,7 @@ London's "lost rivers": underground rivers converted to tunnels/sewers in the 18
 20200731
 Harvard Study of Adult Development
 https://news.harvard.edu/gazette/story/2017/04/over-nearly-80-years-harvard-study-has-been-showing-how-to-live-a-healthy-and-happy-life/
-tag="psychology happiness life"
+tags: psychology happiness life
 https://news.ycombinator.com/item?id=24007274
 > Close relationships, more than money or fame, are what keep people happy
 > throughout their lives, the study revealed. Those ties protect people from
@@ -7036,7 +7162,7 @@ https://news.ycombinator.com/item?id=24007274
 20200802
 Schiphol clock - Maarten Baas
 http://maartenbaas.com/real-time/schiphol-clock/
-tag="art time clock amsterdam airport"
+tags: art time clock amsterdam airport
 12-hour performance art film of Dutch artist Maarten Baas painting each minute
 of the hands of a clock.  In Schiphol Airport since 2016.
 
@@ -7044,14 +7170,14 @@ of the hands of a clock.  In Schiphol Airport since 2016.
 20200802
 GITenberg project
 https://www.gitenberg.org/
-tag="literature ebooks books pedagogy"
+tags: literature ebooks books pedagogy
 - Curated, usable, attractive ebooks in the public domain.
 - Converts Project Gutenberg HTML to ePub.
 
 ================================================================================
 20200827
 QUIC: Quick UDP Internet Connections
-tag="networks proxy quic tcp udp protocol http spdy cryptopgraphy tls ssl"
+tags: networks proxy quic tcp udp protocol http spdy cryptopgraphy tls ssl
 - purpose:
   - avoid HOL blocking
     - ...by "handling packets separately (not within TCP)"
@@ -7091,7 +7217,7 @@ tag="networks proxy quic tcp udp protocol http spdy cryptopgraphy tls ssl"
 20200809
 interview with Elon Musk about SpaceX Starship
 https://www.youtube.com/watch?v=cIQ36Kt7UVg
-tag="space spacex science starship nasa"
+tags: space spacex science starship nasa
 "If a design is taking too long, the design is wrong. ... Strive to delete parts and processes. ... Question the constraints."
 - Elon Musk
 
@@ -7099,7 +7225,7 @@ tag="space spacex science starship nasa"
 20200809
 WebAuthn guide
 https://webauthn.guide/
-tag="security infosec webauthn u2f fido mfa software-engineering"
+tags: security infosec webauthn u2f fido mfa software-engineering
 implementing MFA on a new website:
 - implement WebAuthn, not U2F (older, non-standard hack)
 
@@ -7107,7 +7233,7 @@ implementing MFA on a new website:
 20200809
 Security Keys, webauthn (27 Mar 2018)
 https://www.imperialviolet.org/2018/03/27/webauthn.html
-tag="security infosec webauthn u2f fido mfa software-engineering"
+tags: security infosec webauthn u2f fido mfa software-engineering
 - "relying party": any entity trying to authenticate a user
 - U2F: "Universal 2nd factor"
 - CTAP1: version 1 “Client To Authenticator Protocol”
@@ -7154,7 +7280,7 @@ tag="security infosec webauthn u2f fido mfa software-engineering"
 20200809
 Who needs this filesystem malarkey anyway? (20 Jul 2003)
 https://www.imperialviolet.org/2003/07/20/who-needs-this-filesystem-malarkey-anyway.html
-tag="djb filesystem kernel interface design compsci software-engineering"
+tags: djb filesystem kernel interface design compsci software-engineering
 djb:
 > A small interface (for example, a descriptor allowing read() or write())
 > supports many implementations (disk files; network connections; and all sorts
@@ -7166,7 +7292,7 @@ djb:
 20200809
 From Benjamin Franklin to Cadwallader Colden, 29 September 1748
 https://founders.archives.gov/documents/Franklin/01-03-02-0133
-tag="history quotation benjamin-franklin role-model"
+tags: history quotation benjamin-franklin role-model
 > "I shall like to give my self ... Leisure to read, study, make Experiments,
 > and converse at large with such ingenious and worthy Men as are pleas’d to
 > honour me with their Friendship" - Benjamin Franklin
@@ -7175,7 +7301,7 @@ tag="history quotation benjamin-franklin role-model"
 20200809
 Poor Richard, 1736
 https://founders.archives.gov/documents/Franklin/01-02-02-0019
-tag="history quotation benjamin-franklin"
+tags: history quotation benjamin-franklin
 > Force shites upon Reason’s Back.
 > Lovers, Travellers, and Poets, will give money to be heard.
 > He that speaks much, is much mistaken.
@@ -7186,7 +7312,7 @@ tag="history quotation benjamin-franklin"
 20200810
 Jeremy Howard: fast.ai Deep Learning Courses and Research | Artificial Intelligence (AI) Podcast
 https://www.youtube.com/watch?v=J6XcP4JOHmk
-tag="podcast video deep-learning machine-learning compsci engineering swift healthcare"
+tags: podcast video deep-learning machine-learning compsci engineering swift healthcare
 - swift is compelling because the whole stack uses the same language
   (vs python = {C, numpy, CUDA, Makefile, …})
 - fast.ai moving to swift (~3 years out) + tensorflow
@@ -7199,7 +7325,7 @@ tag="podcast video deep-learning machine-learning compsci engineering swift heal
 20200810
 MLIR: Multi-Level Intermediate Representation
 https://mlir.llvm.org/
-tag="compiler llvm"
+tags: compiler llvm
 hybrid IR which can support multiple different requirements in a unified
 infrastructure. For example, this includes:
 - The ability to represent dataflow graph (such as TensorFlow), including
@@ -7230,7 +7356,7 @@ Outcomes:
 20200812
 UPX: Ultimate Packer for eXecutables
 https://upx.github.io/
-tag="elf binary compression c"
+tags: elf binary compression c
 portable, extendable, high-performance executable packer for several executable formats.
 shrink executables by 50%
 
@@ -7238,7 +7364,7 @@ shrink executables by 50%
 20200815
 Review of Paul Graham's Bel, Chris Granger's Eve, and a Silly VR Rant
 https://gist.github.com/wtaysom/7e5fda6d65807073c3fa6b92b1e25a32
-tag="datalog query language programming-paradigm vm eve light-table"
+tags: datalog query language programming-paradigm vm eve light-table
 > If Eve was so nifty, why did it fail? Technical problems:
 > (1) keying
 > (2) inspection
@@ -7285,7 +7411,7 @@ tag="datalog query language programming-paradigm vm eve light-table"
 20200823
 Plan A for the coronavirus
 https://medium.com/@curtis.yarvin/plan-a-for-the-coronavirus-7db3997490c1
-tag="government-failure covid19 virus curtis-yarvin"
+tags: government-failure covid19 virus curtis-yarvin
 > Anyone repeating lines like “the Trump administration has failed” is spreading
 > an Orwellian lie. There is no “Trump administration.” There is an elected
 > showman and his cronies, fronting for an unaccountable permanent government.
@@ -7295,7 +7421,7 @@ tag="government-failure covid19 virus curtis-yarvin"
 20200824
 Unregistered 116: Curtis Yarvin (AKA "Mencius Moldbug")
 https://www.youtube.com/watch?v=6GW-YMa68o4
-tag="concepts government politics philosophy curtis-yarvin history libertarianism monarchy"
+tags: concepts government politics philosophy curtis-yarvin history libertarianism monarchy
 - "Sovereignty is conserved."
 - How DC works: "Everyone wants status but no one wants responsibility."
 
@@ -7303,7 +7429,7 @@ tag="concepts government politics philosophy curtis-yarvin history libertarianis
 20200824
 POAAS 03 - Surveying Ethiopian History w/ Curtis Yarvin
 https://www.youtube.com/watch?v=BKdOoR4zhOc
-tag="concepts politics history curtis-yarvin"
+tags: concepts politics history curtis-yarvin
 - https://en.wikipedia.org/wiki/Cursus_honorum
   Latin for "course of honor", or colloquially "ladder of offices".
 - "Unconsidered superiority" is the attitude of a parochial barbarian.
@@ -7314,7 +7440,7 @@ tag="concepts politics history curtis-yarvin"
 20200826
 Gray Mirror of the Nihilist Prince with Curtis Yarvin
 https://www.youtube.com/watch?v=_8o0M24DrcE
-tag="concepts government politics philosophy curtis-yarvin history libertarianism monarchy"
+tags: concepts government politics philosophy curtis-yarvin history libertarianism monarchy
 - "Exit, voice, and loyalty."
   - Exist outside of power, not in antagonism to it. Disengage.
 - "When people think of 'regime change' as implying violent discontinuity, they
@@ -7362,7 +7488,7 @@ tag="concepts government politics philosophy curtis-yarvin history libertarianis
 20200828
 Robin Hanson and "Mencius Moldbug" debate futarchy at Foresight 2010
 https://www.youtube.com/watch?v=Tb-6ikXdOzE
-tag="concepts government politics philosophy curtis-yarvin history libertarianism monarchy"
+tags: concepts government politics philosophy curtis-yarvin history libertarianism monarchy
 - "Government _wasteful spending_ is really _disguised profits_ going to
   beneficiaries in the form of entitlements and overpaying."
 - "There's a crucial difference between a bet and a vote." (skin in the game)
@@ -7371,7 +7497,7 @@ tag="concepts government politics philosophy curtis-yarvin history libertarianis
 20200905
 THINGS HIDDEN 17: The Glorious Yeast Infection of Christianity (Curtis Yarvin Interview)
 https://www.youtube.com/watch?v=otXb3DVGvSI
-tag="concepts government politics philosophy curtis-yarvin history libertarianism monarchy"
+tags: concepts government politics philosophy curtis-yarvin history libertarianism monarchy
 - "Dept. of Homeland Security" (2001) is linguistically synonymous with NSA, but
   "National Security" actually means "world domination": FDR declared "events
   anywhere in the world affect the national security of the US".
@@ -7385,7 +7511,7 @@ tag="concepts government politics philosophy curtis-yarvin history libertarianis
 20200923
 Curtis Yarvin Live at the Based Deleuze Release Party in LA (Mencius Moldbug)
 https://www.youtube.com/watch?v=RRQO3VbJsMw
-tag="concepts government politics philosophy curtis-yarvin history libertarianism monarchy"
+tags: concepts government politics philosophy curtis-yarvin history libertarianism monarchy
 - Trolling (US-Vietnam war): draw fire from anti-aircraft so you can destroy
   them with countermissles. If you don't have countermissles, don't draw fire...
 - "Hide your power level."
@@ -7406,7 +7532,7 @@ tag="concepts government politics philosophy curtis-yarvin history libertarianis
 20200923
 Descriptive constitution of the modern regime: a clerical oligarchy in the shell of a republic
 https://graymirror.substack.com/p/3-descriptive-constitution-of-the
-tag="concepts government politics philosophy curtis-yarvin history libertarianism monarchy"
+tags: concepts government politics philosophy curtis-yarvin history libertarianism monarchy
 - Three forms of power/regime:
   1. monarchy (rule of one)
   2. oligarchy (rule of a minority)
@@ -7422,7 +7548,7 @@ tag="concepts government politics philosophy curtis-yarvin history libertarianis
 20200928
 Principles of any next regime: understand the purpose of government from scratch
 https://graymirror.substack.com/p/4-principles-of-any-next-regime
-tag="concepts government politics philosophy curtis-yarvin history libertarianism monarchy"
+tags: concepts government politics philosophy curtis-yarvin history libertarianism monarchy
 > Better to know, than to see; better to see, than be seen; better to be seen, than noticed; better to be noticed, than feared; better to be feared, than hated; better to be hated, than beaten; better to be beaten, than killed; better you are killed, than your family. The fox has no illusions and is always, in principle, on the move.
 > ...
 > Absolutism, the yang of nihilism, means thinking ex nihilo: from scratch, from first principles, not relative to any specific past or present reality. Nihilists do care about reality. We care about it so much that we accept no substitutes. The motto of the Royal Society, crafted in happier times: nullius in verbum. We take no one’s word for it—that’s what it means to “believe in nothing.”
@@ -7431,7 +7557,7 @@ tag="concepts government politics philosophy curtis-yarvin history libertarianis
 20200827
 Interview with Zig language creator Andrew Kelley
 https://news.ycombinator.com/item?id=24292437
-tag="programming-language zig c low-level"
+tags: programming-language zig c low-level
 - Addresses 3 problems of C++: language complexity, compilation speed, safety.
 - Simplicity is a core principle (in the spirit of Clojure, Lua, Lisp)
   - example: `comptime` (compile-time introspection) is a singular mechanism
@@ -7447,13 +7573,13 @@ tag="programming-language zig c low-level"
 20200827
 The unreasonable effectiveness of algorithms in boosting team happiness
 https://www.balena.io/blog/the-unreasonable-effectiveness-of-algorithms-in-boosting-team-happiness/
-tag="sat-solver scheduling algorithms"
+tags: sat-solver scheduling algorithms
 
 ================================================================================
 20200827
 American fuzzy lop – a security-oriented fuzzer
 https://lcamtuf.coredump.cx/afl/
-tag="static-analysis fuzzer algorithms"
+tags: static-analysis fuzzer algorithms
 https://news.ycombinator.com/item?id=22171285
 AFL basic algorithm is:
     def run_test_case(input):
@@ -7490,14 +7616,14 @@ AFL basic algorithm is:
 20200827
 Guide to using YubiKey for GPG and SSH
 https://github.com/drduh/YubiKey-Guide
-tag="security infosec gpg ssh yubikey u2f fido mfa"
+tags: security infosec gpg ssh yubikey u2f fido mfa
 > All YubiKeys except the blue "security key" model are compatible with this guide.
 
 ================================================================================
 20200830
 Reasons Not to Become Famous
 https://tim.blog/2020/02/02/reasons-to-not-become-famous/
-tag="security privacy paranoia identity-theft"
+tags: security privacy paranoia identity-theft
 - Fame is for suckers (status games).
 - Use a UPS Store or other off-site mailing address for receiving packages.
   Never have anything mailed to your address; your name/address will end up in
@@ -7507,7 +7633,7 @@ tag="security privacy paranoia identity-theft"
 20200922
 Palantir products: Foundry, Gotham, Metropolis
 https://www.quora.com/What-are-the-main-differences-between-the-Palantir-Metropolis-and-Gotham-platforms
-tag="technology startup surveillance data data-mining datasets data-management data-science statistics visualization tools machine-learning"
+tags: technology startup surveillance data data-mining datasets data-management data-science statistics visualization tools machine-learning
 Foundry:
 - Versioning. Foundry explicitly tracks future state, independent of (and in addition to) past state. You can branch out to apply different versions of code against the same chunk of data and track, for each version of the data, which version of the code was used to create it. So you can understand what you knew at a point in time, and how the data has evolved since.
 - Branching. Building a more explicit orchestration system, and cleaned up the general idea of the "pipeline". Instead of a system that just moves data from point A to point G, we built a system that lets you move data from point A to point G, then look back at point F and say “Hey, that was interesting. Let's try some different, random variation, but make sure A-G is still happening.” Work is safe by default, and you have the freedom to test novel ideas without impacting other users.
@@ -7519,7 +7645,7 @@ concepts:
 20200929
 Skin in the Game | Nassim Nicholas Taleb | Talks at Google
 https://www.youtube.com/watch?v=uv6KLbkvua8
-tag="statistics game-theory power politics government systems nassim-taleb monarchy"
+tags: statistics game-theory power politics government systems nassim-taleb monarchy
 - Negative golden rule: don't do to others what you wouldn't want done to you.
 - Accountability:
   - "Experts" of macro systems are not falsifiable; impossible to verify cause-effect in a macro system.
@@ -7540,7 +7666,7 @@ tag="statistics game-theory power politics government systems nassim-taleb monar
 20201011
 Did Instagram Bro Hero Dan Bilzerian Get His Start Thanks to His Father's Dirty Money?
 https://www.vice.com/en/article/8gk84v/did-instagram-bro-hero-dan-bilzerian-get-his-start-thanks-to-his-fathers-dirty-money-827
-tag="finance business sec"
+tags: finance business sec
 > The web of assets that Paul Bilzerian wove in the 90s is extremely intricate.
 > If you're inclined, you can look at numerous SEC filings, like this:
 > https://www.sec.gov/Archives/edgar/data/786620/0000950144-98-000647.txt
@@ -7564,7 +7690,7 @@ tag="finance business sec"
 ================================================================================
 20201012
 https://kalzumeus.com/2020/10/09/four-years-at-stripe/
-tag="startup growth business organization-theory scale"
+tags: startup growth business organization-theory scale
 > (In a way, every scaling startup is an experiment in empirical microeconomics
 > research on “What parts of the typical corporate form are necessary and which
 > are pageantry which we only keep around due to anchoring, the sunk cost
@@ -7577,7 +7703,7 @@ tag="startup growth business organization-theory scale"
 20201108
 Reflections on the late election
 https://graymirror.substack.com/p/reflections-on-the-late-election
-tag="concepts government politics philosophy curtis-yarvin history"
+tags: concepts government politics philosophy curtis-yarvin history
 > If anyone in the Trump administration is listening, there is exactly one
 > useful thing you can do now. The President has exactly one unilateral power
 > which is dangerous to the regime: the power to declassify.
@@ -7600,7 +7726,7 @@ tag="concepts government politics philosophy curtis-yarvin history"
 20201109
 Naval Ravikant on Happiness, Reducing Anxiety, Crypto Stablecoins, and More | The Tim Ferriss Show
 https://www.youtube.com/watch?v=HiYo14wylQw
-tag="concepts philosophy meditation health wealth naval-ravikant"
+tags: concepts philosophy meditation health wealth naval-ravikant
 - Meditation forces you to face anxiety, radically restructure your life
 - Meditate 60min x 60days => "mental state of inbox zero"
 - currency = "a bubble that never pops"
@@ -7615,7 +7741,7 @@ tag="concepts philosophy meditation health wealth naval-ravikant"
 20201118
 Robinhood's business model
 https://www.bloomberg.com/opinion/articles/2018-10-16/carl-icahn-wants-to-fight-dell-again?sref=2jPYL79S
-tag="finance options stock trading markets"
+tags: finance options stock trading markets
 > Robinhood’s business model is:
 >
 > [high-frequency trading firms, or market makers, like Citadel Securities and
@@ -7637,7 +7763,7 @@ tag="finance options stock trading markets"
 20210113
 Noah Smith and the market for cruelty
 https://graymirror.substack.com/p/noah-smith-and-the-market-for-cruelty
-tag="history politics curtis-yarvin ww2"
+tags: history politics curtis-yarvin ww2
 > What you usually find for two sides of a conflict ... is that each side tends
 > to be mostly right about the other. Usually they are wrong about one big
 > thing, but right about most of the other things.
@@ -7649,7 +7775,7 @@ tag="history politics curtis-yarvin ww2"
 20210114
 Parallax
 https://en.wikipedia.org/wiki/Parallax
-tag="concepts physics"
+tags: concepts physics
 Displacement or difference in the apparent position of an object viewed along
 two different lines of sight. nearby objects show a larger parallax than farther
 objects when observed from different positions.
@@ -7658,7 +7784,7 @@ objects when observed from different positions.
 20210202
 Semipredicate problem
 https://en.wikipedia.org/wiki/Semipredicate_problem
-tag="compsci theory concepts engineering"
+tags: compsci theory concepts engineering
 > when a subroutine intended to return a useful value can fail, but the
 > signalling of failure uses an otherwise valid return value.
 solution: Multivalued return
@@ -7671,14 +7797,14 @@ cf. byzantine failure?
 20210210
 What happened in 1971?
 https://wtfhappenedin1971.com
-tag="economics mmt federal-reserve monetary-policy gold-standard"
+tags: economics mmt federal-reserve monetary-policy gold-standard
 see also: https://en.wikipedia.org/wiki/Nixon_shock
 
 ================================================================================
 20210210
 Fed's Yellen expects no new financial crisis in "our lifetimes"
 https://www.reuters.com/article/us-usa-fed-yellen-idUSKBN19I2I5
-tag="economics mmt federal-reserve monetary-policy"
+tags: economics mmt federal-reserve monetary-policy
 > LONDON (Reuters) - U.S. Federal Reserve Chair Janet Yellen said on Tuesday
 > that she does not believe that there will be another financial crisis for at
 > least as long as she lives, thanks largely to reforms of the banking system
@@ -7688,7 +7814,7 @@ tag="economics mmt federal-reserve monetary-policy"
 20210218
 Thomas Petterfy, CEO Interactive Brokers: We have come dangerously close to the collapse of the entire system.
 https://www.reddit.com/r/GME/comments/lmbupe/thomas_petterfy_ceo_interactive_brokers_we_have/gnuw6kn
-tag="economics federal-reserve stock finance"
+tags: economics federal-reserve stock finance
 > I don't think you guys understand what the system breaking is. It's not just
 > a squeeze to an irrational number (or no number), it's:
 >
@@ -7730,7 +7856,7 @@ tag="economics federal-reserve stock finance"
 20210224
 We don't have to live like this
 https://graymirror.substack.com/p/we-dont-have-to-live-like-this
-tag="curtis-yarvin politics government state libertarianism power machiavelli realpolitik"
+tags: curtis-yarvin politics government state libertarianism power machiavelli realpolitik
 > I’m a monarchist because _we don’t have to live like this_.
 >
 > How could we live otherwise? We could live with a government which was
@@ -7836,7 +7962,7 @@ tag="curtis-yarvin politics government state libertarianism power machiavelli re
 20210307
 Experience curve effect, Wright's law
 https://en.wikipedia.org/wiki/Experience_curve_effects
-tag="economics technology concepts mental-model"
+tags: economics technology concepts mental-model
 Progress increases with experience: each percent increase in cumulative
 production results in a fixed percentage improvement in production efficiency.
 
@@ -7844,7 +7970,7 @@ production results in a fixed percentage improvement in production efficiency.
 20210330
 Mark Sisson: "Two Meals a Day: lose fat, reverse aging"
 https://open.spotify.com/episode/0YoTG8B6spV31mCHk63zqD
-tag="health fasting"
+tags: health fasting
 fasting:
 - 16 hours minimum, 18 hours is better
 - most repair/recovery happens when NOT eating
@@ -7861,7 +7987,7 @@ bad:
 20210530
 The inflation economy
 http://graymirror.substack.com/p/the-inflation-economy
-tag="curtis-yarvin economics federal-reserve stock finance government banking money"
+tags: curtis-yarvin economics federal-reserve stock finance government banking money
 > 20th-century “macroeconomic” central-planners define “inflation” as AB or even
 > just B, measure B, and so automatically take undeserved credit for these
 > exogenous or organic mitigations. ... You can’t mitigate A, only conceal it.
@@ -7916,7 +8042,7 @@ tag="curtis-yarvin economics federal-reserve stock finance government banking mo
 20210610
 Sixteen Years Old, $1.7 Million in Revenue: Max Hits It Big as a Pandemic Reseller
 https://www.wsj.com/articles/sixteen-years-old-1-7-million-in-revenue-max-hits-it-big-as-a-pandemic-reseller-11623248291
-tag="startup business entrepreneurship finance"
+tags: startup business entrepreneurship finance
 > retail arbitrage ... He preordered 10 from Target’s website in September with
 > a debit card, using his own savings. “It was public knowledge but most people
 > weren’t starting to look that early,” he said.
@@ -7929,7 +8055,7 @@ tag="startup business entrepreneurship finance"
 20210620
 The Fedcoin experiment
 https://graymirror.substack.com/p/the-fedcoin-experiment
-tag="curtis-yarvin government banking federal-reserve money finance economics cryptocurrency fedcoin stablecoin"
+tags: curtis-yarvin government banking federal-reserve money finance economics cryptocurrency fedcoin stablecoin
 1. Once someone has the power to create money, the supply of money cannot be
    measured ("soft money").
 2. In a soft monetary system, the best way to measure inflation is not to
@@ -7958,7 +8084,7 @@ Thought experiment: hard money ("essentially a national bankruptcy")
 20210620
 Rise of the neutral company
 https://graymirror.substack.com/p/rise-of-the-neutral-company
-tag="curtis-yarvin politics government realpolitik machiavelli monarchy"
+tags: curtis-yarvin politics government realpolitik machiavelli monarchy
 "Politics is the exercise of collective power against human opposition."
 - "parliament" literally means "chatroom"
 - Decisions should never be made communally if possible; such decisions are
@@ -7987,7 +8113,7 @@ tag="curtis-yarvin politics government realpolitik machiavelli monarchy"
 20210620
 Realpolitik
 https://en.wikipedia.org/wiki/Realpolitik
-tag="politics government realpolitik machiavelli"
+tags: politics government realpolitik machiavelli
 - How to achieve liberal enlightened goals in a world that does not follow liberal enlightened rules.
 - As the liberal gains of the 1848 revolutions fell victim to coercive governments or were swallowed by powerful social forces such as class, religion and nationalism, Rochau began to think hard about how the work that had begun with such enthusiasm had failed to yield any lasting results.
 - Became associated with Otto von Bismarck's statecraft in unifying Germany in the mid 19th century.
@@ -7996,7 +8122,7 @@ tag="politics government realpolitik machiavelli"
 20210628
 North Korean defector slams "woke" US schools
 https://nypost.com/2021/06/14/north-korean-defector-slams-woke-us-schools/
-tag="politics culture left progressive"
+tags: politics culture left progressive
 > Yeonmi Park attended Columbia University and was immediately struck by what she viewed anti-Western sentiment in the classroom and a focus on political correctness that had her thinking “even North Korea isn’t this nuts.”
 >
 > "Every problem, they explained us, is because of white men." Some of the discussions of white privilege reminded her of the caste system in her native country, where people were categorized based on their ancestors, she said.
@@ -8009,7 +8135,7 @@ tag="politics culture left progressive"
 20210628
 Parachute Pants and Central Bank Money, Randal K. Quarles
 https://www.federalreserve.gov/newsevents/speech/quarles20210628a.htm
-tag="government banking federal-reserve money finance economics cryptocurrency stablecoin"
+tags: government banking federal-reserve money finance economics cryptocurrency stablecoin
 > A Federal Reserve CBDC (central bank digital currency) could, in essence, set
 > up the Federal Reserve as a retail bank to the general public.
 
@@ -8017,7 +8143,7 @@ tag="government banking federal-reserve money finance economics cryptocurrency s
 20210628
 Iron law of oligarchy
 https://en.wikipedia.org/wiki/Iron_law_of_oligarchy
-tag="government concepts history oligarchy"
+tags: government concepts history oligarchy
 - Since no sufficiently large and complex organization can function purely as
   a direct democracy, power within an organization will always get delegated to
   individuals within that group, elected or otherwise.
@@ -8034,7 +8160,7 @@ tag="government concepts history oligarchy"
 20210628
 Kyklos: Aristotle's three forms of government
 https://en.wikipedia.org/wiki/Kyklos
-tag="government concepts oligarchy monarchy democracy"
+tags: government concepts oligarchy monarchy democracy
 3 forms of government:
   democracy
   aristocracy
@@ -8048,7 +8174,7 @@ tag="government concepts oligarchy monarchy democracy"
 20210702
 On banning ideas
 https://graymirror.substack.com/p/on-banning-ideas
-tag="curtis-yarvin politics government democracy power machiavelli realpolitik"
+tags: curtis-yarvin politics government democracy power machiavelli realpolitik
 > The fundamental problem with “banning CRT” is that, while culture is
 > downstream from power, no one can dam a river by taking a dump in it. Passing
 > state laws against “critical race theory” is wrong and ineffective, but not
@@ -8076,21 +8202,21 @@ tag="curtis-yarvin politics government democracy power machiavelli realpolitik"
 20210702
 Russell conjugation
 https://en.wikipedia.org/wiki/Emotive_conjugation
-tag="concepts rhetoric language psychology"
+tags: concepts rhetoric language psychology
 "I am firm, you are obstinate, he is a pig-headed fool."
 
 ================================================================================
 20210702
 Aarne–Thompson–Uther Index: catalogue of folktale types
 https://en.wikipedia.org/wiki/Aarne%E2%80%93Thompson%E2%80%93Uther_Index
-tag="concepts history language culture tropes"
+tags: concepts history language culture tropes
 cf. TV tropes https://tvtropes.org
 
 ================================================================================
 20210702
 OODA loop: observe–orient–decide–act
 https://en.wikipedia.org/wiki/OODA_loop
-tag="concepts military tactics strategy patterns competition"
+tags: concepts military tactics strategy patterns competition
 - also often applied to commercial operations, learning processes.
 - explains how agility can overcome raw power
 - shows that all decisions are based on observations of the evolving situation
@@ -8112,7 +8238,7 @@ tag="concepts military tactics strategy patterns competition"
 ================================================================================
 20210702
 https://github.com/wasmerio/wasmer
-tag="wasm webassembly software programming embed webbrowser javascript c"
+tags: wasm webassembly software programming embed webbrowser javascript c
 https://wasmer.io/
 https://github.com/wasmerio/wasmer/tree/master/lib/c-api
 Wasmer is a fast and secure WebAssembly runtime that enables super lightweight containers to run anywhere.
@@ -8126,7 +8252,7 @@ Wasmer is a fast and secure WebAssembly runtime that enables super lightweight c
 20210722
 The real Great Reset
 https://graymirror.substack.com/p/the-real-great-reset
-tag="curtis-yarvin politics government democracy power machiavelli realpolitik"
+tags: curtis-yarvin politics government democracy power machiavelli realpolitik
 > But in an American city, any attempt at the local suppression of disorder is no
 > more than mindless, reflexive stabbing at the “Close Door” button.
 >
@@ -8151,7 +8277,7 @@ tag="curtis-yarvin politics government democracy power machiavelli realpolitik"
 20210802
 Kelly criterion
 https://en.wikipedia.org/wiki/Kelly_criterion
-tag="finance options stock trading markets"
+tags: finance options stock trading markets
 As you increase your trade sizing / leverage you become more likely to
 reach 1/2 of your starting equity before you double it, simply because the
 variance in returns grow large.
@@ -8160,7 +8286,7 @@ variance in returns grow large.
 20210818
 For the times they are a-changing
 https://graymirror.substack.com/p/for-the-times-they-are-a-changing
-tag="curtis-yarvin politics government democracy power machiavelli realpolitik systems"
+tags: curtis-yarvin politics government democracy power machiavelli realpolitik systems
 > My first hypothesis is that, as usual in complex systems, the only choice of
 > any latent power ... is to keep the system more or less as it is, or delete
 > and replace it completely. Changing it is so impossible that the very word
@@ -8170,7 +8296,7 @@ tag="curtis-yarvin politics government democracy power machiavelli realpolitik s
 20210822
 Scalar: A set of tools and extensions for Git to allow very large monorepos
 https://github.com/microsoft/scalar
-tag="git dvcs programming tools"
+tags: git dvcs programming tools
 - Partial clone
 - Background prefetch: downloads Git object data from all remotes every hour.
 - Sparse-checkout: limits the size of your working directory.
@@ -8183,7 +8309,7 @@ tag="git dvcs programming tools"
 20210906
 Curtis Yarvin (aka Mencius Moldbug): an interview
 https://im1776.com/2021/09/03/curtis-yarvin-interview/
-tag="curtis-yarvin politics government democracy power machiavelli realpolitik systems anarchism"
+tags: curtis-yarvin politics government democracy power machiavelli realpolitik systems anarchism
 > it is natural to look at a hypertrophied, dysfunctional regime and say: there
 > should be less of that. There should be less of the State. To any engineer,
 > spontaneous orders are elegant and seem to work well; competition works well,
@@ -8228,14 +8354,14 @@ tag="curtis-yarvin politics government democracy power machiavelli realpolitik s
 20210909
 htmlq: Like jq, but for HTML
 https://github.com/mgdm/htmlq
-tag="web tools programming query html shell cli"
+tags: web tools programming query html shell cli
 Uses CSS selectors to extract content from HTML files.
 
 ================================================================================
 20210922
 "Exception handling is a giant mistake."
 https://news.ycombinator.com/item?id=28164247
-tag="programming softwareengineering language-design pl-design exceptions control-flow failure-modes"
+tags: programming softwareengineering language-design pl-design exceptions control-flow failure-modes
 https://twitter.com/WalterBright/status/1426013845277925382
 > Working with and implementing C++ exceptions for 30 years now, including implementing exception handling for Windows, DOS extenders, and Posix (all very different), and then re-implementing them for D, I have sadly come to the conclusion that exceptions are a giant mistake.
 > 1. they are very hard to understand all the way down
@@ -8254,7 +8380,7 @@ https://twitter.com/WalterBright/status/1426013845277925382
 20210924
 Why We Killed Our End-to-End Test Suite
 https://building.nubank.com.br/why-we-killed-our-end-to-end-test-suite/
-tag="programming softwareengineering ci continuous-integration testing devops release-engineering"
+tags: programming softwareengineering ci continuous-integration testing devops release-engineering
 End-to-end integration tests:
   1. Waiting. Engineers wait more and more to get feedback from this long-running suite.
   2. Lack of confidence. Flaky tests => re-run to confirm false negative.
@@ -8274,13 +8400,13 @@ Alternative: combination of:
 20210519
 SSH + security key
 https://github.blog/2021-05-10-security-keys-supported-ssh-git-operations/
-tag="git ssh security 2fa tfa mfa authentication"
+tags: git ssh security 2fa tfa mfa authentication
 
 ================================================================================
 20210525
 Google Quantum AI campus
 https://blog.google/technology/ai/unveiling-our-new-quantum-ai-campus/
-tag="google hardware research compsci"
+tags: google hardware research compsci
 To build better batteries, fertilizer, medicines, we need to:
 - understand and design molecules better
 - simulate nature accurately
@@ -8305,7 +8431,7 @@ before investing in costly real-life prototypes.
 20210525
 WASI: Portable System Interface for WebAssembly
 https://github.com/bytecodealliance/wasmtime/blob/main/docs/WASI-overview.md
-tag="wasm web webassembly api os portability"
+tags: wasm web webassembly api os portability
 Specifies "syscalls": functions provided by the surrounding environment that can do I/O on behalf of the program.
 Capability-based security
   Similar to how core WebAssembly provides no ability to access the outside world without calling imported functions, WASI APIs provide no ability to access the outside world without an associated capability.
@@ -8348,14 +8474,14 @@ Layout: three inspirations:
 20211007
 Powers of 10: Time Scales in User Experience
 https://www.nngroup.com/articles/powers-of-10-time-scales-in-ux/
-tag="work productivity focus concentration flow attention psychology"
+tags: work productivity focus concentration flow attention psychology
 - "flow" is lost after 10 seconds
 
 ================================================================================
 20211008
 AWS federation comes to GitHub Actions
 https://awsteele.com/blog/2021/09/15/aws-federation-comes-to-github-actions.html
-tag="aws github federation authentication login secrets programming ci continuous-integration testing devops automation release-engineering"
+tags: aws github federation authentication login secrets programming ci continuous-integration testing devops automation release-engineering
 > GitHub Actions has new functionality that can vend OpenID Connect credentials
 > to jobs running on the platform. ... CI/CD jobs no longer need any long-term
 > secrets to be stored in GitHub.
@@ -8379,14 +8505,14 @@ https://github.com/github/roadmap/issues/249
 20211008
 AWS SSM Session for Javascript
 https://github.com/bertrandmartel/aws-ssm-session
-tag="aws ec2 cloud ssm javascript nodejs"
+tags: aws ec2 cloud ssm javascript nodejs
 Javascript library for starting an AWS SSM session compatible with Browser and NodeJS
 
 ================================================================================
 20211019
 nodejs/node: stdout/stderr buffering considerations #6379
 https://github.com/nodejs/node/issues/6379
-tag="libuv javascript nodejs buffering system os"
+tags: libuv javascript nodejs buffering system os
 > Problem:
 > 1. Many calls to console.log() (e.g. in a loop) could chew up all memory and die.
 > 2. Output is sometimes truncated/dropped.
@@ -8408,7 +8534,7 @@ tag="libuv javascript nodejs buffering system os"
 20211019
 The Beginning of Infinity
 https://nav.al/infinity-1
-tag="science epistemology philosophy naval-ravikant evolution memetics concepts"
+tags: science epistemology philosophy naval-ravikant evolution memetics concepts
 - scientism
   > The overwhelming majority of physicists are still Bayesian ... [because] this
   > is typically what’s taught in universities and this is what passes for an
@@ -8501,7 +8627,7 @@ tag="science epistemology philosophy naval-ravikant evolution memetics concepts"
 20211022
 How To Speak by Patrick Winston
 https://www.youtube.com/watch?v=Unzc731iCUY
-tag="public-speaking presentation talk"
+tags: public-speaking presentation talk
 - start with a promise (value proposition)
 - use props (extremely effective mnemonics)
 - surprisingly, audience needs only ONE example to learn a concept
@@ -8513,7 +8639,7 @@ tag="public-speaking presentation talk"
 20211024
 Putin Gets It. Why Don’t We?
 https://www.theamericanconservative.com/dreher/putin-soft-totalitarianism-live-not-by-lies-wokeness/
-tag="politics culture left progressive russia putin communism"
+tags: politics culture left progressive russia putin communism
 Putin:
   “We see with bemusement the paralysis unfolding in countries that have grown accustomed to viewing themselves as the flagships of progress,” Putin said during an event where he spoke for a few hours. “Of course, it’s none of our business or what is happening, the social and cultural shocks that are happening in some countries in the Western countries, some believe that aggressive blotting out of whole pages of your own history, the affirmative action in the interest of minorities, and the requirement to renounce the traditional interpretation of such basic values as mother, father, family, and the distinction between sexes are a milestone … a renewal of society.”
   “The preparedness of the so called social progress believe that the bringing a new conscience, a new consciousness to humanity, something that is more correct,” Putin said. “But there is one thing I would like to say: The recipes they come up with are nothing new. Paradoxical as it may seem, but this is something we saw in Russia. It happened in our country before after the 1917 revolution, the Bolsheviks followed the dogmas of Marx and Engels. And they also declared that they would go into change the traditional lifestyle, the political, the economic lifestyle, as well as the very notion of morality, the basic principles for a healthy society. They were trying to destroy age and century long values, revisiting the relationship between the people, they were encouraging informing on one’s own beloved, and families. It was hailed as the march of progress. And it was very popular across the world and it was supported by many, as we see, it is happening right now.”
@@ -8525,7 +8651,7 @@ Putin:
 20211105
 Software Statement
 https://datatracker.ietf.org/doc/html/rfc7591#page-14
-tag="rfc oauth web json internet ietf"
+tags: rfc oauth web json internet ietf
 - Like a "signed user agent"?
 - A software statement is a JSON Web Token (JWT) [RFC7519] that asserts
   metadata values about the client software as a bundle.
@@ -8547,7 +8673,7 @@ tag="rfc oauth web json internet ietf"
 20211117
 Ergodicity
 https://en.wikipedia.org/wiki/Ergodicity
-tag="physics concepts mental-model statistics"
+tags: physics concepts mental-model statistics
 - Ergodicity expresses the idea that a point of a moving system, either
   a dynamical system or a stochastic process, will eventually visit all parts of
   the space that the system moves in, in a uniform and random sense. This
@@ -8568,7 +8694,7 @@ tag="physics concepts mental-model statistics"
 20211121
 FDR Writes a Policy in Blood - Thomas Fleming, 2009
 https://www.historynet.com/fdr-writes-policy-blood.htm
-tag="history foreign-policy politics history fdr eisenhower ww2"
+tags: history foreign-policy politics history fdr eisenhower ww2
 - FDR: "The elimination of German, Japanese and Italian war power means the unconditional surrender by Germany, Italy, and Japan"
   - Churchill was dumbfounded by Roosevelt’s announcement—and dismayed by its probable impact.
 - At the close of World War I, Theodore Roosevelt insisted on unconditional surrender.
@@ -8591,25 +8717,25 @@ tag="history foreign-policy politics history fdr eisenhower ww2"
 20211121
 Notes on Software Development Waste - Henrique Carvalho Alves
 https://hcarvalhoalves.github.io/software-development-waste/
-tag="softwareengineering methodology project-management programming"
+tags: softwareengineering methodology project-management programming
 
 ================================================================================
 20211121
 Running a Star
 https://operators.urbit.org/guides/running-a-star
-tag="urbit app p2p programming technology network sysadmin"
+tags: urbit app p2p programming technology network sysadmin
 
 ================================================================================
 20211121
 Urbit/ Network explorer
 https://network.urbit.org/
-tag="urbit app p2p programming technology network"
+tags: urbit app p2p programming technology network
 
 ================================================================================
 20211122
 Next big step for PLs?
 https://graydon2.dreamwidth.org/253769.html
-tag="programming softwareengineering language-design pl-design exceptions errors control-flow design failure-modes"
+tags: programming softwareengineering language-design pl-design exceptions errors control-flow design failure-modes
 - What next for PLs?
   - Modules
   - Errors: interlocking protocols that support error management
@@ -8629,13 +8755,13 @@ tag="programming softwareengineering language-design pl-design exceptions errors
 20211127
 Engineering Fundamentals Checklist
 https://microsoft.github.io/code-with-engineering-playbook/ENG-FUNDAMENTALS-CHECKLIST/
-tag="programming softwareengineering engineering project-management runbook guidelines"
+tags: programming softwareengineering engineering project-management runbook guidelines
 
 ================================================================================
 20211127
 Google Technical writing style guide
 https://developers.google.com/style/highlights
-tag="documentation programming softwareengineering engineering project-management guidelines google"
+tags: documentation programming softwareengineering engineering project-management guidelines google
 - no "please":
   https://developers.google.com/style/tone#politeness-and-use-of-please
   https://docs.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/p/please
@@ -8645,13 +8771,13 @@ tag="documentation programming softwareengineering engineering project-managemen
 20211127
 Microsoft Writing Style Guide
 https://docs.microsoft.com/en-us/style-guide/welcome/
-tag="documentation programming softwareengineering engineering project-management guidelines microsoft"
+tags: documentation programming softwareengineering engineering project-management guidelines microsoft
 
 ================================================================================
 20211127
 Don't Go Down the Rabbit Hole - Charlie Warzel
 https://www.nytimes.com/2021/02/18/opinion/fake-news-media-attention.html
-tag="research critical-thinking politics propaganda"
+tags: research critical-thinking politics propaganda
 > Critical thinking, as we’re taught to do it, isn’t helping in the fight against misinformation.
 > SIFT:
 >   1. Stop.
@@ -8672,7 +8798,7 @@ tag="research critical-thinking politics propaganda"
 20211128
 To Firmly Drive Common Prosperity - Xi Jinping
 https://www.neican.org/to-firmly-drive-common-prosperity/
-tag="china economics history politics government"
+tags: china economics history politics government
 > Common prosperity is an essential requirement of socialism. ... [it] does not
 > mean prosperity for a [selected] few, nor is it neat and tidy egalitarianism.
 >
@@ -8712,7 +8838,7 @@ tag="china economics history politics government"
 20211130
 Effective altruism and Xi Jinping Thought
 https://graymirror.substack.com/p/effective-altruism-and-xi-jinping
-tag="china economics curtis-yarvin history politics government democracy power machiavelli realpolitik systems anarchism"
+tags: china economics curtis-yarvin history politics government democracy power machiavelli realpolitik systems anarchism
 > Modern China exists because Mao created a dictatorship so strong that, when
 > Deng inherited it, he found it could contain the economic aristocracy of
 > capitalism. It was okay to get rich in China; the Party was strong, and rich
@@ -8739,7 +8865,7 @@ tag="china economics curtis-yarvin history politics government democracy power m
 20211220
 Zeigarnik effect
 https://en.wikipedia.org/wiki/Zeigarnik_effect
-tag="work productivity focus concentration flow attention psychology"
+tags: work productivity focus concentration flow attention psychology
 We tend to remember unfinished/interrupted tasks better than completed tasks.
 Review your list of completed tasks helps counteract this.
 
@@ -8747,7 +8873,7 @@ Review your list of completed tasks helps counteract this.
 20211221
 European privacy-consciousness hypocrisy
 https://news.ycombinator.com/item?id=29623512
-tag="government europe germany privacy"
+tags: government europe germany privacy
 > They champion getting rid off tax-privacy, they champion getting rid off
 > non-digital currency, they champion blocking social-networks because of
 > "foreign desinformation" (i.e. domestic opposition), they take no offense that
@@ -8764,7 +8890,7 @@ tag="government europe germany privacy"
 20211221
 CIA (OSS) Simple Sabotage Field Manual (1944)
 https://www.hsdl.org/?abstract&did=750070
-tag="organization-theory organization coordination project-management leverage"
+tags: organization-theory organization coordination project-management leverage
 http://svn.cacert.org/CAcert/CAcert_Inc/Board/oss/oss_sabotage.html
 https://news.ycombinator.com/item?id=29597454
 General Interference with Organizations and Production
@@ -8781,7 +8907,7 @@ General Interference with Organizations and Production
 20211221
 libtree
 https://github.com/haampie/libtree
-tag="c linker programming os library"
+tags: c linker programming os library
 - turns ldd into a tree
 - explains how shared libraries are found or why they cannot be located
 
@@ -8789,7 +8915,7 @@ tag="c linker programming os library"
 20211221
 The leadership IQ dilemma: when super smart people are perceived as ineffective leaders
 https://wp.unil.ch/hecimpact/article/
-tag="organization coordination startup business leadership perception psychology"
+tags: organization coordination startup business leadership perception psychology
 - too high (or low) intelligence can have a negative impact on perceived leadership effectiveness.
 - paper: Antonakis, J., House, R. J., & Simonton, D. K. (2017). Journal of Applied Psychology. Can super smart leaders suffer from too much of a good thing? The curvilinear effect of intelligence on perceived leadership behavior
 
@@ -8797,7 +8923,7 @@ tag="organization coordination startup business leadership perception psychology
 20211221
 Some of you are not yet clearpilled
 https://graymirror.substack.com/p/some-of-you-are-not-yet-clearpilled
-tag="curtis-yarvin history politics government democracy power machiavelli realpolitik systems anarchism activism"
+tags: curtis-yarvin history politics government democracy power machiavelli realpolitik systems anarchism activism
 When power is doing the wrong thing for some dumb reason ... “be water.”
 ... Your action must not be reactive. Water does not push back. Water lets the enemy expend energy, expending no energy against him.
 ... When you are not following Bruce Lee’s wisdom, you always think you are fighting back. Usually, what you are doing is participating—giving your energy to the enemy.
@@ -8808,7 +8934,7 @@ when you are out of power, your goal is to build power, not use power.
 20211221
 Omicron and governance theater
 https://graymirror.substack.com/p/omicron-and-governance-theater
-tag="china economics curtis-yarvin history politics government democracy power machiavelli realpolitik systems anarchism"
+tags: china economics curtis-yarvin history politics government democracy power machiavelli realpolitik systems anarchism
 Governance theater:
 In a world of oligarchical democracies, “press-run states” where power derives from institutional leadership of public opinion, flowing from Science to the Fourth Estate and thence out into the broadcast-media audience, the existential task of any regime is to persuade that audience that it’s doing a good job.
 Governance theater displaces actual governance. In the West, where power depends on either managing or following public opinion, the idea of actual governance is almost unfamiliar. The wise experts who manage the public mind have one school of governance theater; the cynical sycophants who milk the populist mob have another.
@@ -8818,14 +8944,14 @@ Governance theater displaces actual governance. In the West, where power depends
 20211221
 horcrux
 https://github.com/jesseduffield/horcrux
-tag="security cryptography encryption"
+tags: security cryptography encryption
 Split a file into encrypted fragments instead of remembering a passcode.
 
 ================================================================================
 20220101
 Speed matters: Why working quickly is more important than it seems
 http://jsomers.net/blog/speed-matters
-tag="work productivity focus concentration flow attention psychology"
+tags: work productivity focus concentration flow attention psychology
 - If there’s something you want to do a lot of and get good at—like write, or fix bugs—you should try to do it faster.
 - Being fast is fun: you’ll constantly be playing with new ideas.
 - Part of the activation energy required to start a task comes from the picture you get when you imagine doing it.
@@ -8839,7 +8965,7 @@ tag="work productivity focus concentration flow attention psychology"
 20220101
 The Gift of It's Your Problem Now
 https://apenwarr.ca/log/20211229
-tag="oss open-source maintenance software programming development"
+tags: oss open-source maintenance software programming development
 Healthy society is created through constant effort, by all of us, as a gift to our fellow members. It's not extracted from us as a mandatory payment to our overlords who will do all the work.
 If there's one thing we know for sure about overlords, it's that they never do all the work.
 Paying for gifts ... does not work: it stops being a gift. It becomes an inefficient, misdesigned, awkward market.
@@ -8855,13 +8981,13 @@ Software startups have taken off because:
 20220102
 Mini Tokyo 3D: realtime tokyo transportation map
 https://minitokyo3d.com/
-tag="transportation data visualization software web tools open-source"
+tags: transportation data visualization software web tools open-source
 
 ================================================================================
 20220214
 WebContainer
 https://github.com/stackblitz/webcontainer-core
-tag="wasm webassembly web api os portability software programming embed webbrowser javascript"
+tags: wasm webassembly web api os portability software programming embed webbrowser javascript
 (closed source / commercial)
 small portable container and OS spec, secure by default, runs in the browser sandbox
 Components
@@ -8879,7 +9005,7 @@ Is this a Docker container?
 20220309
 jscodeshift
 https://github.com/facebook/jscodeshift
-tag="tools programming ide refactor javascript typescript"
+tags: tools programming ide refactor javascript typescript
 jscodeshift is a toolkit for running codemods over multiple JavaScript or TypeScript files. It provides:
 - A runner, which executes the provided transform for each file passed to it. It also outputs a summary of how many files have (not) been transformed.
 - A wrapper around recast, providing a different API. Recast is an AST-to-AST transform tool and also tries to preserve the style of original code as much as possible.
@@ -8888,7 +9014,7 @@ jscodeshift is a toolkit for running codemods over multiple JavaScript or TypeSc
 20220108
 Stagflation and neo-chartalism
 https://graymirror.substack.com/p/stagflation-and-neo-chartalism
-tag="economics finance curtis-yarvin history politics government power machiavelli realpolitik systems anarchism"
+tags: economics finance curtis-yarvin history politics government power machiavelli realpolitik systems anarchism
 as Clausewitz said, all conflicts are mainly about morale.
 informal financial instruments: promises never written or stated, but known for political reasons to be good.
   An example would be the Fed’s promise to bail out FDIC—by issuing new shares. Of course, just as Microsoft can issue new shares, the Federal Reserve can create new dollars (Federal Reserve Notes). It doesn’t even need to print pieces of paper—they have computers now.
@@ -8904,7 +9030,7 @@ So America can have huge armies of working-age people who have no idea what to d
 20220206
 Time to upgrade your monitor
 https://tonsky.me/blog/monitors/
-tag="workstation electronics"
+tags: workstation electronics
   recommended:
     Dell U2720Q  DP* Alt Mode    90 W    USB 2.0/3.0 **  3840 x 2160 @ 60 Hz
       https://www.dell.com/support/kbdoc/en-us/000131273/using-a-dell-ultrasharp-usb-c-monitor-with-a-mac?lwp=rt
@@ -8932,7 +9058,7 @@ https://discussions.apple.com/thread/252060552
 20220208
 The Medieval Queens Whose Daring, Murderous Reigns Were Quickly Forgotten
 https://www.smithsonianmag.com/history/medieval-queens-daring-reigns-quickly-forgotten-180979246/
-tag="history germany france europe"
+tags: history germany france europe
 Queen Brunhild
 Fredegund, slave queen
 she summoned two slave boys. Fredegund wanted them to slip into the gathering where the armies were celebrating Sigibert’s victory and assassinate Sigibert. ...
@@ -8946,7 +9072,7 @@ Fredegund’s tomb is on display at the majestic Basilica of Saint-Denis in Pari
 20220208
 OSC-over-UDP: A Badass Way to Connect Programs Together
 https://joearms.github.io/#2016-01-28%20A%20Badass%20Way%20to%20Connect%20Programs%20Together
-tag="queue p2p distributed-systems systems network tcp udp protocol"
+tags: queue p2p distributed-systems systems network tcp udp protocol
 Open Sound Control is a binary protocol for exchanging data between machines.
 Despite "Sound" in the name, it is a generic protocol.
 OSC-over-UDP is just OSC packed data sent over a UDP connection.
@@ -8969,14 +9095,14 @@ OSC encoding is Verb-Tag*-Value* (similar to Tag-Length-Value (TLV)):
 20220210
 MQTT: The Standard for IoT Messaging
 https://mqtt.org/
-tag="queue p2p distributed-systems systems network tcp udp protocol"
+tags: queue p2p distributed-systems systems network tcp udp protocol
 extremely lightweight publish/subscribe messaging transport
 
 ================================================================================
 20220211
 Why the Soviets Slaughtered 180,000 Whales During the Cold War
 https://fee.org/articles/why-the-soviets-slaughtered-180-000-whales-during-the-cold-war/
-tag="history ussr soviet-union environment"
+tags: history ussr soviet-union environment
 https://psmag.com/social-justice/the-senseless-environment-crime-of-the-20th-century-russia-whaling-67774
 https://en.wikipedia.org/wiki/Whaling_in_the_Soviet_Union_and_Russia
 The Soviets killed some 180,000 whales illegally, driving several species to the brink of extinction.
@@ -8989,7 +9115,7 @@ When the Aleut fleet docked in Vladivostok in 1938, Dudnik was arrested by the s
 20220215
 AssemblyScript
 https://www.assemblyscript.org/
-tag="nodejs web webassembly wasm typescript javascript"
+tags: nodejs web webassembly wasm typescript javascript
 Useless, limited TypeScript dialect for those who don't want to learn Go or any other language that supports WASM.
 https://www.assemblyscript.org/status.html#promises
 MISSING: closures, promises, exceptions: https://www.assemblyscript.org/status.html#promises
@@ -8998,7 +9124,7 @@ MISSING: closures, promises, exceptions: https://www.assemblyscript.org/status.h
 20220305
 Numéraire
 https://en.wikipedia.org/wiki/Numéraire
-tag="concepts mental-model economics theory"
+tags: concepts mental-model economics theory
 The numéraire (or numeraire) is a basic standard by which value is computed. In
 mathematical economics it is a tradable economic entity in terms of whose price
 the relative prices of all other tradables are expressed. In a monetary economy,
@@ -9013,7 +9139,7 @@ can be translated in term of another.
 20220305
 Computational Irreducibility
 https://mathworld.wolfram.com/ComputationalIrreducibility.html
-tag="concepts mental-model economics theory"
+tags: concepts mental-model economics theory
 https://www.youtube.com/watch?v=_8j1XZ0N_wE
 even if you have the complete rules for describing everything (complete model of
 physics), it is much more efficient to observe a result (experiment/empiricism)
@@ -9023,7 +9149,7 @@ than to (a priori) compute the result.
 20220314
 OAuth 2.0 Authorization Framework: Bearer Token Usage
 https://www.rfc-editor.org/rfc/rfc6750.html
-tag="rfc oauth bearer-token web json internet ietf"
+tags: rfc oauth bearer-token web json internet ietf
 Bearer Token
   A security token with the property that any party in possession of the token
   (a "bearer") can use the token in the same way as any other party. Bearer is
@@ -9057,7 +9183,7 @@ Example bearer token response (OAuth 2.0 [RFC6749]):
 20220316
 Putin expects the West to blink in the face of his threats - 6th letter from the Wind of Change inside the FSB
 http://www.igorsushko.com/2022/03/putin-expects-west-to-blink-in-face-of.html
-tag="foreign-policy history politics government strategy russia ukraine nato europe usa"
+tags: foreign-policy history politics government strategy russia ukraine nato europe usa
 The impending "exit" for Russia through our eyes (FSB as an organization, not #WindofChange individually) and the "courtiers" at the Kremlin
 Operation “Gordian Knot”
   Stage 1: Most likely, Konashenkov (Major General, chief spokesman for the Russian Ministry of Defence) will officially declare at a briefing that Europe and the “collective West” have declared war on Russia by intervening in the Ukrainian conflict with their weapons and mercenaries, while simultaneously attacking Russia in the economic plane (sanctions). There will be an extended lecture that war is not contained to military operations on the battlefield, but it includes an array of aggressive actions aimed at causing direct damage to the opponent. That the West’s action de-facto unleashed a world war. That this war has not yet moved into the “hot stage” with missiles and tanks only because Putin, as the supreme commander in chief, did not give such an order. Nevertheless, Konashenkov will declare that the third world war has begun.
@@ -9083,19 +9209,19 @@ Operation “Gordian Knot”
 20220317
 Zalando REST API and Event Guidelines
 https://opensource.zalando.com/restful-api-guidelines/
-tag="api design web rest programming"
+tags: api design web rest programming
 
 ================================================================================
 20220317
 Google Web API design guide
 https://cloud.google.com/apis/design
-tag="api design web rest programming"
+tags: api design web rest programming
 
 ================================================================================
 20220317
 RFC 3339 vs ISO 8601
 https://ijmacd.github.io/rfc3339-iso8601/
-tag="standards formatting programming datetime date time rfc iso rfc-3339 iso-8601"
+tags: standards formatting programming datetime date time rfc iso rfc-3339 iso-8601
 RFC 3339 is "profile" of ISO 8601.
 Specifies a complete representation of date and time (only fractional seconds are optional).
 Some small, subtle differences vs ISO 8601:
@@ -9107,7 +9233,7 @@ Some small, subtle differences vs ISO 8601:
 20220320
 Ride or Die: George Hotz against the institutions
 https://return.life/2022/03/07/george-hotz-comma-ride-or-die/
-tag="george-hotz philosophy"
+tags: george-hotz philosophy
 “The enemy isn’t other people, the enemy is nature. We’re in competition with entropy.”
 “My only strive is to be anti-modelable. As soon as someone starts to model me, I’ll do the opposite. If you’re, like, way smarter than me, you can actually beat this. If you’re not way smarter, then I’m going to be completely opaque to you. You can look at me in broad strokes the way you look at Kasparov in broad strokes: he’s probably going to win the chess game, but you can’t predict the next move he’s going to make.”
 Opiate addiction and wireheading each destroy one’s life narrative by trading meaning for pleasure. “The problem with wireheading is, ‘Okay, now tell your story.’ ‘Well I sit there and I feel happy.’ ‘Okay, good sentence, bro.’”
@@ -9116,7 +9242,7 @@ Opiate addiction and wireheading each destroy one’s life narrative by trading 
 20220320
 Principia Discordia
 http://principiadiscordia.com/book/45.php
-tag="literature philosophy"
+tags: literature philosophy
 Everywhere people are hurting one another, the planet is rampant with injustices, whole societies plunder groups of their own people, mothers imprison sons, children perish while brothers war. O, woe."
 WHAT IS THE MATTER WITH THAT, IF IT IS WHAT YOU WANT TO DO?
 "But nobody wants it! Everybody hates it."
@@ -9126,7 +9252,7 @@ OH. WELL, THEN STOP.
 20220320
 Justice Creep
 https://astralcodexten.substack.com/p/justice-creep?
-tag="philosophy politics"
+tags: philosophy politics
 > "economic justice" suggests other assumptions. Current economic conditions are
 > unjust. There is some particular way to make them just, or at least closer to
 > just. We have some kind of obligation to pursue it. We are not helpers or
@@ -9146,7 +9272,7 @@ tag="philosophy politics"
 20220325
 Optimal autonomous organizations (OAO)
 https://graymirror.substack.com/p/optimal-autonomous-organizations
-tag="curtis-yarvin law legal corporation systems business economics bitcoin"
+tags: curtis-yarvin law legal corporation systems business economics bitcoin
 - > An OAO is a DAO running a modern version of the joint-stock design.
   Eliminating the official rituals that slow down every official corporation,
   while maintaining the management structure that makes those corporations
@@ -9167,7 +9293,7 @@ tag="curtis-yarvin law legal corporation systems business economics bitcoin"
 20220325
 Permissive Action Link (PAL)
 https://en.wikipedia.org/wiki/Permissive_Action_Link
-tag="security operations opsec military weapons defense cryptography"
+tags: security operations opsec military weapons defense cryptography
 "Positive control". Component of a nuclear weapon system to preclude arming or
 launching until the insertion of a prescribed discrete code or combination.
 - Encrypted firing parameters
@@ -9188,14 +9314,14 @@ launching until the insertion of a prescribed discrete code or combination.
 20220331
 Look to the Stars: Navigating the Urbit
 https://messari.io/article/look-to-the-stars-navigating-the-urbit
-tag="urbit p2p distributed-systems layer2 ethereum blockchain"
+tags: urbit p2p distributed-systems layer2 ethereum blockchain
 Imagine an extensible, open source version of WeChat: Urbit is a one-stop-shop for cloud and community-based services.
 
 ================================================================================
 20220407
 The Cathedral or the Bizarre
 https://...
-tag="curtis-yarvin history politics government power machiavelli systems monarchy"
+tags: curtis-yarvin history politics government power machiavelli systems monarchy
 three sets of governed society:
   1. regime: officials (non-public)
   2. clients: entitled public depends-on the regime
@@ -9227,7 +9353,7 @@ of its democratic government is marked by numerous failures."
 20220407
 The Red-Pill Prince: How computer programmer Curtis Yarvin became America’s most controversial political theorist
 https://www.tabletmag.com/sections/news/articles/red-pill-prince-curtis-yarvin
-tag="curtis-yarvin history politics government power machiavelli systems"
+tags: curtis-yarvin history politics government power machiavelli systems
 - > Everywhere one looked in the Moldbuggian scheme, things were not what they
   seemed. Beneath the surface of modern progressivism, for instance, Yarvin
   found that the sacraments and dogmas of America’s founding Protestant religion
@@ -9256,7 +9382,7 @@ tag="curtis-yarvin history politics government power machiavelli systems"
 20220408
 Paypal Co-Founder Peter Thiel - Bitcoin Keynote - Bitcoin 2022 Conference
 https://www.youtube.com/watch?v=ko6K82pXcPA
-tag="peter-thiel bitcoin federal-reserve central-bank ipo inflation monetary-policy esg"
+tags: peter-thiel bitcoin federal-reserve central-bank ipo inflation monetary-policy esg
 - "ESG is a factory for naming enemies. ... When you think ESG, think CCP."
 - "Taking a company public is a de facto government takeover. When a company
   IPOs, some people who are effectively government bureaucrats become more
@@ -9267,7 +9393,7 @@ tag="peter-thiel bitcoin federal-reserve central-bank ipo inflation monetary-pol
 20220409
 Coz profiler: Find Code that Counts with "Causal Profiling"
 https://github.com/plasma-umass/coz
-tag="debug profiling programming c performance"
+tags: debug profiling programming c performance
 - Causal profiling measures optimization potential for serial, parallel, and
   asynchronous programs without instrumentation of special handling for library
   calls and concurrency primitives. Instead, a causal profiler uses performance
@@ -9280,7 +9406,7 @@ tag="debug profiling programming c performance"
 20220419
 lexical: extensible text editor framework
 https://lexical.dev/
-tag="extensible text-editor application framework library facebook-meta"
+tags: extensible text-editor application framework library facebook-meta
 https://news.ycombinator.com/item?id=31019778
 - deprecates draft.js https://github.com/facebook/draft-js
 - Lexical is not strictly tied to collaboration but its plugin system was built to be extensible enough to cater all developers needs. Collaboration is just another plugin (@lexical/yjs) and does listen and perform the conversion every time there's changes in the EditorState.
@@ -9289,7 +9415,7 @@ https://news.ycombinator.com/item?id=31019778
 20220509
 Varoufakis and bitcoin maximalism
 https://graymirror.substack.com/p/varoufakis-and-bitcoin-maximalism
-tag="curtis-yarvin economics federal-reserve stock finance government banking money"
+tags: curtis-yarvin economics federal-reserve stock finance government banking money
 > Another name for rolling over loans is maturity transformation. Because
 > long-term interest rates are naturally higher than short-term interest rates,
 > it is naturally profitable to borrow with short-term loans (payable in a month
@@ -9325,13 +9451,13 @@ tag="curtis-yarvin economics federal-reserve stock finance government banking mo
 20220530
 NASA Active Fires Map (FIRMS: Fire Information for Resource Management System)
 https://firms.modaps.eosdis.nasa.gov/map
-tag="web tools world map geography"
+tags: web tools world map geography
 
 ================================================================================
 20220605
 The blockchain and the whitechain
 https://graymirror.substack.com/p/the-blockchain-and-the-whitechain
-tag="curtis-yarvin economics federal-reserve finance government banking money currency bitcoin cryptocurrency"
+tags: curtis-yarvin economics federal-reserve finance government banking money currency bitcoin cryptocurrency
 - > But once the state gets to know the classic blockchain, the state likes it
   quite a bit. The blockchain is a kind of technical perfection of the official
   record that lies at the heart of every civilized state. ... This attraction is
@@ -9348,7 +9474,7 @@ tag="curtis-yarvin economics federal-reserve finance government banking money cu
 20220605
 Only a monarch can control the elites: Democracy enables the deep state to rule us
 https://unherd.com/2022/06/only-a-monarch-can-control-the-elites/
-tag="curtis-yarvin politics government realpolitik machiavelli monarchy oligarchy democracy"
+tags: curtis-yarvin politics government realpolitik machiavelli monarchy oligarchy democracy
 - > Bagehot, 19th-century theorist of the English Constitution, divided
   sovereigns into the "effective" ("operating", actually in control of the
   state) and the "dignified" ("ceremonial", a crowned Kardashian, a long-haired
@@ -9367,7 +9493,7 @@ tag="curtis-yarvin politics government realpolitik machiavelli monarchy oligarch
 20220605
 Quango (Quasi-NGO)
 https://en.wikipedia.org/wiki/Quango
-tag="concepts government"
+tags: concepts government
 An organisation to which a government has devolved power, but which is still
 partly controlled and/or financed by government bodies.
 
@@ -9375,7 +9501,7 @@ partly controlled and/or financed by government bodies.
 20220612
 Please, don't build another Large Hadron Collider
 https://news.ycombinator.com/item?id=31651557
-tag="physics science funding politics misallocation"
+tags: physics science funding politics misallocation
 > As a low-energy quantum physicist, I completely agree: Experimental
 > high-energy physics has become primarily an industrial subsidy scheme[1], and
 > if we want the highest chance of reaching a grand unified theory, it seems the
@@ -9406,7 +9532,7 @@ tag="physics science funding politics misallocation"
 20220620
 On the crypto blizzard (The Bubble Theory of Money)
 https://graymirror.substack.com/p/on-the-crypto-blizzard
-tag="curtis-yarvin theory bubble inflation economics federal-reserve finance government banking money currency bitcoin cryptocurrency"
+tags: curtis-yarvin theory bubble inflation economics federal-reserve finance government banking money currency bitcoin cryptocurrency
 The Bubble Theory of Money: "money is a bubble that doesn't pop".
 Two principles:
   1. The pool of savings—net demand to transfer purchasing power from the
@@ -9430,7 +9556,7 @@ how you avoid the monetary-dilution tax.
 20220623
 Biggest idea in software architecture: the "narrow waist"
 https://www.oilshell.org/blog/2022/03/backlog-arch.html
-tag="programming softwareengineering design compsci architecture oilshell"
+tags: programming softwareengineering design compsci architecture oilshell
 "narrow waist" (from networking theory but more generally applicable)
 - important idea, because it describes the biggest and longest-lived systems.
 - examples:
@@ -9456,7 +9582,7 @@ tag="programming softwareengineering design compsci architecture oilshell"
 20220728
 The Desperate Lives Inside Ukraine’s “Dead Cities”
 https://www.newyorker.com/magazine/2022/08/01/the-desperate-lives-inside-ukraines-dead-cities
-tag="history war ukraine russia nato europe"
+tags: history war ukraine russia nato europe
 “There were pieces of people everywhere,” the officer said. “When someone died,
 we took their tourniquets off and put them on someone else. By the end, my boots
 were filled with blood.”
@@ -9465,7 +9591,7 @@ were filled with blood.”
 20220801
 More invested in nuclear fusion in last 12 months than past decade
 https://news.ycombinator.com/item?id=32207152
-tag="engineering science energy nuclear"
+tags: engineering science energy nuclear
 > But where are the fusion neutrons? (See Voodoo Fusion [1])
 > [1] https://vixra.org/pdf/1812.0382v1.pdf
 >
@@ -9485,7 +9611,7 @@ tag="engineering science energy nuclear"
 20220801
 C23 #embed
 https://thephd.dev/finally-embed-in-c23
-tag="c legacy backwards-compatibility preprocessor build macros programming performance"
+tags: c legacy backwards-compatibility preprocessor build macros programming performance
 - bug report in GCC where someone embedded a big xxd-generated array (one big
   list of numbers), and ultimately their response to the bug report was “We Will
   Simply Stop Keeping Error Information For All Arrays Past The 256th Element”.
@@ -9506,7 +9632,7 @@ tag="c legacy backwards-compatibility preprocessor build macros programming perf
 20220801
 The return of the Earl
 https://graymirror.substack.com/p/the-return-of-the-earl
-tag="concepts mental-model politics literature shakespeare"
+tags: concepts mental-model politics literature shakespeare
 - Shakespeare =? Edward de Vere, 17th Earl of Oxford. https://shakespeareoxfordfellowship.org/
 - Conquest’s law: “everyone is reactionary on the subjects they understand”
   https://en.wikipedia.org/wiki/Robert_Conquest#Three_Laws_of_Politics
@@ -9525,7 +9651,7 @@ tag="concepts mental-model politics literature shakespeare"
 20220805
 Neom
 https://en.wikipedia.org/wiki/Neom
-tag="saudi-arabia terraforming protopia planned-city"
+tags: saudi-arabia terraforming protopia planned-city
 Neom (Arabic: نيوم) is a Saudi city being built in Tabuk Province in
 northwestern Saudi Arabia. It is planned to incorporate smart city technologies
 and to function as a tourist destination. The site is north of the Red Sea, east
@@ -9538,7 +9664,7 @@ Linked with Travis Kalanick: https://en.wikipedia.org/wiki/Travis_Kalanick#Post-
 20220809
 Two strokes of state
 https://graymirror.substack.com/p/two-strokes-of-state
-tag="curtis-yarvin politics government realpolitik machiavelli monarchy oligarchy democracy"
+tags: curtis-yarvin politics government realpolitik machiavelli monarchy oligarchy democracy
 > _Humphrey_ https://en.wikipedia.org/wiki/Humphrey%27s_Executor_v._United_States
 > says that Congress can establish “independent” agencies which are in the
 > executive branch, but not under the full power of the chief executive. In
@@ -9553,31 +9679,31 @@ tag="curtis-yarvin politics government realpolitik machiavelli monarchy oligarch
 20220813
 Everything You Never Wanted to Know About CMake
 https://izzys.casa/2019/02/everything-you-never-wanted-to-know-about-cmake/
-tag="c build cmake programming softwareengineering"
+tags: c build cmake programming softwareengineering
 
 ================================================================================
 20220814
 lambdaway: a web text-editor where you can write, compute and draw
 http://lambdaway.free.fr/lambdawalks/
-tag="wiki notes web hapax"
+tags: wiki notes web hapax
 
 ================================================================================
 20220821
 Diablo 1 for web browsers
 https://github.com/d07RiV/diabloweb
-tag="web wasm webassembly game software programming embed webbrowser diablo blizzard"
+tags: web wasm webassembly game software programming embed webbrowser diablo blizzard
 
 ================================================================================
 20220821
 Ultima Online for the web
 https://classicuo.org/
-tag="web wasm webassembly game software programming embed webbrowser"
+tags: web wasm webassembly game software programming embed webbrowser
 
 ================================================================================
 20220821
 Nobody wants to teach anymore
 https://news.ycombinator.com/item?id=32542440
-tag="economics budget government schooling education costs society"
+tags: economics budget government schooling education costs society
 > I was a school board member and did exhaustive analysis of our budget. For primary education through high school, admin is NOT the root cause. If you take any school budget, and strip away everything that is not an actual classroom teacher, you will find
 >   - 1/3 or less goes to "frontline" teaching costs.
 >   - 1/3 goes to special ed and all that is attendant with that.
@@ -9594,7 +9720,7 @@ tag="economics budget government schooling education costs society"
 20220821
 The productivity tax you pay for context switching
 https://async.twist.com/context-switching/
-tag="work productivity habits focus concentration time-management attention"
+tags: work productivity habits focus concentration time-management attention
 - Upon returning to a task after a distraction, it can take up to 23 minutes to re-focus.
   https://www.washingtonpost.com/news/inspired-life/wp/2015/06/01/interruptions-at-work-can-cost-you-up-to-6-hours-a-day-heres-how-to-avoid-them/
 - Even “brief mental blocks” as a result of switching can take as much as 40% of a person’s productive time.
@@ -9607,14 +9733,14 @@ tag="work productivity habits focus concentration time-management attention"
 20220405
 OIDC spec (OpenID Connect Core 1.0)
 https://openid.net/specs/openid-connect-core-1_0.html#UserInfo
-tag="oidc oauth auth webapp web network softwareengineering rfc spec login"
+tags: oidc oauth auth webapp web network softwareengineering rfc spec login
 OpenID Connect 1.0 is a simple identity layer on top of the OAuth 2.0 protocol. It enables Clients to verify the identity of the End-User based on the authentication performed by an Authorization Server, as well as to obtain basic profile information about the End-User in an interoperable and REST-like manner.
 
 ================================================================================
 20220908
 The Success and Failure of Ninja
 http://neugierig.org/software/blog/2020/05/ninja.html
-tag="build-systems ninja programming softwareengineering exceptions errors design failure-modes"
+tags: build-systems ninja programming softwareengineering exceptions errors design failure-modes
 End-to-end / crash-only. ...: given that you need to run Ninja from scratch
 sometimes, if you make that fast, then you don't need to build a second "online"
 codepath. Projects that can stay memory-resident tend to eventually let their
@@ -9623,7 +9749,7 @@ startup performance languish.
 ================================================================================
 20221007
 Export tweets to markdown
-tag="twitter data programming develop markdown formats archive"
+tags: twitter data programming develop markdown formats archive
 https://github.com/kbravh/tweet-to-markdown
 $ npx tweet-to-markdown -b  --assets --assets-path "./images"
 
@@ -9631,7 +9757,7 @@ $ npx tweet-to-markdown -b  --assets --assets-path "./images"
 20221009
 A Look at the Design of Lua
 https://www.lua.org/doc/cacm2018.pdf
-tag="lua c design pl programming-language runtime engineering"
+tags: lua c design pl programming-language runtime engineering
 Lua offers exactly one general mechanism for each major aspect of programming:
 tables for data; functions for abstraction; and coroutines for control.
 
@@ -9639,7 +9765,7 @@ tables for data; functions for abstraction; and coroutines for control.
 20221010
 ULID: Universally Unique Lexicographically Sortable Identifier
 https://github.com/ulid/spec
-tag="encoding number-theory compsci guid uuid ulid spec"
+tags: encoding number-theory compsci guid uuid ulid spec
 improved alternative to UUID
 ulid() // 01ARZ3NDEKTSV4RRFFQ69G5FAV
 https://github.com/ulid/spec/issues/28
@@ -9656,7 +9782,7 @@ compare:
 20221010
 Open Location Code (OLC)
 https://github.com/google/open-location-code
-tag="encoding compression entropy gps map compsci guid uuid spec address-space"
+tags: encoding compression entropy gps map compsci guid uuid spec address-space
 Open Location Code (OLC) https://plus.codes
 Library to generate short codes, called "plus codes", that can be used as
 digital addresses where street addresses don't exist.
@@ -9669,7 +9795,7 @@ compare:
 20221011
 SCIP: a better code indexing format than LSIF
 https://about.sourcegraph.com/blog/announcing-scip
-tag="code-navigation lsp index format semantic-analysis"
+tags: code-navigation lsp index format semantic-analysis
 code indexing format to code navigation features
 LSIF:
 - https://github.com/microsoft/lsif-node
@@ -9679,13 +9805,13 @@ LSIF:
 20221012
 Lite XL: lightweight text editor written in Lua
 https://github.com/lite-xl/lite-xl
-tag="text-editor software application text programming"
+tags: text-editor software application text programming
 
 ================================================================================
 20221016
 Lindy effect
 https://en.wikipedia.org/wiki/Lindy_effect
-tag="concepts mental-model antifragile mathematics"
+tags: concepts mental-model antifragile mathematics
 - The future life expectancy of some non-perishable things, like a technology or
   an idea, is proportional to their current age. Thus, the longer something has
   survived to exist or be used in the present, the longer its remaining life
@@ -9701,7 +9827,7 @@ tag="concepts mental-model antifragile mathematics"
 20221030
 "Stop Writing Dead Programs" by Jack Rusher
 https://www.youtube.com/watch?v=8Ab3ArE8W3s
-tag="programming softwareengineering repl lisp smalltalk"
+tags: programming softwareengineering repl lisp smalltalk
 1. batch processing
    has received by far the most PL investment
 2. time and state
@@ -9715,7 +9841,7 @@ tag="programming softwareengineering repl lisp smalltalk"
 20221104
 Markdown, Asciidoc, or reStructuredText
 https://news.ycombinator.com/item?id=33468213
-tag="documentation tech-writing markup markdown"
+tags: documentation tech-writing markup markdown
 - markdown:
   > Last year we (mozilla MDN) [changed the source format for MDN](https://openwebdocs.org/content/posts/markdown-conversion/) from some extremely messy, WYSIWYG-authored HTML to something that would be easier for authors to use. We considered Asciidoc and reST, and despite its limitations, we chose Markdown (GFM specifically) for two reasons:
   > 1. We get a _lot_ of casual contributors to MDN: about 180-200 unique contributors/month, most of whom we never see again. Almost all of them can contribute much more easily with Markdown than with anything else. Many of these people are unlikely to put even an half an hour into learning a new syntax.
@@ -9739,7 +9865,7 @@ tag="documentation tech-writing markup markdown"
 20221108
 Cat9: a user shell script for LASH - a command-line shell that discriminates against terminal emulators, written in Lua.
 https://github.com/letoram/cat9
-tag="lua shell"
+tags: lua shell
 LASH just provides some basic shared infrastructure and a recovery shell.
     It then runs a user provided script that actually provides most of the rules for how the command line is supposed to look and behave.
 Cat9 is such a script.
@@ -9753,7 +9879,7 @@ Arcan: among its many subprojects are SHMIF and TUI.
 20221214
 Smithy Client Generator for TypeScript
 https://github.com/awslabs/smithy-typescript
-tag="aws smithy codegen typescript"
+tags: aws smithy codegen typescript
 generate HTTP server and client from smithy model
 https://aws.amazon.com/blogs/devops/smithy-server-and-client-generator-for-typescript/
 https://github.com/aws-samples/smithy-server-generator-typescript-sample
@@ -9762,13 +9888,13 @@ https://github.com/aws-samples/smithy-server-generator-typescript-sample
 20221110
 Effortless Language Servers
 https://stefan-marr.de/2022/10/effortless-language-servers/
-tag="code-navigation pl grammar language lsp semantic-analysis"
+tags: code-navigation pl grammar language lsp semantic-analysis
 
 ================================================================================
 20221113
 Communist Party of Vietnam
 https://en.wikipedia.org/wiki/Communist_Party_of_Vietnam
-tag="socialism communism capitalism economics politics government vietname marxism leninism"
+tags: socialism communism capitalism economics politics government vietname marxism leninism
 - Superiority of socialism
   - According to Marxism–Leninism, socialism is the second-to-last stage of socio-economic development before pure communism.
 - Socialist-oriented market economy
@@ -9779,14 +9905,14 @@ tag="socialism communism capitalism economics politics government vietname marxi
 20221121
 Climate Change Debate: Bjørn Lomborg and Andrew Revkin | Lex Fridman Podcast #339
 https://www.youtube.com/watch?v=5Gk9gIpGvSE
-tag="science global-warming climate weather environmentalism podcast"
+tags: science global-warming climate weather environmentalism podcast
 - 90 hurricanes/year, this rate has not changed in correlation with global warming
 
 ================================================================================
 20221121
 Copenhagen Consensus Center
 https://www.copenhagenconsensus.com/
-tag="science global-warming climate weather environmentalism podcast"
+tags: science global-warming climate weather environmentalism podcast
 > research and development for more effective and cheaper green technologies to
 > combat climate change as well as increase agricultural productivity.
 
@@ -9794,7 +9920,7 @@ tag="science global-warming climate weather environmentalism podcast"
 20221126
 Azure has run out of compute [in Germany region]
 https://news.ycombinator.com/item?id=33743870
-tag="cloud azure aws"
+tags: cloud azure aws
 Unlike GCP and Azure, all AWS regions are (were) partitioned by design. This "blast radius" is (was) fantastic for resilience, security, and data sovereignty. It is (was) incredibly easy to be compliant in AWS, not to mention the ruggedness benefits.
 AWS customers with more money than cloud engineers kept clamoring for cross-region capabilities ("Like GCP has!"), and in last couple years AWS has been adding some.
 Cloud customers should be careful what they wish for. If you count on it in the data center, and you don't see it in a well-architected cloud service provider, perhaps it's a legacy pattern best left on the datacenter floor. In this case, at some point hard partitioning could become tough to prove to audit and impossible to count on for resilience.
@@ -9803,13 +9929,13 @@ Cloud customers should be careful what they wish for. If you count on it in the 
 20221126
 Guide to Playing Myth in 2022
 https://tain.totalcodex.net/forum/viewtopic.php?t=7461
-tag="web game software webbrowser myth bungie"
+tags: web game software webbrowser myth bungie
 
 ================================================================================
 20221126
 Rainier Mesa (Area 12)
 https://en.wikipedia.org/wiki/Rainier_Mesa
-tag="area12 area51 government usgov military aliens"
+tags: area12 area51 government usgov military aliens
 Rainier Mesa is one of four major nuclear test regions within the Nevada National Security Site (NNSS).
 It occupies approximately 40 square miles (100 km2) along the northern edge of the NNSS and corresponds to Area 12.
 
@@ -9817,13 +9943,13 @@ It occupies approximately 40 square miles (100 km2) along the northern edge of t
 20221130
 Tech Layoff Tracker
 https://www.trueup.io/layoffs
-tag="business economics economy"
+tags: business economics economy
 
 ================================================================================
 20221202
 The road to AWS Lambda SnapStart - guide through the years of JVM "cold start" tinkering - JVM Weekly #115
 https://vived.substack.com/p/the-road-to-aws-lambda-snapstart
-tag="aws java linux cache graal"
+tags: aws java linux cache graal
 - CRIU: Checkpoint/Restore in Userspace  https://criu.org
   Linux feature that allows you to take a "snapshot" of an entire running application process and dump it to the disk.
 - CRaC (Coordinated Restore at Checkpoint) is the aforementioned CRIU API OpenLibert was asking for. It allows you to create a "checkpoint" - given memory dumps - at any point in the application's operation as defined by the software developer, using a command:
@@ -9854,7 +9980,7 @@ tag="aws java linux cache graal"
 20221204
 ChatGPT: Optimizing Language Models for Dialogue
 https://openai.com/blog/chatgpt/
-tag="ai machine-learning chatgpt"
+tags: ai machine-learning chatgpt
 We’ve trained a model called ChatGPT which interacts in a conversational way. The dialogue format makes it possible for ChatGPT to answer followup questions, admit its mistakes, challenge incorrect premises, and reject inappropriate requests. ChatGPT is a sibling model to InstructGPT, which is trained to follow an instruction in a prompt and provide a detailed response.
 We trained this model using Reinforcement Learning from Human Feedback (RLHF), using the same methods as InstructGPT, but with slight differences in the data collection setup. We trained an initial model using supervised fine-tuning: human AI trainers provided conversations in which they played both sides—the user and an AI assistant. We gave the trainers access to model-written suggestions to help them compose their responses.
 To create a reward model for reinforcement learning, we needed to collect comparison data, which consisted of two or more model responses ranked by quality. To collect this data, we took conversations that AI trainers had with the chatbot. We randomly selected a model-written message, sampled several alternative completions, and had AI trainers rank them. Using these reward models, we can fine-tune the model using Proximal Policy Optimization. We performed several iterations of this process.
@@ -9863,7 +9989,7 @@ To create a reward model for reinforcement learning, we needed to collect compar
 20221214
 World Military Expenditures and Arms Transfers
 https://www.state.gov/world-military-expenditures-and-arms-transfers/
-tag="government government-failure military logistics budget"
+tags: government government-failure military logistics budget
 > WMEAT Will No Longer be Published
 > WMEAT 2021, which the Department of State published in December 2021, is the
 > final edition of World Military Expenditures and Arms Transfers (WMEAT).
@@ -9876,7 +10002,7 @@ tag="government government-failure military logistics budget"
 20221214
 “Most transparent administration in history” stops publishing military expenditures, arms transfers report
 https://www.lawenforcementtoday.com/biden-stops-publishing-military-expenditures-arms-transfers-report/
-tag="government government-failure military logistics budget"
+tags: government government-failure military logistics budget
 > Joseph Patrick|August 27, 2022
 > WASHINGTON, DC- From the “most transparent administration in American history,” we find one item that has largely been buried by the mainstream media.
 > This week, the State Department announced that the World Military Expenditures and Arms Transfers report, which has been published for over 50 years, will no longer be produced. As usual, that provision was buried deep inside the National Defense Authorization Act for FY 2022 under Section 5114(b)(4).
@@ -9903,7 +10029,7 @@ tag="government government-failure military logistics budget"
 20221215
 Git partial clone (vs shallow clone)
 https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/
-tag="git dvcs compsci data-structure"
+tags: git dvcs compsci data-structure
 Shallow clone (no commit history)
   - truncates the commit history
     git clone --depth=<N>
@@ -9929,7 +10055,7 @@ Partial clone (no blobs/trees)
 20221219
 Git: Counting Objects: reachability bitmaps
 https://github.blog/2015-09-22-counting-objects/
-tag="git dvcs bitmap bloom-filter compsci data-structure"
+tags: git dvcs bitmap bloom-filter compsci data-structure
 - Reachability queries: what objects in the graph can be reached from a set of commits?
 - Indexes (stored as bitmaps) contain the information required to answer these queries
 - To find a commit's reachable objects, we simply get its bitmap and check the
@@ -9939,7 +10065,7 @@ tag="git dvcs bitmap bloom-filter compsci data-structure"
 20221216
 vim_dev: Bug in patch 9.0.0907 causes E1312 in autocmd
 https://groups.google.com/g/vim_dev/c/Cw8McBH6DDM
-tag="vim mailing-list development text-editor history"
+tags: vim mailing-list development text-editor history
 Bram Moolenaar:
 > At some point I thought I should drop auto commands completely, because
 > it's just getting too complicated and too many crashes have had to be
@@ -9958,7 +10084,7 @@ Bram Moolenaar:
 20230101
 The Power of Toys | David Nolen | Lambda Days 2022
 https://www.youtube.com/watch?v=qDGTxyIrKJY
-tag="clojure programming systems compsci spec engineering software-engineering"
+tags: clojure programming systems compsci spec engineering software-engineering
 abstraction vs generalization
 - "toy" abstraction more powerful
 - generalization implies specification (risky, costly to change if it has consumers)
@@ -9969,7 +10095,7 @@ property-based testing (PBT)
 20230104
 Ask HN: Why isn't JSON-RPC more widely adopted?
 https://news.ycombinator.com/item?id=34211796
-tag="json rpc protocol"
+tags: json rpc protocol
 JSON-RPC (vs HTTP):
 - (main problem) Method Name is a part of the body, so you must parse it to decide how to dispatch it.
 - Error Code is a part of the response, so you must parse it each time to decide if it's success.
@@ -9986,7 +10112,7 @@ HTTP has auth, routing, error handling, multiplexing, etc.
 20230105
 Easy, alternative "soft delete" (postgresql): `deleted_record_insert`
 https://brandur.org/fragments/deleted-record-insert
-tag="sql postgresql database archive undelete"
+tags: sql postgresql database archive undelete
     This function will generically insert a deleted record from _any_ source table:
         CREATE FUNCTION deleted_record_insert() RETURNS trigger
             LANGUAGE plpgsql
@@ -10010,7 +10136,7 @@ tag="sql postgresql database archive undelete"
 20230105
 Napoleon's Commentaries on the Wars of Julius Caesar
 https://www.napoleon.org/en/magazine/publications/napoleons-commentaries-wars-julius-caesar/
-tag="book caesar napoleon war tactics strategy"
+tags: book caesar napoleon war tactics strategy
 ISBN  1526716275, 9781526716279
 on caesar's death:
   > if you destroy aristocracy, it will be recreated among the powerful families of the Third Estate.
@@ -10033,7 +10159,7 @@ caesar "did nothing without a decree from the senate".
 20230110
 Hard to work with.
 https://lethain.com/hard-to-work-with/
-tag="people-management work industry career"
+tags: people-management work industry career
 > folks fail in an organization primarily because they want to hold others to a higher standard than their organization’s management is willing to enforce.
 > A few examples:
 > - An interim Vice-President of Engineering (VPE) at a company whose CEO won’t finalize the role because one peer is upset they didn’t get the role. That peer has been struggling for some time, but the CEO doesn’t want to “rock the boat” so leaves them both lingering. Attempts to hold their peer accountable are viewed as “evidence they’re not ready” for permanent VPE role
@@ -10049,7 +10175,7 @@ tag="people-management work industry career"
 20230115
 Emmanuel Todd (French intellectual) claims that the "Third World War has started."
 https://twitter.com/RnaudBertrand/status/1613924570725244928
-tag="foreign-policy history politics government strategy russia ukraine china nato europe usa war reserve-currency"
+tags: foreign-policy history politics government strategy russia ukraine china nato europe usa war reserve-currency
 > Emmanuel Todd: «La Troisième Guerre mondiale a commencé»
 > GRAND ENTRETIEN - Au-delà de l’affrontement militaire entre la Russie et l’Ukraine, l’anthropologue insiste sur la dimension idéologique et culturelle de cette guerre et sur l’opposition entre l’Occid…
 > https://www.lefigaro.fr/vox/monde/emmanuel-todd-la-troisieme-guerre-mondiale-a-commence-20230112#Echobox=1673601494-1
@@ -10099,7 +10225,7 @@ tag="foreign-policy history politics government strategy russia ukraine china na
 20230115
 Database is faster than filesystem
 https://www.sqlite.org/fasterthanfs.html
-tag="compsci filesystem database"
+tags: compsci filesystem database
 SQLite reads and writes small blobs (for example, thumbnail images) 35% faster¹ than the same blobs can be read from or written to individual files on disk using fread() or fwrite().
 https://news.ycombinator.com/item?id=34387671
   > Database is faster than a nominal file system, though it can't quite replace them.
@@ -10114,14 +10240,14 @@ https://news.ycombinator.com/item?id=34387671
 20230116
 William Buckland
 https://en.wikipedia.org/wiki/William_Buckland
-tag="history england france louis-xiv"
+tags: history england france louis-xiv
 William Buckland (Dean of Westminster ca. 1845) ate the mummified heart of King Louis XIV.
 
 ================================================================================
 20230130
 Carbonyl: Chromium running inside your terminal
 https://github.com/fathyb/carbonyl
-tag="terminal tui webbrowser web"
+tags: terminal tui webbrowser web
 Does not require a window server (i.e. works in a safe-mode console), and even runs through SSH.
 Carbonyl originally started as https://github.com/fathyb/html2svg and is now the runtime behind it.
 
@@ -10129,7 +10255,7 @@ Carbonyl originally started as https://github.com/fathyb/html2svg and is now the
 20230131
 "Gerade in dieser Krise sieht man doch den Wahnsinn der Atomkraft", Veröffentlicht am 30.10.2022, Von Claus Christian Malzahn
 https://www.welt.de/politik/deutschland/plus241838411/Juergen-Trittin-Mit-diesem-Irrsinn-endlich-aufhoeren.html
-tag="environmentalism energy nuclear-energy climate-change politics government-policy"
+tags: environmentalism energy nuclear-energy climate-change politics government-policy
 https://twitter.com/ryan_pickering_/status/1616275474577231872
 > In a recent interview, prominent German Green Party German Green Party
 > politician Jürgen Trittin (Federal Minister for the Environment, Nature
@@ -10144,7 +10270,7 @@ https://twitter.com/ryan_pickering_/status/1616275474577231872
 20230124
 RFC 8628: Device Authorization Grant
 https://noise.getoto.net/2022/11/30/making-unphishable-2fa-phishable/
-tag="security phishing oidc oauth auth webapp web network softwareengineering rfc spec login"
+tags: security phishing oidc oauth auth webapp web network softwareengineering rfc spec login
 What is RFC 8628 Device Authorization Grant? Imagine a device that you don’t want to type a password into – either it has no input devices at all (eg, some IoT thing) or it’s awkward to type a complicated password (eg, a TV with an on-screen keyboard).
   You want that device to be able to access resources on behalf of a user, so you want to ensure that that user authenticates the device.
   RFC 8628 describes an approach where the device requests the credentials, and then presents a code to the user (either on screen or over Bluetooth or something), and starts polling an endpoint for a result.
@@ -10161,7 +10287,7 @@ Vulnerability: what if an attacker obfuscates tricks a user into clicking such a
 20230131
 AWS SSO OpenID Connect (OIDC)
 https://blog.christophetd.fr/phishing-for-aws-credentials-via-aws-sso-device-code-authentication/
-tag="security oidc oauth auth webapp web network softwareengineering rfc spec login"
+tags: security oidc oauth auth webapp web network softwareengineering rfc spec login
 The AWS SSO OpenID Connect (OIDC) service currently implements only the portions of the OAuth 2.0 Device Authorization Grant standard (https://tools.ietf.org/html/rfc8628) that are necessary to enable SSO authentication with the AWS CLI.
 Support for other OIDC flows frequently needed for native applications, such as Authorization Code Flow (+ PKCE), will be addressed in future releases.
 https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html
@@ -10192,7 +10318,7 @@ THE *DEVICE CODE* GRANT TYPE
 20230208
 1932 Democratic Party (FDR) Platform
 https://www.presidency.ucsb.edu/documents/1932-democratic-party-platform
-tag="history foreign-policy politics history fdr eisenhower new-deal"
+tags: history foreign-policy politics history fdr eisenhower new-deal
 > We advocate an immediate and drastic reduction of governmental expenditures by
 > abolishing useless commissions and offices, consolidating departments and
 > bureaus, and eliminating extravagance to accomplish a saving of not less than
@@ -10218,7 +10344,7 @@ tag="history foreign-policy politics history fdr eisenhower new-deal"
 20230209
 How America Took Out The Nord Stream Pipeline
 https://seymourhersh.substack.com/p/how-america-took-out-the-nord-stream
-tag="us-govt russia politics war energy"
+tags: us-govt russia politics war energy
 > In the immediate aftermath of the pipeline bombing, the American media treated
 > it like an unsolved mystery. Russia was repeatedly cited as a likely culprit,
 > spurred on by calculated leaks from the White House—but without ever
@@ -10233,7 +10359,7 @@ tag="us-govt russia politics war energy"
 20230211
 Everything I believed about nuclear waste was wrong
 https://zionlights.substack.com/p/everything-i-believed-about-waste-was-wrong
-tag="environmentalism energy nuclear-energy climate-change politics"
+tags: environmentalism energy nuclear-energy climate-change politics
 - All the high-level nuclear waste produced in the world would fit in a single
   football field to a height of approximately ten yards.
 - In France, where fuel is reprocessed, just 0.2% of all radioactive waste by
@@ -10249,14 +10375,14 @@ tag="environmentalism energy nuclear-energy climate-change politics"
 20230220
 Gentle Introduction to CRDTs
 https://vlcn.io/blog/gentle-intro-to-crdts.html
-tag="todo crdt data-structure compsci"
+tags: todo crdt data-structure compsci
 https://news.ycombinator.com/item?id=34746716
 
 ================================================================================
 20230220
 Did Insurance Fire Brigades let uninsured buildings burn?
 https://www.tomscott.com/corrections/firemarks/
-tag="history economics"
+tags: history economics
 > In the early years of fire insurance, insurance company fire brigades seemingly made little distinction between insured and uninsured properties. They were instructed to attend and help put out all fires. The grounds for this policy included the risk of fire-spread between uninsured and insured properties, the advertising value of the firemen and their engines, and charitable acts for those who could not afford insurance.
 > In principle, this policy seems to have remained in force throughout the 18th century. In practice, though, changing circumstances led to keen rivalry between fire brigades, whether insurance company, parish or private. Firstly, monetary rewards were introduced for the earliest attendees at fires. That innovation led to engines racing each other through the streets. As the number of fire insurance companies grew, so, too, did the number of fire engines. Once at the fire, too many engines were too often competing for very limited water supplies.
 > When the nature of the firemen is added to this situation, the scene is set for more competition, and chaos. This, in turn, can reasonably be imagined as having led to conflict – both verbal and physical. With no reward, no water, and no insurance interest in a burning building, it is not difficult to envisage firemen standing back on occasion, jeering and generally interfering with rival brigades fighting a fire in which they did have an interest. Or, alternatively, simply packing up and going home. Arguably, therefore, the legend of insurance fire brigades letting uninsured buildings burn originated in the first half of the 18th century.
@@ -10268,7 +10394,7 @@ tag="history economics"
 20230220
 Holepunch: powerful suite of independent components to effortlessly construct peer-to-peer applications.
 https://docs.holepunch.to/
-tag="distributed-systems p2p peer-to-peer"
+tags: distributed-systems p2p peer-to-peer
 - Hypercore: A distributed, secure append-only log is a useful tool for creating fast and scalable applications without a backend, as it is entirely peer-to-peer.
 - Corestore: A Hypercore factory designed to facilitate the management of sizable named Hypercore collections.
 - Hyperswarm: A high-level API for finding and connecting to peers who are interested in a "topic." 
@@ -10281,7 +10407,7 @@ tag="distributed-systems p2p peer-to-peer"
 20230220
 Linux Foundation purpose
 https://news.ycombinator.com/item?id=34029488
-tag="linux oss legal"
+tags: linux oss legal
 > Linux Foundation employee here [0]. The value the Linux Foundation is
 > providing the legal infrastructure for competitors to work together and stay
 > clear of anti-trust problems. Every one of our meetings is supposed to start
@@ -10294,7 +10420,7 @@ tag="linux oss legal"
 20230220
 Google Maps not profitable?
 https://news.ycombinator.com/item?id=34029202
-tag="google maps antitrust monopoly"
+tags: google maps antitrust monopoly
 @AlbertCory: "dominance" does not equal "profits." How do I know this?
 > I was in Google Patent Litigation, and there were tons of suits against Maps.
 > In all of these, the plaintiff strains as hard as they can to find some
@@ -10309,7 +10435,7 @@ tag="google maps antitrust monopoly"
 20230220
 You can have geothermal power everywhere if you drill deep enough
 https://www.treehugger.com/geothermal-drilling-technology-quaise-energy-5219924
-tag="energy geothermal"
+tags: energy geothermal
 https://news.ycombinator.com/item?id=30476050
 - Outdated geothermal energy that taps underground water reservoirs near heat sources has been shown to cause earthquakes and other not good side effects.
   All of those effects are associated with water being released from aquifers
@@ -10340,13 +10466,13 @@ https://news.ycombinator.com/item?id=30476050
 20230220
 Realtime Collaborative Diagramming: Mermaid in Notion
 https://www.happyandeffective.com/blog/realtime-collaborative-diagramming-in-notion-with-mermaidjs
-tag="mermaid diagram ascii examples"
+tags: mermaid diagram ascii examples
 
 ================================================================================
 20230220
 Human flesh search engine
 https://en.wikipedia.org/wiki/Human_flesh_search_engine
-tag="concept internet network"
+tags: concept internet network
 Chinese term for "activist" distributed research, based on massive human
 collaboration, using Internet media such as blogs and forums.
   1. strong offline elements including information acquisition through offline channels and activism.
@@ -10360,7 +10486,7 @@ exposing scientific fraud.
 20230220
 Garage, our self-hosted distributed object storage solution
 https://garagehq.deuxfleurs.fr/blog/2022-introducing-garage/
-tag="distributed-systems storage web-hosting network p2p decentralized crdt"
+tags: distributed-systems storage web-hosting network p2p decentralized crdt
 https://news.ycombinator.com/item?id=30257041
 - License: AGPL3
 - "We are a hosting association that wanted to put their servers at home _and_
