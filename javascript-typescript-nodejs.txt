@@ -128,6 +128,29 @@ event-loop phases  https://nodejs.org/en/docs/guides/event-loop-timers-and-nextt
   > Between each run of the event-loop, Node.js checks if it is waiting for any
   > asynchronous I/O or timers and shuts down cleanly if there are not any.
 
+CONTEXTS  https://nodejs.org/api/async_context.html
+  Used to associate state and propagate it throughout callbacks and promise
+  chains. Store data in the lifetime of a web request or any other
+  asynchronous duration. Similar to thread-local storage in other languages.
+  AsyncLocalStorage and AsyncResource classes are part of the node:async_hooks module:
+      import { AsyncLocalStorage, AsyncResource } from 'node:async_hooks';
+  AsyncLocalStorage
+      Example usage: https://github.com/aws/aws-toolkit-vscode/blob/c7bd60e8329401e4def4ad2aa41cb271f1c2e94c/src/shared/telemetry/recorder.ts#L128-L136
+        const store = new AsyncLocalStorage<ExecutionContext>()
+        // Runs a function with context-specific observability utilities such as telemetry and logging.
+        export function run<F extends (...args: any[]) => any>(name: string, fn: F, ...args: Parameters<F>): ReturnType<F> {
+            const context = {
+                name,
+                logger: getLogger(),
+                telemetry: { queue: [] },
+            }
+            return store.run(context, fn, ...args)
+        }
+        export function getTelemetryLogger<T extends keyof TelemetryLogger>(metric: T): TelemetryLogger[T] {
+            const queue = storage.getStore()?.telemetry?.queue ?? []
+            return createRecorder({}, metric, queue) as TelemetryLogger[T]
+        }
+
 known issue: "stdio buffered writes (chunked) issues & process.exit() truncation"
   https://github.com/nodejs/node/issues/6456
   workaround: https://www.npmjs.com/package/node-exit
