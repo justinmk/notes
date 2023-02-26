@@ -8894,7 +8894,7 @@ tags: government europe germany privacy
 20211221
 CIA (OSS) Simple Sabotage Field Manual (1944)
 https://www.hsdl.org/?abstract&did=750070
-tags: organization-theory organization coordination project-management leverage
+tags: cia organization-theory organization coordination project-management leverage
 http://svn.cacert.org/CAcert/CAcert_Inc/Board/oss/oss_sabotage.html
 https://news.ycombinator.com/item?id=29597454
 General Interference with Organizations and Production
@@ -9898,7 +9898,7 @@ tags: code-navigation pl grammar language lsp semantic-analysis
 20221113
 Communist Party of Vietnam
 https://en.wikipedia.org/wiki/Communist_Party_of_Vietnam
-tags: socialism communism capitalism economics politics government vietname marxism leninism
+tags: socialism communism capitalism economics politics government vietnam marxism leninism
 - Superiority of socialism
   - According to Marxism–Leninism, socialism is the second-to-last stage of socio-economic development before pure communism.
 - Socialist-oriented market economy
@@ -10550,3 +10550,112 @@ tags: programming javascript typescript
   - Union types map better to JSON and are generally easier to understand,
     while still benefiting from type safety and typo protection.
 - Avoid `private` keyword. EcmaScript now has "#foo".
+
+================================================================================
+20230226
+The Reactive Manifesto: Back-Pressure
+https://www.reactivemanifesto.org/glossary#Back-Pressure
+tags: distributed-systems queue systems network performance scaling
+Back-Pressure:
+> When one component is struggling to keep-up, the system as a whole needs to respond in a sensible way. It is unacceptable for the component under stress to fail catastrophically or to drop messages in an uncontrolled fashion. Since it can’t cope and it can’t fail it should communicate the fact that it is under stress to upstream components and so get them to reduce the load. This back-pressure is an important feedback mechanism that allows systems to gracefully respond to load rather than collapse under it. The back-pressure may bubble all the way up to the user, at which point responsiveness may degrade, but this mechanism will ensure that the system is resilient under load, and will provide information that may allow the system itself to apply other resources to help distribute the load, see Elasticity.
+
+================================================================================
+20230227
+Acorns for the culture war
+https://graymirror.substack.com/p/acorns-for-the-culture-war
+tags: curtis-yarvin culture influence power social-network
+> Every idea is a social network—the network of people it has infected—and the
+> quality of a social network can only decline. People only want to join
+> a network of people who are cooler than them.
+
+================================================================================
+20230309
+How "Diversity" Policing Fails Science
+https://news.ycombinator.com/item?id=34723391
+tags: politics culture left progressive mind-control dei esg
+> Science is incidental. The purpose is to select candidates that will produce
+> ammunition in the form of research (e.g. various marginalization studies) for
+> your side, and exclude candidates that might produce research useful to your
+> opponents. This has been the case for a while in social sciences [1], now it's
+> taking over all fields, and being made explicit and open [2,3,4]. The result of
+> "just stick to your research, they won't bother STEM" attitudes.
+> [1] https://theweek.com/articles/441474/how-academias-liberal-bias-killing-social-science
+>     "The authors also submitted different test studies to different peer-review
+>     boards. The methodology was identical, and the variable was that the
+>     purported findings either went for, or against, the liberal worldview (for
+>     example, one found evidence of discrimination against minority groups, and
+>     another found evidence of "reverse discrimination" against straight white
+>     males). Despite equal methodological strengths, the studies that went
+>     against the liberal worldview were criticized and rejected, and those that
+>     went with it were not."
+> [2] https://www.nature.com/articles/s41562-022-01443-2
+>     "Advancing knowledge and understanding is a fundamental public good. In
+>     some cases, however, potential harms to the populations studied may
+>     outweigh the benefit of publication."
+> [3] "Science Must Not Be Used to Foster White Supremacy"
+>     https://www.scientificamerican.com/article/science-must-not-be-used-to-foster-white-supremacy/
+> [4] "Study: Diversity Statements Required for One-Fifth of Academic Jobs"
+>     https://freebeacon.com/campus/study-diversity-statements-required-for-one-fifth-of-academic-jobs/
+
+================================================================================
+20230309
+How knitters got knotted in a purity spiral
+https://unherd.com/2020/01/cast-out-how-knitting-fell-into-a-purity-spiral/
+tags: concepts mental-model politics culture left progressive mind-control dei esg
+- "moral outbidding"
+- "purity spiral"
+- "In game theory terms, objecting to something was now always a dominant
+  strategy, and rejecting an allegation of racism was always a losing strategy."
+
+================================================================================
+20230302
+Meetings *are* the work
+https://medium.com/@ElizAyer/meetings-are-the-work-9e429dde6aa3
+tags: work meetings organization-theory organization communication collaboration coordination project-management leverage human-scaling
+- In a healthy workplace, the whole system promotes higher-quality knowledge production, above and beyond what any individual could achieve alone.
+- hard-won experience visibly fed back into strategy or process. I’ve since learned that it’s really, really common to feel “my org just can’t learn.”
+- organizational learning is not a simple by-product of individual learning. It’s significantly more complex for groups of people develop whole new theories-in-use and behaviors to better carry out the organization’s purpose
+- consistent winners are embedded in groups that work together to improve their abilities to judge the truth of uncertain things.
+- As you keep going with science, though, you find that “truth” is very much not a solid concept. The ongoing (and frankly terrifying) replication crisis in psychology, medicine, and social sciences highlights just how shaky the foundations are
+- When Amazon established Bias for Action as a leadership principle, it was correcting what Bezos saw as too strict a standard of truth
+- What if we put all our various knowledge tasks under the microscope: all the little choices we make to generate ideas, narrow choices, combine, reframe, highlight, focus, and decide? 
+- If we recognize the ubiquity of knowledge choices, we open up so many new possibilities for manifesting intentionality in our work, it’s hard to take them all in. We have a constant stream of options of what to prioritize and where to draw attention. The aggregate dynamics from these localized choices is itself truth-making, not at a Bezos scale, but real nonetheless.
+- Too often this work — the real work — has to fit in the margins of work systems designed for control and production. Our industry suffers from a deep association of work with structured productive toil, a framing that’s in every way a bad fit for knowledge work. Knowledge work is uncertain and messy (and sometimes enjoyable too). The messiness can be avoided, but only at the cost of sacrificing the power and dignity of the work itself.
+
+================================================================================
+20230309
+Ramda: a practical functional library for JavaScript programmers
+https://ramdajs.com/
+tags: typescript javascript nodejs library
+- Immutability and side-effect free functions
+- Ramda functions are automatically curried. Easily build up new functions from old ones simply by not supplying the final parameters.
+- Ramda functions are arranged to make it convenient for currying: the data to be operated on is generally supplied last.
+"Works great with pipe which enables me to write highly reusable and composable functions in pointfree notation."
+https://ramdajs.com/docs/#pipe
+Example:
+    // Pull traits dictionary out of tokens.
+    const extractTraits = R.pipe(
+      R.map(R.pipe(
+        R.last,
+        R.prop('attributes'))),
+      R.reject(R.isNil),
+      R.reduce(R.mergeWith(concatValues), {}),
+      R.map(R.pipe(
+        R.unless(R.is(Array), R.of),
+        R.groupBy(R.identity),
+        R.map(R.count(R.identity)),
+        R.toPairs,
+        R.sortBy(R.prop(0)),
+        R.map(R.zipObj(['name', 'count'])))));
+
+================================================================================
+20230309
+costs of Lodash
+https://news.ycombinator.com/item?id=35056366
+tags: typescript javascript nodejs library
+Lodash is NOT tree-shakeable by default. So if you do `import { debounce } from
+'lodash';`, you're actually including the entirety of lodash in your bundle.
+More info here: https://lodash.com/per-method-packages
+lodash recommends `babel-plugin-lodash` (including a babel plugin to use less code? no thanks)
+or import the single modules directly like `import throttle from 'lodash/throttle';`.
+There is also a `lodash-es` package with native ESM modules
