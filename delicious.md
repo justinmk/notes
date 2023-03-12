@@ -10659,3 +10659,59 @@ More info here: https://lodash.com/per-method-packages
 lodash recommends `babel-plugin-lodash` (including a babel plugin to use less code? no thanks)
 or import the single modules directly like `import throttle from 'lodash/throttle';`.
 There is also a `lodash-es` package with native ESM modules
+
+================================================================================
+20230312
+Fennel vs Lua
+https://www.reddit.com/r/neovim/comments/11nsxdu/comment/jbp9h42
+tags: lua fennel lisp programming neovim nvim vim
+- Fennel is still Lua. Same semantics + useful sugar.
+- Destructuring, pattern-matching, nil-safe macros, expression-oriented.
+- Names like pred?, side-eff!, deriv*, |length-of|, from->to, have surprising effect on readability.
+Fennel:
+    (fn foo [{: a : b : c : d : e}] ...)
+    (foo {: A : B : C : D : E})
+    (-?> foo bar baz qux)
+Lua:
+    local function foo (kwargs)
+      local a = kwargs.a
+      local b = kwargs.b
+      local c = kwargs.c
+      local d = kwargs.d
+      local e = kwargs.e
+      ...
+    end
+    foo { a = A, b = B, c = C, d = D, e = E }
+    if foo then
+      local res1 = bar(foo)
+      if res1 then
+        local res2 = baz(res1)
+        if res2 then return qux(res2) end
+      end
+    end
+
+================================================================================
+20230313
+FDIC Takes over Silicon Valley Bank
+https://news.ycombinator.com/item?id=35098243
+tags: finance banking federal-reserve
+An explainer post [1] connected to that Tweet is something I found extremely informative (assuming it's accurate):
+"- In 2021 SVB saw a mass influx in deposits, which jumped from $61.76bn at the end of 2019 to $189.20bn at the end of 2021.
+- As deposits grew, SVB could not grow their loan book fast enough to generate the yield they wanted to see on this capital. As a result, they purchased a large amount (over $80bn!) in mortgage backed securities (MBS) with these deposits for their hold-to-maturity (HTM) portfolio.
+- 97% of these MBS were 10+ year duration, with a weighted average yield of 1.56%.
+- The issue is that as the Fed raised interest rates in 2022 and continued to do so through 2023, the value of SVB’s MBS plummeted. This is because investors can now purchase long-duration "risk-free" bonds from the Fed at a 2.5x higher yield.
+- This is not a liquidity issue as long as SVB maintains their deposits, since these securities will pay out more than they cost eventually.
+- However, yesterday afternoon, SVB announced that they had sold $21bn of their Available For Sale (AFS) securities at a $1.8bn loss, and were raising another $2.25bn in equity and debt. This came as a surprise to investors, who were under the impression that SVB had enough liquidity to avoid selling their AFS portfolio."
+[1] - https://twitter.com/jamiequint/status/1633956163565002752
+
+================================================================================
+20230313
+Regulators seize Signature Bank in third-biggest bank failure in U.S. history
+https://www.cnbc.com/2023/03/13/signature-bank-third-biggest-bank-failure-in-us-history.html
+tags: finance banking federal-reserve
+Former congressman Barney Frank, co-author of the 2008 Dodd-Frank Act, is on the board of Signature Bank, a failed bank.
+> On Friday, Signature Bank customers spooked by the sudden collapse of Silicon Valley Bank withdrew more than $10 billion in deposits, a board member told CNBC.
+> That run on deposits quickly led to the third-largest bank failure in U.S. history. Regulators announced late Sunday that Signature was being taken over to protect its depositors and the stability of the U.S. financial system.
+> “I think part of what happened was that regulators wanted to send a very strong anti-crypto message,” said board member and former congressman Barney Frank.
+>
+> Barney Frank, who helped draft the landmark Dodd-Frank Act after the 2008 financial crisis, said there was “no real objective reason” that Signature had to be seized.
