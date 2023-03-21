@@ -87,6 +87,81 @@ Symbol
       console.log(object + 2)  // 7
     Symbol-keyed properties are completely ignored by JSON.stringify().
 
+Symbols: Unique keys for objects:
+    Symbol("foo") === Symbol("foo"); // false.
+
+String.matchAll: Get multiple matches of a regular expression including their capture groups, without using a loop.
+
+    const matchesIterator = stringVar.matchAll(/test([\w]+?),/g);
+    // Needs to be iterated or converted to an array (Array.from()), no direct indexing.
+    for (const match of matchesIterator) {
+      console.log(match[0]); // "testhello,", "testagain,"
+      console.log(match[1]); // "hello", "again"
+    }
+
+- Promise.any(): returns first _non-rejecting_ result; only rejects if all
+  promises reject and returns an `AggregateError`, unlike Promise.race().
+- Promise.allSettled(): unlike Promise.all(), does not return on the first reject/throw.
+
+    async function success1() {return 'a'}
+    async function success2() {return 'b'}
+    async function fail1() {throw 'fail 1'}
+    async function fail2() {throw 'fail 2'}
+
+    const results = await Promise.allSettled([success1(), success2(), fail1(), fail2()]);
+    const sucessfulResults = results
+      .filter(result => result.status === 'fulfilled')
+      .map(result => (result as PromiseFulfilledResult<string>).value);
+    console.log(sucessfulResults); // ["a", "b"]
+    results.filter(result => result.status === 'rejected').forEach(error => {
+      console.log((error as PromiseRejectedResult).reason); // "fail 1", "fail 2"
+    });
+
+BigInt: The new `BigInt` data type accurately stores and operates
+on very large integers. Use the `BigInt()` constructor (preferably with string)
+or by appending `n` to a number literal.
+
+    const correctAgain = 9007199254740993n;
+    console.log(correctAgain); // 9007199254740993
+
+    // hex, octal and binary numbers can also be passed as strings.
+    const hex = BigInt('0x1fffffffffffff');
+
+WeakRef: weak reference to an object, does not prevent the object from being
+garbage-collected.
+
+    const ref = new WeakRef(element);
+    // Get the value, if the object/element still exists and was not garbage-collected.
+    const value = ref.deref;
+    console.log(value); // undefined
+    // Looks like the object does not exist anymore.
+
+Negative indexing (.at(-1)): When indexing an array or a string, `at()` can be
+used to index from the end. Equivalent to `arr[arr.length — 1])` for
+getting (but not setting) a value.
+
+    console.log([4, 5].at(-1)) // 5
+    const array = [4, 5];
+    array.at(-1) = 3; // SyntaxError: Assigning to rvalue
+
+Use `hasOwn()` instead of `obj.hasOwnProperty()`.
+
+    const obj = { name: 'test' };
+    console.log(Object.hasOwn(obj, 'name')); // true
+
+Error cause: optional `cause` field on `Error`.
+
+    try {
+      try {
+        connectToDatabase();
+      } catch (err) {
+        throw new Error('Connecting to database failed.', { cause: err });
+      }
+    } catch (err) {
+      console.log(err.cause); // ReferenceError: connectToDatabase is not defined
+    }
+
+
 NODE.JS
 ==============================================================================
 globals  https://nodejs.org/api/globals.html#globals_global
@@ -157,6 +232,10 @@ known issue: "stdio buffered writes (chunked) issues & process.exit() truncation
 
 TYPESCRIPT
 ==============================================================================
+Trace the type-checking and compilation process:
+
+    tsc --generateTrace trace
+
 https://basarat.gitbook.io/typescript/type-system/freshness
 
 Declare a motherfucking map:
@@ -176,16 +255,120 @@ assert signatures
 "as const": quasi-immutability for simple literal expressions.
   https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions
   Tells the compiler to choose the NARROWEST type (literal "foo" instead of string).
-  let x = "hello" as const;             // Type '"hello"' (not string)
-  let y = [10, 20] as const;            // Type 'readonly [10, 20]' (not array)
-  let z = { text: "hello" } as const;   // Type '{ readonly text: "hello" }' (not object)
-
-type transformations/composition
-  https://www.typescriptlang.org/docs/handbook/utility-types.html
+  let x = "hello" as const;             // Typed as '"hello"' (not string)
+  let y = [10, 20] as const;            // Typed as 'readonly [10, 20]' tuple (not array)
+  let z = { text: "hello" } as const;   // Typed as '{ readonly text: "hello" }' (not object)
 
 optional chaining
-  // GOTCHA: returns undefined for missing values, even if they were null.
-  (null)?.key  // returns undefined
+  (null)?.key  // returns undefined (even if `null`!)
+
+Utility Types: type transformations/composition
+    https://www.typescriptlang.org/docs/handbook/utility-types.html
+
+    interface Test {
+      name: string;
+      age: number;
+    }
+    // The Partial utility type makes all properties optional.
+    type TestPartial = Partial<Test>; // typed as { name?: string | undefined; age?: number | undefined; }
+    // The Required utility type does the opposite.
+    type TestRequired = Required<TestPartial>; // typed as { name: string; age: number; }
+    // The Readonly utility type makes all properties readonly.
+    type TestReadonly = Readonly<Test>; // typed as { readonly name: string; readonly age: string }
+    // The Record utility type allows the simple definition of objects/maps/dictionaries. It is preferred to index signatures whenever possible.
+    const config: Record<string, boolean> = { option: false, anotherOption: true };
+    // The Pick utility type gets only the specified properties.
+    type TestLess = Pick<Test, 'name'>; // typed as { name: string; }
+    type TestBoth = Pick<Test, 'name' | 'age'>; // typed as { name: string; age: string; }
+    // The Omit utility type ignores the specified properties.type
+    type TestFewer = Omit<Test, 'name'>; // typed as { age: string; }
+    type TestNone = Omit<Test, 'name' | 'age'>; // typed as {}
+    // The Parameters utility type gets the parameters of a function type.
+    function doSmth(value: string, anotherValue: number): string {
+      return 'test';
+    }
+    type Params = Parameters<typeof doSmth>; // typed as [value: string, anotherValue: number]
+    // The ReturnType utility type gets the return type of a function type.
+    type Return = ReturnType<typeof doSmth>; // typed as string
+    // There are many more, some of which are introduced further down.
+
+Conditional Types: Conditionally set a type based on if some type matches
+/ extends another type. They can be read in the same way as the conditional
+(ternary) operator in JavaScript.
+
+    // Only extracts the array type if it is an array, otherwise returns the same type.
+    type Flatten<T> = T extends any[] ? T[number] : T;
+    // Extracts out the element type.
+    type Str = Flatten<string[]>; // typed as string
+    // Leaves the type alone.
+    type Num = Flatten<number>; // typed as number
+
+Inferring with conditional types: Not all generic types need to be specified by
+the consumer, some can also be inferred from the code. To have conditional logic
+based on inferred types, the `infer` keyword is needed. It in a way defines
+temporary inferred type variables.
+
+    // Starting with the previous example, this can be written more cleanly.
+    type FlattenOld<T> = T extends any[] ? T[number] : T;
+    // Instead of indexing the array, we can just infer the Item type from the array.
+    type Flatten<T> = T extends (infer Item)[] ? Item : T;
+    // If we wanted to write a type that gets the return type of a function and otherwise is undefined, we could also infer that.
+    type GetReturnType<Type> = Type extends (...args: any[]) => infer Return ? Return : undefined;
+    type Num = GetReturnType<() => number>; // typed as number
+    type Str = GetReturnType<(x: string) => string>; // typed as string
+    type Bools = GetReturnType<(a: boolean, b: boolean) => void>; // typed as undefined
+
+Tuple Optional Elements and Rest: Declare optional elements in tuples using `?`
+and the rest based on another type using `...`.
+
+    // If we don't yet know how long a tuple is going to be, but it's at least one, we can specify optional types using `?`.
+    const list: [number, number?, boolean?] = [];
+    list[0] // typed as number
+    list[1] // typed as number | undefined
+    list[2] // typed as boolean | undefined
+    list[3] // Type error: Tuple type '[number, (number | undefined)?, (boolean | undefined)?]' of length '3' has no element at index '3'.
+    // We could also base the tuple on an existing type.
+    // If we want to pad an array at the start, we could do that using the rest operator `...`.
+    function padStart<T extends any[]>(arr: T, pad: string): [string, ...T] {
+      return [pad, ...arr];
+    }
+    const padded = padStart([1, 2], 'test'); // typed as [string, number, number]
+
+Template Literal Types: When defining literal types, types can be specified
+through templating like `${Type}`. For complex string types.
+
+    type VerticalDirection = 'top' | 'bottom';
+    type HorizontalDirection = 'left' | 'right';
+    type Direction = `${VerticalDirection} ${HorizontalDirection}`;
+    const dir1: Direction = 'top left';
+    const dir2: Direction = 'left'; // Type error: Type '"left"' is not assignable to type '"top left" | "top right" | "bottom left" | "bottom right"'.
+    const dir3: Direction = 'left top'; // Type error: Type '"left top"' is not assignable to type '"top left" | "top right" | "bottom left" | "bottom right"'.
+    // This can also be combined with generics and the new utility types.
+    declare function makeId<T extends string, U extends string>(first: T, second: U): `${Capitalize<T>}-${Lowercase<U>}`;
+
+Key Remapping in Mapped Types: Retype mapped types while still using their
+values like `[K in keyof T as NewKeyType]: T[K]`.
+
+    // Let's say we wanted to reformat an object but prepend its IDs with an underscore.
+    const obj = { value1: 0, value2: 1, value3: 3 };
+    const newObj: { [Property in keyof typeof obj as `_${Property}`]: number }; // typed as { _value1: number; _value2: number; value3: number; }
+
+Recursive Conditional Types: Use conditional types inside of its definition
+themselves. This allows for types that conditionally unpack an infinitely nested
+value.
+
+    type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T;
+    type P1 = Awaited<string>; // typed as string
+    type P2 = Awaited<Promise<string>>; // typed as string
+    type P3 = Awaited<Promise<Promise<string>>>; // typed as string
+
+`Awaited<>` utility type extracts the value type from infinitely nested Promises.
+
+    type P1 = Awaited<string>; // typed as string
+    type P2 = Awaited<Promise<string>>; // typed as string
+    type P3 = Awaited<Promise<Promise<string>>>; // typed as string
+
+
 
 NPM
 ==============================================================================

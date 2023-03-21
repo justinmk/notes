@@ -10715,3 +10715,111 @@ Former congressman Barney Frank, co-author of the 2008 Dodd-Frank Act, is on the
 > “I think part of what happened was that regulators wanted to send a very strong anti-crypto message,” said board member and former congressman Barney Frank.
 >
 > Barney Frank, who helped draft the landmark Dodd-Frank Act after the 2008 financial crisis, said there was “no real objective reason” that Signature had to be seized.
+
+================================================================================
+20230321
+Richard Werner (who pioneered "quantitative easing"): Central banks are too powerful and they’re to blame for inflation
+https://fortune.com/2023/03/20/is-federal-reserve-too-powerful-inflation-quantitative-easing-richard-werner/
+tags: finance banking federal-reserve monetary-policy inflation economics
+- > more than 80% of those interviewed believed that most of the world’s money
+  is created and allocated by either governments or central banks.
+- > high-street or retail banks that produce the vast majority – around 97% – of
+  the world’s money supply. Every time a bank grants a loan, it is creating new
+  money that is added to the economy’s overall money supply.
+- > In contrast, governments don’t create any money these days. The last time
+  the US government issued money was in 1963, until President John F Kennedy’s
+  assassination that year. The UK government stopped issuing money in 1927 and
+  Germany even earlier, around 1910.
+- > Central banks only create around 3% of the world’s money supply.
+- > QE’s depiction as a form of “magic money tree” is misplaced. In my 1997
+  paper and subsequent book, I stressed the difference between newly-created
+  money when it is used for productive purposes – in other words, for business
+  investment that creates new goods and services or increases productivity – and
+  when it is used for unproductive purposes such as financial asset and real
+  estate transactions. These merely transfer ownership from one party to another
+  without adding to the nation’s income.
+- > Unfortunately, there has been a significant shift of bank credit away from
+  lending for productive business investment to lending for asset purchases.
+  Bank lending for asset purchases now accounts for 75% of lending.
+  - > In contrast, just before WW1 when there were many more small banks in the
+    UK, more than 80% of bank lending was for productive business investment.
+  - > Germany has maintained a system of many small, local retail banks, thus
+    better levels of productivity.
+- > in March 2001 the Bank of Japan announced the introduction of the world’s
+  first programme of QE. Unfortunately, it did not follow the policy I had
+  recommended. Its approach – buying well-performing assets such as government
+  bonds from retail banks – had no effect on the Japanese economy, because it
+  did not improve retail banks’ willingness to lend to businesses. In other
+  words, no new money was being created for productive purposes.
+- > In May 2020 I conducted my latest monthly analysis of the quantity of credit
+  creation across 40 countries, ... The major central banks across the globe
+  were boosting the money supply dramatically through coordinated QE. ... There
+  is some evidence that it was sparked by a proposal presented to central
+  bankers by Blackrock at Jackson Hole, Wyoming in August 2019. Soon after this,
+  difficulties in the Fed’s repurchase agreement (“repo”) market in September
+  2019, triggered by private banking giant JP Morgan, may have made up their
+  minds.
+- > Apparently agreeing with my critique that pure fiscal policy does not result
+  in economic growth unless it is backed by credit creation, Blackrock had
+  argued at Jackson Hole that the “next downturn” would require central banks to
+  create new money and find “ways to get central bank money directly in the
+  hands of public and private sector spenders” – what they called “going
+  direct”, bypassing the retail banks. The Fed knew this would create inflation,
+  as Blackrock later confirmed in a paper which stated that “the Fed is now
+  committing to push inflation above target for some time”.
+  - > However, this time the economic conditions were very different – there had
+    been no recent slump in the supply of money via retail bank loans. Also, the
+    policy differed in a crucial aspect: by “going direct”, the Fed was itself
+    now massively expanding credit creation, the money supply and new spending.
+  - > In parallel with unprecedented societal and business lockdowns (COVID),
+    retail banks were instructed to increase lending to businesses with
+    governments guaranteeing these loans. Stimulus checks were paid out ...
+    added to the supply of money ... used for general consumption rather than
+    productive purposes (loans to businesses).
+  - > US’s “broad” money supply metric, M3, increased by 19.1% in 2020, the
+    highest annual rise on record. In the eurozone, money supply M1 grew by
+    15.6% in December 2020.
+  - > boosted demand, while at the same time the supply of goods and services
+    was limited by pandemic restrictions.
+  - consumer price inflation duly followed ~18 months later, 2021-2022.
+- CBDCs: Soviet-style monobank system, where the only bank in town is the
+  central bank. The useful functions of retail banks are to create the money
+  supply and allocate it efficiently via thousands of loan officers on the
+  ground across the country.
+  - This form of productive business investment, which creates non-inflationary
+    growth and jobs, is best achieved via lending to small and medium-sized
+    enterprises (SMEs).
+- > Deng Xiaoping in 1978, recognised that Soviet-style monobank was holding
+  back the country’s economic growth. ... switched to decentralisation by
+  creating thousands of commercial banks over the following years – mostly small
+  local banks that would lend to small firms, creating jobs and ensuring high
+  productivity. 40 years of double-digit economic growth.
+- > In Germany, local community banks have survived for 200 years because they
+  use the co-operative voting system. ... prevents takeovers and hence explains
+  why the German SMEs are by far the most successful in the world, contributing
+  significantly to exports and Germany’s high productivity.
+
+================================================================================
+20230326
+Lucius Junius Brutus
+https://en.wikipedia.org/wiki/Lucius_Junius_Brutus
+tags: rome history caesar
+Long before the Brutus who killed Caesar, there was another Brutus:
+Lucius Junius Brutus, famous since the early times of Rome.
+https://news.ycombinator.com/item?id=35209758
+> Romans according to legends swore to never have a king again.
+>
+> So these assassins who killed Caesar saw themselves as heroes, they didn't
+> think they'll be regarded as criminals and condemned but expected to be the
+> saviours of the republic and remembered for ages to come.
+>
+> Later in the revolutionary years, when e.g. french republicans were slaying
+> king they too looked up to the legend of the very first Brutus and saw
+> themselves not merely assassins but heroes of the people.
+>
+> In the case of the very first Brutus, they swore to kill the king after he
+> raped and killed one of his companions wife, one can definitely argue he was
+> a heroic figure. In the case of latter wannabe Brutuses it's very clear they
+> aimed for power consciously or subconsciously hiding behind ideals. The
+> subsequent genocides and thefts of property like in the case of French
+> revolution or Lenin's who even died of syphilis are just too obvious.

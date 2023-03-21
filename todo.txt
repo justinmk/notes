@@ -1,7 +1,7 @@
+keyboard:
+  Flux Keyboard https://fluxkeyboard.com/ https://news.ycombinator.com/item?id=35083665
 backup:
   https://lobste.rs/s/y4myxv
-laptop:
-  Dell Precision 5530 ?
 
 ------------------------------------------------------------------------------
 hashtable: https://github.com/jamesroutley/write-a-hash-table
