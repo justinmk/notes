@@ -195,3 +195,12 @@ Get macOS temperature-based CPU throttling status.
             CPU_Scheduler_Limit     = 100
             CPU_Available_CPUs      = 4
             CPU_Speed_Limit         = 74
+
+================================================================================
+20230327
+macOS does not show wifi portal page
+https://apple.stackexchange.com/questions/376401/macos-wont-show-wifi-login-page
+SOLUTION:
+1. open "/System/Library/CoreServices/"
+2. try to connect to wifi.
+3. spam click "Captive Network Assistant.app" while macOS is trying to connect.

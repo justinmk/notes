@@ -2,6 +2,16 @@ TODO:
     https://course.fast.ai/
     https://developers.google.com/machine-learning/crash-course/
 
+GPT = generative pretrained transformer
+    - "Transformer": detects subtle relationships even amongst distant data elements in a sequence.
+        - "self-attention": differentially weighting each part of the input (which includes the recursive output)
+        - marketing name for "attention net"
+        - from 2017 Google paper
+          https://ai.googleblog.com/2017/08/transformer-novel-neural-network.html
+          https://arxiv.org/abs/1706.03762
+    - trained by RLHF
+      https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback
+
 https://news.ycombinator.com/item?id=14485362
     > You don’t need Google-scale data to use deep learning. Using all of the above
     > means that even your average person with only a 100-1000 samples can see some
