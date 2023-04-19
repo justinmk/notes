@@ -8435,7 +8435,7 @@ before investing in costly real-life prototypes.
 20210525
 WASI: Portable System Interface for WebAssembly
 https://github.com/bytecodealliance/wasmtime/blob/main/docs/WASI-overview.md
-tags: wasm web webassembly api os portability
+tags: wasm wasi web webassembly api os portability
 Specifies "syscalls": functions provided by the surrounding environment that can do I/O on behalf of the program.
 Capability-based security
   Similar to how core WebAssembly provides no ability to access the outside world without calling imported functions, WASI APIs provide no ability to access the outside world without an associated capability.
@@ -10823,3 +10823,33 @@ https://news.ycombinator.com/item?id=35209758
 > aimed for power consciously or subconsciously hiding behind ideals. The
 > subsequent genocides and thefts of property like in the case of French
 > revolution or Lenin's who even died of syphilis are just too obvious.
+
+================================================================================
+20230419
+How WebAssembly is accelerating new web functionality
+https://blog.chromium.org/2023/04/how-webassembly-is-accelerating-new-web.html
+tags: wasm wasi web webassembly portability browser chromium google
+- "SQLite on WASM" will replace "Web SQL".
+  https://developer.chrome.com/blog/sqlite-wasm-in-the-browser-backed-by-the-origin-private-file-system/
+- DISADVANTAGES AND LIMITATIONS
+  - Won’t replace JavaScript for most web development.
+  - WebAssembly in the browser is still entirely dependent on JavaScript and needs
+    to interface through JavaScript to access other web functionality.
+    - Proposals to enable wasm-to-wasm module communication and direct interfacing
+      with Web APIs are in the early stages.
+  - Bundle size of pages. By moving more logic and functionality into userland,
+    the size of pages will increase as well.
+    - Potential mitigation: look at the popular functionality being shipped in
+      userland and to decide what functionality should be standardized in the
+      browser itself.
+      - Example: WebCodecs replaced wasm-compiled FFMPEG
+      - Example: handwriting-recognition API replaced the wasm-compiled option
+  - Device capability access
+    - WebAssembly and other primitives are largely computation mechanisms and
+      don't give any kind of root system access to the OS or device itself.
+      Functionality like hardware access (USB or Bluetooth), screen or window
+      management, input controls, file system, clipboard, and much more still
+      require platform level APIs to access.
+      - "Fugu" project aims to enable all of these for Chromium-based browsers.
+        https://www.chromium.org/teams/web-capabilities-fugu/
+    - WASI?
