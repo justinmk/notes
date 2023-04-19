@@ -10875,3 +10875,70 @@ https://github.com/microsoft/vscode-wasm/commit/0cdb9997d83bae116bb7693ba6837ffa
   * Support a command history
   * Update testbeds
   * Fold equal history elements
+
+================================================================================
+20230423
+zod: TypeScript-first schema validation with static type inference
+https://github.com/colinhacks/zod
+tags: typescript javascript nodejs library schemas types
+Zod is a schema declaration and validation library, i.e. _data validation_ at runtime (like Clojure "Spec").
+Declare a validator and Zod infers the static TypeScript type.
+Easy to compose simpler types into complex types.
+- Zero dependencies
+- Works in Node.js and all modern browsers
+- Tiny: 8kb minified + zipped
+- Immutable: methods (e.g. .optional()) return a new instance
+- Concise, chainable interface
+
+================================================================================
+20230502
+Systems design explains the world: volume 1
+https://apenwarr.ca/log/20201227
+tags: systems architecture concepts mental-model
+- "Systems design" is a branch of study that tries to find universal architectural patterns that are valid across disciplines.
+- The Tyranny of Structurelessness by Jo Freeman https://www.jofreeman.com/joreen/tyranny.htm
+  "This apparent lack of structure too often disguised an informal,
+  unacknowledged and unaccountable leadership that was all the more pernicious
+  because its very existence was denied."
+- "Informal, unacknowledged, and unaccountable" control is just as common in
+  distributed computing systems as it is in human social systems.
+- Nearly every attempt to design a hierarchy-free, "flat" control system just
+  moves the central control around until you can't see it anymore. Human
+  structures all have leaders, whether implicit or explicit
+  - The explicit ones tend to be _more_ diverse.
+- with centralized vs distributed systems, at least make sure the control
+  structure is explicit. When it's explicit, you can debug it.
+- chicken-egg problem: Firefox and Ubuntu phones, distributed open source social
+  networks, alternative app stores, Linux on the desktop, Netflix
+  competitors. IPv6: it provides nearly no value to anyone until it is 100%
+  deployed (so we can finally shut down IPv4!), but costs immediately in added
+  complexity and maintenance (building and running a whole parallel Internet).
+  Could IPv6 have been rolled out faster, if the designers had prioritized
+  unwinding the chicken-egg problem? Absolutely yes. But they didn't acknowledge
+  it as the absolute core of their design problem, the way Android, Xbox,
+  Blu-Ray, and Facebook did.
+- Innovator's Dilemma (also: IMPORTANCE OF THE "LONG TAIL"!):
+  You (Intel in this case) make an awesome product in a highly profitable
+  industrSome crappy startup appears (ARM in this case) and makes a crappy
+  competing product with crappy specs. The only thing they seem to have going
+  for them is they can make some low-end garbage for cheap. As a big successful
+  company, your whole business is optimized for improving profits and margins.
+  Your hard-working employees realize that if they cede the ultra-low-end
+  garbage portion of the market to this competitor, they'll have more time to
+  spend on high-valued customers. As a bonus, your average margin goes up!
+  The next year, your competitor's product gets just a little bit better, and
+  you give up the new bottom of your market, and your margins and profits
+  further improve. This cycle repeats, year after year. (We call this
+  "retreating upmarket." The crappy competitor has some kind of structural
+  technical advantage that allows their performance to improve, year over year,
+  at a higher percentage rate than your product can. And/or their product can do
+  something yours can't do at all (in ARM's case: power efficiency) Eventually,
+  one year, the crappy competitor's product finally exceeds the performance
+  metrics of your own product, and promptly blows your entire fucking company
+  instantly to smithereens.
+
+================================================================================
+20230502
+Systems design 2: What we hope we know
+https://apenwarr.ca/log/20230415
+tags: systems architecture concepts

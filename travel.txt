@@ -20,13 +20,15 @@ checklist
   pen/pencil
 
 todo:
-  https://naildrivin5.com/blog/2018/01/25/how-to-travel-to-san-francisco-every-other-month-for-five-years.html
+  - wraparound neck pillow https://letsayme.co/products/travel-neck-pillow?twclid=2-1of7qrc3bitgu4dmvrl9opuh6
+  - backpack https://naildrivin5.com/blog/2018/01/25/how-to-travel-to-san-francisco-every-other-month-for-five-years.html
     - luggage: "Briggs & Riley Baseline Domestic Carry-On Exp Spinner" https://www.amazon.com/dp/B00XDIRKRC/
     - backpack:
       https://www.goruck.com/products/gr1
       https://www.tombihn.com/collections/backpacks/products/synapse-25?variant=50297850439
 
 where/what
+  https://zuzalu.city/ : Zuzalu is a "pop-up city" in Montenegro.
   Tangier, Morocco https://en.wikipedia.org/wiki/Tangier
   Seattle: Boeing factory tour ("largest building in the world") http://www.boeing.com/company/tours 
   UK

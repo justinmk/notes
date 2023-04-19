@@ -263,6 +263,7 @@ optional chaining
   (null)?.key  // returns undefined (even if `null`!)
 
 Utility Types: type transformations/composition
+    Similar to Clojure (+spec), TypeScript’s structural type system is effectively “just use maps”.
     https://www.typescriptlang.org/docs/handbook/utility-types.html
 
     interface Test {
