@@ -204,3 +204,10 @@ SOLUTION:
 1. open "/System/Library/CoreServices/"
 2. try to connect to wifi.
 3. spam click "Captive Network Assistant.app" while macOS is trying to connect.
+
+================================================================================
+20230429
+How to use different tokens (PATs) for different github.com repositories:
+Add this to the repo .git/config (or globally in ~/.gitconfig):
+    [credential]
+      useHttpPath = true

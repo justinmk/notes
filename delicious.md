@@ -10853,3 +10853,25 @@ tags: wasm wasi web webassembly portability browser chromium google
       - "Fugu" project aims to enable all of these for Chromium-based browsers.
         https://www.chromium.org/teams/web-capabilities-fugu/
     - WASI?
+
+================================================================================
+20230501
+vscode-wasm: WASI implementation that uses VS Code's extension host as the implementing API
+https://github.com/microsoft/vscode-wasm
+tags: webassembly wasm wasi vscode javascript nodejs
+https://github.com/microsoft/vscode-wasm/commit/0cdb9997d83bae116bb7693ba6837ffa812425a7
+  Implement a first version of a WebShell (#60)
+  * Start of web shell
+  * First cut of coreutils commands
+  * Add more coreutils commands
+  * Update dependencies
+  * Add virtual root FS
+  * Virtual FS fixes
+  * Make virtual root file system a tree
+  * Make VFS hierarchical.
+  * Virtual FS fixes
+  * Fix Python testbed
+  * Minor fixes
+  * Support a command history
+  * Update testbeds
+  * Fold equal history elements
