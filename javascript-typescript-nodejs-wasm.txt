@@ -380,9 +380,37 @@ the package as a dependency.
 
 wasm / webassembly
 ==============================================================================
+
 platform support
   Go: https://github.com/golang/go/wiki/WebAssembly
+
 WASI: system interface
   https://twitter.com/solomonstre/status/1111004913222324225
     "If WASM+WASI existed in 2008, we wouldn't have needed to create Docker. A standardized system interface was the missing link."
   nodejs WASI: https://nodejs.org/api/wasi.html
+
+https://github.com/bytecodealliance/wit-bindgen
+  suite of bindings generators for languages that are compiled to WebAssembly
+  and use the component model. Bindings are described with *.wit files which
+  specify imports, exports, and facilitate reuse between bindings definitions.
+
+WASM vs JVM:
+  - coupled to an ecosystem; cannot run C programs in JVM
+  - open standard (vs proprietary)
+  - browser support
+
+security
+  - vs JVM: https://news.ycombinator.com/item?id=35469962
+    WASM was designed before spectre happened, so no it's not the exception. In-process sandboxing cannot be securely designed anymore. You can endlessly chase security exploits with increasingly expensive and convoluted workarounds, but that's about it.
+    > It’s designed from the ground up to have an extremely simplistic model of execution that prevents common exploits like buffer overflows and such.
+    So is the JVM and CLR and dozens of prior runtimes for that matter.
+    WASM for guests is mostly a security regression as all the design focus was on protecting the host. Things in the runtime got thrown under the security bus (such as no ASLR)
+    > The JVM is not architected the same way, the VM has a bunch of APIs exposed to it and you have to attempt to constrain those down to make a program secure.
+    You're confusing concepts here. The JVM bytecode runtime has very few APIs and WASM has no inherent requirement on being minimal or capability-based. WASI, which is what's being used here, has neither of those design attributes, for example. It's just regular POSIX apis. No permission system + massive API surface, yet still WASM all the same
+  - vs Docker: https://news.ycombinator.com/item?id=35469685
+    - Docker containers:
+      - rely on hardware virtualization to run securely (via KVM or simlar),
+        virtualization on the systemcall layer (which depends on the crun layer)
+      - one chipset/OS,
+      - bigger
+      - slower startup (250ms w/ Firecracker vs 1ms w/ Wasmer)

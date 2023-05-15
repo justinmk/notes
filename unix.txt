@@ -71,13 +71,27 @@ debug
              > /lib64/libc-2.20.so(__libc_start_main+0xf5) [0x21b45]
              > /usr/bin/nvim(_start+0x29) [0x354f8]
 
-    which processes (PIDs) are using a file?
+    which files/sockets is a given program using?
+        lsof -c foo
+    which processes are using a given port?
+        lsof -i tcp:8080 -P
+    which processes are using a file?
+        lsof /path/to/file
+        lsof +D /path/to/dir
+        # linux
         fuser -u $(which bash)
             /usr/local/bin/bash: 47327(justin) 47349(justin)
 
 macos
     snapshot/sample a running process
         sample 49814 -f out.log
+    hold option/alt + click wifi symbol
+    $ networkQuality
+        ==== SUMMARY ====
+        Uplink capacity: 25.120 Mbps
+        Downlink capacity: 128.988 Mbps
+        Responsiveness: Low (61 RPM)
+        Idle Latency: 32.708 milliseconds
 
 linux
     Linux perf 60-second checklist  https://medium.com/netflix-techblog/linux-performance-analysis-in-60-000-milliseconds-accc10403c55

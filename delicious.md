@@ -10942,3 +10942,63 @@ tags: systems architecture concepts mental-model
 Systems design 2: What we hope we know
 https://apenwarr.ca/log/20230415
 tags: systems architecture concepts
+
+================================================================================
+20230511
+Give super powers to Java with WebAssembly by Philippe Charriere @ Wasm I/O 2023
+https://www.youtube.com/watch?v=5HBglrvHtWg
+tags: webassembly wasm library code-reuse code-sharing java
+use Extism https://github.com/extism/extism to load WASM library in java
+
+================================================================================
+20230511
+extism: Universal Plug-in System. Extend anything with WebAssembly (wasm).
+https://extism.org/
+tags: webassembly wasm library code-reuse code-sharing
+https://github.com/extism/extism
+- Extism is a layer around wasmtime
+    - except in the browser: there the browser-native impl is used instead of wasmtime
+    - allows Extism to run the same plugins in browser and non-browser
+- provides a quasi-ABI that helps you communicate with the plugin: get/send data, invoke functions.
+- don't need to enable WASI to use a plugin.
+- future: may replace some internal pieces of Extism with pieces of the Component Model spec.
+
+================================================================================
+20230515
+Amazon’s quiet open source revolution
+https://www.infoworld.com/article/3694090/amazon-s-quiet-open-source-revolution.html
+tags: amazon aws open-source oss
+
+================================================================================
+20230515
+Example of LLM prompting for programming
+https://martinfowler.com/articles/2023-chatgpt-xu-hao.html
+tags: llm ai machine-learning programming
+Start with a prompt that sets the context for the application and how you want the code to be structured:
+    The current system is an online whiteboard system. Tech stack: typescript, react, redux, konvajs and react-konva. And vitest, react testing library for model, view model and related hooks, cypress component tests for view.
+    All codes should be written in the tech stack mentioned above. Requirements should be implemented as react components in the MVVM architecture pattern.
+    There are 2 types of view model in the system.
+    Shared view model. View model that represents states shared among local and remote users.
+    Local view model. View model that represents states only applicable to local user
+    Here are the common implementation strategy:
+    Shared view model is implemented as Redux store slice. Tested in vitest.
+    Local view model is implemented as React component props or states(by useState hook), unless for global local view model, which is also implemented as Redux store slice. Tested in vitest.
+    Hooks are used as the major view helpers to retrieve data from shared view model. For most the case, it will use ‘createSelector’ and ‘useSelector’ for memorization. Tested in vitest and react testing library.
+    Don’t dispatch action directly to change the states of shared view model, use an encapsulated view model interface instead. In the interface, each redux action is mapped to a method. Tested in vitest.
+    View is consist of konva shapes, and implemented as react component via react-konva. Tested in cypress component tests
+    Here are certain patterns should be followed when implement and test the component
+    When write test, use describe instead of test
+    Data-driven tests are preferred.
+    When test the view component, fake view model via the view model interface
+    Awareness Layer
+    Requirement:
+    Display other users’ awareness info(cursor, name and online information) on the whiteboard.
+    AC1: Don’t display local user
+    AC2: When remote user changes cursor location, display the change in animation.
+    Provide an overall solution following the guidance mentioned above. Hint, keep all awareness information in a Konva layer, and an awareness info component to render cursor, and name. Don’t generate code. Describe the solution, and breaking the solution down as a task list based on the guidance mentioned above. And we will refer this task list as our master plan.
+- The key element of the response is an ordered task list, with numbers for each
+  step. We can use these numbers to refer to these tasks for the rest of the
+  session.
+- You can now look at the master plan and see if it makes sense. If there are
+  problems with it, you can ask ChatGPT to re-write some of the tasks or the
+  entire master plan by providing more information.
