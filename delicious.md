@@ -10952,7 +10952,7 @@ use Extism https://github.com/extism/extism to load WASM library in java
 
 ================================================================================
 20230511
-extism: Universal Plug-in System. Extend anything with WebAssembly (wasm).
+Extism: Universal Plug-in System. Extend anything with WebAssembly (wasm).
 https://extism.org/
 tags: webassembly wasm library code-reuse code-sharing
 https://github.com/extism/extism
@@ -11009,3 +11009,199 @@ Mini.WebVM: Your own Linux box from Dockerfile, virtualized in the browser via W
 https://leaningtech.com/mini-webvm-your-linux-box-from-dockerfile-via-wasm/
 https://github.com/leaningtech/webvm
 tags: wasm webassembly vm web
+
+================================================================================
+20230520
+MPT-7B: A New Standard for Open-Source, Commercially Usable LLMs
+https://www.mosaicml.com/blog/mpt-7b
+https://github.com/mosaicml/llm-foundry
+tags: machine-learning llm chatgpt programming open-source
+MPT-7B is a transformer trained from scratch on 1T tokens of text and code.
+It is open source, available for commercial use, and matches the quality of LLaMA-7B.
+MPT-7B was trained on the MosaicML platform in 9.5 days with zero human intervention at a cost of ~$200k.
+You can train, finetune, and deploy your own private MPT models, either starting from one of our checkpoints or training from scratch.
+
+================================================================================
+20230520
+The Deming Paradox: Operationally Rigorous Companies Aren't Very Nice Places to Work. — Cedric Chin
+https://commoncog.com/deming-paradox-operational-rigour/
+tags: concepts mental-model operations metrics team workplace
+- W. Edwards Deming, the father of "Statistical Process Control" (SPC).
+- Origin of Amazon’s operational rigour.
+- Understanding variation is the beginning of ‘knowledge’.
+  - routine variation is present in every natural process
+  - setting a target does not in itself help you achieve that target
+- Myths Deming saw in management practice: common sense tells us to rank
+  children, employees, students, and teams; to reward the “best” and punish the
+  “worst”; to have quotas and numerical goals for individuals or groups; to
+  assume that a problem always is caused by the people doing the work instead of
+  the system in which they operate.
+- Run chart: "Dubose printed run charts for each vessel and posted them in the
+  skippers’ cabins. Each skipper could then see for themselves where they were
+  running up costs and where they were saving money. Dubose turned each skipper
+  into his own manager. Skippers were free to make their own decisions based on
+  the run chart. Then Dubose went further. He started tracking the profits and
+  losses for each barge. This made each skipper a small-business owner and each
+  barge a small business. The skipper had all the information he needed to boost
+  profits and the freedom to act on that information. And Dubose had total
+  visibility ... 'It got to the point where the boats were competing against
+  each other.'"
+
+================================================================================
+20230520
+High-performance tidy trees visualization
+https://www.zxch3n.com/tidy/tidy/
+https://github.com/zxch3n/tidy
+https://news.ycombinator.com/item?id=35995953
+tags: algorithm tree layout diagram
+Algorithm to draw non-layered trees in linear time and re-layout partially when
+some nodes change in O(d) time, where d is the maximum depth of the changed
+node.
+
+================================================================================
+20230521
+We Aren't Close To Creating A Rapidly Self-Improving AI
+https://jacobbuckman.substack.com/p/we-arent-close-to-creating-a-rapidly
+tags: ai llm machine-learning deep-learning chatgpt
+- No known way to automatically construct datasets.
+  - Solving this would be a field-changing breakthrough, comparable to transitioning from alchemy to chemistry.
+  - Requires an actionable understanding of which datapoints are important for learning.
+  - Therefore AIs are currently bottlenecked by the ability of humans to construct good datasets; this makes a rapid self-improving ascent to godhood impossible.
+- Active deep learning / deep reinforcement learning (DRL): AI which can interact and collect own data (via simulation or other experiments).
+  - The model itself is "in the loop".
+  - Interleaving learning + interaction (simulation) allows AI abilities to grow indefinitely.
+  - 2018 produced superhuman AIs on simulable tasks (*not* passive imitation): AlphaZero, OpenAI, self-driving cars, robotic hands.
+    - Hype has since fizzled out.
+    - DRL restricted to tasks that can be reliably and cheaply *simulated*.
+- Passive learning (GPT-3/GPT-4): separate (human) data-collection and model-training phases.
+- "We get a superintelligence explosion only if the model can collect its own data more efficiently than humans can create datasets."
+- Efficient active learning is as hard as *understanding generalization*.
+  - Active learning is difficult and unsolved, because all problems that require understanding generalization are difficult and unsolved (another such problem is preventing adversarial examples).
+  - And they aren’t getting more-solved over time: we’ve made little-to-no progress on any problem of this sort in the last decade.
+- The rules of reality are *not* logic/math/physics. Those are just approximations to the rules of reality that we inferred from *observing* reality. These things are our attempt to model the world, and they are accurate in some domains and invalid in others.
+- Key human capability: reason *without* total knowledge / hyper-simulation.
+
+================================================================================
+20230521
+Tesla, GPT-4, FSD - AI is a big deal w⧸ James Douma (Ep. 728)
+https://youtu.be/Z9dlPsii4HM
+tags: ai llm machine-learning deep-learning chatgpt tesla
+James Douma: "The reason we've never understood intelligence is because
+intelligence is an embodiment of the complexity of the world. Back-propagation,
+the fundamental mechanism of neural networks, is extremely simple; the
+complexity is embedded in the data [encoded as billions of neurons] captured
+from reality."
+
+================================================================================
+20230521
+The End of the Future - Peter Thiel
+https://www.youtube.com/watch?v=ibR_ULHYirs
+tags: technology engineering economics politics
+- Could solve all of society's problems with just 4% GDP growth.
+- Why science/tech progress so slow in the last ~50 years? Too dystopian,
+  dual-use: MRNA vaccine conflated w/ gain-of-function, nuclear power conflated
+  w/ nuclear bomb, etc.
+- However dangerous technology is, global totalitarianism (WEF's answer to
+  prevent dangerous technology) is more dangerous.
+- "Optimism and pessimism are just forms of (bad) therapy. ... They both sum up
+  to sloth, where you're not going to do anything."
+
+================================================================================
+20230521
+Evolution of Wasm Standards: Building the Component Model for Wasm
+https://cosmonic.com/blog/engineering/evolution-of-wasm-standards-building-the-component-model
+tags: wasm webassembly wasi web plugin module
+- > I expect components to make designing a LANGUAGE-NEUTRAL PLUGIN SYSTEM for
+  a web application even easier. If there's a piece needed for a language
+  runtime like python, multiple components that leverage that language runtime
+  could use it. Compare this to today's world, where we only have Wasm modules
+  (not components) and these are typically built with all of its compile-time
+  dependencies baked into a single binary.
+- For language interoperability nirvana, we need registries and package managers
+  in various language ecosystems to interop with Wasm components.
+  - warg registry protocol, part of SIG-Registries https://github.com/bytecodealliance/SIG-Registries
+    enables any registry that implements the protocol to publish, consume,
+    store, and share WASM components.
+
+================================================================================
+20230528
+A Mathematician’s Lament, by Paul Lockhart
+https://www.maa.org/external_archive/devlin/LockhartsLament.pdf
+tags: math learning pedagogy
+> TRIGONOMETRY. Two weeks of content are stretched to semester length by masturbatory definitional runarounds.
+> Truly interesting and beautiful phenomena, such as the way the sides of a triangle depend on its angles,
+> will be given the same emphasis as irrelevant abbreviations and obsolete notational conventions,
+> ... The measurement of triangles will be discussed without mention of the transcendental nature of the trigonometric functions.
+> PRE-CALCULUS. Technical definitions of ‘limits’ and ‘continuity’ are presented in order to
+> obscure the intuitively clear notion of smooth change.
+> CALCULUS. This course will explore the mathematics of motion, and the best ways to bury it
+> under a mountain of unnecessary formalism. Despite being an introduction to both the
+> differential and integral calculus, the simple and profound ideas of Newton and Leibniz will be
+> discarded in favor of the more sophisticated function-based approach developed as a response to
+> various analytic crises which do not really apply in this setting...
+
+================================================================================
+20230528
+Buridan's ass
+https://www.microsoft.com/en-us/research/publication/buridans-principle/
+tags: philosophy compsci computation-theory information-theory mental-model concept electronics
+- Buridan's ass
+  - an ass that starves to death because it is placed equidistant between two bales of hay and has no reason to prefer one to the other.
+  - an illustration of a paradox in philosophy in the conception of free will.
+- Arbiter problem
+  - "metastability" in digital electronics: when a circuit must decide between
+    two states based on an input that is in itself undefined (neither zero nor
+    one). Metastability becomes a problem if the circuit spends more time than
+    it should in this "undecided" state (usually the clock speed).
+  - In asynchronous circuits, arbiters guarantee that one outcome is selected at
+    any given point in time, but may take an indeterminate (albeit typically
+    extremely short) time to choose.
+
+================================================================================
+20230528
+On the Glitch Phenomenon (aka the "Arbiter problem") - Leslie Lamport, Richard Palais
+https://www.microsoft.com/en-us/research/publication/on-the-glitch-phenomenon/
+tags: compsci computation-theory information-theory mental-model concept
+- If two inputs can drive a flip-flop into two different states, then there must
+  exist an input that makes the flip-flop hang.
+- An arbiter cannot have a bounded response time.
+
+================================================================================
+20230528
+A new theory of constitutional cynicism
+https://graymirror.substack.com/p/a-new-theory-of-constitutional-cynicism
+tags: curtis-yarvin history constitution usa
+>> The Articles of this Confederation shall be inviolably observed by every
+>> State, and the Union shall be perpetual; nor shall any alteration at any time
+>> hereafter be made in any of them; unless such alteration be agreed to in
+>> a Congress of the United States, and be afterwards confirmed by the
+>> legislatures of every State.
+>
+> No such thing was done. The Constitution was ratified by the states under its
+> own terms. Nice trick if you can get away with it. (Modern historians see that
+> trick much the way the contemporary opponents of the Constitution did—as
+> a right-wing coup to install a quasi-monarchical regime and rein in the
+> turbulent and dysfunctional street democracy of the Confederation period.)
+
+================================================================================
+20230529
+wazero: the zero dependency WebAssembly runtime for Go
+https://wazero.io/
+tags: go wasm webassembly
+
+================================================================================
+20230602
+WASIX: posix compat (instead of WASI)
+https://wasmer.io/posts/announcing-wasix
+tags: wasm webassembly wasi web posix
+
+================================================================================
+20230602
+directories-rs
+https://github.com/dirs-dev/directories-rs
+tags: os filesystem standards xdg
+library that provides config/cache/data paths, following the respective
+conventions on Linux, macOS and Windows, by leveraging:
+- the XDG base directory and the XDG user directory specifications on Linux
+- the Known Folder API on Windows
+- the Standard Directories guidelines on macOS

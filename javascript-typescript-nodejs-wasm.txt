@@ -380,25 +380,48 @@ the package as a dependency.
 
 wasm / webassembly
 ==============================================================================
+webassembly is:
+- a portable compilation target
+- a binary instruction format for a stack-based VM.
 
-platform support
-  Go: https://github.com/golang/go/wiki/WebAssembly
-  javascript/typescript: https://github.com/bytecodealliance/javy
-
-WASI: system interface
+- structured control flow (can't jump to arbitrary code locations (=unstructured))
+- support for streaming compilation, allows the downloaded module to have near instant instantiation.
+- sandboxed [execution environments], can run arbitrary untrusted code.
+- capability-based security
+  - Dennis & Van Horn, 1966 https://www.princeton.edu/~rblee/ELE572Papers/Fall04Readings/ProgramSemantics_DennisvanHorn.pdf
+  - Dan Gohman https://github.com/sunfishcode
+  - Cloud ABI https://lwn.net/Articles/674770/
+- WASI: system interface
   https://twitter.com/solomonstre/status/1111004913222324225
     "If WASM+WASI existed in 2008, we wouldn't have needed to create Docker. A standardized system interface was the missing link."
   nodejs WASI: https://nodejs.org/api/wasi.html
+- Component Model: developers can pick and choose pieces of their application, implemented in different languages. Lower-level than WASI.
+  - Composability: modular code reuse in a language-independent way.
+  - Platform Virtualization: can layer in the platform-specific pieces that a component needs in a given environment.
+  - Interoperability: exchange information between components. "Interface-types" proposal.
+
+interop
+  Go: https://github.com/golang/go/wiki/WebAssembly
+  javascript/typescript: https://github.com/bytecodealliance/javy
 
 https://github.com/bytecodealliance/wit-bindgen
   suite of bindings generators for languages that are compiled to WebAssembly
   and use the component model. Bindings are described with *.wit files which
   specify imports, exports, and facilitate reuse between bindings definitions.
 
-WASM vs JVM:
-  - coupled to an ecosystem; cannot run C programs in JVM
-  - open standard (vs proprietary)
-  - browser support
+WASM                                           | vs JVM  https://youtu.be/1dcRZ-r-Rbs?t=2123
+--------------------------------------------------------------------------------------------
+auto-install, auto-update                      |
+can run C programs                             | "emscripten for JVM" attempt: http://nestedvm.ibex.org/
+but jvm has GraalVM                            |
+browser support                                |
+open standard (vs proprietary)                 |
+"hardware bias" (eg SIMD instructions)         | "language bias" (eg field instructions)
+other langs bring own object model, GC, stdlib | other langs share the object model, GC, stdlib
+--------------------------------------------------------------------------------------------------
+
+vs LLVM:
+  - LLVM IR was not designed for efficient interpretation/execution
 
 security
   - vs JVM: https://news.ycombinator.com/item?id=35469962
