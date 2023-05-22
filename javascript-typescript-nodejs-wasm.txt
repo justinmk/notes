@@ -383,6 +383,7 @@ wasm / webassembly
 
 platform support
   Go: https://github.com/golang/go/wiki/WebAssembly
+  javascript/typescript: https://github.com/bytecodealliance/javy
 
 WASI: system interface
   https://twitter.com/solomonstre/status/1111004913222324225

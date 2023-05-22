@@ -11002,3 +11002,10 @@ Start with a prompt that sets the context for the application and how you want t
 - You can now look at the master plan and see if it makes sense. If there are
   problems with it, you can ask ChatGPT to re-write some of the tasks or the
   entire master plan by providing more information.
+
+================================================================================
+20230524
+Mini.WebVM: Your own Linux box from Dockerfile, virtualized in the browser via WebAssembly
+https://leaningtech.com/mini-webvm-your-linux-box-from-dockerfile-via-wasm/
+https://github.com/leaningtech/webvm
+tags: wasm webassembly vm web
