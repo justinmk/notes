@@ -6626,6 +6626,8 @@ tags: economics concepts mental-model
 "Game B"
 sense-making + choice-making
 "multipolar trap"
+  - Moloch = "god of game theory", "emergent property of interlocking incentives"
+    https://slatestarcodex.com/2014/07/30/meditations-on-moloch/
 "bottom-up coordination system"
 "rivalrous dynamics"
 paperclip maximizer: https://wiki.lesswrong.com/wiki/Paperclip_maximizer
@@ -11205,3 +11207,60 @@ conventions on Linux, macOS and Windows, by leveraging:
 - the XDG base directory and the XDG user directory specifications on Linux
 - the Known Folder API on Windows
 - the Standard Directories guidelines on macOS
+
+================================================================================
+20230606
+Carthago delenda est
+https://en.wikipedia.org/wiki/Carthago_delenda_est
+tags: concepts quotation latin
+Ceterum (autem) censeo Carthaginem esse delendam ("Furthermore, I consider that Carthage must be destroyed").
+- Cato, a veteran of the Second Punic War, was shocked by Carthage's wealth, which he considered dangerous for Rome.
+  He then relentlessly called for its destruction and ended all of his speeches with the phrase, even when the debate was on a completely different matter.
+- Corculum opposed the war ... Like Cato, he ended all his speeches with
+  "Carthage must be saved" (Carthago servanda est).
+- Cato finally won the debate after Carthage had attacked Massinissa, which gave
+  a casus belli to Rome.
+
+================================================================================
+20230606
+Casus belli
+https://en.wikipedia.org/wiki/Casus_belli
+tags: concepts quotation latin
+"Act of War"
+
+================================================================================
+20230614
+vermicular, vermiform
+https://en.wiktionary.org/wiki/vermicular
+tags: words concepts latin
+like a worm in form or movement
+
+================================================================================
+20230615
+FANN: Vector Search in 200 Lines of Rust
+https://fennel.ai/blog/vector-search-in-200-lines-of-rust/
+tags: ai llm machine-learning deep-learning algorithm data-structure vector tensor
+## Introduction to Vectors (aka Embeddings)
+  Complex unstructured data like docs, images, videos, are difficult to represent and query in traditional databases – especially if the query intent is to find "similar" items.
+  Advances in AI in early 2010s (starting with Word2Vec and GloVe) enabled us to build semantic representation of these objects in which they are represented as points in cartesian space. Say one video gets mapped to the point [0.1, -5.1, 7.55] and another gets mapped to the point [5.3, -0.1, 2.7]. Representations are chosen such that they maintain semantic information –  more similar two videos, smaller the distance is between their vectors.
+  Note that these vectors ("embeddings") are N-dimensional (say 128 or 750). And the distance doesn't need to be euclidean - other forms of distances, like dot products, also work.
+  How do we find the most similar video to a given starting video? Loop through all the videos, compute the distance between them and choose the video with the smallest distance - also known as finding the "nearest neighbours" of the query video. But a linear O(N) scan can be too costly. So we need a faster sub-linear way to find the nearest neighbours of any a query video. This is in general impossible.
+  But we don't need to find _the_ nearest video, just _near-enough_: approximate nearest neighbor search.
+  The goal is to sub-linearly (ideally in logarithmic time) find close enough nearest neighbours of any point in a space.
+## How to Find Approximate Nearest Neighbours?
+  The basic idea vector search algorithms is: do some pre-processing to identify  points that are close enough to each other (somewhat like building an index). At the query time, use this "index" to rule out large swath of points. And do a linear scan within the small number of points that weren't ruled out.
+  But there are lots of ways to approach this. Several state-of-the-art vector search algorithms exist like [HNSW](https://github.com/nmslib/hnswlib?ref=fennel.ai) (a graph that connects close-proximity vertices and also maintains long-distance edges with a fixed entry point). There exist open-source efforts like Facebook’s [FAISS](https://github.com/facebookresearch/faiss?ref=fennel.ai) and several PaaS offerings for high-availability vector databases like [Pinecone](https://www.pinecone.io/?ref=fennel.ai) and [Weaviate](https://weaviate.io/?ref=fennel.ai).
+In this post, we will build a simplified vector search index over the given "N" points as follows:
+  1. Randomly take 2 arbitrary available vectors A and B.
+  2. Calculate the midpoint C.
+  3. Build a hyperplane (high-dimension analog of a "line") that passes through C and is perpendicular to the line segment AB.
+  4. Classify all the vectors as being either “above” or “below” the hyperplane, splitting the available vectors into 2 groups.
+  5. For each of the two groups: if the size of the group is higher than a configurable “maximum node size”, recursively call this process on that group to build a subtree.
+     Else, build a single leaf node with all the vectors (or their unique ids).
+We thus use this randomized process to build a tree where every internal node is a hyperplane definition with the left subtree being all the vectors “below” the hyperplane and the right subtree being all the vectors “above”.
+The set of vectors are continuously recursively split until leaf nodes contain no more than “maximum node size” vectors.
+Each region represents a leaf node and the intuition is that "close enough" points are likely to end up in the same leaf node.
+So given a query point, we can traverse down the tree in logarithmic time to locate the leaf it belongs to and run a linear scan against all the (small number of) points in that leaf.
+This is obviously not foolproof - it's totally possible that points that are actually close enough get separated by a hyperplane and end up very far off from each other.
+But this problem can be tackled by building not one but many independent trees - so if two points are close enough, they are far more likely to be in the same leaf node in at least some trees.
+At the query time, we traverse down all the trees to locate the relevant leaf nodes, take a union of all the candidates across all leaves, and do a linear scan on all of them.

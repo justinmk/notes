@@ -28,6 +28,12 @@ todo:
       https://www.tombihn.com/collections/backpacks/products/synapse-25?variant=50297850439
 
 where/what
+  germany
+    https://www.drachenstich.de/ Drachenstadt:
+      Furth im Wald lies right on the Germany-Czechia border 100 miles east of Nuremberg in Bavaria.
+      Each year, the city re-enacts the legend of St. George slaying the dragon with a festival.
+    https://www.nrw-tourismus.de/roemerfest-xanten
+      Bread and Games is one of the largest Roman festivals in the world, every 2 years in the North Rhine-Westphalian city of Xanten.
   portugal/lisbon
     food:
       portugeuse sardines on portugeuse bread w/ oil

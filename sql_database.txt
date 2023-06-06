@@ -38,3 +38,15 @@ Nonclustered index leaf
         clustered index seek
     lookup
 
+================================================================================
+sqlite
+
+tradeoffs:
+- No foreign keys by default. Every connecting session must toggle it on.
+- One writer. Any session that issues BEGIN TRANSACTION and then hangs halts all DML.
+- WAL mode confusion. WAL cannot safely be used on network filesystems, and it breaks ACID on ATTACHed databases, among other problems.
+- No date/time types.
+- Length specifications on a column are ignored. CHAR(2) will allow the insertion of a blob.
+  Check constraints could be used to enforce this.
+- Type affinity => any data type can be inserted into columns declared as any other data type.
+  Type enforcement can be done, but not the default.
