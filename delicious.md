@@ -11264,3 +11264,12 @@ So given a query point, we can traverse down the tree in logarithmic time to loc
 This is obviously not foolproof - it's totally possible that points that are actually close enough get separated by a hyperplane and end up very far off from each other.
 But this problem can be tackled by building not one but many independent trees - so if two points are close enough, they are far more likely to be in the same leaf node in at least some trees.
 At the query time, we traverse down all the trees to locate the relevant leaf nodes, take a union of all the candidates across all leaves, and do a linear scan on all of them.
+
+================================================================================
+20230622
+The “false consensus effect”: An egocentric bias in social perception and attribution processes
+https://www.sciencedirect.com/science/article/abs/pii/002210317790049X
+tags: concepts psychology mental-model
+False consensus effect: the belief that your own behavioral choices and
+judgments are relatively common and appropriate to existing circumstances.
+May cause you to do or avoid things because we assume other people think the same.
