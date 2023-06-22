@@ -1,6 +1,7 @@
 TODO:
     https://course.fast.ai/
     https://developers.google.com/machine-learning/crash-course/
+    https://mlu-explain.github.io/
 
 GPT = generative pretrained transformer
     - "Transformer": detects subtle relationships even amongst distant data elements in a sequence.

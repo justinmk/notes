@@ -6339,9 +6339,10 @@ tags: security infosec
 Coroutines as an alternative to state machines
 https://eli.thegreenplace.net/2009/08/29/co-routines-as-an-alternative-to-state-machines
 tags: programming compsci coroutine state-machine
-coroutines are to state machines what recursion is to stacks:
-- recursion helps process nested data structures without employing explicit stacks.
-- coroutines help solve problems involving state, without using explicit state machines.
+Coroutines are to state machines what recursion is to stacks:
+  - Recursion helps process nested data structures without employing explicit stacks.
+  - Coroutines help solve problems involving state without explicitly using state machines.
+Coroutines ~= "infinite state machines".
 
 
 ================================================================================
@@ -11273,3 +11274,20 @@ tags: concepts psychology mental-model
 False consensus effect: the belief that your own behavioral choices and
 judgments are relatively common and appropriate to existing circumstances.
 May cause you to do or avoid things because we assume other people think the same.
+
+================================================================================
+20230629
+The Random Forest Algorithm
+https://mlu-explain.github.io/random-forest/
+tags: machine-learning statistics math concepts mental-model
+- Random Forest is an example of ensemble learning where each model is
+  a decision tree.
+- If we ask two more decision trees each having 60% accuracy, and decide by the
+  majority vote, then the probability of the vote being right goes up.
+- Caveat: the accuracy may not improve if each model produces the same
+  prediction, for example. The mistake of one model would not be caught by the
+  other models.
+- Condorcet's Jury Theorem: if each person is more than 50% correct, then adding
+  more people to vote increases the probability that the majority is correct.
+  - Marquis de Condorcet, 1785 political science theorem about the relative
+    probability of a group of people to arrive at a correct majority decision.
