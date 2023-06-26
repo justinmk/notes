@@ -3351,10 +3351,10 @@ union filesystem (JBOD solution)
 ================================================================================
 Amazon six-pager
 https://news.ycombinator.com/item?id=19115686
-tags: documentation communication work habits teams
+tags: documentation communication work habits teams amazon
 principles of the 6-pager:
 - 6 pages is the upper limit; the memo can be shorter
-- The format is designed to drive the meeting structure by requiring attendees
+- Format is designed to drive the meeting structure by requiring attendees
   to read the memo in the first 10 minutes of a meeting, followed by discussion
 - You can push extra information into the appendix if needed to convince those
   looking for more evidence
@@ -11329,3 +11329,125 @@ tags: lsp scala rpc api protocol
   - `metals/treeViewReveal`
     The reveal request is sent from the client to the server to convert a text
     document position into it's corresponding tree view node.
+
+================================================================================
+20230625
+My favorite things about working at companies with a culture of writing
+https://news.ycombinator.com/item?id=30361655
+https://web.archive.org/web/20220217150254/https://founder-fodder.ghost.io/writing-cultures-win/
+tags: documentation communication work habits teams amazon
+- Paul Graham: "Writing about something, even something you know well, usually
+  shows you that you didn't know it as well as you thought. Putting ideas into
+  words is a severe test."
+- Less political orgs: companies without a culture of writing tend to be the
+  most political.
+- More backlinks to you and your work: Being the teammate that contributes to
+  the system of knowledge shared shows how much you care about the success of
+  the organization. And it helps you have more documented and attributable
+  credibility for the value you create.
+- counterpoint/caution: "optimization of x destroys the rest of the alphabet."
+  - Rules are coordination mechanisms that carry the capacity to destroy value.
+  - Due to the "culture of writing and reading" I spend most of my time mired in
+    documents. Every breath we take produces a wall of text that must be
+    reviewed and commented on.
+    - Not every question deserves a one-pager. Not every potential code change
+      must be foreshadowed by an exhaustive treatment.
+
+================================================================================
+20230626
+fullmoon
+https://github.com/pkulchenko/fullmoon
+tags: lua web framework
+Fast and minimalistic Redbean-based Lua web framework in one file.
+
+================================================================================
+20230626
+A Pathway to Equitable Math Instruction Dismantling Racism in Mathematics Instruction
+https://equitablemath.org/wp-content/uploads/sites/2/2020/11/1_STRIDE1.pdf
+tags: politics dei progressivism math
+- "Upholding the idea that there are always right and wrong answers perpetuates objectivity".
+- "Terms used to identify white supremacy characteristics as defined by Jones and Okun (2001):"
+  - Perfectionism
+  - Sense of Urgency
+  - Defensiveness
+  - Quantity Over Quality
+  - Worship of the Written Word
+  - Paternalism
+  - Either/Or Thinking
+  - Power Hoarding
+  - Fear of Open Conflict
+  - Individualism
+  - Only One Right Way
+  - Progress is Bigger, More
+  - Objectivity
+  - Right to Comfort
+CONTENT DEVELOPERS
+Sonia Michelle Cintron, Math Content Specialist, UnboundEd
+Dani Wadlington, Director of Mathematics Education, Quetzal Education Consulting
+Andre ChenFeng, Ph.D. Student, Education at Claremont Graduate University
+FEEDBACK ADVISORS
+Kyndall Brown, Executive Director, California Mathematics Project
+Denise Green, Educational Administrator, Mathematics, Monterey County Office of Education
+Manuel Buenrostro, Policy Associate, Californians Together
+Ana Benderas, Director of Humanities Education
+
+================================================================================
+20230626
+Maximally Powerful, Minimally Useful
+https://blog.higher-order.com/blog/2014/12/21/maximally-powerful/
+tags: systems architecture concepts mental-model mathematics
+- Expressiveness-analyzability tradeoff in language and systems design: the more expressive a language or system is, the less we can reason about it, and vice versa.
+- In mathematics: either the *set* of things you’re working with has nice
+  properties (e.g., for the reals, completeness) and supports nice constructions
+  with no caveats (e.g., for the reals, limits); or each of the *things* in the
+  set is individually nice and tractable (e.g. computable). https://news.ycombinator.com/item?id=36106629
+  - Sometimes the direction of the axis is not obvious (real numbers lack
+    solutions for algebraic equations; complex numbers lack smooth functions
+    nonzero only in a finite region), but usually a simple family of "eldritch
+    objects" is easier to deal with than a byzantine clan of "cuddly objects".
+- "Generally: a restriction at one semantic level translates to freedom and power at another semantic level."
+
+================================================================================
+20230626
+A Revolution in Mathematics? What Really Happened a Century Ago and Why It Matters Today - Frank Quinn
+http://www.ams.org/notices/201201/rtx120100031p.pdf
+tags: mathematics history concepts
+Major components of the new methods are:
+- Precise definitions: Old definitions usually described what things are
+  supposed to be and what they mean, and extraction of properties relied to some
+  degree on intuition and physical experience. Modern definitions are completely
+  selfcontained, and the only properties that can be ascribed to an object are
+  those that can be rigorously deduced from the definition.
+- Logically complete proofs: Old proofs could include appeals to physical
+  intuition (e.g., about continuity and real numbers), authority (e.g., “Euler
+  did this so it must be OK”), and casual establishment of alternatives (“these
+  must be all the possibilities because I can’t imagine any others”). Modern
+  proofs requ
+
+================================================================================
+20230626
+Tainter's theory of collapse
+https://en.wikipedia.org/wiki/Joseph_Tainter
+tags: history concepts civilization economics misallocation
+Tainter argues that sustainability or collapse of societies follow from the
+success or failure of problem-solving institutions and that societies collapse
+when their investments in social complexity and their energy subsidies reach
+a point of diminishing marginal returns.
+
+================================================================================
+20230627
+Lithium controversy
+https://news.ycombinator.com/item?id=36476337
+tags: lithium electric-vehicles engineering politics environmentalism
+> Compared to all other basic materials we use in our life, lithium is pretty mundane. No war has been faught over cobalt. It's a byproduct of other mining, and quickly being phased out for cheaper less controversial materials.
+>
+> Lithium mining gets a bad rap not because it's particularly environmentally devastating, but because of political narratives that try to prevent technological change. Lithium is really a mundane material. You never hear people complaining about potash mining or other similar salt extraction, lithium is just targeted because of the industries that it upsets, which are in turn orders of magnitude more damaging.
+>
+> Which isn't to say that we shouldn't make it as environmentally friendly as possible. I'm just saying that if you fill up a tank of gas, you have a hell of a lot more to answer for when it comes to environmental karma than if you fill an equivalent lithium battery.
+>
+> The wars in the Congo were fought over Nickel and Diamonds. No one cared about Cobalt in most centuries. It was the shiny waste product of Nickel mines that sometimes artists enjoyed painting with. Even at the peak of the worst of Lithium Ion battery formulations "demand" for Cobalt almost all of it was sourced from Nickel mining "waste". Cobalt is the "waste product". Nickel was always the primary reason for all the mining. (Nickel will likely always be the primary reason. Especially now as Lithium Ion formulations have mostly eliminated Cobalt in recent years.)
+.
+- https://en.wikipedia.org/wiki/Lithium_mining_in_Australia
+  > Australia has one of the biggest lithium reserves and is the biggest producer of lithium by weight, with most of its production coming from mines in Western Australia. Most Australian lithium is produced from hard-rock spodumene, in contrast to other major producers like Argentina, Chile and China, which produce it mainly from salt lakes.
+- https://www.epa.wa.gov.au/media-statements/expansion-greenbushes-lithium-mine-recommended-environmental-approval
+  Processing can be very polluting, it can also be closely watched and contained with plant wide pads under layed with membranes that are regulalry monitored, inspected, fined for breach, etc.

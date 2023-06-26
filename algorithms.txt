@@ -173,3 +173,21 @@ consistent hash "ring":
     alternative: Rendezvous hashing, aka highest random weight (HRW) hashing
                  distributed k-agreement (consistent hashing is k=1)
 
+Two's complement  https://news.ycombinator.com/item?id=36457020
+    - (Hint: compare the apostrophe: "ones' complement" vs "two's complement".)
+    - Two's complement: To negate a number, raise 2 to the power of the bit
+      width and then subtract the number. For example, negating 0011b (4 bits)
+      means taking 10000b and subtracting 0011b, giving you 1101b.
+        - Addition and subtraction for signed and unsigned int works the same
+          way at the _bit level_. For signed ints, the highest bit is the sign.
+        - Consequences to remember if you work with signed and unsigned 8-bit ints:
+            - The biggest unsigned int is 255 (2⁸-1; all 1s in binary) and
+              smallest is 0 (all 0s in binary). Increment/decrement jump between
+              those in overflow/underflow (the modulo arithmetic).
+            - Because the highest bit is needed for the negative sign, the
+              biggest signed int is 127 (2⁷-1; all 1s except the sign bit) and
+              smallest is -128 (-2⁷; only the sign bit set). Increment and
+              decrement jump between those in overflow/underflow.
+    - Ones' complement: To negate a number, take as many ones (plural) as the
+      bit width and then subtract the number. For example, negating 0011b (4
+      bits) means taking 1111b and subtracting 0011b, giving you 1100b.

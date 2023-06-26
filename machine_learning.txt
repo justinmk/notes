@@ -5,8 +5,8 @@ TODO:
 
 GPT = generative pretrained transformer
     - "Transformer": detects subtle relationships even amongst distant data elements in a sequence.
-        - "self-attention": differentially weighting each part of the input (which includes the recursive output)
         - marketing name for "attention net"
+        - "self-attention": differentially weighting each part of the input (which includes the recursive output)
         - from 2017 Google paper
           https://ai.googleblog.com/2017/08/transformer-novel-neural-network.html
           https://arxiv.org/abs/1706.03762
