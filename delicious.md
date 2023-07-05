@@ -1,4 +1,4 @@
-vim: sw=2 ft=text comments=s1\:/*,mb\:*,ex\:*/,\://,b\:#,\:%,\:XCOMM,n\:>,fb\:-
+vim: sw=2 ft=help comments=s1\:/*,mb\:*,ex\:*/,\://,b\:#,\:%,\:XCOMM,n\:>,fb\:-
 
 ================================================================================
 Solving Problems the Clojure Way - Rafal Dittwald
@@ -11291,3 +11291,41 @@ tags: machine-learning statistics math concepts mental-model
   more people to vote increases the probability that the majority is correct.
   - Marquis de Condorcet, 1785 political science theorem about the relative
     probability of a group of people to arrive at a correct majority decision.
+
+================================================================================
+20230705
+metals LSP extensions
+https://github.com/scalameta/metals/tree/7d0397b3f8fe016b92fd46fdfc1a39b68b3cd715/docs/integrations
+tags: lsp scala rpc api protocol
+- LSP extension: "Decoration Protocol" to display non-editable text in the text editor. https://github.com/scalameta/metals/blob/7d0397b3f8fe016b92fd46fdfc1a39b68b3cd715/docs/integrations/decoration-protocol.md
+  - `initialize`
+    The Decoration Protocol is only enabled when client declares support for the protocol by adding an decorationProvider: true field to the `initializationOptions` during the `initialize` request.
+  - `metals/publishDecorations`
+    Sent from the server to the client to notify that decorations have changes for a given text document.
+- LSP extension: "Tree View Protocol": https://github.com/scalameta/metals/blob/7d0397b3f8fe016b92fd46fdfc1a39b68b3cd715/docs/integrations/tree-view-protocol.md
+  - `initialize`
+    The Tree View Protocol is only enabled when both the client and server declare
+    support for the protocol by adding an `treeViewProvider: true` field to the
+    experimental section of the server and client capabilities in the `initialize`
+    response.
+  - `metals/treeViewChildren`
+    The tree view children request is sent from the client to the server to get the
+    children nodes of a tree view node. The client is safe to cache the response of
+    the children until server sends a `metals/treeViewDidChange` notification for
+    the parent node or one of its ancestor nodes.
+  - `metals/treeViewParent`
+    The tree view parent request is sent from the client to the server to obtain the
+    parent node of a child node. The `metals/treeViewParent` endpoint is required to
+    support `metals/treeViewReveal`.
+  - `metals/treeViewDidChange`
+    The tree view did change notification is sent from the server to the client to
+    notify that the metadata about a given tree view node has changed.
+  - `metals/treeViewVisibilityDidChange`
+    The visibility did change notification is sent from the client to the server to
+    notify that the visibility of a tree view has changed.
+  - `metals/treeViewNodeCollapseDidChange`
+    The collapse did change notification is sent from the client to the server to
+    notify that a tree node has either been collapsed or expanded.
+  - `metals/treeViewReveal`
+    The reveal request is sent from the client to the server to convert a text
+    document position into it's corresponding tree view node.
