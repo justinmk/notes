@@ -1,0 +1,7 @@
+hypervisor
+- Core responsibility: divide hardware resources and time between VMs.
+- Can run "on the hardware" ("type-1"), or as privileged process ("type-2").
+- Examples: KVM, Xen
+    - Xen ("type-1": direct control of hw)
+    - KVM ("type-2": uses privileged, kernel-mode primitives for managing VMs; the kernel then schedules and allocates the appropriate system resources)
+- "Firecracker is not a hypervisor. Firecracker is a process that controls KVM." May be called a VMM ("virtual machine monitor")

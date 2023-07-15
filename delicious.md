@@ -2877,12 +2877,12 @@ tags: tools programming online repl
   time="2012-04-11T22:42:28Z" 
 
 ================================================================================
-Affordances - Interaction-Design.org: HCI, Usability, Information Architecture, User Experience, and more..
-  affordance = an action possibility available to the user avoid &quot;false affordance&quot; (like a knob that cannot be turned, or a chair that cannot be sat in). an intelligent control interface is as a false affordance. http://unqualified-reservations.blogspot.com/2009/07/wolfram-alpha-and-hubristic-user.html
-href="http://www.interaction-design.org/encyclopedia/affordances.html"
+Affordances - Interaction-Design.org: HCI, Usability, Information Architecture, User Experience, and more
+http://www.interaction-design.org/encyclopedia/affordances.html
+https://www.unqualified-reservations.org/2009/07/wolfram-alpha-and-hubristic-user/
 tags: design hci patterns ui usability
-  time="2012-04-10T05:35:50Z" 
-
+affordance = an action possibility available to the user avoid "false affordance" (like a knob that cannot be turned, or a chair that cannot be sat in).
+An intelligent control interface is as a false affordance.
 
 ================================================================================
 convey the global structure (BIG PICTURE) of programs
@@ -11517,3 +11517,70 @@ tags: webassembly wasm vm virtual-machine
     ❓ Garbage collected languages are difficult to implement efficiently on top of WASM, currently.
   - ❓ Operating system support. (future: WASI)
 
+================================================================================
+20230715
+AI-based music demixing web app
+https://sevag.xyz/free-music-demixer/
+tags: wasm webassembly music audio-analysis ai machine-learning
+Open-Unmix (UMX-L) running client-side in the browser with WebAssembly
+
+================================================================================
+20230715
+Spleeter music demixer
+https://github.com/deezer/spleeter
+tags: music audio-analysis ai machine-learning
+Deezer source separation library including pretrained models.
+Spleeter is Deezer source separation library with pretrained models written in
+Python and uses Tensorflow. It makes it easy to train source separation model
+(assuming you have a dataset of isolated sources), and provides already
+trained state of the art model for performing various flavour of separation :
+- Vocals (singing voice) / accompaniment separation (2 stems)
+- Vocals / drums / bass / other separation (4 stems)
+- Vocals / drums / bass / piano / other separation (5 stems)
+
+================================================================================
+20230716
+A Recipe for Training Neural Networks
+https://karpathy.github.io/2019/04/25/recipe/
+tags: ai llm machine-learning deep-learning neural-networks nn
+
+================================================================================
+20230720
+Cheating is All You Need Steve Yegge March 23, 2023
+https://about.sourcegraph.com/blog/cheating-is-all-you-need
+tags: ai llm machine-learning deep-learning chatgpt
+Winners in the AI space will have data moats: data that others do not have.
+Must be really good at fetching the right data to stuff into that 100k-char window ... that’s the only way to affect the quality of the LLM’s output.
+Cody itself is a platform, because you can use it to build your own LLM-backed workflows.
+Other coding assistants, which do not have Sourcegraph for Step 2 (populating the context), are stuck using whatever context they can get from the IDE.
+And no IDE scales up to industrial-sized code bases.
+
+================================================================================
+20230720
+Stable diffusion in local web browsers (no server support)
+https://github.com/mlc-ai/web-stable-diffusion
+https://websd.mlc.ai/
+https://islamov.ai/stable-diffusion-webgpu/
+https://news.ycombinator.com/item?id=36766523
+tags: machine-learning llm stable-diffusion programming open-source
+
+================================================================================
+20230720
+Seeking the Productive Life: Some Details of My Personal Infrastructure
+https://writings.stephenwolfram.com/2019/02/seeking-the-productive-life-some-details-of-my-personal-infrastructure/
+tags: work productivity habits time-management scaling
+> And for me personally, another huge “productivity hack” is my company, which
+> I started more than 32 years ago. Yes, it could (and should) be larger, and
+> have more commercial reach. But as a nicely organized private company with
+> about 800 people it’s an awfully efficient machine for turning ideas into real
+> things, and for leveraging what skills I have to greatly amplify my personal
+> productivity.
+
+================================================================================
+20230720
+Generative AI Space and the Mental Imagery of Alien Minds
+https://writings.stephenwolfram.com/2023/07/generative-ai-space-and-the-mental-imagery-of-alien-minds/
+tags: generative-ai machine-learning llm stable-diffusion
+We typically go to a lot of trouble to train our AIs to produce results that are like we humans would do.
+But what if we take a human-aligned AI, and modify it? Well, then we get something that’s in effect an alien AI—an AI aligned not with us humans, but with an alien mind.
+Imagine taking the neural net that implements this generative AI, and modifying its insides—say by resetting weights that appear in its neural net.
