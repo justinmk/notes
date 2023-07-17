@@ -1,4 +1,4 @@
-vim: sw=2 ft=help comments=s1\:/*,mb\:*,ex\:*/,\://,b\:#,\:%,\:XCOMM,n\:>,fb\:-
+vim: sw=2 comments=s1\:/*,mb\:*,ex\:*/,\://,b\:#,\:%,\:XCOMM,n\:>,fb\:-
 
 ================================================================================
 Solving Problems the Clojure Way - Rafal Dittwald
@@ -11451,3 +11451,69 @@ tags: lithium electric-vehicles engineering politics environmentalism
   > Australia has one of the biggest lithium reserves and is the biggest producer of lithium by weight, with most of its production coming from mines in Western Australia. Most Australian lithium is produced from hard-rock spodumene, in contrast to other major producers like Argentina, Chile and China, which produce it mainly from salt lakes.
 - https://www.epa.wa.gov.au/media-statements/expansion-greenbushes-lithium-mine-recommended-environmental-approval
   Processing can be very polluting, it can also be closely watched and contained with plant wide pads under layed with membranes that are regulalry monitored, inspected, fined for breach, etc.
+
+================================================================================
+20230717
+timecraft: WebAssembly Time Machine
+https://github.com/stealthrocket/timecraft
+tags: webassembly wasm
+License: AGPLv3
+The Time Machine records the program execution, and can be accessed to get
+insight from the program that was executed. It can reconstruct high level
+context such as the HTTP requests and responses that were exchanged by the
+application, for example:
+
+    $ timecraft trace request -v ffe47142-c3ad-4f61-a5e9-739ebf456332
+    2023/06/28 23:29:05.043455 HTTP 172.16.0.0:49152 > 44.206.52.165:443
+    > GET / HTTP/1.1
+    > Host: eo3qh2ncelpc9q0.m.pipedream.net
+    > User-Agent: Go-http-client/1.1
+    > Accept-Encoding: gzip
+    >
+    < HTTP/1.1 200 OK
+    < Date: Thu, 29 Jun 2023 06:29:04 GMT
+    < Content-Type: text/html; charset=utf-8
+    < Content-Length: 14
+    < Connection: keep-alive
+    < X-Powered-By: Express
+    < Access-Control-Allow-Origin: *
+    <
+    Hello, World!
+
+================================================================================
+20230717
+Understanding WASM, Part 2: Whence WASM
+https://www.neversaw.us/2023/06/30/understanding-wasm/part2/whence-wasm/
+tags: webassembly wasm vm virtual-machine
+- WebAssembly pulled the same magic trick C did: it extracted an existing,
+  useful abstract machine definition from several concrete implementations, like
+  finding David in the block of marble. Rather than requiring that browser
+  vendors implement a second virtual machine, WebAssembly support could be added
+  incrementally, sharing code between the JS and WASM runtimes.
+- WebAssembly described a zero-capability system with no set system interface,
+  making it an ideal sandbox. Riding along with the web platform meant a free
+  ticket to just about every computer with a screen
+- Because WASM describes a machine, not an implementation, it is not constrained
+  to run only in browser JIT VMs. WASM has been successully used outside of the
+  browser via runtimes like wasmtime and wasmer and as a sandboxing intermediate
+  representation for 3rd-party C code via wasm2c and RLBox34. ("Has a" vs. "Is
+  a": WebAssembly is not a "virtual machine" runtime, it has many indepedent
+  virtual machine runtimes. The performance of browser WASM runtimes may not be
+  indicative of overall performance boundaries for the ISA.)
+- Prior to asm.js, JavaScript (and Smalltalk/Java) presented a virtual machine
+  to programs that was attuned to the needs of the _host_ language. asm.js and
+  WebAssembly discovered a virtual instruction set computer hiding in the
+  optimizing virtual machine runtimes of JavaScript. A similar virtual
+  instruction set computer could probably be found in the JVM or even the
+  Strongtalk VM, but neither of those VMs had the advantage of riding along with
+  the browser or being subject to the particular performance, isolation, and
+  security requirements of the web platform.
+- How does WebAssembly compare to LLVA's design goals for a virtual ISA?
+  - ✅ Simple, low-level operations. WebAssembly operates in terms of functions and mathematical operations on machine types and memory.
+  - ✅ No execution-oriented features. The stack is not visible from within the WebAssembly process runtime, no addressing modes are specified, compilers are free to generate whichever calling convention fits their needs.
+  - ✅ Portability across processor designs.
+  - ✅ High-level information to support optimization. Loops, branches, and function information is retained, allowing for function inlining, loop unrolling, loop-invariant-code-motion, and other optimizations.
+  - ✅ Language independence. Any language that targets the C abstract machine can target WebAssembly.
+    ❓ Garbage collected languages are difficult to implement efficiently on top of WASM, currently.
+  - ❓ Operating system support. (future: WASI)
+
