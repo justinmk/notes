@@ -9919,7 +9919,7 @@ tags: science global-warming climate weather environmentalism podcast
 20221121
 Copenhagen Consensus Center
 https://www.copenhagenconsensus.com/
-tags: science global-warming climate weather environmentalism podcast
+tags: science global-warming climate weather environmentalism
 > research and development for more effective and cheaper green technologies to
 > combat climate change as well as increase agricultural productivity.
 
@@ -11543,17 +11543,76 @@ trained state of the art model for performing various flavour of separation :
 A Recipe for Training Neural Networks
 https://karpathy.github.io/2019/04/25/recipe/
 tags: ai llm machine-learning deep-learning neural-networks nn
+- large gap between “here is how a convolutional layer works” and “our convnet
+  achieves state of the art results”.
+- how one can avoid making these errors altogether (or fix them very fast)
+- KEY POINTS:
+  1. Neural net training is a leaky abstraction. Backpropagation is a leaky abstraction.
+     - Numerous libraries and frameworks take pride in displaying 30-line miracle snippets:
+       ```
+       >>> your_data = # plug your awesome dataset here
+       >>> model = SuperCrossValidator(SuperDuper.fit, your_data, ResNet50, SGDOptimizer)
+       # conquer world here
+       ```
+  2. Neural net training fails silently.
+     The “possible error surface” is large, logical (as opposed to syntactic), and very tricky to unit test.
+     For example, perhaps you forgot to flip your labels when you left-right flipped the image during data augmentation.
+- THE RECIPE
+  1. Become one with the data. Spend copious amount of time (hours) scanning
+     through thousands of examples, understanding their distribution and looking
+     for patterns.
+  2. Set up the end-to-end training/evaluation skeleton + get dumb baselines.
+     - fix random seed. guarantee that when you run the code twice you will get the same outcome.
+     - simplify
+     - add significant digits to your eval
+     - verify loss @ init
+     - init well
+     - human baseline
+     - input-indepent baseline
+     - overfit one batch
+     - verify decreasing training loss
+     - visualize just before the net
+     - visualize prediction dynamics
+     - use backprop to chart dependencies
+     - generalize a special case
+  3. Overfit
+     - two stages:
+       1. get a model large enough that it can overfit (i.e. focus on training loss)
+       2. then regularize it appropriately (give up some training loss to improve the validation loss).
+     - if we are not able to reach a low error rate with any model at all that may again indicate some issues, bugs, or misconfiguration.
+  4. Regularize. Now we have a large model that is fitting at least the training set. it is time to regularize it and gain some validation accuracy by giving up some of the training accuracy.
+      - get more data. "As far as I’m aware adding more data is pretty much the only guaranteed way to monotonically improve the performance of a well-configured neural network almost indefinitely. The other would be ensembles (if you can afford them), but that tops out after ~5 models."
+      - data augment. The next best thing to real data is half-fake data = more aggressive data augmentation.
+      - creative augmentation. If half-fake data doesn’t do it, fake data may also do something.
+        For example, domain randomization, use of simulation, clever hybrids such as inserting (potentially simulated) data into scenes, or even GANs.
+      - smaller input dimensionality. Remove features that may contain spurious signal.
+      - smaller model size. For example, it used to be trendy to use Fully Connected layers at the top of backbones for ImageNet but these have since been replaced with simple average pooling, eliminating a ton of parameters.
+      - To gain confidence that your network is a reasonable classifier, I like to visualize the network’s first-layer weights and ensure you get nice edges that make sense. If your first layer filters look like noise then something could be off.
+  5. Tune.
+      - random over grid search. Neural nets are often much more sensitive to some parameters than others. In the limit, if a parameter a matters but changing b has no effect then you’d rather sample a more throughly than at a few fixed points multiple times.
+      - hyper-parameter optimization
+  6. Squeeze out the juice
+      - ensembles. Model ensembles are a pretty much guaranteed way to gain 2% of accuracy on anything.
+      - leave it training. People are tempted to stop the model training when the validation loss levels off.
+        Networks keep training for unintuitively long time. One time I accidentally left a model training during the winter break and when I got back it was SOTA.
+
+
+
+
+
+
 
 ================================================================================
 20230720
 Cheating is All You Need Steve Yegge March 23, 2023
 https://about.sourcegraph.com/blog/cheating-is-all-you-need
 tags: ai llm machine-learning deep-learning chatgpt
-Winners in the AI space will have data moats: data that others do not have.
-Must be really good at fetching the right data to stuff into that 100k-char window ... that’s the only way to affect the quality of the LLM’s output.
-Cody itself is a platform, because you can use it to build your own LLM-backed workflows.
-Other coding assistants, which do not have Sourcegraph for Step 2 (populating the context), are stuck using whatever context they can get from the IDE.
-And no IDE scales up to industrial-sized code bases.
+KEY TAKEAWAY: the LLM itself is not a differentiator (already being commoditized).
+- Winners in the AI space will have data moats: data that others do not have.
+- Must be really good at fetching the right data to stuff into that 100k-char window ... that’s the only way to affect the quality of the LLM’s output.
+- Cody itself is a platform, because you can use it to build your own LLM-backed workflows.
+- Other coding assistants, which do not have Sourcegraph for Step 2 (populating the context), are stuck using whatever context they can get from the IDE.
+  And no IDE scales up to industrial-sized code bases.
 
 ================================================================================
 20230720
@@ -11584,3 +11643,405 @@ tags: generative-ai machine-learning llm stable-diffusion
 We typically go to a lot of trouble to train our AIs to produce results that are like we humans would do.
 But what if we take a human-aligned AI, and modify it? Well, then we get something that’s in effect an alien AI—an AI aligned not with us humans, but with an alien mind.
 Imagine taking the neural net that implements this generative AI, and modifying its insides—say by resetting weights that appear in its neural net.
+
+================================================================================
+20230904
+"Tobacco Shop (Tabacaria)" by Fernando Pessoa (1928)
+https://www.prosperosisle.org/spip.php?article1096
+tags: poetry nihilism existentialism
+
+TOBACCO SHOP
+
+I’m nothing.
+I’ll always be nothing.
+I can’t even wish to be something.
+Aside from that, I’ve got all the world’s dreams inside me.
+
+Windows of my room,
+The room of just one of millions in the world nobody knows
+(And what would they know, if they knew that?),
+You open on the mystery of a street people are constantly crossing,
+A street blocked off to all thought,
+A street that’s real, impossibly real, and right, unconsciously right,
+With the mystery of things lying under live beings and stones,
+With death spreading dankness on walls and white hair on heads,
+With fate driving the cart of everything down nothingness road.
+
+Today I’m bowled over, as though hit by the truth.
+Today I’m clearheaded, as though I were going to die,
+Having no more brotherly feeling for things
+Than to say good-bye, turning this house and this side of the street
+Into a line of coaches in a long train with its whistle shrieking good-bye
+From inside my head,
+And a nerve-wracking, bone-cracking jerk as it moves off.
+
+Today I’m mixed up, like someone who thought something and grasped it, then lost it.
+Today I’m torn between the allegiance I owe
+Something real outside me—the Tobacco Shop across the street,
+And something real inside me—the feeling that it’s all a dream.
+
+I failed in everything.
+Since I was up to nothing, maybe it was all really nothing.
+From learning and training for anything useful I escaped
+By slipping out the back window.
+I went off to the country with great plans,
+But found only grass and trees there,
+And when there were people, they were just like any others.
+I leave the window, sit down in a chair. What should I think about?
+
+How can I tell what I’ll be, I who don’t know what I am?
+Be what I think? But I keep thinking I’m so many things!
+And so many people think of being the same thing, there just can’t be that many!
+Genius? At this moment
+A hundred thousand heads are dreaming they’re geniuses like me,
+And who knows if history will remember even one of them.
+From all those dreams of glory there’ll be nothing but manure in the end.
+No, I don’t believe in myself.
+In every asylum there are madmen sure of so much!
+I, sure of nothing, am I more sure or less sure than they?
+No, not even of myself . . .
+In how many garrets and nongarrets of the world
+Are there self-styled geniuses dreaming now?
+How many high-minded aspirations, noble and lucid—
+Yes, really high-minded, noble and lucid—,
+And who knows, even practicable,
+Will ever see the real light of day or get a hearing?
+The world is made for those born to conquer it,
+Not those who dream of conquering it, right though they may be.
+I’ve dreamt of more things than Napoleon went and did.
+I’ve taken to my so-called heart more humanity than Christ ever did.
+I’ve secretly thought up more philosophies than Kant ever wrote down.
+Yet I am, and maybe always will be, the man in the garret,
+Though I don’t live in one;
+I’ll always be the one who wasn’t born for it;
+I’ll always simply be the one with all the promise;
+I’ll always be the one waiting for the door to open at the wall without a door,
+Who sang his anthem to Infinity in a chicken coop,
+Who heard the voice of God in a covered well.
+Believe in myself?
+No, I don’t, nor in anything.
+Let Nature pour down upon my burning head
+Her sun, her rain, the wind ruffling my hair,
+And let the rest come, if it will or must, or not at all.
+Cardiac cases enslaved by the stars,
+We’ve conquered the world before getting out of bed,
+But we wake and the world is opaque,
+We get up and the world looks strange,
+We go out in the street and there’s the whole earth,
+Plus Solar System, Milky Way, and the old Indefinitude.
+
+(Eat your chocolates, little girl!
+Eat your chocolates!
+Look, there’s no metaphysics on earth but chocolates.
+Look, all religions on earth have nothing more to teach us than a candy store does.
+Eat, dirty little girl, eat them up!
+If only I could gobble down those chocolates as trustily as you do!
+But then I think, peeling off the silver wrapper, it’s only tinfoil,
+And toss it on the floor, just as I’ve tossed away my life.)
+
+But at least, out of my bitterness at what I’ll never be,
+There’s the quick calligraphy of these lines,
+The broken archway to the Impossible.
+And at least I reserve for myself this dry-eyed contempt—
+Noble, at least, in the grand gesture I make
+Flinging out the dirty clothes I am, with no laundry list, into the drift of things,
+And stay at home, shirtless.
+
+(Oh, my comforters, who don’t exist and so may comfort,
+Whether Greek goddess, conceived as a statue that springs alive,
+Or Roman matron, impossibly noble and ominous,
+Or Princess of the troubadours, so blushing and so gentle,
+Or eighteenth-century marchioness, so décolletée and cool,
+Or famous courtesan back in our parents’ time,
+Or modern whatever—since I can’t imagine what—
+All of it, whatever it may be, if you can inspire, do it!
+My heart’s an emptied pail.
+Like someone who can call up spooks calls up spooks,
+I call myself up, and nothing’s there.
+I go to the window and see the street in perfect clarity.
+I see the shops, I see the pavement, I see the passing cars.
+I see the dressed-up living passersby.
+I see the dogs too, also alive,
+And all of it weighs on me like a verdict of exile,
+And all of it’s strange to me, like everything else.)
+
+I lived, I studied, I loved, I even believed,
+And now there’s no beggar I don’t envy simply for not being me.
+In each I see the rags, the sores, the lies,
+And think: maybe you never lived, studied, loved, believed
+(Because people can go through the motions without doing any of it);
+Maybe you barely existed, like the lizard whose tail’s been snipped
+And is just a tail, apart from the lizard, and beating frantically.
+
+I made of myself something I didn’t know,
+And what I could become, I didn’t.
+The fancy costume I put on was wrong.
+They saw me straight for what I wasn’t; I didn’t disabuse them, so I lost myself.
+When I tried taking off the mask,
+It stuck to my face.
+When I pulled it off and looked in the mirror,
+I’d grown older.
+I was drunk and couldn’t get into the fancy costume I hadn’t taken off.
+So I threw away the mask and slept in the cloakroom
+Like a dog they let stay in the house
+Because it’s harmless,
+And I’m about to write this story to prove I’m sublime.
+
+Musical essence of my useless poems,
+If only I could find you in something I’d really made,
+And not forever fixed by the Tobacco Shop across the street,
+Stamping my feet on the consciousness of being alive,
+Like a rug some drunkard stumbles over
+Or a doormat the gypsies stole not worth a dime.
+
+But the Tobacco Shop Owner has come to his door and stands there now.
+I look at him, straining my half-turned neck,
+Straining my half-blind soul.
+He’ll die and so will I.
+He’ll leave his signboard, I’ll leave poems.
+After a while his signboard will perish too, and so will my poems.
+A little later the street will die where his signboard hung,
+And so will the language my poems were written in.
+Then the spinning planet where all this happened will die,
+In other satellites in other systems something like people
+Will go on making things like poems and living under things like signboards,
+Always one thing against another,
+Always one thing as useless as another,
+Always the impossible thing as stupid as the real thing,
+Always the fundamental mystery as certain as the sleeping surface mystery,
+Always this thing or that, or neither one nor the other.
+
+But now a man’s gone into the Tobacco Shop (to buy tobacco?)
+And the plausible reality of it all suddenly hits me.
+I’m getting up, full of energy, convinced, human,
+And about to try writing these lines, which say the opposite.
+
+I light a cigarette and think of writing them,
+And in the cigarette I savor my liberation from all thoughts.
+I follow the smoke like a lane of my own,
+For one sensitive, dexterous moment enjoying
+The freedom from all speculation
+And the consciousness that metaphysics comes from feeling out of sorts.
+
+Then I fall back in my chair
+And go on smoking.
+As long as fate permits, I’ll go on smoking.
+
+(If I married my washwoman’s daughter,
+Maybe I’d be happy.)
+I think of this, get up from my chair. I go to the window.
+The man is leaving the Shop (putting change into his pants’ pocket?).
+Ah, I know him: it’s nonmetaphysical Stevens.
+(The Tobacco Shop Owner comes back to the door.)
+As if by divine instinct, Stevens turns around and sees me.
+He waves me a hello, I shout back, Hello Stevens! and the universe
+Reorganizes itself for me, without hopes or ideals, and the Tobacco Shop Owner smiles.
+
+================================================================================
+20230906
+Approximate calculations of the net economic impact of global warming mitigation targets under heightened damage estimates. Patrick T. Brown, Harry Saunders. Published: October 7, 2020
+https://doi.org/10.1371/journal.pone.0239520
+https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0239520
+tags: science global-warming climate environmentalism economics
+> Under a discount rate of 3%/year and a time horizon through 2100 (the central
+> values used in Burke at al. [39]), the level of mitigation effort the
+> maximizes per-capita GWP shifts from ~3.6 °C under Default-DICE to ~3.2 °C
+> under Burke-DICE (Fig 9). Remember here that we are not considering benefits
+> beyond 2100 so these values are not comparable to previously-published optimal
+> temperature trajectories using traditional DICE. Thus, even under heightened
+> damages emulating from Burke at al. [39], the 2 °C and 1.5 °C targets outlined
+> by the Paris Accord imply larger mitigation costs than benefits from avoided
+> damages in terms of the present discounted value of per-capita GWP through
+> 2100. Specifically, we calculate that achieving the 1.5 °C and 2.0 °C targets
+> result in GWP losses of ~100 trillion US$ and ~60 trillion US$ respectively
+> relative to the no-mitigation case in Burke-DICE (Fig 10a). This implies a ~40
+> trillion US$ loss from limiting global warming to 1.5 °C relative to 2.0 °C
+> under Burke-DICE (Fig 10a) which is in contrast to the corresponding
+> calculation in Burke at al. [39] which found a central estimate of a ~40
+> trillion US$ benefit from limiting global warming to 1.5 °C relative to 2.0 °C
+> but did not consider mitigation costs.
+
+================================================================================
+20230906
+I Left Out the Full Truth to Get My Climate Change Paper Published. By Patrick T Brown. September 5, 2023
+https://www.thefp.com/p/i-overhyped-climate-change-to-get-published
+tags: science global-warming climate environmentalism research peer-review
+> Here’s the AP: Climate change keeps making wildfires and smoke worse. Scientists call it the “new abnormal.”
+> And PBS NewsHour: Wildfires driven by climate change are on the rise—Spain must do more to prepare, experts say.
+> And The New York Times: How Climate Change Turned Lush Hawaii Into a Tinderbox.
+> And Bloomberg: Maui Fires Show Climate Change’s Ugly Reach.
+> The paper I just published—“Climate warming increases extreme daily wildfire growth risk in California”—focuses exclusively on how climate change has affected extreme wildfire behavior. I knew not to try to quantify key aspects other than climate change in my research because it would dilute the story that prestigious journals like Nature and its rival, Science, want to tell. 
+> This matters because it is critically important for scientists to be published in high-profile journals; in many ways, they are the gatekeepers for career success in academia. And the editors of these journals have made it abundantly clear, both by what they publish and what they reject, that they want climate papers that support certain preapproved narratives—even when those narratives come at the expense of broader knowledge for society. 
+> The first thing the astute climate researcher knows is that his or her work should support the mainstream narrative—namely, that the effects of climate change are both pervasive and catastrophic and that the primary way to deal with them is not by employing practical adaptation measures like stronger, more resilient infrastructure, better zoning and building codes, more air conditioning—or in the case of wildfires, better forest management or undergrounding power lines—but through policies like the Inflation Reduction Act, aimed at reducing greenhouse gas emissions. 
+> So in my recent Nature paper, which I authored with seven others, I focused narrowly on the influence of climate change on extreme wildfire behavior. Make no mistake: that influence is very real. But there are also other factors that can be just as or more important, such as poor forest management and the increasing number of people who start wildfires either accidentally or purposely. (A startling fact: over 80 percent of wildfires in the US are ignited by humans.)
+> In my paper, we didn’t bother to study the influence of these other obviously relevant factors. Did I know that including them would make for a more realistic and useful analysis? I did. But I also knew that it would detract from the clean narrative centered on the negative impact of climate change and thus decrease the odds that the paper would pass muster with Nature’s editors and reviewers.
+> This type of framing, with the influence of climate change unrealistically considered in isolation, is the norm for high-profile research papers. For example, in another recent influential Nature paper, scientists calculated that the two largest climate change impacts on society are deaths related to extreme heat and damage to agriculture. However, the authors never mention that climate change is not the dominant driver for either one of these impacts: heat-related deaths have been declining, and crop yields have been increasing for decades despite climate change. To acknowledge this would imply that the world has succeeded in some areas despite climate change—which, the thinking goes, would undermine the motivation for emissions reductions. 
+> This leads to a second unspoken rule in writing a successful climate paper. The authors should ignore—or at least downplay—practical actions that can counter the impact of climate change. If deaths due to extreme heat are decreasing and crop yields are increasing, then it stands to reason that we can overcome some major negative effects of climate change. Shouldn’t we then study how we have been able to achieve success so that we can facilitate more of it? Of course we should. But studying solutions rather than focusing on problems is simply not going to rouse the public—or the press. Besides, many mainstream climate scientists tend to view the whole prospect of, say, using technology to adapt to climate change as wrongheaded; addressing emissions is the right approach. So the savvy researcher knows to stay away from practical solutions.
+> Here’s a third trick: be sure to focus on metrics that will generate the most eye-popping numbers. Our paper, for instance, could have focused on a simple, intuitive metric like the number of additional acres that burned or the increase in intensity of wildfires because of climate change. Instead, we followed the common practice of looking at the change in risk of an extreme event—in our case, the increased risk of wildfires burning more than 10,000 acres in a single day.
+> This is a far less intuitive metric that is more difficult to translate into actionable information. So why is this more complicated and less useful kind of metric so common? Because it generally produces larger factors of increase than other calculations. To wit: you get bigger numbers that justify the importance of your work, its rightful place in Nature or Science, and widespread media coverage. 
+> Another way to get the kind of big numbers that will justify the importance of your research—and impress editors, reviewers, and the media—is to always assess the magnitude of climate change over centuries, even if that timescale is irrelevant to the impact you are studying. 
+> For example, it is standard practice to assess impacts on society using the amount of climate change since the industrial revolution, but to ignore technological and societal changes over that time. This makes little sense from a practical standpoint since societal changes in population distribution, infrastructure, behavior, disaster preparedness, etc., have had far more influence on our sensitivity to weather extremes than climate change has since the 1800s. This can be seen, for example, in the precipitous decline in deaths from weather and climate disasters over the last century. Similarly, it is standard practice to calculate impacts for scary hypothetical future warming scenarios that strain credibility while ignoring potential changes in technology and resilience that would lessen the impact. Those scenarios always make for good headlines.
+> A much more useful analysis would focus on changes in climate from the recent past that living people have actually experienced and then forecasting the foreseeable future—the next several decades—while accounting for changes in technology and resilience. 
+> In the case of my recent Nature paper, this would mean considering the impact of climate change in conjunction with anticipated reforms to forest management practices over the next several decades. In fact, our current research indicates that these changes in forest management practices could completely negate the detrimental impacts of climate change on wildfires. 
+> This more practical kind of analysis is discouraged, however, because looking at changes in impacts over shorter time periods and including other relevant factors reduces the calculated magnitude of the impact of climate change, and thus it weakens the case for greenhouse gas emissions reductions. 
+> The process of customizing the research for an eminent journal caused it to be less useful than it could have been. 
+> As to why I followed the formula despite my criticisms, the answer is simple: I wanted the research to be published in the highest profile venue possible. When I began the research for this paper in 2020, I was a new assistant professor needing to maximize my prospects for a successful career. When I had previously attempted to deviate from the formula, my papers were rejected out of hand by the editors of distinguished journals, and I had to settle for less prestigious outlets. To put it another way, I sacrificed contributing the most valuable knowledge for society in order for the research to be compatible with the confirmation bias of the editors and reviewers of the journals I was targeting.
+
+================================================================================
+20230906
+"Molding research presentations for high-profile journals can reduce its usefulness & actually mislead the public."
+https://twitter.com/PatrickTBrown31/status/1699016555844035045
+tags: science global-warming climate environmentalism research peer-review
+> I mentioned that this research looked at the effect of warming in isolation but that warming is just one of many important influences on wildfires with others being changes in human ignition patterns and changes in vegetation/fuels.
+> There is a formula for success for publishing climate change research in the most prestigious and widely-read scientific journals and unfortunately this formula also makes the research less useful.
+> 1. Simply *showing* that climate change impacts something of value is usually sufficient, and it is not typically necessary to show that the impact is large compared to other relevant influences.
+>   - Antipattern: I focused on the influence of climate change on extreme wildfire behavior but did not quantify (i.e., I “held constant”) the influence of other obviously relevant factors like changes in human ignitions or the effect of poor forest management.
+>     - This type of framing, where the influence of climate change is unrealistically considered in isolation, is the norm for high-profile research papers.
+>   - Example: in another recent influential Nature paper, they calculated that the two largest climate change impacts on society are deaths related to extreme heat and damage to agriculture:
+>     https://www.nature.com/articles/s41586-022-05224-9
+>     That paper does not mention that climate change is not the dominant driver for either one of these impacts: temperature-related deaths have been declining, and agricultural yields have been increasing for decades despite climate change.
+>     https://thebreakthrough.org/issues/energy/human-deaths-from-hot-and-cold-temperatures-and-implications-for-climate-change
+> 2. Ignore or downplay near-term practical actions that can negate the impact of climate change.
+>   - Antipattern: Taboo against studying or even mentioning successes since they are thought to undermine the motivation for greenhouse gas emissions reductions.
+>   - If deaths related to outdoor temperatures are decreasing and agricultural yields are increasing, then it stands to reason that we can overcome some major negative effects of climate change. It is then valuable to study this success so that we can facilitate more of it.
+> 3. Focus on metrics that are not necessarily the most illuminating or relevant but serve more to generate impressive numbers.
+>   - Antipattern: Focusing on changes in the risk of extreme events rather than simpler and more intuitive metrics like changes in intensity.
+>   - Antipattern: Reporting projections associated with distant future warming scenarios now (or always) thought to be implausible (RCP8.5) while ignoring potential changes in technology and resilience.
+
+================================================================================
+20230915
+RE-READING TANENBAUM’S CRITIQUE OF RPC 30 YEARS LATER, John Day, 2018
+https://www.bu.edu/csmet/2018/08/30/re-reading-tanenbaums-critique-of-rpc-30-years-later/
+tags: compsci rpc network mental-model
+- “Ontogeny Recapitulates Phylogeny.”
+  - "embryos go through all of stages of evolution the organism went through"
+    - Not true in biology, but in Computer Science: every ~decade we recycle all
+      of the bad ideas of the previous generation. We have been through the
+      assembly language to high-level language transition at least 3 times!
+- The problems with RPC are a good indicator of the problems that plague computer science itself.
+- Term Inflation: tendency in computing to adopt unwarranted, important-sounding
+  names ("topology" instead of network graph; "new paradigm"; etc).
+
+================================================================================
+20230915
+Critique of the Remote Procedure Call Paradigm, Andrew S. Tanenbaum, 1988
+https://www.cs.vu.nl/~ast/Publications/Papers/euteco-1988.pdf
+tags: compsci rpc network distributed-systems
+
+================================================================================
+20230917
+Why we stopped making Einsteins: Aristocratic tutoring I: Explaining the decline of genius, ERIK HOEL, MAR 16 2022
+https://www.theintrinsicperspective.com/p/why-we-stopped-making-einsteins
+tags: evolution society civilization economics history
+- tutored:
+  Marcus Aurelius
+  Einstein
+  Darwin
+  Bertrand Russell
+  John von Neumann (taught by Laszlo Ratz who also taught Wigner, Teller at same Budapest high school)
+  Ada Lovelace
+  Tolstoy
+  John Stuart Mill
+  Karl Marx
+  Isaac Newton
+- counterexamples?
+  Ramanujan
+- Global cultural and intellectual exhaustion
+- "Maybe we don’t make Einsteins anymore because we don’t make Max Talmuds anymore."
+
+> Freddie deBoer points out that:
+>> ... winning a lottery to attend a supposedly better school in Chicago [makes no difference](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1468-0262.2006.00702.x)
+>> on educational outcomes. In New York? [Makes no difference](https://www.aeaweb.org/articles?id=10.1257/app.6.3.58).
+>> High school quality? [Makes no difference](https://www.aeaweb.org/articles?id=10.1257/app.6.3.20); what matters is “preentry ability.”
+>> How about private vs. public schools? Corrected for underlying demographic differences, it [makes no difference](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2505333).
+>> ... competitive exam high schools, when you adjust for differences in ability, [makes no difference](http://journals.sagepub.com/doi/pdf/10.3102/0162373716672039).
+>> The kids who just missed the cut score and the kids who just beat it have
+>> very similar underlying ability and so it should not surprise us in the least
+>> that they have very similar outcomes, despite going to very different
+>> schools. (The perception that these schools matter is based on exactly the
+>> same bad logic that Harvard benefits from.) Similarly, highly sought-after
+>> government schools in Kenya [make no difference](https://www.aeaweb.org/articles?id=10.1257/app.6.3.234).
+>> Winning the lottery to choose your middle school in China? [Makes no difference](https://ncspe.tc.columbia.edu/working-papers/OP139.pdf).
+
+> The superior method of education ... was well-known historically, and is also observed by education researchers today: tutoring.
+> Tutoring, one-on-one instruction, dramatically improves student’s abilities and scores. In education research this effect is sometimes called “Bloom’s 2-sigma problem” because in the 1980s the researcher Benjamin Bloom found that tutored students:
+>
+>> ... performed two standard deviations better than students who learn via conventional instructional methods—that is, "the average tutored student was above 98% of the students in the control class.”
+
+> Aristocratic tutoring was not focused on measurables. Historically, it usually involved a paid adult tutor, who was an expert in the field, spending significant time with a young child or teenager, instructing them but also engaging them in discussions, often in a live-in capacity, fostering both knowledge but also engagement with intellectual subjects and fields.
+
+> up until the latter half of the 20th century aristocratic tutors were a casual and constant supplement to traditional education.
+
+================================================================================
+20230918
+A Visit to Hungarian Mathematics, Reuben Hersh and Vera John-Steiner 
+https://gwern.net/doc/math/1993-hersh.pdf#page=10
+tags: learning society pedagogy history
+
+================================================================================
+20230920
+Leetcode Patterns: problems and solutions
+https://seanprashad.com/leetcode-patterns/
+tags: job-interview programming
+
+================================================================================
+20230920
+Bathtub curve: failure rate graph
+https://en.wikipedia.org/wiki/Bathtub_curve
+tags: engineering statistics concepts mental-model failure
+Most complex but faulted things fail very early.
+If early failure is avoided, most failure doesn't happen until "wear out".
+
+================================================================================
+20230921
+Don’t mess with a genius
+https://shreevatsa.wordpress.com/2010/06/04/dont-mess-with-a-genius/
+tags: history isaac-newton
+Isaac Newton, 55 years old and just recovered from his nervous breakdown, was looking for a post in the city (London), having lived in the village of Cambridge ever since his student days. As a Great Man now, he had already been rewarded with a seat in parliament (the only thing ever recorded spoken by him is a request to close the window), but it appeared harder to get him a job. Finally, his friends pulled the right strings, and Newton moved in as Warden of the Mint in 1696.
+
+================================================================================
+20230921
+HTTP ETag (entity tag)
+https://en.m.wikipedia.org/wiki/HTTP_ETag
+tags: http web
+allows a client (or cache) to make conditional requests
+
+================================================================================
+20230921
+78% MNIST accuracy using GZIP in under 10 lines of code.
+https://jakobs.dev/solving-mnist-with-gzip/
+tags: machine-learning computer-vision software programming compression
+We can 'solve' MNIST up to ~78% accuracy with the following:
+
+    c = lambda z: len(gzip.compress(z.tobytes()))
+    def ncd(x, y):
+        return (c(x + y) - min(c(x), c(y))) / max(c(x), c(y))
+    cls = [(x, c(x), l) for x, l in training_set]
+    correct_predictions = sum([np.array_equal(Counter(
+        [l for _, _, l in sorted([(ncd(x1, x), x, l) for x, _, l in cls],
+         key=lambda t: t[0])[:5]]).most_common(1)[0][0], label)
+         for x1, label in test_set])
+
+It boils down to two components: GZIP and NCD (Normalized Compression Distance)
+as a similarity metric, and k-NN (k-Nearest Neighbors) for classification.
+- GZIP is essentially our tool which gives us a way to measure the complexity or
+  information content of individual data points.
+- NCD provides a normalized measure of how similar two data points are, based on
+  how much more (or less) effort it takes to compress them together compared to
+  compressing them separately.
+For each test sample, the algorithm computes its NCD with every training sample
+(in our case, 100 training samples), sorts them, and selects the k smallest
+distances. The majority class among these k=5 closest neighbors is then
+predicted as the label for the test sample.
+
+================================================================================
+20230921
+Simple data pipeline powertools: sqlite, pandas, gnuplot
+https://csvbase.com/blog/5
+tags: programming software-engineering api cli shell sqlite
+> My favourite API is a zipfile on the European Central Bank's website:
+>
+>    curl -s https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip \
+>      | gunzip \
+>      | sqlite3 ':memory:' '.import /dev/stdin stdin' \
+>        "select Date from stdin order by USD asc limit 1;"

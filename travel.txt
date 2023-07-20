@@ -34,11 +34,14 @@ where/what
       Each year, the city re-enacts the legend of St. George slaying the dragon with a festival.
     https://www.nrw-tourismus.de/roemerfest-xanten
       Bread and Games is one of the largest Roman festivals in the world, every 2 years in the North Rhine-Westphalian city of Xanten.
-  portugal/lisbon
-    food:
+  portugal
+    azores sao miguel
+    lisbon food:
       portugeuse sardines on portugeuse bread w/ oil
       cabrito (goat)
       beefana (pork sandwich)
+  spain
+    Sagrada Família  https://en.wikipedia.org/wiki/Sagrada_Família
   https://zuzalu.city/ : Zuzalu is a "pop-up city" in Montenegro.
   Tangier, Morocco https://en.wikipedia.org/wiki/Tangier
   Seattle: Boeing factory tour ("largest building in the world") http://www.boeing.com/company/tours 
