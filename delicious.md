@@ -6977,12 +6977,6 @@ https://raphlinus.github.io/xi/2020/06/27/xi-retrospective.html
 tags: tools programming xi rope vim neovim rust text-editor
 
 ================================================================================
-20200627
-Lezer (CodeMirror parsing system)
-https://marijnhaverbeke.nl/blog/lezer.html
-tags: programming parser syntax-highlighting text-editor
-
-================================================================================
 20200628
 Semantic: Haskell library and command line tool for parsing, analyzing, and comparing source code
 https://github.com/github/semantic
@@ -10885,8 +10879,9 @@ zod: TypeScript-first schema validation with static type inference
 https://github.com/colinhacks/zod
 tags: typescript javascript nodejs library schemas types
 Zod is a schema declaration and validation library, i.e. _data validation_ at runtime (like Clojure "Spec").
-Declare a validator and Zod infers the static TypeScript type.
-Easy to compose simpler types into complex types.
+- Declare a validator and Zod infers the static TypeScript type.
+  - With zod.infer() you can use zod schemas as the _source_ of your types! https://youtu.be/9N50YV5NHaE?t=34
+- Compose simpler types into complex types.
 - Zero dependencies
 - Works in Node.js and all modern browsers
 - Tiny: 8kb minified + zipped
@@ -12045,3 +12040,185 @@ tags: programming software-engineering api cli shell sqlite
 >      | gunzip \
 >      | sqlite3 ':memory:' '.import /dev/stdin stdin' \
 >        "select Date from stdin order by USD asc limit 1;"
+
+================================================================================
+20230925
+College Free Speech Rankings - FIRE
+https://rankings.thefire.org/rank
+tags: university free-speech academia statistics data tools
+
+================================================================================
+20230926
+Octavia AI Service Desk Tool’s Secret Weapon: Human Writers
+https://www.channele2e.com/editorial/news/octavia-ai-service-desk-tools-secret-weapon-human-writers
+tags: connectwise ai startup
+Octavia by Nine Minds is making its debut right now just a year after the company formally launched itself. The company is funded by Bellini Capital, an investment firm in Tampa, Florida. The managing director is Arnie Bellini, the founder and former CEO of ConnectWise. Robert Isaacs is also a ConnectWise alum. He served as chief software architect for the MSP platform company from August 2000 to July 2016 when he decided he wanted to pursue an entrepreneurial path himself.
+But Isaacs founded a different company in 2016 – Speed of Light Media. The company provides Simplify Cloud and Simplify Cloud Lab to help technology companies scale their software testing efforts, simplify sales demonstrations, and provide effective training environments, according to the company’s LinkedIn profile.
+Speed of Light Media operates its own hardware in leased space at data centers around the world. Because of that it has its own GPUs for AI workloads, which is how Isaacs was able to launch Nine Minds and Octavia.
+Isaacs told ChannelE2E that he got the idea for the offering in August 2022 before ChatGPT hit the scene and caused a frenzy of activity around generative AI. 
+Differentiating AI with Humans
+One big differentiator for Octavia and Nine Minds is that it has hired humans as writers at a time when many companies are looking to ChatGPT to take on all the writing tasks.
+“We have a whole team of writers,” Isaacs told ChannelE2E. The writers take historical tickets and write responses to them. Those human-written responses, created to be the most helpful and and polite and friendly, are then used to train the model. Isaacs said that the model turns out better if it’s fed more variety and higher quality responses.
+“They are basically idealized tickets,” Isaacs said. “You are teaching the model how to make these very idealized responses. The models never get frustrated. They never get bored. They never get tired or angry. So our goal is to figure out what the best response is to these tickets that we have and train the model on that.”
+
+================================================================================
+20230927
+Lezer (CodeMirror parsing system): parser generator that outputs JavaScript modules, heavily inspired by tree-sitter
+https://lezer.codemirror.net/
+https://marijnhaverbeke.nl/blog/lezer.html
+tags: programming parser ast syntax-highlighting code-navigation treesitter text-editor
+- Parsing expression grammars are parsed by backtracking. And as such, they are very poorly suited for implementing a stateful tokenizer. In a backtracking system, you never know when you've definitely parsed a piece of content—later input might require you to backtrack again.
+- Parsing PEG is just really inefficient. Such grammars are “scannerless” meaning they don't make a distinction between tokenizing and parsing. When parsing in that way naively, you basically have to run your whole parsing logic for every input character. Probably multiple times, due to backtracking.
+- tree-sitter is an improvement over PEG because it provides a syntax tree (not just a sequence of tokens).
+- CFG: when you need something like automatic semicolon insertion or whitespace-sensitivity, which would be a couple of lines of code in a hand-written grammar, you can't express that directly, and have to somehow escape the context-free abstraction.
+- Tree-sitter ingeniously abuses GLR parsing, where the parser can try multiple interpretations simultaneously, to integrate automatic error-correction without a lot of extra complexity.
+- Tree-sitter Error Recovery strategy:
+  > Say you reach a point where you can no longer proceed normally because there is a syntax error. The rest of the input, after the error, is probably full of meaningful constructs that could still be parsed. We want those constructs in our syntax tree. But our regular parsing process is stuck—it doesn't know how to get from the error to a state where the parse can continue.
+  > I definitely did not want to require the grammar author to add error recovery hints to their grammar. These tend to clutter up the grammar and are error-prone to write. Writing a grammar is hard enough without that distraction.
+  > You can see error recovery as a search problem. There might be a parse state and input position (past the error) where the parse can meaningfully continue. We just have to find it.
+  > The actions encoded in the parse tables, along with some recovery-specific actions that the parser wouldn't normally take, provide a kind of search tree. You start at the state(s) where the error occurred, and keep exploring new states from there.
+  > But what does the accept condition look like? When do you know that you've found an acceptable solution? You could define that precisely, for example as the state that can handle the next N tokens without further errors. But we can also be vague.
+  > The solution found by Max Brunsfeld in tree-sitter is to use the same mechanism that's used to parse ambiguous grammars. A GLR parser can split its parse stack and run both sides alongside each other for a while until it becomes clear which one works out.
+  > To be able to get good (or any) results in messy situations like longer stretches of invalid input, each branch has a badness score associated with it, which is increased (linearly) each time a recovery action is taken, and decreased (asymptotically) every time it can consume a token normally.
+  > The important thing is that it always keeps parsing, and does so in a way that remains tractable (exponential searches are quickly dampened). The system is biased a bit towards the token-skipping rule, so that if all else fails it'll, in effect, just continue skipping tokens until it stumbles into a situation where it can continue parsing.
+- Contextual Tokens
+  > Depending on the grammar's complexity, an LR parser generator creates between a dozen and a few thousand parse states for your grammar. These represent syntactic positions like “after the opening paren of an argument list” or “after an expression, possibly expecting some expression suffix”.
+  > The parser generator can figure out which tokens are valid in a given state. It can also, for tokens specified as part of the grammar, automatically determine which tokens conflict (match the same input, or some prefix of each other).
+  > A well-known example of conflicting tokens is the division operator versus regular expression syntax in JavaScript. But others are keywords that can also appear as property names, and the bitwise right shift operator (>>) versus two closing angle brackets in C++.
+  > Lezer will not complain about overlapping tokens if the tokens do not appear in the same parse states. This implicitly resolves the regular expression and property name issues, without any user interaction.
+
+================================================================================
+20231004
+BestEvidence: Presenting the Fed's Perfect Plan for U.S. Dollar Oblivion, John Titus, Sep 30 2023
+https://www.youtube.com/watch?v=W0u5h579ZeU
+tags: federal-reserve monetary-policy usgov banking corruption video
+- the "open market" (FOMC) is 24 primary dealers, essentially fixed
+- legal ban on fed buying directly from the government, must go through bond dealers.
+  - 1947: Federal Reserve chairman Marriner S. Eccles asserted that this is a monopoly, which only serves to pay a commission to the bond dealers (=corruption).
+- 2020 glut of US treasuries topped out in February, before the pandemic.
+  - caused by frailty in dealer inventory system, not the pandemic.
+- incoming "inflationary spiral"
+  1. new debt is up because of higher interest rates (ZIRP => 5+%) starting in 2022
+  2. fed buys all new debt (as proposed by Dudley) exceeding 45% of dealer inventory (which maxes out at $250B)
+  3. this causes inflation, which increases interest rates (go to step 1 => feedback loop)
+
+================================================================================
+20231031
+Gaza interview with Dominique De Villepin, former Prime Minister of France
+https://twitter.com/RnaudBertrand/status/1718201487132885246
+tags: history politics middle-east israel gaza
+"Hamas has set a trap for us, and this trap is one of maximum horror, of maximum cruelty. And so there's a risk of an escalation in militarism, of more military interventions, as if we could with armies solve a problem as serious as the Palestinian question.
+There's also a second major trap, which is that of Occidentalism. We find ourselves trapped, with Israel, in this western bloc which today is being challenged by most of the international community.
+[Presenter: What is Occidentalism?]
+Occidentalism is the idea that the West, which for 5 centuries managed the world's affairs, will be able to quietly continue to do so. And we can clearly see, even in the debates of the French political class, that there is the idea that, faced with what is currently happening in the Middle East, we must continue the fight even more, towards what might resemble a religious or a civilizational war. That is to say, to isolate ourselves even more on the international stage.
+This is not the way, especially since there's a third trap, which is that of moralism. And here we have in a way the proof, through what is happening in Ukraine and what is happening in the Middle East, of this double standard that is denounced everywhere in the world, including in recent weeks when I travel to Africa, the Middle East, or Latin America. The criticism is always the same: look at how civilian populations are treated in Gaza, you denounce what happened in Ukraine, and you are very timid in the face of the tragedy unfolding in Gaza.
+Consider international law, the second criticism that is made by the global south. We sanction Russia when it aggresses Ukraine, we sanction Russia when it doesn't respect the resolutions of the United Nations, and it's been 70 years that the resolutions of the United Nations have been voted in vain and that Israel doesn't respect them.
+[Presenter: Do you believe that the Westerners are currently guilty of hubris?]
+Westerners must open their eyes to the extent of the historical drama unfolding before us to find the right answers.
+[Presenter: What is the historical drama? I mean, we're talking about the tragedy of October 7th first and foremost, right?]
+Of course, there are these horrors happening, but the way to respond to them is crucial. Are we going to kill the future by finding the wrong answers...
+[Presenter: Kill the future?]
+Kill the future, yes! Why?
+[Presenter: But who is killing whom?]
+You are in a game of causes and effects. Faced with the tragedy of history, one cannot take this 'chain of causality' analytical grid, simply because if you do you can't escape from it. Once we understand that there is a trap, once we realize that behind this trap there has also been a change in the Middle East regarding the Palestinian issue... The situation today is profoundly different [from what it was in the past]. The Palestinian cause was a political and secular cause. Today we are faced with an Islamist cause, led by Hamas. Obviously, this kind of cause is absolute and allows no form of negotiation. On the Israeli side, there has also been a development. Zionism was secular and political, championed by Theodor Herzl in the late 19th century. It has largely become messianic, biblical today. This means that they too do not want to compromise, and everything that the far-right Israeli government does, continuing to encourage colonization, obviously makes things worse, including since October 7th. So in this context, understand that we are already in this region facing a problem that seems profoundly insoluble.
+Added to this is the hardening of states. Diplomatically, look at the statements of the King of Jordan, they are not the same as six months ago. Look at the statements of Erdogan in Turkey.
+[Presenter: Precisely, these are extremely harsh statements...]
+Extremely worrying. Why? Because if the Palestinian cause, the Palestinian issue, hasn't been brought to the forefront, hasn't been put on stage [for a while], and if most of the youth today in Europe have often never even heard of it, it remains for the Arab peoples the mother of all battles. All the progress made towards an attempt to stabilize the Middle East, where one could believe...
+[Presenter: Yes, but whose fault is it? I have a hard time following you, is it Hamas's fault?]
+But Ms. Malherbe, I am trained as a diplomat. The question of fault will be addressed by historians and philosophers.
+[Presenter: But you can't remain neutral, it's difficult, it's complicated, isn't it?]
+I am not neutral, I am in action. I am simply telling you that every day that passes, we can ensure that this horrific cycle stops... that's why I speak of a trap and that's why it's so important to know what response we are going to give. We stand alone before history today. And we do not treat this new world the way we currently do, knowing that today we are no longer in a position of strength, we are not able to manage on our own, as the world's policemen.
+[Presenter: So what do we do?]
+Exactly, what should we do? This is where it is essential not to cut off anyone on the international stage.
+[Presenter: Including the Russians?]
+Everyone.
+[Presenter: Everyone? Should we ask the Russians for help?]
+I'm not saying we should ask the Russians for help. I'm saying: if the Russians can contribute by calming some factions in this region, then it will be a step in the right direction.
+[Presenter: How can we proportionally respond to barbarism? It's no longer army against army.]
+But listen, Appolline de Malherbe, the civilian populations that are dying in Gaza, don't they exist? So because horror was committed on one side, horror must be committed on the other?
+[Presenter: Do we indeed need to equate the two?]
+No, it's you who are doing that. I'm not saying I equate the faults. I try to take into account what a large part of humanity thinks. There is certainly a realistic objective to pursue, which is to eradicate the Hamas leaders who committed this horror. And not to confuse the Palestinians with Hamas, that's a realistic goal.
+The second thing is a targeted response. Let's define realistic political objectives. And the third thing is a combined response. Because there is no effective use of force without a political strategy. We are not in 1973 or in 1967. There are things no army in the world knows how to do, which is to win in an asymmetrical battle against terrorists. The war on terror has never been won anywhere. And it instead triggers extremely dramatic misdeeds, cycles, and escalations. If America lost in Afghanistan, if America lost in Iraq, if we lost in the Sahel, it's because it's a battle that can't be won simply, it's not like you have a hammer that strikes a nail and the problem is solved. So we need to mobilize the international community, get out of this Western entrapment in which we are.
+[Presenter: But when Emmanuel Macron talks about an international coalition…]
+Yes, and what was the response?
+[Presenter: None.]
+Exactly. We need a political perspective, and this is challenging because the two-state solution has been removed from the Israeli political and diplomatic program. Israel needs to understand that for a country with a territory of 20,000 square kilometers, a population of 9 million inhabitants, facing 1.5 billion people... Peoples have never forgotten that the Palestinian cause and the injustice done to the Palestinians was a significant source of mobilization. We must consider this situation, and I believe it is essential to help Israel, to guide... some say impose, but I think it's better to convince, to move in this direction. The challenge is that there is no interlocutor today, neither on the Israeli side nor the Palestinian side. We need to bring out interlocutors.
+[Presenter: It's not for us to choose who will be the leaders of Palestine.]
+The Israeli policy over recent years did not necessarily want to cultivate a Palestinian leadership... Many are in prison, and Israel's interest - because I repeat: it was not in their program or in Israel's interest at the time, or so they thought - was instead to divide the Palestinians and ensure that the Palestinian question fades. This Palestinian question will not fade. And so we must address it and find an answer. This is where we need courage. The use of force is a dead end. The moral condemnation of what Hamas did - and there's no "but" in my words regarding the moral condemnation of this horror - must not prevent us from moving forward politically and diplomatically in an enlightened manner. The law of retaliation is a never-ending cycle.
+[Presenter: The "eye for an eye, tooth for tooth".]
+Yes. That's why the political response must be defended by us. Israel has a right to self-defense, but this right cannot be indiscriminate vengeance. And there cannot be collective responsibility of the Palestinian people for the actions of a terrorist minority from Hamas.
+When you get into this cycle of finding faults, one side's memories clash with the other's. Some will juxtapose Israel's memories with the memories of the Nakba, the 1948 catastrophe, which is a disaster that the Palestinians still experience every day. So you can't break these cycles. We must have the strength, of course, to understand and denounce what happened, and from this standpoint, there's no doubt about our position. But we must also have the courage, and that's what diplomacy is... diplomacy is about being able to believe that there is light at the end of the tunnel. And that's the cunning of history; when you're at the bottom, something can happen that gives hope. After the 1973 war, who would have thought that before the end of the decade, Egypt would sign a peace treaty with Israel?
+The debate shouldn't be about rhetoric or word choice. The debate today is about action; we must act. And when you think about action, there are two options. Either it's war, war, war. Or it's about trying to move towards peace, and I'll say it again, it's in Israel's interest. It's in Israel's interest!"
+
+================================================================================
+20231104
+The principle of subsidiarity - European Union’s legal system and decision-making procedures
+https://www.europarl.europa.eu/factsheets/en/sheet/7/the-principle-of-subsidiarity
+tags: europe european-union law bureaucracy concepts
+- to ensure that powers are exercised as close to the citizen as possible
+- to guarantee a degree of independence for a lower authority in relation to a higher body or for a local authority in relation to central government.
+
+================================================================================
+20231104
+Subsidiarity
+https://en.wikipedia.org/wiki/Subsidiarity
+tags: law concepts human-scaling groups organization-theory
+- principle of social organization that holds that social and political issues should be dealt with at the most immediate or local level that is consistent with their resolution
+- a central authority should have a subsidiary function, performing only those tasks which cannot be performed at a more local level
+- has roots in the natural law philosophy of Thomas Aquinas
+
+================================================================================
+20231106
+The Unix process API is unreliable and unsafe
+https://catern.com/process.html
+tags: operating-system unix compsci systems process
+1. It's easy for processes to leak
+  1.1. Flawed solutions
+  1.1.1. Make sure B always cleans up on exit and kills C
+  1.1.2. Use `PR_SET_PDEATHSIG` to kill C when B exits.
+  1.1.3. Always write down the pid of every process you start, or otherwise coordinate between A and B
+  1.1.4. Make sure C always exits when B does
+  1.1.5. A should run B inside a container
+  1.1.6. Use process groups or controlling terminals
+  1.1.7. Use Windows 8 nested job objects
+2. It's impossible to prevent malicious processes leaks
+  2.1. Flawed solutions
+  2.1.1. Run your possibly-malicious process inside a container or a virtual machine
+  2.1.2. Limit the number of processes that can exist on the system
+3. Processes have global, reusable IDs
+  3.1. Flawed solutions
+  3.1.1. Don't reuse pids, use a UUID instead
+  3.1.2. Only send signals to your own child processes
+  3.2. Correct solutions
+  3.2.1. Use pidfd
+4. Process exit is communicated through signals
+  4.1. Flawed solutions
+  4.1.1. Use signalfd
+  4.1.2. Chain signal handlers
+  4.1.3. Create a standard library for starting children and have everyone use it
+  4.2. Correct solutions
+  4.2.1. Use pidfd
+
+================================================================================
+20231106
+"A fork() in the road" Andrew Baumann , Jonathan Appavoo , Orran Krieger , Timothy Roscoe 17th Workshop on Hot Topics in Operating Systems | May 2019
+https://www.microsoft.com/en-us/research/publication/a-fork-in-the-road/
+tags: operating-system unix compsci fork process systems papers
+> we argue that fork was a clever hack for machines and programs of the 1970s that has long outlived its usefulness and is now a liability. We catalog the ways in which fork is a terrible abstraction for the modern programmer to use, describe how it compromises OS implementations, and propose alternatives.
+> As the designers and implementers of operating systems, we should acknowledge that fork’s continued existence as a first-class OS primitive holds back systems research, and deprecate it.
+
+================================================================================
+20231106
+libaws: aws should be easy
+https://github.com/nathants/libaws
+tags: aws open-source oss library cloud
+thoughtfully designed AWS abstraction.
+declare and deploy groups of related AWS infrastructure as "infrastructure sets".
+
+================================================================================
+20231107
+POSIWID: The purpose of a system is what it does.
+https://en.wikipedia.org/wiki/The_purpose_of_a_system_is_what_it_does
+tags: engineering statistics concepts mental-model politics systems system-design
+There is "no point in claiming that the purpose of a system is to do what it constantly fails to do."
+Related: Realpolitik, ground truth, gravity.
