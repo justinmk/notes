@@ -74,19 +74,25 @@ Multi-stage image: use "FROM … AS …" to create a stage
       ENTRYPOINT something
 
 ==============================================================================
-OPS
+OPS / TROUBLESHOOTING
 
-Attach to running container TTY:
-  docker attach --sig-proxy=false <container-id>
+# Get the most "recent" container:
+docker ps --format json | jq -r '.ID' | head -1
 
-Invoke in running container:
-  docker exec -it <container-id> /bin/bash
+# Open a shell in the most recent container:
+docker exec -it "$(docker ps --format json | jq -r '.ID' | head -1)" /bin/bash
 
-Invoke in container exposing port 3000 (uses query/filter):
-  docker exec -i $(docker ps -q -f publish=3000) foo
+# Show running processes in the most recent container:
+docker top "$(docker ps --format json | jq -r '.ID' | head -1)"
 
-Get runtime info, post-mortem, env, etc.:
-  docker inspect <container-id>
+# Attach to running container TTY:
+docker attach --sig-proxy=false <container-id>
+
+# Invoke in container exposing port 3000 (uses query/filter):
+docker exec -i $(docker ps -q -f publish=3000) foo
+
+# Get runtime info, post-mortem, env, etc.:
+docker inspect <container-id>
 
 ==============================================================================
 NETWORK
