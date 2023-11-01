@@ -189,7 +189,11 @@ REBASING ONTO NON-SVN REMOTES
 PUSH LOCAL BRANCH TO REMOTE BRANCH
     git push remote_alias local_branch:remote_branch
 
-GITHUB: FETCH PULL REQUESTS AS LOCAL REFERENCES: https://help.github.com/articles/checking-out-pull-requests-locally
+FETCH BY URL
+
+    git fetch https://github.com/foo/bar refs/heads/branch1:branch1
+
+FETCH GITHUB PULL REQUESTS AS LOCAL REFERENCES: https://help.github.com/articles/checking-out-pull-requests-locally
 
     [remote "origin"]
         fetch = +refs/pull/*/head:refs/pull/origin/*
