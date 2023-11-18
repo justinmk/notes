@@ -12222,3 +12222,30 @@ https://en.wikipedia.org/wiki/The_purpose_of_a_system_is_what_it_does
 tags: engineering statistics concepts mental-model politics systems system-design
 There is "no point in claiming that the purpose of a system is to do what it constantly fails to do."
 Related: Realpolitik, ground truth, gravity.
+
+================================================================================
+20231118
+Kolmogorov complexity
+https://en.wikipedia.org/wiki/Kolmogorov_complexity
+tags: concepts mental-model compsci information-theory encoding compression entropy
+the Kolmogorov complexity of an object, such as a piece of text, is the length
+of a shortest computer program (in a predetermined programming language) that
+produces the object as output. It is a measure of the computational resources
+needed to specify the object. Also known as algorithmic complexity.
+
+================================================================================
+20231121
+WebAssembly Garbage Collection (WasmGC) now enabled by default in Chrome
+https://developer.chrome.com/blog/wasmgc/
+tags: webassembly wasm gc
+- porting a programming language to Wasm no longer needs to be part of the port, instead WasmGC can be used.
+- WasmGC adds struct and array heap types, which means support for non-linear memory allocation.
+
+================================================================================
+20231121
+WAI-ARIA Roles
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles
+tags: web dom html accessibility
+- role="role type", where role type is the name of a role in the ARIA specification.
+- ARIA roles provide semantic meaning to content, allowing screen readers and other tools to present and support interaction with an object in a way that is consistent with user expectations of that type of object. ARIA roles can be used to describe elements that don't (yet) natively exist in HTML.
+- By default, many semantic elements in HTML have a role; for example, `<input type="radio">` has the "radio" role. Non-semantic elements in HTML do not have a role; <div> and <span> without added semantics return null. The role attribute can provide semantics.
