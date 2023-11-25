@@ -46,6 +46,46 @@ Tasks vs microtasks
     - potentially starves I/O
     - nodejs(?) Errors thrown within a queued microtask callback should be handled in the callback. Else use process.on('uncaughtException')
 
+UNHANDLED PROMISE REJECTIONS, UNCAUGHT EXCEPTIONS
+  - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
+    - common mistakes:
+      - not "chaining" (creating a new promise but forgetting to return it).
+      - forgetting to terminate chains with catch(). Unterminated promise chains
+        lead to uncaught promise rejections.
+    - guideline: always either `return` or terminate promise chains (with
+      `.catch()`), and as soon as you get a new promise, return it immediately,
+      to flatten things:
+      ```
+      doSomething()
+        .then(function (result) {
+          // return the promise
+          return doSomethingElse(result);
+        })
+        // arrow functions without braces implicitly return the result
+        .then((newResult) => doThirdThing(newResult))
+        // Even if the previous chained promise returns a result, the next one
+        // doesn't necessarily have to use it.
+        .then((/* result ignored */) => doFourthThing())
+        // Always end the promise chain with catch() to avoid unhandled rejections!
+        .catch((error) => console.error(error));
+      ```
+    - The browser will look down the chain for .catch() handlers or onRejected:
+      ```
+      doSomething()
+        .then((result) => doSomethingElse(result))
+        .then((newResult) => doThirdThing(newResult))
+        .then((finalResult) => console.log(`Got the final result: ${finalResult}`))
+        .catch(failureCallback);
+      ```
+  - node.js:
+    https://medium.com/@nodejs/node-js-promise-reject-use-case-survey-98e3328340c9
+    nodejs option: --unhandled-rejection=strict
+    global handlers:
+      process.on('unhandledRejection'))
+      process.on('uncaughtException')
+      Problem: any package/dependency can add its own handler!
+      VSCode extension can't use? https://github.com/microsoft/vscode/issues/93573
+
 object vs Map:  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
 
 Function.prototype.bind(fn[, ...])  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
@@ -168,15 +208,6 @@ globals  https://nodejs.org/api/globals.html#globals_global
   global
   process
   require()
-
-UNHANDLED PROMISE REJECTIONS, UNCAUGHT EXCEPTIONS
-  https://medium.com/@nodejs/node-js-promise-reject-use-case-survey-98e3328340c9
-  nodejs option: --unhandled-rejection=strict
-  global handlers:
-    process.on('unhandledRejection'))
-    process.on('uncaughtException')
-    Problem: any package/dependency can add its own handler!
-    VSCode extension can't use? https://github.com/microsoft/vscode/issues/93573
 
 setImmediate(), process.nextTick(), …  https://nodejs.org/api/process.html#process_process_nexttick_callback_args
   nextTick()

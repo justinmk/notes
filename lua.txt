@@ -1,8 +1,10 @@
 http://www.luafaq.org/#T1.11
 https://en.blog.nic.cz/2015/08/12/embedding-luajit-in-30-minutes-or-so/
 
-Userdata: represents C values in Lua
-Light Userdata: represents C pointers in Lua
+Data structures
+    Userdata: represents C values in Lua
+    Light Userdata: represents C pointers in Lua
+    Tables have "hybrid" internals: dense(ish) array sections (1…n integer keys) of a table, are stored as literal C arrays (not hashtable), the integer keys are not stored. —"The Implementation of Lua 5.0" https://www.lua.org/doc/jucs05.pdf
 
 Scopes
     upvalue = "External local variable" used in an inner function (closure).

@@ -1331,7 +1331,7 @@ server stats/dashboard
 ================================================================================
 The log/event processing pipeline you can't have
 https://apenwarr.ca/log/20190216
-tags: log monitoring performance metrics sysadmin devops
+tags: log monitoring performance metrics sysadmin devops operations
 .
 - PRINTK_PERSIST patch to make Linux reuse the dmesg buffer across reboots.
   https://gfiber.googlesource.com/kernel/lockdown/+/0e8afb589c4f746019436a437c05626967721503
@@ -4430,19 +4430,6 @@ tags: stock-picks finance
   time="2010-05-01T01:37:45Z" 
 
 ================================================================================
-iSendr - On Demand P2P File Transfers
-href="http://www.isendr.com/"  
-tags: tools
-time="2010-04-23T17:17:25Z" 
-
-================================================================================
-FilesOverMiles: send large files directly between computers for free
-  p2p file-sharing.
-href="http://www.filesovermiles.com/"  
-tags: tools
-time="2010-04-23T17:16:53Z" 
-
-================================================================================
 Vice Guide to North Korea | VBS.TV
 href="http://www.vbs.tv/watch/the-vice-guide-to-travel/vice-guide-to-north-korea-1-of-3"
 tags: politics
@@ -6623,7 +6610,7 @@ You should treasure every encounter, for it will never recur.
 20200504
 Daniel Schmachtenberger on The Portal (with host Eric Weinstein), Ep. #027 - On Avoiding Apocalypses
 https://www.youtube.com/watch?v=_b4qKv1Ctv8
-tags: economics concepts mental-model
+tags: economics concepts mental-model moloch
 "Game B"
 sense-making + choice-making
 "multipolar trap"
@@ -10939,7 +10926,37 @@ tags: systems architecture concepts mental-model
 20230502
 Systems design 2: What we hope we know
 https://apenwarr.ca/log/20230415
-tags: systems architecture concepts
+tags: systems architecture concepts mental-model emergence llm ai
+> Magic is a feeling. Sometimes it's a pleasant feeling, when things go better than they should for reasons we don't understand.
+> The mechanisms used in AI systems are pretty simple. But at a large scale, combined cleverly, they create amazingly complex emergent outcomes far beyond what we put in.
+> Emergent outcomes defy expectations. Understanding how transistors work ... Understanding semi-permeable cell membranes ... not the right level of abstraction.
+> Magical thinking, it turns out, is absolutely essential to understanding any emergent system. You have to believe in magic to understand anything truly complex.
+> You see, magical thinking is just another way to say Systems Design.
+
+Books:
+  - _The Infinite Staircase_ by Geoffrey Moore
+  - _A New Kind of Science_ by Stephen Wolfram
+- "Signs of engineering":
+  - Monitoring/tracking error rates
+  - SLOs/SLAs and uptime targets
+  - Designs that assume every component will fail
+  - Long-lived bug burndown
+  - CI, user pain tracking
+  - Well-tested "unhappy paths"
+
+> NEGATIVE LATENCY
+>
+> From a systems design point of view, all real-world systems are "causal":
+> outputs are produced after inputs, never before. As a result, every
+> component you add to a flow can only add latency, never reduce it.
+> ... but systems designers can violate causality. You merely need to accurately
+> predict the ~~next word~~ future requests, so that when someone later asks you
+> to do work, it's already done. The result is probabilistic. ... If you guess
+> right, you can massively reduce latency, down to nearly nothing.
+>
+> predictors "violate causality", depending on your frame of reference. But they
+> can't do it reliably. They only work when they get lucky.
+> All caches are magic. Knowing their mechanism is not enough to predict their outcome.
 
 ================================================================================
 20230511
@@ -10960,6 +10977,48 @@ https://github.com/extism/extism
 - provides a quasi-ABI that helps you communicate with the plugin: get/send data, invoke functions.
 - don't need to enable WASI to use a plugin.
 - future: may replace some internal pieces of Extism with pieces of the Component Model spec.
+
+================================================================================
+20231127
+Why Extism?
+https://dylibso.com/blog/why-extism/
+tags: webassembly wasm library code-reuse code-sharing
+- Extism doesn’t only work with strings, you can use JSON, Protobuf, raw binary..
+- Abstracts away the initialization of the Wasm runtime. So you could swap it out for another runtime with minimal changes.
+- Passing strings with Extism:
+  ```
+    // /src/lib.rs
+    use extism_pdk::*;
+    #[plugin_fn]
+    pub fn say_hello(input: String) -> FnResult<String> {
+        let greeting = format!("Hello, {}", input);
+        Ok(greeting)
+    }
+  ```
+  and the host code:
+  ```
+    // /src/main.rs
+    fn main() -> Result<(), Box<dyn std::error::Error>> {
+        let ctx = extism::Context::new();
+        let mut plugin = extism::Plugin::new(
+            &ctx,
+            include_bytes!("../target/wasm32-unknown-unknown/debug/yes_extism.wasm"),
+            [],
+            false,
+        )?;
+        let data = plugin.call("say_hello", "extism host!")?;
+        println!("{}", String::from_utf8_lossy(data));
+        Ok(())
+    }
+  ```
+
+================================================================================
+20231127
+'Hermit': Actually Portable Wasm
+https://dylibso.com/blog/hermit-actually-portable-wasm/
+tags: webassembly wasm library code-reuse code-sharing
+- Uses Cosmopolitan Libc https://github.com/jart/cosmopolitan
+- Hermit configuration specifies what resources to share from the host system to the web assembly. By default only stdin, stdout, and stderr are shared.
 
 ================================================================================
 20230515
@@ -12294,3 +12353,146 @@ tags: ai generative-ai machine-learning llm huggingface llava portable
   4.0G    llava-v1.5-7b-q4-main.llamafile
   7.3G    wizardcoder-python-13b-main.llamafile
   ```
+
+================================================================================
+20231123
+Using promises (and avoiding common mistakes)
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
+tags: javascript web promises async
+- common mistakes:
+  - not "chaining" (creating a new promise but forgetting to return it).
+  - forgetting to terminate chains with catch(). Unterminated promise chains
+    lead to uncaught promise rejections.
+- guideline: always either `return` or terminate promise chains (with
+  `.catch()`), and as soon as you get a new promise, return it immediately,
+  to flatten things:
+  ```
+  doSomething()
+    .then(function (result) {
+      // return the promise
+      return doSomethingElse(result);
+    })
+    // arrow functions without braces implicitly return the result
+    .then((newResult) => doThirdThing(newResult))
+    // Even if the previous chained promise returns a result, the next one
+    // doesn't necessarily have to use it.
+    .then((/* result ignored */) => doFourthThing())
+    // Always end the promise chain with catch() to avoid unhandled rejections!
+    .catch((error) => console.error(error));
+  ```
+- The browser will look down the chain for .catch() handlers or onRejected:
+  ```
+  doSomething()
+    .then((result) => doSomethingElse(result))
+    .then((newResult) => doThirdThing(newResult))
+    .then((finalResult) => console.log(`Got the final result: ${finalResult}`))
+    .catch(failureCallback);
+  ```
+
+================================================================================
+20231125
+Things you forgot (or never knew) because of React
+https://joshcollinsworth.com/blog/antiquated-react
+tags: javascript web react framework
+- don't use react
+- new frameworks are faster and less opinionated (more composable)
+- use svelte
+
+================================================================================
+20231125
+The Implementation of Lua 5.0
+https://www.lua.org/doc/jucs05.pdf
+tags: lua c design pl programming-language runtime engineering
+Efficiency of table representation: array-like tables with 1…n integer keys are 
+stored as literal C arrays (not hashtable), the integer keys are not stored.
+
+================================================================================
+20231127
+wormhole-william: End-to-end encrypted file transfer. A magic wormhole CLI and API in Go (golang).
+https://github.com/psanford/wormhole-william
+tags: tools web cli go networks data-transfer
+- Go (golang) implementation of magic wormhole.
+- Secure end-to-end encrypted file transfers between computers. The endpoints are connected using the same "wormhole code".
+- compatible with the official python magic wormhole cli tool.
+- Currently supports:
+  - sending and receiving text over the wormhole protocol
+  - sending and receiving files over the transit protocol
+  - sending and receiving directories over the transit protocol
+
+================================================================================
+20231127
+systemd, 10 years later: a historical and technical retrospective
+https://blog.darknedgy.net/technology/2020/05/02/0/
+tags: unix linux system-design systems
+
+================================================================================
+20231127
+The Unpublished Preface To Orwell's Animal Farm
+https://mindmatters.ai/2023/08/a-warning-from-the-unpublished-preface-to-orwells-animal-farm/
+tags: censorship free-speech george-orwell groupthink moloch
+> Obviously it is not desirable that a government department should have any power of censorship (except security censorship, which no one objects to in war time) over books which are not officially sponsored. But the chief danger to freedom of thought and speech at this moment is not the direct interference of the MOI or any official body. If publishers and editors exert themselves to keep certain topics out of print, it is not because they are frightened of prosecution but because they are frightened of public opinion. In this country intellectual cowardice is the worst enemy a writer or journalist has to face, and that fact does not seem to me to have had the discussion it deserves. ...
+>
+> At this moment what is demanded by the prevailing orthodoxy is an uncritical admiration of Soviet Russia. Everyone knows this, nearly everyone acts on it. Any serious criticism of the Soviet régime, any disclosure of facts which the Soviet government would prefer to keep hidden, is next door to unprintable. And this nation-wide conspiracy to flatter our ally takes place, curiously enough, against a background of genuine intellectual tolerance. For though you arc not allowed to criticise the Soviet government, at least you are reasonably free to criticise our own. Hardly anyone will print an attack on Stalin, but it is quite safe to attack Churchill, at any rate in books and periodicals. And throughout five years of war, during two or three of which we were fighting for national survival, countless books, pamphlets and articles advocating a compromise peace have been published without interference. More, they have been published without exciting much disapproval. So long as the prestige of the USSR is not involved, the principle of free speech has been reasonably well upheld. There are other forbidden topics, and I shall mention some of them presently, but the prevailing attitude towards the USSR is much the most serious symptom. It is, as it were, spontaneous, and is not due to the action of any pressure group.
+
+================================================================================
+20231127
+So you want to modify the text of a PDF by hand
+https://news.ycombinator.com/item?id=37368148
+tags: pdf documents editing
+At the end of PDF is a table ("cross-reference" table) that stores the BYTE-OFFSET to different objects in the file.
+If you modify things within the file, typically these offsets will change and the file will be corrupt.
+Decode it with qpdf, edit it, then run fix-qdf (distributed with qpdf) after.
+
+================================================================================
+20231203
+VikParuchuri/marker: Convert PDF to markdown quickly with high accuracy
+https://github.com/VikParuchuri/marker
+tags: pdf documents documentation editing markdown markup
+Marker converts PDF, EPUB, and MOBI to markdown. 10x faster than nougat, more accurate.
+
+================================================================================
+20231128
+enu: Logo-like 3D environment, implemented in Nim
+https://github.com/dsrw/enu
+https://xn--hea.nu/
+tags: game-dev 3d development programming diy-project
+
+================================================================================
+20231129
+Interview with Curtis Yarvin
+https://www.maxraskin.com/interviews/curtis-yarvin?utm_source=substack&utm_medium=email
+tags: curtis-yarvin writing audience
+> History does not depend on the average reader.
+> There are many, many benefits in not being clear to the average reader.
+
+================================================================================
+20231207
+Signal Facing Collapse After CIA Cuts Funding
+https://kitklarenberg.substack.com/p/signal-facing-collapse-after-cia
+tags: cia police-state surveillance security operations infosec opsec cryptography
+> Signal’s origins as a US government asset are a matter of extensive public
+> record, even if the scope and scale of the funding provided has until now been
+> secret.
+> Sums involved in developing, launching and running a messaging app used by
+> countless people globally were nonetheless surely significant. The
+> newly-published financial records indicate Signal’s operating costs for 2023
+> alone are $40 million, and projected to rise to $50 million by 2025.
+>
+> millions were provided https://www.opentech.fund/news/february-2018-monthly-report/
+> by Open Technology Fund (OTF).
+>
+> OTF was launched in 2012 as a pilot program of Radio Free Asia (RFA), an asset
+> of US Agency for Global Media (USAGM), which is funded by US Congress to the
+> tune of over $1 billion annually. In August 2018, its then-CEO openly
+> acknowledged the Agency’s “global priorities…reflect US national security and
+> public diplomacy interests.”
+>
+> RFA’s own origins harken back to 1948. That year, National Security Council
+> Directive 10/2 officially authorised https://history.state.gov/historicaldocuments/frus1945-50Intel/d292
+> the then-newly created CIA to engage in operations targeted at countries
+> behind the Iron Curtain, including propaganda, economic warfare, sabotage,
+> subversion, and “assistance to underground resistance movements.” The station
+> was a core component of this wider effort, along with Radio Free Europe, and
+> Radio Liberation From Bolshevism. In 2007, a news item
+> https://web.archive.org/web/20080611133831/https:/www.cia.gov/news-information/featured-story-archive/2007-featured-story-archive/a-look-back.html
+> on the CIA’s website stated these “psychological warfare” initiatives were:
