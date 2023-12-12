@@ -8481,6 +8481,7 @@ tags: work productivity focus concentration flow attention psychology
 ================================================================================
 20211008
 AWS federation comes to GitHub Actions
+https://github.com/aws-actions/configure-aws-credentials
 https://awsteele.com/blog/2021/09/15/aws-federation-comes-to-github-actions.html
 tags: aws github federation authentication login secrets programming ci continuous-integration testing devops automation release-engineering
 > GitHub Actions has new functionality that can vend OpenID Connect credentials
