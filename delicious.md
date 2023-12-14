@@ -7367,38 +7367,37 @@ Review of Paul Graham's Bel, Chris Granger's Eve, and a Silly VR Rant
 https://gist.github.com/wtaysom/7e5fda6d65807073c3fa6b92b1e25a32
 tags: datalog query language programming-paradigm vm eve light-table
 > If Eve was so nifty, why did it fail? Technical problems:
-> (1) keying
-> (2) inspection
-> (3) reflection
-> (4) event handling
+> 1. keying
+> 2. inspection
+> 3. reflection
+> 4. event handling
 >
-> (1) Keying proved my most common problem when trying to use Eve. I want an
-> entity per something where the something is complex: like a bid per bidder per
-> product per round. Each bid also has non-identifying properties: a price, the
-> time it was entered, who it was entered by, etc. ... Though internally Eve
-> dealt with keys, they never completed the theory nor committed to exposing the
-> details.
+> 1. Keying proved my most common problem when trying to use Eve. I want an
+>    entity per something where the something is complex: like a bid per bidder
+>    per product per round. Each bid also has non-identifying properties:
+>    a price, the time it was entered, who it was entered by, etc. ... Though
+>    internally Eve dealt with keys, they never completed the theory nor
+>    committed to exposing the details.
 >
-> (2) Then without great ways to inspect the database, I couldn't see what was
-> going on, how keys came into play.
+> 2. Then without great ways to inspect the database, I couldn't see what was
+>    going on, how keys came into play.
 >
-> (3) Since Eve patterns can match against anything, I found it easy to check
-> invariants but hard to identify causes of their violation. One could not
-> reflect on how rules gave rise to derived properties. This was always a goal,
-> just never happened.
+> 3. Since Eve patterns can match against anything, I found it easy to check
+>    invariants but hard to identify causes of their violation. One could not
+>    reflect on how rules gave rise to derived properties. This was always
+>    a goal, just never happened.
 >
-> (4) Though Eve had a decent [theoretical foundation](http://bloom-lang.net/index.html)
-> for controlled change over time, it was never exposed in a way that one could
-> easily reason about. The primary challenge being that you want an event to
-> arise in the database, effect a change, then dissipate. Whereas an imperative
-> language lets you write step one, two, three, Eve never had that view. Change
-> was managed through an intricate interplay of rules, always hidden. Dijkstra
-> makes a good point:
->
-> > we should do our utmost to shorten the conceptual gap between the static
-> > program and the dynamic process, to make the correspondence between the
-> > program (spread out in text space) and the process (spread out in time) as
-> > trivial as possible.
+> 4. Though Eve had a decent [theoretical foundation](http://bloom-lang.net/index.html)
+>    for controlled change over time, it was never exposed in a way that one
+>    could easily reason about. The primary challenge being that you want an
+>    event to arise in the database, effect a change, then dissipate. Whereas an
+>    imperative language lets you write step one, two, three, Eve never had that
+>    view. Change was managed through an intricate interplay of rules, always
+>    hidden. Dijkstra makes a good point:
+>    > we should do our utmost to shorten the conceptual gap between the static
+>    > program and the dynamic process, to make the correspondence between the
+>    > program (spread out in text space) and the process (spread out in time) as
+>    > trivial as possible.
 >
 > Given thought, time, practice, these issues could be have been addressed — but
 > only from grappling with ordering seriously. Why weren't (2) inspection, (3)
@@ -12250,3 +12249,48 @@ tags: web dom html accessibility
 - role="role type", where role type is the name of a role in the ARIA specification.
 - ARIA roles provide semantic meaning to content, allowing screen readers and other tools to present and support interaction with an object in a way that is consistent with user expectations of that type of object. ARIA roles can be used to describe elements that don't (yet) natively exist in HTML.
 - By default, many semantic elements in HTML have a role; for example, `<input type="radio">` has the "radio" role. Non-semantic elements in HTML do not have a role; <div> and <span> without added semantics return null. The role attribute can provide semantics.
+
+================================================================================
+20231214
+Bash One-Liners for LLMs
+https://justine.lol/oneliners/
+tags: ai generative-ai machine-learning llm huggingface llava portable
+- Download:
+  ```
+  wget https://huggingface.co/jartine/llava-v1.5-7B-GGUF/resolve/main/llava-v1.5-7b-q4-main.llamafile
+  chmod +x llava-v1.5-7b-q4-main.llamafile
+  ```
+- Bash one-liner for image summarization:
+  ```
+  ./llava-v1.5-7b-q4-main.llamafile --image foo.jpg --temp 0 -p $'### User: What do you see?\n### Assistant:' --silent-prompt 2>/dev/null
+  ```
+- Use LLaVA to rename images files:
+  - You can control text generation by imposing language constraints in
+    Backus-Naur Form. That restricts which tokens can be selected when generating
+    the output. For example, the flag `--grammar 'root ::= "yes" | "no"'` will force
+    the LLM to only print "yes\n" or "no\n" and then exit().
+    - The grammar needs to be somewhat harmonious with what the LLM is going to to
+      say. For example, I couldn't put underscores directly into the BNF and had
+      to use sed, because LLaVA wasn't trained to generate sentences with
+      underscores, so it'll produce incoherent output.
+    - However we *can* define the BNF to require only lowercase letters, since
+      that's within LLaVA's comfort zone. Same for JSON: lots of JSON was used to
+      train these things, so grammar can guard against hallucinated JSON syntax errors.
+  - The `-n 16` flag limits the maximum number of generated tokens.
+  - Bash one-liner to generate filenames for images:
+    ```
+      ./llava-v1.5-7b-q4-main.llamafile --image foo.jpg --temp 0 --grammar 'root ::= [a-z]+ (" " [a-z]+)+' -n 16 -p $'### User: The image has...\n### Assistant:' --silent-prompt 2>/dev/null \
+        | sed -e's/ /_/g' -e's/$/.jpg/'
+    ```
+- Bash one-liner for code completion ("local copilot", fine-tuned for Python):
+  ```
+  curl -LO https://huggingface.co/jartine/wizardcoder-13b-python/resolve/main/wizardcoder-python-13b-main.llamafile
+  chmod +x wizardcoder-python-13b-main.llamafile
+  ./wizardcoder-python-13b-main.llamafile --temp 0 -p $'```c\nvoid *memcpy(char *dst, const char *src, size_t size) {\n' -r $'```\n' 2>/dev/null
+  ```
+- LLM file sizes:
+  ```
+  $ du -hs *
+  4.0G    llava-v1.5-7b-q4-main.llamafile
+  7.3G    wizardcoder-python-13b-main.llamafile
+  ```
