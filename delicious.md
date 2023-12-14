@@ -12345,7 +12345,14 @@ tags: ai generative-ai machine-learning llm huggingface llava portable
   ```
   curl -LO https://huggingface.co/jartine/wizardcoder-13b-python/resolve/main/wizardcoder-python-13b-main.llamafile
   chmod +x wizardcoder-python-13b-main.llamafile
-  ./wizardcoder-python-13b-main.llamafile --temp 0 -p $'```c\nvoid *memcpy(char *dst, const char *src, size_t size) {\n' -r $'```\n' 2>/dev/null
+  $ ./wizardcoder-python-13b-main.llamafile --temp 0 -p $'```c\nlocal function getNeovimBufferContents()\n' -r $'```\n' 2>/dev/null
+   ```c
+   local function getNeovimBufferContents()
+     local buffer = vim.api.nvim_get_current_buf()
+     local lines = vim.api.nvim_buf_get_lines(buffer, 0, -1, false)
+     return table.concat(lines, "\n")
+   end
+   ```
   ```
 - LLM file sizes:
   ```
