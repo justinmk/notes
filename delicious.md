@@ -8418,7 +8418,7 @@ before investing in costly real-life prototypes.
 20210525
 WASI: Portable System Interface for WebAssembly
 https://github.com/bytecodealliance/wasmtime/blob/main/docs/WASI-overview.md
-tags: wasm wasi web webassembly api os portability
+tags: wasm wasi web webassembly api os portability security capability-based-security
 Specifies "syscalls": functions provided by the surrounding environment that can do I/O on behalf of the program.
 Capability-based security
   Similar to how core WebAssembly provides no ability to access the outside world without calling imported functions, WASI APIs provide no ability to access the outside world without an associated capability.
@@ -12502,3 +12502,60 @@ tags: cia police-state surveillance security operations infosec opsec cryptograp
 > Radio Liberation From Bolshevism. In 2007, a news item
 > https://web.archive.org/web/20080611133831/https:/www.cia.gov/news-information/featured-story-archive/2007-featured-story-archive/a-look-back.html
 > on the CIA’s website stated these “psychological warfare” initiatives were:
+
+================================================================================
+20231217
+Modules, monoliths, and microservices - Avery Pennarun
+https://tailscale.com/blog/modules-monoliths-and-microservices
+tags: modularity microservices compsci isolation dependencies architecture system-design
+- Modularity goals:
+  - Isolation
+  - Connection => follows Conway's law
+  - Compatibility => tends toward monoliths
+  - Upgrades, downgrades, scalability => These mainly determine your service boundaries.
+- Modularity:
+  - "Once you have boxes isolated from each other, then you need to connect them
+    with arrows. For that, we have ABIs, APIs, syscalls, sockets, RPCs,
+    filesystems, databases, message passing systems, virtualized hardware,
+    [and combinators]."
+  - Combinators: https://news.ycombinator.com/item?id=26252633
+    > We 100% know how to isolate code: combinators. Isolated logic is literally
+    > the definition of a combinator.
+    >
+    > The main issue with "isolation" is IO (input/output and shared mutable
+    > memory access), because all IO related primitives cannot be part of
+    > a combinator by definition.
+    >
+    > You can maintain purity if IO is output-only. When you start reading from
+    > shared memory (i.e. "input"), code becomes less composable.
+- Isolation:
+  - The state of the art (2021) is Chrome sandbox or gVisor https://github.com/google/gvisor
+  - Isolation is better than it's ever been before, _if_ you stay at the virtual
+    machine (VM) level, so your cloud provider can do it for you because nobody
+    else knows how, or updates often enough.
+- Security:
+  - In "Some thoughts on security after ten years of qmail 1.0", Daniel J.
+    Bernstein mentions that many of the defenses he added in qmail, particularly
+    isolating the different components from each other using chroot and
+    different Unix uids, were not worthwhile and have never paid off.
+  - Examples of Trustworthy (weak isolation) vs Untrustworthy (strong isolation) Boundaries
+    - Chrome runs random web javascript in strongly isolated sandbox VMs because
+      web pages are untrustworthy.
+    - Cloud VMs default to passwordless sudo, because root vs non-root isolation
+      turned out to be weak, so why even bother.
+    - Shared libraries/DLLs from multiple vendors get linked into apps from
+      other vendors because all the code is assumed trustworthy. (This opens the
+      way to supply chain attacks via open-source library vendors.)
+
+================================================================================
+20231217
+gvisor: Application Kernel for Containers
+https://github.com/google/gvisor
+tags: sandbox security capability-based-security containers linux kernel google
+- application kernel that implements the Linux system surface.
+  - `runsc` OCI runtime (compatible w/ Docker/Kubernetes) provides an isolation
+    boundary between the application and the host kernel.
+- Why does gVisor exist?
+  - Containers are not a sandbox. gVisor is an application kernel for
+    containers. It limits the host kernel surface accessible to the application
+    while still giving the application access to all the features it expects.
