@@ -1,5 +1,4 @@
 https://pupper.readthedocs.io/en/latest/
-https://stanfordstudentrobotics.org/pupper
 https://github.com/stanfordroboticsclub/StanfordQuadruped
 
 TODO:
@@ -44,6 +43,11 @@ HARDWARE
 
 
 SOFTWARE
+  SETUP
+    LOGIN
+      default login: pi / raspberry
+    INTERNET
+      Edit /etc/wpa_supplicant/wpa_supplicant.conf
   problems:
     # wlan fails in ro filesystem:
     Feb 14 10:19:29 oppy5 dhclient[2930]: can't create /var/lib/dhcp/dhclient.wlan0.leases: Read-only file system
@@ -66,7 +70,77 @@ SOFTWARE
         https://github.com/stanfordroboticsclub/StanfordQuadruped/blob/master/pupper/Config.py.
         Look for two variables: self.overlap_time and self.swing_time
 
-USAGE
-  $ rw
-  $ python3 calibrate.py
-  save stuff to files
+USAGE LOG
+  - development
+    ```
+    $ rw
+    $ vim calibrate.py
+    $ python3 calibrate.py
+    ```
+  - physical access: keyboard + micro HDMI cable to monitor
+  - ssh access
+    - hostname = oppy5
+    - Can use the ipv6 address listed by router status page.
+      ```
+      $ ssh pi@2003:c1:df39:xxxx:xxxx:xxxx:xxxx:xxxx
+      ```
+      - ipv4 address may be wrong (or delayed), doesn't match "ifconfig" on the raspi device.
+  - dhcp always fails at startup (readonly filesystem)
+    - can "fix" it temporarily with physical access:
+      ```
+      rw
+      sudo dhcpcd
+      ```
+  - show power status  https://elinux.org/RPI_vcgencmd_usage
+    ```
+    $ vcgencmd commands
+    $ vcgencmd measure_temp
+        temp=52.0'C
+    $ vcgencmd measure_volts
+        volt=0.8718V
+    $ vcgencmd get_throttled  # Non-zero = power supply issue. https://gist.github.com/Paraphraser/17fb6320d0e896c6446fb886e1207c7e
+        throttled=0x0
+    ```
+  - control LEDs
+    ```
+    # List available "modes" for LED 0.
+    $ cat /sys/class/leds/led0/trigger
+        [none] kbd-capslock timer oneshot heartbeat backlight gpio cpu cpu0 cpu1 cpu2 cpu3 default-on input mmc0
+    $ sudo sh -c 'echo none > /sys/class/leds/led0/trigger'       # LED 0: default off
+    $ sudo sh -c 'echo heartbeat > /sys/class/leds/led0/trigger'  # LED 0: "heartbeat" mode
+    $ sudo sh -c 'echo 1 > /sys/class/leds/led0/brightness'       # turn on green LED
+    $ sudo sh -c 'echo 0 > /sys/class/leds/led1/brightness'       # turn off red LED
+    ```
+  - problem: DNS failure ("git clone" fails, "apt update" fails).
+    ```
+    $ git clone https://github.com/justinmk/config
+    Cloning into 'config'...
+    fatal: unable to access 'https://github.com/justinmk/config/': Could not resolve host: github.com
+    ```
+    - solution:
+      ```
+      # Manually fix date.
+      $ date -s '2023-12-31 16:00:00'
+      # Manually configure DNS server(s).
+      /etc/dhcpcd.conf:
+        static domain_name_servers=8.8.8.8 1.1.1.1 192.168.1.1
+      $ sudo systemctl daemon-reload
+      $ sudo service dhcpcd restart
+      ```
+  - How to detect "interactive" mode to change system config during startup?
+    - XXX: detect battery vs mains/wall power.
+    - Detect keyboard attached.
+      ```
+      _has_kbd() {
+        [ -d /dev/input/by-path/ ] && find /dev/input/by-path/ -name '*kbd' | grep 'kbd$' 2>/dev/null
+      }
+      ```
+      - Example startup logs:
+        ```
+        oppy5 robotstatus.sh[342]: /dev/input/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.1:1.0-event-kbd
+        oppy5 robotstatus.sh[342]: keyboard detected, configuring "interactive" setup.
+        ```
+  - Pair the PS4 controller: https://pupper.readthedocs.io/en/latest/guide/operation.html
+    1. Hold the "share" button and circular Playstation button until the light makes "double flashes".
+    2. When the controller binds to the robot, it should turn "deactivated" color (as set in `HardwareConfig.py`).
+    3. Press L1 on the controller to “activate” the robot. The controller should a different color (as set in `HardwareConfig.py`).

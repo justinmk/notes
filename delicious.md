@@ -2093,13 +2093,17 @@ tags: webdesign javascript programming performance
   time="2013-10-15T19:18:16Z" 
 
 ================================================================================
-ipinfo.io:
+ipinfo.io
 https://ipinfo.io/
+tags: tools web ip api internet
 IP address lookup, geolocation, API
 ASN (Autonomous System Number) lookup, e.g.: https://ipinfo.io/AS32934
 
+================================================================================
+20231229
+ifconfig.co — What is my IP address?
+https://ifconfig.co/
 tags: tools web ip api internet
-2016-08-09 00:04:38
 
 ================================================================================
 OpenRefine / fka Google Refine
@@ -12559,3 +12563,36 @@ tags: sandbox security capability-based-security containers linux kernel google
   - Containers are not a sandbox. gVisor is an application kernel for
     containers. It limits the host kernel surface accessible to the application
     while still giving the application access to all the features it expects.
+
+================================================================================
+20231222
+A techno-pessimist manifesto
+https://graymirror.substack.com/p/a-techno-pessimist-manifesto
+tags: curtis-yarvin technology andreessen
+- concepts
+  - thymos: spiritedness, indicates a physical association with breath or blood
+  - athymia: The absence of emotion; morbid impassivity
+  - acedia: Listlessness or torpor https://en.wikipedia.org/wiki/Acedia
+  - anomie: https://en.wikipedia.org/wiki/Anomie
+- "The Moral Equivalent of War", William James 1910, solution to the "thymos crisis":
+  > instead of military conscription a conscription of the whole youthful
+  > population to form for a certain number of years a part of the army enlisted
+  > against nature ...
+  >
+  > The military ideals of hardihood and discipline would be wrought into the
+  > growing fiber of the people; no one would remain blind as the luxurious
+  > classes now are blind, to man's real relations to the globe he lives on, and
+  > to the permanently sour and hard foundations of his higher life.
+  >
+  > To coal and iron mines, to freight trains, to fishing fleets in December, to
+  > dishwashing, clothes-washing and window-washing, to road-building and tunnel
+  > making, to foundries and stoke-holes, and to the frames of skyscrapers, would
+  > our gilded youths be drafted off, according to their choice, to get the
+  > childishness knocked out of them, and to come back into society with healthier
+  > sympathies and soberer ideas.
+- Techno-optimism is a curious historical match for ... Trotskyism.
+  > In Literature and Revolution (1924), Trotsky wrote:
+  >
+  >> Through the machine, man in Socialist society will command nature in its
+  >> entirety, with its grouse and its sturgeons. He will change the course of the
+  >> rivers
