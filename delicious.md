@@ -12596,3 +12596,11 @@ tags: curtis-yarvin technology andreessen
   >> Through the machine, man in Socialist society will command nature in its
   >> entirety, with its grouse and its sturgeons. He will change the course of the
   >> rivers
+
+================================================================================
+20240103
+Node.js Single executable applications
+https://nodejs.org/api/single-executable-applications.html
+tags: nodejs software-engineering web javascript
+> This feature allows the distribution of a Node.js application conveniently to a system that does not have Node.js installed.
+> Node.js supports the creation of single executable applications by allowing the injection of a blob prepared by Node.js, which can contain a bundled script, into the node binary. During start up, the program checks if anything has been injected. If the blob is found, it executes the script in the blob. Otherwise Node.js operates as it normally does.
