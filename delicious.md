@@ -11354,7 +11354,7 @@ tags: machine-learning statistics math concepts mental-model
 20230705
 metals LSP extensions
 https://github.com/scalameta/metals/tree/7d0397b3f8fe016b92fd46fdfc1a39b68b3cd715/docs/integrations
-tags: lsp scala rpc api protocol
+tags: lsp scala rpc api protocol extensibility
 - LSP extension: "Decoration Protocol" to display non-editable text in the text editor. https://github.com/scalameta/metals/blob/7d0397b3f8fe016b92fd46fdfc1a39b68b3cd715/docs/integrations/decoration-protocol.md
   - `initialize`
     The Decoration Protocol is only enabled when client declares support for the protocol by adding an decorationProvider: true field to the `initializationOptions` during the `initialize` request.
@@ -11387,6 +11387,33 @@ tags: lsp scala rpc api protocol
   - `metals/treeViewReveal`
     The reveal request is sent from the client to the server to convert a text
     document position into it's corresponding tree view node.
+
+================================================================================
+20240111
+LSP: servers can provide filesystem, clients can read from remote file systems
+https://github.com/microsoft/language-server-protocol/issues/1264
+tags: lsp rpc api protocol filesystem vfs extensibility
+> I had the same issue while porting an LSP server (written in Rust) to the web through WASM.
+> I handled it by creating a few request handlers on the client (in TypeScript) that can be requested by the server to simulate the FS.
+> client code: https://github.com/hirosystems/clarinet/blob/314f68590c043a2f03338553d74f81a91279003f/components/clarity-vscode/client/src/customVFS.ts#L25-L64
+> request from server: https://github.com/hirosystems/clarinet/blob/314f68590c043a2f03338553d74f81a91279003f/components/clarinet-files/src/wasm_fs_accessor.rs#L70-L71
+
+Interesting comment [from the vscode team](https://github.com/microsoft/language-server-protocol/issues/1264#issuecomment-1324838008):
+> I implemented a WASI host that maps the whole WASI API to the VS Code API.
+> So you can right normal Rust, C/C++ code with normal file system operations
+> and it will transparently be mapped to the VS Code file system API.
+
+
+> What we want to achieve is that someone can take a normal Rust, ... program
+> compile it down to WASM_WASI and run it inside VS Code where the file system
+> available in the WASM execution is VS Code's workspace file system (and more
+> since the vscode-wasm implementation support arbitrary mount points)
+
+================================================================================
+20240111
+LSP: server can provide content for a URI scheme
+https://github.com/microsoft/language-server-protocol/issues/336
+tags: lsp rpc api protocol filesystem vfs extensibility
 
 ================================================================================
 20230625
@@ -12604,3 +12631,26 @@ https://nodejs.org/api/single-executable-applications.html
 tags: nodejs software-engineering web javascript
 > This feature allows the distribution of a Node.js application conveniently to a system that does not have Node.js installed.
 > Node.js supports the creation of single executable applications by allowing the injection of a blob prepared by Node.js, which can contain a bundled script, into the node binary. During start up, the program checks if anything has been injected. If the blob is found, it executes the script in the blob. Otherwise Node.js operates as it normally does.
+
+================================================================================
+20240111
+Security risk of running http://localhost:xx
+tags: http web cors security interop
+Can javascript hosted on a remote website that I visit in my web browser, make
+requests to http://localhost:3000 on my local machine?
+
+    fetch('http://localhost:3000/').then(r=> r.json().then(j=> console.log('\nREQUEST',j)));
+
+It is possible, but can be mitigated by CORS configuration on the server to
+disable CORS or restrict cross-origin access to trusted domains only.
+- By default, browsers block cross-origin requests. But servers can enable CORS
+  by returning certain HTTP headers to explicitly allow cross-origin access:
+  ```
+  Access-Control-Allow-Origin: *
+  Access-Control-Request-Method: *
+  Access-Control-Allow-Methods: OPTIONS, GET
+  Access-Control-Allow-Headers: *
+  ```
+To mitigate this:
+- Use CORS middleware in frameworks like Express to implement domain restrictions.
+- Use CSRF tokens to prevent unauthorized requests from other domains.
