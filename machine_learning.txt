@@ -1,12 +1,19 @@
 TODO:
-    https://course.fast.ai/
-    https://developers.google.com/machine-learning/crash-course/
-    https://mlu-explain.github.io/
+    - Andrej Karpathy "Let's build GPT: from scratch, in code, spelled out." https://youtu.be/kCc8FmEb1nY
+    - https://course.fast.ai/
+    - https://mlu-explain.github.io/
+
+LLM visualization: https://bbycroft.net/llm
 
 GPT = generative pretrained transformer
     - "Transformer": detects subtle relationships even amongst distant data elements in a sequence.
         - marketing name for "attention net"
-        - "self-attention": differentially weighting each part of the input (which includes the recursive output)
+        - "self-attention": differentially weighting each part of the input (which includes the recursive output).
+          - What makes self-attention so powerful: Unlike traditional neural
+            networks with fixed weights, self-attention layers adaptively weight
+            connections between inputs based on context. This allows
+            transformers to accomplish in a single layer what would take
+            traditional networks multiple layers.
         - from 2017 Google paper
           https://ai.googleblog.com/2017/08/transformer-novel-neural-network.html
           https://arxiv.org/abs/1706.03762

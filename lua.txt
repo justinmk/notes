@@ -6,6 +6,17 @@ Data structures
     Light Userdata: represents C pointers in Lua
     Tables have "hybrid" internals: dense(ish) array sections (1…n integer keys) of a table, are stored as literal C arrays (not hashtable), the integer keys are not stored. —"The Implementation of Lua 5.0" https://www.lua.org/doc/jucs05.pdf
 
+Function calls
+    Similar to javascript, a "method" is not bound to its table (object) if you refrence the function name without also passing the table.
+
+    function tbl:func(a) end
+    -- is syntactic sugar for:
+    function tbl.func(self, a) end
+
+    tbl:func(a)
+    -- is syntactic sugar for:
+    tbl.func(tbl, a)
+
 Scopes
     upvalue = "External local variable" used in an inner function (closure).
               I.e. non-global, non-local, closed-over scope.

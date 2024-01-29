@@ -715,7 +715,7 @@ SATA Port Multipliers
 
 ================================================================================
 Effective Engineer (AKA: Leverage)
-http://www.effectiveengineer.com/
+https://www.effectiveengineer.com/
 https://gist.github.com/rondy/af1dee1d28c02e9a225ae55da2674a6f
 https://henrikwarne.com/2017/01/15/book-review-the-effective-engineer/
 tags: engineering leverage mental-model
@@ -9712,7 +9712,7 @@ tags: economics budget government schooling education costs society
 20220821
 The productivity tax you pay for context switching
 https://async.twist.com/context-switching/
-tags: work productivity habits focus concentration time-management attention
+tags: work productivity habits focus concentration time-management attention context-switching
 - Upon returning to a task after a distraction, it can take up to 23 minutes to re-focus.
   https://www.washingtonpost.com/news/inspired-life/wp/2015/06/01/interruptions-at-work-can-cost-you-up-to-6-hours-a-day-heres-how-to-avoid-them/
 - Even “brief mental blocks” as a result of switching can take as much as 40% of a person’s productive time.
@@ -9720,6 +9720,15 @@ tags: work productivity habits focus concentration time-management attention
 - Isaac Newton said: “If I have made any valuable discoveries, it has been owing more to patient attention than to any other talent.”
 - When our attention is split, we struggle “to integrate fragmented information into cohesive task structures that make sense,”
   https://www.hcii.cmu.edu/news/event/2004/10/work-fragmentation-common-practice-paradox-it-support
+
+================================================================================
+20240124
+Multitasking: Switching costs
+https://www.apa.org/topics/research/multitasking
+tags: psychology work productivity focus concentration time-management attention context-switching
+Human "executive control" has 2 stages:
+1. "goal shifting" ("I want to do this now instead of that")
+2. "rule activation" ("I'm turning off the rules for that and turning on the rules for this")
 
 ================================================================================
 20220405
@@ -11402,8 +11411,7 @@ Interesting comment [from the vscode team](https://github.com/microsoft/language
 > I implemented a WASI host that maps the whole WASI API to the VS Code API.
 > So you can right normal Rust, C/C++ code with normal file system operations
 > and it will transparently be mapped to the VS Code file system API.
-
-
+>
 > What we want to achieve is that someone can take a normal Rust, ... program
 > compile it down to WASM_WASI and run it inside VS Code where the file system
 > available in the WASM execution is VS Code's workspace file system (and more
@@ -12654,3 +12662,472 @@ disable CORS or restrict cross-origin access to trusted domains only.
 To mitigate this:
 - Use CORS middleware in frameworks like Express to implement domain restrictions.
 - Use CSRF tokens to prevent unauthorized requests from other domains.
+
+================================================================================
+20240108
+To Improve Democracy, Get Rid of Elections
+https://www.nytimes.com/2023/08/21/opinion/elections-democracy.html
+tags: politics democracy government elections history
+> The ancient Greeks invented democracy, and in Athens many government officials
+> were selected through "sortition" — a random lottery from a pool of candidates
+
+================================================================================
+20240113
+The future of private computing
+https://graymirror.substack.com/p/the-future-of-private-computing
+tags: curtis-yarvin computing compsci urbit p2p distributed-systems blockchain trust-network
+> Radical trust
+> Suppose you want to run an app like Signal which auto-deletes messages. But
+> your “friend” installs a hacked app which actually saves the messages. Signal
+> uses the "weary tools of flesh and steel" to keep this from happening. But
+> Butyl is truly decentralized ... So it can’t use these centralized devices.
+>
+> With confidential computing, your hosting service can use an appropriate
+> blockchain to post an unforgeable proof of the full-stack configuration of
+> ~mastex-bintyl. So long as this proves that your planet does not permit apps
+> to misrepresent their identity, it proves that your planet’s messaging app
+> will be the same app that your friend expects.
+>
+> Many applications are possible with the radical trust that full-stack
+> attestation creates. Cheat detection is no longer necessary in games, for
+> instance. Restrictions on data handling can be applied across the network.
+> Agreement protocols (like a blockchain) do not even need “Byzantine”
+> resistance to hostile nodes ...
+
+================================================================================
+20240114
+Lee Harvey Oswald
+https://en.wikipedia.org/wiki/Lee_Harvey_Oswald
+tags: socialism communism politics government russia
+> Oswald wrote in his diary in January 1961: "I am starting to reconsider my
+> desire about staying [in the Soviet Union]. The work is drab, the money I get
+> has nowhere to be spent. No nightclubs or bowling alleys, no places of
+> recreation except the trade union dances. I have had enough."
+
+================================================================================
+20240118
+MrChromebox.tech: Custom coreboot firmware and firmware utilities for your Chromebook/Chromebox
+https://mrchromebox.tech/
+tags: chromebook linux os technology
+
+================================================================================
+20240118
+Cloudflare "1.1.1.1 for Families" (parental control)
+https://blog.cloudflare.com/introducing-1-1-1-1-for-families
+tags: network parental-controls technology
+Two Flavors:
+  1.1.1.2 (No Malware)
+  1.1.1.3 (No Malware or Adult Content)
+
+================================================================================
+20240118
+2024 Financial Report and Fundraiser
+https://ziglang.org/news/2024-financials/
+tags: zig project-management oss open-source funding
+
+================================================================================
+20240118
+Bitkey is a self-custody bitcoin wallet with an app, hardware, and recovery tools.
+https://bitkey.world/
+tags: bitcoin custodian cryptocurrency wallet hardware
+
+================================================================================
+20240118
+Academy of Motion Picture Arts and Sciences representation and inclusion standards for Oscars® eligibility
+https://www.oscars.org/news/academy-establishes-representation-and-inclusion-standards-oscarsr-eligibility
+tags: oscars culture progressive dei esg quota
+> For the 96th Oscars (2024), a film must meet TWO out of FOUR of the following
+> standards to be deemed eligible:
+>
+> STANDARD A:  ON-SCREEN REPRESENTATION, THEMES AND NARRATIVES
+>
+> A1. Lead or significant supporting actors
+> At least one of the lead actors or significant supporting actors is from an
+> underrepresented racial or ethnic group:
+> • Asian
+> • Hispanic/Latinx
+> • Black/African American
+> • Indigenous/Native American/Alaskan Native
+> • Middle Eastern/North African
+> • Native Hawaiian or other Pacific Islander
+> • Other underrepresented race or ethnicity
+>
+> A2. General ensemble cast
+> At least 30% of all actors in secondary and more minor roles are from at least
+> two of the following underrepresented groups:
+> • Women
+> • Racial or ethnic group
+> • LGBTQ+
+> • People with cognitive or physical disabilities, or who are deaf or hard of hearing
+>
+> A3. Main storyline/subject matter ...
+> The main storyline(s), theme or narrative of the film is centered on an
+> underrepresented group(s) ...
+>
+> STANDARD B: CREATIVE LEADERSHIP AND PROJECT TEAM
+>
+> B1. Creative leadership and department heads ...
+> At least two of the following creative leadership positions ...
+>
+> B2. Other key roles
+> At least six other crew/team and technical positions ...
+>
+> B3. Overall crew composition
+> At least 30% of the film’s crew ...
+>
+> STANDARD C:  INDUSTRY ACCESS AND OPPORTUNITIES
+>
+> C1. Paid apprenticeship and internship opportunities ...
+> ... in most of the following departments: production/development, physical
+> production, post-production, music, VFX, acquisitions, business affairs,
+> distribution, marketing and publicity. ...
+>
+> C2. Training opportunities and skills development (crew) ...
+>
+> STANDARD D: AUDIENCE DEVELOPMENT
+>
+> D1. Representation in marketing, publicity, and distribution ...
+
+================================================================================
+20240119
+The Little Book of Deep Learning, François Fleuret
+https://fleuret.org/francois/lbdl.html
+tags: todo ai machine-learning deep-learning book tutorial
+
+================================================================================
+20240119
+VSCode 1.21 Text Buffer Reimplementation from "line array" to "piece tree". 2018, Peng Lyu, @njukidreborn
+https://code.visualstudio.com/blogs/2018/03/23/text-buffer-reimplementation
+tags: performance optimization text-editor data-structure
+- The old line array representation has fast line look-up, but is slow and bloated (too much metadata per block).
+- Use a piece table instead (near-zero metadata).
+  - Tradeoff: finding a logical line is slow (only contain offsets).
+- Optimization 1: cache line break information
+  - O(n) line lookup
+- Optimization 2: use a balanced binary tree (red-black tree)
+  - O(log n) line lookup
+- "Why not native?": JavaScript <=> C++ roundtrips too frequent + slow.
+
+================================================================================
+20240119
+Work Is Work
+https://codahale.com/work-is-work/
+tags: work organization-theory organization communication collaboration coordination project-management leverage human-scaling
+> The work capacity of an organization scales, at most, linearly as new members
+> are added. Each new member adds a constant number of possible work hours to
+> the total possible work hours of the company’s existing employees.
+>
+> Amdahl’s Law ... As parallel resources are added, the total time spent in the
+> parallelizable portion of the task amortizes to zero; in contrast, the total
+> time spent in the sequential portion of the task never drops below a floor
+> value.
+>
+> ... Our intuition tells us that larger organizations do exhibit superlinear
+> behaviors, but this literally cannot be the case if hiring is the only
+> variable in the equation. Therefore, our only hope for superlinear
+> productivity lies in changing the task which is being executed. Thankfully,
+> work capacity is not the same as productivity.
+>
+> ... this linear bound on work capacity is a ceiling, not a floor. One cannot
+> do better than linear.
+
+================================================================================
+20240120
+Three-body problem
+https://en.wikipedia.org/wiki/Three-body_problem
+tags: physics science concepts mental-model
+- Difficult to predict the behavior of even simple (3-body vs n-body) dynamic systems.
+- Unlike two-body problems, no general closed-form solution exists, as the
+  resulting dynamical system is chaotic for most initial conditions, and
+  numerical methods are generally required.
+
+================================================================================
+20240120
+Supervenience
+https://plato.stanford.edu/entries/supervenience/
+tags: philosophy concepts mental-model
+- Set of properties A supervenes upon set B iff no two things can differ with
+  respect to A-properties without also differing with respect to their
+  B-properties. "No A-difference without a B-difference".
+- "modal truths supervene on non-modal ones, general truths supervene on particular truths"
+- related to but distinct from notions like grounding and ontological dependence.
+- Examples
+  - If psychological properties globally supervene on physical properties, then any two worlds physically the same will be psychologically the same.
+  - Each layer of the OSI Model (computer networking) supervenes on the layers below it.
+  - Wherever a message is conveyed by a representational medium: e.g. a letter "a" in a page of print, supervenes on the geometry of the boundary of the printed glyph, which in turn supervenes on the ink deposition on the paper.
+  - Biology: phenotype can be said to supervene on genotype. Any genotype encodes a finite set of unique phenotypes, but any given phenotype is not produced by a finite set of genotypes.
+
+================================================================================
+20240120
+Modal truth
+https://plato.stanford.edu/entries/logic-modal-origins/
+tags: philosophy logic concepts mental-model
+Modal logic = the logic of different sorts of modalities, or modes of truth:
+  - alethic (“necessarily”)
+  - epistemic (“it is known that”)
+  - deontic (“it ought to be the case that”)
+  - temporal (“it is always the case that”)
+The "possible worlds idiom":
+  - necessary truth: a statement that is true in all possible worlds.
+  - contingent truth: a statement that happens to be true in our world, but not all possible worlds.
+  - possible truth: a statement that is true in some possible world, but not necessarily our own.
+
+================================================================================
+20240120
+Deontology
+https://en.wikipedia.org/wiki/Deontology
+tags: philosophy ethics concepts
+deontology = normative
+ontology = descriptive, categories
+
+================================================================================
+20240120
+Nomology
+https://en.wikipedia.org/wiki/Nomology
+tags: physics science concepts mental-model philosophy
+- nomology = "science of laws" based on the theory that it is possible to
+  elaborate descriptions dedicated not to particular aspects of reality but
+  by a scientific vision of universal validity expressed by scientific laws.
+- from Aristotle, Greek νόμος "law", λόγος "reason".
+- "nomic" as in economics.
+
+================================================================================
+20240120
+Emic and etic
+https://en.wikipedia.org/wiki/Emic_and_etic
+tags: anthropology concepts mental-model measurement culture
+Two kinds of viewpoints:
+- emic: insider's perspective. Evaluates cultural practices in terms of meaning,
+  from the perspective of one who lives within.
+  - ??: academic, systemic, pandemic
+- etic: outsider's perspective. Evaluates cultural practices in terms of
+  functional or evolutionary significance, from the perspective of an outside
+  observer or researcher.
+  - ??: arithmetic, theoretic, genetic, hermetic, sympathetic, memetic
+
+================================================================================
+20240121
+Design duality and the expression problem
+https://www.tedinski.com/2018/02/27/the-expression-problem.html
+tags: systems architecture compsci system-design software-engineering modules
+- Conflicting duality:
+  - Sometimes you have data (numbers)
+  - Sometimes you have objects (groups)
+- Tradeoff: with extensibility over BOTH variants AND operations, some of these must be true:
+  - Your code becomes extremely difficult to reason about. Or,
+  - Your code becomes spaghetti, with ridiculous disorganization. Or,
+  - There’s something very domain-specific you’re able to leverage to keep thing sensible.
+- Aspect-oriented programming pretty much died under the strain of whole-program reasoning.
+
+================================================================================
+20240121
+"Modules Matter Most" for the Masses - Jimmy Koppel
+https://www.pathsensitive.com/2023/03/modules-matter-most-for-masses.html
+tags: systems architecture compsci system-design software-engineering modules
+- "true" modules/modularity = "module types" (dynamic architecture).
+  - many-to-many:
+    - interface can have multiple implementations
+    - and vice-versa: implementations satisfy multiple interfaces
+  - "representational secrets" are shared internally and hidden externally.
+  - Module N uses some module M, but only through its type (interface) A. M can
+    be replaced by any other module of type A, and N will continue to work.
+  - Example:
+    > generalize to, say, the Node Filesystem module. This module contains
+    > multiple distinct classes, such as file handles, directories, and output
+    > streams. It also contains top-level functions with special access to these
+    > classes; the classes also have special access to each other. They are
+    > interrelated in a way where giving an interface to just one class at
+    > a time will be missing something. There is a module boundary, in that code
+    > inside the module is given capabilities denied to code outside.
+- not "true" modules:
+  - TypeScript "interface" keyword
+  - java/node/etc "modules" are actually just "namespaces":
+    - they only provide imports and scoping.
+    - they don't provide modularity, information hiding, etc.
+- non-ML languages approximate "true" modules (dynamic architecture) with a combination of:
+  - build configurations
+  - dependency injection
+  - Adapter pattern
+  - Factory pattern
+    ```
+    interface StackFactory<S extends Stack<S>> {
+      S mkEmpty();
+    }
+    interface Stack<S extends Stack<S>> {
+      S push(int x);
+      Pair<S, Integer> pop();
+      boolean isEmpty();
+    }
+    ```
+
+================================================================================
+20240121
+Modules Matter Most - Robert Harper
+https://existentialtype.wordpress.com/2011/04/16/modules-matter-most/
+tags: systems architecture compsci system-design software-engineering modules
+- "global context is anti-modular".
+- data structure: a signature, or interface, written in the language you’re
+  programming in.
+- algorithm: a structure, or implementation, of that signature.
+- Dijkstra used to say “beauty is our business”
+- using (Haskell, F#) type classes is like steering the Queen Mary:
+  > according to the philosophy of [Haskell] type classes, the integers can be
+  > ordered in precisely one way (the usual ordering), but obviously there are
+  > many orderings (say, by divisibility) of interest.  The second is that they
+  > confound two separate issues: specifying how a type implements a type class
+  > and specifying when such a specification should be used during type
+  > inference. As a consequence, using type classes is, in Greg Morrisett’s
+  > term, like steering the Queen Mary: you have to get this hulking mass
+  > pointed in the right direction so that the inference mechanism resolves
+  > things the way you want it to.
+
+================================================================================
+20240124
+Scrapscript
+https://scrapscript.org/
+tags: content-addressable programming-language code-sharing code-reuse
+Scrapscript is best understood through a few perspectives:
+- “it’s JSON with types and functions and hashed references”
+- “it’s tiny Haskell with extreme syntactic consistency”
+- “it’s a language with a weird IPFS thing”
+Concepts:
+- Scrapscript solves the software sharability problem.
+  - all expressions are content-addressible “scraps”
+  - all programs are data
+  - all programs are "platformed"
+- The language itself forms merkle trees; VCS tools like git are optional.
+- Full programming language designed to be sent over the wire (with type-safety).
+- Small enough to be its own complete datatype.
+- Instead of sharing large dumps of data, you can send references to any data anywhere.
+- Serialization-Free: automatically serializes/deserializes scraps across any API boundaries, IPC, HTTP, QUIC, email, etc.
+
+================================================================================
+20240124
+Your source code is worthless
+https://hiringengineersbook.com/post/autonomy/
+tags: employee-retention teams mental-model concepts knowledge-transfer documentation
+- The main activity a programmer does is build a theory or model of the problem
+  space in their mind.
+- The source code itself (the "production") holds little to no value.
+- "The main value of a software company is the mapping of source code and
+  problem space in the developer’s heads."
+- Development is mainly decision-making.
+
+- https://news.ycombinator.com/item?id=38614195
+  - Tacit/ineffable knowledge is the kind of knowledge (and skill!) that cannot
+    be fully explained or taught (in words). E.g. in programming, "good taste"
+    is crucial yet ineffable.
+  - Attempting to make tacit/ineffable knowledge legible to management—is
+    a direct way to sabotage your own experts because experts fundamentally
+    cannot make all their knowledge explicit. Expertise *is* inescapably tacit.
+  - Design-by-committee gets bad results because committees require decisions to
+    be fully explicit and *explainable*—which weakens creative problem-solving.
+    Exclusively *explicit* processes yield lowest-common-denominator results,
+    and only results that can be explicitly communicated, which narrows
+
+================================================================================
+20240125
+"Programming as Theory Building", Peter Naur
+https://pages.cs.wisc.edu/~remzi/Naur.pdf
+tags: softwareengineering mental-model concepts mental-map knowledge-transfer documentation
+- “Theory Building View” ("derived meaning", "ineffable"):
+  > […] programming properly should be regarded as an activity by which the
+  > programmers form or achieve a certain kind of insight, a theory, of the
+  > matters at hand.
+- contrast the “Production View”:
+  > [where] programming is regarded as a production of a program and certain
+  > other texts.”
+- "The program text and its documentation has proved insufficient as a carrier
+  of some of the most important design ideas."
+- "with certain kinds of large programs, the continued adaptation, modification,
+  and correction of errors in them, is essentially dependent on a certain kind
+  of knowledge possessed by a group of programmers who are closely and
+  continuously connected with them."
+  - => Favors minimalism / unix philosophy / modularity.
+- Three aspects that are difficult/impossible to express in written form, yet
+  the original programmer can easily explain them:
+  1. "For each part of the program text and for each of its overall structural
+     characteristics, what aspect or activity of the world is matched by it. ...
+     By far the largest part of the world will of course lie outside the scope
+     of the program text, being irrelevant in the context. However, the decision
+     that a part of the world is relevant can only be made by someone who
+     understands the whole world. This understanding must be contributed by the
+     programmer."
+  2. Why such a mapping was chosen. "The final basis of the justification is and
+     must always remain the programmer’s direct, intuitive knowledge or estimate."
+  3. Respond to a change request: "Designing how a modification is best
+     incorporated into an established program depends on the perception of the
+     similarity of the new demand with the operational facilities already built
+     into the program."
+     - Unexpected requirements are impossible to document in advance.
+- It’s possible to transfer a program’s theory between programmers, but it
+  requires interaction (personal, REPL, edit-run, etc).
+  - But just like learning piano, you can't learn it from documentation.
+
+================================================================================
+20240124
+"Architectural Blueprints—The 4+1 View Model of Software Architecture". Philippe Kruchten, Rational Software Corp. 1995
+https://www.cs.ubc.ca/~gregor/teaching/papers/4+1view-architecture.pdf
+tags: software architecture project-management engineering documentation softwareengineering concepts compsci
+- Model for describing software systems, via multiple, concurrent views.
+- Separately addresses the concerns of the various ‘stakeholders’ of the architecture: end-user, developers, systems engineers, project managers, etc.
+- Definition of "architecture":
+  ```
+  Software architecture = { Elements, Forms, Rationale/Constraints }
+  ```
+- FIVE (5) MAIN "VIEWS" TO DESCRIBE SOFTWARE ARCHITECTURE:
+  - Decisions:
+    1. Logical view (end-user functionality): object/class model, data structures
+    2. Process view: dynamic aspects, communication between components (concurrency)
+      - tasks, processes
+        - major tasks: the architectural elements that can be uniquely addressed
+        - minor tasks: implementation details (cyclical activities, buffering, timeouts, etc.)
+    3. Development view (aka Implementation): the static organization of the software in its development environment.
+      - libraries/modules, dependencies/relationships.
+      - partitioning, grouping, visibility.
+      - software engineering: ease of development, reuse/commonality, maintainability, etc, etc.
+    4. Physical view (aka Deployment): mapping(s) of the software onto the hardware and reflects its distributed aspect.
+      - software component topology: 
+      - non-functional requirements such as availability, reliability (fault-tolerance), performance (throughput), and scalability.
+  - The "+1" view:
+    5. Use-cases / scenarios
+- DOCUMENTING THE ARCHITECTURE
+  - The architectural design is captured in two documents:
+    - Software Architecture Document, whose organization follows closely the “4+1” views.
+      ```
+      0. Architectural Goals & Constraints ...
+      1. Logical Architecture ...
+      2. Process Architecture ...
+      3. Development Architecture ...
+      4. Physical Architecture ...
+      ```
+    - Software Design Guidelines, which captures the most important design decisions that must be respected to maintain the architectural integrity of the system.
+
+================================================================================
+20240124
+Moravec's paradox
+https://en.wikipedia.org/wiki/Moravec%27s_paradox
+tags: machine-learning computer-vision ai ml paradox concepts
+Moravec's paradox is the observation in artificial intelligence and robotics
+that, contrary to traditional assumptions, reasoning requires very little
+computation, but sensorimotor and perception skills require enormous
+computational resources.
+
+================================================================================
+20240125
+script
+https://github.com/bitfield/script
+tags: golang programming shell pipeline
+Compose a sequence of shell-like operations on a stream of data (a pipeline).
+
+================================================================================
+20240125
+Zoom In: Introduction to [Neural Network] Circuits
+https://distill.pub/2020/circuits/zoom-in/
+tags: machine-learning ai statistics concepts mental-model theory
+- Three Speculative Claims about Neural Networks:
+  - Claim 1: FEATURES are the fundamental unit of neural networks.
+    - They correspond to directions. These features can be rigorously studied and understood.
+  - Claim 2: CIRCUITS. Features are connected by weights, forming circuits.
+    - These circuits can also be rigorously studied and understood.
+  - Claim 3: UNIVERSALITY. Analogous features and circuits form across models and tasks.

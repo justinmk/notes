@@ -4,25 +4,20 @@ backup:
   https://lobste.rs/s/y4myxv
 
 ------------------------------------------------------------------------------
-hashtable: https://github.com/jamesroutley/write-a-hash-table
-
-coroutines, trampolining, …: https://www.dabeaz.com/coroutines/index.html
-
-data science:
+AI/ML/data-science:
+  + The Little Book of Deep Learning https://fleuret.org/francois/lbdl.html
   + https://www.dataquest.io/blog/making-538-plots/
   + http://pandas.pydata.org/pandas-docs/stable/10min.html
-  + https://github.com/jvns/pandas-cookbook
-  ? https://jakevdp.github.io/PythonDataScienceHandbook/
-  ? TensorFlow: http://tflearn.org/
-  ? TensorFlow: https://github.com/tflearn/tflearn/blob/0.1.0/examples/README.md
+
+datastructures:
+  hashtable: https://github.com/jamesroutley/write-a-hash-table
+  coroutines, trampolining, …: https://www.dabeaz.com/coroutines/index.html
+  allocation: http://www.smallmemory.com/6_AllocationChapter.pdf
 
 PL
   + How to Write a (Lisp) Interpreter (in Python) http://norvig.com/lispy.html
 
-allocation: http://www.smallmemory.com/6_AllocationChapter.pdf
-
-Let's code a TCP/IP stack, 1: Ethernet & ARP
-    https://news.ycombinator.com/item?id=11234229
+Let's code a TCP/IP stack, 1: Ethernet & ARP https://news.ycombinator.com/item?id=11234229
 
 papers
 ------------------------------------------------------------------------------
