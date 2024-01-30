@@ -11307,7 +11307,7 @@ like a worm in form or movement
 20230615
 FANN: Vector Search in 200 Lines of Rust
 https://fennel.ai/blog/vector-search-in-200-lines-of-rust/
-tags: ai llm machine-learning deep-learning algorithm data-structure vector tensor
+tags: ai llm machine-learning deep-learning algorithm data-structure vector tensor embeddings statistics
 ## Introduction to Vectors (aka Embeddings)
   Complex unstructured data like docs, images, videos, are difficult to represent and query in traditional databases – especially if the query intent is to find "similar" items.
   Advances in AI in early 2010s (starting with Word2Vec and GloVe) enabled us to build semantic representation of these objects in which they are represented as points in cartesian space. Say one video gets mapped to the point [0.1, -5.1, 7.55] and another gets mapped to the point [5.3, -0.1, 2.7]. Representations are chosen such that they maintain semantic information –  more similar two videos, smaller the distance is between their vectors.
@@ -13158,3 +13158,87 @@ From https://cohost.org/tef/post/1877226-why-i-think-rpc-suck :
   * no “reflection”.
     * compare the [Wasm Component Model explainer](https://github.com/WebAssembly/component-model/blob/main/design/mvp/Explainer.md) : very similar to ordinary SO linking. The IDL lives with the library.
   * client/server must share a schema, the client doesn’t dynamically generate an impl from a served schema at runtime.
+
+================================================================================
+Embeddings: What they are and why they matter
+https://simonwillison.net/2023/Oct/23/embeddings/
+tags: ai llm machine-learning deep-learning algorithm data-structure vector tensor embeddings statistics encoding
+- Embeddings encode the "meaning" of a piece of content (eg a blog post) into an
+  array (vector) of floating point numbers.
+  - The array will always be the same length, no matter how long the content is.
+    The length (eg 300, 1000, or 1536) is defined by the embedding model you are
+    using.
+  - Imagine the array as coordinates in a very weird multi-dimensional space.
+    The location within the space represents the semantic meaning of the
+    content, according to the embedding model’s weird, mostly incomprehensible
+    understanding of the world. It might capture colors, shapes, concepts and
+    other characteristics of the content that has been embedded.
+- Example: Google Research paper "Efficient Estimation of Word Representations
+  in Vector Space" (2013) described an early embedding model called "Word2Vec".
+  - Word2Vec model takes single words and turns them into a list of 300 numbers
+    capturing the "meaning" of the associated word.
+- Example use-case: "Related content": show a list of related articles at the bottom of each page.
+  - I used the OpenAI text-embedding-ada-002 model, available via their API.
+  - I currently have 472 articles on my site. I calculated the 1,536 dimensional
+    embedding vector (array of floating point numbers) for each of those
+    articles, and stored those vectors in my site’s SQLite database.
+  - To find related articles for a given article, I can calculate the cosine
+    similarity between the embedding vector for that article and every other
+    article in the database, then return the 10 closest matches by distance.
+    ```
+    def cosine_similarity(a, b):
+        dot_product = sum(x * y for x, y in zip(a, b))
+        magnitude_a = sum(x * x for x in a) ** 0.5
+        magnitude_b = sum(x * x for x in b) ** 0.5
+        return dot_product / (magnitude_a * magnitude_b)
+    ```
+  - We can use a custom SQL function, `llm_embed_cosine(vector1, vector2)`, to
+    calculate those cosine distances and find the most similar content. This SQL
+    query returns the five most similar articles to the `sqlite_sqlite-tg.md`
+    article:
+    ```
+    select
+      id,
+      llm_embed_cosine(
+        embedding,
+        (
+          select
+            embedding
+          from
+            embeddings
+          where
+            id = 'sqlite_sqlite-tg.md'
+        )
+      ) as score
+    from embeddings
+    order by score desc
+    limit 5
+    ```
+
+================================================================================
+20240130
+datasette: LLM
+https://llm.datasette.io/en/stable/
+tags: ai generative-ai machine-learning llm huggingface llava portable
+CLI and Python library for interacting with Large Language Models, both via
+remote APIs and models that can be installed and run on your own machine.
+
+================================================================================
+20240202
+Scholia
+https://en.wikipedia.org/wiki/Scholia
+https://en.wikipedia.org/wiki/Gloss_(annotation)
+tags: concepts literature research vocabulary
+- Scholia (Ancient Greek σχόλιον, "comment", "interpretation") are grammatical,
+  critical, or explanatory comments, in the margin of a manuscript.
+- Gloss: a brief notation, especially a marginal or interlinear one, of the
+  meaning of a word or wording in a text. Glossary = collection of glosses.
+
+================================================================================
+20240202
+Nicolás Gómez Dávila
+https://en.wikipedia.org/wiki/Nicol%C3%A1s_G%C3%B3mez_D%C3%A1vila
+tags: philosophy columbia modernity
+Colombian conservative philosopher and aphorist, radical critic of modernity.
+"The genuine coherence of our ideas does not come from the reasoning that ties
+them together, but from the spiritual impulse that gives rise to them."
