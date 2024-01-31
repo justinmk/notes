@@ -13131,3 +13131,30 @@ tags: machine-learning ai statistics concepts mental-model theory
   - Claim 2: CIRCUITS. Features are connected by weights, forming circuits.
     - These circuits can also be rigorously studied and understood.
   - Claim 3: UNIVERSALITY. Analogous features and circuits form across models and tasks.
+
+================================================================================
+20240130
+RFC 707: "High-level framework for network-based resource sharing" (RPC)
+https://datatracker.ietf.org/doc/rfc707/
+tags: rfc rpc api protocol extensibility modules schemas networks
+- RFC 707 defines these 5+3 requirements for command-response protocols:
+  1. client can call arbitrary named functions on another machine
+  2. ...and see the result of the command
+  3. functions take any number of arguments
+  4. ...of different types
+  5. ...and return any number of arguments
+  6. optional: server can call *client* functions (“eliminate entirely the often inappropriate user/server distinction, and allow each process to invoke commands in the other.”)
+  7. optional: server can accept and respond to new commands while others are still pending (concurrency/async)
+  8. optional: can ignore result of a call (immediate return)
+From https://cohost.org/tef/post/1877226-why-i-think-rpc-suck :
+* pro
+  * HTTP has useful features, ubiquitous tooling.
+* con
+  * novel code generation leads to poor tools.
+  * batching, streaming, duplex are often left out of bespoke RPC designs
+  * pagination and long polling tend to be bespoke, defeating code-reuse.
+    * pagination requires implementing token-passing design
+  * version mismatch is not enforced by the compiler / type system.
+  * no “reflection”.
+    * compare the [Wasm Component Model explainer](https://github.com/WebAssembly/component-model/blob/main/design/mvp/Explainer.md) : very similar to ordinary SO linking. The IDL lives with the library.
+  * client/server must share a schema, the client doesn’t dynamically generate an impl from a served schema at runtime.
