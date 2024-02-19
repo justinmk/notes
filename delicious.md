@@ -3369,6 +3369,17 @@ into office communications (and avoid Powerpoint anti-patterns in the process).
 > "Writing is nature's way of letting you know how sloppy your thinking is." -Dick Guindon, via Leslie Lamport
 
 
+================================================================================
+20240220
+"State the Problem Before Describing the Solution", Leslie Lamport
+https://lamport.azurewebsites.net/pubs/state-the-problem.pdf
+tags: documentation communication work habits teams code-review
+
+> When one is forced to specify the precise problem to be solved *independently*
+> of the method used in the solution, this can be a surprisingly difficult and
+> enlightening task. It has on several occasions led me to discover that
+> a "correct" algorithm did not really accomplish what I wanted it to.
+
 
 ================================================================================
 Protocol Buffers - Google's data interchange format
@@ -13242,3 +13253,9 @@ tags: philosophy columbia modernity
 Colombian conservative philosopher and aphorist, radical critic of modernity.
 "The genuine coherence of our ideas does not come from the reasoning that ties
 them together, but from the spiritual impulse that gives rise to them."
+
+================================================================================
+20240219
+Diseconomies of scale in fraud, spam, support, and moderation
+https://danluu.com/diseconomies-scale/
+tags: spam fraud scalability technology social-network
