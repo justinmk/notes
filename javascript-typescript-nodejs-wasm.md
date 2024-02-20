@@ -566,3 +566,51 @@ security
       - one chipset/OS,
       - bigger
       - slower startup (250ms w/ Firecracker vs 1ms w/ Wasmer)
+
+WASM IN PRACTICE
+--------------------------------------------------------------------------------
+- https://www.hiro.so/blog/write-clarity-smart-contracts-with-zero-installations-how-we-built-an-in-browser-language-server-using-wasm
+  - how we load or bundle our WASM code into the extension:
+    - Our WASM package is generated with wasm-pack. It outputs a .wasm binary file and a .js to interact with it. Here is the webpack configuration to handle it: https://github.com/hirosystems/clarinet/blob/661449126df9ceecc598fbdec43869578eaa0b51/components/clarity-vscode/webpack.config.js#L87-L98
+      ```
+      plugins: [
+        new webpack.DefinePlugin({
+          __EXTENSION_URL__: JSON.stringify(extensionURL),
+        }),
+        new WasmPackPlugin({
+          crateDirectory: path.resolve(__dirname, "../clarity-lsp"),
+          forceMode: "production",
+          extraArgs: "--release --target=web --no-default-features --features=wasm",
+          outDir: path.resolve(__dirname, "server/src/clarity-lsp-browser"),
+          outName: "lsp-browser",
+        }),
+      ],
+      ```
+  - We also use webpack to handle the URL on which the WASM file has to be fetched. https://github.com/hirosystems/clarinet/blob/4bfe97652081691dd3a23a87def00ac241aebccc/components/clarity-vscode/webpack.config.js#L22-L23
+    ```
+    let extensionURL = `https://${publisher}.vscode-unpkg.net/${publisher}/${name}/${version}/extension/`;
+    if (TEST) extensionURL = "http://localhost:3001/static/devextensions/";
+
+    plugins: [
+      new webpack.DefinePlugin({
+        __EXTENSION_URL__: JSON.stringify(extensionURL),
+      }),
+    ```
+  - 💡 wasm-pack-plugin is a super handy plugin to call wasm-pack from webpack. https://www.npmjs.com/package/@wasm-tool/wasm-pack-plugin
+  - Then, the WASM file is loaded with fetch(). Once fetched, the content of the file is passed to the initSync() method provided by wasm-pack. https://github.com/hirosystems/clarinet/blob/ad34037cbd4d6f30360a08817e497a8c9a9ef2de/components/clarity-vscode/server/src/serverBrowser.ts#L13-L26
+    ```typescript
+    const wasmURL = new URL("server/dist/lsp-browser_bg.wasm", __EXTENSION_URL__);
+
+    const wasmModule = fetch(wasmURL, {
+      headers: {
+        "Accept-Encoding": "Accept-Encoding: gzip",
+      },
+    }).then((wasm) => wasm.arrayBuffer());
+
+    const connection = createConnection(
+      new BrowserMessageReader(self),
+      new BrowserMessageWriter(self),
+    );
+
+    initSync(await wasmModule);
+    ```
