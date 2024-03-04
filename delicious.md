@@ -13259,3 +13259,36 @@ them together, but from the spiritual impulse that gives rise to them."
 Diseconomies of scale in fraud, spam, support, and moderation
 https://danluu.com/diseconomies-scale/
 tags: spam fraud scalability technology social-network
+
+================================================================================
+20240304
+"Software Engineering at Google", Fergus Henderson
+https://arxiv.org/abs/1702.01715
+tags: software-engineering programming communication technology engineering
+> Rewriting code cuts away all the unnecessary accumulated complexity that was
+> addressing requirements which are no longer so important. In addition,
+> rewriting code is a way of transferring knowledge and a sense of ownership to
+> newer team members. This sense of ownership is crucial for productivity:
+> engineers naturally put more effort into developing features and fixing
+> problems in code that they feel is “theirs”. Frequent rewrites also encourage
+> mobility of engineers between different projects which helps to encourage
+> cross-pollination of ideas.
+> ...
+> Project approval: Although there is a well-defined process for launch approvals,
+> Google does not have a well-defined process for project approval or
+> cancellation. Despite having been at Google for over 10 years, and now having
+> become a manager myself, I still don’t fully understand how such decisions are
+> made.
+
+================================================================================
+20240325
+"The Modern Data Stack Through ‘The Gervais Principle’", Lauren Balik
+https://medium.com/@laurengreerbalik/the-modern-data-stack-through-the-gervais-principle-bfd4b4e33ac7
+tags: engineering telemetry metrics data-warehouse measurement business-intelligence
+> Eventually, the Clueless layer collapses the company, and the Sociopaths and Losers both make their exits, as they live closer to reality
+> the handoff between applications and the data team ... is a Garbage In-Garbage Out problem.
+> The Modern Data Stack Data Team ... makes point fixes and accrues the technical debt and incremental human capital and cloud costs.
+> The Losers don’t care. The Sociopaths just want their set of dashboards fixed.
+> Each nth hire covers the tech debt and comms challenges created from the previous heads added to ... the data warehouse.
+> human middleware turning into human bloatware
+> Ultimately, shoveling data from System A to B and normalizing it and denormalizing it has almost no value.
