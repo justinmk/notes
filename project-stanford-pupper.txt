@@ -4,6 +4,7 @@ https://github.com/stanfordroboticsclub/StanfordQuadruped
 TODO:
     passwd
     secure sshd_config
+    https://github.com/PetoiCamp/OpenCat
 
 parts:
   x raspberry pi 4, model B, 2GB ram

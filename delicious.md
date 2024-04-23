@@ -6817,7 +6817,7 @@ and positional, but for a given callsite the matching will generally be static.
 20200525
 Stanford Pupper: Inexpensive & Open-source Quadruped Robot
 https://stanfordstudentrobotics.org/pupper
-tags: diy-project electronics engineering programming
+tags: diy-project electronics engineering programming robotics
 
 ================================================================================
 20200525
@@ -13292,3 +13292,292 @@ tags: engineering telemetry metrics data-warehouse measurement business-intellig
 > Each nth hire covers the tech debt and comms challenges created from the previous heads added to ... the data warehouse.
 > human middleware turning into human bloatware
 > Ultimately, shoveling data from System A to B and normalizing it and denormalizing it has almost no value.
+
+================================================================================
+20240423
+Thermocline
+https://en.wikipedia.org/wiki/Thermocline
+tags: concepts mental-model nonlinear
+- used metaphorically:
+  - "Thermocline of truth": https://brucefwebster.com/2008/04/15/the-wetware-crisis-the-themocline-of-truth/
+    > A thermocline can prevent dissolved oxygen from getting to the lower layer
+    > and vital nutrients from getting to the upper layer. IT projects [have]
+    > a thermocline of truth, a line drawn across the organizational chart that
+    > represents a barrier to accurate information regarding the project’s
+    > progress. Those below this level tend to know how well the project is
+    > actually going; those above it tend to have a more optimistic (if
+    > unrealistic) view. ... As the project delivery deadline draws near, the
+    > thermocline of truth starts moving up the levels of management because it
+    > is becoming harder and harder to deny or hide just where the project
+    > stands. ... leads to the classic "schedule slip".
+  - "Thermocline of trust": https://every.to/p/breaching-the-trust-thermocline-is-the-biggest-hidden-risk-in-business
+    > In large bodies of water, the temperature drops slowly the deeper one
+    > dives. That change can, if the descent is slow enough, feel almost
+    > imperceptible. Yet at a certain point, the water temperature drops sharply
+    > and alarmingly. ... In business [products have] a “trust thermocline.” It
+    > is a point which, once crossed, otherwise healthy businesses and products
+    > suddenly collapse.
+
+================================================================================
+20240505
+Gaza and the laws of war
+https://graymirror.substack.com/p/gaza-and-the-laws-of-war
+tags: politics war history curtis-yarvin bureaucracy
+> The idea of replacing democracy with oligarchy, while keeping democracy’s
+> hollow name as a euphemism and a matador’s cape, is hardly new. In US history
+> it is best attributed to Woodrow Wilson, but European ideas of “scientific”
+> government are even older.
+>
+> The beau ideal of the 20th century was the reduction of governance to
+> a science, like physics, executed scientifically by scientifically-selected
+> specialists: theory by professors in a meritocratic university, practice by
+> administrators in a meritocratic civil service. Power in this system would
+> come from prestige; prestige would come from merit. As a whole it would be
+> a kind of machine—far above its human parts.
+>
+> ... if this machine ever worked, it worked for reasons beyond the ken of its
+> designers. It worked not because the 20th century—or the 19th for that
+> matter—solved the science of society, but because its human parts were, at one
+> time, genuinely amazing.
+>
+> ... But that was then and this is now. True meritocracy is a distant memory.
+> Accidental monarchy has mostly been disposed of. Everything oligarchical, even
+> science, is fully bureaucratic. Look at the winners in today’s
+> “meritocracy”—they are always natural joiners and followers, team players,
+> climbers and backstabbers. Even when they are talented, and they often are,
+> Napoleon’s line about Talleyrand always comes to mind.
+
+================================================================================
+20240505
+Napoleon on Talleyrand: "A pile of shit in a silk stocking."
+https://www.oxfordreference.com/display/10.1093/acref/9780191826719.001.0001/q-oro-ed4-00010627S
+tags: insults napoleon history
+
+================================================================================
+20240505
+"The Birth of the Administrative State: Where It Came From and What It Means for Limited Government", Ronald Pestritto, 2007
+https://www.heritage.org/political-process/report/the-birth-the-administrative-state-where-it-came-and-what-it-means-limited
+tags: history woodrow-wilson usgov state government politics progressivism separation-of-powers
+> Wilson's thesis in his works on administration was that it was far better and
+> more efficient for a professional class of experts, instead of a multiplicity
+> of politicians with narrow, competing interests, to handle the complex
+> business of the modern state. ... Wilson [asserted] that administrative
+> principles and constitutional principles were distinct and, thus, that
+> constitutional limitations could not easily be applied to the exercise of
+> administrative authority. The constitutional principle of checks and balances,
+> for example, interfered with efficiency and should not be applied to the
+> exercise of administrative power: "Give us administrative elasticity and
+> discretion," he urged; "free us from the idea that checks and balances are to
+> be carried down through all stages of organization."
+
+================================================================================
+20240505
+S3 is files, but not a filesystem
+https://news.ycombinator.com/item?id=39656657
+tags: s3 aws cloud filesystem storage performance reliability
+- @breckognize:
+  > Believe the hype. S3's durability is industry leading and traditional file
+  > systems don't compare. It's not just the software - it's the physical
+  > infrastructure and safety culture.
+  >
+  > AWS' availability zone isolation is better than the other cloud providers.
+  > When I worked at S3, customers would beat us up over pricing compared to GCP
+  > blob storage, but the comparison was unfair because Google would store your
+  > data in the same building (or maybe different rooms of the same building)
+  > - not with the separation AWS did.
+  >
+  > The entire organization was unbelievably paranoid about data integrity
+  > (checksum all the things) and bigger events like natural disasters. S3 even
+  > operates at a scale where we could detect "bitrot" - random bit flips caused
+  > by gamma rays hitting a hard drive platter (roughly one per second across
+  > trillions of objects iirc). We even measured failure rates by hard drive
+  > vendor/vintage to minimize the chance of data loss if a batch of disks went
+  > bad.
+  >
+  > I wouldn't store critical data anywhere else.
+  >
+  > Source: I wrote the S3 placement system.
+  >
+  > By far the greatest risks to a file's durability are:
+  > 1. Bugs (which aren't captured by a durability model). This is mitigated by
+  >    deploying slowly and having good isolation between regions.
+  > 2. An act of God that wipes out a facility.
+- @orf:
+  > Yes, s3 has fast reading and writing, but that’s not really what makes it
+  > useful.
+  >
+  > What makes it useful is *listing*. In an unversioned bucket (or one with no
+  > delete markers), listing any given prefix is essentially *constant time*:
+  > I can take any given string, in a bucket with 100 billion objects, and say
+  > “give me the next 1000 keys alphabetically that come after this random
+  > string”.
+  >
+  > What’s more, using “/“ as a delimiter is just the default - you can use any
+  > character you want and get a set of common prefixes. There are no
+  > “directories”, ”directories” are created out of thin air on demand.
+  >
+  > This is super powerful, and it’s the thing that lets you partition your data
+  > in various ways, using whatever identifiers you need, without worrying about
+  > performance.
+  >
+  > If listing was just “slow”, couldn’t list on file prefixes and got slower
+  > proportional to the number of keys (I.e a traditional unix file system),
+  > then it wouldn’t be useful at all.
+  >
+  > The list objects call hides deleted and noncurrent versions, but it has to
+  > skip over them. Grouping prefixes also takes time, if they contain a lot of
+  > noncurrent or deleted keys.
+  >
+  > A pathological case would be a prefix with 100 million deleted keys, and
+  > 1 actual key at the end. Listing the parent prefix takes a long time in this
+  > case - I’ve seen it take several minutes.
+  >
+  > ... if you need to list all objects then yeah it’s gonna be slow because you
+  > need to paginate through all the objects. But the point is that you don’t
+  > have to do that if you don’t want to, unlike a traditional filesystem with
+  > a directory hierarchy.
+  >
+  > And this enables parallelisation: why list everything sequentially, when you
+  > can group the prefixes by some character (i.e “-“), then process each of
+  > those prefixes in parallel.
+- https://news.ycombinator.com/item?id=39659324
+  > We and our customers use S3 as a POSIX filesystem, and we generally find it
+  > faster than a local filesystem for many benchmarks. For listing directories
+  > we find it faster than Lustre (a real high performance filesystem). Our
+  > approach is to first try listing directories with a single ListObjectV2
+  > (which on AWS S3 is in lexicographic order) and if it hasn't made much
+  > progress, we start listing with parallel ListObjectV2. Once you start
+  > parallelising the ListObjectV2 (rather than sequentially "continuing") you
+  > get massive speedups.
+  >
+  > For AWS, we're comparing against filesystems in the datacenter - so EBS, EFS
+  > and FSx Lustre. Compared to these, you can see in the graphs where S3 is
+  > much faster for workloads with big files and small files:
+  > https://cuno.io/technology/
+  >
+  > IOPS is a really lazy benchmark that we believe can greatly diverge from
+  > most real life workloads, except for truly random I/O in applications such
+  > as databases. ... many applications only really care about the throughput.
+
+================================================================================
+20240505
+Japanese farmer has fought for decades to stay on his ancestral land in the middle of Narita airport
+https://www.cbsnews.com/news/narita-airport-farm-takao-shito-farmer-vows-protect-ancestral-land-japan/
+tags: japan politics society protest
+> The anti-Narita airport protest is the longest-running social movement in
+> Japanese history. Even though the farm is now subjected to engine noise and
+> air choked with jet fuel exhaust, Shito hasn't been swayed into moving. At
+> least a dozen policemen and protesters have died over the conflict. In
+> February 2023, riot police again clashed with Shito and his band of supporters.
+
+================================================================================
+20240505
+zstd (Zstandard): Pareto-optimal compression
+https://insanity.industries/post/pareto-optimal-compression/
+https://en.wikipedia.org/wiki/Zstd
+https://github.com/facebook/zstd
+tags: compression compsci 
+- Zstandard is a lossless data compression algorithm developed by Yann Collet at Facebook.
+- Pareto optimality: where no preference criterion can be better off without
+  making at least one preference criterion worse off.
+- "use zstd for everything"
+
+================================================================================
+20240506
+Tips for linking shell companies to their secret owners
+https://news.ycombinator.com/item?id=39919401
+tags: legal business corporation
+- "Shell corporations are companies that don’t actually do any business"
+  - There are various valid use cases for companies without business. Examples:
+    - International holding companies: if there is Coca Cola France and Coca
+      Cola Germany that economically belong together, you might not be able to
+      just merge them into one entity for legal reasons (both countries might
+      require you to have a locally incorporated presence). So to ensure that
+      both always have the same owners, you create an international holding
+      company that owns both of them.
+    - Investment funds: investment funds (especially passive ones) are companies
+      whose only business is to own shares in other companies. There is no
+      "real" operating business.
+    - Feeder funds: sometimes, the law requires foreign investment funds to
+      create a local shell company to be allowed to accept investments from
+      local retail investors. In this case, the only purpose of the shell
+      company is to fulfill local regulatory requirements with regards to the
+      legal form if the investment vehicle and to provide investors with someone
+      local that they can hold liable in case things go wrong. There is no real
+      business in such companies.
+  - It is often regulation that requires you to create shell companies. If you
+    want to get rid of shell companies, you should start by removing regulation
+    that requires the creation of shell companies with no real business except
+    to satisfy the regulators.
+- Why is the lease information a matter of public record?
+  - Regulation in many countries requires mining lease data to be recorded and
+    made available to "the public", eg:
+    - in the US this is largely handled by the BLM: https://www.doi.gov/ocl/blm-lands-leasing
+- theory/history:
+  - "The Evolution of Resource Property Rights" by Anthony Scott
+  - Roman Doctrine, how their laws carried forward in Western civilisation
+  - Chinese history
+  - overview: https://www.pheasantenergy.com/mineral-rights-history/
+  - "The Commons"
+
+================================================================================
+20240506
+Cally: small, feature-rich calendar components
+https://wicky.nillia.ms/cally/
+tags: web programming webdev webbrowser software javascript
+
+================================================================================
+20240506
+Radios, how do they work?: introduction to antennas, superheterodyne receivers, and signal modulation schemes.
+https://lcamtuf.substack.com/p/radios-how-do-they-work
+tags: physics radio engineering learning todo
+- modulation:
+  - AM, FM, PM (phase modulation)
+  - quadrature amplitude modulation (QAM), which robustly conveys information via the relative amplitude of two signals with phases offset by 90°.
+  - The rate of change of the carrier signal must be much lower than its running frequency. If the modulation is too rapid, you end up obliterating the carrier wave and turning it into wideband noise.
+  - Counterintuitively, *all* modulation is frequency modulation.
+    - All types of modulation boil down to taking a low-frequency signal band — such as audio — and transposing it in one way or another to a similarly-sized slice of the spectrum in the vicinity of some chosen center frequency.
+
+================================================================================
+20240506
+PetoiCamp/OpenCat
+https://github.com/PetoiCamp/OpenCat
+tags: diy-project electronics engineering programming robotics
+Quadruped robot pet framework for developing Boston Dynamics-style four-legged
+robots that are perfect for STEM, coding & robotics education, IoT robotics
+applications, AI-enhanced robotics application services, research, and DIY
+robotics kit development.
+
+================================================================================
+20240506
+Running OCR against PDFs and images directly in your browser
+https://simonwillison.net/2024/Mar/30/ocr-pdfs-images/
+tags: ai llm machine-learning web pdf ocr computer-vision
+> Tesseract runs happily in a browser these days thanks to the excellent
+> Tesseract.js project. And PDFs can be processed using JavaScript too thanks to
+> Mozilla’s extremely mature and well-tested PDF.js library.
+
+================================================================================
+20240521
+Bundling and Unbundling
+https://stratechery.com/outline/bundling-and-unbundling/
+https://hbr.org/2014/06/how-to-succeed-in-business-by-bundling-and-unbundling
+tags: business mental-model technology
+Jim Barksdale: "There are only two ways to make money in business: one is to bundle. The other is to unbundle."
+Examples:
+- in terms of product presentation:
+- music:
+  - CD (bundle)
+  - iTunes pay-per-song (unbundle)
+  - streaming services like Pandora and Spotify (bundle)
+- the "newspaper" bundle (a slug of news and sports scores and classifieds and stock quotes that arrives once a day) was a consequence of the distribution technology of a time and place:
+  - the metro-area printing plant
+  - the distribution network for newspapers using trucks and newsstands and
+    newspaper vending machines and the famous newspaper delivery boy.
+- "Sun Microsystems took down DEC by unbundling ... And then Sun sort of
+  reformed itself into what you might call a new DEC — a vertically integrated
+  company which then got taken apart to some extent by Linux and Intel servers."
+- AOL bundled dialup, information services, etc.
+  - Yahoo unbundled the "content" from the "access".
+  - Google unbundled "search" from Yahoo.
+- "Android has unbundled a significant part of what Apple’s done."

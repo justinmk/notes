@@ -185,6 +185,7 @@ EXERCISE/WORKOUT
 
   Exercise benefits:
     anti-osteoporosis: bone is a living tissue that must be stressed to maintain strength
+      counteracts sarcopenia (age-related loss of skeletal muscle mass) https://www.howardluksmd.com/sarcopenia-muscle-loss-impact-on-longevity-health/
     reduces depression
     reduces back pain
     reduces RSI, arthritis
