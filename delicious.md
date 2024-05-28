@@ -13040,7 +13040,7 @@ tags: employee-retention teams mental-model concepts knowledge-transfer document
 20240125
 "Programming as Theory Building", Peter Naur
 https://pages.cs.wisc.edu/~remzi/Naur.pdf
-tags: softwareengineering mental-model concepts mental-map knowledge-transfer documentation
+tags: softwareengineering mental-model concepts theory theory-building mental-map knowledge-transfer documentation
 - “Theory Building View” ("derived meaning", "ineffable"):
   > […] programming properly should be regarded as an activity by which the
   > programmers form or achieve a certain kind of insight, a theory, of the
@@ -13074,6 +13074,63 @@ tags: softwareengineering mental-model concepts mental-map knowledge-transfer do
 - It’s possible to transfer a program’s theory between programmers, but it
   requires interaction (personal, REPL, edit-run, etc).
   - But just like learning piano, you can't learn it from documentation.
+
+================================================================================
+20240528
+Theory building, transfer of knowledge
+https://news.ycombinator.com/item?id=39926964
+tags: llm language mental-model concepts civilization communication theory theory-building mental-map knowledge-transfer documentation
+- It's not "technics", but "language" that underlies our evolution as a species.
+  Language can easily be interpreted as a technique of the tongue, mark-making,
+  etc.
+  - But if it is understood as "propagation of thoughts from mind to mind", that
+    is very different. These thoughts, concepts, ideas, are so broad in scope
+    that stating this fact alone does not describe anything about its
+    implications. It would be similar to saying that the laws of physics have
+    driven our evolution.
+  - Not just a technique or a system of communication: a communication system
+    that is coevolved with us to help us optimally think about and communicate
+    *in our social environments*. Language does this by compressing our reality
+    into a set of useful abstractions that have high utility. If an abstraction
+    is useful (e.g. "money" or "drink"), it survives evolutionary pressures. If
+    it is not useful, it is discarded by evolutionary pressures. You're left
+    with a highly optimized system that compresses our *shared reality* into the
+    sweetspot level of abstraction such that we can think and communicate
+    optimally within the memory limits of our brain.
+
+================================================================================
+20240602
+How to Prevent Civilizational Collapse | Samo Burja | Win-Win Podcast
+https://youtu.be/A3Zd2K0BJoI
+tags: mental-model concepts theory theory-building mental-map knowledge-transfer documentation civilization communication coordination podcast
+- centuries of stasis (eg "city stopped building aqueducts because it lost
+  population, no need for new aqueducts") means 
+    - "all technology lives in socioeconomic niches"
+- "Intellectual dark matter":
+  - "nearly all of our knowledge is tacit, unwritten knowledge"
+  - "every piece of technology is secretly also a coordination problem"
+    - example: Boeing is losing capability. if Airbus didn't exist, we might see a civilization that abandons commercial air travel.
+      could be rationalized as a "victory narrative" ("it's good that we no longer air travel, less CO2...")
+      - "we always have a reason for confiscation of resources/labor".
+  - "Once we can put something into words (or formal notation) rigorously, the
+    business of knowledge transfer becomes easier; but it also suggests whatever
+    field of inquiry existed there, has been deeply exhausted. Once you can fully
+    systematize something, there's actually not much left to discover."
+- the "Haunted World":
+  - where machine says "no" or "yes" and we accept the suggestions without being able to reason through our own theories.
+  - humans develop superstituions/priesthood and don't know how to build the machine.
+  - "the simulacra of reason is beating out reason at all levels (elite and popular)"
+- "If I meet someone who talks about AI like it's a plane delivering cargo, then
+  I don't think I've met someone who will bring AI forward."
+- Loss of particular traditions of knowledge, is probably behind almost every
+  civilization collapse. Because the civilization gets outcompeted in a certain
+  sociopolitical game.
+  - Example:
+    1. understanding the Roman legal code
+    2. outcompeted by commanding the Roman legion
+    3. outcompeted by "winning court intrigue games, assinating competent generals ..."
+  - when the S-curve is exhausted, you go from positive-sum games to negative-sum games => acting "in bad faith" => infectious, spreads rapidly through an institution.
+- creating new cities or a new capitol, gives you a societal reset (free from incumbent influence)
 
 ================================================================================
 20240124
@@ -13581,3 +13638,112 @@ Examples:
   - Yahoo unbundled the "content" from the "access".
   - Google unbundled "search" from Yahoo.
 - "Android has unbundled a significant part of what Apple’s done."
+
+================================================================================
+20240527
+Great Founder Theory, 2020 Manuscript, Samo Burja
+https://www.samoburja.com/GFT/
+tags: history civilization books organization-theory organization communication collaboration coordination human-scaling
+- an institution is a zone of close coordination maintained by automated systems.
+- the more automated something becomes, the more useful it is to call it an institution.
+- the most automated of institutions can be understood as bureaucracies.
+- functional vs non-functional institutions:
+  - Functional institutions are the exception.
+  - The vast majority of non-functional institutions merely inadequately imitate functional institutions.
+    In the institutional landscape, those are the norm.
+  - A sign and symptom of "optimization for appearance" (degraded institution)
+    is that everyone in the organization is trying to perform the same kind of
+    task—the one that is most socially rewarded—rather than being specialized
+    according to their function.
+  - A crucial difference between organisms and organizations is that organizations do not undergo natural selection.
+    The positive copying errors do not propagate and overwhelm the negative copying errors as they would in millions of years of evolution.
+- "the true theory of history"
+  - "If someone figured out the true theory of history ... they would be
+    extremely, visibly powerful, active in many domains—politics, religion,
+    culture, technology—reshaping society step by step, or taking seemingly
+    prescient advantage of trends."
+  - some people explicitly endorse the technological determinist view of history
+    even as they implicitly act on the great man paradigm: believing that it
+    will require the work of remarkable individuals to create the technology
+    that will save the world, for example, instead of believing that the
+    inevitable, impersonal progress of technology will do so.
+
+================================================================================
+20240528
+Zwentendorf Nuclear Power Plant: Finished in 1978 but never used
+https://www.atlasobscura.com/places/zwentendorf-nuclear-power-plant
+tags: environmentalism energy nuclear-energy climate-change politics
+- https://news.ycombinator.com/item?id=40386973
+  - SNR-300, a cutting-edge liquid metal sodium-cooled breeder reactor capable
+    of unlocking the full potential of the majority isotope (U-238) rather than
+    just the minority (U-235), giving us literally billions of years of
+    current-day whole-earth power from known uranium resources (including
+    seawater and erosion). It was 100% completed and ready to come up to power,
+    but then Chernobyl happened and the people (of Germany) revolted. It is now
+    an amusement park. https://en.wikipedia.org/wiki/SNR-300
+  - A smaller sodium-cooled reactor in the USA (the EBR-2) demonstrated
+    completely passive shutdown in loss of flow and loss of heat sink accidents
+    without any control rods going in just 2 weeks before Chernobyl happened.
+    https://en.wikipedia.org/wiki/Experimental_Breeder_Reactor_II#Passive_safety
+
+================================================================================
+20240528
+Pleasures, by Aldous Huxley
+https://hackneybooks.co.uk/books/364/686/Pleasures.html
+tags: aldous-huxley literature mental-model health civilization
+Pleasure requires effort:
+> We have heard a great deal, since 1914, about the things which are a menace to
+> civilization. First it was Prussian militarism; then the Germans at large;
+> then the prolongation of the war; then the shortening of the same; then, after
+> a time, the Treaty of Versailles; then French militarism - with, all the
+> while, a running accompaniment of such minor menaces as Prohibition, Lord
+> Northcliffe, Mr. Bryan, Comstockery....
+>
+> ... To-day, the inventions of the scenario-writer go out from Los Angeles
+> across the whole world. Countless audiences soak passively in the tepid bath
+> of nonsense. No mental effort is demanded of them ...
+>
+> ... And if they want literature, there is the Press. Nominally, it is true,
+> the Press exists to impart information. But its real function is to provide,
+> like the cinema, a distraction which shall occupy the mind without demanding
+> of it the slightest effort or the fatigue of a single thought.
+>
+> ... These effortless pleasures, these ready-made distractions that are the
+> same for every one over the face of the whole Western world, are surely
+> a worse menace to our civilization than ever the Germans were.
+> 
+> Self-poisoned in this fashion, civilization looks as though it might easily
+> decline into a kind of premature senility. With a mind almost atrophied by
+> lack of use, unable to entertain itself and grown so wearily uninterested in
+> the ready-made distractions offered from without that nothing but the grossest
+> stimulants of an ever-increasing violence and crudity can move it, the
+> democracy of the future will sicken of a chronic and mortal boredom. It will
+> go, perhaps, the way the Romans went: the Romans who came at last to lose,
+> precisely as we are doing now, the capacity to distract themselves; the Romans
+> who, like us, lived on ready-made entertainments in which they had no
+> participation. Their deadly ennui demanded ever more gladiators ...
+
+================================================================================
+20240604
+A quick note on airships
+https://caseyhandmer.wordpress.com/2020/05/20/a-quick-note-on-airships/
+tags: engineering materials aviation history
+- not called a Zeppelin unless it comes from the Zeppelin region of Germany
+- Helium didn’t make them much safer. Relatively few airship accidents involved hydrogen.
+  - Hydrogen at concentration between 4% and 75%, ignition and/or deflagration is unlikely.
+  - Hydrogen is 1000x cheaper than helium
+
+================================================================================
+20240604
+The state of SourceHut and our plans for the future
+https://sourcehut.org/blog/2024-06-04-status-and-plans/
+tags: cloud datacenter on-premise saas engineering development business
+> we arranged to have our equipment shipped overseas to our research datacenter,
+> ... totalling an investment of about $50,000 USD. Some of this equipment was
+> at the end of its operational life and was disposed of accordingly, but we
+> arranged to have five servers shipped to Amsterdam. However, all five servers
+> were lost in the mail. These parcels were insured with the shipping provider,
+> but we have been unable to reach the provider for any information regarding
+> the status of the parcels or any resources for filing an insurance claim.
+> After several months of attempts, we have ultimately had to write these
+> servers off.
