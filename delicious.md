@@ -9858,6 +9858,12 @@ tags: documentation tech-writing markup markdown
   > Last year we (mozilla MDN) [changed the source format for MDN](https://openwebdocs.org/content/posts/markdown-conversion/) from some extremely messy, WYSIWYG-authored HTML to something that would be easier for authors to use. We considered Asciidoc and reST, and despite its limitations, we chose Markdown (GFM specifically) for two reasons:
   > 1. We get a _lot_ of casual contributors to MDN: about 180-200 unique contributors/month, most of whom we never see again. Almost all of them can contribute much more easily with Markdown than with anything else. Many of these people are unlikely to put even an half an hour into learning a new syntax.
   > 2. Markdown has great tooling support. For example, if we want to run Prettier over our embedded code samples, it's really easy if we are in Markdown. If we are in Markdown we will get nice formatting just about everywhere, including GitHub of course and most people's editors.
+- djot https://djot.net/
+  - minimal, easy-to-parse markdown variant
+  - from the creator of Pandoc
+- markdoc.dev (stripe)
+  - > Anything AsciiDoc can do, Markdoc can be extended to do, from variables through includes.
+  - React or HTML output. AST transforms or functions. Upcoming editor support etc.
 - asciidoc:
   > I love Asciidoc, but the tooling is pretty crummy.
   > Seems to have a problem with nesting.
@@ -9865,11 +9871,6 @@ tags: documentation tech-writing markup markdown
   > Originally reStructuredText was "a Python thing", ... nowadays (thanks to Sphinx?) reStructuredText is also used for big systems-y projects, including the Linux kernel docs and Envoy proxy.
   > I work in an academic setting ... we used reStructuredText ... [contributors] would get demotivated by having to learn the rST syntax and tooling.
   > I gave up and switched from rST and Sphinx to Markdown and MkDocs. We addressed the limitations of Markdown with PyMdown Extensions [3].
-- djot
-  - The creator of Pandoc is creating a markup language worth looking at: https://djot.net/
-- markdoc.dev (stripe)
-  - > Anything AsciiDoc can do, Markdoc can be extended to do, from variables through includes.
-  - React or HTML output. AST transforms or functions. Upcoming editor support etc.
 - MyST https://myst-parser.readthedocs.io/en/latest/index.html
   - > the jupyter devs created myst ([https://myst-parser.readthedocs.io/en/latest/syntax/syntax.h...](https://myst-parser.readthedocs.io/en/latest/syntax/syntax.html#syntax-core)), a superset of markdown that has almost all the features of rst, and can embed rst when it falls short.
 

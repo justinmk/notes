@@ -1,0 +1,6 @@
+- refactoring work
+    - eliminate rbuffer.c (redundant/unnecessary indirection):
+        - https://github.com/neovim/neovim/pull/29141
+        - https://github.com/neovim/neovim/pull/29106
+    - eliminate libmsgpack (in favor of libmpack)
+        - eliminate msgpack_sbuffer https://github.com/neovim/neovim/pull/29241
