@@ -13103,7 +13103,7 @@ tags: llm language mental-model concepts civilization communication theory theor
 20240602
 How to Prevent Civilizational Collapse | Samo Burja | Win-Win Podcast
 https://youtu.be/A3Zd2K0BJoI
-tags: mental-model concepts theory theory-building mental-map knowledge-transfer documentation civilization communication coordination podcast
+tags: history samo-burja mental-model concepts theory theory-building mental-map knowledge-transfer documentation civilization communication coordination podcast
 - centuries of stasis (eg "city stopped building aqueducts because it lost
   population, no need for new aqueducts") means 
     - "all technology lives in socioeconomic niches"
@@ -13132,6 +13132,23 @@ tags: mental-model concepts theory theory-building mental-map knowledge-transfer
     3. outcompeted by "winning court intrigue games, assinating competent generals ..."
   - when the S-curve is exhausted, you go from positive-sum games to negative-sum games => acting "in bad faith" => infectious, spreads rapidly through an institution.
 - creating new cities or a new capitol, gives you a societal reset (free from incumbent influence)
+
+================================================================================
+20240624
+Samo Burja | The Wallenberg Family Of Sweden, Nassim Taleb & Why Organisations Thrive & Fall
+https://www.youtube.com/watch?v=cfLUxVHbXSA
+tags: history samo-burja theory succession knowledge-transfer documentation civilization communication coordination podcast
+- modern dynasties ("functional nepotism"):
+  - Sulzberger family (NYT)
+  - Wallenberg family (Sweden)
+- mechanisms to "solve succession" ?
+- "sedimentary layers" of government (DOJ, CIA, remnant capitalism, remnant
+  FDR/socialism, …) formed over time/history, form the "geological strata" of
+  a society.
+- "difficult to cross-apply lessons between different societies. what might work
+  in one society, because it is balanced by other forces, could prove
+  catastrophic in another".
+- "statistics, used well, are part of a reasoned analysis. not numbers on their own."
 
 ================================================================================
 20240124
@@ -13748,3 +13765,27 @@ tags: cloud datacenter on-premise saas engineering development business
 > the status of the parcels or any resources for filing an insurance claim.
 > After several months of attempts, we have ultimately had to write these
 > servers off.
+
+================================================================================
+20240624
+Linear adjacent flow
+https://x.com/ajtourville/status/1804937127391617053
+tags: concepts mental-model factory manufacturing efficiency engineering
+functionally (but not physically) equivalent to a conveyor belt / production line:
+- each logical step has the ~same work-time cost.
+- intermediate outputs move from one station to the next, in tempo.
+- specialization of labor at each station.
+- can slide changes in and out horizontally, temporarily or permanently. also called "cells".
+
+================================================================================
+20240624
+Alpha equivalence
+https://en.wikipedia.org/wiki/Lambda_calculus#Alpha_equivalence
+https://ncatlab.org/nlab/show/alpha-equivalence
+tags: compsci type-theory information-theory logic
+- 𝛼-equivalence is the principle that two syntactic expressions (types, terms,
+  propositions, contexts, whatever) are equivalent for all purposes if their
+  only difference is the renaming of bound variables.
+- It captures the intuition that the particular choice of a bound variable, in an abstraction, does not (usually) matter.
+  - 𝜆𝑥.𝑥 and 𝜆𝑦.𝑦 are alpha-equivalent lambda terms, they both represent the same function (the identity function).
+  - The terms 𝑥 and 𝑦 are not alpha-equivalent, because they are not bound in an abstraction.
