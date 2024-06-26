@@ -11470,6 +11470,8 @@ Fast and minimalistic Redbean-based Lua web framework in one file.
 A Pathway to Equitable Math Instruction Dismantling Racism in Mathematics Instruction
 https://equitablemath.org/wp-content/uploads/sites/2/2020/11/1_STRIDE1.pdf
 tags: politics dei progressivism math
+- https://equitablemath.org/#about
+  - We thank the Bill and Melinda Gates Foundation for their generous financial support of this project.
 - "Upholding the idea that there are always right and wrong answers perpetuates objectivity".
 - "Terms used to identify white supremacy characteristics as defined by Jones and Okun (2001):"
   - Perfectionism
@@ -13101,7 +13103,7 @@ tags: llm language mental-model concepts civilization communication theory theor
 
 ================================================================================
 20240602
-How to Prevent Civilizational Collapse | Samo Burja | Win-Win Podcast
+Samo Burja: How to Prevent Civilizational Collapse | Win-Win Podcast
 https://youtu.be/A3Zd2K0BJoI
 tags: history samo-burja mental-model concepts theory theory-building mental-map knowledge-transfer documentation civilization communication coordination podcast
 - centuries of stasis (eg "city stopped building aqueducts because it lost
@@ -13135,7 +13137,7 @@ tags: history samo-burja mental-model concepts theory theory-building mental-map
 
 ================================================================================
 20240624
-Samo Burja | The Wallenberg Family Of Sweden, Nassim Taleb & Why Organisations Thrive & Fall
+Samo Burja: The Wallenberg Family Of Sweden, Nassim Taleb & Why Organisations Thrive & Fall
 https://www.youtube.com/watch?v=cfLUxVHbXSA
 tags: history samo-burja theory succession knowledge-transfer documentation civilization communication coordination podcast
 - modern dynasties ("functional nepotism"):
@@ -13149,6 +13151,20 @@ tags: history samo-burja theory succession knowledge-transfer documentation civi
   in one society, because it is balanced by other forces, could prove
   catastrophic in another".
 - "statistics, used well, are part of a reasoned analysis. not numbers on their own."
+
+================================================================================
+20240630
+Samo Burja: How to Find the Frontiers of Knowledge
+https://youtu.be/5C6qlq1y_HA
+tags: history samo-burja theory concepts mental-model civilization
+- "computational overhang": overabundance of compute resources decades before AI
+  breakthroughs. When AI breakthrough occurs, then it starts at a much higher
+  performance because of the pent up compute overhang ("resource precondition").
+  - https://www.lesswrong.com/tag/computing-overhang
+    > Computing overhang refers to a situation where new algorithms can exploit
+    > existing computing power far more efficiently than before. This can happen
+    > if previously used algorithms have been suboptimal.
+- "culture overhang" (analogous to "computational overhang")
 
 ================================================================================
 20240124
