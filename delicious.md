@@ -13805,3 +13805,50 @@ tags: compsci type-theory information-theory logic
 - It captures the intuition that the particular choice of a bound variable, in an abstraction, does not (usually) matter.
   - 𝜆𝑥.𝑥 and 𝜆𝑦.𝑦 are alpha-equivalent lambda terms, they both represent the same function (the identity function).
   - The terms 𝑥 and 𝑦 are not alpha-equivalent, because they are not bound in an abstraction.
+
+================================================================================
+20240702
+Logomachy
+https://www.quora.com/What-is-logomachy-What-are-the-origins-of-the-word
+tags: concepts vocabulary english rhetoric
+Logomachy: argument about words or the meaning of words
+related german: Wortstreit
+
+================================================================================
+20240702
+Joe Rogan Experience #2171 - Eric Weinstein & Terrence Howard
+https://youtu.be/nrOaFxNex7U?t=2217
+tags: physics mathematics theory concepts podcast
+- most of physics derives from the system represented by a weight on a spring (Hook's law)
+  - the simple harmonic oscillator is the heart of all physics.
+- [renormalization theory](https://en.wikipedia.org/wiki/Renormalization) = "we know we have a flawed math system but we have techniques for working with it"
+  - "if you have an error of a particular kind, and you can find an expression with the same kind of error in the denominator, they can cancel each other out."
+    - thus, a math system with multiple "problems" gives opportunities for the problems to cancel each other.
+
+================================================================================
+20240721
+David Shapiro | Why We Must Defeat Nihilism | Win-Win Podcast
+https://youtu.be/iyMk7Aa76qM
+tags: concepts mental-model moloch emergence nihilism podcast
+- Humans are out of natural environment, thus vulnerable to neurobiological failures (attention engineering, rage farming).
+  - But humans have a superpower: the ability to coordinate with narratives.
+  - If humans coordinate to a narrative, the individual beliefs of the participants don't matter.
+- names = narratives
+  - cf. "true name"
+- Hikikomori (Japanese) https://en.wikipedia.org/wiki/Hikikomori
+  - This lifestyle is named, thus has a narrative.
+  - total withdrawal from society
+  - "self-abandonment"
+- Ikigai (Japanese) https://en.wikipedia.org/wiki/Ikigai
+  - what you're good at + what you get paid for + what society needs + what you love
+  - essentially: constructive interference? antifragility?
+- Don't pathologize human nature (sexuality, status/prestige games, epistemic tribes, ...), rather accept it (and channel it).
+  - Identity politics, epistemic tribes, ..., are a natural and healthy feature of humanity. Thus "don't pathologize it".
+- Separating from friends after high school, university, ... "misaligns" humans (self-abandonment).
+- Components of the "optimal" narrative:
+  - curiosity
+  - emergence
+  - convergence
+  - mythic archetypes
+- Tactics (vs neurobiological failures):
+  - switch phone to grayscale

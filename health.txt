@@ -13,12 +13,22 @@ https://news.ycombinator.com/item?id=36563590
     sensodine "repair and protect"
 
 ================================================================================
-joints
-  https://news.ycombinator.com/item?id=21219041
+- joints
+  - https://news.ycombinator.com/item?id=21219041
     L-Ascorbic Acid (vitamin c)
     L-Lysine (essential amino acid => meat/chicken/fish/milk/legumes)
     Glucosamine Chondroitin Complex
     Instaflex Advanced
+  - stem cell treatment
+    - "Adult" (umbilical-cord) stem-cell injection treats arthritis, inflammation, MS, spinal-cord injury, autoimmune disease, et al.
+    - umbilical cells do NOT form tumors, get flushed out by immune system after 6 months
+      - *not* embryonic. embryonic cells "want to become babies", form tumors/teratomas.
+    - older cells have less regenerative capacity => less capacity to heal large problem-sites
+    - finds/heals damaged cells, "retrains" the immune system
+    - providers:
+      - https://www.cellmedicine.com/
+      - https://cellcolabsclinical.com/
+    - treatment fee: $23K (2020), $6k (2024)?
 
 ================================================================================
 Eating
