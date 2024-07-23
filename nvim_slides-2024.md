@@ -4,6 +4,11 @@
         - https://github.com/neovim/neovim/pull/29106
     - eliminate libmsgpack (in favor of libmpack)
         - eliminate msgpack_sbuffer https://github.com/neovim/neovim/pull/29241
+        - use mpack in shada, update conversion logic, remove libmsgpack: https://github.com/neovim/neovim/pull/29540
+
+- improved unicode support by migrating to utf8proc
+    - improved casefolding, elimiate src/unicode/ : https://github.com/neovim/neovim/pull/29628
+    - more chars are now treated as double-width, instead of single-width: https://github.com/neovim/neovim/pull/30042
 
 - software engineering, m'fcker:
     - gen_vimdoc.lua (lewis)

@@ -2655,12 +2655,6 @@ tags: datasets
 time="2012-10-17T04:07:29Z" 
 
 ================================================================================
-formlabs 
-href="http://www.formlabs.com/"  
-tags: electronics engineering self-replication 3d_printing
-  time="2012-09-20T04:28:56Z" 
-
-================================================================================
 noda-time - Project Hosting on Google Code
 href="http://code.google.com/p/noda-time/" 
 tags: programming .net datetime library
@@ -5068,13 +5062,6 @@ tags: mathematics todo
   time="2009-08-10T14:11:36Z" 
 
 ================================================================================
-MakerBot Industries - Robots That Make Things.
-  self-replicating machine. similar to RepRap.
-href="http://www.makerbot.com/"  
-tags: self-replication 3d_printing programming electronics engineering
-  time="2009-07-09T13:15:54Z" 
-
-================================================================================
 Motion Mountain: The Free Physics Textbook
 href="http://motionmountain.com/"  
 tags: physics books science
@@ -5911,13 +5898,6 @@ The Hangover That Lasts - New York Times
 href="http://www.nytimes.com/2007/12/29/opinion/29steinberg.html?_r=1&amp;oref=slogin"
 tags: health neuroplasticity
   time="2007-12-30T22:38:32Z" 
-
-================================================================================
-RepRap
-  self-copying 3D printer - a self-replicating machine. see also: http://angry-economist.russnelson.com/beads-not-teeth.html see also: http://vimeo.com/5202148 see also: http://www.reddit.com/r/technology/comments/8zd27/the_reprap_is_the_most_awesome_machine_ever_built/
-href="http://www.reprap.org/"  
-tags: 3d_printing self-replication programming electronics engineering
-  time="2007-12-25T00:45:09Z" 
 
 ================================================================================
 Got-It
@@ -12482,7 +12462,231 @@ tags: tools web cli go networks data-transfer
 20231127
 systemd, 10 years later: a historical and technical retrospective
 https://blog.darknedgy.net/technology/2020/05/02/0/
-tags: unix linux system-design systems
+tags: unix linux system-design systems systemd drama open-source oss project-management simulated-annealing creative-destruction evolution
+- systemd defined:
+  > systemd is an event-driven object manager with dependency-like side effects
+  > which ‘boxes’ primitive kernel resources and userspace subsystems into
+  > a generic object type called Unit. These Unit objects are scheduled through
+  > the state propagation mechanism of ‘jobs’ and dynamically dispatched via
+  > a singleton object called Manager, responsible for launching jobs in
+  > ‘transactions’ which do merging, cyclic ordering and consistency checks and
+  > serve as the main point at which unit dependencies are pulled in. Unit
+  > startup is executed as a non-indempotent parallel dataflow with weak
+  > ordering guarantees on the job level, mostly independent of the active state
+  > of dependent units.
+- project history:
+  - > The people who work at the vanguard of Desktop Linux and DevOps middleware
+    > as paid employees have no common ground with the subculture of people who
+    > use suckless software, build musl-based distros from scratch and espouse the
+    > values of minimalism and self-sufficiency.
+  - 2003 Seth Nickell proposal for DBus service discovery mechanism:
+    > The contemporary reception was […] a mix of bewilderment, apathy and little
+    > positivity […] either people defending the status quo, being wary of desktop
+    > integration, suggesting their own preferred alternatives like a hypothetical
+    > on-demand service launcher or the use of Gooch’s boot scripts, or
+    > daemontools.
+  - > from GNOME developer Emmanuele Bassi https://www.bassi.io/articles/2019/01/17/history-of-gnome-episode-2-0/
+    >
+    >> Complex free software projects with multiple contributors working on
+    >> multiple components, favour smaller modules because it makes it easier for
+    >> each maintainer to keep stuff in their head without going stark raving mad.
+    >> Smaller modules make it easier to insulate a project against strongly
+    >> opinionated maintainers, and let other, strongly opinionated maintainers,
+    >> route around the things they don’t like. Self-contained modules make niche
+    >> problems tractable, or at least they contain the damage.
+    >>
+    >> If we declared this upfront, it would make everybody’s life easier as it
+    >> would communicate a clear set of expectations; it would, on the other hand,
+    >> have the side effect of revealing the wardrobe malfunction of the emperor,
+    >> which means we have to dress up this unintended side effect of Conway’s Law
+    >> as “being about choice”, or “mechanism, not policy”, or “network object
+    >> model”.
+    >>
+    >> […]
+    >>
+    >> So, if “being about choice” is on the one end of the spectrum, what’s at
+    >> the other? Maybe a corporate-like structure, with a project driven by the
+    >> vision of a handful of individuals, and implemented by everyone else who
+    >> subscribes to that vision […]
+    >>
+    >> Of course, the moment somebody decides to propose their vision, or work to
+    >> implement it, or convince people to follow it, is the moment when they open
+    >> themselves up to criticism. If you don’t have a foundational framework for
+    >> your project, nobody can accuse you of doing something wrong; if you do
+    >> have it, though, then the possibilities fade away, and what’s left is
+    >> something tangible for people to grapple with—for good or ill.
+    >
+    > […] Bassi’s position is not unlike Stalin’s defense of the need of
+    > a vanguard party in The Foundations of Leninism (1924), with those opposed
+    > consequently in the role of Trotskyites, Zinovievites and ultra-leftists:
+    > “The theory of worshipping spontaneity is decidedly opposed to giving the
+    > spontaneous movement a politically conscious, planned character. It is
+    > opposed to the Party marching at the head of the working class, to the Party
+    > raising the masses to the level of political consciousness, to the Party
+    > leading the movement; it is in favour of the politically conscious elements
+    > of the movement not hindering the movement from taking its own course; it is
+    > in favour of the Party only heeding the spontaneous movement and dragging at
+    > the tail of it.”
+    >
+    > One can no more dissuade a visionary of this kind than one can dissuade
+    > a member of the Fabian Society from the virtues of global humanitarian
+    > government, but then neither will the vox populi of provincial yokels be of
+    > any use in countering it. One can only stoically resign to the pull of
+    > inexorable necessity.
+    >
+    > The professionals are doomed in all their vainglory to be perpetually
+    > embarking on the Sisyphean task of a unified and integrated Linux ecosystem,
+    > even if it means turning the kernel into a runtime for the BPF virtual
+    > machine, or making a Rube Goldberg machine of build and deployment
+    > pipelines. […] In this tragedy the only victor is chaos and discord itself,
+    > which disguises itself as “progress.”
+    > All that is guaranteed is permanent revolution through constant reinvention,
+    > where by revolution we mean running around in circles.
+  - “Why sysvinit Setups Suck” by Matthias S. Brinkmann, from the sources of simpleinit-msb:
+    >> - Unless you’re a black-belt in Mikado, you soon get lost in a SysVinit
+    >>   setup. Most scripts have at least 3 representations in the filesystem:
+    >>   the script itself, an S symlink and a K symlink. A higher symlink count
+    >>   is not uncommon, though.
+    >>
+    >> - You have to manually specify the order in which boot scripts are to be
+    >>   executed.
+    >>
+    >> - It doesn’t have dependency management. […] What if service B needs
+    >>   service A running ? SysVinit doesn’t help you with this. It starts
+    >>   A before B but if A fails SysVinit will still try to run B. If mounting
+    >>   filesystems fails, it will still attempt every remaining service, even
+    >>   those that need to write to disk.
+    >>
+    >> - It’s hard to modify. […] wouldn’t you just prefer to do a “mv
+    >>   runlevel.3/telnetd unused/” to deinstall the telnetd service and a “mv
+    >>   unused/telnetd runlevel.3/” to add it back again ?
+    >>
+    >> - It doesn’t scale well. Look at LFS: It uses three digits for the sequence
+    >>   numbers […] should you ever have to start a boot script between a script
+    >>   with number N and a script with number N+1, there is only one solution:
+    >>   Reindexing all your boot scripts.
+    >>
+    >> - If you want to build an installation tool […] Your only chance is to
+    >>   assign every script your installation tool supports a unique sequence
+    >>   number, working under the assumption that the user installs all packages.
+    >>   And what if the user installs only part of the packages, adds his own
+    >>   scripts and then wants to install more of your packages which
+    >>   unfortunately use numbers the user’s scripts already occupy ?
+    >>
+    >> - No user space testing. To test SysVinit boot scripts and runlevel setup
+    >>   you have to be root and execute potentially dangerous commands. Sometimes
+    >>   you have to reboot multiple times before you get it right.
+    >>
+    >> - Unsafe shutdown. SysVinit installations rely solely on boot scripts to
+    >>   ensure unmounting of file systems and killing of processes. This is very
+    >>   unsafe and can result in data loss.
+  - 2009: Upstart aimed to be a LSB-compliant, superset and replacement of all
+    task launchers, including at the time udev, acpid, apmd, atd, crond to
+    distro-specific helpers like ifupdown.
+  - In summary:
+    1. Virtually all work from 2001-2010 was centered around incremental and ad
+       hoc improvements to initscripts.
+    2. Parallel startup was not regarded as a significant performance feature.
+       Instead favored readahead and prefetching.
+    3. Among the more outlandish proposals was to use the D-Bus daemon directly as
+       a service manager, to have initscripts themselves register D-Bus
+       interfaces, and writing a script to generate other initscripts.
+    4. The primary bottleneck to revamping the init system was social
+       (distribution packaging guidelines).
+    5. Init systems live and die by the level of indifference of the package
+       maintainers who must work with them. Only when the complexity of adding
+       more cruft to initscripts started to reach a tipping point did a desire for
+       radical change appear.
+  - Prototyped under the name “BabyKit,” systemd’s arrival on the scene in March
+    2010 would see it rapidly rise to hegemonic status with unusual swiftness.
+  - per Lennart Poettering, the initial impetus for systemd came from an inability
+    to persuade Scott James Remnant of Upstart:
+    >> we had long discussions, but ultimately most of our ideas were outright
+    >> rejected by Scott, such as the launchd-style activation and the cgroup
+    >> stuff, two of the most awesome features in systemd now. (That said, we
+    >> actually managed to convince him on other points, i.e. I believe we played
+    >> a role in turning him from a D-Bus-hater into a D-Bus-lover).
+  - "Dependency-based init" model was not originally intended: the use of socket
+    activation was meant to obviate explicit dependency information entirely. This
+    "reflects a certain vision that was never quite fulfilled and subsequently
+    minimized".
+    >> systemd-style activation is about parallelizing startup of (mostly) local
+    >> services and making fully written dependencies obsolete.
+  - systemd = Linux userspace
+    >> the Linux userspace plumbing layer is nowadays developed to a big part in
+    >> the systemd source tree.
+  - > by 2015 systemd had decisively secured its place. […] at the price of their
+    > vision. The world of “systemd as Mach server” would be set back by the
+    > failures of kdbus and the single-writer cgroupv2 API. Dependencies were used
+    > far beyond early boot and were dominant over the various X-activation
+    > paradigms. However, many of the auxiliaries like host/timedate/locale/logind
+    > were becoming successful, including the container tools like machined and
+    > nspawn. tmpfiles (and later sysusers) would go on to be used in
+    > configuration management.
+  - > Once the thumotic energy for conquest is spent out, a protracted period of
+    > mediocrity ensues.
+  - > a sly wink: “Never the cathedral, just the building blocks to build it.”
+  - > following its developmental peak around 2014 and the subsequent loss of its
+    > identity, systemd appears to have mostly shifted its emphasis on refining
+    > tooling for containerized deployments
+- technical criticism:
+  - > the commonly cited advantage of systemd unit files being ‘declarative’ is
+    > hard to square with its dependency model not allowing you to think in term
+    > of ‘goals’, ‘constraints’ and ‘invariants’ as you would expect from
+    > declarative programming.
+  - > systemd habitually intertwines global system state with the state of
+    > services and many other objects that are effectively fictions maintained
+    > by systemd […] Its architecture makes the dependency graph an entirely
+    > transient and non-reproducible artifact dependent on the implicit
+    > propagation of state changes from the ‘ambient’ system environment.
+- lessons from HAL:
+  - “HAL is a behemoth, do-it-all, daemon to access hardware. It is now
+    obsoleted by udisks and upower, as well as libudev for device discovery.”
+  - > [HAL is a story] of a highly ambitious and overdesigned userland endeavor
+    > that ends up being pursued due to insufficiently expressive kernel
+    > mechanisms. […] Once /sys, devtmpfs and other kernel subsystems were
+    > improved and reworked, the entire journey was revealed to be a dead end,
+    > and what followed was extensive surgical incision to remove the traces of
+    > a sprawling master daemon. Wayland replacing X has similar broad outlines.
+  - > If systemd is another HAL, […] extensive kernel changes will pull the
+    > developers into a paradigm shift of offloading as much work as possible to
+    > the kernel while keeping a thin event broker as the interface to
+    > userspace. In all likelihood, this will be BPF.
+- future:
+  > Perhaps as BPF subsumes Linux into making it a managed-runtime hybrid
+  > kernel with subsystems becoming increasingly componentized and
+  > instrumented, […] as pidfd/process descriptors allow for reliable
+  > supervision to be distributed across self-contained processes, as
+  > the native Linux mount API becomes more event-driven on its own, […]
+  > a new shift may emerge where once again, the init system is made to cease
+  > mattering.
+  >
+  > One thing I’m certain of is that this shift cannot emerge from
+  > dilettantes, outsiders and proverbial basement hackers. One does not
+  > unseat a platform without already being part of the patriciate that calls
+  > the shots on what gets integrated where across the largest nodes in the
+  > ecosystem.
+  >
+  > Just as Poettering et al. rose like lions to depose the foxes that lived
+  > complacently, so too will they now in place of the foxes be overthrown by
+  > a new breed of lions of their own making.
+
+================================================================================
+20240812
+Systemd as tragedy, Benno Rice
+https://lwn.net/Articles/777595/
+tags: unix linux system-design systems systemd drama open-source oss
+- systemd shows how the next generation doesn't think about systems in the same way; they see things more in terms of APIs and containers, for example.
+- So what can we learn from systemd?
+  - Messaging transports. Systemd uses D-Bus heavily, which gives it a lot of flexibility.
+  - The importance of a proper service lifecycle.
+  - Service automation via APIs.
+  - Support for containers; they provide a useful way to encapsulate applications.
+- Systemd fills in the service layer for contemporary Linux systems:
+  - painless user-level units
+  - consistent device naming
+  - a logging model
+  - provides a new model of an application; rather than being a single binary, an application can be encapsulated in a container.
 
 ================================================================================
 20231127
@@ -13852,3 +14056,348 @@ tags: concepts mental-model moloch emergence nihilism podcast
   - mythic archetypes
 - Tactics (vs neurobiological failures):
   - switch phone to grayscale
+
+================================================================================
+20240723
+An epic treatise on scheduling, bug tracking, and triage
+https://apenwarr.ca/log/20171213
+tags: project-management engineering concepts mental-model work organization-theory organization communication collaboration coordination leverage human-scaling teams
+- unreleased software is inventory.
+  > unreleased software is inventory. It's very expensive, it slowly rusts in
+  > the warehouse, and worst of all, it means you produced work in the wrong
+  > order.
+  >
+  > The classic example of [low-priority inventory] is ... the TL (Tech Lead) is
+  > responsible for designing stuff, and the rest of the engineers are
+  > responsible for implementing it ... after the TL designs the current thing,
+  > they go off and start designing the next thing, and the next one, and
+  > eventually you have a buildup of design docs that haven't been implemented
+  > yet. Kanban says, this is useless; the design docs are inventory. Of course
+  > those designs will be at least partly obsolete by the time the eng team has
+  > time to implement them. Maybe goals will have changed by then and you won't
+  > implement that design at all. Meanwhile, the TL has sent around the doc for
+  > review, and there are meetings to talk about it, all of which distracts from
+  > actually finishing the work on the current feature which needs to get done.
+  >
+  > Kanban, and JIT manufacturing, says the TL should go take a long lunch and
+  > recharge for when they're needed. Or better still, help out on the
+  > engineering phase, to push it along so that it will finish sooner. And that
+  > is, of course, the magic of Kanban. It plays some psychological games, using
+  > index cards, to convince TLs to write code and (further down the chain)
+  > engineers to help with testing, and reduce useless meetings, and stop
+  > maintaining code you don't yet need. It forces you to multitask less, which
+  > is a way of tricking you into prioritizing better.
+- bugs are all the same "size".
+  > There are so many bugs that it just all averages out. If you draw a straight
+  > line from beginning to end, you're only off by a few days at any given point
+  > in the sequence. That's way too small to matter. If you add in multiple
+  > engineers on a team, the variations get even less, because even while one
+  > poor sucker works on the 10-day bug, the rest of the team keeps making
+  > progress on 0.5, 1, and 2 day bugs. [Random side note: this is also why
+  > restaurants with at least two bathroom stalls are a good idea.]
+  >
+  > Why does that happen? The Central Limit Theorem, which says that if you sum
+  > enough samples from nearly any random distribution, it ends up converging on
+  > the normal (Gaussian) distribution. A Gaussian distribution has a mean and
+  > a standard deviation. The more samples you sum together, the smaller the
+  > standard deviation is as a fraction of the average. Which is a long-winded
+  > way of saying if you have a lot of bugs, they are all about the same size.
+- ingress is always >> egress
+  - thus we must prioritize: https://sink.io/jmk/priority/
+
+================================================================================
+20240802
+AWS Client VPN
+https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-getting-started.html
+tags: anonymous privacy vpn security ipsec internet
+1. Set up certs (do all of this in AWS CloudShell!): https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/mutual.html
+2. Create "client VPN endpoint": https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-getting-started.html#cvpn-getting-started-endpoint
+3. Provide access to the internet: https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-getting-started.html#cvpn-getting-started-routes
+4. Download the Client VPN endpoint configuration file: https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-getting-started.html#cvpn-getting-started-config
+5. Connect to the Client VPN endpoint: https://docs.aws.amazon.com/vpn/latest/clientvpn-user/client-vpn-user-what-is.html
+    - You can connect to the Client VPN endpoint using any OpenVPN-based client, or the AWS-provided client.
+    - Provide the .ovpn file from step (4).
+
+================================================================================
+20240808
+Tailscale AWS VPN
+https://medium.com/@Obeisun/aws-networking-guide-setting-up-your-own-robust-vpn-with-wireguard-and-tailscale-on-aws-ec2-4cf43eb00fe7
+tags: tailscale wireguard anonymous privacy vpn security ipsec internet
+1. Launch EC2 instance
+    - micro/nano, only bandwidth matters
+    - ensure SSH "from anywhere" is enabled.
+2. Go to EC2 dashboard > "Elastic IPs"
+    - Click "Allocate Elastic IP Address" button.
+    - Associate the allocated IP address with the EC2 instance you just deployed.
+3. Set up Tailscale on EC2
+    - Amazon Linux (yum): https://tailscale.com/download/linux/amazon-linux-2
+    - Ubuntu:
+      ```
+      sudo apt update
+      sudo apt upgrade
+      curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.gpg | sudo apt-key add -
+      curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+      sudo apt update  # make Ubuntu aware of the newly-added Tailscale repository.
+      sudo apt install tailscale
+      sudo tailscale up  # start Tailscale and connects your machine to your Tailscale network.
+      ```
+4. Login to Tailscale via the URL prompted in the console.
+5. Set up your EC2 instance as an Exit Node, by enabling "IP Forwarding".
+    - sudo tailscale down  # disconnect your machine from the Tailscale network momentarily to adjust settings.
+    - Edit `/etc/sysctl.conf` and add or uncomment these lines:
+      ```
+      net.ipv4.ip_forward=1
+      net.ipv6.conf.all.forwarding=1
+      ```
+    - Then run these commands:
+      ```
+      sudo sysctl -p
+      sudo tailscale up --advertise-exit-node
+      ```
+    - Note: IP Forwarding is necessary for Tailscale to operate as an exit node,
+      but it’s generally considered a potential security risk because it allows
+      packets to pass through the server.
+6. In your Tailscale dashboard, find your newly created AWS EC2 instance. Click "...", select "Edit route settings", enable "Use as exit node".
+7. In the Tailscale client, expand "Exit Nodes", then select the EC2 instance.
+   Now your client's traffic goes through that exit node (aka "VPN").
+8. To add external users:
+    - Add the user's email to your "tailnet" from Tailscale admin console.
+    - User confirms the email, logs in, and installs the client.
+
+================================================================================
+20240812
+Tim Peters' recent suspension as a Python core developer
+https://chrismcdonough.substack.com/p/the-shameful-defenestration-of-tim
+tags: code-of-conduct drama python political-correctness society
+> The offenses which Tim is accused of within that document include the following (quoting the Steering Council message):
+> - Overloading the discussion of the bylaws change (47 out of 177 posts in topic at the time the moderators closed the topic), which created an atmosphere of fear, uncertainty, and doubt, which encouraged increasingly emotional responses from other community members. The later result of the vote showed 81% support for the most controversial of the bylaws changes, which demonstrates the controversy was blown out of proportion.
+> - Defending “reverse racism” and “reverse sexism”, concepts not backed by empirical evidence, which could be seen as deliberate intimidation or creating an exclusionary environment.
+> - Using potentially offensive language or slurs, in one case even calling an SNL skit from the 1970s using the same slur “genuinely funny”, which shows a lack of empathy towards other community members.
+> - Making light of sensitive topics like workplace sexual harassment, which could be interpreted as harassment or creating an unwelcoming environment.
+> - Casually mentioning scenarios involving sexual abuse, which may be inappropriate or triggering for some audiences.
+> - Discussing bans or removals of community members, which may be seen as publishing private information without permission.
+> - Dismissing unacceptable behavior of others as a “neurodivergent” trait, which is problematic because it creates a stereotype that neurodivergent people are hard to interact with and need special treatment.
+> - Excessive discussion of controversial topics or past conflicts, which could be seen as sustained disruption of community discussions.
+> - Use of potentially offensive terms, even when self-censored or alluded to indirectly.
+> - Making assumptions or speculations about other community members’ motivations and/or mental health.
+
+================================================================================
+20240814
+Remembering the Rwandan genocide 30 years on – how did it happen?
+https://www.aljazeera.com/amp/news/2024/4/7/30-years-on-what-led-to-the-rwandan-genocide
+tags: history war rwanda united-nations society civil-war propaganda sectarianism
+- 1994 Rwandan genocide: majority Hutu ethnic group killed an estimated 800,000 minority Tutsis (elites/privileged)
+- Rwandan Patriotic Front (RPF) was led mainly by Tutsi commanders, including Rwanda’s current president, Paul Kagame.
+- What was the trigger for the genocide?
+  - The Hutu government cracked down on Tutsis during the war, claiming they were RPF accomplices.
+  - Government propaganda painted them as traitors, generating widespread anger against them.
+- Extermination campaign kept a list of Tutsi targets.
+  - On April 6, 1994, a plane carrying Habyarimana and Burundian President Cyprien
+    Ntaryamira was shot down over Kigali. Habyarimana, Ntaryamira and many others
+    on the plane died.
+    - Local media pinned the assassinations on the rebels and told Hutus to “go to work”.
+  - Soldiers opened fire on crowds while men buoyed by media messages and
+    government officials promising rewards went from house to house, using
+    machetes and sharpened or blunt clubs to hack at those they knew to be
+    Tutsis or any Hutus offering them refuge. They killed neighbours and family
+    members.
+  - Before the genocide, the 1991 census pegged the Tutsi population at 657,000,
+    or 8.4 percent. Human Rights Watch estimated at least 500k Tutsis – 77% of
+    their 1991 population – were killed.
+  - ~1M people were killed in total.
+- How did the media fuel the genocide?
+  - Radio-Television Libres des Milles Collines (RTML) as well as state-owned
+    Radio Rwanda were central to fuelling hatred against the Tutsis throughout
+    the country. They both spread messages that fed on and escalated anxieties
+    among Hutus that they might once again be ruled over should the advancing
+    RPF succeed.
+  - RTML attracted a young, hip demographic and was an alternative to Radio
+    Rwanda. The station would play popular music and then, in the middle of
+    a track, cut to presenters making demeaning statements like “those people
+    are a dirty group”, referring to the Tutsis. The terms “cockroaches” and
+    “snakes” were used frequently in the broadcasts.
+  - RTML was the first to pin Habyarimana’s plane attack on the RPF.
+  - During the genocide, attackers paraded in the streets with machetes in one
+    hand and radio sets in the other, listening to Radio Rwanda and RTLM
+    broadcasts that named Tutsis or their protectors and informed people where
+    to find them.
+- What did the international community do?
+  - UN was aware of the genocide but didn’t intervene. UN avoided the word
+    “genocide” under pressure from the United States, which was reluctant to
+    send in troops.
+  - Kagame has since said he was so frustrated by world inaction during the
+    genocide that he considered attacking the local UN mission and stealing its
+    weapons to stop the mass slaughter of civilians.
+  - In early 1994, UNAMIR commander General Romeo Dallaire, had received
+    intelligence about the looming killings and identified secret weapon caches
+    stockpiled by Hutus. He sent five missives to the UN Security Council, but
+    was ignored.
+  - When the killings began, the UN and Belgian government withdrew UNAMIR
+    peacekeepers.
+- How did it end?
+  - The killings ended 100 days later on July 4 when the RPF, which had
+    restarted its advance, seized control of Kigali.
+  - To address backlog of 150k cases, government launched the Gacaca system.
+    Community members elected judges for 12k courts.
+  - 800k+ people stood trial in the courts.
+  - The courts officially closed in 2012.
+  - Kagame directed the removal of ethnicity from Rwandan citizens' national
+    identity cards, and the government began a policy of downplaying the
+    distinctions between Hutu, Tutsi, and Twa.
+    - https://en.wikipedia.org/wiki/Rwandan_genocide#Domestic_situation
+
+================================================================================
+20240814
+Gens (Roman family unit)
+https://en.wikipedia.org/wiki/Gens
+tags: concepts history rome
+In ancient Rome, a gens was a family consisting of individuals who shared the
+same nomen gentilicium and who claimed descent from a common ancestor. A branch
+of gens, identified by the cognomen, was called a stirps (pl.: stirpes).
+- related: "kin"
+- related: "gentry" ?
+- compare "Gandhi" https://en.wikipedia.org/wiki/Gandhi_(surname)
+
+================================================================================
+20240814
+"Superiority", by Arthur C. Clarke
+https://en.wikipedia.org/wiki/Superiority_(short_story)
+tags: todo books concepts tradeoffs engineering economics mental-model worse-is-better scalability
+> It shows the side which is more technologically advanced being defeated,
+> despite its apparent superiority, because of its willingness to discard old
+> technology without having fully perfected the new. Meanwhile, the enemy
+> steadily built up a far larger arsenal of weapons that while more primitive
+> were also more reliable.
+
+================================================================================
+20240816
+WebVM: (closed-source) serverless virtual Linux environment running client-side
+https://webvm.io/
+tags: wasm webassembly web vm virtualization
+- ALTERNATIVES: https://news.ycombinator.com/item?id=40940225
+  - https://copy.sh/v86/
+  - https://bellard.org/jslinux/
+  - https://jamesfriend.com.au/pce-js/ (https://github.com/jsdf/pce)
+  - https://www.pcjs.org/ (lots of hardware and OSes) (https://github.com/jeffpar/pcjs)
+
+================================================================================
+20240819
+The solar industrial revolution is the biggest investment opportunity in history
+https://caseyhandmer.wordpress.com/2024/05/22/the-solar-industrial-revolution-is-the-biggest-investment-opportunity-in-history/
+tags: engineering materials trends macro-economics economics solar energy investment
+- "solar is all you need."
+  > Solar is in the process of shearing off the base of the entire global
+  > industrial stack – energy – and the tech sector still lacks a unified thesis
+  > for how to best enable, accelerate, and exploit this transition.
+- "oil is the antidote to poverty."
+  > Oil is finite. The good stuff is gone. Fracking is expensive. Most places don’t have oil.
+- "Our techno-capital machine is a thermodynamic mechanism that systematically
+  hunts for and then maximally exploits the cheapest energy it can find."
+  > we’re 1 decade into a 3-decade process (~6th industrial revolution) where
+  > the entire world economy and industrial stack switches to solar PV.
+- the companies and industries that underlie our entire way of life are on
+  a fast track to disruption from below, providing the first opportunity in
+  a century, and probably the last opportunity ever, to rewrite the rule book
+  and ownership structure of the world of atoms.
+- The Earth receives about 173,000 TW continuously, more than 10,000x humanity’s current needs.
+- With relatively minimal equipment, it’s possible to transfer solar PV DC into
+  [synthetic fuels](https://terraformindustries.wordpress.com/) which are
+  backwards compatible with existing fossil fuel infrastructure.
+- APPLICATIONS:
+  - current LLM capabilities require significantly more electricity to scale
+    than can be provided by the grid or even new gas/nuclear power plants,
+    primarily due to supply chain constraints on steam turbines.
+  - Solar desalination. $30b 10% growth.
+    - For less than one cent on the dollar, we can build our own artificial
+      rivers to safeguard our food supply and reduce stress on river ecosystems,
+      all while reducing cost and complexity of legacy irrigation
+      infrastructure.
+    - Solar desalination and industry provides the water, labor, and capital to
+      re-cultivate most of the world’s brown fields.
+  - Industrial heat. $2.1t (global coal industry).
+    - The cheapest heat (of all energy sources) is generated by solar PV dumped
+      into resistive heaters, such as those found in ceramic electric kilns.
+  - Synthetic fuels. $6.8t, 4% growth.
+    - catalytic reduction of atmospheric CO2 to produce synthetic hydrocarbon
+      fuel – oil and gas from sunlight and air.
+    - Solar synthetic hydrocarbons are poised to undercut drilling as the
+      cheapest source of chemical energy (as opposed to electricity/heat, where
+      it's already cheaper).
+    - companies:
+      - Terraform Industries https://terraformindustries.com/
+      - Rivan https://rivan.com/
+      - General Galactic https://gengalactic.com/
+      - Turn2X https://turn2x.com/
+  - Fertilizer. $192b, 4% growth.
+  - Plastics. $700b, 2.3% growth.
+    - Ethylene can be synthetically derived from CO2 and H2.
+    - Wood is a kind of bio-plastic produced from sunlight and air.
+    - companies:
+      - LanzaTech https://lanzatech.com/
+      - Circe https://www.circebioscience.com/
+      - Twelve https://www.twelve.co/
+  - Aviation. Airlines $842b, 5% growth. Aircraft manufacturing $316b, -3% growth.
+    - companies:
+      - Dimensional Energy https://www.dimensionalenergy.com/
+      - Lydian https://www.lydianlabs.com/
+      - others: https://issuu.com/simpliflying/docs/saf-powerlist-2023
+  - Supersonic flight.
+    - The concord and other SSTs were killed in part by high fuel prices in the 1970s.
+    - Supersonic flight consumes roughly 6x as much fuel to reduce flight times by 2-3x.
+    - companies:
+      - Boom (next generation jet transport) https://boomsupersonic.com/
+      - AstroMechanica (engines) https://astro-mechanica.vercel.app/
+  - Mining. $1t/year, 3% growth.
+    - we can melt arbitrary rocks and electrocatalytically fractionally separate
+      them into each of their constituent metals plus oxygen which, like
+      synthetic fuels, is vented as a byproduct.
+  - Metal machining. $355b, 7% growth.
+    - set up a versatile machine shop (such as Hadrian) between the mine and the
+      nearest port or airport and export high value finished parts rather than
+      metal bars or raw ore?
+      Xometry and PCBWay
+    - manufacturing on-demand, collocate factories with the mining regions that
+      produce the source metals, and where off cuts and swarf can be easily
+      recycled.
+    - companies:
+      - Hadrian https://www.hadrian.co/
+      - Xometry https://www.xometry.com/
+      - PCBWay https://www.pcbway.com/
+  - Recycling. $58b, 7% growth.
+    - in a world of cheap solar, it may ultimately be more economical to
+      remember that all matter is made of atoms, and most of it from just a few
+      different kinds of atoms. If we break all the chemical bonds through
+      extreme heat, we can then separate the atoms out by mass using a mass
+      spectrometer or, more boringly, through the fractional electrocatalytic
+      deposition process.
+  - Matter compilers. Global retail is $30t, 9% growth.
+    - Being able to turn any form of matter whether trash or random rocks into
+      a stream of pure separated atoms is only half the battle. Re-assembling
+      them into any desired configuration currently requires a globe-spanning
+      techno-capital machine composed of tens of thousands of factories and
+      hundreds of millions of skilled workers. But if we could pick and place
+      them quickly enough, with some kind of matter compiler, we could radically
+      compactify the industrial stack and allocate capital elsewhere. This is
+      the most extreme form of the general robotics industry.
+    - companies (humanoid and industrial robots):
+      - Optimus (Tesla)
+      - Atlas https://bostondynamics.com/atlas/
+
+================================================================================
+20240819
+Cross Laminated Timber
+https://eclipsenow.wordpress.com/tall-timbers/
+tags: engineering materials
+> with Cross Laminated Timber we can now build skyscrapers out of wood
+> – eliminating concrete from the slabs of each floor and limiting it to the
+> foundations. CLT is strong as steel but 5 times lighter, and while the
+> material is more expensive – the products are prefabricated off site and the
+> building process uses far less labour. So the building process is faster and
+> cheaper – and the fire safety is BETTER than steel
+
+================================================================================
+20240820
+Order of Maesters
+https://awoiaf.westeros.org/index.php/Maesters
+tags: game-of-thrones fiction concepts knowledge
+They are sometimes called "the knights of the mind."
