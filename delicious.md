@@ -2650,7 +2650,7 @@ tags: programming statistics r-lang tutorial
 ================================================================================
 CommonCrawl
   open source web crawl data
-href="http://commoncrawl.org/"  
+href="https://commoncrawl.org/"
 tags: datasets
 time="2012-10-17T04:07:29Z" 
 
@@ -4044,7 +4044,7 @@ tags: psychology neuroplasticity memory mnemonics anki spaced-repetition
 ================================================================================
 Every 7.8μs your computer’s memory has a hiccup
 https://blog.cloudflare.com/every-7-8us-your-computers-memory-has-a-hiccup/
-tags: dram hardware engineering performance computer telemetry measurement intrumentation statistics
+tags: dram hardware engineering performance computer telemetry measurement instrumentation statistics
     Problem:    the data turns out to be very noisy. It's very hard to see if there is a noticeable delay related to the refresh cycles
     Solution:   Since we want to find a fixed-interval event, we can feed the data into the FFT (fast fourier transform) algorithm, which deciphers the underlying frequencies
 
@@ -6316,6 +6316,103 @@ tags: security infosec
 > colleague — including flight history, hotel checkouts and property holdings
 > — in exchange for a payment of 700 yuan (US$100).
 
+
+================================================================================
+20170906
+Optimizing web servers for high throughput and low latency, Alexey Ivanov
+https://dropbox.tech/infrastructure/optimizing-web-servers-for-high-throughput-and-low-latency
+tags: web server http hardware engineering performance measurement instrumentation statistics
+- Congestion Control
+  - CC algorithms codified as: `tcp_cdg` ( CAIA), `tcp_nv` (Facebook), and
+    `tcp_bbr` (Google).
+  - CC algorithms rely more on delay increases than packet drops for
+    a congestion indication.
+  - BBR is well-documented, tested, and practical. The basic idea is to create
+    a model of the network path based on packet delivery rate and then execute
+    control loops to maximize bandwidth while minimizing rtt.
+- Sysctls
+  - stuff you DON'T want to touch:
+    - `net.ipv4.tcp_tw_recycle=1` don’t use it—it was already broken for users behind NAT, but if you upgrade your kernel, it will be broken for everyone.
+    - `net.ipv4.tcp_timestamps=0` don’t disable them unless you know all side-effects and you are OK with them. For example, one of non-obvious side effects is that you will loose window scaling and SACK options on syncookies.
+  - sysctls that you should be using:
+    - `net.ipv4.tcp_slow_start_after_idle=0` the main problem with slowstart after idle is that “idle” is defined as one RTO, which is too small.
+    - `net.ipv4.tcp_mtu_probing=1—useful` if there are ICMP blackholes between you and your clients (most likely there are).
+    - `net.ipv4.tcp_rmem, net.ipv4.tcp_wmem` should be tuned to fit BDP, just don’t forget that bigger isn’t always better.
+    - `echo 2 > /sys/module/tcp_cubic/parameters/hystart_detect` if you are using fq+cubic, this might help with `tcp_cubic` exiting the slow-start too early.
+- TLS
+  - Most performance comes not your hardware, but the cipher-suites you choose.
+  - mozilla SSL Configuration Generator https://ssl-config.mozilla.org/
+  - Asymmetric Encryption: To optimize server-side CPU usage you can switch to
+    ECDSA certs (10x faster than RSA).
+    - heavily dependent on the quality of your system’s RNG, so if you are using
+      OpenSSL, be sure to have enough entropy (or use BoringSSL).
+    - bigger entropy is not always better, e.g. 4096 RSA certs degrade
+      performance by 10x.
+      ```
+      $ bssl speed
+      Did 1517 RSA 2048 signing ... (1507.3 ops/sec)
+      Did 160 RSA 4096 signing ...  (153.4 ops/sec)
+      ```
+    - smaller entropy isn’t necessarily better either: by using non-common p-224
+      field for ECDSA you’ll get 60% worse performance compared to a more common
+      p-256.
+      ```
+      $ bssl speed
+      Did 7056 ECDSA P-224 signing ...  (6831.1 ops/sec)
+      Did 17000 ECDSA P-256 signing ... (16885.3 ops/sec)
+      ```
+    - the most commonly used encryption is generally the most optimized one.
+    - When running properly optimized OpenTLS-based library using RSA certs, you
+      should see the following traces in `perf top`: newer hardware should use
+      a generic montgomery multiplication with ADX codepath:
+      ```
+      7.08%  nginx                [.] sqrx8x_internal
+      2.30%  nginx                [.] mulx4x_internal
+      ```
+    - your clients will share the same burden, with less CPU. Without hardware
+      acceleration this may be quite challenging, therefore you may consider
+      using an algorithm that was designed to be fast without hardware
+      acceleration, e.g. ChaCha20-Poly1305.
+- Buffering inside the proxy can greatly improve web server performance.
+    - Buffer request/response up to some threshold in memory and then overflow
+      to disk.
+      - request buffering: you only send a request to the backend once it is fully received.
+      - response buffering: instantaneously free a backend thread once it is ready with the response.
+    - Buffering may not be good for latency-sensitive routes, especially for streaming.
+    - Without buffering, your backend needs to deal with slow clients (incl.
+      malicious slow-POST/slow-read attacks).
+- Eventloop Stalls: If you notice nginx is spending too much time inside the
+  `ngx_process_events_and_timers` function, and distribution is bimodal, then
+  you probably are affected by eventloop stalls (e.g. waiting for disk).
+  ```
+  $ funclatency '/srv/nginx-bazel/sbin/nginx:ngx_process_events_and_timers' -m
+       msecs               : count     distribution
+           0 -&gt; 1          : 3799     |****************************************|
+           2 -&gt; 3          : 0        |                                        |
+           4 -&gt; 7          : 0        |                                        |
+           8 -&gt; 15         : 0        |                                        |
+          16 -&gt; 31         : 409      |****                                    |
+          32 -&gt; 63         : 313      |***                                     |
+          64 -&gt; 127        : 128      |*                                       |
+  ```
+- Logging
+  - Writing logs can take a lot of time. You can check by running ext4slower and
+    looking for access/error log references:
+  ```
+  # ext4slower 10
+  TIME     COMM           PID    T BYTES   OFF_KB   LAT(ms) FILENAME
+  06:26:03 nginx          69094  W 163070  634126     18.78 access.log
+  06:26:08 nginx          69094  W 151     126029     37.35 error.log
+  06:26:13 nginx          69082  W 153168  638728    159.96 access.log
+  ```
+  - To fully eliminate nginx IO stalls on log writes, you should just write logs
+    via syslog (https://nginx.org/en/docs/syslog.html).
+
+================================================================================
+20240829
+zlib replacement with optimizations
+https://github.com/zlib-ng/zlib-ng
+tags: web server software programming engineering performance
 
 ================================================================================
 Coroutines as an alternative to state machines
@@ -12346,7 +12443,7 @@ tags: web dom html accessibility
 20231214
 Bash One-Liners for LLMs
 https://justine.lol/oneliners/
-tags: ai generative-ai machine-learning llm huggingface llava portable
+tags: ai ai-assistant generative-ai machine-learning llm huggingface llava portable
 - Download:
   ```
   wget https://huggingface.co/jartine/llava-v1.5-7B-GGUF/resolve/main/llava-v1.5-7b-q4-main.llamafile
@@ -12932,10 +13029,16 @@ tags: chromebook linux os technology
 20240118
 Cloudflare "1.1.1.1 for Families" (parental control)
 https://blog.cloudflare.com/introducing-1-1-1-1-for-families
-tags: network parental-controls technology
+tags: network parental-controls security technology dns
 Two Flavors:
   1.1.1.2 (No Malware)
   1.1.1.3 (No Malware or Adult Content)
+
+================================================================================
+20240118
+NextDNS
+https://nextdns.io/
+tags: network parental-controls security technology dns
 
 ================================================================================
 20240118
@@ -14152,6 +14255,8 @@ tags: tailscale wireguard anonymous privacy vpn security ipsec internet
     - Then run these commands:
       ```
       sudo sysctl -p
+      # Verify settings (both should be 1).
+      sysctl -n net.ipv4.ip_forward net.ipv6.conf.all.forwarding
       sudo tailscale up --advertise-exit-node
       ```
     - Note: IP Forwarding is necessary for Tailscale to operate as an exit node,
@@ -14399,5 +14504,34 @@ tags: engineering materials
 20240820
 Order of Maesters
 https://awoiaf.westeros.org/index.php/Maesters
-tags: game-of-thrones fiction concepts knowledge
+tags: game-of-thrones fiction concepts knowledge books
 They are sometimes called "the knights of the mind."
+
+================================================================================
+20240828
+Library Genesis (LibGen)
+https://en.wikipedia.org/wiki/Library_Genesis
+tags: knowledge ebooks books technology data datasets pedagogy history censorship
+- LibGen is a shadow library project for file-sharing access to scholarly
+  journal articles, academic and general-interest books, images, comics,
+  audiobooks, and magazines. The site enables free access to content that is
+  otherwise paywalled or not digitized elsewhere.
+- Until 2014, Sci-Hub relied on LibGen as storage.
+- related: Samizdat
+
+================================================================================
+20240828
+Samizdat
+https://en.wikipedia.org/wiki/Samizdat
+tags: concepts history knowledge books police-state political-correctness government communism soviet-union censorship
+(Russian: самиздат, lit. 'self-publishing') was a form of dissident activity
+across the Eastern Bloc in which individuals reproduced censored and underground
+makeshift publications, often by hand. https://en.wikipedia.org/wiki/Samizdat
+
+================================================================================
+20240829
+codecompanion.nvim: Copilot Chat experience in Neovim
+https://github.com/olimorris/codecompanion.nvim
+tags: plugin vim nvim oss llm ai ai-assistant chatgpt copilot
+- inline assistant
+- Supports multiple backends: Anthropic, Gemini, Ollama, OpenAI

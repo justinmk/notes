@@ -24,26 +24,14 @@ papers
 Purely Functional Data Structures, Chris Okasaki
 Einstein's statement of special relativity
 
-books
-------------------------------------------------------------------------------
-The Power Broker, Robert A. Caro.  https://news.ycombinator.com/item?id=19600640
-
 web
 ------------------------------------------------------------------------------
-Ask HN: Which is your favourite tech talk? https://news.ycombinator.com/item?id=16838460
 "a few things about PyPy3 support" https://news.ycombinator.com/item?id=11262150
 
-server performance, nginx: https://blogs.dropbox.com/tech/2017/09/optimizing-web-servers-for-high-throughput-and-low-latency/
 On Designing and Deploying Internet-Scale Services: https://www.usenix.org/legacy/event/lisa07/tech/full_papers/hamilton/hamilton_html/
 Notes on Google's Site Reliability Engineering book: http://danluu.com/google-sre-book/
 http://eli.thegreenplace.net/2015/directed-graph-traversal-orderings-and-applications-to-data-flow-analysis/
 https://daniel.haxx.se/http2/
-http://arstechnica.com/security/2015/08/how-security-flaws-work-the-buffer-overflow/
 https://www.facebook.com/notes/facebook-engineering/scalable-memory-allocation-using-jemalloc/480222803919
 Learning How to Learn: https://www.coursera.org/learn/learning-how-to-learn
 Crypto 101 (cryptography course): https://www.crypto101.io/
-
-random
-------------------------------------------------------------------------------
-Ghost in the shell 2 - giant sculpture of techno-leg
-Sky Captain - sculpture of brain removal
