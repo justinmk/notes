@@ -9,6 +9,18 @@ Neural networks, LLMS
 
 LLM visualization: https://bbycroft.net/llm
 
+- https://x.com/karpathy/status/1835024197506187617
+  "Language" in the name LLM is just historical. They are highly general-purpose
+  technology for statistical modeling of *token streams*. Tokens can represent
+  text chunks. It could just as well be little image patches, audio chunks,
+  action choices, molecules, or whatever.
+    - Caveat: https://x.com/ylecun/status/1835303018914324689
+      > Auto-regressive prediction for things that are not temporal sequences
+      > (with some temporal causality) is a pure abomination. Even for temporal
+      > sequences, auto-regression *in input space* is inferior to
+      > auto-regression in representation space: a dynamics is not necessarily
+      > represented efficiently by a sequence of past inputs.
+
 - vector vs embedding:
     - Vectors are a general mathematical construct (list of numbers).
     - Embeddings are a particular kind of lower-dimensional vector "learned" by

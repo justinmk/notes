@@ -30,6 +30,10 @@ REFERENCE
 C: A Reference Manual, Fifth Edition. http://www.careferencemanual.com
 "Secure C Coding" SEI CERT C Coding Standard https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=87152038
 
+- undefined behavior
+    - https://blog.llvm.org/2011/05/what-every-c-programmer-should-know_14.html
+    - https://blog.llvm.org/2011/05/what-every-c-programmer-should-know_21.html
+
 DEBUG
 ================================================================================
 gdb
@@ -175,3 +179,7 @@ https://begriffs.com/posts/2019-01-19-inside-c-standard-lib.html
     - small bit patterns (unsigned recommended)
 
 
+TECHNIQUES
+================================================================================
+- "A safer arena allocator" https://gaultier.github.io/blog/tip_of_the_day_2.html
+- "Roll your own memory profiling: it's actually not hard" https://gaultier.github.io/blog/roll_your_own_memory_profiling.html

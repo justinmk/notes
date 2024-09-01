@@ -119,8 +119,15 @@ B-tree ("balanced")
 
     TODO: http://patshaughnessy.net/2014/11/11/discovering-the-computer-science-behind-postgres-indexes
 
-Merkle tree
+merkle tree
     TODO: https://blog.cloudflare.com/introducing-certificate-transparency-and-nimbus/
+sparse merkle tree (SMT)
+    - mentioned in "The Power of Toys" (David Nolen)
+    - like a standard Merkle tree, except the contained data is indexed. missing data is stored as null.
+    - pro: Efficient proofs of non-inclusion. Can check that data is *not* part of the tree (unlike normal MT)
+    - con: use lots of space. (mitigation: 
+    - represents a key-value store, inside of a Merkle tree.
+    - Ethereum researchers are looking into sparse Merkle trees as a replacement for the Merkle Patricia tries currently used to store Ethereum state.
 
 trie (ReTRIEval, "prefix trie", "suffix trie", …)
     examples: autocomplete, spellcheck, hierarchical routing (e.g. ip ranges)

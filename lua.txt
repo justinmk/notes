@@ -17,6 +17,9 @@ Function calls
     -- is syntactic sugar for:
     tbl.func(tbl, a)
 
+Coroutines/async
+    https://gregorias.github.io/posts/using-coroutines-in-neovim-lua/
+
 Scopes
     upvalue = "External local variable" used in an inner function (closure).
               I.e. non-global, non-local, closed-over scope.
