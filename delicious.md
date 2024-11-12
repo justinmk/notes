@@ -14535,3 +14535,9 @@ https://github.com/olimorris/codecompanion.nvim
 tags: plugin vim nvim oss llm ai ai-assistant chatgpt copilot
 - inline assistant
 - Supports multiple backends: Anthropic, Gemini, Ollama, OpenAI
+
+================================================================================
+20241112
+Transform js/json-schema/json/typescript/graphql to/from each other
+https://transform.tools/
+tags: tools web json javascript typescript yaml graphql data formats
