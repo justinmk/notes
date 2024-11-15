@@ -567,6 +567,20 @@ security
       - bigger
       - slower startup (250ms w/ Firecracker vs 1ms w/ Wasmer)
 
+future:
+- problems caused by wasm's "linear memory model":
+  - summary:
+    - https://github.com/WebAssembly/design/issues/1397#issuecomment-926088470
+    - https://github.com/WebAssembly/design/issues/1397#issuecomment-926119051
+    - There is no way for a WASM program to deallocate a page of WASM memory.
+    - Lack of virtual memory APIs causes a host of common efficient memory management techniques to be unavailable.
+    - Thus WASM programs tend to use more memory.
+    - painful for WASM running in browsers and/or mobile, since browsers have their own memory supervisors which unpredictably terminate tabs when memory usage (including both WASM and javascript allocations) goes beyond undocumented thresholds.
+  - proposal:
+    - "Memory Control": https://github.com/WebAssembly/memory-control/blob/main/proposals/memory-control/Overview.md
+      - "virtual mode" proposal (virtual memory APIs): https://github.com/WebAssembly/memory-control/blob/main/proposals/memory-control/virtual.md
+      - "memory.discard" proposal (WASM page deallocation): https://github.com/WebAssembly/memory-control/blob/main/proposals/memory-control/discard.md
+
 WASM IN PRACTICE
 --------------------------------------------------------------------------------
 - https://www.hiro.so/blog/write-clarity-smart-contracts-with-zero-installations-how-we-built-an-in-browser-language-server-using-wasm
