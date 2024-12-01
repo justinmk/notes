@@ -10455,7 +10455,7 @@ How America Took Out The Nord Stream Pipeline
 ================================================================================
 20230209
 https://seymourhersh.substack.com/p/how-america-took-out-the-nord-stream
-tags: us-govt russia politics war energy
+tags: usgov russia politics war energy
 > In the immediate aftermath of the pipeline bombing, the American media treated
 > it like an unsolved mystery. Russia was repeatedly cited as a likely culprit,
 > spurred on by calculated leaks from the White House—but without ever
@@ -14590,6 +14590,7 @@ tags: plugin vim nvim oss llm ai ai-assistant chatgpt copilot
 - inline assistant
 - Supports multiple backends: Anthropic, Gemini, Ollama, OpenAI
 - alternatives:
+  - https://github.com/monkoose/neocodeium
   - https://github.com/yetone/avante.nvim
 
 Ostensive definition
@@ -14639,6 +14640,25 @@ tags: crdt data-structure compsci programming editing algorithms diff
 >   implementation, but not by much. Martin managed to make a tiny, slow
 >   [implementation of automerge in only about 100 lines of
 >   code](https://github.com/automerge/automerge/blob/a8d8b602ec273aaa48679e251de8829f3ce5ad41/test/fuzz_test.js).
+
+Eric Weinstein - Are We On The Brink Of A Revolution?
+================================================================================
+20240915
+https://youtu.be/PYRYXhU4kxM
+tags: philosophy politics government epistemology science podcast eric-weinstein
+- "They aren't trying to fool you, they're instructing you."
+- retroactive continuity
+- "smarks"
+- First-order counterintuition
+- [United States v. Progressive, Inc.](https://en.wikipedia.org/wiki/United_States_v._Progressive,_Inc).
+  > A temporary injunction was granted against The Progressive to prevent the
+  > publication of an article written by activist Howard Morland that purported
+  > to reveal the "secret" of the hydrogen bomb. Though the information had been
+  > compiled from publicly available sources, the DOE claimed that it fell under
+  > the "born secret" clause of the Atomic Energy Act of 1954.
+- "audience capture" = overfitting to your fans
+- "criticism capture" = becoming unhinged when addressing critics ("I am not
+  what my critics say ...") consumes you and drives you.
 
 The Rule Of 2
 ================================================================================
@@ -14870,6 +14890,20 @@ tags: concepts systems mental-model alan-kay talk video
 - CAD -> SIM -> FAB (design -> simulate -> build)
   - "We need a live shell CAD/SIM/FAB devsys to express the meaning of whole systems, simulate/debug the meanings, then compile".
 
+Alan Kay's talk at UCLA 2024 Feburary 21st
+================================================================================
+20241203
+https://youtu.be/dZQ7x0-MZcI
+tags: concepts systems mental-model alan-kay talk video
+“Scaling more or less destroys communication."
+- Marvin Minsky: "You don't understand something if you only understand it one way."
+  - Ways of understanding: science, tinkering, mathematics, aesthetics, engineering, …
+- "The burden on ‘writers’ is to shape what is to be ‘read’ in ways that help guide the reader’s internal processes to make a similar model to that held by the writer."
+- "Shared context is what we’re looking for. What we do with language is point into what we think is the shared context between us and the other person."
+- "At Bell Labs if you walked around back before the divestiture, you would occasionally see a sign that would say, ‘Either do something very useful or very beautiful.’ I’ve never seen a sign like that at Google Research. That’s a huge problem."
+- "Synergy: It’s what happens in the halls. How many beer-laden lunches do you have? How many bike rides to the top of the hills around Palo Alto?"
+- "What everybody at PARC knew was that the purpose of arguing is not to win, but to illuminate. And in fact, when people started getting heated, [Bob] Taylor would say, ‘Type 2! Type 2!’ A Type 2 argument was that all of a sudden you had to explain the other person’s position back to them until they agreed with it, and then they had to explain your position back to you until you agreed with it, and by the time that had happened, you’d forgotten what you were arguing about."
+
 LSP: the good, the bad, and the ugly
 ================================================================================
 20241102
@@ -15056,3 +15090,220 @@ tags: neocon history usgov state government politics progressivism
 > a democratic nation under attack from nondemocratic forces, external or
 > internal. ... No complicated geopolitical calculations of national interest
 > are necessary.
+
+Why Can't We Make Simple Software? - Peter van Hardenberg
+================================================================================
+20241201
+https://youtu.be/czzAVuVz7u4
+tags: system-design systems complexity project-management
+- "risk homeostasis" = equilibrium, where increasing safety properties (e.g.
+  seatbelts) leads to participants increasing their risky behaviors
+  (risk-tolerance is conserved)
+- "complexity homeostasis" = equilibrium, where increasing simplicity of
+  a system leads to developers taking their risk behaviors (complexity-tolerance
+  is conserved) ~ Jevons paradox
+- Laws of Software Engineering (Lehman & Belady)
+  1. (1974) "Continuing Change" — an E-type system must be continually adapted or it becomes progressively less satisfactory.
+  2. (1974) "Increasing Complexity" — as an E-type system evolves, its complexity increases unless work is done to maintain or reduce it.
+  3. (1974) "Self Regulation" — E-type system evolution processes are self-regulating with the distribution of product and process measures close to normal.
+  4. (1978) "Conservation of Organisational Stability (invariant work rate)" — the average effective global activity rate in an evolving E-type system is invariant over the product's lifetime.
+  5. (1978) "Conservation of Familiarity" — as an E-type system evolves, all associated with it, developers, sales personnel and users, for example, must maintain mastery of its content and behaviour to achieve satisfactory evolution. Excessive growth diminishes that mastery. Hence the average incremental growth remains invariant as the system evolves.
+  6. (1991) "Continuing Growth" — the functional content of an E-type system must be continually increased to maintain user satisfaction over its lifetime.
+  7. (1996) "Declining Quality" — the quality of an E-type system will appear to be declining unless it is rigorously maintained and adapted to operational environment changes.
+  8. (1996) "Feedback System" (first stated 1974, formalised as law 1996) — E-type evolution processes constitute multi-level, multi-loop, multi-agent feedback systems and must be treated as such to achieve significant improvement over any reasonable base.
+- "Software architecture degrades with changes made to the software".
+  — The Architecture of Open Source Software, Design lesson 3, BerkeleyDB
+
+"Cambria" schema evolution tool: translate your data with lenses
+================================================================================
+20241201
+https://www.inkandswitch.com/cambria/
+tags: api versioning compatibility system-design schemas distributed-systems data-structure
+- Stripe API versioning:
+  - Stripe has developed an elegant approach: a middleware system that
+    intercepts incoming and outgoing communication, and translates it between
+    the current version of the system and the client’s requested version. As
+    a result, developers at Stripe don’t need to concern themselves with the
+    idiosyncrasies of old API requests, because their middleware ensures
+    requests will be translated into the current version.
+    - When they want to change the API format, they add a new translation to the
+      “stack” in their middleware.
+    - Limitation: because Stripe’s system uses dates to order its migrations, it
+      is limited to a single linear migration path.
+- Kafka "Schema Registry tool". Helps developers maintain schema compatibility.
+- ActivityPub protocol (Mastodon).
+  - Defines a shared format and defines many important elements of the
+    distributed system.
+  - Problem: If two servers handle sensitive content (for example) in different
+    ways, must each support both formats forever?
+  - Problem: innovation tends to occur at the edges. Large servers are slow to
+    adopt new features.
+- 10x harder: decentralized data schemas
+- "Local-first" decentralized software
+  - Ink & Switch is exploring a "local-first" flavor of decentralized software.
+  - We would frequently end up writing code like this snippet:
+    ```
+    if (doc.tags && Array.isArray(doc.tags)) {
+      doc.tags.push(myNewTag);
+    } else {
+      // Handle old docs which don't have a tags array
+      doc.tags = [myNewTag];
+    }
+    ```
+  - Distributed schema evolution is a shared problem.
+    - All of these systems must be designed to support multiple versions of data
+      simultaneously.
+    - Failure to correctly send and receive data in a distributed system can
+      cause outages. Existing clients may lose the ability to communicate with
+      a server. Network partitions can occur if only some nodes upgrade.
+      Inconsistent implementations can lead to security vulnerabilities.
+    - There is a deep sense in which these are *all the same problem*. Data
+      schemas can only change in so many ways. Evolving schemas may add or
+      remove fields, rename or relocate them, change their cardinality, or
+      convert their type from one form to another. To manage this complexity,
+      programs must check fields for existence, fill in defaults, and migrate
+      old data into new shapes.
+- Cambria: a schema evolution tool
+  - Avoids ad hoc solutions.
+  - Ergonomic framework to define bidirectional translation functions called "lenses".
+    - Consistent and reusable across the above problem domains.
+- Findings
+  - Interoperability requires balance of *irreconcilable design goals*:
+    - consistency: both sides see a meaningfully equivalent view of the world
+    - conservation: neither side operates on data they can’t observe
+    - predictability: the local intent of every operation is preserved
+  - Combining types and migrations makes life easier.
+    - We enjoyed having both TypeScript types and data translations produced from the same code.
+  - Data translations in decentralized systems should be performed on read, not on write.
+
+Local-first software
+================================================================================
+20241201
+https://www.inkandswitch.com/local-first/
+tags: api p2p distributed-systems versioning system-design schemas crdt data-structure
+- Findings:
+  - CRDT technology works.
+    - We were pleasantly surprised by the reliability of Automerge. App
+      developers on our team were able to integrate the library with relative
+      ease.
+  - Functional Reactive Programming (FRP) model (popularized by React) fits well
+    with CRDTs.
+    - Simultaneously gets updates from the local user (as they type) and the
+      network (as other users/devices make changes).
+  - Visualizing document history is important.
+  - Peer-to-peer systems are never fully “online” or “offline” and it can be
+    hard to reason about how data moves in them.
+  - CRDTs accumulate a large change history, which creates performance problems.
+    - CRDTs store all history, including character-by-character text edits.
+      These can’t easily be truncated because it’s impossible to know when
+      someone might reconnect to your shared document after six months away and
+      need to merge changes from that point forward.
+  - Network communication remains an unsolved problem.
+    - CRDT algorithms provide only for the merging of data, but say nothing
+      about how different users’ edits arrive on the same physical computer.
+    - Live collaboration between computers without Internet feels like magic.
+  - Cloud servers still have a place for discovery, backup, and burst compute.
+    - Servers have a role to play in the local-first world — not as central
+      authorities, but as “cloud peers” that support client applications without
+      being on the critical path. For example, a cloud peer that stores a copy
+      of the document, and forwards it to other peers when they come online,
+      could solve the "closed-laptop problem".
+    - Not an absence of servers, but a change in responsibilities: they are in
+      a supporting role, not the source of truth.
+
+Automerge: a JSON-like data structure (CRDT) that can be modified concurrently by different users, and merged again automatically.
+================================================================================
+20241201
+https://github.com/automerge/automerge
+tags: crdt data-structure compsci programming editing algorithms diff
+
+"A Judge’s View of Judging Is on the Record", Charlie Savage, 2009
+================================================================================
+20241202
+https://www.nytimes.com/2009/05/15/us/15judge.html
+tags: politics history bureaucracy usgov judicial-branch separation-of-powers
+> “I would hope that a wise Latina woman with the richness of her experiences
+> would more often than not reach a better conclusion than a white male who
+> hasn’t lived that life,” said Judge Sotomayor
+>
+> video of Judge Sotomayor asserting in 2005 that a “court of appeals is where
+> policy is made.” She then immediately adds: “And I know this is on tape, and
+> I should never say that because we don’t make law. I’m not promoting it. I’m
+> not advocating it.”
+
+Satori
+================================================================================
+20241202
+https://en.wikipedia.org/wiki/Satori
+tags: concepts japan buddhism philosophy
+> Satori (Japanese: 悟り) is a Japanese Buddhist term for "awakening",
+> "comprehension; understanding". In the Zen Buddhist tradition, satori refers
+> to a deep experience of kenshō, "seeing into one's true nature". Ken
+> means "seeing," shō means "nature" or "essence". Satori and kenshō are
+> commonly translated as "enlightenment", a word that is also used to translate
+> bodhi, prajñā and Buddhahood.
+
+Weird machine
+================================================================================
+20241202
+https://langsec.org/synopsis.html
+tags: infosec information-theory security compsci compiler
+> Exploits are actually _proofs by construction_ that a system trusted to not be
+> capable of particular computations under any inputs or conditions can in fact
+> perform it under given inputs and conditions. ... They are written as
+> sequences of crafted inputs that trigger and compose the effects of the
+> target's computational artifacts such as memory corruptions; the overall
+> effect is that of assembly-level programming in "weird instructions", such as
+> a carefully set up memory corruption implementing a desired `mov` with some
+> undesirable side effects to be corrected with subsequent corruptions. The
+> totality of these "instructions" makes up a "weird machine" that shares the
+> target's memory and inputs.
+
+strandbeest
+================================================================================
+20241209
+https://www.strandbeest.com/
+tags: art engineering netherlands
+https://youtu.be/IFaAjR_RRJs
+> Skeletons made from yellow plastic tube (Dutch electricity pipe) are able to
+> walk and get their energy from the wind. They have evolved since their
+> inception in 1990 and have been divided into 12 periods of evolution.
+
+Gemini (protocol)
+================================================================================
+20241211
+https://en.wikipedia.org/wiki/Gemini_(protocol)
+tags: network protocol web http html markdown markup language data
+Gemini is an application-layer internet communication protocol for accessing
+remote documents, similar to HTTP and Gopher.
+- "gemtext" documents can link to other documents.
+- Alternative to HTTP/HTML?
+- Example session:
+  - Client:
+    ```
+    gemini://example.com/
+    ```
+  - Server:
+    ```
+    20 text/gemini
+    # Example Title
+    Welcome to my Gemini capsule.
+    * Example list item
+    => gemini://link.to/another/resource Link text
+    ```
+
+Douglas Engelbart
+================================================================================
+20241216
+https://en.wikipedia.org/wiki/Douglas_Engelbart
+tags: systems compsci system-design software-engineering history
+- pioneer/founder of the field of HCI https://en.wikipedia.org/wiki/Human%E2%80%93computer_interaction
+- presented "The Mother of All Demos" https://en.wikipedia.org/wiki/The_Mother_of_All_Demos
+  - live demonstration of a complete computer hardware and software system
+    called the oN-Line System (NLS): windows, hypertext, graphics, efficient
+    navigation and command input, video conferencing, the computer mouse, word
+    processing, dynamic file linking, revision control, and a collaborative
+    real-time editor.
+- Engelbart saw the future as collaborative, networked, timeshare
+  (client-server) computers, which younger programmers rejected in favor of
+  personal computers.
