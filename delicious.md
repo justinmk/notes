@@ -5321,7 +5321,7 @@ tags: compsci
 
 Fabulous Adventures In Coding : Locks and exceptions do not mix
 ================================================================================
-  &quot;the body of a lock should do as little as possible&quot;, contention, deadlock, threading, concurrency
+"the body of a lock should do as little as possible", contention, deadlock, threading, concurrency
 href="http://blogs.msdn.com/ericlippert/archive/2009/03/06/locks-and-exceptions-do-not-mix.aspx"
 tags: concurrency c# programming .net
   time="2009-03-16T18:12:35Z" 
@@ -5642,7 +5642,7 @@ tags: todo programming virtual-memory
 The Unscalable, Deadlock-prone, Thread Pool
 ================================================================================
 https://news.ycombinator.com/item?id=19251516
-tags: kernel linux macos os syscall programming virtual-memory process job-control systems-programming containers threading multithreading concurrency
+tags: kernel linux macos os syscall programming virtual-memory process job-control systems-programming containers threads multithreading concurrency
 - The mlock [1] system call allows you to lock chosen virtual memory into RAM. What about using that in combination with a memory pool which you manage yourself?
   [1] https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/mlock.2.html
 - mlockall on Linux can lock all future allocations, including those made by shared libraries. You don’t need to manage a memory pool yourself.
@@ -15307,3 +15307,114 @@ tags: systems compsci system-design software-engineering history
 - Engelbart saw the future as collaborative, networked, timeshare
   (client-server) computers, which younger programmers rejected in favor of
   personal computers.
+
+14 years of systemd
+================================================================================
+20250201
+https://fosdem.org/2025/schedule/event/fosdem-2025-6648-14-years-of-systemd/
+tags: fosdem talks conference systemd linux system-design
+- names matter: babykit => systemd
+- "systemd is Concepts":
+  - clear sep of /etc/, /run/, /usr/
+  - Hermetic /usr/
+  - Merging of drop-in config files (/{etc,usr,run}/tmpfiles.d/)
+  - Declarative, not imperative (no shell).
+  - => enables higher-level concepts, e.g.:
+    - ProtectHome=, ProtectSystem=, are possible because of clear sep + hermetic /usr/.
+- specs: https://uapi-group.org
+- future:
+  1. boot+system integrity (prevent backdoors)
+    - bind to your own (+ vendor's) code-signing keypair!
+    - restore to known-good state after intrusion.
+    - FSF claims TPMs could be used for DRM.
+  2. "Repivot our IPC system. more Varlink."
+    - varlink = encode stdio as JSON (structured IPC)
+  3. nudge ecosystem away from "package-based OS deployment" to "image-based"
+    - systemd tool for that: `mkosi`
+
+Goodhart's law
+================================================================================
+20250201
+https://en.wikipedia.org/wiki/Goodhart%27s_law
+tags: concepts mental-model economics
+"When a measure becomes a target, it ceases to be a good measure".
+cf. Heisenberg's uncertainty principle.
+
+esp32s3 Espressif SoC
+================================================================================
+20250202
+https://www.tme.eu/de/details/esp32-s3/iot-wifi-bluetooth-module/espressif/
+tags: fosdem talks conference webassembly game-dev microcontrollers embedded soc
+$4 microcontroller with:
+- wifi
+- can run webassembly (wasm game engine: https://wasm4.org/)
+
+Firefly Zero
+================================================================================
+20250202
+https://fireflyzero.com/
+tags: fosdem talks conference webassembly game-dev embedded
+A modern handheld game console with effortless multiplayer.
+
+State of Loom (Java)
+================================================================================
+20250221
+https://cr.openjdk.org/~rpressler/loom/loom/sol1_part1.html
+tags: java programming concurrency async threads
+Java (Loom): instead of async/await, *make threads better*.
+
+    Thread.startVirtualThread(() -> {
+        System.out.println("Hello, Loom!");
+    });
+
+- Key Takeaways:
+  - A virtual thread is a Thread — in code, at runtime, in the debugger and in the profiler.
+  - A virtual thread is not a wrapper around an OS thread, but a Java entity.
+  - Creating a virtual thread is cheap — have millions, and don’t pool them!
+  - Blocking a virtual thread is cheap — be synchronous!
+  - No language changes are needed.
+  - Pluggable schedulers offer the flexibility of asynchronous programming.
+
+> Some programming languages tried to address the problem of thorny asynchronous
+> code by building a _new_ concept on top of threads: `async/await`. It works
+> similarly to threads but cooperative scheduling points are marked explicitly
+> with await. This makes it possible to write scalable synchronous code and
+> solves the context issue by introducing a _new_ kind of context that is
+> a thread in all but name but is incompatible with threads.
+>
+> If synchronous and asynchronous code cannot normally be mixed — one blocks and
+> the other returns some sort of Future or Flow — async/await creates two
+> differently “colored” worlds that cannot be mixed even though both of them are
+> synchronous, and, to make matters more confusing, calls synchronous code
+> asynchronous to indicate that, despite being synchronous, no thread is
+> blocked.
+>
+> As a result, C# requires two different APIs to suspend execution of the
+> currently executing code for some predetermined duration, and Kotlin does too,
+> one to suspend the thread and one to suspend the new construct that is like
+> a thread, but isn’t.
+
+Playground Wisdom: Threads Beat Async/Await
+================================================================================
+20250221
+https://lucumr.pocoo.org/2024/11/18/threads-beat-async-await/
+tags: javascript programming concurrency async threads
+- async/await does not support "back pressure" well.
+- async/await is worse than where we started (threads), because in terms of
+  expressiveness, we have lost an important affordance: we cannot freely
+  suspend. In the original blocking code, when we invoked sleep we suspended for
+  10 milliseconds implicitly; we cannot do the same with the async call. Here we
+  have to “await” the sleep operation.
+- What if we never resolve()? A normal function call eventually returns, the
+  stack unwinds, and we're ready to receive the result. In an async world,
+  someone has to call resolve() at the very end.
+  - In theory, that does not seem all that different from calling sleep() with
+    a large number, or waiting on a pipe that never gets data. But it is
+    different: In one case, we keep the call stack and everything that relates
+    to it alive; in another case, we just have a promise and are waiting for
+    independent garbage collection with everything already unwound.
+- Blocking is an Abstraction.
+  - A function being able to "suspend" a thread of execution is a bloody great
+    capability and abstraction.
+  - Memory access (touching a memory region) can be blocking! Example:
+    memory-mapped files.
