@@ -15438,3 +15438,166 @@ Welcome to the Era of Experience, by David Silver, Richard S. Sutton
 https://storage.googleapis.com/deepmind-media/Era-of-Experience%20/The%20Era%20of%20Experience%20Paper.pdf
 tags: google ai llm machine-learning
 > A new generation of agents will acquire superhuman capabilities by learning predominantly from experience.
+
+South Africa's Racketeer Party State
+================================================================================
+20250316
+https://www.palladiummag.com/2025/03/14/south-africas-racketeer-party-state/
+tags: history government communism south-africa economics
+- "international charm campaigns":
+  - during Vietnam war, the Vietnamese Communists had leveraged their cell
+    networks to create a ground-level presence that slowly displaced the South
+    Vietnamese state, killing around a hundred government officials per month,
+    as well as thousands of Vietnam’s traditional village chiefs. When reprisals
+    occurred, the rebels used civic opposition front groups to sell stories of
+    “human rights violations” to sympathetic Western media.
+    - This combination of ground-level violence, international charm campaigns,
+      and multi-front struggles for power would soon become familiar scenes in
+      South Africa.
+  - To unify its disparate factions, ANC delegations to Communist Vietnam, which
+    included future president Thabo Mbeki, found inspiration in the program
+    developed by Võ Nguyễn Giáp and the Viet Cong: victory through the strategic
+    integration of a doctrine called “People’s War.” Instead of large-scale
+    conflict, this strategy emphasized institution-building, limited guerrilla
+    operations, and aggressive propaganda.
+  - In 1979, the ANC leadership summed up its reforms in a document called the
+    Green Book. It outlined a multi-stage “national-democratic revolution whose
+    essence is the national liberation of the black oppressed.” ANC is built
+    upon a wholly different political culture, organizational structure, and
+    approach to its goals. Even electoral victory was only one more front of
+    struggle from which to take control of state bureaucracies, redistribute
+    wealth, and transform society.
+  - ANC hagiographies tended to concentrate on the work of suave diplomats like
+    Thabo Mbeki and the optimistic politics of Nelson Mandela. But under
+    People’s War doctrine, these were merely variations in tactics suited to
+    different fronts of the same struggle. ~15k people died in the power
+    struggles between the ANC and its rivals.
+- ANC history
+  - From their exile headquarters in Tanzania, the ANC controlled uMkhonto
+    weSizwe, an armed wing called MK for short. MK fell into the hands of the
+    ANC’s Communist faction, with future SACP chief Chris Hani serving as its
+    commander. In addition to its many police and military targets, MK also
+    attacked numerous civilian locations.
+  - ANC leaders made the tactical decision not to declare in favor of socialism
+    formally. This tactical moderation became particularly useful in securing
+    Western liberal support for the ANC. In reality, all but one of South
+    Africa’s post-Apartheid presidents also held prominent roles in the
+    Communist Party. Only Cyril Ramaphosa’s ascension in 2018 broke this trend.
+  - The Department of Intelligence and Security was the hammer the ANC brought
+    down on its people: the rank and file nicknamed it Mbokodo, the Xhosa name
+    for the stone used to grind down maize. The epicenter of the ANC campaign
+    was Camp 32, also called Quatro. Stationed in northern Angola, its prisoners
+    were systematically beaten, starved, and set to hard labor. Prisoners
+    crawled through red ant nests.
+  - While Zuma’s leadership came near the end of the camp’s existence, he and
+    other ANC leaders tried hard to suppress public inquiries into its
+    activities in the final years of Apartheid. The fight divided imprisoned
+    leaders like Nelson Mandela, who supported the inquiries, from those who had
+    been active during the exile, like MK leader and Communist Party boss Chris
+    Hani.
+  - Mandela and Zuma represented two very different formative experiences within
+    the ANC. Mandela had become active during the party’s early years as an
+    anti-Apartheid protest movement and spent much of its exile in prison. But
+    that exile led the ANC to operate as a law unto itself, duplicating the
+    institutions and functions of a state within its organization. Those
+    functions did not mirror those of Western democratic nations, but instead
+    those of the Soviet bloc, Vietnam, and other socialist states that trained
+    men like Zuma and Hani. Loyalty to the ANC and its discipline took
+    precedence over ties to other institutions, such as trade unions, civic
+    organizations, and the South African state itself.
+  - In 1990, ANC fought its local rival, the Zulu nationalist Inkatha Freedom
+    Party (IFP). Both sides used tactics like “necklacing,” or filling a tire
+    with gasoline and setting it alight around a victim’s neck. Nelson Mandela’s
+    second wife, Winnie Mandela, ordered the kidnapping and torture of
+    a 14-year-old.
+  - ANC operatives created Self-Defense Units, militias nominally meant to guard
+    against IFP attacks. In practice, these became the vanguard in the ANC’s
+    displacement of both Apartheid and Zulu governing structures, much as Viet
+    Cong front groups had done in Vietnamese villages years earlier.
+  - BEE (Black Economic Empowerment) deals are valued at several billion dollars
+    per year. Men like South Africa’s current president have become incredibly
+    wealthy as the beneficiaries of those deals. The system is also a useful way
+    to enrich ANC members and allies who can deliver fraudulent certifications.
+  - Economic Freedom Fighters (EFF), a Marxist and black nationalist party. Its
+    leader, Julius Malema, has repeatedly made headlines for genocidal rhetoric.
+    When pressed by a reporter, he stated it was possible that he might one day
+    call for the slaughter of white people and refused to make any commitment
+    against it.
+- Mirrors instances of de-development in other Western nations: Germany shut
+  down its entire nuclear infrastructure on green ideological grounds; U.S.
+  permitted the offshoring of its mid-century assembly lines based on free
+  market globalization.
+  - The political economy degrades the material one. Ideologies of extraction or
+    full-on degrowth can do irreversible damage to an advanced society.
+  - This increases the value of political patronage for those who control the
+    functioning remnants of the productive economy. This is the key cause of
+    South Africanization: battles over patronage networks radicalize the
+    ideology, the incentive to corruption becomes impossible to resist, and the
+    decay spiral takes on systemic and irreversible proportions.
+- There is no historical model of what happens when a large, modern country
+  de-develops.
+
+Highly Available Transactions: Virtues and Limitations
+================================================================================
+20250317
+https://arxiv.org/abs/1302.0309
+tags: raft cap distributed-systems compsci todo papers databases
+> We relate the many previously proposed database isolation and data consistency
+> models to the goal of high availability, which guarantees a response from each
+> non-failing server in the presence of arbitrary network partitions between
+> them. We classify which among the wide array of models are achievable with
+> high availability, denoting them as Highly Available Transactions (HATs). In
+> doing so, we demonstrate that although many implementations of HAT semantics
+> are not highly available, this is an artifact of the implementations rather
+> than an inherent property of the semantics. Our investigation shows that,
+> besides serializability, Snapshot Isolation and Repeatable Read isolation are
+> not HAT-compliant, while most other isolation levels are achievable with high
+> availability. We also demonstrate that many weak replica consistency models
+> from distributed systems are both HAT-compliant and simultaneously achievable
+> with several ACID properties.
+
+Build your own elegant e-paper weather display powered by an ESP32 microcontroller
+================================================================================
+20250317
+https://github.com/lmarzen/esp32-weather-epd
+https://www.xda-developers.com/build-elegant-e-paper-weather-display-esp32-microcontroller/
+tags: diy-project electronics engineering programming soc embedded epaper
+Low-power E-Paper weather display powered by an ESP32 microcontroller. Uses OpenWeatherMap API.
+- hardware:
+  - thin acrylic sheet
+  - 7.5-inch (800x480) e-paper display
+  - DESPI-CO2 adapter board
+  - FireBeetle 2 ESP32-E microcontroller
+  - BME280 pressure, temperature, and humidity sensor
+  - 3.7V LiPo battery with 2-pin JST connector
+- consumes so little power, can use it for more than six months on a single
+  charge of a 5,000mAh battery.
+
+Land ahoy: leaving the Sea of Nodes
+================================================================================
+20250326
+https://v8.dev/blog/leaving-the-sea-of-nodes
+tags: compsci v8 chromium web javascript compiler algorithms data-structure
+> In 2013, V8 had a single optimizing compiler: Crankshaft. It was
+> using a Control-Flow Graph (CFG) based Intermediate Representation.
+>
+> Then it was replaced by Turbofan / Sea of Nodes.
+>
+> After 10 years of Turbofan and Sea of Nodes, we’ve decided to get rid of it,
+> and go back to a more traditional CFG IR (Turboshaft).
+> - compile time got divided by 2 compared to SoN
+> - compiler is a lot simpler and shorter
+> - investigating bugs is usually much easier
+>
+> Sea of Nodes (Turbofan): elegant but impractical for JavaScript:
+> 1. Too complex. Effect and control chains are hard to understand, leading to
+>    many subtle bugs. Graphs are hard to read and analyze, making new
+>    optimizations hard to implement and refine.
+> 2. Too limited. Too many nodes are on the effect and control chain (because
+>    we’re compiling JavaScript code), thus not providing many benefits over
+>    a traditional CFG. Additionally, because it’s hard to introduce new
+>    control-flow in lowerings, even basic optimizations end up being hard to
+>    implement.
+> 3. Compiling is too slow. State-tracking is expensive, because it’s hard to
+>    find a good order in which to visit graphs. Cache locality is bad. And
+>    reaching fixpoints during reduction phases takes too long.
