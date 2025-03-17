@@ -15418,3 +15418,16 @@ tags: javascript programming concurrency async threads
     capability and abstraction.
   - Memory access (touching a memory region) can be blocking! Example:
     memory-mapped files.
+
+files-to-prompt CLI tool
+================================================================================
+20250317
+https://simonwillison.net/2025/Feb/19/files-to-prompt/
+tags: ai llm machine-learning workflow cli
+Concatenate a directory full of files into a single prompt for use with LLMs.
+
+Here’s how I use LLMs to help me write code
+================================================================================
+20250317
+https://simonwillison.net/2025/Mar/11/using-llms-for-code/
+tags: ai llm machine-learning workflow
