@@ -15431,3 +15431,10 @@ Here’s how I use LLMs to help me write code
 20250317
 https://simonwillison.net/2025/Mar/11/using-llms-for-code/
 tags: ai llm machine-learning workflow
+
+Welcome to the Era of Experience, by David Silver, Richard S. Sutton
+================================================================================
+20250422
+https://storage.googleapis.com/deepmind-media/Era-of-Experience%20/The%20Era%20of%20Experience%20Paper.pdf
+tags: google ai llm machine-learning
+> A new generation of agents will acquire superhuman capabilities by learning predominantly from experience.
