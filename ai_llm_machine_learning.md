@@ -52,6 +52,23 @@ LLM visualization: https://bbycroft.net/llm
       https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback
 
 
+"Agentic" AI Concepts
+--------------------------------------------------------------------------------
+
+- "agentic discovery": instead of eagerly indexing a local vector db, send breadcrumbs to LLM
+  https://cline.bot/blog/why-cline-doesnt-index-your-codebase-and-why-thats-a-good-thing
+  > When you point Cline at your codebase, it reads code the way you do – file
+  > by file, connection by connection.
+  >
+  > You're working on a React component. Cline reads it, sees an import, follows
+  > it. That file imports another, so Cline follows that too. Each file builds
+  > on the last, creating a connected understanding of how your code actually
+  > works.
+  >
+  > No index or embeddings. Just intelligent exploration, building context by
+  > following the natural structure of your code.
+
+
 Deep learning
 --------------------------------------------------------------------------------
 

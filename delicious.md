@@ -15608,3 +15608,94 @@ LegoGPT: generate physically stable LEGO brick models from text prompts
 https://github.com/AvaLovelace1/LegoGPT
 tags: diy-project electronics machine-learning ml ai computer-vision lego
 - android app: BrickIt
+
+Strands Agents SDK
+================================================================================
+20250516
+https://strandsagents.com/
+tags: ai aws amazon
+
+Planning Domain Definition Language (PDDL)
+================================================================================
+20250527
+https://en.wikipedia.org/wiki/Planning_Domain_Definition_Language
+tags: ai planning programming-language domain-specific-language
+- an attempt to standardize Artificial Intelligence (AI) planning languages.
+- a human-readable format for problems in automated planning that gives
+  a description of the possible states of the world, a description of the set of
+  possible actions, a specific initial state of the world, and a specific set of
+  desired goals. Action descriptions include the prerequisites of the action and
+  the effects of the action. PDDL separates the model of the planning problem
+  into two major parts:
+  1. a domain description of those elements that are present in every problem of
+     the problem domain, and
+  2. the problem description which determines the specific planning problem. The
+     problem description includes the initial state and the goals to be
+     accomplished.
+- Example:
+  - the domain definition of a STRIPS instance for automated planning of a robot
+    with two gripper arms.
+    ```
+    (define (domain gripper-strips)
+      (:predicates (room ?r) (ball ?b) (gripper ?g) (at-robby ?r)
+                   (at ?b ?r) (free ?g) (carry ?o ?g))
+      (:action move
+       :parameters (?from ?to)
+       :precondition (and (room ?from)
+                          (room ?to)
+                          (at-robby ?from))
+       :effect (and (at-robby ?to)
+                    (not (at-robby ?from))))
+      (:action pick
+       :parameters (?obj ?room ?gripper)
+       :precondition (and (ball ?obj)
+                          (room ?room)
+                          (gripper ?gripper)
+                          (at ?obj ?room)
+                          (at-robby ?room)
+                          (free ?gripper))
+       :effect (and (carry ?obj ?gripper)
+                    (not (at ?obj ?room))
+                    (not (free ?gripper))))
+      (:action drop
+       :parameters (?obj ?room ?gripper)
+       :precondition (and (ball ?obj)
+                          (room ?room)
+                          (gripper ?gripper)
+                          (carry ?obj ?gripper)
+                          (at-robby ?room))
+       :effect (and (at ?obj ?room)
+                    (free ?gripper)
+                    (not (carry ?obj ?gripper)))))
+    ```
+  - the problem definition that instantiates the previous domain definition with
+    a concrete environment with two rooms and two balls:
+    ```
+    (define (problem strips-gripper2)
+        (:domain gripper-strips)
+        (:objects rooma roomb ball1 ball2 left right)
+        (:init (room rooma)
+               (room roomb)
+               (ball ball1)
+               (ball ball2)
+               (gripper left)
+               (gripper right)
+               (at-robby rooma)
+               (free left)
+               (free right)
+               (at ball1 rooma)
+               (at ball2 rooma))
+        (:goal (at ball1 roomb)))
+    ```
+
+PDDL parser
+================================================================================
+20250527
+https://github.com/AI-Planning/pddl
+tags: ai planning programming-language domain-specific-language
+
+Planning.Domains: tools for working with planning domains
+================================================================================
+20250527
+http://planning.domains/
+tags: ai planning programming-language domain-specific-language
