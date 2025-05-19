@@ -15601,3 +15601,10 @@ tags: compsci v8 chromium web javascript compiler algorithms data-structure
 > 3. Compiling is too slow. State-tracking is expensive, because it’s hard to
 >    find a good order in which to visit graphs. Cache locality is bad. And
 >    reaching fixpoints during reduction phases takes too long.
+
+LegoGPT: generate physically stable LEGO brick models from text prompts
+================================================================================
+20250519
+https://github.com/AvaLovelace1/LegoGPT
+tags: diy-project electronics machine-learning ml ai computer-vision lego
+- android app: BrickIt
