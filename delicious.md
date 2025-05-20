@@ -10719,15 +10719,10 @@ Meetings *are* the work
 20230302
 https://medium.com/@ElizAyer/meetings-are-the-work-9e429dde6aa3
 tags: work meetings organization-theory organization communication collaboration coordination project-management leverage human-scaling
-- In a healthy workplace, the whole system promotes higher-quality knowledge production, above and beyond what any individual could achieve alone.
-- hard-won experience visibly fed back into strategy or process. I’ve since learned that it’s really, really common to feel “my org just can’t learn.”
+- "knowledge work" = decision-making, coined by Peter Drucker in Landmarks of Tomorrow (1966). 
 - organizational learning is not a simple by-product of individual learning. It’s significantly more complex for groups of people develop whole new theories-in-use and behaviors to better carry out the organization’s purpose
-- consistent winners are embedded in groups that work together to improve their abilities to judge the truth of uncertain things.
-- As you keep going with science, though, you find that “truth” is very much not a solid concept. The ongoing (and frankly terrifying) replication crisis in psychology, medicine, and social sciences highlights just how shaky the foundations are
-- When Amazon established Bias for Action as a leadership principle, it was correcting what Bezos saw as too strict a standard of truth
-- What if we put all our various knowledge tasks under the microscope: all the little choices we make to generate ideas, narrow choices, combine, reframe, highlight, focus, and decide? 
-- If we recognize the ubiquity of knowledge choices, we open up so many new possibilities for manifesting intentionality in our work, it’s hard to take them all in. We have a constant stream of options of what to prioritize and where to draw attention. The aggregate dynamics from these localized choices is itself truth-making, not at a Bezos scale, but real nonetheless.
-- Too often this work — the real work — has to fit in the margins of work systems designed for control and production. Our industry suffers from a deep association of work with structured productive toil, a framing that’s in every way a bad fit for knowledge work. Knowledge work is uncertain and messy (and sometimes enjoyable too). The messiness can be avoided, but only at the cost of sacrificing the power and dignity of the work itself.
+- Amazon "Bias for Action" leadership principle
+- There is such a strong pull in our work systems to *decompose* work that it’s borderline revolutionary to center *integration* and *meaning* instead.
 
 Ramda: a practical functional library for JavaScript programmers
 ================================================================================
@@ -15399,25 +15394,54 @@ Playground Wisdom: Threads Beat Async/Await
 20250221
 https://lucumr.pocoo.org/2024/11/18/threads-beat-async-await/
 tags: javascript programming concurrency async threads
-- async/await does not support "back pressure" well.
-- async/await is worse than where we started (threads), because in terms of
-  expressiveness, we have lost an important affordance: we cannot freely
-  suspend. In the original blocking code, when we invoked sleep we suspended for
-  10 milliseconds implicitly; we cannot do the same with the async call. Here we
-  have to “await” the sleep operation.
-- What if we never resolve()? A normal function call eventually returns, the
-  stack unwinds, and we're ready to receive the result. In an async world,
-  someone has to call resolve() at the very end.
-  - In theory, that does not seem all that different from calling sleep() with
-    a large number, or waiting on a pipe that never gets data. But it is
-    different: In one case, we keep the call stack and everything that relates
-    to it alive; in another case, we just have a promise and are waiting for
-    independent garbage collection with everything already unwound.
-- Blocking is an Abstraction.
-  - A function being able to "suspend" a thread of execution is a bloody great
-    capability and abstraction.
-  - Memory access (touching a memory region) can be blocking! Example:
-    memory-mapped files.
+- ❌ async/await problems (vs "threads")...
+  - lack of back-pressure (cannot block) leads to buffer bloat: unless an API is
+    async, it is forced to buffer or fail.
+  - lacks an important affordance: we cannot freely
+    suspend/yield (must "await sleep" instead of just "sleep"?).
+  - dangling promises: What if we never resolve()? No callstack.
+    - A normal function call eventually returns, the stack unwinds, and we're ready to receive the result.
+- ✅ pros of "threads"
+  - Example: goroutines/CSP
+  - Blocking is an Abstraction.
+    - A function being able to "suspend" a thread of execution is a nice
+      capability and abstraction.
+      - allows back-pressure.
+      - classic footgun in Python asyncio: write() is non-blocking. You must follow with await s.drain() to avoid buffer bloat.
+    - Even *memory access* (touching a memory region) can be blocking!
+      Example: memory-mapped files.
+- Rust's async system is polling-based: unless you actively "wait" for a task to
+  complete, it will not make progress.
+- async/await in rust/python/c#/js are very different, except one common trait:
+  async functions can only be called by async functions (or the scheduler).
+- ⚠️ Lua gives you coroutines, but not the infrastructure ... you will end up
+  building your own scheduler, your own threading system, etc.
+  - threads alone are not enough. You need Structured Concurrency and Channels:
+    - communication primitives (talk between threads)
+    - synchronization
+    - examples:
+      - .NET “tasks” abstraction
+      - python TaskGroup https://docs.python.org/3/library/asyncio-task.html#asyncio.TaskGroup
+- ✅ Java: Project Loom gave Java coroutines, etc. under the hood, exposed to
+  the developer as good old threads. There are virtual threads, which are
+  mounted on OS threads, and can travel from thread to thread. Any blocking call
+  yields to the scheduler.
+
+Notes on structured concurrency, or: Go statement considered harmful
+================================================================================
+20250519
+https://vorpus.org/blog/notes-on-structured-concurrency-or-go-statement-considered-harmful/
+tags: go programming concurrency async threads
+- There should be a clear start and end of work: every thread or task has
+  a clear beginning and end. All threads spawned in the context of a thread, are
+  known to that thread.
+  - Threads must know their parents and children.
+- Threads don't outlive their parent: if the parent is done before the children
+  threads, it automatically awaits before returning.
+- Errors propagate and cause cancellations: If something goes wrong in one
+  thread, the error is passed back to the parent. But more importantly, it also
+  automatically causes other child threads to cancel. Cancellations are a core
+  of the system!
 
 files-to-prompt CLI tool
 ================================================================================
