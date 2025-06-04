@@ -15427,6 +15427,29 @@ tags: javascript programming concurrency async threads
   mounted on OS threads, and can travel from thread to thread. Any blocking call
   yields to the scheduler.
 
+From Async/Await to Virtual Threads
+================================================================================
+20250728
+https://lucumr.pocoo.org/2025/7/26/virtual-threads/
+tags: javascript python programming concurrency async threads
+- KEY IDEA: "thread groups ... avoid having to work with promises/futures".
+- Example:
+  ```
+  def download_and_store(results, url):
+      results[url] = fetch_url(url)
+  def download_all(urls):
+      results = {}
+      with ThreadGroup() as g:
+          for url in urls:
+              g.spawn(partial(download_and_store, results, url))
+      return results
+  ```
+- Thread group = a "root thread" with child threads.
+  - Awaiting the thread group awaits all child threads.
+  - Cancelling the group cancels all child threads.
+  - If any child thread fails, future spawns are blocked and existing threads are requested to cancel.
+- Automatic thread groups?
+
 Notes on structured concurrency, or: Go statement considered harmful
 ================================================================================
 20250519
@@ -15816,3 +15839,10 @@ tags: ai anthropic agentic-ai
     - mitigation: we use rainbow deployments to avoid disrupting running agents, by gradually shifting traffic from old to new versions.
   - Synchronous execution creates bottlenecks.
     But asynchronicity adds challenges in result coordination, state consistency, and error propagation across the subagents.
+
+coup de foudre
+================================================================================
+20250604
+https://en.wiktionary.org/wiki/coup_de_foudre
+tags: concepts
+epiphany. French, “lightning strike”.

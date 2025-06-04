@@ -22,3 +22,12 @@ end
 vim.cmd([[
   inoremap <silent> <C-G><C-G> <C-R>=v:lua.Global_completeTags()<CR>
 ]])
+
+require('render-markdown').setup({
+  ignore = function(b)
+      local fname = vim.api.nvim_buf_get_name(b)
+      if fname:find('delicious.md') then
+        return true
+      end
+  end,
+})
