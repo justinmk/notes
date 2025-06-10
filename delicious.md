@@ -15723,3 +15723,17 @@ Planning.Domains: tools for working with planning domains
 20250527
 http://planning.domains/
 tags: ai planning programming-language domain-specific-language
+
+LLM domain adaptation using continued pre-training
+================================================================================
+20250610
+https://medium.com/@gilinachum/llm-domain-adaptation-using-continued-pre-training-part-1-3-e3d10fcfdae1
+https://arxiv.org/abs/2410.10739
+https://arxiv.org/abs/2302.03241
+tags: ai llm fine-tuning
+- "Continual pre-training": enables the model to stay updated with the latest
+  information and to adapt to specific tasks – such as understanding specialized
+  industry terms or evolving contexts – without forgetting what it has already
+  learned.
+- LLM "domain adaptation": customizing a generative AI foundation model (FM)
+  to increase its knowledge and capabilities for a specific domain.
