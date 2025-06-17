@@ -15737,3 +15737,9 @@ tags: ai llm fine-tuning
   learned.
 - LLM "domain adaptation": customizing a generative AI foundation model (FM)
   to increase its knowledge and capabilities for a specific domain.
+
+"Turn Cursor into a rock-solid software engineering companion"
+================================================================================
+20250617
+https://gist.github.com/boxabirds/4a8a8a16b1f8431fd64a790209452380
+tags: ai ai-prompt ai-rule llm
