@@ -15743,3 +15743,25 @@ tags: ai llm fine-tuning
 20250617
 https://gist.github.com/boxabirds/4a8a8a16b1f8431fd64a790209452380
 tags: ai ai-prompt ai-rule llm
+
+AWS Wickr
+================================================================================
+20250625
+https://aws.amazon.com/wickr/
+tags: aws cloud messaging security
+End-to-end encrypted messaging platform managed in your AWS org.
+
+Playwright: reliable end-to-end testing for modern web apps
+================================================================================
+20250626
+https://playwright.dev/
+tags: automation ui-testing testing
+- better than webdriver/selenium!!!!!!111111 https://news.ycombinator.com/item?id=33538873
+- Resilience
+  - Auto-wait: Playwright waits for elements to be actionable prior to performing actions.
+  - Checks are automatically retried until the necessary conditions are met.
+  - Tracing. Configure test retry strategy, capture execution trace, videos, screenshots to eliminate flakes.
+- Tooling
+  - Codegen: generate tests by recording your actions.
+  - Playwright inspector: inspect page, generate selectors, step through the test execution, see click points, explore execution logs.
+  - Trace Viewer: trace contains test execution screencast, live DOM snapshots, action explorer, test source.
