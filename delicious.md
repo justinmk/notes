@@ -15765,3 +15765,54 @@ tags: automation ui-testing testing
   - Codegen: generate tests by recording your actions.
   - Playwright inspector: inspect page, generate selectors, step through the test execution, see click points, explore execution logs.
   - Trace Viewer: trace contains test execution screencast, live DOM snapshots, action explorer, test source.
+
+How we built our multi-agent research system
+================================================================================
+20250701
+https://www.anthropic.com/engineering/built-multi-agent-research-system
+tags: ai anthropic agentic-ai
+- multi-agent system: multiple agents (LLMs autonomously using tools in a loop) working together.
+  - orchestrator-worker pattern: a lead agent coordinates the process while delegating to specialized subagents that operate in parallel.
+- research (exploring complex topics) is inherently dynamic and path-dependent. 
+- The essence of search is compression. Subagents facilitate compression by operating in parallel with their own context windows, exploring different aspects of the question simultaneously before condensing the most important tokens for the lead research agent.
+  - Example: The LeadResearcher begins by thinking through the approach and saving its plan to Memory to persist the context.
+    It then creates specialized Subagents with specific research tasks.
+    Each Subagent independently performs web searches, evaluates tool results using [interleaved thinking](https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking#interleaved-thinking), and returns findings to the LeadResearcher.
+- pro:
+  - Multi-agent systems excel at valuable tasks that involve heavy parallelization / breadth-first queries, information that exceeds single context windows, and interfacing with numerous complex tools.
+  - Example: when asked to identify all the board members of companies in S&P 500, the multi-agent system found the correct answers by decomposing this into tasks for subagents, while the single agent system failed to find the answer with slow, sequential searches.
+- con:
+  - Agents use 4× tokens (vs "chat"), multi-agent use 15×
+  - Example: most coding tasks involve fewer truly parallelizable tasks than research
+  - LLM agents are not yet great at coordinating and delegating to other agents in real time.
+- strategy
+  - Early agents made errors like spawning 50 subagents for simple queries, scouring the web endlessly for nonexistent sources, and distracting each other with excessive updates. Since each agent is steered by a prompt, prompt engineering was our primary lever for improving these behaviors.
+  - Each subagent needs an objective, an output format, guidance on the tools and sources to use, and clear task boundaries.
+  - Tool design/selection: an agent searching the web for context that only exists in Slack is doomed from the start.
+    With MCP servers that give the model access to external tools, this problem compounds, as agents encounter unseen tools with descriptions of wildly varying quality.
+    We gave our agents explicit heuristics: "examine all available tools first", "match tool usage to user intent", "search the web for broad external exploration", or "prefer specialized tools over generic ones".
+    Bad tool descriptions can send agents down completely wrong paths.
+  - For speed, we introduced two kinds of parallelization, which cut research time by up to 90%:
+    1. the lead agent spins up 3-5 subagents in parallel rather than serially;
+    2. the subagents use 3+ tools in parallel.
+  - LLM-as-judge evaluation scales when done well.
+    - We used an LLM judge that evaluated each output against criteria in a rubric:
+      - factual accuracy (do claims match sources?),
+      - citation accuracy (do the cited sources match the claims?),
+      - completeness (are all requested aspects covered?),
+      - source quality (did it use primary sources over lower-quality secondary sources?),
+      - tool efficiency (did it use the right tools a reasonable number of times?).
+    - We experimented with multiple judges to evaluate each component, but found that a single LLM call with a single prompt outputting scores from 0.0-1.0 and a pass-fail grade was the most consistent and aligned with human judgements.
+- failure modes
+  - Each agent action can change the environment (e.g. user's code workspace) for subsequent steps, creating dependencies.
+    - mitigation: evaluate the end-state evaluation rather than turn-by-turn analysis.
+  - Agents are stateful and errors compound.
+    - mitigation:
+      - we built systems that can resume from where the agent was when the errors occurred.
+      - use the model’s intelligence to handle issues gracefully: for instance, letting the agent know when a tool is failing and letting it adapt works surprisingly well.
+      - also use deterministic safeguards like retry logic and regular checkpoints.
+  - Debugging benefits from new approaches. Beyond standard observability, we monitor agent decision patterns and interaction structures.
+  - Deployment needs careful coordination. We can’t update every agent to the new version at the same time.
+    - mitigation: we use rainbow deployments to avoid disrupting running agents, by gradually shifting traffic from old to new versions.
+  - Synchronous execution creates bottlenecks.
+    But asynchronicity adds challenges in result coordination, state consistency, and error propagation across the subagents.
