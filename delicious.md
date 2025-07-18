@@ -15846,3 +15846,28 @@ coup de foudre
 https://en.wiktionary.org/wiki/coup_de_foudre
 tags: concepts
 epiphany. French, “lightning strike”.
+
+nodejs: support HTTPS_PROXY environment variables in fetch
+================================================================================
+20250718
+https://github.com/nodejs/node/pull/57165
+tags: proxy network nodejs http web
+
+nodejs: built-in proxy support in http/https.request and Agent
+================================================================================
+20250718
+https://github.com/nodejs/node/pull/58980
+tags: proxy network nodejs http web
+
+OMNARA: Launch & Control Claude Code from Anywhere
+================================================================================
+20250819
+https://omnara.com/
+tags: ai anthropic agentic-ai mobile python startup
+AI in Your Pocket
+- Launch agent from your phone
+- Track & monitor agent statuses
+- Guide agents in real-time
+- Get notified the moment agents need help
+- Tap to approve, guide, or take over
+- Fail-safe: no silent crashes or missed steps
