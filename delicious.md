@@ -15765,7 +15765,7 @@ Turn Cursor into a rock-solid software engineering companion
 ================================================================================
 20250617
 https://gist.github.com/boxabirds/4a8a8a16b1f8431fd64a790209452380
-tags: ai ai-prompt ai-rule llm
+tags: ai ai-prompt ai-rules llm
 
 How to Effectively Use Cursor Rules
 ================================================================================
@@ -15971,3 +15971,19 @@ OpenAI is making two specific bets:
 The "bitter lesson" strikes again. While others build sophisticated scaffolding
 around models, OpenAI is betting that stronger models with more compute will
 obviate the need for clever engineering.
+
+Curtis Yarvin: The Empire of Love
+================================================================================
+20250816
+https://www.youtube.com/watch?v=LdWxBdgWtrs
+tags: curtis-yarvin politics government concepts
+- "authority, prestige, popularity" ~= "monarchy, oligarchy, democracy"
+- what is the difference between "global leadership" and "world domination" ?
+- if you believe the "international community" and the US State Dept are two differnt things: look for historical conflicts between the two, what do you find?
+
+DaVinci Resolve: video editing software
+================================================================================
+20250817
+https://www.blackmagicdesign.com/products/davinciresolve
+tags: podcasting video-production video-editing
+used by linkarzu, sylvanfranklin

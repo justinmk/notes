@@ -524,10 +524,14 @@ features:
   https://twitter.com/solomonstre/status/1111004913222324225
     "If WASM+WASI existed in 2008, we wouldn't have needed to create Docker. A standardized system interface was the missing link."
   nodejs WASI: https://nodejs.org/api/wasi.html
-- Component Model: developers can pick and choose pieces of their application, implemented in different languages. Lower-level than WASI.
-  - Composability: modular code reuse in a language-independent way.
-  - Platform Virtualization: can layer in the platform-specific pieces that a component needs in a given environment.
-  - Interoperability: exchange information between components. "Interface-types" proposal.
+- Component Model: provides an "ABI":
+  - Defines a higher-level concept of a component, building on Wasm modules, but with richer types, a defined life cycle, and a specific model of shared-nothing composition and communication.
+  - an "ABI" which...
+    - maps high-level concepts such as records or strings to the low-level (core wasm) scalars/primitives.
+    - deals with ownership and life cycles. how can a string be transmitted from the linear memory of one Wasm module to another?
+    - answers "How do modules get instantiated, activated, and shut down?"
+  - Interoperability betw components = "Typed references" (wasm v3): https://github.com/WebAssembly/spec/blob/wasm-3.0/proposals/function-references/Overview.md
+
 
 interop
 - Go: https://github.com/golang/go/wiki/WebAssembly
