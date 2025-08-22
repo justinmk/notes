@@ -52,9 +52,15 @@ LLM visualization: https://bbycroft.net/llm
       https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback
 
 
-"Agentic" AI Concepts
+Tooling, Agentic AI concepts
 --------------------------------------------------------------------------------
 
+- MCP is essentially 4 message types:
+    - `initialize`
+    - `initialized`
+    - `tools/list`
+    - `tools/call`
+    - Uses newline-delimited JSON.
 - "agentic discovery": instead of eagerly indexing a local vector db, send breadcrumbs to LLM
   https://cline.bot/blog/why-cline-doesnt-index-your-codebase-and-why-thats-a-good-thing
   > When you point Cline at your codebase, it reads code the way you do – file
