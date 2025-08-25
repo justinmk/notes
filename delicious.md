@@ -15761,11 +15761,28 @@ tags: ai llm fine-tuning
 - LLM "domain adaptation": customizing a generative AI foundation model (FM)
   to increase its knowledge and capabilities for a specific domain.
 
-"Turn Cursor into a rock-solid software engineering companion"
+Turn Cursor into a rock-solid software engineering companion
 ================================================================================
 20250617
 https://gist.github.com/boxabirds/4a8a8a16b1f8431fd64a790209452380
 tags: ai ai-prompt ai-rule llm
+
+How to Effectively Use Cursor Rules
+================================================================================
+20250825
+https://blog.sshh.io/i/159137566/how-to-effectively-use-cursor-rules
+tags: ai ai-prompt ai-rules llm
+- Understand that rules are _not_ appended to the system prompt but instead are referred to as named sets of instructions. Think "encyclopedia articles" rather than "commands".
+- DON'T
+  - Avoid telling it what _not_ to do. LLMs are best at following _positive_ commands `For <this>, <do this>` rather than a list of restrictions.
+  - Avoid declaring an identity "You are a senior frontend engineer ...", it conflicts with its system prompt.
+  - Avoid overriding the system prompt (“don’t add comments”, “ask me questions before coding”). These conflict directly with the internals breaking tool-use and confuse the agent.
+- DO
+  - Write highly salient rule names and descriptions. It’s key that the agent, with minimal knowledge of your codebase, can intuitively know when a rule is applicable to use its `fetch_rules()` tool.
+    Like a "reverse index" of documentation, you should at times have duplicate rules with different names and (concise, dense) descriptions to improve the fetch rate.
+  - Write rules like wikipedia:
+    - Link key terms (mdc link syntax) to code files.
+    - Avoid step by step instructions (focus on “what” and not “how”) unless absolutely necessary, to avoid overfitting.
 
 AWS Wickr
 ================================================================================
