@@ -15888,3 +15888,54 @@ AI in Your Pocket
 - Get notified the moment agents need help
 - Tap to approve, guide, or take over
 - Fail-safe: no silent crashes or missed steps
+
+awslabs/Renate: Library for automatic retraining and continual learning
+================================================================================
+20250915
+https://github.com/awslabs/Renate
+tags: ai llm machine-learning ai-online-fine-tuning ai-continual-learning aws amazon
+
+Almost surely (set theory)
+================================================================================
+20250915
+https://en.wikipedia.org/wiki/Almost_surely
+tags: concepts statistics set-theory mathematics
+In probability theory, an event is said to happen *almost surely* (a.s.) if it
+happens with probability 1 (with respect to the probability measure). In other
+words, the set of outcomes on which the event does not occur has probability 0,
+even though the set might not be empty.
+
+Almost everywhere (set theory)
+================================================================================
+20250915
+https://en.wikipedia.org/wiki/Almost_everywhere
+tags: concepts statistics set-theory mathematics
+In measure theory (a branch of mathematical analysis), a property holds *almost
+everywhere* (a.e.) if, in a technical sense, the set for which the property
+holds takes up nearly all possibilities.
+More specifically, a property holds almost everywhere if it holds for all
+elements in a set except a subset of *measure zero*, or equivalently, if the set
+of elements for which the property holds is conull. A set with *full measure* is
+one whose complement is of measure zero.
+
+Null set
+================================================================================
+20250915
+https://en.wikipedia.org/wiki/Null_set
+tags: concepts statistics set-theory mathematics
+In mathematical analysis, a null set is a Lebesgue measurable set of real
+numbers that has measure zero. This can be characterized as a set that can be
+covered by a countable union of intervals of arbitrarily small total length.
+The notion of *null set* should not be confused with the *empty set* as in set
+theory. Although the empty set has Lebesgue measure zero, there are also
+non-empty sets which are null. For example, any non-empty countable set of real
+numbers has Lebesgue measure zero and therefore is null.
+
+================================================================================
+20250915
+https://en.wikipedia.org/wiki/Lebesgue_measure
+tags: concepts statistics set-theory mathematics real-analysis
+The Lebesgue measure is the standard way of assigning a measure to subsets of
+higher dimensional Euclidean n-spaces.
+- For lower dimensions it coincides with the standard measure of length, area, or volume.
+- Also called n-dimensional volume, n-volume, hypervolume, or simply volume.
