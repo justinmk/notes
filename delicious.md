@@ -15893,7 +15893,7 @@ awslabs/Renate: Library for automatic retraining and continual learning
 ================================================================================
 20250915
 https://github.com/awslabs/Renate
-tags: ai llm machine-learning ai-online-fine-tuning ai-continual-learning aws amazon
+tags: ai llm machine-learning ai-online-fine-tuning ai-continual-learning memory aws amazon
 
 Almost surely (set theory)
 ================================================================================
@@ -15931,6 +15931,7 @@ theory. Although the empty set has Lebesgue measure zero, there are also
 non-empty sets which are null. For example, any non-empty countable set of real
 numbers has Lebesgue measure zero and therefore is null.
 
+Lebesgue measure
 ================================================================================
 20250915
 https://en.wikipedia.org/wiki/Lebesgue_measure
@@ -15939,3 +15940,34 @@ The Lebesgue measure is the standard way of assigning a measure to subsets of
 higher dimensional Euclidean n-spaces.
 - For lower dimensions it coincides with the standard measure of length, area, or volume.
 - Also called n-dimensional volume, n-volume, hypervolume, or simply volume.
+
+ChatGPT Memory and the Bitter Lesson
+================================================================================
+20250915
+https://www.shloked.com/writing/chatgpt-memory-bitter-lesson
+tags: ai llm machine-learning ai-online-fine-tuning ai-continual-learning memory
+OpenAI can't keep retraining a base model in real time, so it relies on these
+layers to keep the system current and well-behaved.
+How it all fits together
+- "User Knowledge Memories" is like the "base model" of the memory. They're
+  dense, AI-generated summaries distilled from hundreds of your conversations.
+  They do the heavy lifting—recalling projects, stacks, routines, and
+  preferences—but they age. So they may still "believe" you're planning that
+  Japan trip unless something explicitly corrects them.
+- Then come the steering layers:
+  - **Model Set Context** ≈ RLHF: explicit, user-provided instructions that
+    override stale or incorrect base knowledge.
+  - **Recent Conversation Content** ≈ in-context learning: fresh examples that
+    shape behavior in the moment, without rewriting the base.
+  - **Interaction Metadata** ≈ system defaults: environment and usage signals
+    that nudge behavior without changing what the system "knows."
+No extraction of individual memories. No vector databases. No knowledge graphs.
+No RAG. OpenAI just includes everything with every message.
+OpenAI is making two specific bets:
+1. models are smart enough to handle irrelevant context. When you ask about
+   Python debugging, ChatGPT doesn't need a retrieval system to know your travel
+   plans aren't relevant.
+2. context windows will keep growing while costs keep falling.
+The "bitter lesson" strikes again. While others build sophisticated scaffolding
+around models, OpenAI is betting that stronger models with more compute will
+obviate the need for clever engineering.
