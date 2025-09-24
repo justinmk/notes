@@ -1,3 +1,39 @@
+CONCEPTS
+================================================================================
+
+## Is python single-threaded?
+
+No. Even with the GIL, the active thread can change at any time between bytecode
+instructions.
+
+    n = 1
+    n = n + 1
+    assert n = 2
+
+If you run this in many threads it will fail eventually, when one thread assigns
+`n=1` then gets interrupted by a different thread checking `assert`.
+In JavaScript every called function is executed until it returns, throws, or
+awaits (and same for every await continuation).
+
+Because of the GIL, only one thread can execute Python code. But threads can be preempted between bytecode instructions.
+Even though only one thread can execute bytecode at a time, another thread can take over between bytecode instructions, leading to race conditions.
+This is why Python still needs thread synchronization primitives (locks, semaphores, etc.) at the application level.
+
+Then what is the purpose of the GIL?
+- GIL protects:
+    - Python's internal state, reference-counting, memory allocations
+    - Non-thread-safe C API operations
+- GIL does *not* protect:
+    - Python-level operations that require multiple bytecode instructions.
+      E.g. `n+=1` is three instructions (Load, Add, Store).
+    - User-level data structures
+
+"You can write multi-threaded code in JavaScript using `worker_threads`?"
+- Worker threads and webworkers don't change the behavior of JavaScript:
+    - Each thread is an isolated JavaScript application with distinct memory.
+    - Thread A will never modify a value in thread B, the `n=n+1` example is still safe in JavaScript.
+    - Exception: threads can refer to the same memory via `SharedArrayBuffer`.
+
 LIBRARIES
 ================================================================================
 date/time: https://github.com/dateutil/dateutil
