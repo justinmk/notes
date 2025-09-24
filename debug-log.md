@@ -1,9 +1,10 @@
-vim: sw=2 ft=text iskeyword+== comments=s1\:/*,mb\:*,ex\:*/,\://,b\:#,\:%,\:XCOMM,n\:>,fb\:-
+vim: sw=2 iskeyword+== comments=s1\:/*,mb\:*,ex\:*/,\://,b\:#,\:%,\:XCOMM,n\:>,fb\:-
 
-==============================================================================
 2016-09-22
+==============================================================================
 spilled water into macbook vent, display warped then shut down
 
+“Fixing” kernel_task CPU Problems in MacOS
 ==============================================================================
 2016-09-23 14:48:47
 http://blog.viktorpetersson.com/post/100148585299/how-to-fix-kerneltask-cpu-usage-on-yosemite
@@ -15,6 +16,7 @@ $ system_profiler -detailLevel mini | grep "Model Identifier:"
 $ cd /System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/ACPI_SMC_PlatformPlugin.kext/Contents/Resources
 $ mv MacBookPro8_1.plist MacBookPro8_1.plist.bk
 
+Heztner sent an alert that unsecured redis service was public-accessible.
 ==============================================================================
 PROBLEM:
 Heztner sent an alert that unsecured redis service was public-accessible.
@@ -111,6 +113,7 @@ https://github.com/moby/moby/issues/4737#issuecomment-419705925
       ufw enable
       systemctl restart docker
 
+Want to observe traffic between emacs client <-> daemon.
 ==============================================================================
 PROBLEM:
 Want to observe traffic between emacs client <-> daemon.
@@ -168,6 +171,7 @@ emacsclient lifecycle:
   earlier):
       write(7, "\33[10;1H\33[30m\33[47m-UUU:@----F2  \33[39;49m\33[1m\33[30m\33[47m*scratch*   \33[0m\33[39;49m\33[30m\33[47m   All (5,0)      (Lisp Interaction  SP Undo-Tree MR\33[39;49m\r\n\33[37m\33[44mCRM\33[39;49m\33[37m\33[44m \33[39;49m\33[37m\33[44mBuffer\33[39;49m\33[37m\33[44m              \33[39;          49m\33[37m\33[44m   Size\33[39;49m\33[37m\33[44m \33[39;49m\33[37m\33[44mMode\33[39;49m\33[37m\33[44m             \33[39;                                   49m\33[37m\33[44mFile                        \33[39;49m\r\n\33[37m\33[40m.   \33[39;49m\33[1m\33[37m\33[40m*scratch*\33[0m\33[39;                           49m\33[37m\33[40m               191 Lisp Interaction                             \33[39;49m\r\n\33[37m\33[40m %* \33[39;49m\33[1m\33[37m\33[40m*Messages*   \33[0m\33[39;49m\33[37m\33[40m              733 Messages                                     \33[39;49m\r\n\33[37m\33[40m %* \33[39;49m\33[1m\33[37m\33[40m*Warnings*\33[0m\33[39;49m\33[37m\33[40m              364 Special                                      \33[39;49m\r\n", 812) = 812
 
+AWS EC2 Linux machine root filesystem is out of disk space.
 ==============================================================================
 PROBLEM:
 AWS EC2 Linux machine root filesystem is out of disk space.
@@ -192,6 +196,7 @@ SOLUTION:
 
 kill the `tcpdump` process (pid 21356), so that the file handle is released.
 
+How to get a rough idea of syscalls done by a program?
 ==============================================================================
 20200104
 
@@ -203,6 +208,7 @@ A: `strace -c` reports stats on syscalls.
 
     strace -c -- bash -c 'echo hi' 2>&1
 
+Get macOS temperature-based CPU throttling status.
 ==============================================================================
 20200807
 Get macOS temperature-based CPU throttling status.
@@ -212,6 +218,7 @@ Get macOS temperature-based CPU throttling status.
             CPU_Available_CPUs      = 4
             CPU_Speed_Limit         = 74
 
+macOS does not show wifi portal page
 ================================================================================
 20230327
 macOS does not show wifi portal page
@@ -221,9 +228,33 @@ SOLUTION:
 2. try to connect to wifi.
 3. spam click "Captive Network Assistant.app" while macOS is trying to connect.
 
+How to use different tokens (PATs) for different github.com repositories
 ================================================================================
 20230429
 How to use different tokens (PATs) for different github.com repositories with git credential helper:
 Add this to the repo .git/config (or globally in ~/.gitconfig):
+
     [credential]
       useHttpPath = true
+
+
+curl has builtin support for AWS sigv4
+================================================================================
+Example script that uses `curl --aws-sigv4` to make a service request:
+
+    #!/bin/bash
+    set -eu
+    function get_thing() {
+        local response=$(curl -s --aws-sigv4 "aws:amz:us-west-2:execute-api" \
+            --user "$AWS_ACCESS_KEY_ID:$AWS_SECRET_ACCESS_KEY" \
+            -H "x-amz-security-token: $AWS_SESSION_TOKEN" \
+            https://gamma.us-west-2.foo.bar.aws.dev/some-api/val1/val2)
+        echo "$response"
+        local thing=$(echo "$response" | jq -r '.thing')
+        if [ -z "$thing" ] || [ "$thing" = "null" ]; then
+            echo "Error: Failed to get thing" >&2
+            exit 1
+        fi
+        echo "$token"
+    }
+    echo "$(get_thing)"
