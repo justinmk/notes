@@ -15987,3 +15987,14 @@ DaVinci Resolve: video editing software
 https://www.blackmagicdesign.com/products/davinciresolve
 tags: podcasting video-production video-editing
 used by linkarzu, sylvanfranklin
+
+Qualia
+================================================================================
+20250930
+https://en.wikipedia.org/wiki/Qualia
+tags: concepts
+In philosophy of mind, qualia are defined as instances of subjective, conscious
+experience.
+Latin quālis meaning "of what sort" or "of what kind" in relation to a specific
+instance, such as "what it is like to taste a specific apple — this particular
+apple now". The "redness" of red is an example of a quale.
