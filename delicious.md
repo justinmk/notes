@@ -4042,10 +4042,13 @@ tags: travel photography
 
 Panopticlick
 ================================================================================
-  web browser identity, fingerprint.¬† browser configuration = web sites may be able to track you even if you disable cookies. see also:¬†http://hacks.mozilla.org/2010/03/privacy-related-changes-coming-to-css-vistited/
-href="http://panopticlick.eff.org/"  
+20101221
+web browser identity, fingerprint.
+browser configuration = web sites may be able to track you even if you disable cookies.
+see also: http://hacks.mozilla.org/2010/03/privacy-related-changes-coming-to-css-vistited/
+https://coveryourtracks.eff.org/
+http://panopticlick.eff.org/
 tags: privacy paranoia compsci statistics security fingerprinting webbrowser web
-  time="2010-12-21T06:33:11Z" 
 
 How Teen Experiences Affect Your Brain for Life - Newsweek
 ================================================================================
@@ -15976,7 +15979,7 @@ Curtis Yarvin: The Empire of Love
 ================================================================================
 20250816
 https://www.youtube.com/watch?v=LdWxBdgWtrs
-tags: curtis-yarvin politics government concepts
+tags: curtis-yarvin politics government concepts history
 - "authority, prestige, popularity" ~= "monarchy, oligarchy, democracy"
 - what is the difference between "global leadership" and "world domination" ?
 - if you believe the "international community" and the US State Dept are two differnt things: look for historical conflicts between the two, what do you find?
@@ -16048,3 +16051,172 @@ Issue Bumping
 20251014
 https://sindresorhus.com/blog/issue-bumping
 tags: project-management open-source
+
+The First World Government
+================================================================================
+20251005
+https://www.palladiummag.com/2024/03/01/the-first-world-government/
+tags: civilization politics government economy samo-burja
+> What is the right model for the future of our species under the first world
+> government in human history? As far as the claims of legitimacy go, the
+> Chinese Mandate of Heaven or the mandate Jupiter Optimus Maximus gave to the
+> Romans were at least as worked-out and intricate in their internal political
+> logic as the intellectual monuments built to the moral and supposed practical
+> superiority of liberal democracy.
+>
+> ... [The] international order will never ideologically admit defeat even if it
+> materially comes to pass.
+>
+> ... The Romance of the Three Kingdoms, where Luo Guanzhong wrote in the 15th
+> century that “the world, long divided, must unite; long united, must divide.
+> Thus it has ever been.” 
+>
+> ... The international community—that almost but not quite admits to itself
+> that it is a commonwealth—centered on the United States might, as it declines,
+> end up being less than the first world government, merely the first world
+> government. ... The international community—that almost but not quite admits
+> to itself that it is a commonwealth—centered on the United States might, as it
+> declines, end up being less than the first world government, merely the first
+> world government.
+
+How GDP Hides Industrial Decline
+================================================================================
+20251005
+https://www.palladiummag.com/2025/10/03/how-gdp-hides-industrial-decline/
+tags: macro-economics economics statistics government
+Patrick Fitzsimmons October 3, 2025
+> an advanced MIT macroeconomics textbook will reference GDP over sixty times, yet not once acknowledge the decision-making that goes into making this number
+>
+> GDP numbers are calculated by the Bureau of Economic Analysis, which is staffed by career economists with no political appointees involved. It’s under the U.S. Department of Commerce. However, the methodology is also an international effort. U.S. economists join with their foreign counterparts at a United Nations committee to define the “System of National Accounts.” These are standards that nations around the world at least try to adhere to—adherence can be a requirement for World Bank loans.
+>
+> Discourse over GDP is frequently confused because there are actually three different calculation approaches: the income approach, the expenditures approach, and the value-added approach. ... In theory, each approach should sum to the same total number, since everyone’s income must come from someone else’s spending. However, when comparing sectors, such as government or healthcare, the totals differ for each approach ... each approach has a nominal and a real version. Thus when a news report refers to “GDP for healthcare”, this could be referencing one of six different numbers!
+>
+> What percent of GDP is government spending? When debating the value of government spending, Elon Musk was fact-checked by his own platform and informed that “government was only 11.3% of GDP.” But this is using the value-added approach, which only counts direct government employees. In the value-added approach, the money the government spends on everything from constructing buildings to software licenses does not count. Meanwhile, the expenditures approach counts the government as 17% of GDP. This still excludes interest on debt and transfers like social security, but it includes money the government spends on grants or contracts with private businesses, such as SpaceX.
+>
+> The value-added approach depends on the U.S. Census Bureau and their once-every-five-year economic survey.
+> ... While all businesses are required to fill out the surveys, their data might not fit for the format of the survey and they are allowed to estimate. Uh oh—as a result, up to 40% of the data ends up being imputed and, due to confidentiality promises, neither the general public nor even the BEA can double-check the data or calculations.
+>
+> To illustrate the problem, we need to dig into the GDP-by-industry data tables. We’ll be comparing the actual number of things produced, the GDP real gross output, and finally real value-added, between the years 1997 and 2023. Gross output is a calculation adding up all sales from establishments in the industry but without subtracting the costs of the inputs. What we see are bizarre results where “real value-added” is implausibly up even when the production of actual things, or the actual inflation-adjusted value of the things coming out of the factory, is flat or down:
+> Actual steel rolling out of the mills is down, the inflation-adjusted value of the steel and steel products rolling out of the mills is flat, inputs as a percentage of output is the same as ever—yet value-added is up 125%!
+>
+> Nobody can explain these numbers. The BEA cannot—I have asked them! If the raw data still exists, nobody has access to it because it was confidential.
+>
+> former deputy chief at the BEA, Professor Doug Meade, .. argues that comparing real value-added between years only works under the conditions of no quality adjustments, no input substitutions due to price changes, and no changes to the terms of trade. If those conditions do not hold, then, he says diplomatically, “it would be unclear what [real value-added] is measuring” Or as economist Thomas Rymes, observing the same issues, put it more directly: “a fictitious measure of output with no meaning.”
+>
+> the problem with the nominal value-added comparison is that it is not a comparison of actual things—it is a comparison of sales receipts. Thus a given quantity of products that is produced by a bloated cost structure will count as more “GDP” than the same number of products produced by an efficient factory.
+>
+> Which is more “output”—one million drones sold for a total of $2 billion dollars, versus one B2 stealth bomber for the same price? A $2,000 custom-made dress for the Met Gala, or one hundred pairs of denim work pants? Nominal value-added comparisons treat them as equivalent.
+>
+> But actually “down per-capita since 1997” is not the most pessimistic take—both gross output and the BLS manufacturing index have a crucial problem in that they do not subtract out components imported from abroad. When Dell sells a $5,000 server assembled in North Carolina with a Korean hard-drive, a Chinese motherboard, and a Taiwanese CPU, that server counts for $5,000 of American gross output. A car assembled in America with 60% foreign parts counts 100% for American output. Thus the actual hollowing-out of manufacturing may be even worse than these gross numbers suggest.
+>
+> While the BLS provides general information about the quality adjustment process, the specific methodology and the actual decisions are not documented.
+
+The evolution of Lua, continued
+================================================================================
+20251007
+https://www.lua.org/doc/cola.pdf
+tags: todo lua compsci papers
+Journal of Computer Languages, March 25, 2025
+
+US 60/735,250 and the roots of Bitcoin
+================================================================================
+20251021
+https://graymirror.substack.com/p/us-60735250-and-the-roots-of-bitcoin
+tags: bitcoin economics cryptocurrency monetary-policy currency banking
+- stable overvaluation
+- "A monetary commodity can bootstrap itself into existence, because it is rational to speculate on it becoming a monetary standard."
+- "Actual beauty matters. ... The instinct to collect rare things"
+
+Interview: Curtis Yarvin: A revisionist reading of the twentieth century
+================================================================================
+20251022
+https://carsonjbecker.substack.com/p/interview-curtis-yarvin
+tags: curtis-yarvin politics government concepts history
+- > we know more about the Roman Empire than any Roman ever did. We understand it better because we’re living outside its lies. The problem is that we live in this world order that was created as a result of various military conflicts from 1815 through 1945, and to understand it from the outside, there’s no source we can really consult.
+- > One of the sources I found once really blew my mind. It was something in The Christian Century, or another mainline Protestant missionary magazine, from a missionary in China in the 1890s. All the missionaries were saying the same thing, which is that these people are perfect Christians, perfect modern Europeans. Essentially, all we need to do to bring them into the modern world and make them Yankees, because this is very much cultural imperialism, is to get rid of everything about them except their language and their ethnicity. If you compare Peking in 1875 to Beijing in 2025 to Philadelphia in 1875, Beijing in 2025 looks a lot more like Philadelphia in 2025. The clothes people are wearing, the English letters, the political form, it didn’t get there from Moscow. You’ve imported all this.
+- > Stalin had much better intelligence than Hitler. ... he also knew how bad Hitler’s intelligence about him was. So he’s like, “All right, this is the perfect setup. Hitler’s going to attack, and he doesn’t realize how strong I am. He’s going to attack armies ten times as strong as his, and it will look like the mad dog attacked, and then we’re just going to sweep all the way to the Channel.” That was Stalin’s plan.
+  > Stalin did not realize however how much more effective the Wehrmacht was than his forces ... And then he just got carved up and almost lost the war.
+- > What this shows you is that the Germans and Japanese did not even realize that they were in a world war. World War II is three independent rebellions against the incipient world order of what we now call the international community, which is clearly the sort of descendant of the British Empire.
+  > And that is the context in which “America invaded Europe” suddenly makes sense. America invaded Europe because otherwise these rebellions would have succeeded, as would the German rebellion at the start of the century. To the Japanese, it’s like the relationship between China and Russia today, or China, Russia, and Iran. They’re not an “axis of evil.” They barely trust each other. There was no Axis high command. The Axis is a press release.
+
+Zig: Error Codes for Control Flow
+================================================================================
+20251110
+https://matklad.github.io/2025/11/06/error-codes-for-control-flow.html
+tags: zig programming
+- Error "handling" vs "reporting" (diagnostics)
+- Zig's type system tracks which errors can be returned by a function:
+  - additively: calling two functions unions the error sets
+  - subtractively: a function can handle a subset of errors and propagate the rest
+- Diagnostics (reporting) is out of band using diagnostic sink pattern:
+  ```
+  /// Parses the given slice as ZON.
+  pub fn fromSlice(
+      T: type,
+      gpa: Allocator,
+      source: [:0]const u8,
+      diag: ?*Diagnostics,
+  ) error{ OutOfMemory, ParseZon }!T {
+      // ...
+  }
+  ```
+
+Galaxy brain resistance
+================================================================================
+20251118
+https://vitalik.eth.limo/general/2025/11/07/galaxybrain.html
+tags: concepts philosophy ethics economics
+- As Tyler Cowen argues in Stubborn Attachments, economic growth is so important
+  because it's one of very few things that reliably compounds forever into the
+  future, instead of disappearing or going in cycles.
+- Scott Alexander: 'The Loose Principle of Harm says that the government can get
+  angry at complicated indirect harms, things that Weaken The Moral Fabric Of
+  Society ... But allowing the Loose Principle Of Harm restores all of the old
+  wars to control other people that liberalism was supposed to prevent. The one
+  person says "Gay marriage will result in homosexuality becoming more accepted,
+  leading to increased rates of STDs! That's a harm! We must ban gay marriage!"
+  Another says "Allowing people to send their children to non-public schools
+  could lead to kids at religious schools that preach against gay people,
+  causing those children to commit hate crimes when they grow up! That's a harm!
+  We must ban non-public schools!" And so on, forever.'
+- While it's true that each year your wealth grows by 7%, it's also empirically
+  true that if you believe in a cause today, you're likely to believe in it
+  about 10% less tomorrow. Tanner Greer observed that [public intellectuals tend
+  to have a "shelf life" of about 10-15 years](https://scholars-stage.org/public-intellectuals-have-short-shelf-lives-but-why/),
+  after which their ideas stop being better than the surrounding background noise.
+
+The privacy nightmare of browser fingerprinting
+================================================================================
+20251122
+https://news.ycombinator.com/item?id=46018023
+tags: privacy paranoia compsci statistics security fingerprinting webbrowser web
+in Chrome, every time you click "Never translate $language", $language quietly
+gets added to the Accept-Language header that Chrome sends to every website:
+
+    en-US,en;q=0.9,zh-CN;q=0.8,de;q=0.7,ja;q=0.6
+
+Advice for Tech Non-Profits
+================================================================================
+20251125
+https://mitchellh.com/writing/advice-for-tech-nonprofits
+tags: open-source project-management
+- Have a "Donate" page that provides:
+  - List of donation methods: credit card, check, donor-advised funds, employer matching, stocks, legacy giving (will, trust, retirement accounts), etc.
+  - Each method leads to its own dedicated page with very specific information about how to donate via that method.
+- Why should I donate? Try to answer:
+  - What do you do?
+  - Why is what you do important?
+  - Who is benefiting from what you do?
+  - Why do you need money to do what you do?
+  - What have you done recently?
+  - How has money enabled you to do what you did recently?
+  - How much money do you need to do what you do?
+  - Why do you need that much? Is it going up, or down? Why?
+  - How are you spending your money?
+  - Who else is donating?
+  - Why aren't more people donating?
+- What is my donation doing?
+  - Issue an annual impact report. Most don't produce an impact report at all, which is a terrible mistake.
+  - How did the finances lead to that? How will more finances achieve more?
+  - Measurable goals. Annual report should contain reflections on previous goals, where a goal was missed and how the organization reacted.
+- Make it easy to get in touch with a real human being via phone or at worst a video call.
