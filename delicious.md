@@ -2300,7 +2300,7 @@ href="http://www.businessweek.com/articles/2013-07-11/in-iraq-the-bomb-detecting
 tags: government-failure corruption dod
   time="2013-07-15T00:58:21Z" 
 
-‚ÄúWhy did you shoot me? I was reading a book‚Äù: The new warrior cop is out of control
+"Why did you shoot me? I was reading a book": The new warrior cop is out of control
 ================================================================================
   Excerpted from &amp;quot;Rise of the Warrior Cop: The Militarization of America's Police Forces&amp;quot; / Several months earlier at a local bar, Fairfax County, Virginia, detective David Baucum overheard the thirty-eight-year-old optometrist and some friends wagering on a college football game. ... After overhearing the men wagering, Baucum befriended Culosi as a cover to begin investigating him. ... Eventually Culosi and Baucum bet more than $2,000 in a single day. ... they brought in the SWAT team.
   href="http://www.salon.com/2013/07/07/%E2%80%9Cwhy_did_you_shoot_me_i_was_reading_a_book_the_new_warrior_cop_is_out_of_control/"
@@ -2321,7 +2321,7 @@ href="http://brendaneich.com/"
 tags: blog
 time="2013-06-26T05:17:23Z" 
 
-Eric Lippert‚Äôs Blog 
+Eric Lippert's Blog 
 ================================================================================
 href="http://blogs.msdn.com/b/ericlippert/" 
 tags: blog
@@ -3294,7 +3294,7 @@ href="http://www.fool.com/investing/general/2011/10/25/3-misconceptions-that-nee
 tags: politics economics
   time="2011-11-07T02:37:34Z" 
 
-Ilya Khrzhanovsky's Dau: &quot;The Movie Set That Ate Itself&quot;
+Ilya Khrzhanovsky's Dau: "The Movie Set That Ate Itself"
 ================================================================================
   The fine system has also fostered a robust culture of snitching. &quot;In a totalitarian regime, mechanisms of suppression trigger mechanisms of betrayal,&quot; the director explains. ... The only acting professional in the cast is Radmila Shchegoleva ... before shooting began, she spent a full year working at a chocolate factory and a hospital, a regimen devised by Khrzhanovsky to beat the actress out of her. ... For the lead role, he had one stipulation: It had to be played by an actual genius, regardless of the discipline. ... &quot;All geniuses are foreigners,&quot; Khrzhanovsky tells me cryptically. ... Sveta, the film's comely &quot;executive producer,&quot; came here two years ago to interview Khrzhanovsky for a book on young Russian directors and stayed, divorcing her husband soon after.
 href="http://www.gq.com/entertainment/movies-and-tv/201111/movie-set-that-ate-itself-dau-ilya-khrzhanovsky"
@@ -10135,7 +10135,7 @@ tags: government government-failure military logistics budget
 Git partial clone (vs shallow clone)
 ================================================================================
 20221215
-https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/
+https://github.blog/open-source/git/get-up-to-speed-with-partial-clone-and-shallow-clone/
 tags: git dvcs compsci data-structure
 Shallow clone (no commit history)
   - truncates the commit history
@@ -10161,7 +10161,7 @@ Partial clone (no blobs/trees)
 Git: Counting Objects: reachability bitmaps
 ================================================================================
 20221219
-https://github.blog/2015-09-22-counting-objects/
+https://github.blog/open-source/git/counting-objects/
 tags: git dvcs bitmap bloom-filter compsci data-structure
 - Reachability queries: what objects in the graph can be reached from a set of commits?
 - Indexes (stored as bitmaps) contain the information required to answer these queries
@@ -15998,3 +15998,53 @@ experience.
 Latin quālis meaning "of what sort" or "of what kind" in relation to a specific
 instance, such as "what it is like to taste a specific apple — this particular
 apple now". The "redness" of red is an example of a quale.
+
+Beads: a memory upgrade for your AI coding agent
+================================================================================
+20251014
+https://github.com/steveyegge/beads
+tags: ai ai-assistant ai-continual-learning ai-rules llm productivity
+- Overview:
+  > Beads is a lightweight memory system for coding agents, using a graph-based
+  > issue tracker. Four kinds of dependencies work to chain your issues together
+  > like beads, making them easy for agents to follow for long distances, and
+  > reliably perform complex task streams in the right order.
+- Usage:
+  > Drop Beads into any project where you're using a coding agent, and you'll
+  > enjoy an instant upgrade in organization, focus, and your agent's ability to
+  > handle long-horizon tasks over multiple compaction sessions. Then tell your
+  > coding agent to start using the `bd` tool instead of markdown for all new
+  > work, somewhere in your rules. That's it.
+
+ky: Tiny & elegant JavaScript HTTP client based on the Fetch API
+================================================================================
+20251014
+https://github.com/sindresorhus/ky
+tags: nodejs javascript web programming http
+- targets modern browsers, Node.js, Bun, and Deno.
+- tiny package with no dependencies.
+- Benefits vs plain fetch:
+  - Simpler API
+  - Method shortcuts (ky.post())
+  - Treats non-2xx status codes as errors (after redirects)
+  - Retries failed requests
+  - JSON option
+  - Timeout support
+  - URL prefix option
+  - Instances with custom defaults
+  - Hooks
+  - TypeScript niceties (e.g. .json() supports generics and defaults to unknown, not any)
+
+LLMs aren’t world models
+================================================================================
+20251014
+https://www.yosefk.com/blog/llms-arent-world-models.html
+tags: llm ai
+> LLMs are not by themselves sufficient as a path to general machine intelligence; in some sense they are a distraction because of how far you can take them despite the approach being fundamentally incorrect.
+> LLMs will never manage to deal with large code bases “autonomously”, because they would need to have a model of the program, and they don’t even learn to track chess pieces having read everything there is to read about chess.
+
+Issue Bumping
+================================================================================
+20251014
+https://sindresorhus.com/blog/issue-bumping
+tags: project-management open-source
